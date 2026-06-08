@@ -2,11 +2,23 @@
 
 The active online app is published on Vercel from the `app/` folder.
 
+This repository also includes a GitHub Pages workflow for sharing a public 3D app demo without touching Vercel.
+
 ## Published Target
 
 - Production URL: `https://wsc-2026-study-routes.vercel.app`
 - Vercel config: `vercel.json`
 - Published folder: `app/`
+
+## GitHub Pages Demo
+
+- Workflow: `.github/workflows/pages.yml`
+- Build command: `cd app && npm run build:pages`
+- Pages artifact: `app/dist-3d/`
+- Demo entry: `/alpaca-campus-3d/`
+- Expected URL after Pages is enabled: `https://proffrancois-cloud.github.io/WSCapp/`
+
+The workflow sets `VITE_BASE` to `/${{ github.event.repository.name }}/`, prepares the Vite build for project Pages, and copies the legacy runtime bridges that the 3D campus loads from script tags.
 
 ## What Gets Published
 

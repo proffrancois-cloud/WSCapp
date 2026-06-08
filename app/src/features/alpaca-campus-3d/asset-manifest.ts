@@ -1,3 +1,5 @@
+import { toCampusPublicUrl } from "./public-url";
+
 export const CAMPUS_3D_ASSET_CONTRACT_VERSION = "campus3d.assets.v1" as const;
 export const CAMPUS_3D_WORLD_SCALE = 0.012 as const;
 
@@ -43,7 +45,7 @@ export const campus3dAssetManifest = [
   {
     roomId: "school-lobby",
     title: "School Lobby",
-    src: "/assets/campus-3d/rooms/school-lobby/school-lobby.glb",
+    src: toCampusPublicUrl("assets/campus-3d/rooms/school-lobby/school-lobby.glb"),
     sourceBlend: "assets-source/campus-3d/rooms/school-lobby/school-lobby.blend",
     worldSize: { width: 3135, height: 2063 },
     budgets: { maxTriangles: 180000, maxDrawCalls: 35, maxOptimizedGlbMb: 12 },
@@ -85,7 +87,7 @@ export const campus3dAssetManifest = [
   {
     roomId: "guiding-library-lounge",
     title: "Library",
-    src: "/assets/campus-3d/rooms/guiding-library-lounge/guiding-library-lounge.glb",
+    src: toCampusPublicUrl("assets/campus-3d/rooms/guiding-library-lounge/guiding-library-lounge.glb"),
     sourceBlend: "assets-source/campus-3d/rooms/guiding-library-lounge/guiding-library-lounge.blend",
     worldSize: { width: 3465, height: 2244 },
     budgets: { maxTriangles: 220000, maxDrawCalls: 45, maxOptimizedGlbMb: 16 },
@@ -130,7 +132,7 @@ export const campus3dAssetManifest = [
   {
     roomId: "flashcard-museum",
     title: "Museum",
-    src: "/assets/campus-3d/rooms/flashcard-museum/flashcard-museum.glb",
+    src: toCampusPublicUrl("assets/campus-3d/rooms/flashcard-museum/flashcard-museum.glb"),
     sourceBlend: "assets-source/campus-3d/rooms/flashcard-museum/flashcard-museum.blend",
     worldSize: { width: 2970, height: 1848 },
     budgets: { maxTriangles: 180000, maxDrawCalls: 40, maxOptimizedGlbMb: 14 },
@@ -173,7 +175,7 @@ export const campus3dAssetManifest = [
   {
     roomId: "debate-room-1",
     title: "Debate Room",
-    src: "/assets/campus-3d/rooms/debate-room-1/debate-room-1.glb",
+    src: toCampusPublicUrl("assets/campus-3d/rooms/debate-room-1/debate-room-1.glb"),
     sourceBlend: "assets-source/campus-3d/rooms/debate-room-1/debate-room-1.blend",
     worldSize: { width: 2475, height: 1617 },
     budgets: { maxTriangles: 140000, maxDrawCalls: 30, maxOptimizedGlbMb: 10 },
@@ -225,7 +227,7 @@ export const campus3dAssetManifest = [
   {
     roomId: "games-hall",
     title: "Games Hall",
-    src: "/assets/campus-3d/rooms/games-hall/games-hall.glb",
+    src: toCampusPublicUrl("assets/campus-3d/rooms/games-hall/games-hall.glb"),
     sourceBlend: "assets-source/campus-3d/rooms/games-hall/games-hall.blend",
     worldSize: { width: 3300, height: 2145 },
     budgets: { maxTriangles: 220000, maxDrawCalls: 45, maxOptimizedGlbMb: 16 },
