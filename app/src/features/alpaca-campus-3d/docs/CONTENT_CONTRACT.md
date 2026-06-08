@@ -8,6 +8,6 @@
 - `debate-room-1`: debate board surface bound to `debate`.
 - `games-hall`: arcade entry surface bound to `path-play`.
 
-The contract does not copy WSC guide, card, video, debate, or game content. It resolves panel titles and world-card labels through `window.WSC_ALPACA_CAMPUS_CONTENT` via `campus-data.ts` when the 2D bridge is loaded, and falls back to generic labels when it is not.
+The contract does not copy WSC guide, card, video, debate, or game content. It resolves panel titles and world-card labels through `window.WSC_ALPACA_CAMPUS_CONTENT` via `campus-data.ts` when the shared bridge is loaded, and falls back to generic labels when it is not.
 
 Use `getCampusContentSurfaceContract()` for the whole deterministic room map, or `getContentSurfacesForRoom(roomId)` for a single room. Tests and importers can pass a stub `contentApi` to keep assertions independent from browser globals.

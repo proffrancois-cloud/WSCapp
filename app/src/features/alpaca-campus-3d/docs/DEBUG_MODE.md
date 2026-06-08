@@ -15,7 +15,7 @@ Placement helper while debug mode is on:
 The overlay reads from the normalized map source used by gameplay:
 
 - `app/src/features/alpaca-campus-3d/map-source/index.ts` is the clean source contract consumed by render/debug code.
-- Room positions, portals, seats, interactable objects, walk bounds, and collision zones currently originate in `app/src/features/alpaca-campus/data/rooms.js`.
+- Room positions, portals, seats, interactable objects, walk bounds, and collision zones currently originate in `app/src/features/campus-shared/data/rooms.js`.
 - Visual-only GLB placements currently originate in `app/src/features/alpaca-campus-3d/environment-assets.ts`.
 - Shared debug formatting helpers live in `app/src/features/alpaca-campus-3d/campus-debug.ts`.
 

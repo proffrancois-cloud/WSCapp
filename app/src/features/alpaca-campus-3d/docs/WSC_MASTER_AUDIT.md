@@ -10,7 +10,7 @@ WSC Master protects content fidelity. The 3D campus should feel like a World Sch
 
 ## Summary Judgment
 
-The first slice has a real WSC spine: the five-room contract uses the same path/mode language as solo mode, panels resolve through `WSC_ALPACA_CAMPUS_CONTENT`, and the 3D UI opens content/API-backed panel data instead of duplicating long payloads. This is good enough as a first playable shell if it is presented as a content-connected prototype.
+The first slice has a real WSC spine: the five-room contract uses the same path/mode language as the shared campus data, panels resolve through `WSC_ALPACA_CAMPUS_CONTENT`, and the 3D UI opens content/API-backed panel data instead of duplicating long payloads. This is good enough as a first playable shell if it is presented as a content-connected prototype.
 
 The main fidelity risk is visibility mismatch. Some WSC concepts are defined in `content-surfaces.ts` and `asset-manifest.ts` but are not all present as first-five runtime room objects in the current 2D room data slice. Museum video and slideshow surfaces are the clearest example: they are contracted and asset-planned, but the runtime Museum object list currently exposes only Alpacard exhibits unless the 3D scene has separate authored nodes for them.
 

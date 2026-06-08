@@ -108,7 +108,7 @@ const ROOM_BACKGROUND_ASSET_KEYS: Partial<Record<string, string>> = {
 
 // Source-of-truth editing rule:
 // - Room topology, spawn points, doors, NPCs, runtime objects, collisions, and interaction values are in
-//   app/src/features/alpaca-campus/data/rooms.js until the solo and 3D runtimes are fully merged.
+//   app/src/features/campus-shared/data/rooms.js until the campus topology is native to 3D.
 // - Decorative GLB placements are in app/src/features/alpaca-campus-3d/environment-assets.ts and normalized here.
 // - Game/render/debug code should read this module, not hand-merge rooms and visual placements directly.
 export function getCampusMapRoom(room: CampusRoom): CampusMapRoom {
