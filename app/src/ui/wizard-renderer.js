@@ -260,12 +260,15 @@
     const icon = helpers.getAppModeSwitchIcon
       ? helpers.getAppModeSwitchIcon()
       : helpers.getAssetValue(["contexts", "paths", "play"]);
+    const actionAttribute = switchTarget === "online"
+      ? "data-open-alpaca-online-campus"
+      : "data-open-app-entry-gate";
 
     return `
       <button
         class="hub-mode-switch"
         type="button"
-        data-open-app-entry-gate
+        ${actionAttribute}
         aria-label="${helpers.escapeHtml(label)}"
         title="${helpers.escapeHtml(label)}"
       >

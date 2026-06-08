@@ -9,6 +9,7 @@ exports/**/node_modules/
 builds/
 dist/
 app/dist-3d/
+app/dist-pages/
 exports/
 output/
 outputs/

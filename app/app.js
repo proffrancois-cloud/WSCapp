@@ -12,6 +12,7 @@ const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
+const ALPACA_ONLINE_CAMPUS_URL = "./alpaca-campus-3d/?mode=multiplayer";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
   writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
@@ -2614,6 +2615,12 @@ function handleClick(event) {
     return;
   }
 
+  const openAlpacaOnlineCampusButton = event.target.closest("[data-open-alpaca-online-campus]");
+  if (openAlpacaOnlineCampusButton) {
+    openAlpacaOnlineCampus();
+    return;
+  }
+
   const openAppEntryGate = event.target.closest("[data-open-app-entry-gate]");
   if (openAppEntryGate) {
     state.ui.appEntryGateOpen = true;
@@ -4195,12 +4202,12 @@ function renderSessionControls() {
   const shellIcon = state.ui.appShellMode === "online"
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
-  const soonLabel = canAccessMultiplayer() ? "Switch mode" : "Available soon";
+  const soonLabel = isOnline ? "Switch mode" : "Open Alpaca Campus 3D";
   const modeButton = `
     <button
       class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
       type="button"
-      data-open-app-entry-gate
+      ${isOnline ? "data-open-app-entry-gate" : "data-open-alpaca-online-campus"}
       aria-label="${escapeHtml(shellLabel)}. Open Local or Online menu"
       title="${escapeHtml(soonLabel)}"
     >
@@ -4330,18 +4337,16 @@ function renderAppEntryAuthPanel() {
 
 function chooseAppEntryMode(mode) {
   if (mode === "online") {
-    if (!canAccessMultiplayer()) {
-      state.ui.authMode = "login";
-      state.ui.appEntryGateOpen = true;
-      syncAuthChrome();
-      return;
-    }
-
-    openAlpacaOnlineHub();
+    openAlpacaOnlineCampus();
     return;
   }
 
   switchToLocalMode();
+}
+
+function openAlpacaOnlineCampus() {
+  state.ui.appEntryGateOpen = false;
+  window.location.href = ALPACA_ONLINE_CAMPUS_URL;
 }
 
 function switchToLocalMode() {

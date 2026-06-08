@@ -177,6 +177,20 @@ function getSurfaceForItem(
 
 export function Campus3DApp(): ReactElement {
   const campusMode = useCampusStore((state) => state.campusMode);
+  const setCampusMode = useCampusStore((state) => state.setCampusMode);
+
+  useEffect(() => {
+    if (campusMode) {
+      return;
+    }
+
+    const requestedMode = new URLSearchParams(window.location.search).get("mode");
+    if (requestedMode === "multiplayer" || requestedMode === "online") {
+      setCampusMode("multiplayer");
+    } else if (requestedMode === "local") {
+      setCampusMode("local");
+    }
+  }, [campusMode, setCampusMode]);
 
   if (!campusMode) {
     return <Campus3DModeGate />;
