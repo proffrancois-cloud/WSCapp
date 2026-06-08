@@ -1,0 +1,1577 @@
+{
+  "id": "questions.the-end-is-nearish",
+  "sectionId": "the-end-is-nearish",
+  "levels": {
+    "100": [
+      {
+        "id": "question.the-end-is-nearish.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the main role of a caretaker government?",
+        "correctAnswer": "Keep daily government running during transition",
+        "wrongAnswers": [
+          "Replace elections with expert administration",
+          "Begin a new long-term political program",
+          "Transfer all power to the opposition"
+        ],
+        "explanation": "Keep daily government running during transition.",
+        "visibleCorrectExplanation": "Keep daily government running during transition.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Replace elections with expert administration",
+            "explanation": "That answer changes the point: Keep daily government running during transition."
+          },
+          {
+            "label": "C",
+            "answer": "Begin a new long-term political program",
+            "explanation": "That answer changes the point: Keep daily government running during transition."
+          },
+          {
+            "label": "D",
+            "answer": "Transfer all power to the opposition",
+            "explanation": "That answer changes the point: Keep daily government running during transition."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_1_068",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_1_068",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.001"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a lame duck leader?",
+        "correctAnswer": "A leader still in office but losing influence",
+        "wrongAnswers": [
+          "A leader elected without any opposition",
+          "A leader who governs only in wartime",
+          "A leader chosen by the court system"
+        ],
+        "explanation": "A leader still in office but losing influence.",
+        "visibleCorrectExplanation": "A leader still in office but losing influence.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A leader elected without any opposition",
+            "explanation": "That answer changes the point: A leader still in office but losing influence."
+          },
+          {
+            "label": "C",
+            "answer": "A leader who governs only in wartime",
+            "explanation": "That answer changes the point: A leader still in office but losing influence."
+          },
+          {
+            "label": "D",
+            "answer": "A leader chosen by the court system",
+            "explanation": "That answer changes the point: A leader still in office but losing influence."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_2_014",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_2_014",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.002"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why might a ruler delay naming a successor?",
+        "correctAnswer": "To keep loyalty focused on the current ruler",
+        "wrongAnswers": [
+          "To make succession laws disappear completely",
+          "To guarantee the best future ruler is chosen",
+          "To prevent people from thinking about politics"
+        ],
+        "explanation": "To keep loyalty focused on the current ruler.",
+        "visibleCorrectExplanation": "To keep loyalty focused on the current ruler.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To make succession laws disappear completely",
+            "explanation": "That answer changes the point: To keep loyalty focused on the current ruler."
+          },
+          {
+            "label": "C",
+            "answer": "To guarantee the best future ruler is chosen",
+            "explanation": "That answer changes the point: To keep loyalty focused on the current ruler."
+          },
+          {
+            "label": "D",
+            "answer": "To prevent people from thinking about politics",
+            "explanation": "That answer changes the point: To keep loyalty focused on the current ruler."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_3_048",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_3_048",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.003"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the Doomsday Clock mainly meant to communicate?",
+        "correctAnswer": "Global danger through a symbolic countdown",
+        "wrongAnswers": [
+          "Exact dates for future disasters",
+          "Weather forecasts for every country",
+          "Election timing during emergencies"
+        ],
+        "explanation": "Global danger through a symbolic countdown.",
+        "visibleCorrectExplanation": "Global danger through a symbolic countdown.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Exact dates for future disasters",
+            "explanation": "That answer changes the point: Global danger through a symbolic countdown."
+          },
+          {
+            "label": "C",
+            "answer": "Weather forecasts for every country",
+            "explanation": "That answer changes the point: Global danger through a symbolic countdown."
+          },
+          {
+            "label": "D",
+            "answer": "Election timing during emergencies",
+            "explanation": "That answer changes the point: Global danger through a symbolic countdown."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_4_086",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_4_086",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.004"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do many doomsday predictions share?",
+        "correctAnswer": "They grow during fear and uncertainty",
+        "wrongAnswers": [
+          "They come only from modern technology",
+          "They become true after being delayed",
+          "They avoid emotional storytelling"
+        ],
+        "explanation": "They grow during fear and uncertainty.",
+        "visibleCorrectExplanation": "They grow during fear and uncertainty.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They come only from modern technology",
+            "explanation": "That answer changes the point: They grow during fear and uncertainty."
+          },
+          {
+            "label": "C",
+            "answer": "They become true after being delayed",
+            "explanation": "That answer changes the point: They grow during fear and uncertainty."
+          },
+          {
+            "label": "D",
+            "answer": "They avoid emotional storytelling",
+            "explanation": "That answer changes the point: They grow during fear and uncertainty."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_5_038",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_5_038",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.005"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do many Renaissance apocalypse images show?",
+        "correctAnswer": "A division between salvation and doom",
+        "wrongAnswers": [
+          "A world without moral judgment",
+          "A purely scientific future collapse",
+          "A peaceful landscape without symbols"
+        ],
+        "explanation": "A division between salvation and doom.",
+        "visibleCorrectExplanation": "A division between salvation and doom.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A world without moral judgment",
+            "explanation": "That answer changes the point: A division between salvation and doom."
+          },
+          {
+            "label": "C",
+            "answer": "A purely scientific future collapse",
+            "explanation": "That answer changes the point: A division between salvation and doom."
+          },
+          {
+            "label": "D",
+            "answer": "A peaceful landscape without symbols",
+            "explanation": "That answer changes the point: A division between salvation and doom."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_6_069",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_6_069",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.006"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What changes in many modern apocalypse works?",
+        "correctAnswer": "Human-made collapse becomes central",
+        "wrongAnswers": [
+          "Religious judgment disappears from history",
+          "Fear becomes impossible to represent",
+          "Artists stop using symbolic imagery"
+        ],
+        "explanation": "Human-made collapse becomes central.",
+        "visibleCorrectExplanation": "Human-made collapse becomes central.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Religious judgment disappears from history",
+            "explanation": "That answer changes the point: Human-made collapse becomes central."
+          },
+          {
+            "label": "C",
+            "answer": "Fear becomes impossible to represent",
+            "explanation": "That answer changes the point: Human-made collapse becomes central."
+          },
+          {
+            "label": "D",
+            "answer": "Artists stop using symbolic imagery",
+            "explanation": "That answer changes the point: Human-made collapse becomes central."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_7_059",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_7_059",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.007"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What can music add to apocalyptic art?",
+        "correctAnswer": "Atmosphere through sound and rhythm",
+        "wrongAnswers": [
+          "Exact scientific predictions of collapse",
+          "Visual maps of damaged cities",
+          "Legal arguments about disaster policy"
+        ],
+        "explanation": "Atmosphere through sound and rhythm.",
+        "visibleCorrectExplanation": "Atmosphere through sound and rhythm.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Exact scientific predictions of collapse",
+            "explanation": "That answer changes the point: Atmosphere through sound and rhythm."
+          },
+          {
+            "label": "C",
+            "answer": "Visual maps of damaged cities",
+            "explanation": "That answer changes the point: Atmosphere through sound and rhythm."
+          },
+          {
+            "label": "D",
+            "answer": "Legal arguments about disaster policy",
+            "explanation": "That answer changes the point: Atmosphere through sound and rhythm."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_8_031",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_8_031",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.008"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.009",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What can signal that an ecosystem is nearing collapse?",
+        "correctAnswer": "More unstable swings in system behavior",
+        "wrongAnswers": [
+          "Perfectly steady conditions over time",
+          "Less change in every measured variable",
+          "Immediate recovery after every disturbance"
+        ],
+        "explanation": "More unstable swings in system behavior.",
+        "visibleCorrectExplanation": "More unstable swings in system behavior.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Perfectly steady conditions over time",
+            "explanation": "That answer changes the point: More unstable swings in system behavior."
+          },
+          {
+            "label": "C",
+            "answer": "Less change in every measured variable",
+            "explanation": "That answer changes the point: More unstable swings in system behavior."
+          },
+          {
+            "label": "D",
+            "answer": "Immediate recovery after every disturbance",
+            "explanation": "That answer changes the point: More unstable swings in system behavior."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_9_082",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_9_082",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.009"
+      },
+      {
+        "id": "question.the-end-is-nearish.100.010",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the core ethical problem in profiting from disaster?",
+        "correctAnswer": "Financial gain may grow from others’ harm",
+        "wrongAnswers": [
+          "Profit is never allowed during emergencies",
+          "All adaptation businesses cause disasters",
+          "Climate change has no market effects"
+        ],
+        "explanation": "Financial gain may grow from others’ harm.",
+        "visibleCorrectExplanation": "Financial gain may grow from others’ harm.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Profit is never allowed during emergencies",
+            "explanation": "That answer changes the point: Financial gain may grow from others’ harm."
+          },
+          {
+            "label": "C",
+            "answer": "All adaptation businesses cause disasters",
+            "explanation": "That answer changes the point: Financial gain may grow from others’ harm."
+          },
+          {
+            "label": "D",
+            "answer": "Climate change has no market effects",
+            "explanation": "That answer changes the point: Financial gain may grow from others’ harm."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-end-is-nearish_10_095",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-end-is-nearish_10_095",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.010"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.the-end-is-nearish.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do caretaker governments avoid major new decisions?",
+        "correctAnswer": "Those choices may bind the next government",
+        "wrongAnswers": [
+          "They have no ministers or public duties",
+          "They are designed to cancel normal laws",
+          "Those choices are always unconstitutional"
+        ],
+        "explanation": "Those choices may bind the next government.",
+        "visibleCorrectExplanation": "Those choices may bind the next government.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They have no ministers or public duties",
+            "explanation": "That answer changes the point: Those choices may bind the next government."
+          },
+          {
+            "label": "C",
+            "answer": "They are designed to cancel normal laws",
+            "explanation": "That answer changes the point: Those choices may bind the next government."
+          },
+          {
+            "label": "D",
+            "answer": "Those choices are always unconstitutional",
+            "explanation": "That answer changes the point: Those choices may bind the next government."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_1_185",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_1_185",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.001"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do term limits often create lame-duck periods?",
+        "correctAnswer": "People start looking toward the next leader",
+        "wrongAnswers": [
+          "Leaders lose all formal powers immediately",
+          "Election laws stop applying after one term",
+          "Opposition parties must join the cabinet"
+        ],
+        "explanation": "People start looking toward the next leader.",
+        "visibleCorrectExplanation": "People start looking toward the next leader.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Leaders lose all formal powers immediately",
+            "explanation": "That answer changes the point: People start looking toward the next leader."
+          },
+          {
+            "label": "C",
+            "answer": "Election laws stop applying after one term",
+            "explanation": "That answer changes the point: People start looking toward the next leader."
+          },
+          {
+            "label": "D",
+            "answer": "Opposition parties must join the cabinet",
+            "explanation": "That answer changes the point: People start looking toward the next leader."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_2_161",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_2_161",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.002"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is one benefit of naming a successor early?",
+        "correctAnswer": "It can make the future feel more stable",
+        "wrongAnswers": [
+          "It removes all rivalry inside government",
+          "It transfers power before the ruler leaves",
+          "It makes public opinion unimportant"
+        ],
+        "explanation": "It can make the future feel more stable.",
+        "visibleCorrectExplanation": "It can make the future feel more stable.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes all rivalry inside government",
+            "explanation": "That answer changes the point: It can make the future feel more stable."
+          },
+          {
+            "label": "C",
+            "answer": "It transfers power before the ruler leaves",
+            "explanation": "That answer changes the point: It can make the future feel more stable."
+          },
+          {
+            "label": "D",
+            "answer": "It makes public opinion unimportant",
+            "explanation": "That answer changes the point: It can make the future feel more stable."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_3_159",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_3_159",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.003"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is the Doomsday Clock symbolic?",
+        "correctAnswer": "It dramatizes risk rather than measuring time exactly",
+        "wrongAnswers": [
+          "It has no connection to real public concerns",
+          "It changes automatically every few minutes",
+          "It predicts only one type of catastrophe"
+        ],
+        "explanation": "It dramatizes risk rather than measuring time exactly.",
+        "visibleCorrectExplanation": "It dramatizes risk rather than measuring time exactly.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It has no connection to real public concerns",
+            "explanation": "That answer changes the point: It dramatizes risk rather than measuring time exactly."
+          },
+          {
+            "label": "C",
+            "answer": "It changes automatically every few minutes",
+            "explanation": "That answer changes the point: It dramatizes risk rather than measuring time exactly."
+          },
+          {
+            "label": "D",
+            "answer": "It predicts only one type of catastrophe",
+            "explanation": "That answer changes the point: It dramatizes risk rather than measuring time exactly."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_4_111",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_4_111",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.004"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can a fixed doomsday date feel persuasive?",
+        "correctAnswer": "It gives vague fear a clear deadline",
+        "wrongAnswers": [
+          "It removes the need for belief",
+          "It proves the prediction is scientific",
+          "It makes every warning harmless"
+        ],
+        "explanation": "It gives vague fear a clear deadline.",
+        "visibleCorrectExplanation": "It gives vague fear a clear deadline.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes the need for belief",
+            "explanation": "That answer changes the point: It gives vague fear a clear deadline."
+          },
+          {
+            "label": "C",
+            "answer": "It proves the prediction is scientific",
+            "explanation": "That answer changes the point: It gives vague fear a clear deadline."
+          },
+          {
+            "label": "D",
+            "answer": "It makes every warning harmless",
+            "explanation": "That answer changes the point: It gives vague fear a clear deadline."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_5_151",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_5_151",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.005"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is apocalypse art more than destruction?",
+        "correctAnswer": "It also imagines judgment and destiny",
+        "wrongAnswers": [
+          "It avoids emotion and interpretation",
+          "It works only as church decoration",
+          "It rejects stories about the future"
+        ],
+        "explanation": "It also imagines judgment and destiny.",
+        "visibleCorrectExplanation": "It also imagines judgment and destiny.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It avoids emotion and interpretation",
+            "explanation": "That answer changes the point: It also imagines judgment and destiny."
+          },
+          {
+            "label": "C",
+            "answer": "It works only as church decoration",
+            "explanation": "That answer changes the point: It also imagines judgment and destiny."
+          },
+          {
+            "label": "D",
+            "answer": "It rejects stories about the future",
+            "explanation": "That answer changes the point: It also imagines judgment and destiny."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_6_144",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_6_144",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.006"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does war fit modern apocalypse art?",
+        "correctAnswer": "It makes destruction historical and human-caused",
+        "wrongAnswers": [
+          "It makes the end feel distant and mythical",
+          "It removes politics from visual culture",
+          "It turns catastrophe into harmless fantasy"
+        ],
+        "explanation": "It makes destruction historical and human-caused.",
+        "visibleCorrectExplanation": "It makes destruction historical and human-caused.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It makes the end feel distant and mythical",
+            "explanation": "That answer changes the point: It makes destruction historical and human-caused."
+          },
+          {
+            "label": "C",
+            "answer": "It removes politics from visual culture",
+            "explanation": "That answer changes the point: It makes destruction historical and human-caused."
+          },
+          {
+            "label": "D",
+            "answer": "It turns catastrophe into harmless fantasy",
+            "explanation": "That answer changes the point: It makes destruction historical and human-caused."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_7_125",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_7_125",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.007"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can very different songs feel apocalyptic?",
+        "correctAnswer": "Endings can sound calm, heavy, or chaotic",
+        "wrongAnswers": [
+          "All apocalyptic music uses the same style",
+          "Lyrics matter but sound never matters",
+          "Only classical music can express endings"
+        ],
+        "explanation": "Endings can sound calm, heavy, or chaotic.",
+        "visibleCorrectExplanation": "Endings can sound calm, heavy, or chaotic.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "All apocalyptic music uses the same style",
+            "explanation": "That answer changes the point: Endings can sound calm, heavy, or chaotic."
+          },
+          {
+            "label": "C",
+            "answer": "Lyrics matter but sound never matters",
+            "explanation": "That answer changes the point: Endings can sound calm, heavy, or chaotic."
+          },
+          {
+            "label": "D",
+            "answer": "Only classical music can express endings",
+            "explanation": "That answer changes the point: Endings can sound calm, heavy, or chaotic."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_8_152",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_8_152",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.008"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.009",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does “point of no return” mean?",
+        "correctAnswer": "A threshold where reversal becomes very hard",
+        "wrongAnswers": [
+          "A deadline chosen for media attention",
+          "A normal delay in political planning",
+          "A prediction that removes uncertainty"
+        ],
+        "explanation": "A threshold where reversal becomes very hard.",
+        "visibleCorrectExplanation": "A threshold where reversal becomes very hard.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A deadline chosen for media attention",
+            "explanation": "That answer changes the point: A threshold where reversal becomes very hard."
+          },
+          {
+            "label": "C",
+            "answer": "A normal delay in political planning",
+            "explanation": "That answer changes the point: A threshold where reversal becomes very hard."
+          },
+          {
+            "label": "D",
+            "answer": "A prediction that removes uncertainty",
+            "explanation": "That answer changes the point: A threshold where reversal becomes very hard."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_9_113",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_9_113",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.009"
+      },
+      {
+        "id": "question.the-end-is-nearish.200.010",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "How is preparation different from exploitation?",
+        "correctAnswer": "Preparation reduces harm; exploitation rewards harm",
+        "wrongAnswers": [
+          "Preparation always makes investors richer",
+          "Exploitation is useful if it creates jobs",
+          "Both have identical ethical consequences"
+        ],
+        "explanation": "Preparation reduces harm; exploitation rewards harm.",
+        "visibleCorrectExplanation": "Preparation reduces harm; exploitation rewards harm.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Preparation always makes investors richer",
+            "explanation": "That answer changes the point: Preparation reduces harm; exploitation rewards harm."
+          },
+          {
+            "label": "C",
+            "answer": "Exploitation is useful if it creates jobs",
+            "explanation": "That answer changes the point: Preparation reduces harm; exploitation rewards harm."
+          },
+          {
+            "label": "D",
+            "answer": "Both have identical ethical consequences",
+            "explanation": "That answer changes the point: Preparation reduces harm; exploitation rewards harm."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-end-is-nearish_10_157",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-end-is-nearish_10_157",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-end-is-nearish.010"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.the-end-is-nearish.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: It is usually limited in scope. Which idea gives the best comparison?",
+        "correctAnswer": "Lame-duck periods",
+        "wrongAnswers": [
+          "Doomsday predictions",
+          "Climate tipping points",
+          "Apocalyptic aesthetics"
+        ],
+        "explanation": "Correct: Lame-duck periods.",
+        "visibleCorrectExplanation": "Correct: Lame-duck periods.",
+        "visibleConnection": "The question starts from a concrete detail in Caretaker governments: It is usually limited in scope. It is really asking which answer handles a similar pressure. Lame-duck periods is the best connection because it exposes the gap between formal office and actual influence; the ending has arrived socially before it arrives legally. Both ideas ask alpacas to notice that A transition system survives only if temporary authority knows it is temporary. Restraint is the source of legitimacy.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish__260",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish__260",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Doomsday predictions",
+            "explanation": "That answer changes the point: Lame-duck periods."
+          },
+          {
+            "label": "C",
+            "answer": "Climate tipping points",
+            "explanation": "That answer changes the point: Lame-duck periods."
+          },
+          {
+            "label": "D",
+            "answer": "Apocalyptic aesthetics",
+            "explanation": "That answer changes the point: Lame-duck periods."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Doomsday predictions?",
+        "correctAnswer": "Climate tipping points",
+        "wrongAnswers": [
+          "Apocalyptic aesthetics",
+          "Last-chance psychology",
+          "Caretaker governments"
+        ],
+        "explanation": "Correct: Climate tipping points.",
+        "visibleCorrectExplanation": "Correct: Climate tipping points.",
+        "visibleConnection": "The question starts from a concrete detail in Doomsday predictions: Apocalyptic predictions can be religious, scientific, or political. It is really asking which answer handles a similar pressure. Climate tipping points is the best connection because it makes near-ending scientific rather than theatrical: a threshold can matter before anyone can see the full collapse. Both ideas ask alpacas to notice that Apocalyptic stories often reveal the present more than the future. They give a culture’s fears a clock.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish__261",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish__261",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Apocalyptic aesthetics",
+            "explanation": "That answer changes the point: Climate tipping points."
+          },
+          {
+            "label": "C",
+            "answer": "Last-chance psychology",
+            "explanation": "That answer changes the point: Climate tipping points."
+          },
+          {
+            "label": "D",
+            "answer": "Caretaker governments",
+            "explanation": "That answer changes the point: Climate tipping points."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Apocalyptic aesthetics into a different form?",
+        "correctAnswer": "Last-chance psychology",
+        "wrongAnswers": [
+          "Caretaker governments",
+          "Lame-duck periods",
+          "Doomsday predictions"
+        ],
+        "explanation": "Correct: Last-chance psychology.",
+        "visibleCorrectExplanation": "Correct: Last-chance psychology.",
+        "visibleConnection": "The question starts from a concrete detail in Apocalyptic aesthetics: Endings in art may be grand, terrifying, tragic, or strangely peaceful. It is really asking which answer handles a similar pressure. Last-chance psychology is the best connection because it uses perceived finality to sharpen attention, raise urgency, and sometimes push people into worse decisions. Both ideas ask alpacas to notice that Art makes endings visible because real endings are often too slow, abstract, or distributed to grasp directly.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish__262",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish__262",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Caretaker governments",
+            "explanation": "That answer changes the point: Last-chance psychology."
+          },
+          {
+            "label": "C",
+            "answer": "Lame-duck periods",
+            "explanation": "That answer changes the point: Last-chance psychology."
+          },
+          {
+            "label": "D",
+            "answer": "Doomsday predictions",
+            "explanation": "That answer changes the point: Last-chance psychology."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.014",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Climate tipping points?",
+        "correctAnswer": "Apocalyptic aesthetics",
+        "wrongAnswers": [
+          "Last-chance psychology",
+          "Caretaker governments",
+          "Lame-duck periods"
+        ],
+        "explanation": "Correct: Apocalyptic aesthetics.",
+        "visibleCorrectExplanation": "Correct: Apocalyptic aesthetics.",
+        "visibleConnection": "The question starts from a concrete detail in Climate tipping points: A tipping point is not just gradual change It is really asking which answer handles a similar pressure. Apocalyptic aesthetics is the best connection because it turns endings into images, moods, and moral landscapes so viewers can rehearse collapse before it happens. Both ideas ask alpacas to notice that Scientific uncertainty does not make a threat imaginary. It makes timing, thresholds, and precaution harder to communicate.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish__263",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish__263",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Last-chance psychology",
+            "explanation": "That answer changes the point: Apocalyptic aesthetics."
+          },
+          {
+            "label": "C",
+            "answer": "Caretaker governments",
+            "explanation": "That answer changes the point: Apocalyptic aesthetics."
+          },
+          {
+            "label": "D",
+            "answer": "Lame-duck periods",
+            "explanation": "That answer changes the point: Apocalyptic aesthetics."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.015",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Lame-duck periods?",
+        "correctAnswer": "Apocalyptic aesthetics",
+        "wrongAnswers": [
+          "Last-chance psychology",
+          "Caretaker governments",
+          "Doomsday predictions"
+        ],
+        "explanation": "Correct: Apocalyptic aesthetics.",
+        "visibleCorrectExplanation": "Correct: Apocalyptic aesthetics.",
+        "visibleConnection": "The question starts from a concrete detail in Lame-duck periods: Formal authority may remain while influence declines. It is really asking which answer handles a similar pressure. Apocalyptic aesthetics is the best connection because it turns endings into images, moods, and moral landscapes so viewers can rehearse collapse before it happens. Both ideas ask alpacas to notice that A lame-duck period proves that power is not the same as office. Attention may already have moved to the next regime.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish__264",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish__264",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Last-chance psychology",
+            "explanation": "That answer changes the point: Apocalyptic aesthetics."
+          },
+          {
+            "label": "C",
+            "answer": "Caretaker governments",
+            "explanation": "That answer changes the point: Apocalyptic aesthetics."
+          },
+          {
+            "label": "D",
+            "answer": "Doomsday predictions",
+            "explanation": "That answer changes the point: Apocalyptic aesthetics."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why did Bangladesh’s caretaker-government debate matter?",
+        "correctAnswer": "It was tied to trust in election fairness",
+        "wrongAnswers": [
+          "It removed elections from the constitution",
+          "It made courts replace all politicians",
+          "It ended all party competition permanently"
+        ],
+        "explanation": "Correct: It was tied to trust in election fairness.",
+        "visibleCorrectExplanation": "Correct: It was tied to trust in election fairness.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_1_349",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_1_349",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removed elections from the constitution",
+            "explanation": "That answer changes the point: It was tied to trust in election fairness."
+          },
+          {
+            "label": "C",
+            "answer": "It made courts replace all politicians",
+            "explanation": "That answer changes the point: It was tied to trust in election fairness."
+          },
+          {
+            "label": "D",
+            "answer": "It ended all party competition permanently",
+            "explanation": "That answer changes the point: It was tied to trust in election fairness."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is one benefit of presidential term limits?",
+        "correctAnswer": "They reduce the risk of permanent rule",
+        "wrongAnswers": [
+          "They guarantee strong final-year influence",
+          "They remove succession problems entirely",
+          "They make every successor more qualified"
+        ],
+        "explanation": "Correct: They reduce the risk of permanent rule.",
+        "visibleCorrectExplanation": "Correct: They reduce the risk of permanent rule.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_2_350",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_2_350",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They guarantee strong final-year influence",
+            "explanation": "That answer changes the point: They reduce the risk of permanent rule."
+          },
+          {
+            "label": "C",
+            "answer": "They remove succession problems entirely",
+            "explanation": "That answer changes the point: They reduce the risk of permanent rule."
+          },
+          {
+            "label": "D",
+            "answer": "They make every successor more qualified",
+            "explanation": "That answer changes the point: They reduce the risk of permanent rule."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is one danger of hiding succession too long?",
+        "correctAnswer": "It can increase uncertainty and competition",
+        "wrongAnswers": [
+          "It makes the current ruler more democratic",
+          "It removes ambition from political rivals",
+          "It guarantees a peaceful transfer later"
+        ],
+        "explanation": "Correct: It can increase uncertainty and competition.",
+        "visibleCorrectExplanation": "Correct: It can increase uncertainty and competition.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_3_351",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_3_351",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It makes the current ruler more democratic",
+            "explanation": "That answer changes the point: It can increase uncertainty and competition."
+          },
+          {
+            "label": "C",
+            "answer": "It removes ambition from political rivals",
+            "explanation": "That answer changes the point: It can increase uncertainty and competition."
+          },
+          {
+            "label": "D",
+            "answer": "It guarantees a peaceful transfer later",
+            "explanation": "That answer changes the point: It can increase uncertainty and competition."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can a dramatic symbol still be useful?",
+        "correctAnswer": "It focuses attention on dangers people ignore",
+        "wrongAnswers": [
+          "It replaces evidence with emotional design",
+          "It proves every warning is equally accurate",
+          "It solves global conflict by itself"
+        ],
+        "explanation": "Correct: It focuses attention on dangers people ignore.",
+        "visibleCorrectExplanation": "Correct: It focuses attention on dangers people ignore.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_4_352",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_4_352",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It replaces evidence with emotional design",
+            "explanation": "That answer changes the point: It focuses attention on dangers people ignore."
+          },
+          {
+            "label": "C",
+            "answer": "It proves every warning is equally accurate",
+            "explanation": "That answer changes the point: It focuses attention on dangers people ignore."
+          },
+          {
+            "label": "D",
+            "answer": "It solves global conflict by itself",
+            "explanation": "That answer changes the point: It focuses attention on dangers people ignore."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does the 1666 panic show?",
+        "correctAnswer": "Crisis can make symbols feel prophetic",
+        "wrongAnswers": [
+          "Fire always confirms religious predictions",
+          "Scientific progress prevents fear entirely",
+          "Printed pamphlets make rumors disappear"
+        ],
+        "explanation": "Correct: Crisis can make symbols feel prophetic.",
+        "visibleCorrectExplanation": "Correct: Crisis can make symbols feel prophetic.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_5_353",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_5_353",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Fire always confirms religious predictions",
+            "explanation": "That answer changes the point: Crisis can make symbols feel prophetic."
+          },
+          {
+            "label": "C",
+            "answer": "Scientific progress prevents fear entirely",
+            "explanation": "That answer changes the point: Crisis can make symbols feel prophetic."
+          },
+          {
+            "label": "D",
+            "answer": "Printed pamphlets make rumors disappear",
+            "explanation": "That answer changes the point: Crisis can make symbols feel prophetic."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How do Dürer’s horsemen create apocalyptic force?",
+        "correctAnswer": "Motion and crowding make danger feel immediate",
+        "wrongAnswers": [
+          "Calm symmetry removes all fear",
+          "Empty space makes the scene peaceful",
+          "Modern technology creates the threat"
+        ],
+        "explanation": "Correct: Motion and crowding make danger feel immediate.",
+        "visibleCorrectExplanation": "Correct: Motion and crowding make danger feel immediate.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_6_354",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_6_354",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Calm symmetry removes all fear",
+            "explanation": "That answer changes the point: Motion and crowding make danger feel immediate."
+          },
+          {
+            "label": "C",
+            "answer": "Empty space makes the scene peaceful",
+            "explanation": "That answer changes the point: Motion and crowding make danger feel immediate."
+          },
+          {
+            "label": "D",
+            "answer": "Modern technology creates the threat",
+            "explanation": "That answer changes the point: Motion and crowding make danger feel immediate."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does industrial or digital anxiety add?",
+        "correctAnswer": "Fear of systems people built but cannot control",
+        "wrongAnswers": [
+          "Confidence that technology always saves society",
+          "A belief that collapse is only religious",
+          "Proof that modern art avoids the future"
+        ],
+        "explanation": "Correct: Fear of systems people built but cannot control.",
+        "visibleCorrectExplanation": "Correct: Fear of systems people built but cannot control.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_7_355",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_7_355",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Confidence that technology always saves society",
+            "explanation": "That answer changes the point: Fear of systems people built but cannot control."
+          },
+          {
+            "label": "C",
+            "answer": "A belief that collapse is only religious",
+            "explanation": "That answer changes the point: Fear of systems people built but cannot control."
+          },
+          {
+            "label": "D",
+            "answer": "Proof that modern art avoids the future",
+            "explanation": "That answer changes the point: Fear of systems people built but cannot control."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What makes Messiaen’s music feel suspended?",
+        "correctAnswer": "Slow space and unusual time create stillness",
+        "wrongAnswers": [
+          "Constant percussion creates violent motion",
+          "Fast lyrics create information overload",
+          "Electric distortion creates nuclear dread"
+        ],
+        "explanation": "Correct: Slow space and unusual time create stillness.",
+        "visibleCorrectExplanation": "Correct: Slow space and unusual time create stillness.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_8_356",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_8_356",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Constant percussion creates violent motion",
+            "explanation": "That answer changes the point: Slow space and unusual time create stillness."
+          },
+          {
+            "label": "C",
+            "answer": "Fast lyrics create information overload",
+            "explanation": "That answer changes the point: Slow space and unusual time create stillness."
+          },
+          {
+            "label": "D",
+            "answer": "Electric distortion creates nuclear dread",
+            "explanation": "That answer changes the point: Slow space and unusual time create stillness."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does climate volatility matter?",
+        "correctAnswer": "Instability can strain health and ecosystems",
+        "wrongAnswers": [
+          "It proves all climate action has failed",
+          "It affects weather but never societies",
+          "It removes the need for adaptation"
+        ],
+        "explanation": "Correct: Instability can strain health and ecosystems.",
+        "visibleCorrectExplanation": "Correct: Instability can strain health and ecosystems.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_9_357",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_9_357",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves all climate action has failed",
+            "explanation": "That answer changes the point: Instability can strain health and ecosystems."
+          },
+          {
+            "label": "C",
+            "answer": "It affects weather but never societies",
+            "explanation": "That answer changes the point: Instability can strain health and ecosystems."
+          },
+          {
+            "label": "D",
+            "answer": "It removes the need for adaptation",
+            "explanation": "That answer changes the point: Instability can strain health and ecosystems."
+          }
+        ]
+      },
+      {
+        "id": "question.the-end-is-nearish.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is solar geoengineering politically sensitive?",
+        "correctAnswer": "It could affect the planet with uncertain side effects",
+        "wrongAnswers": [
+          "It is already fully regulated worldwide",
+          "It solves climate change without trade-offs",
+          "It can be controlled by any one customer"
+        ],
+        "explanation": "Correct: It could affect the planet with uncertain side effects.",
+        "visibleCorrectExplanation": "Correct: It could affect the planet with uncertain side effects.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-end-is-nearish_10_358",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-end-is-nearish",
+        "sectionIds": [
+          "the-end-is-nearish"
+        ],
+        "guidingSectionPrimary": "The End is Nearish",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-end-is-nearish_10_358",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is already fully regulated worldwide",
+            "explanation": "That answer changes the point: It could affect the planet with uncertain side effects."
+          },
+          {
+            "label": "C",
+            "answer": "It solves climate change without trade-offs",
+            "explanation": "That answer changes the point: It could affect the planet with uncertain side effects."
+          },
+          {
+            "label": "D",
+            "answer": "It can be controlled by any one customer",
+            "explanation": "That answer changes the point: It could affect the planet with uncertain side effects."
+          }
+        ]
+      }
+    ]
+  }
+}

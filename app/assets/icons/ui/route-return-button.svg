@@ -1,0 +1,63 @@
+<svg
+  id="route-return-button"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 560 140"
+  width="560"
+  height="140"
+  fill="none"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Going back is not always regressing button</title>
+  <desc id="desc">
+    Themed return button plaque with the phrase Going back is not always regressing.
+  </desc>
+
+  <defs>
+    <style>
+      .shadow { fill: #4b2f21; opacity: 0.18; }
+      .frame { fill: #5a3726; }
+      .body { fill: #6d1f26; stroke: #4b2f21; stroke-width: 3; vector-effect: non-scaling-stroke; }
+      .panel { fill: #ead8b7; stroke: #5a3726; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+      .panel-line { fill: none; stroke: #d8b13f; stroke-width: 1.5; opacity: 0.92; vector-effect: non-scaling-stroke; }
+      .accent { fill: #d8b13f; }
+      .accent-soft { fill: #c79a2d; opacity: 0.9; }
+      .title-text {
+        fill: #4b2f21;
+        font-family: "Inter Tight", Arial, sans-serif;
+        font-size: 24px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        text-anchor: middle;
+      }
+      .subtitle-text {
+        fill: #6d1f26;
+        font-family: "Inter Tight", Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2.2px;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <path
+    class="shadow"
+    d="M34 118H526C536.493 118 545 126.507 545 137V138H15V137C15 126.507 23.507 118 34 118Z"
+  />
+
+  <rect x="10" y="12" width="540" height="116" rx="24" class="frame" />
+  <rect x="18" y="18" width="524" height="104" rx="21" class="body" />
+
+  <rect x="36" y="32" width="488" height="64" rx="16" class="panel" />
+  <rect x="46" y="40" width="468" height="48" rx="13" class="panel-line" />
+
+  <rect x="264" y="20" width="32" height="6" rx="3" class="accent" />
+  <rect x="304" y="20" width="16" height="6" rx="3" class="accent-soft" />
+  <rect x="30" y="48" width="12" height="4" rx="2" class="accent-soft" />
+  <rect x="518" y="48" width="12" height="4" rx="2" class="accent-soft" />
+  <path class="accent" d="M264 102H296L290 111H270L264 102Z" />
+
+  <text x="280" y="62" class="title-text">GOING BACK</text>
+  <text x="280" y="80" class="subtitle-text">IS NOT ALWAYS REGRESSING</text>
+</svg>

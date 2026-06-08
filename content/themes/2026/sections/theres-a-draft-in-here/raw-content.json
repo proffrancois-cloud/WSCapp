@@ -1,0 +1,593 @@
+{
+  "id": "raw.theres-a-draft-in-here",
+  "sectionId": "theres-a-draft-in-here",
+  "entries": [
+    {
+      "id": "raw.theres-a-draft-in-here.001",
+      "order": 1,
+      "sectionId": "theres-a-draft-in-here",
+      "mediaIds": [
+        "asset.theres-a-draft-in-here.raw.how-artists-transfer-drafts-to-canvas",
+        "asset.theres-a-draft-in-here.raw.matisse-dance-i-to-dance-ii",
+        "asset.theres-a-draft-in-here.raw.mona-lisa-version-copy-or-draft",
+        "asset.theres-a-draft-in-here.raw.munch-from-despair-to-the-scream",
+        "asset.theres-a-draft-in-here.raw.van-goghs-bedroom-three-versions"
+      ],
+      "questionIds": [
+        "question.theres-a-draft-in-here.100.001",
+        "question.theres-a-draft-in-here.200.001"
+      ],
+      "title": "Rough Draft in Arts",
+      "guidingSection": "There’s a Draft in Here",
+      "rawOfficialText": "Finished works don’t materialize out of thin air. Authors, artists, musicians, architects, animators - nearly all creators go through one or more rough drafts before coming up with a finished product. For the drafts below, consider how much the work changes from one iteration to the next, and research the techniques that artists can use to transfer their sketches onto canvases.\n\nLeonardo da Vinci | Mona Lisa (Louvre) & Mona Lisa (Isleworth) (c. 16th century)\nVincent van Gogh | Bedroom in Arles (1888), Bedroom in Arles (1889), & Bedroom in Arles (1889)\nEdvard Munch | Despair (1892) & The Scream (1893)\nHenri Matisse | Dance (I) (1909) & Dance (II) (1910)",
+      "links": [
+        {
+          "label": "Mona Lisa (Louvre)",
+          "url": "https://artsandculture.google.com/asset/portrait-of-lisa-gherardini-wife-of-francesco-del-giocondo-known-as-monna-lisa-la-gioconda-or-mona-lisa-1503-1519-leonardo-di-ser-piero-da-vinci-dit-l%C3%A9onard-de-vinci-1452-1519-paris-mus%C3%A9e-du-louvre/uQGZ28lYUJ3OGw?hl=en"
+        },
+        {
+          "label": "Mona Lisa (Isleworth)",
+          "url": "https://commons.wikimedia.org/wiki/File:Isleworthml.JPG"
+        },
+        {
+          "label": "Bedroom in Arles (1888)",
+          "url": "https://artsandculture.google.com/asset/KwF-AdF1REQl6w"
+        },
+        {
+          "label": "Bedroom in Arles (1889) - Art Institute of Chicago",
+          "url": "https://www.artic.edu/artworks/28560/the-bedroom"
+        },
+        {
+          "label": "Bedroom in Arles (1889) - Google Arts & Culture",
+          "url": "https://artsandculture.google.com/asset/kQEugEsNjGDZfw"
+        },
+        {
+          "label": "Despair",
+          "url": "https://www.modernamuseet.se/stockholm/en/exhibitions/munch-by-himself/i-felt-the-great-scream-through-nature/"
+        },
+        {
+          "label": "The Scream",
+          "url": "https://www.nasjonalmuseet.no/en/collection/object/NG.M.00939"
+        },
+        {
+          "label": "Dance (I)",
+          "url": "https://www.moma.org/collection/works/79124"
+        },
+        {
+          "label": "Dance (II)",
+          "url": "https://www.wikiart.org/en/henri-matisse/dance-ii-1910"
+        },
+        {
+          "label": "Van Gogh classroom video",
+          "url": "https://youtu.be/pgOm9rjEtgI?si=Qp4SxLsp2yb6FOmO"
+        }
+      ],
+      "studentExplanation": "Even the most famous artworks usually have a process behind them. Artists test, repeat, revise, copy, simplify, intensify, and sometimes return to the same idea more than once. The Mona Lisa comparison, Van Gogh’s Bedroom versions, Munch’s movement from Despair to The Scream, and Matisse’s Dance I and Dance II show different kinds of artistic development. Some changes are visual, some are emotional, and some are even scientific discoveries made later through letters and paint analysis. The important point is that a finished artwork often hides a long in-between phase of versions, studies, experiments, and decisions.\n\nThe extra notes make each art case concrete: the Isleworth Mona Lisa raises questions of version and attribution, Van Gogh’s Bedrooms differ in scale and purpose, Munch intensifies Despair into The Scream, and Matisse’s Dance changes color, detail, and force between versions. Use this to make process visible: what changed between versions, where the earlier form still survives, how revision altered meaning, and why a “finished” work often hides many unfinished stages.",
+      "whyItMatters": "At the entry level, this helps students see that artistic masterpieces are not usually one-shot miracles. At the section level, it opens There’s a Draft in Here by making the creative process visible through exact works students can compare. At the year-theme level, it connects to drafts, progress, and planning because “getting there” in art often means passing through versions that look almost there, not there yet, or differently there.",
+      "takeaway": "Revision can change the meaning of a work, not only its polish",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Incompletion That Stays Active",
+        "Visible vs Real",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Mona Lisa: version, copy, or draft?",
+        "Van Gogh’s Bedroom: three versions",
+        "Munch: from Despair to The Scream",
+        "Matisse: Dance I to Dance II",
+        "How artists transfer drafts to canvas"
+      ],
+      "debateRelevance": "Useful when debating whether process matters as much as final polish, and whether exact drafts, variants, and studies should shape how we value masterpieces.",
+      "counterargument": "A debated version or copy should not be treated as a confirmed draft unless the evidence supports that claim.",
+      "visualSections": [
+        {
+          "title": "Rough Draft in Arts",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Mona Lisa: version, copy, or draft?",
+              "note": "The Louvre Mona Lisa and the Isleworth Mona Lisa create a comparison where “draft” language is controversial in art history.",
+              "imageGuidance": "Use /imagesearch to retrieve the exact Louvre Mona Lisa image and the exact Isleworth Mona Lisa image from the preserved source links. These are named artworks, so do not use /imagecreator or /imagegen. The images must be the real works, realistic, not anime, and WSC app mandatory in the surrounding frame only.",
+              "videoGuidance": "Use /youtubesearch only if a short educational video of 5-7 minutes maximum can explain the Mona Lisa / Isleworth debate without overstating certainty. Otherwise, no video is required.",
+              "links": [
+                {
+                  "label": "Mona Lisa (Louvre)",
+                  "url": "https://artsandculture.google.com/asset/portrait-of-lisa-gherardini-wife-of-francesco-del-giocondo-known-as-monna-lisa-la-gioconda-or-mona-lisa-1503-1519-leonardo-di-ser-piero-da-vinci-dit-l%C3%A9onard-de-vinci-1452-1519-paris-mus%C3%A9e-du-louvre/uQGZ28lYUJ3OGw?hl=en"
+                },
+                {
+                  "label": "Mona Lisa (Isleworth)",
+                  "url": "https://commons.wikimedia.org/wiki/File:Isleworthml.JPG"
+                }
+              ],
+              "url": "https://artsandculture.google.com/asset/portrait-of-lisa-gherardini-wife-of-francesco-del-giocondo-known-as-monna-lisa-la-gioconda-or-mona-lisa-1503-1519-leonardo-di-ser-piero-da-vinci-dit-l%C3%A9onard-de-vinci-1452-1519-paris-mus%C3%A9e-du-louvre/uQGZ28lYUJ3OGw?hl=en",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/theres-a-draft-in-here/mona-lisa-version-copy-or-draft.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-composite",
+              "imageLicense": "Exact source artwork composite from preserved museum/archive links"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Van Gogh’s Bedroom: three versions",
+              "note": "That Van Gogh repeated the same room across three paintings, not appears as a random copy but as a return to a meaningful subject.",
+              "imageGuidance": "Use /imagesearch to retrieve the exact three Bedroom in Arles works from the preserved links. Use the current app images as visual references. Because these are exact artworks, do not generate replacements. Surrounding app card styling must be realistic, not anime, and WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to locate a short classroom-friendly video about Van Gogh’s Bedroom versions, ideally the preserved Van Gogh classroom video first. Use the existing link unless it breaks.",
+              "links": [
+                {
+                  "label": "Bedroom in Arles (1888)",
+                  "url": "https://artsandculture.google.com/asset/KwF-AdF1REQl6w"
+                },
+                {
+                  "label": "Bedroom in Arles (1889) - Art Institute of Chicago",
+                  "url": "https://www.artic.edu/artworks/28560/the-bedroom"
+                },
+                {
+                  "label": "Bedroom in Arles (1889) - Google Arts & Culture",
+                  "url": "https://artsandculture.google.com/asset/kQEugEsNjGDZfw"
+                },
+                {
+                  "label": "Van Gogh classroom video",
+                  "url": "https://youtu.be/pgOm9rjEtgI?si=Qp4SxLsp2yb6FOmO"
+                }
+              ],
+              "url": "https://youtu.be/pgOm9rjEtgI?si=Qp4SxLsp2yb6FOmO",
+              "previewLabel": "Play video",
+              "src": "assets/raw-content/theres-a-draft-in-here/van-goghs-bedroom-three-versions.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-composite",
+              "imageLicense": "Exact source artwork composite from preserved museum/archive links",
+              "videoUrl": "https://youtu.be/pgOm9rjEtgI?si=Qp4SxLsp2yb6FOmO"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Munch: from Despair to The Scream",
+              "note": "The same bridge, sky, and composition become much more psychologically intense through revision.",
+              "imageGuidance": "Use /imagesearch to find the exact Despair / Sick Mood at Sunset source image and the exact National Museum The Scream image. Do not create a substitute. These exact works are the content. WSC app mandatory for frame and card styling only.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video explains the change from Despair to The Scream. Otherwise, keep source links and images only.",
+              "links": [
+                {
+                  "label": "Despair",
+                  "url": "https://www.modernamuseet.se/stockholm/en/exhibitions/munch-by-himself/i-felt-the-great-scream-through-nature/"
+                },
+                {
+                  "label": "The Scream",
+                  "url": "https://www.nasjonalmuseet.no/en/collection/object/NG.M.00939"
+                }
+              ],
+              "url": "https://www.modernamuseet.se/stockholm/en/exhibitions/munch-by-himself/i-felt-the-great-scream-through-nature/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/theres-a-draft-in-here/munch-from-despair-to-the-scream.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-composite",
+              "imageLicense": "Exact source artwork composite from preserved museum/archive links"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Matisse: Dance I to Dance II",
+              "note": "A study-like version is compared with a more intense final version through changes in color, rhythm, and composition.",
+              "imageGuidance": "Use /imagesearch to retrieve exact Dance I from MoMA and exact Dance II from a reliable source. Do not generate or redraw the paintings. Realistic, not anime, WSC app mandatory for UI framing only.",
+              "videoGuidance": "Use /youtubesearch if a short video explains Matisse’s Dance paintings. If no concise video exists, use images only.",
+              "links": [
+                {
+                  "label": "Dance (I)",
+                  "url": "https://www.moma.org/collection/works/79124"
+                },
+                {
+                  "label": "Dance (II)",
+                  "url": "https://www.wikiart.org/en/henri-matisse/dance-ii-1910"
+                }
+              ],
+              "url": "https://www.moma.org/collection/works/79124",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/theres-a-draft-in-here/matisse-dance-i-to-dance-ii.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-composite",
+              "imageLicense": "Exact source artwork composite from preserved museum/archive links"
+            },
+            {
+              "kind": "text-slide",
+              "title": "How artists transfer drafts to canvas",
+              "note": "A draft can physically move into a final artwork through transfer techniques.",
+              "imageGuidance": "Use /imagesearch first for realistic images of grid transfer, pouncing, tracing, projection, or preparatory drawing transfer onto canvas. If no perfect educational image exists, use /imagecreator or /imagegen to create a realistic WSC app-style image of a canvas with a faint grid and sketch being transferred. Realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch for a clear 5-7 minute maximum educational video on transferring sketches to canvas or grid drawing transfer.",
+              "links": [],
+              "src": "assets/raw-content/theres-a-draft-in-here/how-artists-transfer-drafts-to-canvas.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Planning & Projects"
+      ],
+      "primaryBigIdea": "Incompletion That Stays Active",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Incompletion That Stays Active",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Performed Progress",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "1979: da Vinci's 'ISLEWORTH MONA LISA' | Nationwide | Weird and Wonderful | BBC Archive",
+          "url": "https://www.youtube.com/watch?v=1hJUdK5OGTo"
+        },
+        {
+          "title": "Henri Matisse - Dance 1909-1910",
+          "url": "https://www.youtube.com/watch?v=QcPV3qONlAk"
+        },
+        {
+          "title": "Vincent van Gogh's The Bedroom | Art Institute Essentials Tour",
+          "url": "https://www.youtube.com/watch?v=3Cdl5lYBWtE"
+        },
+        {
+          "title": "Why is \"The Scream\" screaming? - Noah Charney",
+          "url": "https://www.youtube.com/watch?v=teJAmgiMVIo"
+        }
+      ],
+      "sectionTitle": "There’s a Draft in Here"
+    },
+    {
+      "id": "raw.theres-a-draft-in-here.002",
+      "order": 2,
+      "sectionId": "theres-a-draft-in-here",
+      "mediaIds": [],
+      "questionIds": [
+        "question.theres-a-draft-in-here.100.002",
+        "question.theres-a-draft-in-here.200.002"
+      ],
+      "title": "Music Is Also a Creative Process",
+      "guidingSection": "There’s a Draft in Here",
+      "rawOfficialText": "In songwriting, early drafts are called demos. Sometimes, the songwriter will perform them him or herself, even if the song is intended for someone else to sing. Consider the following demos and then the finished product, then ask yourself: what changed along the way? What makes the finished product feel more “done”?\n\nThe Beatles | “Strawberry Fields Forever (Home Demo Sequence)” (1966)\nLin-Manuel Miranda | “This One's Mine” (2018)\nSophia Anne Caruso | “Dead Mom (Demo)” (2019)\nEJAE | “Golden” (various demos) (2025)",
+      "links": [
+        {
+          "label": "The Beatles: Strawberry Fields Forever (home demo sequence)",
+          "url": "https://www.youtube.com/watch?v=jD2h0WuQ9kE&list=RDjD2h0WuQ9kE&start_radio=1"
+        },
+        {
+          "label": "The Beatles: Strawberry Fields Forever (final version)",
+          "url": "https://youtu.be/HtUH9z_Oey8?si=7-0x6i8ovFsCI7CB"
+        },
+        {
+          "label": "Golden: EJAE and Mark Sonnenblick explain the process",
+          "url": "https://youtu.be/FxEX_GWwE7M?si=Pba2OEygGxpnTVEU"
+        },
+        {
+          "label": "Golden: finished movie version",
+          "url": "https://youtu.be/yebNIHKAC4A?si=tzRmEZd1VLfwnuMl"
+        }
+      ],
+      "studentExplanation": "Songs also have drafts. A demo can reveal a song before it has its final voice, arrangement, production, or scene placement. Comparing the Beatles’ home demo of Strawberry Fields Forever with the final version shows how a raw musical idea can become a studio-built atmosphere. The Golden process links show another path: a song for a film can pass through songwriting, story needs, production, performance, and approval before the short final track feels inevitable. In music, the draft is often audible: you can hear what changed.\n\nA demo is not just a worse version; it is evidence of a decision path. Strawberry Fields, Hamilton drafts, Dead Mom, and Golden show lyrics, arrangement, character, production, and story needs changing before a song feels final. Use this to make process visible: what changed between versions, where the earlier form still survives, how revision altered meaning, and why a “finished” work often hides many unfinished stages.",
+      "whyItMatters": "At the entry level, this helps students hear drafting as a creative process, not only see it in visual art. At the section level, it expands There’s a Draft in Here from canvases to songs, demos, producers, and performers. At the year-theme level, it connects to planning and prototypes because a song may spend a long time being “almost there” before it becomes the version everyone knows.",
+      "takeaway": "Music lets us hear creativity moving from rough possibility to chosen form",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Incompletion That Stays Active",
+        "Performed Progress",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "done",
+        "Strawberry Fields Forever (Home Demo Sequence)",
+        "This One's Mine",
+        "Dead Mom (Demo)",
+        "Golden",
+        "Strawberry Fields Forever: home demo",
+        "Strawberry Fields Forever: final version",
+        "Golden: process behind the hit",
+        "Golden: finished movie version",
+        "Optional raw official demos: This One’s Mine and Dead Mom"
+      ],
+      "debateRelevance": "Useful when debating whether demos are more authentic than finished tracks, or whether arrangement and production are part of the creative work itself.",
+      "counterargument": "A demo can reveal process, but the final track may be stronger because collaboration and production solve problems the demo only suggests.",
+      "visualSections": [
+        {
+          "title": "Music Is Also a Creative Process",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Strawberry Fields Forever: home demo",
+              "note": "The audio presents the raw, intimate version of a song before the final production transformed it.",
+              "imageGuidance": "No separate generated image is required. Use the YouTube thumbnail or a neutral WSC app video card. If an image is needed, use /imagesearch only for an official Beatles / Anthology-related visual; do not use /imagecreator for band likenesses.",
+              "videoGuidance": "Use the preserved YouTube link first. Use /youtubesearch only if the link is broken. The agent should find the exact “Strawberry Fields Forever (Home Demo Sequence)” audio, not a cover or unrelated performance.",
+              "links": [
+                {
+                  "label": "The Beatles: Strawberry Fields Forever (home demo sequence)",
+                  "url": "https://www.youtube.com/watch?v=jD2h0WuQ9kE&list=RDjD2h0WuQ9kE&start_radio=1"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=jD2h0WuQ9kE&list=RDjD2h0WuQ9kE&start_radio=1",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=jD2h0WuQ9kE&list=RDjD2h0WuQ9kE&start_radio=1",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Strawberry Fields Forever: final version",
+              "note": "The finished 1967 track and the home demo reveal differences in arrangement, sound design, and studio polish.",
+              "imageGuidance": "No separate image is required. Use the YouTube video card or a reliable official thumbnail. If an image is needed, use /imagesearch for official Beatles release art only.",
+              "videoGuidance": "Use the preserved final-version YouTube link first. Use /youtubesearch only to find the exact Beatles final version, ideally official/authorized audio or video.",
+              "links": [
+                {
+                  "label": "The Beatles: Strawberry Fields Forever (home demo sequence)",
+                  "url": "https://www.youtube.com/watch?v=jD2h0WuQ9kE&list=RDjD2h0WuQ9kE&start_radio=1"
+                },
+                {
+                  "label": "The Beatles: Strawberry Fields Forever (final version)",
+                  "url": "https://youtu.be/HtUH9z_Oey8?si=7-0x6i8ovFsCI7CB"
+                }
+              ],
+              "url": "https://youtu.be/HtUH9z_Oey8?si=7-0x6i8ovFsCI7CB",
+              "previewLabel": "Play video",
+              "videoUrl": "https://youtu.be/HtUH9z_Oey8?si=7-0x6i8ovFsCI7CB",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Golden: process behind the hit",
+              "note": "Even a short song can take a long collaborative process to become the right final version for a film moment.",
+              "imageGuidance": "No separate image is required. Use the preserved interview/process video card. If a thumbnail is needed, use /imagesearch for official Netflix/Tudum or official KPop Demon Hunters promotional stills. Do not generate character art.",
+              "videoGuidance": "Use the preserved EJAE and Mark Sonnenblick process link first. If necessary, use /youtubesearch to find the exact educational/process interview, not fan edits.",
+              "links": [
+                {
+                  "label": "Golden: EJAE and Mark Sonnenblick explain the process",
+                  "url": "https://youtu.be/FxEX_GWwE7M?si=Pba2OEygGxpnTVEU"
+                }
+              ],
+              "url": "https://youtu.be/FxEX_GWwE7M?si=Pba2OEygGxpnTVEU",
+              "previewLabel": "Play video",
+              "videoUrl": "https://youtu.be/FxEX_GWwE7M?si=Pba2OEygGxpnTVEU",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Golden: finished movie version",
+              "note": "Process talk is compared with the final track as it appears in the finished film world.",
+              "imageGuidance": "No separate image is required. Use the video card. If the app requires an image, use /imagesearch for official Netflix/KPop Demon Hunters imagery only. No /imagecreator replacement for named characters.",
+              "videoGuidance": "Use the preserved finished-version link first. If it breaks, use /youtubesearch to find the official finished version from the movie or soundtrack.",
+              "links": [
+                {
+                  "label": "The Beatles: Strawberry Fields Forever (final version)",
+                  "url": "https://youtu.be/HtUH9z_Oey8?si=7-0x6i8ovFsCI7CB"
+                },
+                {
+                  "label": "Golden: finished movie version",
+                  "url": "https://youtu.be/yebNIHKAC4A?si=tzRmEZd1VLfwnuMl"
+                }
+              ],
+              "url": "https://youtu.be/yebNIHKAC4A?si=tzRmEZd1VLfwnuMl",
+              "previewLabel": "Play video",
+              "videoUrl": "https://youtu.be/yebNIHKAC4A?si=tzRmEZd1VLfwnuMl",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Optional raw official demos: This One’s Mine and Dead Mom",
+              "note": "If added, students compare other musical demos as examples of songs before final context or final release.",
+              "imageGuidance": "Do not create generic music images. Use /imagesearch only for official show/production images if a thumbnail is required, and keep the card as a link-first media card.",
+              "videoGuidance": "Use /youtubesearch to find the exact Lin-Manuel Miranda “This One’s Mine” demo and Sophia Anne Caruso “Dead Mom” demo. These should be exact demos, not later covers or unrelated performances.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "previewLabel": "Open search"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Planning & Projects"
+      ],
+      "primaryBigIdea": "Incompletion That Stays Active",
+      "secondaryBigIdeas": [
+        "Performed Progress",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Incompletion That Stays Active",
+        "secondaryBigIdeas": [
+          "Performed Progress",
+          "Visible vs Real",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "LCD Soundsystem's James Murphy Makes Subway Sounds",
+          "url": "https://www.youtube.com/watch?v=z6nNsqY-qYM"
+        }
+      ],
+      "sectionTitle": "There’s a Draft in Here"
+    },
+    {
+      "id": "raw.theres-a-draft-in-here.003",
+      "order": 3,
+      "sectionId": "theres-a-draft-in-here",
+      "mediaIds": [
+        "asset.theres-a-draft-in-here.raw.why-the-internet-changes-drafts"
+      ],
+      "questionIds": [
+        "question.theres-a-draft-in-here.100.003",
+        "question.theres-a-draft-in-here.200.003"
+      ],
+      "title": "Never Released... Until the Internet Allowed It",
+      "guidingSection": "There’s a Draft in Here",
+      "rawOfficialText": "In musical theatre, not all demos end up in the final product - but the Internet has allowed these unproduced numbers to find an audience. Consider the following demos that never quite got there. For each, discuss with your team: why do you think it was left out of the finished product?\n\nAladdin | “Count on Me” (1994)\nPocahontas | “First to Dance” (1995)\nBook of Mormon | “Family Home Evening” (2009)\nDear Evan Hansen | “In the Bedroom Down the Hall” (2017)",
+      "rawOfficialBullets": [
+        "Most performers rehearse before they go on stage; some people even rehearse before difficult conversations. Investigate the psychology of rehearsal. What parts of the brain does it affect? How do you know when you’ve rehearsed enough?"
+      ],
+      "links": [
+        {
+          "label": "Aladdin - Count on Me",
+          "url": "https://www.youtube.com/watch?v=W9ePWzAxO-s"
+        },
+        {
+          "label": "Pocahontas - First to Dance",
+          "url": "https://www.youtube.com/watch?v=r_j4ALKLrOk"
+        },
+        {
+          "label": "Book of Mormon - Family Home Evening",
+          "url": "https://www.youtube.com/watch?v=txG99YiQcNk"
+        },
+        {
+          "label": "Dear Evan Hansen - In the Bedroom Down the Hall",
+          "url": "https://www.youtube.com/watch?v=cvf1ETgCMN4"
+        }
+      ],
+      "studentExplanation": "Many drafts disappear before the public ever sees them, but music and theatre have become easier to archive, upload, and rediscover. Cut songs are especially interesting because they are not always bad songs. Sometimes the story changes, the tone changes, the pacing improves without them, or the final structure needs a different emotional focus. “Count on Me,” “First to Dance,” “Family Home Evening,” and “In the Bedroom Down the Hall” all show that creative work can be complete enough to exist, but still not fit the destination the final production chooses.\n\nCut songs are especially useful because they may be complete but still not belong. Aladdin, Pocahontas, The Book of Mormon, and Dear Evan Hansen examples show that deletion can be about pacing, tone, plot focus, or replacement rather than quality alone. Use this to make process visible: what changed between versions, where the earlier form still survives, how revision altered meaning, and why a “finished” work often hides many unfinished stages.",
+      "whyItMatters": "At the entry level, this helps students understand why unfinished or unreleased creative work matters. At the section level, it closes There’s a Draft in Here by showing that some drafts never reach the official final product, but still reveal the path that production took. At the year-theme level, it connects to drafts, prototypes, and endings because some works remain permanently in-between: made, revised, even loved, but not finally included.",
+      "takeaway": "Unreleased material can reveal the creative decisions behind the final version",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Incompletion That Stays Active",
+        "Narrated Endings",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Count on Me",
+        "First to Dance",
+        "Family Home Evening",
+        "In the Bedroom Down the Hall",
+        "Aladdin: Count on Me",
+        "Pocahontas: First to Dance",
+        "The Book of Mormon: Family Home Evening",
+        "Dear Evan Hansen: In the Bedroom Down the Hall",
+        "Why the internet changes drafts"
+      ],
+      "debateRelevance": "Useful when debating whether unreleased material should be public, whether cut work can still matter, and how the internet changes creative memory.",
+      "counterargument": "A cut song may be meaningful to fans without being right for the final story, tone, or pacing.",
+      "visualSections": [
+        {
+          "title": "Never Released... Until the Internet Allowed It",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Aladdin: Count on Me",
+              "note": "A song tied to an earlier friendship-centered draft can be cut when the story changes.",
+              "imageGuidance": "No generated image is required. Use the video card as the primary asset. If a thumbnail is needed, use /imagesearch only for official Aladdin / Disney source imagery connected to the cut song or legacy collection. Do not use /imagecreator for Disney characters.",
+              "videoGuidance": "Use the preserved YouTube link first. If it breaks, use /youtubesearch to find the exact “Count on Me” / “You Can Count on Me” Aladdin cut song, preferably from a reliable soundtrack/archive upload.",
+              "links": [
+                {
+                  "label": "Aladdin - Count on Me",
+                  "url": "https://www.youtube.com/watch?v=W9ePWzAxO-s"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=W9ePWzAxO-s",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=W9ePWzAxO-s",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Pocahontas: First to Dance",
+              "note": "A song can be removed when the film’s tone, story, or focus changes.",
+              "imageGuidance": "No generated image is required. Use the video card. If an image is necessary, use /imagesearch for official Pocahontas Legacy Collection or Disney source visuals only. Do not generate Pocahontas imagery.",
+              "videoGuidance": "Use the preserved YouTube link first. If needed, use /youtubesearch for the exact deleted song “First to Dance,” not fan covers.",
+              "links": [
+                {
+                  "label": "Pocahontas - First to Dance",
+                  "url": "https://www.youtube.com/watch?v=r_j4ALKLrOk"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=r_j4ALKLrOk",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=r_j4ALKLrOk",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Book of Mormon: Family Home Evening",
+              "note": "Workshop songs can introduce ideas but still be cut for pacing or narrative focus.",
+              "imageGuidance": "No separate image is required. Use a video/audio card. If a thumbnail is needed, use /imagesearch for official show/cast album imagery or neutral theatre imagery. Do not create fake posters.",
+              "videoGuidance": "Use the preserved YouTube link first. If necessary, use /youtubesearch to find the exact cut song “Family Home Evening” from The Book of Mormon demo context.",
+              "links": [
+                {
+                  "label": "Book of Mormon - Family Home Evening",
+                  "url": "https://www.youtube.com/watch?v=txG99YiQcNk"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=txG99YiQcNk",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=txG99YiQcNk",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Dear Evan Hansen: In the Bedroom Down the Hall",
+              "note": "A cut song may preserve emotional material that the final production handles differently.",
+              "imageGuidance": "No generated image is required. Use the video/audio link as the asset. If an image is needed, use /imagesearch for official Dear Evan Hansen album/show imagery only. Do not create actor likenesses or fake stage stills.",
+              "videoGuidance": "Use the preserved YouTube link first. If it fails, use /youtubesearch to locate the exact “In the Bedroom Down the Hall” cut song or official deluxe-album audio.",
+              "links": [
+                {
+                  "label": "Dear Evan Hansen - In the Bedroom Down the Hall",
+                  "url": "https://www.youtube.com/watch?v=cvf1ETgCMN4"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=cvf1ETgCMN4",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=cvf1ETgCMN4",
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Why the internet changes drafts",
+              "note": "The internet lets unreleased creative material become available, searchable, and meaningful for fans and scholars.",
+              "imageGuidance": "Use /imagecreator or /imagegen only if the app needs a conceptual visual: a realistic WSC app-style screen showing archived demos, deleted songs, and version history as link cards. Do not use anime. WSC app mandatory. Use /imagesearch first only if a perfect educational archive screenshot exists.",
+              "videoGuidance": "Use /youtubesearch for a short educational video about cut songs, demos, or musical theatre development if a general explainer is useful. Otherwise, the four preserved song links are enough.",
+              "links": [],
+              "src": "assets/raw-content/theres-a-draft-in-here/why-the-internet-changes-drafts.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Endings"
+      ],
+      "primaryBigIdea": "Incompletion That Stays Active",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Incompletion That Stays Active",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Performed Progress",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "There’s a Draft in Here"
+    }
+  ]
+}

@@ -1,0 +1,1309 @@
+{
+  "id": "questions.home-and-wandering",
+  "sectionId": "home-and-wandering",
+  "levels": {
+    "100": [
+      {
+        "id": "question.home-and-wandering.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What did the magnetic compass help sailors determine at sea?",
+        "correctAnswer": "Direction relative to magnetic north",
+        "wrongAnswers": [
+          "Distance from the nearest coast",
+          "Depth below the ship’s hull",
+          "Weather in the next storm"
+        ],
+        "explanation": "Direction relative to magnetic north.",
+        "visibleCorrectExplanation": "Direction relative to magnetic north.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Distance from the nearest coast",
+            "explanation": "That answer changes the point: Direction relative to magnetic north."
+          },
+          {
+            "label": "C",
+            "answer": "Depth below the ship’s hull",
+            "explanation": "That answer changes the point: Direction relative to magnetic north."
+          },
+          {
+            "label": "D",
+            "answer": "Weather in the next storm",
+            "explanation": "That answer changes the point: Direction relative to magnetic north."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_1_093",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_1_093",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.001"
+      },
+      {
+        "id": "question.home-and-wandering.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is magnetoreception?",
+        "correctAnswer": "Sensing Earth’s magnetic field",
+        "wrongAnswers": [
+          "Hearing calls at long distance",
+          "Following familiar visual paths",
+          "Remembering food locations"
+        ],
+        "explanation": "Sensing Earth’s magnetic field.",
+        "visibleCorrectExplanation": "Sensing Earth’s magnetic field.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Hearing calls at long distance",
+            "explanation": "That answer changes the point: Sensing Earth’s magnetic field."
+          },
+          {
+            "label": "C",
+            "answer": "Following familiar visual paths",
+            "explanation": "That answer changes the point: Sensing Earth’s magnetic field."
+          },
+          {
+            "label": "D",
+            "answer": "Remembering food locations",
+            "explanation": "That answer changes the point: Sensing Earth’s magnetic field."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_2_010",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_2_010",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.002"
+      },
+      {
+        "id": "question.home-and-wandering.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does wayfinding without screens rely on?",
+        "correctAnswer": "Reading stars, waves, land, and memory",
+        "wrongAnswers": [
+          "Opening GPS apps before every trip",
+          "Marking highways with digital signs",
+          "Measuring speed with car dashboards"
+        ],
+        "explanation": "Reading stars, waves, land, and memory.",
+        "visibleCorrectExplanation": "Reading stars, waves, land, and memory.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Opening GPS apps before every trip",
+            "explanation": "That answer changes the point: Reading stars, waves, land, and memory."
+          },
+          {
+            "label": "C",
+            "answer": "Marking highways with digital signs",
+            "explanation": "That answer changes the point: Reading stars, waves, land, and memory."
+          },
+          {
+            "label": "D",
+            "answer": "Measuring speed with car dashboards",
+            "explanation": "That answer changes the point: Reading stars, waves, land, and memory."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_3_058",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_3_058",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.003"
+      },
+      {
+        "id": "question.home-and-wandering.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does Fog of World hide?",
+        "correctAnswer": "Places the user has not visited yet",
+        "wrongAnswers": [
+          "Weather clouds around the airport",
+          "Private messages from other users",
+          "Official borders between countries"
+        ],
+        "explanation": "Places the user has not visited yet.",
+        "visibleCorrectExplanation": "Places the user has not visited yet.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Weather clouds around the airport",
+            "explanation": "That answer changes the point: Places the user has not visited yet."
+          },
+          {
+            "label": "C",
+            "answer": "Private messages from other users",
+            "explanation": "That answer changes the point: Places the user has not visited yet."
+          },
+          {
+            "label": "D",
+            "answer": "Official borders between countries",
+            "explanation": "That answer changes the point: Places the user has not visited yet."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_4_017",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_4_017",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.004"
+      },
+      {
+        "id": "question.home-and-wandering.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why is The Terminal an airport-limbo story?",
+        "correctAnswer": "The traveler cannot enter or return home",
+        "wrongAnswers": [
+          "The traveler chooses a holiday hotel",
+          "The airport becomes a borderless place where entry is automatic",
+          "A passport alone solves every legal problem of arrival"
+        ],
+        "explanation": "The traveler cannot enter or return home.",
+        "visibleCorrectExplanation": "The traveler cannot enter or return home.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The traveler chooses a holiday hotel",
+            "explanation": "That answer changes the point: The traveler cannot enter or return home."
+          },
+          {
+            "label": "C",
+            "answer": "The airport becomes a borderless place where entry is automatic",
+            "explanation": "That answer changes the point: The traveler cannot enter or return home."
+          },
+          {
+            "label": "D",
+            "answer": "A passport alone solves every legal problem of arrival",
+            "explanation": "That answer changes the point: The traveler cannot enter or return home."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_5_045",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_5_045",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.005"
+      },
+      {
+        "id": "question.home-and-wandering.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What happened to many St. Louis passengers?",
+        "correctAnswer": "They were refused safe entry by several countries",
+        "wrongAnswers": [
+          "They reached Cuba and stayed there safely",
+          "They traveled as tourists rather than people seeking refuge",
+          "They were welcomed at once instead of facing refusal"
+        ],
+        "explanation": "They were refused safe entry by several countries.",
+        "visibleCorrectExplanation": "They were refused safe entry by several countries.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They reached Cuba and stayed there safely",
+            "explanation": "That answer changes the point: They were refused safe entry by several countries."
+          },
+          {
+            "label": "C",
+            "answer": "They traveled as tourists rather than people seeking refuge",
+            "explanation": "That answer changes the point: They were refused safe entry by several countries."
+          },
+          {
+            "label": "D",
+            "answer": "They were welcomed at once instead of facing refusal",
+            "explanation": "That answer changes the point: They were refused safe entry by several countries."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_6_046",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_6_046",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.006"
+      },
+      {
+        "id": "question.home-and-wandering.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do migration poems often explore?",
+        "correctAnswer": "Belonging, memory, loss, and hope",
+        "wrongAnswers": [
+          "Cargo routes, trade taxes, and maps",
+          "Paperwork and transport details rather than memory and belonging",
+          "Leisure travel rather than loss, memory, and belonging"
+        ],
+        "explanation": "Belonging, memory, loss, and hope.",
+        "visibleCorrectExplanation": "Belonging, memory, loss, and hope.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Cargo routes, trade taxes, and maps",
+            "explanation": "That answer changes the point: Belonging, memory, loss, and hope."
+          },
+          {
+            "label": "C",
+            "answer": "Paperwork and transport details rather than memory and belonging",
+            "explanation": "That answer changes the point: Belonging, memory, loss, and hope."
+          },
+          {
+            "label": "D",
+            "answer": "Leisure travel rather than loss, memory, and belonging",
+            "explanation": "That answer changes the point: Belonging, memory, loss, and hope."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_7_030",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_7_030",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.007"
+      },
+      {
+        "id": "question.home-and-wandering.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do migrant artworks and songs often show?",
+        "correctAnswer": "People split between home and elsewhere",
+        "wrongAnswers": [
+          "Roads designed for faster shipping",
+          "Temporary leisure travelers rather than people living between homes",
+          "Animal return rather than human memory, migration, and belonging"
+        ],
+        "explanation": "People split between home and elsewhere.",
+        "visibleCorrectExplanation": "People split between home and elsewhere.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Roads designed for faster shipping",
+            "explanation": "That answer changes the point: People split between home and elsewhere."
+          },
+          {
+            "label": "C",
+            "answer": "Temporary leisure travelers rather than people living between homes",
+            "explanation": "That answer changes the point: People split between home and elsewhere."
+          },
+          {
+            "label": "D",
+            "answer": "Animal return rather than human memory, migration, and belonging",
+            "explanation": "That answer changes the point: People split between home and elsewhere."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_home-and-wandering_8_066",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_home-and-wandering_8_066",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.008"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.home-and-wandering.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What problem did latitude and longitude help solve?",
+        "correctAnswer": "Describing position on the globe",
+        "wrongAnswers": [
+          "Naming different types of ships",
+          "Storing cargo during a voyage",
+          "Choosing who governed colonies"
+        ],
+        "explanation": "Describing position on the globe.",
+        "visibleCorrectExplanation": "Describing position on the globe.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Naming different types of ships",
+            "explanation": "That answer changes the point: Describing position on the globe."
+          },
+          {
+            "label": "C",
+            "answer": "Storing cargo during a voyage",
+            "explanation": "That answer changes the point: Describing position on the globe."
+          },
+          {
+            "label": "D",
+            "answer": "Choosing who governed colonies",
+            "explanation": "That answer changes the point: Describing position on the globe."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_1_163",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_1_163",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.001"
+      },
+      {
+        "id": "question.home-and-wandering.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What cue are cryptochromes linked to in navigation?",
+        "correctAnswer": "Light-based magnetic sensing",
+        "wrongAnswers": [
+          "Smell-based trail following",
+          "Echoes from nearby objects",
+          "Memory of one nest location"
+        ],
+        "explanation": "Light-based magnetic sensing.",
+        "visibleCorrectExplanation": "Light-based magnetic sensing.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Smell-based trail following",
+            "explanation": "That answer changes the point: Light-based magnetic sensing."
+          },
+          {
+            "label": "C",
+            "answer": "Echoes from nearby objects",
+            "explanation": "That answer changes the point: Light-based magnetic sensing."
+          },
+          {
+            "label": "D",
+            "answer": "Memory of one nest location",
+            "explanation": "That answer changes the point: Light-based magnetic sensing."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_2_164",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_2_164",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.002"
+      },
+      {
+        "id": "question.home-and-wandering.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does a Polynesian star compass organize?",
+        "correctAnswer": "Rising and setting points of stars",
+        "wrongAnswers": [
+          "Electronic routes between islands",
+          "Official borders between nations",
+          "Written records rather than environmental reading of the sea"
+        ],
+        "explanation": "Rising and setting points of stars.",
+        "visibleCorrectExplanation": "Rising and setting points of stars.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Electronic routes between islands",
+            "explanation": "That answer changes the point: Rising and setting points of stars."
+          },
+          {
+            "label": "C",
+            "answer": "Official borders between nations",
+            "explanation": "That answer changes the point: Rising and setting points of stars."
+          },
+          {
+            "label": "D",
+            "answer": "Written records rather than environmental reading of the sea",
+            "explanation": "That answer changes the point: Rising and setting points of stars."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_3_148",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_3_148",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.003"
+      },
+      {
+        "id": "question.home-and-wandering.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why might hidden map areas feel exciting?",
+        "correctAnswer": "Discovery becomes gradual and personal",
+        "wrongAnswers": [
+          "Travel becomes safe in every situation",
+          "Planning becomes completely useless",
+          "The map stays complete once the first route is revealed"
+        ],
+        "explanation": "Discovery becomes gradual and personal.",
+        "visibleCorrectExplanation": "Discovery becomes gradual and personal.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Travel becomes safe in every situation",
+            "explanation": "That answer changes the point: Discovery becomes gradual and personal."
+          },
+          {
+            "label": "C",
+            "answer": "Planning becomes completely useless",
+            "explanation": "That answer changes the point: Discovery becomes gradual and personal."
+          },
+          {
+            "label": "D",
+            "answer": "The map stays complete once the first route is revealed",
+            "explanation": "That answer changes the point: Discovery becomes gradual and personal."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_4_133",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_4_133",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.004"
+      },
+      {
+        "id": "question.home-and-wandering.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What made Mehran Karimi Nasseri’s situation liminal?",
+        "correctAnswer": "He lived between legal entry and departure",
+        "wrongAnswers": [
+          "He became the owner of an airport gate",
+          "He stayed in one seat rather than between legal statuses",
+          "He crossed borders without any airport"
+        ],
+        "explanation": "He lived between legal entry and departure.",
+        "visibleCorrectExplanation": "He lived between legal entry and departure.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "He became the owner of an airport gate",
+            "explanation": "That answer changes the point: He lived between legal entry and departure."
+          },
+          {
+            "label": "C",
+            "answer": "He stayed in one seat rather than between legal statuses",
+            "explanation": "That answer changes the point: He lived between legal entry and departure."
+          },
+          {
+            "label": "D",
+            "answer": "He crossed borders without any airport",
+            "explanation": "That answer changes the point: He lived between legal entry and departure."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_5_166",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_5_166",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.005"
+      },
+      {
+        "id": "question.home-and-wandering.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is a border more than a line on a map?",
+        "correctAnswer": "It enforces decisions about entry and protection",
+        "wrongAnswers": [
+          "It shows where oceans become dry land",
+          "It marks a line on a map without deciding protection or entry",
+          "It treats legal entry as separate from protection and responsibility"
+        ],
+        "explanation": "It enforces decisions about entry and protection.",
+        "visibleCorrectExplanation": "It enforces decisions about entry and protection.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It shows where oceans become dry land",
+            "explanation": "That answer changes the point: It enforces decisions about entry and protection."
+          },
+          {
+            "label": "C",
+            "answer": "It marks a line on a map without deciding protection or entry",
+            "explanation": "That answer changes the point: It enforces decisions about entry and protection."
+          },
+          {
+            "label": "D",
+            "answer": "It treats legal entry as separate from protection and responsibility",
+            "explanation": "That answer changes the point: It enforces decisions about entry and protection."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_6_136",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_6_136",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.006"
+      },
+      {
+        "id": "question.home-and-wandering.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does “The New Colossus” matter in migration literature?",
+        "correctAnswer": "It turns welcome into a national symbol",
+        "wrongAnswers": [
+          "It lists the rules for legal admission",
+          "It rejects the idea of newcomer hope",
+          "It treats the poem as classical imagery rather than migration welcome"
+        ],
+        "explanation": "It turns welcome into a national symbol.",
+        "visibleCorrectExplanation": "It turns welcome into a national symbol.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It lists the rules for legal admission",
+            "explanation": "That answer changes the point: It turns welcome into a national symbol."
+          },
+          {
+            "label": "C",
+            "answer": "It rejects the idea of newcomer hope",
+            "explanation": "That answer changes the point: It turns welcome into a national symbol."
+          },
+          {
+            "label": "D",
+            "answer": "It treats the poem as classical imagery rather than migration welcome",
+            "explanation": "That answer changes the point: It turns welcome into a national symbol."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_7_193",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_7_193",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.007"
+      },
+      {
+        "id": "question.home-and-wandering.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is Jacob Lawrence’s Migration Series important?",
+        "correctAnswer": "It makes mass movement a visual narrative",
+        "wrongAnswers": [
+          "It is a technical map of train routes",
+          "One private trip rather than a large migration story",
+          "A movement image without the social pressure behind migration"
+        ],
+        "explanation": "It makes mass movement a visual narrative.",
+        "visibleCorrectExplanation": "It makes mass movement a visual narrative.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is a technical map of train routes",
+            "explanation": "That answer changes the point: It makes mass movement a visual narrative."
+          },
+          {
+            "label": "C",
+            "answer": "One private trip rather than a large migration story",
+            "explanation": "That answer changes the point: It makes mass movement a visual narrative."
+          },
+          {
+            "label": "D",
+            "answer": "A movement image without the social pressure behind migration",
+            "explanation": "That answer changes the point: It makes mass movement a visual narrative."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_home-and-wandering_8_165",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_home-and-wandering_8_165",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.home-and-wandering.008"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.home-and-wandering.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Home is not always where someone was born. Which idea gives the best comparison?",
+        "correctAnswer": "Wandering",
+        "wrongAnswers": [
+          "Diaspora and multiple belonging",
+          "Homesickness",
+          "Return and homecoming"
+        ],
+        "explanation": "Correct: Wandering.",
+        "visibleCorrectExplanation": "Correct: Wandering.",
+        "visibleConnection": "The question starts from a concrete detail in What home is: Home is not always where someone was born. It is really asking which answer handles a similar pressure. Wandering is the best connection because it makes movement a method of discovery rather than a sign of being lost. Both ideas ask alpacas to notice that Home is part place, part routine, part recognition. That is why it can be lost without moving and carried without returning.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering__230",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering__230",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Diaspora and multiple belonging",
+            "explanation": "That answer changes the point: Wandering."
+          },
+          {
+            "label": "C",
+            "answer": "Homesickness",
+            "explanation": "That answer changes the point: Wandering."
+          },
+          {
+            "label": "D",
+            "answer": "Return and homecoming",
+            "explanation": "That answer changes the point: Wandering."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Diaspora and multiple belonging?",
+        "correctAnswer": "Homesickness",
+        "wrongAnswers": [
+          "Return and homecoming",
+          "Exile vs chosen mobility",
+          "What home is"
+        ],
+        "explanation": "Correct: Homesickness.",
+        "visibleCorrectExplanation": "Correct: Homesickness.",
+        "visibleConnection": "The question starts from a concrete detail in Diaspora and multiple belonging: People may belong to a homeland, a host country, and a transnational community at once. It is really asking which answer handles a similar pressure. Homesickness is the best connection because it lets absence become a kind of presence: the missing place keeps shaping the person who left. Both ideas ask alpacas to notice that Multiple belonging is not half-belonging. It is a different structure of identity.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering__231",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering__231",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Return and homecoming",
+            "explanation": "That answer changes the point: Homesickness."
+          },
+          {
+            "label": "C",
+            "answer": "Exile vs chosen mobility",
+            "explanation": "That answer changes the point: Homesickness."
+          },
+          {
+            "label": "D",
+            "answer": "What home is",
+            "explanation": "That answer changes the point: Homesickness."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Return and homecoming into a different form?",
+        "correctAnswer": "Exile vs chosen mobility",
+        "wrongAnswers": [
+          "What home is",
+          "Wandering",
+          "Diaspora and multiple belonging"
+        ],
+        "explanation": "Correct: Exile vs chosen mobility.",
+        "visibleCorrectExplanation": "Correct: Exile vs chosen mobility.",
+        "visibleConnection": "The question starts from a concrete detail in Return and homecoming: The place may have changed. It is really asking which answer handles a similar pressure. Exile vs chosen mobility is the best connection because it separates movement as freedom from movement as loss; the same route can mean privilege or punishment. Both ideas ask alpacas to notice that Homecoming is never a rewind. The return tests whether memory and reality can still recognize each other.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering__232",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering__232",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "What home is",
+            "explanation": "That answer changes the point: Exile vs chosen mobility."
+          },
+          {
+            "label": "C",
+            "answer": "Wandering",
+            "explanation": "That answer changes the point: Exile vs chosen mobility."
+          },
+          {
+            "label": "D",
+            "answer": "Diaspora and multiple belonging",
+            "explanation": "That answer changes the point: Exile vs chosen mobility."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Homesickness?",
+        "correctAnswer": "Return and homecoming",
+        "wrongAnswers": [
+          "Exile vs chosen mobility",
+          "What home is",
+          "Wandering"
+        ],
+        "explanation": "Correct: Return and homecoming.",
+        "visibleCorrectExplanation": "Correct: Return and homecoming.",
+        "visibleConnection": "The question starts from a concrete detail in Homesickness: It can include sadness, loneliness, confusion, and longing. It is really asking which answer handles a similar pressure. Return and homecoming is the best connection because it tests whether arrival back at home is possible when both traveler and place have changed. Both ideas ask alpacas to notice that Homesickness proves that places continue acting on people after physical departure.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering__233",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering__233",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Exile vs chosen mobility",
+            "explanation": "That answer changes the point: Return and homecoming."
+          },
+          {
+            "label": "C",
+            "answer": "What home is",
+            "explanation": "That answer changes the point: Return and homecoming."
+          },
+          {
+            "label": "D",
+            "answer": "Wandering",
+            "explanation": "That answer changes the point: Return and homecoming."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Wandering?",
+        "correctAnswer": "Return and homecoming",
+        "wrongAnswers": [
+          "Exile vs chosen mobility",
+          "What home is",
+          "Diaspora and multiple belonging"
+        ],
+        "explanation": "Correct: Return and homecoming.",
+        "visibleCorrectExplanation": "Correct: Return and homecoming.",
+        "visibleConnection": "The question starts from a concrete detail in Wandering: Wandering can be spiritual, adventurous, forced, or aimless. It is really asking which answer handles a similar pressure. Return and homecoming is the best connection because it tests whether arrival back at home is possible when both traveler and place have changed. Both ideas ask alpacas to notice that Wandering resists the idea that every route must justify itself by ending somewhere planned.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering__234",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering__234",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Exile vs chosen mobility",
+            "explanation": "That answer changes the point: Return and homecoming."
+          },
+          {
+            "label": "C",
+            "answer": "What home is",
+            "explanation": "That answer changes the point: Return and homecoming."
+          },
+          {
+            "label": "D",
+            "answer": "Diaspora and multiple belonging",
+            "explanation": "That answer changes the point: Return and homecoming."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why did sextants and astrolabes matter for navigation?",
+        "correctAnswer": "They connected sky measurements to position",
+        "wrongAnswers": [
+          "They turned stars into weather forecasts",
+          "They replaced sailors with machines",
+          "They made oceans physically smaller"
+        ],
+        "explanation": "Correct: They connected sky measurements to position.",
+        "visibleCorrectExplanation": "Correct: They connected sky measurements to position.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_1_308",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_1_308",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They turned stars into weather forecasts",
+            "explanation": "That answer changes the point: They connected sky measurements to position."
+          },
+          {
+            "label": "C",
+            "answer": "They replaced sailors with machines",
+            "explanation": "That answer changes the point: They connected sky measurements to position."
+          },
+          {
+            "label": "D",
+            "answer": "They made oceans physically smaller",
+            "explanation": "That answer changes the point: They connected sky measurements to position."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does zugunruhe describe?",
+        "correctAnswer": "Restless behavior before migration",
+        "wrongAnswers": [
+          "Memory of a familiar landmark",
+          "A sound used in echolocation",
+          "A map made by human observers"
+        ],
+        "explanation": "Correct: Restless behavior before migration.",
+        "visibleCorrectExplanation": "Correct: Restless behavior before migration.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_2_309",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_2_309",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Memory of a familiar landmark",
+            "explanation": "That answer changes the point: Restless behavior before migration."
+          },
+          {
+            "label": "C",
+            "answer": "A sound used in echolocation",
+            "explanation": "That answer changes the point: Restless behavior before migration."
+          },
+          {
+            "label": "D",
+            "answer": "A map made by human observers",
+            "explanation": "That answer changes the point: Restless behavior before migration."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What makes Inuit navigation especially skillful?",
+        "correctAnswer": "Reading subtle signs in ice, snow, sky, and sound",
+        "wrongAnswers": [
+          "Memorizing one fixed printed road map",
+          "Traveling only during clear summer days",
+          "Avoiding knowledge from elders and stories"
+        ],
+        "explanation": "Correct: Reading subtle signs in ice, snow, sky, and sound.",
+        "visibleCorrectExplanation": "Correct: Reading subtle signs in ice, snow, sky, and sound.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_3_310",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_3_310",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Memorizing one fixed printed road map",
+            "explanation": "That answer changes the point: Reading subtle signs in ice, snow, sky, and sound."
+          },
+          {
+            "label": "C",
+            "answer": "Traveling only during clear summer days",
+            "explanation": "That answer changes the point: Reading subtle signs in ice, snow, sky, and sound."
+          },
+          {
+            "label": "D",
+            "answer": "Avoiding knowledge from elders and stories",
+            "explanation": "That answer changes the point: Reading subtle signs in ice, snow, sky, and sound."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What trade-off does map fog create?",
+        "correctAnswer": "Less information can mean more curiosity",
+        "wrongAnswers": [
+          "More data can mean fewer choices",
+          "Better maps always reduce meaning",
+          "Hidden routes always improve safety"
+        ],
+        "explanation": "Correct: Less information can mean more curiosity.",
+        "visibleCorrectExplanation": "Correct: Less information can mean more curiosity.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_4_311",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_4_311",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "More data can mean fewer choices",
+            "explanation": "That answer changes the point: Less information can mean more curiosity."
+          },
+          {
+            "label": "C",
+            "answer": "Better maps always reduce meaning",
+            "explanation": "That answer changes the point: Less information can mean more curiosity."
+          },
+          {
+            "label": "D",
+            "answer": "Hidden routes always improve safety",
+            "explanation": "That answer changes the point: Less information can mean more curiosity."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does Snowden fit the same broader theme?",
+        "correctAnswer": "He was trapped by passport and asylum disputes",
+        "wrongAnswers": [
+          "He lived in an airport as a tourist",
+          "He waited because one flight was late",
+          "He avoided borders by never traveling"
+        ],
+        "explanation": "Correct: He was trapped by passport and asylum disputes.",
+        "visibleCorrectExplanation": "Correct: He was trapped by passport and asylum disputes.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_5_312",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_5_312",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "He lived in an airport as a tourist",
+            "explanation": "That answer changes the point: He was trapped by passport and asylum disputes."
+          },
+          {
+            "label": "C",
+            "answer": "He waited because one flight was late",
+            "explanation": "That answer changes the point: He was trapped by passport and asylum disputes."
+          },
+          {
+            "label": "D",
+            "answer": "He avoided borders by never traveling",
+            "explanation": "That answer changes the point: He was trapped by passport and asylum disputes."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What makes refugee policy morally difficult?",
+        "correctAnswer": "States weigh need, law, resources, and fear",
+        "wrongAnswers": [
+          "Every refugee case has one simple answer",
+          "Borders protect people without trade-offs",
+          "International law bans all entry limits"
+        ],
+        "explanation": "Correct: States weigh need, law, resources, and fear.",
+        "visibleCorrectExplanation": "Correct: States weigh need, law, resources, and fear.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_6_313",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_6_313",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Every refugee case has one simple answer",
+            "explanation": "That answer changes the point: States weigh need, law, resources, and fear."
+          },
+          {
+            "label": "C",
+            "answer": "Borders protect people without trade-offs",
+            "explanation": "That answer changes the point: States weigh need, law, resources, and fear."
+          },
+          {
+            "label": "D",
+            "answer": "International law bans all entry limits",
+            "explanation": "That answer changes the point: States weigh need, law, resources, and fear."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does Rich’s threshold poem warn immigrants about?",
+        "correctAnswer": "Crossing and not crossing both change a life",
+        "wrongAnswers": [
+          "Borders disappear once a choice is made",
+          "Arrival makes identity simple again",
+          "Migration depends only on paperwork"
+        ],
+        "explanation": "Correct: Crossing and not crossing both change a life.",
+        "visibleCorrectExplanation": "Correct: Crossing and not crossing both change a life.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_7_314",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_7_314",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Borders disappear once a choice is made",
+            "explanation": "That answer changes the point: Crossing and not crossing both change a life."
+          },
+          {
+            "label": "C",
+            "answer": "Arrival makes identity simple again",
+            "explanation": "That answer changes the point: Crossing and not crossing both change a life."
+          },
+          {
+            "label": "D",
+            "answer": "Migration depends only on paperwork",
+            "explanation": "That answer changes the point: Crossing and not crossing both change a life."
+          }
+        ]
+      },
+      {
+        "id": "question.home-and-wandering.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How can music represent migration differently from policy?",
+        "correctAnswer": "Through voice, rhythm, protest, and longing",
+        "wrongAnswers": [
+          "Through legal definitions and statistics",
+          "Through passport categories and forms",
+          "Through maps, tariffs, and shipping lanes"
+        ],
+        "explanation": "Correct: Through voice, rhythm, protest, and longing.",
+        "visibleCorrectExplanation": "Correct: Through voice, rhythm, protest, and longing.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_home-and-wandering_8_315",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "home-and-wandering",
+        "sectionIds": [
+          "home-and-wandering"
+        ],
+        "guidingSectionPrimary": "Home and Wandering",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_home-and-wandering_8_315",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Through legal definitions and statistics",
+            "explanation": "That answer changes the point: Through voice, rhythm, protest, and longing."
+          },
+          {
+            "label": "C",
+            "answer": "Through passport categories and forms",
+            "explanation": "That answer changes the point: Through voice, rhythm, protest, and longing."
+          },
+          {
+            "label": "D",
+            "answer": "Through maps, tariffs, and shipping lanes",
+            "explanation": "That answer changes the point: Through voice, rhythm, protest, and longing."
+          }
+        ]
+      }
+    ]
+  }
+}

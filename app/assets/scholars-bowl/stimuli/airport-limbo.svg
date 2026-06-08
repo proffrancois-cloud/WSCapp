@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Endless airport corridor stimulus</title>
+  <desc id="desc">A long airport corridor narrows toward a distant vanishing point while signs promise gates, arrivals, and borders without showing a destination.</desc>
+  <defs>
+    <linearGradient id="floor" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#e8edf0"/>
+      <stop offset="1" stop-color="#9fb0b4"/>
+    </linearGradient>
+    <linearGradient id="wallLeft" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#d9e5e9"/>
+      <stop offset="1" stop-color="#f8fbfb"/>
+    </linearGradient>
+    <linearGradient id="wallRight" x1="1" x2="0" y1="0" y2="0">
+      <stop offset="0" stop-color="#d2dde1"/>
+      <stop offset="1" stop-color="#f8fbfb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="#f6fafb"/>
+  <polygon points="0,0 535,300 530,720 0,720" fill="url(#wallLeft)"/>
+  <polygon points="1280,0 745,300 750,720 1280,720" fill="url(#wallRight)"/>
+  <polygon points="535,300 745,300 1010,720 270,720" fill="url(#floor)"/>
+  <polygon points="535,300 745,300 690,0 590,0" fill="#eaf1f4"/>
+  <g stroke="#879ca2" stroke-width="3" opacity=".55">
+    <line x1="480" y1="372" x2="180" y2="720"/>
+    <line x1="800" y1="372" x2="1100" y2="720"/>
+    <line x1="546" y1="310" x2="290" y2="0"/>
+    <line x1="734" y1="310" x2="990" y2="0"/>
+  </g>
+  <g fill="#ffffff" stroke="#5e747a" stroke-width="5">
+    <rect x="458" y="104" width="364" height="76" rx="8"/>
+    <rect x="102" y="242" width="258" height="68" rx="8"/>
+    <rect x="920" y="242" width="258" height="68" rx="8"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-weight="800" fill="#18343c">
+    <text x="492" y="153" font-size="34">GATES A-Z -> STILL WALKING</text>
+    <text x="132" y="286" font-size="28">ARRIVALS?</text>
+    <text x="948" y="286" font-size="28">BORDER CHECK</text>
+  </g>
+  <g fill="#27424a">
+    <circle cx="640" cy="430" r="21"/>
+    <path d="M618 458h44l20 116h-28l-9-70h-10l-9 70h-28z"/>
+    <rect x="692" y="496" width="42" height="70" rx="5"/>
+    <line x1="704" y1="492" x2="681" y2="456" stroke="#27424a" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g fill="none" stroke="#b3272d" stroke-width="8" stroke-linecap="round" opacity=".85">
+    <path d="M486 600c76-36 232-36 308 0"/>
+    <path d="M520 633c64-25 176-25 240 0"/>
+  </g>
+  <text x="640" y="680" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#5d2c22">MOVING, WAITING, NOT ARRIVING</text>
+</svg>

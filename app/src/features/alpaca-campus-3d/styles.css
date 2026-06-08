@@ -1,0 +1,1146 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#alpaca-campus-3d-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #e8ece4;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.campus3d-entry-shell {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 24px;
+  color: #17202a;
+  background:
+    linear-gradient(120deg, rgba(232, 236, 228, 0.92), rgba(248, 240, 223, 0.9)),
+    url("/assets/campus/backgrounds/campus-courtyard.png?v=20260601") center / cover;
+}
+
+.campus3d-entry-window {
+  display: grid;
+  width: min(760px, 100%);
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid rgba(27, 37, 45, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 252, 244, 0.92);
+  box-shadow: 0 22px 62px rgba(27, 37, 45, 0.2);
+  backdrop-filter: blur(16px);
+}
+
+.campus3d-entry-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.campus3d-entry-heading h1 {
+  margin: 0;
+  color: #17202a;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.campus3d-entry-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.campus3d-entry-choice {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 116px;
+  padding: 16px;
+  border: 1px solid rgba(37, 79, 89, 0.2);
+  border-radius: 8px;
+  color: #17202a;
+  background: #fffaf0;
+  text-align: left;
+}
+
+.campus3d-entry-choice:hover,
+.campus3d-entry-choice:focus-visible {
+  border-color: #244f59;
+  background: #f2cc8f;
+  outline: none;
+}
+
+.campus3d-entry-choice-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fffaf0;
+  background: #244f59;
+}
+
+.campus3d-entry-choice-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.campus3d-entry-choice-copy small {
+  color: #59747c;
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.campus3d-entry-choice-copy strong {
+  overflow: hidden;
+  font-size: 1.12rem;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campus3d-entry-choice-copy em {
+  overflow: hidden;
+  color: #50606b;
+  font-size: 0.9rem;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campus3d-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  color: #17202a;
+  background: #e8ece4;
+}
+
+.campus3d-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.campus3d-topbar,
+.campus3d-room-dock,
+.campus3d-avatar-dock,
+.campus3d-action-pill,
+.campus3d-panel,
+.campus3d-debug-editor {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid rgba(27, 37, 45, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 252, 244, 0.9);
+  box-shadow: 0 18px 48px rgba(27, 37, 45, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.campus3d-topbar {
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+}
+
+.campus3d-room-title {
+  min-width: 0;
+}
+
+.campus3d-eyebrow {
+  display: block;
+  color: #59747c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.campus3d-room-title h1,
+.campus3d-panel h2,
+.campus3d-panel h3 {
+  margin: 0;
+  color: #17202a;
+  letter-spacing: 0;
+}
+
+.campus3d-room-title h1 {
+  font-size: clamp(1.25rem, 2.2vw, 2.05rem);
+  line-height: 1.05;
+}
+
+.campus3d-room-title p {
+  margin: 4px 0 0;
+  color: #50606b;
+  font-size: 0.9rem;
+}
+
+.campus3d-status-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.campus3d-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid rgba(37, 79, 89, 0.2);
+  border-radius: 999px;
+  color: #244f59;
+  background: #f8f0df;
+  font-size: 0.84rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.campus3d-status-pill.is-seat {
+  color: #6f1d1b;
+  background: #f2cc8f;
+}
+
+.campus3d-view-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 4px 6px;
+  border: 1px solid rgba(37, 79, 89, 0.2);
+  border-radius: 999px;
+  background: #fffaf0;
+}
+
+.campus3d-view-icon,
+.campus3d-light-slider {
+  flex: 0 0 auto;
+  color: #244f59;
+}
+
+.campus3d-view-controls button {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  color: #244f59;
+  background: transparent;
+}
+
+.campus3d-view-controls button:hover,
+.campus3d-view-controls button:focus-visible {
+  color: #17202a;
+  background: #f2cc8f;
+  outline: none;
+}
+
+.campus3d-light-slider {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.campus3d-light-slider input {
+  width: 78px;
+  accent-color: #d6a15c;
+}
+
+.campus3d-room-dock {
+  left: 50%;
+  bottom: 18px;
+  display: flex;
+  width: min(1120px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  overflow-x: auto;
+  gap: 6px;
+  padding: 8px;
+}
+
+.campus3d-room-dock button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 118px;
+  max-width: 176px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #2e3b44;
+  background: transparent;
+  font-size: 0.88rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.campus3d-room-dock button span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.campus3d-room-dock button:hover,
+.campus3d-room-dock button:focus-visible,
+.campus3d-room-dock button.is-active {
+  color: #17202a;
+  border-color: rgba(37, 79, 89, 0.24);
+  background: #f2cc8f;
+  outline: none;
+}
+
+.campus3d-avatar-dock {
+  top: 104px;
+  left: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 36px);
+  gap: 8px;
+  padding: 8px;
+  max-height: calc(100vh - 132px);
+  overflow-y: auto;
+}
+
+.campus3d-avatar-dock button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(27, 37, 45, 0.18);
+  border-radius: 6px;
+  background: #fffaf0;
+}
+
+.campus3d-avatar-dock button span {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #17202a;
+  border-radius: 50%;
+}
+
+.campus3d-avatar-dock button.is-active {
+  background: #244f59;
+}
+
+.campus3d-avatar-dock button.is-active span {
+  border-color: #f8f0df;
+}
+
+.campus3d-debug-panel {
+  position: absolute;
+  z-index: 30;
+  top: 112px;
+  left: 96px;
+  width: 318px;
+  padding: 10px 12px;
+  border: 1px solid rgba(248, 240, 223, 0.24);
+  border-radius: 8px;
+  color: #f8f0df;
+  background: rgba(23, 32, 42, 0.88);
+  box-shadow: 0 18px 48px rgba(23, 32, 42, 0.28);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.campus3d-debug-panel strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #f2cc8f;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.campus3d-debug-panel dl {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+}
+
+.campus3d-debug-panel div {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.campus3d-debug-panel dt {
+  color: #9fd6ff;
+}
+
+.campus3d-debug-panel dd {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #fffaf0;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campus3d-debug-snippet {
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(248, 240, 223, 0.18);
+}
+
+.campus3d-debug-snippet dd {
+  text-align: left;
+  white-space: normal;
+}
+
+.campus3d-debug-snippet code {
+  display: block;
+  overflow-x: auto;
+  max-height: 96px;
+  padding: 6px;
+  border-radius: 6px;
+  color: #f8f0df;
+  background: rgba(0, 0, 0, 0.26);
+  line-height: 1.35;
+  white-space: pre;
+}
+
+.campus3d-debug-editor {
+  top: 92px;
+  right: 16px;
+  bottom: 88px;
+  z-index: 32;
+  display: flex;
+  width: min(440px, calc(100vw - 32px));
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.campus3d-debug-editor header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid rgba(27, 37, 45, 0.12);
+}
+
+.campus3d-debug-editor header h2 {
+  margin: 2px 0 0;
+  font-size: 1.12rem;
+  line-height: 1.12;
+}
+
+.campus3d-debug-editor header button {
+  display: grid;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: #fffaf0;
+  background: #244f59;
+}
+
+.campus3d-debug-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(27, 37, 45, 0.1);
+}
+
+.campus3d-debug-tabs button,
+.campus3d-debug-zone-actions button {
+  min-height: 34px;
+  border: 1px solid rgba(36, 79, 89, 0.22);
+  border-radius: 6px;
+  color: #244f59;
+  background: #fffaf0;
+  font-weight: 850;
+}
+
+.campus3d-debug-tabs button.is-active,
+.campus3d-debug-zone-actions button:first-child {
+  color: #fffaf0;
+  border-color: #244f59;
+  background: #244f59;
+}
+
+.campus3d-debug-editor-body {
+  display: grid;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 14px;
+}
+
+.campus3d-debug-info-list,
+.campus3d-debug-zone-card {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.campus3d-debug-info-list div {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.campus3d-debug-info-list dt,
+.campus3d-debug-number-field span,
+.campus3d-debug-zone-head span {
+  color: #59747c;
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.campus3d-debug-info-list dd {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #17202a;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campus3d-debug-zone-card,
+.campus3d-debug-empty {
+  padding: 12px;
+  border: 1px solid rgba(37, 79, 89, 0.18);
+  border-radius: 8px;
+  background: #fffaf0;
+}
+
+.campus3d-debug-zone-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.campus3d-debug-zone-head h3,
+.campus3d-debug-empty h3,
+.campus3d-debug-empty p {
+  margin: 0;
+}
+
+.campus3d-debug-zone-head small {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #fffaf0;
+  background: #8b4050;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.campus3d-debug-zone-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.campus3d-debug-number-field {
+  display: grid;
+  gap: 5px;
+}
+
+.campus3d-debug-number-field input {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid rgba(37, 79, 89, 0.24);
+  border-radius: 6px;
+  padding: 6px 8px;
+  color: #17202a;
+  background: #fff;
+  font: inherit;
+}
+
+.campus3d-debug-zone-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.campus3d-debug-zone-actions button {
+  flex: 1 1 0;
+}
+
+.campus3d-debug-confirm-code {
+  display: block;
+  overflow-x: auto;
+  padding: 8px;
+  border-radius: 6px;
+  color: #f8f0df;
+  background: #17202a;
+  line-height: 1.35;
+  white-space: pre;
+}
+
+.campus3d-action-pill {
+  left: 50%;
+  bottom: 86px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  transform: translateX(-50%);
+  padding: 8px 8px 8px 14px;
+  font-weight: 850;
+}
+
+.campus3d-action-pill button,
+.campus3d-panel header button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 6px;
+  color: #fffaf0;
+  background: #244f59;
+  font-weight: 850;
+}
+
+.campus3d-action-pill button {
+  padding: 0 12px;
+}
+
+.campus3d-panel {
+  top: 92px;
+  right: 16px;
+  bottom: 88px;
+  width: min(420px, calc(100vw - 32px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.campus3d-panel header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid rgba(27, 37, 45, 0.12);
+}
+
+.campus3d-panel header button {
+  flex: 0 0 auto;
+  width: 36px;
+  padding: 0;
+}
+
+.campus3d-panel h2 {
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.campus3d-panel h3 {
+  font-size: 0.96rem;
+}
+
+.campus3d-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.campus3d-panel-media,
+.campus3d-panel-video {
+  width: 100%;
+  border: 1px solid rgba(27, 37, 45, 0.12);
+  border-radius: 8px;
+  background: #17202a;
+}
+
+.campus3d-panel-media {
+  max-height: 230px;
+  object-fit: cover;
+}
+
+.campus3d-panel-video {
+  aspect-ratio: 16 / 9;
+}
+
+.campus3d-panel-section {
+  display: grid;
+  gap: 8px;
+}
+
+.campus3d-alpacard-focus {
+  display: grid;
+  gap: 14px;
+}
+
+.campus3d-alpacard-zoom-frame {
+  display: grid;
+  padding: 16px;
+  border: 16px solid #8a5a17;
+  border-image: url("/assets/campus-3d/frames/ornate-gold-frame-alpha.png?v=2") 78 / 16px / 0 round;
+  background: #21160d;
+  box-shadow: 0 14px 34px rgba(21, 13, 7, 0.28);
+}
+
+.campus3d-alpacard-zoom-frame img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  background: #120f0c;
+}
+
+.campus3d-alpacard-info-card {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(37, 79, 89, 0.18);
+  border-radius: 8px;
+  background: #fffaf0;
+}
+
+.campus3d-alpacard-info-card > span {
+  color: #244f59;
+  font-size: 0.76rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.campus3d-alpacard-info-card h3,
+.campus3d-alpacard-info-card p {
+  margin: 0;
+}
+
+.campus3d-alpacard-info-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.campus3d-alpacard-info-card dl div {
+  display: grid;
+  gap: 2px;
+}
+
+.campus3d-alpacard-info-card dt {
+  color: #244f59;
+  font-size: 0.74rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.campus3d-alpacard-info-card dd {
+  margin: 0;
+  color: #2e3b44;
+  line-height: 1.38;
+}
+
+.campus3d-surface-summary,
+.campus3d-seat-assignment {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid rgba(37, 79, 89, 0.18);
+  border-radius: 8px;
+  background: #fffaf0;
+}
+
+.campus3d-surface-summary span,
+.campus3d-seat-assignment span {
+  color: #244f59;
+  font-weight: 850;
+}
+
+.campus3d-surface-summary small,
+.campus3d-seat-assignment p,
+.campus3d-role-grid small,
+.campus3d-launch-grid small,
+.campus3d-card-list small {
+  color: #59747c;
+  font-size: 0.78rem;
+}
+
+.campus3d-panel-section p,
+.campus3d-summary,
+.campus3d-muted {
+  margin: 0;
+  color: #43515c;
+  line-height: 1.45;
+}
+
+.campus3d-summary {
+  color: #2e3b44;
+}
+
+.campus3d-muted {
+  font-size: 0.85rem;
+}
+
+.campus3d-panel-section ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.campus3d-panel-section li {
+  color: #2e3b44;
+}
+
+.campus3d-panel-section a {
+  color: #244f59;
+  font-weight: 850;
+}
+
+.campus3d-inline-link,
+.campus3d-link-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+
+.campus3d-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.campus3d-chip-grid span {
+  min-height: 30px;
+  padding: 5px 9px;
+  border: 1px solid #59747c;
+  border-radius: 999px;
+  background: #fffaf0;
+  font-size: 0.84rem;
+  font-weight: 760;
+}
+
+.campus3d-card-list,
+.campus3d-launch-grid,
+.campus3d-role-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.campus3d-card-list a,
+.campus3d-launch-grid a,
+.campus3d-role-grid span {
+  display: grid;
+  gap: 4px;
+  min-height: 48px;
+  padding: 10px;
+  border: 1px solid rgba(27, 37, 45, 0.12);
+  border-radius: 8px;
+  color: #17202a;
+  background: #fffaf0;
+  text-decoration: none;
+}
+
+.campus3d-card-list img {
+  width: 100%;
+  max-height: 118px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.campus3d-card-list span,
+.campus3d-launch-grid span,
+.campus3d-role-grid strong {
+  color: #17202a;
+  font-weight: 850;
+}
+
+.campus3d-launch-grid a {
+  grid-template-columns: 18px 1fr auto;
+  align-items: center;
+}
+
+.campus3d-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.campus3d-link-list a {
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid rgba(37, 79, 89, 0.18);
+  border-radius: 6px;
+  background: #fffaf0;
+  text-decoration: none;
+}
+
+.campus3d-name {
+  display: inline-block;
+  max-width: 140px;
+  overflow: hidden;
+  padding: 3px 7px;
+  border: 1px solid rgba(27, 37, 45, 0.16);
+  border-radius: 999px;
+  color: #17202a;
+  background: rgba(255, 250, 240, 0.88);
+  font-size: 11px;
+  font-weight: 850;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.campus3d-name.is-local {
+  border-color: rgba(36, 79, 89, 0.3);
+  background: rgba(242, 204, 143, 0.9);
+}
+
+.campus3d-chat {
+  position: absolute;
+  z-index: 9;
+  right: 16px;
+  bottom: 88px;
+  display: grid;
+  width: min(368px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.campus3d-chat-float-rail {
+  position: absolute;
+  right: 0;
+  bottom: 54px;
+  display: flex;
+  width: 100%;
+  height: min(46vh, 360px);
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 7px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.campus3d-chat-float {
+  display: grid;
+  max-width: min(320px, 100%);
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid rgba(27, 37, 45, 0.16);
+  border-radius: 8px;
+  color: #17202a;
+  background: rgba(255, 250, 240, 0.94);
+  box-shadow: 0 12px 28px rgba(27, 37, 45, 0.16);
+  animation: campus3d-chat-rise 6.2s linear forwards;
+}
+
+.campus3d-chat-float.is-local {
+  border-color: rgba(36, 79, 89, 0.28);
+  background: rgba(242, 204, 143, 0.96);
+}
+
+.campus3d-chat-float strong,
+.campus3d-chat-float span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.campus3d-chat-float strong {
+  color: #244f59;
+  font-size: 0.72rem;
+  line-height: 1.15;
+}
+
+.campus3d-chat-float span {
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.campus3d-chat-form {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 6px 6px 6px 10px;
+  border: 1px solid rgba(27, 37, 45, 0.16);
+  border-radius: 8px;
+  color: #244f59;
+  background: rgba(255, 252, 244, 0.92);
+  box-shadow: 0 16px 38px rgba(27, 37, 45, 0.18);
+  backdrop-filter: blur(14px);
+  pointer-events: auto;
+}
+
+.campus3d-chat-form input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  color: #17202a;
+  background: transparent;
+  outline: none;
+}
+
+.campus3d-chat-form input::placeholder {
+  color: #6a7a83;
+}
+
+.campus3d-chat-form button {
+  display: grid;
+  width: 34px;
+  height: 32px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: #fffaf0;
+  background: #244f59;
+}
+
+.campus3d-chat-form button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@keyframes campus3d-chat-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  12% {
+    opacity: 1;
+  }
+  74% {
+    opacity: 1;
+    transform: translateY(-134px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-226px);
+  }
+}
+
+@media (max-width: 760px) {
+  .campus3d-entry-window {
+    padding: 16px;
+  }
+
+  .campus3d-entry-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campus3d-entry-choice {
+    min-height: 92px;
+  }
+
+  .campus3d-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .campus3d-status-cluster {
+    justify-content: flex-start;
+  }
+
+  .campus3d-view-controls {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    border-radius: 8px;
+  }
+
+  .campus3d-light-slider input {
+    width: 64px;
+  }
+
+  .campus3d-avatar-dock {
+    top: 154px;
+    grid-template-columns: repeat(2, 34px);
+    max-height: calc(100vh - 180px);
+  }
+
+  .campus3d-debug-panel {
+    top: 224px;
+    left: 16px;
+    width: min(238px, calc(100vw - 32px));
+  }
+
+  .campus3d-room-dock {
+    justify-content: flex-start;
+  }
+
+  .campus3d-room-dock button {
+    min-width: 50px;
+  }
+
+  .campus3d-room-dock button span {
+    display: none;
+  }
+
+  .campus3d-action-pill {
+    bottom: 82px;
+    width: calc(100vw - 32px);
+    justify-content: space-between;
+  }
+
+  .campus3d-chat {
+    right: 12px;
+    bottom: 132px;
+    left: 72px;
+    width: auto;
+  }
+
+  .campus3d-chat-float-rail {
+    height: min(38vh, 280px);
+  }
+
+  .campus3d-panel {
+    top: auto;
+    right: 12px;
+    bottom: 78px;
+    left: 12px;
+    width: auto;
+    max-height: min(560px, calc(100vh - 120px));
+  }
+
+  .campus3d-debug-editor {
+    top: auto;
+    right: 12px;
+    bottom: 78px;
+    left: 12px;
+    width: auto;
+    max-height: min(560px, calc(100vh - 120px));
+  }
+}

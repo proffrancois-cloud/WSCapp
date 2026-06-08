@@ -1,0 +1,639 @@
+{
+  "id": "questions.more-to-do-than-can-ever-be-listed",
+  "sectionId": "more-to-do-than-can-ever-be-listed",
+  "levels": {
+    "100": [
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Who is mentioned as a famous historical user of lists?",
+        "correctAnswer": "Benjamin Franklin",
+        "wrongAnswers": [
+          "George Washington",
+          "Barack Obama",
+          "Harry Truman"
+        ],
+        "explanation": "Benjamin Franklin.",
+        "visibleCorrectExplanation": "Benjamin Franklin.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "George Washington",
+            "explanation": "That answer changes the point: Benjamin Franklin."
+          },
+          {
+            "label": "C",
+            "answer": "Barack Obama",
+            "explanation": "That answer changes the point: Benjamin Franklin."
+          },
+          {
+            "label": "D",
+            "answer": "Harry Truman",
+            "explanation": "That answer changes the point: Benjamin Franklin."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_more-to-do-than-can-ever-be-listed_1_080",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_more-to-do-than-can-ever-be-listed_1_080",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.more-to-do-than-can-ever-be-listed.001"
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does the Zeigarnik Effect describe?",
+        "correctAnswer": "Unfinished tasks can stay active in memory",
+        "wrongAnswers": [
+          "Completed tasks always feel more urgent",
+          "Lists make memory unnecessary",
+          "Planning works only after success"
+        ],
+        "explanation": "Unfinished tasks can stay active in memory.",
+        "visibleCorrectExplanation": "Unfinished tasks can stay active in memory.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Completed tasks always feel more urgent",
+            "explanation": "That answer changes the point: Unfinished tasks can stay active in memory."
+          },
+          {
+            "label": "C",
+            "answer": "Lists make memory unnecessary",
+            "explanation": "That answer changes the point: Unfinished tasks can stay active in memory."
+          },
+          {
+            "label": "D",
+            "answer": "Planning works only after success",
+            "explanation": "That answer changes the point: Unfinished tasks can stay active in memory."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_more-to-do-than-can-ever-be-listed_2_036",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_more-to-do-than-can-ever-be-listed_2_036",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.more-to-do-than-can-ever-be-listed.002"
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a practical list mainly meant to do?",
+        "correctAnswer": "Organize real tasks or real objects",
+        "wrongAnswers": [
+          "Suggest endless poetic abundance",
+          "Avoid all real-world usefulness",
+          "Replace action with imagination"
+        ],
+        "explanation": "Organize real tasks or real objects.",
+        "visibleCorrectExplanation": "Organize real tasks or real objects.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Suggest endless poetic abundance",
+            "explanation": "That answer changes the point: Organize real tasks or real objects."
+          },
+          {
+            "label": "C",
+            "answer": "Avoid all real-world usefulness",
+            "explanation": "That answer changes the point: Organize real tasks or real objects."
+          },
+          {
+            "label": "D",
+            "answer": "Replace action with imagination",
+            "explanation": "That answer changes the point: Organize real tasks or real objects."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_more-to-do-than-can-ever-be-listed_3_055",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_more-to-do-than-can-ever-be-listed_3_055",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.more-to-do-than-can-ever-be-listed.003"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is the main purpose of a strong to-do list?",
+        "correctAnswer": "To turn vague goals into clear, prioritized actions",
+        "wrongAnswers": [
+          "To make every task feel equally urgent",
+          "To guarantee every plan gets finished",
+          "To avoid choosing what matters"
+        ],
+        "explanation": "To turn vague goals into clear, prioritized actions.",
+        "visibleCorrectExplanation": "To turn vague goals into clear, prioritized actions.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To make every task feel equally urgent",
+            "explanation": "That answer changes the point: To turn vague goals into clear, prioritized actions."
+          },
+          {
+            "label": "C",
+            "answer": "To guarantee every plan gets finished",
+            "explanation": "That answer changes the point: To turn vague goals into clear, prioritized actions."
+          },
+          {
+            "label": "D",
+            "answer": "To avoid choosing what matters",
+            "explanation": "That answer changes the point: To turn vague goals into clear, prioritized actions."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_more-to-do-than-can-ever-be-listed_1_158",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_more-to-do-than-can-ever-be-listed_1_158",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.more-to-do-than-can-ever-be-listed.001"
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can an unfinished task feel mentally noisy?",
+        "correctAnswer": "It leaves an open goal demanding attention",
+        "wrongAnswers": [
+          "It becomes easier after every deadline",
+          "It stops mattering once written down",
+          "It turns every plan into a habit"
+        ],
+        "explanation": "It leaves an open goal demanding attention.",
+        "visibleCorrectExplanation": "It leaves an open goal demanding attention.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It becomes easier after every deadline",
+            "explanation": "That answer changes the point: It leaves an open goal demanding attention."
+          },
+          {
+            "label": "C",
+            "answer": "It stops mattering once written down",
+            "explanation": "That answer changes the point: It leaves an open goal demanding attention."
+          },
+          {
+            "label": "D",
+            "answer": "It turns every plan into a habit",
+            "explanation": "That answer changes the point: It leaves an open goal demanding attention."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_more-to-do-than-can-ever-be-listed_2_156",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_more-to-do-than-can-ever-be-listed_2_156",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.more-to-do-than-can-ever-be-listed.002"
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What are Eco’s two main types of lists?",
+        "correctAnswer": "Practical lists and poetic lists",
+        "wrongAnswers": [
+          "Duty lists and freedom lists",
+          "Short lists and school lists",
+          "Public lists and private lists"
+        ],
+        "explanation": "Practical lists and poetic lists.",
+        "visibleCorrectExplanation": "Practical lists and poetic lists.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Duty lists and freedom lists",
+            "explanation": "That answer changes the point: Practical lists and poetic lists."
+          },
+          {
+            "label": "C",
+            "answer": "Short lists and school lists",
+            "explanation": "That answer changes the point: Practical lists and poetic lists."
+          },
+          {
+            "label": "D",
+            "answer": "Public lists and private lists",
+            "explanation": "That answer changes the point: Practical lists and poetic lists."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_more-to-do-than-can-ever-be-listed_3_124",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_more-to-do-than-can-ever-be-listed_3_124",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.more-to-do-than-can-ever-be-listed.003"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Lists externalize memory. Which idea gives the best comparison?",
+        "correctAnswer": "Lists as control systems",
+        "wrongAnswers": [
+          "Historical list traditions",
+          "Task methods and prioritization",
+          "The Zeigarnik Effect"
+        ],
+        "explanation": "Correct: Lists as control systems.",
+        "visibleCorrectExplanation": "Correct: Lists as control systems.",
+        "visibleConnection": "The question starts from a concrete detail in Why humans make lists: Lists externalize memory. It is really asking which answer handles a similar pressure. Lists as control systems is the best connection because it imposes order on messy reality by sorting tasks, priorities, and attention into a sequence that looks manageable. Both ideas ask alpacas to notice that Lists calm the mind by moving burdens onto paper, but the page can become a mirror of everything still not done.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed__245",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed__245",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Historical list traditions",
+            "explanation": "That answer changes the point: Lists as control systems."
+          },
+          {
+            "label": "C",
+            "answer": "Task methods and prioritization",
+            "explanation": "That answer changes the point: Lists as control systems."
+          },
+          {
+            "label": "D",
+            "answer": "The Zeigarnik Effect",
+            "explanation": "That answer changes the point: Lists as control systems."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Historical list traditions?",
+        "correctAnswer": "Task methods and prioritization",
+        "wrongAnswers": [
+          "The Zeigarnik Effect",
+          "Done lists and visible accomplishment",
+          "Bucket lists and aspirational lists"
+        ],
+        "explanation": "Correct: Task methods and prioritization.",
+        "visibleCorrectExplanation": "Correct: Task methods and prioritization.",
+        "visibleConnection": "The question starts from a concrete detail in Historical list traditions: Inventories and ledgers supported early administration. It is really asking which answer handles a similar pressure. Task methods and prioritization is the best connection because it turns limited time into a sorting problem, deciding which tasks deserve action and which must be sacrificed. Both ideas ask alpacas to notice that Lists are never only practical. They show what a culture wants to preserve, audit, rank, or control.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed__246",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed__246",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The Zeigarnik Effect",
+            "explanation": "That answer changes the point: Task methods and prioritization."
+          },
+          {
+            "label": "C",
+            "answer": "Done lists and visible accomplishment",
+            "explanation": "That answer changes the point: Task methods and prioritization."
+          },
+          {
+            "label": "D",
+            "answer": "Bucket lists and aspirational lists",
+            "explanation": "That answer changes the point: Task methods and prioritization."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind The Zeigarnik Effect into a different form?",
+        "correctAnswer": "Done lists and visible accomplishment",
+        "wrongAnswers": [
+          "Bucket lists and aspirational lists",
+          "The failure of lists",
+          "Why humans make lists"
+        ],
+        "explanation": "Correct: Done lists and visible accomplishment.",
+        "visibleCorrectExplanation": "Correct: Done lists and visible accomplishment.",
+        "visibleConnection": "The question starts from a concrete detail in The Zeigarnik Effect: Incomplete tasks may feel mentally louder than completed ones. It is really asking which answer handles a similar pressure. Done lists and visible accomplishment is the best connection because it restores evidence of completed labor that ordinary to-do lists erase the moment a task is crossed off. Both ideas ask alpacas to notice that Unfinished tasks have social and mental power because they keep asking for attention after action has stopped.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed__247",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed__247",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Bucket lists and aspirational lists",
+            "explanation": "That answer changes the point: Done lists and visible accomplishment."
+          },
+          {
+            "label": "C",
+            "answer": "The failure of lists",
+            "explanation": "That answer changes the point: Done lists and visible accomplishment."
+          },
+          {
+            "label": "D",
+            "answer": "Why humans make lists",
+            "explanation": "That answer changes the point: Done lists and visible accomplishment."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Bucket lists and aspirational lists?",
+        "correctAnswer": "Why humans make lists",
+        "wrongAnswers": [
+          "Lists as control systems",
+          "Historical list traditions",
+          "Task methods and prioritization"
+        ],
+        "explanation": "Correct: Why humans make lists.",
+        "visibleCorrectExplanation": "Correct: Why humans make lists.",
+        "visibleConnection": "The question starts from a concrete detail in Bucket lists and aspirational lists: Bucket lists are tied to mortality and aspiration. It is really asking which answer handles a similar pressure. Why humans make lists is the best connection because it turns mental overload into an external sequence, then makes the unfinished items easier to see than the completed work. Both ideas ask alpacas to notice that A bucket list can inspire life, but it can also turn desire into a performance of having lived correctly.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed__248",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed__248",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Lists as control systems",
+            "explanation": "That answer changes the point: Why humans make lists."
+          },
+          {
+            "label": "C",
+            "answer": "Historical list traditions",
+            "explanation": "That answer changes the point: Why humans make lists."
+          },
+          {
+            "label": "D",
+            "answer": "Task methods and prioritization",
+            "explanation": "That answer changes the point: Why humans make lists."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Lists as control systems?",
+        "correctAnswer": "The Zeigarnik Effect",
+        "wrongAnswers": [
+          "Done lists and visible accomplishment",
+          "Bucket lists and aspirational lists",
+          "The failure of lists"
+        ],
+        "explanation": "Correct: The Zeigarnik Effect.",
+        "visibleCorrectExplanation": "Correct: The Zeigarnik Effect.",
+        "visibleConnection": "The question starts from a concrete detail in Lists as control systems: Lists break big goals into smaller units. It is really asking which answer handles a similar pressure. The Zeigarnik Effect is the best connection because it keeps unfinished work mentally active, making incompletion louder than completion in memory. Both ideas ask alpacas to notice that A list looks humble, but it decides sequence, importance, and what disappears from attention.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed__249",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed__249",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Done lists and visible accomplishment",
+            "explanation": "That answer changes the point: The Zeigarnik Effect."
+          },
+          {
+            "label": "C",
+            "answer": "Bucket lists and aspirational lists",
+            "explanation": "That answer changes the point: The Zeigarnik Effect."
+          },
+          {
+            "label": "D",
+            "answer": "The failure of lists",
+            "explanation": "That answer changes the point: The Zeigarnik Effect."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which method sorts tasks by urgency and importance?",
+        "correctAnswer": "The Eisenhower Method",
+        "wrongAnswers": [
+          "The Ivy Lee Method",
+          "The Bullet Journal Method",
+          "The 1-2-3 Method"
+        ],
+        "explanation": "Correct: The Eisenhower Method.",
+        "visibleCorrectExplanation": "Correct: The Eisenhower Method.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed_1_328",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed_1_328",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The Ivy Lee Method",
+            "explanation": "That answer changes the point: The Eisenhower Method."
+          },
+          {
+            "label": "C",
+            "answer": "The Bullet Journal Method",
+            "explanation": "That answer changes the point: The Eisenhower Method."
+          },
+          {
+            "label": "D",
+            "answer": "The 1-2-3 Method",
+            "explanation": "That answer changes the point: The Eisenhower Method."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How can a specific plan help with unfinished work?",
+        "correctAnswer": "It gives the mind a credible next step",
+        "wrongAnswers": [
+          "It finishes the task without effort",
+          "It makes the task less important",
+          "It removes the need to return"
+        ],
+        "explanation": "Correct: It gives the mind a credible next step.",
+        "visibleCorrectExplanation": "Correct: It gives the mind a credible next step.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed_2_329",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed_2_329",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It finishes the task without effort",
+            "explanation": "That answer changes the point: It gives the mind a credible next step."
+          },
+          {
+            "label": "C",
+            "answer": "It makes the task less important",
+            "explanation": "That answer changes the point: It gives the mind a credible next step."
+          },
+          {
+            "label": "D",
+            "answer": "It removes the need to return",
+            "explanation": "That answer changes the point: It gives the mind a credible next step."
+          }
+        ]
+      },
+      {
+        "id": "question.more-to-do-than-can-ever-be-listed.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What kind of list is a normal to-do list?",
+        "correctAnswer": "Mostly practical, because it guides action",
+        "wrongAnswers": [
+          "Mostly poetic, because it avoids use",
+          "Mostly fictional, because tasks are invented",
+          "Mostly historical, because it records culture"
+        ],
+        "explanation": "Correct: Mostly practical, because it guides action.",
+        "visibleCorrectExplanation": "Correct: Mostly practical, because it guides action.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_more-to-do-than-can-ever-be-listed_3_330",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "more-to-do-than-can-ever-be-listed",
+        "sectionIds": [
+          "more-to-do-than-can-ever-be-listed"
+        ],
+        "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_more-to-do-than-can-ever-be-listed_3_330",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Mostly poetic, because it avoids use",
+            "explanation": "That answer changes the point: Mostly practical, because it guides action."
+          },
+          {
+            "label": "C",
+            "answer": "Mostly fictional, because tasks are invented",
+            "explanation": "That answer changes the point: Mostly practical, because it guides action."
+          },
+          {
+            "label": "D",
+            "answer": "Mostly historical, because it records culture",
+            "explanation": "That answer changes the point: Mostly practical, because it guides action."
+          }
+        ]
+      }
+    ]
+  }
+}

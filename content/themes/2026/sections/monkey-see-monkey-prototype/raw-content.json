@@ -1,0 +1,1193 @@
+{
+  "id": "raw.monkey-see-monkey-prototype",
+  "sectionId": "monkey-see-monkey-prototype",
+  "entries": [
+    {
+      "id": "raw.monkey-see-monkey-prototype.001",
+      "order": 1,
+      "sectionId": "monkey-see-monkey-prototype",
+      "mediaIds": [
+        "asset.monkey-see-monkey-prototype.raw.low-vs-high-fidelity",
+        "asset.monkey-see-monkey-prototype.raw.minimum-marketable-feature",
+        "asset.monkey-see-monkey-prototype.raw.minimum-viable-product",
+        "asset.monkey-see-monkey-prototype.raw.mockup",
+        "asset.monkey-see-monkey-prototype.raw.paper-prototypes",
+        "asset.monkey-see-monkey-prototype.raw.proof-of-concept",
+        "asset.monkey-see-monkey-prototype.raw.sketches",
+        "asset.monkey-see-monkey-prototype.raw.storyboarding",
+        "asset.monkey-see-monkey-prototype.raw.user-testing"
+      ],
+      "questionIds": [
+        "question.monkey-see-monkey-prototype.100.001",
+        "question.monkey-see-monkey-prototype.200.001"
+      ],
+      "title": "From Rough Draft to Real Product",
+      "guidingSection": "Monkey See, Monkey Prototype",
+      "rawOfficialText": "Products can have rough drafts too. To see how well they work and what people think of them, companies often create early samples-or prototypes-of potential products. Here are some examples of prototypes that turned into popular gadgets and gizmos (aplenty); sometimes, as in the case of the iPhone, they may look nothing like the product that ultimately made it to market. Learn more about the prototyping cycle by researching the terms below, then discuss with your team: are there other things in life that would benefit from prototyping? Is there any difference between a prototype and a draft?\nsketches | storyboarding | paper prototypes | low vs. high fidelity\nwireframing | mockup | proof of concept | user testing\nminimum viable product | minimum marketable feature",
+      "links": [
+        {
+          "label": "Famous product prototypes",
+          "url": "https://www.techeblog.com/10-early-and-rarely-seen-prototypes-of-now-famous-gadgets/"
+        },
+        {
+          "label": "Original iPhone prototype",
+          "url": "https://wccftech.com/feast-your-eyes-on-the-original-iphone-m68-prototype/"
+        },
+        {
+          "label": "The prototyping cycle",
+          "url": "https://hollowaygroup.com.au/blogs/news/the-prototyping-process-explained-from-concept-to-final-design"
+        }
+      ],
+      "studentExplanation": "Products often begin as rough drafts. Before a company builds something at full scale, it can test early versions to see what works, what fails, and what users actually need. A prototype may look unfinished, but that is its value: it lets people learn before they spend too much time, money, or trust on the final version.\n\nThe extra notes define the ladder of prototyping: sketches, storyboards, paper prototypes, wireframes, mockups, proof of concept, minimum viable product, and user testing are not synonyms. Each answers a different question: can we imagine it, can people understand it, can it work, and is it worth building? Use this to judge readiness: what kind of model is being shown, how close it is to the final thing, where humans or assumptions are hidden, and why a prototype can both teach and mislead.",
+      "whyItMatters": "At the entry level, this shows that a prototype is not a failed product but a learning version. At the section level, it opens Monkey See, Monkey Prototype by showing that invention usually moves through trial versions. At the year-theme level, it connects to progress because getting “there” often requires unfinished forms first.",
+      "takeaway": "Testing early versions can improve product decisions before the final release.",
+      "subjects": [
+        "Computer Science / Technology",
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Visible vs Real",
+        "Incompletion That Stays Active",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "sketches",
+        "storyboarding",
+        "paper prototypes",
+        "low vs. high fidelity",
+        "wireframing",
+        "mockup",
+        "proof of concept",
+        "user testing",
+        "minimum viable product",
+        "minimum marketable feature",
+        "Famous prototypes before final products",
+        "The original iPhone prototype",
+        "The prototyping cycle"
+      ],
+      "debateRelevance": "Useful when debating whether iteration is a sign of weakness or the most realistic way to move from idea to strong final product.",
+      "counterargument": "Iteration helps, but some fields lose meaning if everything is treated like a testable product waiting to be optimized.",
+      "visualSections": [
+        {
+          "title": "Prototype examples",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The original iPhone prototype",
+              "note": "Even one of the most influential modern products began in a form that looked technical, awkward, and very different from the final iPhone.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real image of the original iPhone prototype or Apple's early iPhone development hardware. This is a known object/case, so the agent must not use a generic phone mockup or generated image unless no real usable source exists. Prefer reputable tech journalism, museum/archive-style sources, or credible Apple-history sources. Preserve the raw-content link about the original iPhone prototype in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find an educational video of maximum 5-7 minutes explaining the early iPhone prototype or the product-development process behind the first iPhone. Avoid long keynotes unless a short extracted educational explanation is available.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "imageSearchQuery": "The original iPhone prototype a real image of the original iPhone prototype or Apple's early iPhone development hardware. This is a known object/case, so the agent must not use a generic phone mockup or generated image u",
+              "youtubeSearchQuery": "The original iPhone prototype an educational video of maximum 5-7 minutes explaining the early iPhone prototype or the product-development process behind the first iPhone. Avoid long keynotes unless a short extracted edu",
+              "links": [
+                {
+                  "label": "Original iPhone prototype",
+                  "url": "https://wccftech.com/feast-your-eyes-on-the-original-iphone-m68-prototype/"
+                }
+              ],
+              "url": "https://wccftech.com/feast-your-eyes-on-the-original-iphone-m68-prototype/",
+              "previewLabel": "Open source"
+            }
+          ]
+        },
+        {
+          "title": "Early design thinking",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Sketches",
+              "note": "Sketches is presented as quick early drawings that help inventors and designers explore ideas before building anything.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real image of product-design sketches, ideally showing several rough design options on paper. The image should look like early thinking, not a finished advertisement. If no perfect image exists, the agent may use image generation to create a World Scholar app-style sketch sheet with rough product ideas, arrows, and notes.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes about design sketching or how sketches help product development.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/sketches.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Sketches a real image of product-design sketches, ideally showing several rough design options on paper. The image should look like early thinking, not a finished advertisement. If no perfect image exists, the agent may ",
+              "youtubeSearchQuery": "Sketches a short educational video of maximum 5-7 minutes about design sketching or how sketches help product development.",
+              "links": []
+            },
+            {
+              "kind": "text-slide",
+              "title": "Storyboarding",
+              "note": "Storyboarding is presented as a way to map a sequence of actions, showing how a user might experience a product or service step by step.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a UX storyboard or product-storyboard example with multiple panels showing a user journey. Avoid film storyboards unless they clearly explain sequence and user experience. If no suitable image exists, the agent may use image generation to create a World Scholar app-style storyboard with a student using a prototype across several panels.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes explaining UX storyboarding or product storyboarding.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/storyboarding.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Storyboarding a UX storyboard or product-storyboard example with multiple panels showing a user journey. Avoid film storyboards unless they clearly explain sequence and user experience. If no suitable image exists, the a",
+              "youtubeSearchQuery": "Storyboarding a clear educational video of maximum 5-7 minutes explaining UX storyboarding or product storyboarding.",
+              "links": []
+            },
+            {
+              "kind": "text-slide",
+              "title": "Paper prototypes",
+              "note": "Paper prototypes is presented as cheap, fast, physical mockups used to test layouts and interactions before coding or manufacturing.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real image of a paper prototype for an app, website, interface, or product. The image should clearly show hand-drawn screens, movable paper parts, buttons, or interaction areas. Prefer Wikimedia Commons or educational UX sources. If no perfect image exists, the agent may generate a World Scholar app-style image of paper app screens being tested by students.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes showing how paper prototyping works.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/paper-prototypes.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Paper prototypes a real image of a paper prototype for an app, website, interface, or product. The image should clearly show hand-drawn screens, movable paper parts, buttons, or interaction areas. Prefer Wikimedia Common",
+              "youtubeSearchQuery": "Paper prototypes a short educational video of maximum 5-7 minutes showing how paper prototyping works.",
+              "links": [
+                {
+                  "label": "Wikimedia paper prototype image",
+                  "url": "https://commons.wikimedia.org/wiki/File:Paper_prototype_of_website_user_interface,_2015-04-16.jpg"
+                }
+              ],
+              "url": "https://commons.wikimedia.org/wiki/File:Paper_prototype_of_website_user_interface,_2015-04-16.jpg",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Low vs. high fidelity",
+              "note": "Difference between rough exploratory prototypes and polished prototypes that look closer to the final product. is explained.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a side-by-side comparison of low-fidelity and high-fidelity prototypes. The image should make the contrast obvious: rough blocks or sketches on one side, polished interface or product mockup on the other. If no perfect comparison exists, the agent may use image generation to create a clear World Scholar app-style split-screen comparison.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes explaining low-fidelity vs high-fidelity prototyping.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/low-vs-high-fidelity.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Low vs. high fidelity a side-by-side comparison of low-fidelity and high-fidelity prototypes. The image should make the contrast obvious: rough blocks or sketches on one side, polished interface or product mockup on the ",
+              "youtubeSearchQuery": "Low vs. high fidelity a clear educational video of maximum 5-7 minutes explaining low-fidelity vs high-fidelity prototyping.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Testing the product idea",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Mockup",
+              "note": "Mockups is presented as more polished visual models that show what a product or interface might look like before it is fully functional.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a product or app mockup that clearly looks more polished than a wireframe but not necessarily fully working. A phone-screen mockup, website mockup, or product-packaging mockup would work. If no good image exists, the agent may generate a World Scholar app-style mockup image.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining mockups and how they differ from wireframes or prototypes.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/mockup.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Mockup a product or app mockup that clearly looks more polished than a wireframe but not necessarily fully working. A phone-screen mockup, website mockup, or product-packaging mockup would work. If no good image exists, ",
+              "youtubeSearchQuery": "Mockup a short educational video of maximum 5-7 minutes explaining mockups and how they differ from wireframes or prototypes.",
+              "links": []
+            },
+            {
+              "kind": "text-slide",
+              "title": "Proof of concept",
+              "note": "Proof of concept is presented as a small test showing that the central idea can actually work before building a full product.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a clear diagram comparing proof of concept, prototype, MVP, and final product. If no perfect image exists, the agent may generate a World Scholar app-style image showing a tiny working test leading toward a larger product.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining proof of concept in product development or technology.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/proof-of-concept.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Proof of concept a clear diagram comparing proof of concept, prototype, MVP, and final product. If no perfect image exists, the agent may generate a World Scholar app-style image showing a tiny working test leading towar",
+              "youtubeSearchQuery": "Proof of concept a short educational video of maximum 5-7 minutes explaining proof of concept in product development or technology.",
+              "links": [
+                {
+                  "label": "Proof of Concept vs. Prototype vs. MVP",
+                  "url": "https://www.youtube.com/watch?v=qPTDFA5Kfqo"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=qPTDFA5Kfqo",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "User testing",
+              "note": "User testing is presented as watching real people try a product so designers can learn what works, what confuses users, and what needs improvement.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real user-testing session image, ideally showing one person using an interface while another observes or takes notes. Avoid generic office meeting images. If no strong image exists, the agent may generate a World Scholar app-style classroom user-testing scene.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining user testing or usability testing.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/user-testing.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "User testing a real user-testing session image, ideally showing one person using an interface while another observes or takes notes. Avoid generic office meeting images. If no strong image exists, the agent may generate ",
+              "youtubeSearchQuery": "User testing a short educational video of maximum 5-7 minutes explaining user testing or usability testing.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Smallest useful release",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Minimum viable product",
+              "note": "MVP is presented as the smallest useful version of a product that can deliver value and teach the team what to improve next.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a clear MVP diagram, ideally showing minimum, usable, valuable, and learn from users. Avoid images that wrongly present MVP as a broken or careless product. If no good image exists, the agent may generate a World Scholar app-style diagram showing a simple first version growing through feedback.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining MVP for students or beginners.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/minimum-viable-product.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Minimum viable product a clear MVP diagram, ideally showing minimum, usable, valuable, and learn from users. Avoid images that wrongly present MVP as a broken or careless product. If no good image exists, the agent may g",
+              "youtubeSearchQuery": "Minimum viable product a short educational video of maximum 5-7 minutes explaining MVP for students or beginners.",
+              "links": [
+                {
+                  "label": "What Is An MVP? Minimum Viable Product Explained",
+                  "url": "https://www.youtube.com/watch?v=3Vn08UEsLCc"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=3Vn08UEsLCc",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Minimum marketable feature",
+              "note": "Minimum marketable feature is presented as a small but polished feature that is complete enough to release and matter to users.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a clear diagram or product-management visual explaining minimum marketable feature, preferably compared with MVP. If no good image exists, the agent may generate a World Scholar app-style product roadmap visual showing one small feature becoming release-ready.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining minimum marketable feature, agile releases, or the difference between MVP and MMF.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/minimum-marketable-feature.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Minimum marketable feature a clear diagram or product-management visual explaining minimum marketable feature, preferably compared with MVP. If no good image exists, the agent may generate a World Scholar app-style produ",
+              "youtubeSearchQuery": "Minimum marketable feature a short educational video of maximum 5-7 minutes explaining minimum marketable feature, agile releases, or the difference between MVP and MMF.",
+              "links": []
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Progress"
+      ],
+      "primaryBigIdea": "Visible vs Real",
+      "secondaryBigIdeas": [
+        "Incompletion That Stays Active",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Visible vs Real",
+        "secondaryBigIdeas": [
+          "Incompletion That Stays Active",
+          "Performed Progress",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "How Toyota Changed The Way We Make Things",
+          "url": "https://www.youtube.com/watch?v=F5vtCRFRAK0"
+        },
+        {
+          "title": "Prototype Cycle Explained in 1 Minute. What Is Prototype Cycle in UI Design?",
+          "url": "https://www.youtube.com/watch?v=pP4FvAsQhN8"
+        },
+        {
+          "title": "Famous prototypes before final products",
+          "url": "https://www.youtube.com/watch?v=-TDn25K-Jh4"
+        }
+      ],
+      "sectionTitle": "Monkey See, Monkey Prototype"
+    },
+    {
+      "id": "raw.monkey-see-monkey-prototype.002",
+      "order": 2,
+      "sectionId": "monkey-see-monkey-prototype",
+      "mediaIds": [
+        "asset.monkey-see-monkey-prototype.raw.makerspaces",
+        "asset.monkey-see-monkey-prototype.raw.responsible-access"
+      ],
+      "questionIds": [
+        "question.monkey-see-monkey-prototype.100.002",
+        "question.monkey-see-monkey-prototype.200.002"
+      ],
+      "title": "Fast Models, Real Risks",
+      "guidingSection": "Monkey See, Monkey Prototype",
+      "rawOfficialText": "Instead of hiring engineers to work with a factory in Shenzhen (or Baja California) to create a product sample, today an inventor can try out a new concept with simulated models and 3D printed mockups. Even your school might have a “makerspace” that you can use to channel your inner Thomas Edison-or Sarah Boone. Consider the advantages and disadvantages of such rapid prototyping, then discuss with your team: should access to these tools be limited to those who can use them responsibly?",
+      "links": [
+        {
+          "label": "Rapid prototyping overview",
+          "url": "https://www.ruthtrumpold.id.au/destech/?page_id=607"
+        },
+        {
+          "label": "Sarah Boone inventor profile or short video",
+          "url": "https://www.biography.com/inventors/sarah-boone"
+        },
+        {
+          "label": "Makerspace / 3D printing safety example",
+          "url": "https://www.osha.gov/etools/3d-printing"
+        }
+      ],
+      "studentExplanation": "Rapid prototyping lets inventors test ideas much faster than before. Simulations, makerspaces, and 3D printers can make design more accessible, especially for students or small creators. But faster access also creates a responsibility problem: powerful tools can help people learn and build, but they can also be misused if people lack training, safety rules, or ethical judgment.\n\nAdd Sarah Boone as a concrete “prototype solves a real problem” case: the improved ironing board worked because it matched fitted sleeves and garments better than a flat plank. Rapid models, makerspaces, and 3D printing are powerful when they reduce risk early, but they can also hide safety, access, cost, and quality problems. Use this to judge readiness: what kind of model is being shown, how close it is to the final thing, where humans or assumptions are hidden, and why a prototype can both teach and mislead.",
+      "whyItMatters": "At the entry level, this helps students weigh the benefits and risks of fast creation tools. At the section level, it shows that prototyping is also about access and responsibility. At the year-theme level, it connects to thresholds because easier tools can move an idea closer to real-world use very quickly.",
+      "takeaway": "Rapid prototyping expands access, but powerful tools still need safety and responsibility.",
+      "subjects": [
+        "Computer Science / Technology",
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "Simulated models",
+        "3D printed mockups",
+        "Makerspaces",
+        "Sarah Boone",
+        "Responsible access"
+      ],
+      "debateRelevance": "Useful when debating how open powerful building tools should be, and whether access and responsibility can grow together.",
+      "counterargument": "Stronger limits can reduce harm, but they can also turn creativity and experimentation into privileges for a narrow group.",
+      "visualSections": [
+        {
+          "title": "Rapid prototyping and responsibility",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Makerspaces",
+              "note": "Makerspaces is presented as shared places where students or inventors can build, test, repair, and experiment with tools.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a school or community makerspace image showing tools such as 3D printers, laser cutters, electronics, workbenches, or student projects. Avoid generic classrooms without maker tools. If no perfect image exists, the agent may generate a World Scholar app-style makerspace with students safely testing prototypes.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes introducing makerspaces for students.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/makerspaces.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Makerspaces a school or community makerspace image showing tools such as 3D printers, laser cutters, electronics, workbenches, or student projects. Avoid generic classrooms without maker tools. If no perfect image exists",
+              "youtubeSearchQuery": "Makerspaces a short educational video of maximum 5-7 minutes introducing makerspaces for students.",
+              "links": []
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sarah Boone",
+              "note": "Sarah Boone is introduced as an inventor whose work shows that practical experimentation and improvement have always been part of invention.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a reliable image of Sarah Boone's ironing-board patent. This is a specific historical patent, so the agent should use the exact patent image or a reliable archive/source, not a generic ironing board or invented portrait. Preserve any Sarah Boone link in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes about Sarah Boone, her ironing-board patent, and why her invention mattered. Prefer a short biography suitable for young students.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Front_page_Patent_Ironing_Board_Sarah_Boone.png",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain / expired US patent",
+              "imageSearchQuery": "Sarah Boone a reliable image of Sarah Boone's ironing-board patent. This is a specific historical patent, so the agent should use the exact patent image or a reliable archive/source, not a generic ironing board or invent",
+              "youtubeSearchQuery": "Sarah Boone a clear educational video of maximum 5-7 minutes about Sarah Boone, her ironing-board patent, and why her invention mattered. Prefer a short biography suitable for young students.",
+              "links": [
+                {
+                  "label": "Sarah Boone inventor profile or short video",
+                  "url": "https://www.biography.com/inventors/sarah-boone"
+                },
+                {
+                  "label": "Sarah Boone patent image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Front_page_Patent_Ironing_Board_Sarah_Boone.png",
+                  "license": "Public domain / expired US patent"
+                }
+              ],
+              "url": "https://www.biography.com/inventors/sarah-boone",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Responsible access",
+              "note": "Powerful tools like 3D printers and makerspaces raise questions about training, supervision, and safety rules.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find an image showing makerspace safety, supervised tool use, 3D-printing safety, or student training. Avoid accident images or fear-based visuals. If no strong image exists, the agent may generate a World Scholar app-style image of students using maker tools responsibly with safety signs and supervision.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes about makerspace safety, responsible tool use, or safe 3D printing.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/responsible-access.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Responsible access an image showing makerspace safety, supervised tool use, 3D-printing safety, or student training. Avoid accident images or fear-based visuals. If no strong image exists, the agent may generate a World ",
+              "youtubeSearchQuery": "Responsible access a short educational video of maximum 5-7 minutes about makerspace safety, responsible tool use, or safe 3D printing.",
+              "links": [
+                {
+                  "label": "Makerspace / 3D printing safety example",
+                  "url": "https://www.osha.gov/etools/3d-printing"
+                }
+              ],
+              "url": "https://www.osha.gov/etools/3d-printing",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Visible vs Real",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Visible vs Real",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Managing Uncertainty",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Sarah Boone, a pioneering inventor!",
+          "url": "https://www.youtube.com/watch?v=Xu8uD4k0v34"
+        }
+      ],
+      "sectionTitle": "Monkey See, Monkey Prototype"
+    },
+    {
+      "id": "raw.monkey-see-monkey-prototype.003",
+      "order": 3,
+      "sectionId": "monkey-see-monkey-prototype",
+      "mediaIds": [
+        "asset.monkey-see-monkey-prototype.raw.beginner-access",
+        "asset.monkey-see-monkey-prototype.raw.maintenance-and-support",
+        "asset.monkey-see-monkey-prototype.raw.natural-language-coding",
+        "asset.monkey-see-monkey-prototype.raw.uncertain-quality"
+      ],
+      "questionIds": [
+        "question.monkey-see-monkey-prototype.100.003",
+        "question.monkey-see-monkey-prototype.200.003"
+      ],
+      "title": "Vibe Coding and the Flood of New Software",
+      "guidingSection": "Monkey See, Monkey Prototype",
+      "rawOfficialText": "In the world of software, AI-powered vibe coding allows users to create programs without writing a line of code. Just ask a chatbot for what you want and watch it appear. You might want to try vibe-coding yourself, then discuss with your team: should we be worried about a future flooded with too many programs of uncertain quality and with limited support? Is it better if not everyone can get “there” so easily?",
+      "links": [
+        {
+          "label": "What vibe coding is",
+          "url": "https://www.ibm.com/think/topics/vibe-coding"
+        },
+        {
+          "label": "AI coding risk / quality concern",
+          "url": "https://www.techtarget.com/searchsecurity/tip/Vibe-coding-security-risks-and-how-to-mitigate-them"
+        },
+        {
+          "label": "Example of AI-assisted app building",
+          "url": "https://replit.com/ai"
+        }
+      ],
+      "studentExplanation": "Vibe coding means using AI tools to create software from natural-language instructions instead of writing every line by hand. This can help beginners build quickly and make software creation feel more open. But it also creates a quality problem: if many people can generate apps without understanding the code, the result may be buggy, insecure, unsupported, or hard to maintain.\n\nThe sources frame vibe coding as code-first, refine-later prototyping. It lowers the barrier to making an app, but students should ask who understands the result, who maintains it, what bugs are hidden, and whether speed has replaced responsibility. Use this to judge readiness: what kind of model is being shown, how close it is to the final thing, where humans or assumptions are hidden, and why a prototype can both teach and mislead.",
+      "whyItMatters": "At the entry level, this helps students see that easier creation is not automatically better creation. At the section level, it shows how prototypes can now appear extremely quickly in software. At the year-theme level, it connects to progress and prediction because easier tools may speed up innovation while also flooding the world with weaker products.",
+      "takeaway": "Easy software creation still needs quality control, maintenance, and support.",
+      "subjects": [
+        "Computer Science / Technology"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Natural-language coding",
+        "Beginner access",
+        "Uncertain quality",
+        "Maintenance and support"
+      ],
+      "debateRelevance": "Useful when debating whether democratizing software creation broadens innovation or weakens reliability and trust.",
+      "counterargument": "Lower barriers can create low-quality software, but they can also open real experimentation and access that older systems kept artificially narrow.",
+      "visualSections": [
+        {
+          "title": "AI-assisted software creation",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Natural-language coding",
+              "note": "Vibe coding is presented as using natural language prompts to ask AI to create software, instead of writing every line of code manually.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a screenshot or visual showing an AI coding assistant turning a natural-language prompt into code or an app. Avoid generic robot images. If no strong image exists, the agent may generate a World Scholar app-style split image showing prompt to code to app preview.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining vibe coding or AI-assisted coding for beginners.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/natural-language-coding.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Natural-language coding a screenshot or visual showing an AI coding assistant turning a natural-language prompt into code or an app. Avoid generic robot images. If no strong image exists, the agent may generate a World S",
+              "youtubeSearchQuery": "Natural-language coding a short educational video of maximum 5-7 minutes explaining vibe coding or AI-assisted coding for beginners.",
+              "links": [
+                {
+                  "label": "What vibe coding is",
+                  "url": "https://www.ibm.com/think/topics/vibe-coding"
+                }
+              ],
+              "url": "https://www.ibm.com/think/topics/vibe-coding",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Beginner access",
+              "note": "AI coding tools can lower the barrier to software creation for people who are not traditional programmers.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a beginner-friendly AI app builder, no-code/low-code tool, or AI coding platform image. The image should emphasize accessibility, not expert-only coding. If no strong image exists, the agent may generate a World Scholar app-style image of a student building an app through a chatbot prompt.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes showing how beginners can use AI tools to build a simple app or website.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/beginner-access.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Beginner access a beginner-friendly AI app builder, no-code/low-code tool, or AI coding platform image. The image should emphasize accessibility, not expert-only coding. If no strong image exists, the agent may generate ",
+              "youtubeSearchQuery": "Beginner access a short educational video of maximum 5-7 minutes showing how beginners can use AI tools to build a simple app or website.",
+              "links": [
+                {
+                  "label": "Example of AI-assisted app building",
+                  "url": "https://replit.com/ai"
+                }
+              ],
+              "url": "https://replit.com/ai",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Uncertain quality",
+              "note": "Risk that easy software generation can produce buggy, insecure, unsupported, or poorly maintained tools. is explained.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a clear visual about AI-generated code risks, software bugs, security warnings, code review, or unreliable software. Avoid comic robot images unless they clearly explain risk. If no strong image exists, the agent may generate a World Scholar app-style image of an app screen with bug warnings, security alerts, and messy generated code.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining risks of AI-generated code, such as bugs, security, maintenance, or overconfidence.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/uncertain-quality.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Uncertain quality a clear visual about AI-generated code risks, software bugs, security warnings, code review, or unreliable software. Avoid comic robot images unless they clearly explain risk. If no strong image exists,",
+              "youtubeSearchQuery": "Uncertain quality a short educational video of maximum 5-7 minutes explaining risks of AI-generated code, such as bugs, security, maintenance, or overconfidence.",
+              "links": [
+                {
+                  "label": "AI coding risk / quality concern",
+                  "url": "https://www.techtarget.com/searchsecurity/tip/Vibe-coding-security-risks-and-how-to-mitigate-them"
+                }
+              ],
+              "url": "https://www.techtarget.com/searchsecurity/tip/Vibe-coding-security-risks-and-how-to-mitigate-them",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Maintenance and support",
+              "note": "Making software is only the beginning; products also need updates, debugging, security checks, and user support.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a visual about software maintenance, technical debt, bug fixing, or code review. The image should show ongoing support rather than initial creation only. If no strong image exists, the agent may generate a World Scholar app-style image of developers repairing a messy app after launch.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining software maintenance, technical debt, or why apps need ongoing support.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/maintenance-and-support.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Maintenance and support a visual about software maintenance, technical debt, bug fixing, or code review. The image should show ongoing support rather than initial creation only. If no strong image exists, the agent may g",
+              "youtubeSearchQuery": "Maintenance and support a short educational video of maximum 5-7 minutes explaining software maintenance, technical debt, or why apps need ongoing support.",
+              "links": []
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Vibe Coding Explained: Build Real Apps With AI Even If You Can't Code (2026 Beginner Guide)",
+          "url": "https://www.youtube.com/watch?v=Ci-m_8DJHxk"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Bright and Dark Future",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Performed Progress",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Monkey See, Monkey Prototype"
+    },
+    {
+      "id": "raw.monkey-see-monkey-prototype.004",
+      "order": 4,
+      "sectionId": "monkey-see-monkey-prototype",
+      "mediaIds": [
+        "asset.monkey-see-monkey-prototype.raw.ethical-boundary",
+        "asset.monkey-see-monkey-prototype.raw.wizard-of-oz-testing"
+      ],
+      "questionIds": [
+        "question.monkey-see-monkey-prototype.100.004",
+        "question.monkey-see-monkey-prototype.200.004"
+      ],
+      "title": "The Mechanical Turk and the Ethics of Fake Intelligence",
+      "guidingSection": "Monkey See, Monkey Prototype",
+      "rawOfficialText": "In 1770, a Hungarian engineer announced a startling invention: a machine capable of playing chess. This “Mechanical Turk” toured the world, impressing everyone from Benjamin Franklin to Edgar Allan Poe. There was just one problem: it was not an early example of AI, but a hoax, operated by a chess master hidden within. Companies today may still take a similar approach-known as “Wizard of Oz” testing-to test user response before production. Discuss with your team: is it okay to mislead users during product testing in order to make the finished versions of those products better?",
+      "links": [
+        {
+          "label": "Mechanical Turk image / history",
+          "url": "https://slate.com/human-interest/2015/08/the-turk-a-chess-playing-robot-was-a-hoax-that-started-an-early-conversation-about-ai.html"
+        },
+        {
+          "label": "Wizard of Oz testing explanation",
+          "url": "https://www.thisisservicedesigndoing.com/methods/wizard-of-oz-approaches"
+        }
+      ],
+      "studentExplanation": "The Mechanical Turk looked like a machine that could play chess, but a hidden human actually controlled the moves. Modern Wizard of Oz testing is not exactly the same as a hoax: designers sometimes simulate an unfinished system so they can learn how users respond before building the full product. The ethical problem is transparency. A simulation can help design, but it can also mislead people if they believe the system is more real or more capable than it is.\n\nThe Mechanical Turk is the old version of a modern tech problem: the audience thinks it is seeing a machine, but a human operator supplies the intelligence. Wizard-of-Oz testing can be legitimate if disclosed inside research, but deceptive if it sells readiness that does not exist. Use this to judge readiness: what kind of model is being shown, how close it is to the final thing, where humans or assumptions are hidden, and why a prototype can both teach and mislead.",
+      "whyItMatters": "At the entry level, this helps students separate testing, simulation, and deception. At the section level, it shows that some prototypes work by hiding what is incomplete. At the year-theme level, it connects to thresholds because a product can cross from useful simulation into unfair deception.",
+      "takeaway": "Simulated systems can help design, but hidden help should not create false trust.",
+      "subjects": [
+        "History"
+      ],
+      "bigIdeas": [
+        "Visible vs Real",
+        "Incompletion That Stays Active",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Mechanical Turk",
+        "Hidden operator",
+        "Wizard of Oz testing",
+        "Ethical boundary"
+      ],
+      "debateRelevance": "Useful when debating whether controlled illusion in product testing can be justified without undermining trust or fairness.",
+      "counterargument": "A limited illusion may be defensible when the risk is low and the goal is clearly to learn before building a better real system.",
+      "visualSections": [
+        {
+          "title": "Hidden humans and simulated systems",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Mechanical Turk",
+              "note": "Famous chess-playing automaton that seemed intelligent but was actually a carefully staged illusion. is introduced.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a historical image, museum image, or Wikimedia image of the Mechanical Turk chess automaton. This is a specific historical object, so the agent must use the exact object, not a modern robot or generic chess image. Preserve the Mechanical Turk link in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes explaining the Mechanical Turk, how it fooled audiences, and why it matters for the history of fake intelligence.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Racknitz_-_The_Turk_3.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical image",
+              "imageSearchQuery": "Mechanical Turk a historical image, museum image, or Wikimedia image of the Mechanical Turk chess automaton. This is a specific historical object, so the agent must use the exact object, not a modern robot or generic che",
+              "youtubeSearchQuery": "Mechanical Turk a clear educational video of maximum 5-7 minutes explaining the Mechanical Turk, how it fooled audiences, and why it matters for the history of fake intelligence.",
+              "links": [
+                {
+                  "label": "Mechanical Turk image / history",
+                  "url": "https://slate.com/human-interest/2015/08/the-turk-a-chess-playing-robot-was-a-hoax-that-started-an-early-conversation-about-ai.html"
+                },
+                {
+                  "label": "Mechanical Turk image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Racknitz_-_The_Turk_3.jpg",
+                  "license": "Public domain historical image"
+                }
+              ],
+              "url": "https://slate.com/human-interest/2015/08/the-turk-a-chess-playing-robot-was-a-hoax-that-started-an-early-conversation-about-ai.html",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Hidden operator",
+              "note": "Key trick behind the Mechanical Turk: a human chess player was hidden inside the machine. is explained.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a diagram or historical reconstruction showing the hidden human operator inside the Mechanical Turk. This is a specific known mechanism, so the agent should use an accurate diagram, not a generic man behind curtain image.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes showing how the Mechanical Turk mechanism worked.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Racknitz_-_The_Turk_2.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical image",
+              "imageSearchQuery": "Hidden operator a diagram or historical reconstruction showing the hidden human operator inside the Mechanical Turk. This is a specific known mechanism, so the agent should use an accurate diagram, not a generic man behi",
+              "youtubeSearchQuery": "Hidden operator a short educational video of maximum 5-7 minutes showing how the Mechanical Turk mechanism worked.",
+              "links": [
+                {
+                  "label": "Mechanical Turk image / history",
+                  "url": "https://slate.com/human-interest/2015/08/the-turk-a-chess-playing-robot-was-a-hoax-that-started-an-early-conversation-about-ai.html"
+                },
+                {
+                  "label": "Mechanical Turk hidden-operator diagram - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Racknitz_-_The_Turk_2.jpg",
+                  "license": "Public domain historical image"
+                }
+              ],
+              "url": "https://slate.com/human-interest/2015/08/the-turk-a-chess-playing-robot-was-a-hoax-that-started-an-early-conversation-about-ai.html",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Wizard of Oz testing",
+              "note": "Wizard of Oz testing is presented as a product-design method where a user experiences a system that seems automated, while a hidden human partly controls it.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a UX or product-design diagram showing a user, an interface, and a hidden human operator behind the scenes. Avoid images from the film The Wizard of Oz unless the image clearly explains the UX testing method. If no perfect image exists, the agent may generate a World Scholar app-style diagram showing user to prototype interface to hidden human controller.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes explaining Wizard of Oz testing in UX or product design.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/wizard-of-oz-testing.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Wizard of Oz testing a UX or product-design diagram showing a user, an interface, and a hidden human operator behind the scenes. Avoid images from the film The Wizard of Oz unless the image clearly explains the UX testin",
+              "youtubeSearchQuery": "Wizard of Oz testing a clear educational video of maximum 5-7 minutes explaining Wizard of Oz testing in UX or product design.",
+              "links": [
+                {
+                  "label": "Wizard of Oz testing explanation",
+                  "url": "https://www.thisisservicedesigndoing.com/methods/wizard-of-oz-approaches"
+                },
+                {
+                  "label": "Wizard of Oz Method in UX",
+                  "url": "https://www.youtube.com/watch?v=uKMYf-UdRio"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=uKMYf-UdRio",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Ethical boundary",
+              "note": "Useful simulation, limited testing, and dishonest deception are separated as distinct ethical categories.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a visual about UX ethics, informed consent, research transparency, or ethical product testing. Avoid generic justice scales unless they are clearly tied to technology or user testing. If no strong image exists, the agent may generate a World Scholar app-style image showing a prototype test with a visible simulation / consent / transparency checklist.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining research ethics, consent, or deception in user testing.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/ethical-boundary.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Ethical boundary a visual about UX ethics, informed consent, research transparency, or ethical product testing. Avoid generic justice scales unless they are clearly tied to technology or user testing. If no strong image ",
+              "youtubeSearchQuery": "Ethical boundary a short educational video of maximum 5-7 minutes explaining research ethics, consent, or deception in user testing.",
+              "links": []
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Visible vs Real",
+      "secondaryBigIdeas": [
+        "Incompletion That Stays Active",
+        "Performed Progress",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Visible vs Real",
+        "secondaryBigIdeas": [
+          "Incompletion That Stays Active",
+          "Performed Progress",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "The Robot Chess Player Scam",
+          "url": "https://www.youtube.com/watch?v=Xosn4ManeD4"
+        }
+      ],
+      "sectionTitle": "Monkey See, Monkey Prototype"
+    },
+    {
+      "id": "raw.monkey-see-monkey-prototype.005",
+      "order": 5,
+      "sectionId": "monkey-see-monkey-prototype",
+      "mediaIds": [
+        "asset.monkey-see-monkey-prototype.raw.readiness-vs-performance",
+        "asset.monkey-see-monkey-prototype.raw.staged-tech-demos"
+      ],
+      "questionIds": [
+        "question.monkey-see-monkey-prototype.100.005",
+        "question.monkey-see-monkey-prototype.200.005"
+      ],
+      "title": "Rigged Demos and the Performance of Readiness",
+      "guidingSection": "Monkey See, Monkey Prototype",
+      "rawOfficialText": "Elon Musk once unveiled a prototype humanoid robot that turned out to be a dancer in a costume. His more recent demonstrations are closer-but still not quite there. Read about some other examples of companies faking demonstrations of their not-quite-ready products, then discuss with your team: should companies be required to tell people when demos are slightly or entirely rigged?",
+      "links": [
+        {
+          "label": "Tesla Bot costume reveal",
+          "url": "https://www.theguardian.com/technology/video/2021/aug/20/elon-musk-plan-tesla-bot-man-dancing-bodysuit-video"
+        },
+        {
+          "label": "Later Optimus teleoperation / autonomy concerns",
+          "url": "https://techcrunch.com/2024/10/14/tesla-optimus-bots-were-controlled-by-humans-during-the-we-robot-event/"
+        },
+        {
+          "label": "Staged technology demo examples",
+          "url": "https://sea.mashable.com/tech/34699/fake-tech-demos-a-brief-history"
+        }
+      ],
+      "studentExplanation": "A demo can make a product look closer to ready than it really is. The Tesla Bot costume reveal is an extreme example: the audience saw a performance standing in for a future robot. Later robot demonstrations looked more advanced, but still raised questions about how much was autonomous and how much depended on control, staging, or careful conditions. This entry is about the performance of readiness: companies can show a future product in ways that inspire belief before the product is fully real.\n\nUse Tesla Bot and other staged demos to separate demonstration from capability. A demo can prove vision, attract funding, or teach designers, but it can also make audiences believe a system is autonomous, safe, or close to market when it is still largely performance. Use this to judge readiness: what kind of model is being shown, how close it is to the final thing, where humans or assumptions are hidden, and why a prototype can both teach and mislead.",
+      "whyItMatters": "At the entry level, this helps students understand why demos can persuade even when they are not full proof. At the section level, it shows a darker side of prototyping, where showing the future becomes performance. At the year-theme level, it connects to prediction because public demos shape what people believe is about to arrive.",
+      "takeaway": "Trustworthy demos should show what is real, what is staged, and what is still unfinished.",
+      "subjects": [
+        "Computer Science / Technology",
+        "Economics & Trade"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Performed Progress",
+        "Narrated Endings"
+      ],
+      "examples": [
+        "Tesla Bot costume reveal",
+        "Later Optimus demonstrations",
+        "Readiness vs performance",
+        "Staged tech demos"
+      ],
+      "debateRelevance": "Useful when debating how much staging companies can use before a demo stops being a vision and starts becoming deception.",
+      "counterargument": "A demo is not the final product, so some simplification and staging may be expected as long as the audience is not misled about the real state of the technology.",
+      "visualSections": [
+        {
+          "title": "Product demos and staged readiness",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Tesla Bot costume reveal",
+              "note": "A public technology demonstration can create excitement even when the product is not actually ready.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real image from Tesla AI Day 2021 showing the Tesla Bot dancer in a costume. This is a specific known demo, so the agent must use the actual event image or a reliable article image, not a generic robot. Preserve the raw-content link about the dancer in a costume in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear clip or educational video of maximum 5-7 minutes showing or explaining the Tesla Bot costume reveal. Avoid long full-event videos unless a short relevant segment is available.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "imageSearchQuery": "Tesla Bot costume reveal a real image from Tesla AI Day 2021 showing the Tesla Bot dancer in a costume. This is a specific known demo, so the agent must use the actual event image or a reliable article image, not a gener",
+              "youtubeSearchQuery": "Tesla Bot costume reveal a clear clip or educational video of maximum 5-7 minutes showing or explaining the Tesla Bot costume reveal. Avoid long full-event videos unless a short relevant segment is available.",
+              "links": [
+                {
+                  "label": "Tesla Bot costume reveal",
+                  "url": "https://www.theguardian.com/technology/video/2021/aug/20/elon-musk-plan-tesla-bot-man-dancing-bodysuit-video"
+                }
+              ],
+              "url": "https://www.theguardian.com/technology/video/2021/aug/20/elon-musk-plan-tesla-bot-man-dancing-bodysuit-video",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Later Optimus demonstrations",
+              "note": "Later robot demonstrations can look more advanced while still raising questions about autonomy, teleoperation, and readiness.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real image from a later Tesla Optimus demonstration, especially one where the robot interacts with guests or performs tasks. Prefer reputable tech journalism or official event sources. This is a real named product/demo, so do not generate a fake robot image. Preserve the raw-content still-not-quite-there link in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining Tesla Optimus demonstrations, including questions about teleoperation, autonomy, or readiness.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "imageSearchQuery": "Later Optimus demonstrations a real image from a later Tesla Optimus demonstration, especially one where the robot interacts with guests or performs tasks. Prefer reputable tech journalism or official event sources. This",
+              "youtubeSearchQuery": "Later Optimus demonstrations a short educational video of maximum 5-7 minutes explaining Tesla Optimus demonstrations, including questions about teleoperation, autonomy, or readiness.",
+              "links": [
+                {
+                  "label": "Later Optimus teleoperation / autonomy concerns",
+                  "url": "https://techcrunch.com/2024/10/14/tesla-optimus-bots-were-controlled-by-humans-during-the-we-robot-event/"
+                }
+              ],
+              "url": "https://techcrunch.com/2024/10/14/tesla-optimus-bots-were-controlled-by-humans-during-the-we-robot-event/",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Staged tech demos",
+              "note": "Staged or controlled demonstrations are common in technology culture and can blur the line between prototype, performance, and deception.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find an image or visual from a known staged tech demo or a credible article about fake/controlled product demonstrations. If the raw-content link includes specific examples, preserve it and use those examples as content. If no exact image is needed and no strong image exists, the agent may generate a World Scholar app-style image of a stage presentation where a prototype is shown with hidden support behind the curtain.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes about famous fake demos, staged tech demos, or product-demo ethics.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/staged-tech-demos.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Staged tech demos an image or visual from a known staged tech demo or a credible article about fake/controlled product demonstrations. If the raw-content link includes specific examples, preserve it and use those example",
+              "youtubeSearchQuery": "Staged tech demos a short educational video of maximum 5-7 minutes about famous fake demos, staged tech demos, or product-demo ethics.",
+              "links": [
+                {
+                  "label": "Staged technology demo examples",
+                  "url": "https://sea.mashable.com/tech/34699/fake-tech-demos-a-brief-history"
+                }
+              ],
+              "url": "https://sea.mashable.com/tech/34699/fake-tech-demos-a-brief-history",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Readiness vs performance",
+              "note": "Real product capability is separated from what a polished demo makes the audience believe.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a product-readiness diagram, technology readiness level chart, or prototype-to-launch maturity diagram. If no clear image exists, the agent may generate a World Scholar app-style comparison chart showing prototype, demo, beta, and ready product.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining product readiness, prototype demos, or technology readiness levels.",
+              "requiresImageSearch": true,
+              "imageFallback": "imagegen",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "assets/raw-content/monkey-see-monkey-prototype/readiness-vs-performance.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "imageSearchQuery": "Readiness vs performance a product-readiness diagram, technology readiness level chart, or prototype-to-launch maturity diagram. If no clear image exists, the agent may generate a World Scholar app-style comparison chart",
+              "youtubeSearchQuery": "Readiness vs performance a short educational video of maximum 5-7 minutes explaining product readiness, prototype demos, or technology readiness levels.",
+              "links": []
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Optimus catching ball with new hand",
+          "url": "https://www.youtube.com/watch?v=pqIbLwIm_Qk"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Bright and Dark Future"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Narrated Endings"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Performed Progress",
+          "Narrated Endings"
+        ]
+      },
+      "sectionTitle": "Monkey See, Monkey Prototype"
+    },
+    {
+      "id": "raw.monkey-see-monkey-prototype.006",
+      "order": 6,
+      "sectionId": "monkey-see-monkey-prototype",
+      "mediaIds": [],
+      "questionIds": [
+        "question.monkey-see-monkey-prototype.100.006",
+        "question.monkey-see-monkey-prototype.200.006"
+      ],
+      "title": "Humans Behind the Curtain",
+      "guidingSection": "Monkey See, Monkey Prototype",
+      "rawOfficialText": "Some companies have even sold products and services that still secretly relied on people to function properly. Amazon’s AI-powered cashiers at their “Just Walk Out” grocery stores were actually overseen by thousands of low-paid workers; Fireflies.ai makes millions a year selling automated notetaking at meetings, but recently revealed that at first their powerful AI was just the founders listening in and writing stuff down. Look for similar cases, then discuss with your team: should companies be punished for releasing successful products and services that once relied on human intervention but no longer do? Is “fake it ’til you make it” justified as long as you make it in the end?",
+      "links": [
+        {
+          "label": "Amazon Just Walk Out reporting",
+          "url": "https://arstechnica.com/gadgets/2024/04/amazon-ends-ai-powered-store-checkout-which-needed-1000-video-reviewers/"
+        },
+        {
+          "label": "Amazon response / clarification",
+          "url": "https://apnews.com/article/amazon-just-walk-out-india-checkout-160bf03c1654f665834ab141e6db7516"
+        },
+        {
+          "label": "Fireflies.ai early human-note-taking report",
+          "url": "https://futurism.com/artificial-intelligence/fireflies-founder-startup-ai"
+        }
+      ],
+      "studentExplanation": "Some products are sold as automated even though humans still help them work behind the scenes. Sometimes that human help is temporary while the company builds better technology. Sometimes it becomes a trust problem because users, workers, or investors may not understand what is really happening. This entry asks whether “fake it till you make it” is a clever bridge to the future or an unfair way to sell a product that is not what it seems.\n\nThe extra notes connect Amazon Just Walk Out and early Fireflies-style support to hidden labor. The key question is not only whether a product uses AI, but where human review, annotation, correction, or manual work enters the system and whether customers are allowed to know. Use this to judge readiness: what kind of model is being shown, how close it is to the final thing, where humans or assumptions are hidden, and why a prototype can both teach and mislead.",
+      "whyItMatters": "At the entry level, this helps students understand hidden labor inside supposedly automated systems. At the section level, it connects prototypes, human support, and misleading appearances. At the year-theme level, it connects to progress because some products reach the market while still depending on invisible help.",
+      "takeaway": "Human-supported AI needs honesty about its limits, labor, and level of automation.",
+      "subjects": [
+        "Computer Science / Technology",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Visible vs Real",
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Narrated Endings"
+      ],
+      "examples": [
+        "Amazon Just Walk Out",
+        "Amazon’s response",
+        "Fireflies.ai early support",
+        "Hidden labor",
+        "Fake it till you make it"
+      ],
+      "debateRelevance": "Useful when debating whether hidden human support is a pragmatic bridge to automation or a deceptive shortcut that exploits trust and labor.",
+      "counterargument": "A transitional human-supported phase may help a product reach a genuinely automated future, but that defense only works if transparency and fairness are taken seriously.",
+      "visualSections": [
+        {
+          "title": "Hidden labor behind automation",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Amazon Just Walk Out",
+              "note": "Amazon's cashierless-store system and the controversy around how much invisible human review supported the experience. is introduced.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a real image of an Amazon Just Walk Out store, ideally showing store gates, ceiling cameras, sensors, or a customer entering. This is a real named system, so the agent must use a real image from Amazon or reliable journalism, not a generic supermarket. Preserve the Amazon Just Walk Out link in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes explaining Amazon Just Walk Out and the human-review controversy. It should mention both automation and human oversight if possible.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "https://amazon-blogs-brightspot.s3.amazonaws.com/92/c0/cf6674f240d4b892a23638633656/grace-exit-0875-blog.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Official Amazon source image",
+              "imageSearchQuery": "Amazon Just Walk Out a real image of an Amazon Just Walk Out store, ideally showing store gates, ceiling cameras, sensors, or a customer entering. This is a real named system, so the agent must use a real image from Amaz",
+              "youtubeSearchQuery": "Amazon Just Walk Out a clear educational video of maximum 5-7 minutes explaining Amazon Just Walk Out and the human-review controversy. It should mention both automation and human oversight if possible.",
+              "links": [
+                {
+                  "label": "Amazon Just Walk Out reporting",
+                  "url": "https://arstechnica.com/gadgets/2024/04/amazon-ends-ai-powered-store-checkout-which-needed-1000-video-reviewers/"
+                },
+                {
+                  "label": "Amazon Just Walk Out official image",
+                  "url": "https://www.aboutamazon.com/news/retail/amazon-fresh-grocery-store-meet-just-walk-out-shopping",
+                  "license": "Official Amazon source image"
+                }
+              ],
+              "url": "https://arstechnica.com/gadgets/2024/04/amazon-ends-ai-powered-store-checkout-which-needed-1000-video-reviewers/",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Amazon’s response",
+              "note": "The Just Walk Out story is presented as disputed: reports emphasized human review, while Amazon argued the system still used AI and human workers helped annotate or verify data.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find either an Amazon official image/page related to Just Walk Out or a reliable article screenshot/visual about Amazon's response. If no meaningful image exists, use a LINK button only rather than forcing a weak visual. Do not generate an image for a specific corporate response unless no image is needed and the app requires an abstract visual.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a short educational video of maximum 5-7 minutes explaining both the report and Amazon's response. The video must be balanced and avoid presenting the disputed claim as simple fact.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "src": "https://assets.aboutamazon.com/47/f7/fa389dbc4d41b704850c4ca3c860/inline-lumen-3.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Official Amazon source image",
+              "imageSearchQuery": "Amazon’s response either an Amazon official image/page related to Just Walk Out or a reliable article screenshot/visual about Amazon's response. If no meaningful image exists, use a LINK button only rather than forcing a",
+              "youtubeSearchQuery": "Amazon’s response a short educational video of maximum 5-7 minutes explaining both the report and Amazon's response. The video must be balanced and avoid presenting the disputed claim as simple fact.",
+              "links": [
+                {
+                  "label": "Amazon response / clarification",
+                  "url": "https://apnews.com/article/amazon-just-walk-out-india-checkout-160bf03c1654f665834ab141e6db7516"
+                },
+                {
+                  "label": "Amazon Just Walk Out official update image",
+                  "url": "https://www.aboutamazon.com/news/retail/amazon-just-walk-out-dash-cart-grocery-shopping-checkout-stores",
+                  "license": "Official Amazon source image"
+                }
+              ],
+              "url": "https://apnews.com/article/amazon-just-walk-out-india-checkout-160bf03c1654f665834ab141e6db7516",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Fireflies.ai early support",
+              "note": "Idea that some AI services may begin with hidden human work before the technology is truly ready. is introduced.",
+              "imageGuidance": "The agent must use the IMAGESEARCH skill first to find a relevant image of Fireflies.ai, its interface, or a credible article/interview about its early human-supported notetaking story. This is a specific named company, so do not use a generic meeting image unless no reliable Fireflies-related image exists. Preserve the Fireflies link in the app.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill to find a clear educational video of maximum 5-7 minutes about Fireflies.ai, AI meeting notetakers, or startup manual-first strategies. If no Fireflies-specific video exists, use a broader video on AI meeting assistants and hidden human support.",
+              "requiresImageSearch": true,
+              "imageFallback": "",
+              "requiresYoutubeSearch": true,
+              "videoMaxDuration": "5-7 minutes maximum",
+              "imageSearchQuery": "Fireflies.ai early support a relevant image of Fireflies.ai, its interface, or a credible article/interview about its early human-supported notetaking story. This is a specific named company, so do not use a generic meet",
+              "youtubeSearchQuery": "Fireflies.ai early support a clear educational video of maximum 5-7 minutes about Fireflies.ai, AI meeting notetakers, or startup manual-first strategies. If no Fireflies-specific video exists, use a broader video on AI ",
+              "links": [
+                {
+                  "label": "Fireflies.ai early human-note-taking report",
+                  "url": "https://futurism.com/artificial-intelligence/fireflies-founder-startup-ai"
+                }
+              ],
+              "url": "https://futurism.com/artificial-intelligence/fireflies-founder-startup-ai",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Bright and Dark Future"
+      ],
+      "primaryBigIdea": "Visible vs Real",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Narrated Endings"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Visible vs Real",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Performed Progress",
+          "Narrated Endings"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Amazon Go - World’s most advanced shopping technology | INTRODUCING OFFICIAL",
+          "url": "https://www.youtube.com/watch?v=-4RBWACdHLU"
+        }
+      ],
+      "sectionTitle": "Monkey See, Monkey Prototype"
+    }
+  ]
+}

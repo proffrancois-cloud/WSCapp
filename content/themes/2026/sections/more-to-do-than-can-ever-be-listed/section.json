@@ -1,0 +1,39 @@
+{
+  "id": "more-to-do-than-can-ever-be-listed",
+  "title": "More To Do Than Can Ever Be Listed",
+  "shortTitle": "More To Do Than Can Ever Be Listed",
+  "originalTitle": "More To Do Than Can Ever Be Listed",
+  "order": 3,
+  "themeId": "wsc-2026",
+  "blurb": "To-do lists, unfinished memory, and ways of deciding what matters most.",
+  "angle": "Here, progress is measured as much by what we never finish as by what we do.",
+  "subjectIds": [
+    "psychology",
+    "language-and-literature",
+    "philosophy"
+  ],
+  "bigIdeaIds": [
+    "incompletion-that-stays-active",
+    "infrastructure-shapes-behavior",
+    "movement-without-arrival",
+    "performed-progress",
+    "managing-uncertainty",
+    "delayed-arrival",
+    "visible-vs-real"
+  ],
+  "legacyIds": [
+    "more-to-do"
+  ],
+  "assetIds": {
+    "cover": "asset.more-to-do-than-can-ever-be-listed.card.cover",
+    "icon": "asset.more-to-do-than-can-ever-be-listed.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.more-to-do-than-can-ever-be-listed",
+    "questions": "questions.more-to-do-than-can-ever-be-listed",
+    "guide": "guide.more-to-do-than-can-ever-be-listed",
+    "media": "media.more-to-do-than-can-ever-be-listed",
+    "alpacards": "alpacards.more-to-do-than-can-ever-be-listed",
+    "channelVideos": "channel.more-to-do-than-can-ever-be-listed"
+  }
+}

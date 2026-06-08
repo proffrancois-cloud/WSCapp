@@ -1,0 +1,452 @@
+{
+  "id": "channel.next-year-in-futurism",
+  "sectionId": "next-year-in-futurism",
+  "videos": [
+    {
+      "id": "video.next-year-in-futurism.001",
+      "playlistIndex": 87,
+      "title": "Graphene: The Next Big (But Thin) Thing",
+      "channel": "SciShow",
+      "url": "https://www.youtube.com/watch?v=Mcg9_ML2mXY",
+      "duration": "4:48",
+      "uploadDate": "2014-07-14T20:03:43-07:00",
+      "viewCount": 1097967,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.1,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "If you haven't heard of it before, you have now. WSC link: Next Year in Futurism / False imminence.",
+      "keyTerms": [
+        "scishow",
+        "tumblr",
+        "science",
+        "graphene",
+        "next",
+        "big",
+        "thing",
+        "materials",
+        "awesome",
+        "help",
+        "support",
+        "dftba",
+        "subbable",
+        "facebook",
+        "twitter",
+        "org",
+        "thin",
+        "haven't"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "next-year-in-futurism"
+      ],
+      "sectionTitles": [
+        "Next Year in Futurism"
+      ],
+      "entryTitles": [
+        "Always Almost There"
+      ],
+      "bigIdeaLabels": [
+        "Prediction",
+        "Bright and Dark Future",
+        "Planning & Projects",
+        "Progress",
+        "Endings",
+        "False imminence",
+        "What futurism does",
+        "Shared destinations and unequal benefits",
+        "Lists as control systems",
+        "Closure vs continuation"
+      ],
+      "bigIdeaIds": [
+        "prediction",
+        "bright-and-dark-future",
+        "planning-and-projects",
+        "progress",
+        "endings",
+        "false-imminence",
+        "what-futurism-does",
+        "shared-destinations-and-unequal-benefits",
+        "lists-as-control-systems",
+        "closure-vs-continuation"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology",
+        "Sciences"
+      ],
+      "subjectIds": [
+        "computer-science-technology",
+        "sciences"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "next-year-in-futurism",
+          "sectionTitle": "Next Year in Futurism",
+          "entryTitle": "Always Almost There",
+          "why": "Manually placed under Always Almost There."
+        }
+      ],
+      "sourceId": "playlist-087-Mcg9_ML2mXY",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": null
+    },
+    {
+      "id": "video.next-year-in-futurism.002",
+      "playlistIndex": 88,
+      "title": "Space Elevator – Science Fiction or the Future of Mankind?",
+      "channel": "Kurzgesagt – In a Nutshell",
+      "url": "https://www.youtube.com/watch?v=qPQQwqGWktE",
+      "duration": "5:26",
+      "uploadDate": "2016-04-08T09:40:30-07:00",
+      "viewCount": 8264511,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "So. WSC link: Next Year in Futurism / False imminence.",
+      "keyTerms": [
+        "kgs",
+        "link",
+        "space",
+        "science",
+        "kurzgesagt",
+        "patreon",
+        "elevator",
+        "future",
+        "support",
+        "facebook",
+        "scott",
+        "fiction",
+        "mankind",
+        "nutshell",
+        "bird",
+        "army",
+        "reddit",
+        "instagram"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "next-year-in-futurism"
+      ],
+      "sectionTitles": [
+        "Next Year in Futurism"
+      ],
+      "entryTitles": [
+        "Always Almost There"
+      ],
+      "bigIdeaLabels": [
+        "Prediction",
+        "Bright and Dark Future",
+        "Routes, Roads & Navigation",
+        "Liminality",
+        "False imminence",
+        "What futurism does",
+        "Parking and car-centered policy",
+        "Hostile architecture and exclusion",
+        "Sidewalks as urban infrastructure",
+        "The Future"
+      ],
+      "bigIdeaIds": [
+        "prediction",
+        "bright-and-dark-future",
+        "routes-roads-and-navigation",
+        "liminality",
+        "false-imminence",
+        "what-futurism-does",
+        "parking-and-car-centered-policy",
+        "hostile-architecture-and-exclusion",
+        "sidewalks-as-urban-infrastructure",
+        "the-future"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology",
+        "Sciences"
+      ],
+      "subjectIds": [
+        "computer-science-technology",
+        "sciences"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "next-year-in-futurism",
+          "sectionTitle": "Next Year in Futurism",
+          "entryTitle": "Always Almost There",
+          "why": "Manually placed under Always Almost There."
+        }
+      ],
+      "sourceId": "playlist-088-qPQQwqGWktE",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": null
+    },
+    {
+      "id": "video.next-year-in-futurism.003",
+      "playlistIndex": 89,
+      "title": "Yes, scientists are actually building an elevator to space - Fabio Pacucci",
+      "channel": "TED-Ed",
+      "url": "https://www.youtube.com/watch?v=HQhmsDkZhQA",
+      "duration": "5:19",
+      "uploadDate": "2021-12-07T08:01:20-08:00",
+      "viewCount": 824082,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "animation / voiceover",
+      "score": 7.9,
+      "verdict": "Strong WSC candidate.",
+      "description": "Explore the physics behind space elevators, which would theoretically use a cable anchored to Earth and extending into space. WSC link: Next Year in Futurism / False imminence.",
+      "keyTerms": [
+        "space",
+        "bit",
+        "ted",
+        "elevator",
+        "fabio",
+        "pacucci",
+        "elevators",
+        "physics",
+        "rockets",
+        "support",
+        "ted-ed",
+        "behind",
+        "lesson",
+        "tjoff",
+        "koong",
+        "studios",
+        "lessons",
+        "want-to-go-to-space-but-hate-flying-take-an-elevator-fabio-pacucci"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "next-year-in-futurism"
+      ],
+      "sectionTitles": [
+        "Next Year in Futurism"
+      ],
+      "entryTitles": [
+        "Always Almost There"
+      ],
+      "bigIdeaLabels": [
+        "Prediction",
+        "Bright and Dark Future",
+        "Routes, Roads & Navigation",
+        "Liminality",
+        "False imminence",
+        "Parking and car-centered policy",
+        "Hostile architecture and exclusion",
+        "Walkability",
+        "Navigation and wayfinding"
+      ],
+      "bigIdeaIds": [
+        "prediction",
+        "bright-and-dark-future",
+        "routes-roads-and-navigation",
+        "liminality",
+        "false-imminence",
+        "parking-and-car-centered-policy",
+        "hostile-architecture-and-exclusion",
+        "walkability",
+        "navigation-and-wayfinding"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology",
+        "Sciences"
+      ],
+      "subjectIds": [
+        "computer-science-technology",
+        "sciences"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "next-year-in-futurism",
+          "sectionTitle": "Next Year in Futurism",
+          "entryTitle": "Always Almost There",
+          "why": "Manually placed under Always Almost There."
+        }
+      ],
+      "sourceId": "playlist-089-HQhmsDkZhQA",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": null
+    },
+    {
+      "id": "video.next-year-in-futurism.004",
+      "playlistIndex": 90,
+      "title": "The quest for Nikola Tesla’s wireless power technology",
+      "channel": "Verge Science",
+      "url": "https://www.youtube.com/watch?v=z97iOZQd-B4",
+      "duration": "10:21",
+      "uploadDate": "2020-12-10T07:00:32-08:00",
+      "viewCount": 1842214,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.3,
+      "verdict": "Strong WSC candidate.",
+      "description": "Nikola Tesla’s biggest dream was a worldwide network of wireless power transmission. WSC link: Next Year in Futurism / False imminence.",
+      "keyTerms": [
+        "science",
+        "tesla",
+        "wireless",
+        "verge",
+        "bit",
+        "power",
+        "nikola",
+        "technology",
+        "transmission",
+        "read",
+        "subscribe",
+        "follow",
+        "goo",
+        "news",
+        "nasa",
+        "iphone",
+        "quest",
+        "biggest"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "next-year-in-futurism"
+      ],
+      "sectionTitles": [
+        "Next Year in Futurism"
+      ],
+      "entryTitles": [
+        "Tesla’s Tower and the Meaning of “Soon”"
+      ],
+      "bigIdeaLabels": [
+        "Prediction",
+        "Bright and Dark Future",
+        "Routes, Roads & Navigation",
+        "Liminality",
+        "Endings",
+        "Thresholds",
+        "Planning & Projects",
+        "Progress",
+        "False imminence",
+        "What futurism does"
+      ],
+      "bigIdeaIds": [
+        "prediction",
+        "bright-and-dark-future",
+        "routes-roads-and-navigation",
+        "liminality",
+        "endings",
+        "thresholds",
+        "planning-and-projects",
+        "progress",
+        "false-imminence",
+        "what-futurism-does"
+      ],
+      "subjectLabels": [
+        "History"
+      ],
+      "subjectIds": [
+        "history"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "next-year-in-futurism",
+          "sectionTitle": "Next Year in Futurism",
+          "entryTitle": "Tesla’s Tower and the Meaning of “Soon”",
+          "why": "Approved review placement under Tesla’s Tower and the Meaning of “Soon”."
+        }
+      ],
+      "sourceId": "playlist-090-z97iOZQd-B4",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": null
+    },
+    {
+      "id": "video.next-year-in-futurism.005",
+      "title": "Past Predictions of the Future Every Decade",
+      "url": "https://www.youtube.com/watch?v=UOtb5jUogXw",
+      "description": "Manual Alpaca Channel placement for Yesterday’s Tomorrow.",
+      "sectionIds": [
+        "next-year-in-futurism"
+      ],
+      "sectionTitles": [
+        "Next Year in Futurism"
+      ],
+      "entryTitles": [
+        "Yesterday’s Tomorrow"
+      ],
+      "bigIdeaLabels": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "bigIdeaIds": [
+        "managing-uncertainty",
+        "delayed-arrival",
+        "narrated-endings",
+        "infrastructure-shapes-behavior"
+      ],
+      "subjectLabels": [
+        "History",
+        "Media / Film"
+      ],
+      "subjectIds": [
+        "history",
+        "media-film"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "next-year-in-futurism",
+          "sectionTitle": "Next Year in Futurism",
+          "entryTitle": "Yesterday’s Tomorrow",
+          "why": "User-confirmed placement under Yesterday’s Tomorrow."
+        }
+      ],
+      "sourceId": "manual-next-year-in-futurism-yesterday-s-tomorrow-UOtb5jUogXw",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": null
+    },
+    {
+      "id": "video.next-year-in-futurism.006",
+      "title": "Fusion power",
+      "url": "https://www.youtube.com/watch?v=mZsaaturR6E",
+      "description": "Manual Alpaca Channel placement for Always Almost There.",
+      "sectionIds": [
+        "next-year-in-futurism"
+      ],
+      "sectionTitles": [
+        "Next Year in Futurism"
+      ],
+      "entryTitles": [
+        "Always Almost There"
+      ],
+      "bigIdeaLabels": [
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "bigIdeaIds": [
+        "delayed-arrival",
+        "managing-uncertainty",
+        "performed-progress",
+        "visible-vs-real"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology",
+        "Sciences"
+      ],
+      "subjectIds": [
+        "computer-science-technology",
+        "sciences"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "next-year-in-futurism",
+          "sectionTitle": "Next Year in Futurism",
+          "entryTitle": "Always Almost There",
+          "why": "User-confirmed placement under Always Almost There."
+        }
+      ],
+      "sourceId": "manual-next-year-in-futurism-always-almost-there-mZsaaturR6E",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": null
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-05-02T18:14:16.173Z",
+  "sourcePlaylist": "https://youtube.com/playlist?list=PL3LbvViYtKMvrn4jO3SFwA4NoDQZ9XI1H",
+  "note": "Standalone Alpaca Channel catalog generated from reverseyoutubesearch analysis. This file intentionally does not modify raw-content-bank.js cards.",
+  "sourcePlaylistVideoCount": 146,
+  "skippedAlreadyPresentCount": 10,
+  "skippedAlreadyPresent": [
+    {
+      "playlistIndex": 3,
+      "title": "The Doomsday Clock, explained",
+      "url": "https://www.youtube.com/watch?v=jCnWPbn-ZKo"
+    },
+    {
+      "playlistIndex": 9,
+      "title": "Things are changing at the world's oldest hotel",
+      "url": "https://www.youtube.com/watch?v=_8W2LIfl5RE"
+    },
+    {
+      "playlistIndex": 17,
+      "title": "Frank Sinatra - My Way (Lyrics)",
+      "url": "https://www.youtube.com/watch?v=6pcwq2usV7Y"
+    },
+    {
+      "playlistIndex": 28,
+      "title": "Past Predictions of the Future Every Decade",
+      "url": "https://www.youtube.com/watch?v=UOtb5jUogXw"
+    },
+    {
+      "playlistIndex": 47,
+      "title": "The Simpson - The End Is Near !",
+      "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8"
+    },
+    {
+      "playlistIndex": 60,
+      "title": "Animal Magnetism: How Animals Navigate",
+      "url": "https://www.youtube.com/watch?v=EbHSkZySTBw"
+    },
+    {
+      "playlistIndex": 74,
+      "title": "Route 66: Why Is the World Still Obsessed With It",
+      "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs"
+    },
+    {
+      "playlistIndex": 126,
+      "title": "What is Rapid Prototyping?",
+      "url": "https://www.youtube.com/watch?v=-TDn25K-Jh4"
+    },
+    {
+      "playlistIndex": 145,
+      "title": "Hiroshi Yoshimura (吉村弘) - Blink",
+      "url": "https://www.youtube.com/watch?v=Qj1Q-0d1WZo"
+    },
+    {
+      "playlistIndex": 146,
+      "title": "Do Doorways Actually Make Us Forget Things?",
+      "url": "https://www.youtube.com/watch?v=TcWUSuMpdso"
+    }
+  ],
+  "videoRoutingUpdatedAt": "2026-05-11T11:04:10.587Z",
+  "videoRoutingUpdatedFrom": "User-confirmed May 11 video-only routing list"
+}

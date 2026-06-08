@@ -1,0 +1,176 @@
+{
+  "generatedAt": "2026-05-17T14:33:42.012Z",
+  "sourceFiles": [
+    "app/data.js",
+    "app/knowledge-bank.js",
+    "app/assets-config.js",
+    "app/raw-content-bank.js",
+    "app/alpaca-channel.js",
+    "app/content/alpacards.js"
+  ],
+  "sections": {
+    "introductory-questions": {
+      "title": "Introductory Questions",
+      "rawEntries": 6,
+      "activeQuestions": 68,
+      "legacyQuizQuestions": 30,
+      "v3QuestionGroups": 6,
+      "alpacards": 0,
+      "channelVideos": 2,
+      "mediaAssets": 14
+    },
+    "progress-not-regress": {
+      "title": "Progress, Not Regress",
+      "rawEntries": 8,
+      "activeQuestions": 63,
+      "legacyQuizQuestions": 54,
+      "v3QuestionGroups": 8,
+      "alpacards": 3,
+      "channelVideos": 10,
+      "mediaAssets": 31
+    },
+    "more-to-do-than-can-ever-be-listed": {
+      "title": "More To Do Than Can Ever Be Listed",
+      "rawEntries": 3,
+      "activeQuestions": 36,
+      "legacyQuizQuestions": 31,
+      "v3QuestionGroups": 3,
+      "alpacards": 0,
+      "channelVideos": 6,
+      "mediaAssets": 15
+    },
+    "the-end-is-nearish": {
+      "title": "The End is Nearish",
+      "rawEntries": 10,
+      "activeQuestions": 57,
+      "legacyQuizQuestions": 62,
+      "v3QuestionGroups": 10,
+      "alpacards": 11,
+      "channelVideos": 13,
+      "mediaAssets": 28
+    },
+    "theres-a-draft-in-here": {
+      "title": "There’s a Draft in Here",
+      "rawEntries": 3,
+      "activeQuestions": 39,
+      "legacyQuizQuestions": 29,
+      "v3QuestionGroups": 3,
+      "alpacards": 9,
+      "channelVideos": 0,
+      "mediaAssets": 24
+    },
+    "were-all-in-this-to-get-there": {
+      "title": "We're All in This to Get There",
+      "rawEntries": 8,
+      "activeQuestions": 36,
+      "legacyQuizQuestions": 52,
+      "v3QuestionGroups": 8,
+      "alpacards": 7,
+      "channelVideos": 2,
+      "mediaAssets": 48
+    },
+    "where-the-sidewalk-starts": {
+      "title": "Where the Sidewalk Starts",
+      "rawEntries": 7,
+      "activeQuestions": 46,
+      "legacyQuizQuestions": 47,
+      "v3QuestionGroups": 7,
+      "alpacards": 13,
+      "channelVideos": 5,
+      "mediaAssets": 33
+    },
+    "monkey-see-monkey-prototype": {
+      "title": "Monkey See, Monkey Prototype",
+      "rawEntries": 6,
+      "activeQuestions": 47,
+      "legacyQuizQuestions": 42,
+      "v3QuestionGroups": 6,
+      "alpacards": 0,
+      "channelVideos": 6,
+      "mediaAssets": 19
+    },
+    "the-lovely-and-the-liminal": {
+      "title": "The Lovely and the Liminal",
+      "rawEntries": 9,
+      "activeQuestions": 48,
+      "legacyQuizQuestions": 57,
+      "v3QuestionGroups": 9,
+      "alpacards": 18,
+      "channelVideos": 10,
+      "mediaAssets": 26
+    },
+    "going-pains": {
+      "title": "Going Pains",
+      "rawEntries": 6,
+      "activeQuestions": 29,
+      "legacyQuizQuestions": 42,
+      "v3QuestionGroups": 6,
+      "alpacards": 0,
+      "channelVideos": 4,
+      "mediaAssets": 20
+    },
+    "home-and-wandering": {
+      "title": "Home and Wandering",
+      "rawEntries": 8,
+      "activeQuestions": 50,
+      "legacyQuizQuestions": 52,
+      "v3QuestionGroups": 8,
+      "alpacards": 3,
+      "channelVideos": 33,
+      "mediaAssets": 40
+    },
+    "where-were-going-well-still-need-them": {
+      "title": "Where We're Going, We'll Still Need Them",
+      "rawEntries": 11,
+      "activeQuestions": 49,
+      "legacyQuizQuestions": 67,
+      "v3QuestionGroups": 11,
+      "alpacards": 15,
+      "channelVideos": 2,
+      "mediaAssets": 51
+    },
+    "call-of-duty-free": {
+      "title": "Call of Duty-Free",
+      "rawEntries": 5,
+      "activeQuestions": 36,
+      "legacyQuizQuestions": 37,
+      "v3QuestionGroups": 5,
+      "alpacards": 5,
+      "channelVideos": 11,
+      "mediaAssets": 47
+    },
+    "next-year-in-futurism": {
+      "title": "Next Year in Futurism",
+      "rawEntries": 10,
+      "activeQuestions": 37,
+      "legacyQuizQuestions": 62,
+      "v3QuestionGroups": 10,
+      "alpacards": 1,
+      "channelVideos": 6,
+      "mediaAssets": 44
+    },
+    "concluding-questions": {
+      "title": "Concluding Questions",
+      "rawEntries": 7,
+      "activeQuestions": 27,
+      "legacyQuizQuestions": 47,
+      "v3QuestionGroups": 7,
+      "alpacards": 0,
+      "channelVideos": 5,
+      "mediaAssets": 13
+    }
+  },
+  "totals": {
+    "sections": 15,
+    "rawEntries": 107,
+    "activeQuestions": 668,
+    "legacyQuizQuestions": 711,
+    "v3QuestionGroups": 107,
+    "alpacards": 85,
+    "videos": 143,
+    "themeWideAlpacards": 0,
+    "themeWideVideos": 28,
+    "sectionVideoPlacements": 115,
+    "assetConfigEntries": 177
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "id": "media.the-end-is-nearish",
+  "sectionId": "the-end-is-nearish",
+  "assets": [
+    {
+      "id": "asset.the-end-is-nearish.alpacard.apocalypse-42",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/apocalypse-42.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.der-krieg-world-war-i-prints",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/der-krieg-world-war-i-prints.webp",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.four-horsemen-of-apocalypse-nelson-freund",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/four-horsemen-of-apocalypse-nelson-freund.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-course-of-empire-destruction",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-course-of-empire-destruction.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-four-horsemen-of-the-apocalypse",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-four-horsemen-of-the-apocalypse.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-great-day-of-his-wrath",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-great-day-of-his-wrath.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-last-judgment",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-last-judgment.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-last-of-us-season-1-concept-art",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-last-of-us-season-1-concept-art.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-last-of-us-season-1",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-last-of-us-season-1.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-mystical-nativity",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-mystical-nativity.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.alpacard.the-triumph-of-death",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-triumph-of-death.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.apocalypse-art-as-a-visual-language",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/apocalypse-art-as-a-visual-language.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.london-in-1666",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/london-in-1666.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.more-turbulent-skies",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/more-turbulent-skies.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.point-of-no-return-debate",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/point-of-no-return-debate.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.preparation-vs-exploitation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/preparation-vs-exploitation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.religious-prophetic-movements",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/religious-prophetic-movements.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.scientific-and-technological-panics",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/scientific-and-technological-panics.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.solar-geoengineering-as-a-business-case",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/solar-geoengineering-as-a-business-case.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.term-limits-vs-permanent-power",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/term-limits-vs-permanent-power.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.the-future-leader-in-the-present",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/the-future-leader-in-the-present.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.the-lame-duck-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/the-lame-duck-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.the-viral-formula",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/the-viral-formula.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.three-sounds-of-ending",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/three-sounds-of-ending.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.uncertainty-as-control",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/uncertainty-as-control.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.useful-warning-or-false-precision",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/useful-warning-or-false-precision.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.what-caretakers-should-avoid",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/what-caretakers-should-avoid.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-end-is-nearish.raw.who-should-govern-last-resort-technologies",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-end-is-nearish/who-should-govern-last-resort-technologies.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

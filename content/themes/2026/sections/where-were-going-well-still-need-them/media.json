@@ -1,0 +1,414 @@
+{
+  "id": "media.where-were-going-well-still-need-them",
+  "sectionId": "where-were-going-well-still-need-them",
+  "assets": [
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.corduroy-road",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/corduroy-road.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.gallery-road",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/gallery-road.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.holloway",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/holloway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.macadam-roads",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/macadam-roads.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.modular-pavement",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/modular-pavement.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.motor-hotel-motel-architecture",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/motor-hotel-motel-architecture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.pearblossom-highway",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/pearblossom-highway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.permeable-pavement",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/permeable-pavement.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.ridgeway",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/ridgeway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.roadside-culture",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/roadside-culture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.solar-roadways",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/solar-roadways.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.standard-station",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/standard-station.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.the-worlds-first-motel-motel-inn",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-worlds-first-motel-motel-inn.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.trackway",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/trackway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.alpacard.western-motel",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/western-motel.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.a-road-after-its-main-function",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/a-road-after-its-main-function.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.america-turns-driving-into-mythology",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/america-turns-driving-into-mythology.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.asphalt",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/asphalt.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.blue-highways-vs-main-roads",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/blue-highways-vs-main-roads.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.braesss-paradox",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/braesss-paradox.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.circle-vs-straight-line",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/circle-vs-straight-line.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.corduroy-road",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/corduroy-road.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.dead-reckoning",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/dead-reckoning.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.desire-paths",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/desire-paths.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.dsrc",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/dsrc.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.explore-exploit-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/explore-exploit-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.gallery-road",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/gallery-road.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.holloway",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/holloway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.how-a-stroad-can-be-repaired",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/how-a-stroad-can-be-repaired.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.inductive-charging",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/inductive-charging.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.macadam",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/macadam.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.milestones",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/milestones.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.modular-pavement",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/modular-pavement.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.motor-hotel-architecture",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/motor-hotel-architecture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.not-just-because-of-missing-trains",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/not-just-because-of-missing-trains.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.pause-without-arrival",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/pause-without-arrival.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.pavement",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/pavement.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.permeable-pavement",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/permeable-pavement.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.piezoelectric-materials",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/piezoelectric-materials.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.ridgeway",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/ridgeway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.road-vs-street-vs-stroad",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/road-vs-street-vs-stroad.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.roadside-culture",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/roadside-culture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.route-elasticity",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/route-elasticity.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.self-healing-asphalt",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/self-healing-asphalt.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.solar-roadways",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/solar-roadways.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.steiner-tree-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/steiner-tree-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.the-worlds-first-motel",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/the-worlds-first-motel.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.trackway",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/trackway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.traveling-salesman-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/traveling-salesman-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.vector-based-navigation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/vector-based-navigation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-were-going-well-still-need-them.raw.why-stroads-become-dangerous",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-were-going-well-still-need-them/why-stroads-become-dangerous.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

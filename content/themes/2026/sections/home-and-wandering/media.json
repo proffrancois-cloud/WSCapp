@@ -1,0 +1,326 @@
+{
+  "id": "media.home-and-wandering",
+  "sectionId": "home-and-wandering",
+  "assets": [
+    {
+      "id": "asset.home-and-wandering.alpacard.borderlands",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/borderlands.webp",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.alpacard.frida-kahlo-the-bus",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/frida-kahlo-the-bus.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.alpacard.migration-series",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/migration-series.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.art-music-migrant-in-between",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/art-music-migrant-in-between.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.astrolabe",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/astrolabe.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.border-line-vs-human-threshold",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/border-line-vs-human-threshold.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.chronometer",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/chronometer.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.closed-borders-and-political-pressure",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/closed-borders-and-political-pressure.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.constant-frequency",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/constant-frequency.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.cryptochromes",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/cryptochromes.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.desert-ants",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/desert-ants.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.dung-beetle",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/dung-beetle.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.echolocation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/echolocation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.fog-of-war-in-games",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/fog-of-war-in-games.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.fog-of-world",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/fog-of-world.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.frequency-modulation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/frequency-modulation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.homing-pigeons",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/homing-pigeons.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.honeybees",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/honeybees.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.indigo-bunting",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/indigo-bunting.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.inuit-mental-and-physical-maps",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/inuit-mental-and-physical-maps.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.latitude-and-longitude",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/latitude-and-longitude.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.log-tables-and-ephemerides",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/log-tables-and-ephemerides.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.magnetic-compass",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/magnetic-compass.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.magnetoreception",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/magnetoreception.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.mother-country-exile-as-family-memory",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/mother-country-exile-as-family-memory.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.olfactory-navigation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/olfactory-navigation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.polynesian-star-compass-and-ocean-swells",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/polynesian-star-compass-and-ocean-swells.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.prospective-immigrants-door-as-choice",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/prospective-immigrants-door-as-choice.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.recent-airport-limbo-cases",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/recent-airport-limbo-cases.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.sea-turtles",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/sea-turtles.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.sextant",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/sextant.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.sound-of-one-immigrant-clapping",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/sound-of-one-immigrant-clapping.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.spatial-memory",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/spatial-memory.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.sunlight-polarization",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/sunlight-polarization.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.the-legendary-viking-sunstone",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/the-legendary-viking-sunstone.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.the-log-and-line",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/the-log-and-line.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.the-new-colossus-welcome-as-symbol",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/the-new-colossus-welcome-as-symbol.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.we-are-americans-now-identity-in-new-landscape",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/we-are-americans-now-identity-in-new-landscape.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.when-less-information-changes-experience",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/when-less-information-changes-experience.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.home-and-wandering.raw.zugunruhe",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/home-and-wandering/zugunruhe.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

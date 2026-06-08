@@ -1,0 +1,211 @@
+{
+  "themeId": "wsc-2026",
+  "generatedAt": "2026-05-17T14:33:42.012Z",
+  "sections": [
+    {
+      "id": "introductory-questions",
+      "title": "Introductory Questions",
+      "path": "./sections/introductory-questions/section.json",
+      "content": {
+        "rawContent": "./sections/introductory-questions/raw-content.json",
+        "questions": "./sections/introductory-questions/questions.json",
+        "guide": "./sections/introductory-questions/guide.json",
+        "media": "./sections/introductory-questions/media.json",
+        "alpacards": "./sections/introductory-questions/alpacards.json",
+        "channelVideos": "./sections/introductory-questions/channel-videos.json"
+      }
+    },
+    {
+      "id": "progress-not-regress",
+      "title": "Progress, Not Regress",
+      "path": "./sections/progress-not-regress/section.json",
+      "content": {
+        "rawContent": "./sections/progress-not-regress/raw-content.json",
+        "questions": "./sections/progress-not-regress/questions.json",
+        "guide": "./sections/progress-not-regress/guide.json",
+        "media": "./sections/progress-not-regress/media.json",
+        "alpacards": "./sections/progress-not-regress/alpacards.json",
+        "channelVideos": "./sections/progress-not-regress/channel-videos.json"
+      }
+    },
+    {
+      "id": "more-to-do-than-can-ever-be-listed",
+      "title": "More To Do Than Can Ever Be Listed",
+      "path": "./sections/more-to-do-than-can-ever-be-listed/section.json",
+      "content": {
+        "rawContent": "./sections/more-to-do-than-can-ever-be-listed/raw-content.json",
+        "questions": "./sections/more-to-do-than-can-ever-be-listed/questions.json",
+        "guide": "./sections/more-to-do-than-can-ever-be-listed/guide.json",
+        "media": "./sections/more-to-do-than-can-ever-be-listed/media.json",
+        "alpacards": "./sections/more-to-do-than-can-ever-be-listed/alpacards.json",
+        "channelVideos": "./sections/more-to-do-than-can-ever-be-listed/channel-videos.json"
+      }
+    },
+    {
+      "id": "the-end-is-nearish",
+      "title": "The End is Nearish",
+      "path": "./sections/the-end-is-nearish/section.json",
+      "content": {
+        "rawContent": "./sections/the-end-is-nearish/raw-content.json",
+        "questions": "./sections/the-end-is-nearish/questions.json",
+        "guide": "./sections/the-end-is-nearish/guide.json",
+        "media": "./sections/the-end-is-nearish/media.json",
+        "alpacards": "./sections/the-end-is-nearish/alpacards.json",
+        "channelVideos": "./sections/the-end-is-nearish/channel-videos.json"
+      }
+    },
+    {
+      "id": "theres-a-draft-in-here",
+      "title": "There’s a Draft in Here",
+      "path": "./sections/theres-a-draft-in-here/section.json",
+      "content": {
+        "rawContent": "./sections/theres-a-draft-in-here/raw-content.json",
+        "questions": "./sections/theres-a-draft-in-here/questions.json",
+        "guide": "./sections/theres-a-draft-in-here/guide.json",
+        "media": "./sections/theres-a-draft-in-here/media.json",
+        "alpacards": "./sections/theres-a-draft-in-here/alpacards.json",
+        "channelVideos": "./sections/theres-a-draft-in-here/channel-videos.json"
+      }
+    },
+    {
+      "id": "were-all-in-this-to-get-there",
+      "title": "We're All in This to Get There",
+      "path": "./sections/were-all-in-this-to-get-there/section.json",
+      "content": {
+        "rawContent": "./sections/were-all-in-this-to-get-there/raw-content.json",
+        "questions": "./sections/were-all-in-this-to-get-there/questions.json",
+        "guide": "./sections/were-all-in-this-to-get-there/guide.json",
+        "media": "./sections/were-all-in-this-to-get-there/media.json",
+        "alpacards": "./sections/were-all-in-this-to-get-there/alpacards.json",
+        "channelVideos": "./sections/were-all-in-this-to-get-there/channel-videos.json"
+      }
+    },
+    {
+      "id": "where-the-sidewalk-starts",
+      "title": "Where the Sidewalk Starts",
+      "path": "./sections/where-the-sidewalk-starts/section.json",
+      "content": {
+        "rawContent": "./sections/where-the-sidewalk-starts/raw-content.json",
+        "questions": "./sections/where-the-sidewalk-starts/questions.json",
+        "guide": "./sections/where-the-sidewalk-starts/guide.json",
+        "media": "./sections/where-the-sidewalk-starts/media.json",
+        "alpacards": "./sections/where-the-sidewalk-starts/alpacards.json",
+        "channelVideos": "./sections/where-the-sidewalk-starts/channel-videos.json"
+      }
+    },
+    {
+      "id": "monkey-see-monkey-prototype",
+      "title": "Monkey See, Monkey Prototype",
+      "path": "./sections/monkey-see-monkey-prototype/section.json",
+      "content": {
+        "rawContent": "./sections/monkey-see-monkey-prototype/raw-content.json",
+        "questions": "./sections/monkey-see-monkey-prototype/questions.json",
+        "guide": "./sections/monkey-see-monkey-prototype/guide.json",
+        "media": "./sections/monkey-see-monkey-prototype/media.json",
+        "alpacards": "./sections/monkey-see-monkey-prototype/alpacards.json",
+        "channelVideos": "./sections/monkey-see-monkey-prototype/channel-videos.json"
+      }
+    },
+    {
+      "id": "the-lovely-and-the-liminal",
+      "title": "The Lovely and the Liminal",
+      "path": "./sections/the-lovely-and-the-liminal/section.json",
+      "content": {
+        "rawContent": "./sections/the-lovely-and-the-liminal/raw-content.json",
+        "questions": "./sections/the-lovely-and-the-liminal/questions.json",
+        "guide": "./sections/the-lovely-and-the-liminal/guide.json",
+        "media": "./sections/the-lovely-and-the-liminal/media.json",
+        "alpacards": "./sections/the-lovely-and-the-liminal/alpacards.json",
+        "channelVideos": "./sections/the-lovely-and-the-liminal/channel-videos.json"
+      }
+    },
+    {
+      "id": "going-pains",
+      "title": "Going Pains",
+      "path": "./sections/going-pains/section.json",
+      "content": {
+        "rawContent": "./sections/going-pains/raw-content.json",
+        "questions": "./sections/going-pains/questions.json",
+        "guide": "./sections/going-pains/guide.json",
+        "media": "./sections/going-pains/media.json",
+        "alpacards": "./sections/going-pains/alpacards.json",
+        "channelVideos": "./sections/going-pains/channel-videos.json"
+      }
+    },
+    {
+      "id": "home-and-wandering",
+      "title": "Home and Wandering",
+      "path": "./sections/home-and-wandering/section.json",
+      "content": {
+        "rawContent": "./sections/home-and-wandering/raw-content.json",
+        "questions": "./sections/home-and-wandering/questions.json",
+        "guide": "./sections/home-and-wandering/guide.json",
+        "media": "./sections/home-and-wandering/media.json",
+        "alpacards": "./sections/home-and-wandering/alpacards.json",
+        "channelVideos": "./sections/home-and-wandering/channel-videos.json"
+      }
+    },
+    {
+      "id": "where-were-going-well-still-need-them",
+      "title": "Where We're Going, We'll Still Need Them",
+      "path": "./sections/where-were-going-well-still-need-them/section.json",
+      "content": {
+        "rawContent": "./sections/where-were-going-well-still-need-them/raw-content.json",
+        "questions": "./sections/where-were-going-well-still-need-them/questions.json",
+        "guide": "./sections/where-were-going-well-still-need-them/guide.json",
+        "media": "./sections/where-were-going-well-still-need-them/media.json",
+        "alpacards": "./sections/where-were-going-well-still-need-them/alpacards.json",
+        "channelVideos": "./sections/where-were-going-well-still-need-them/channel-videos.json"
+      }
+    },
+    {
+      "id": "call-of-duty-free",
+      "title": "Call of Duty-Free",
+      "path": "./sections/call-of-duty-free/section.json",
+      "content": {
+        "rawContent": "./sections/call-of-duty-free/raw-content.json",
+        "questions": "./sections/call-of-duty-free/questions.json",
+        "guide": "./sections/call-of-duty-free/guide.json",
+        "media": "./sections/call-of-duty-free/media.json",
+        "alpacards": "./sections/call-of-duty-free/alpacards.json",
+        "channelVideos": "./sections/call-of-duty-free/channel-videos.json"
+      }
+    },
+    {
+      "id": "next-year-in-futurism",
+      "title": "Next Year in Futurism",
+      "path": "./sections/next-year-in-futurism/section.json",
+      "content": {
+        "rawContent": "./sections/next-year-in-futurism/raw-content.json",
+        "questions": "./sections/next-year-in-futurism/questions.json",
+        "guide": "./sections/next-year-in-futurism/guide.json",
+        "media": "./sections/next-year-in-futurism/media.json",
+        "alpacards": "./sections/next-year-in-futurism/alpacards.json",
+        "channelVideos": "./sections/next-year-in-futurism/channel-videos.json"
+      }
+    },
+    {
+      "id": "concluding-questions",
+      "title": "Concluding Questions",
+      "path": "./sections/concluding-questions/section.json",
+      "content": {
+        "rawContent": "./sections/concluding-questions/raw-content.json",
+        "questions": "./sections/concluding-questions/questions.json",
+        "guide": "./sections/concluding-questions/guide.json",
+        "media": "./sections/concluding-questions/media.json",
+        "alpacards": "./sections/concluding-questions/alpacards.json",
+        "channelVideos": "./sections/concluding-questions/channel-videos.json"
+      }
+    }
+  ],
+  "questionBank": "./questions/question-bank.json",
+  "themeWide": {
+    "alpacards": "./theme-wide/alpacards.json",
+    "channelVideos": "./theme-wide/channel-videos.json"
+  },
+  "generatedIndexes": {
+    "alpacards": "./generated/alpacards.index.json",
+    "channelVideos": "./generated/channel-videos.index.json",
+    "assets": "./generated/assets.index.json"
+  }
+}

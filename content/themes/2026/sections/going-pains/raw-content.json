@@ -1,0 +1,1284 @@
+{
+  "id": "raw.going-pains",
+  "sectionId": "going-pains",
+  "entries": [
+    {
+      "id": "raw.going-pains.001",
+      "order": 1,
+      "sectionId": "going-pains",
+      "mediaIds": [
+        "asset.going-pains.raw.differentiation",
+        "asset.going-pains.raw.neophilia",
+        "asset.going-pains.raw.neural-pruning",
+        "asset.going-pains.raw.risk-taking"
+      ],
+      "questionIds": [
+        "question.going-pains.100.001",
+        "question.going-pains.200.001"
+      ],
+      "title": "Adolescence Is Old. Teenagers Are New.",
+      "guidingSection": "Going Pains",
+      "rawOfficialText": "In 2001, millennial pop star Britney Spears sang that she was “not a girl, not yet a woman”. In other words, she was an adolescent. Actually, she was 20 at the time—no longer a teenager, but well below the age at which our frontal lobes stop developing. With your team, explore the history of teenagers and the related terms below. If adolescence has always been a developmental stage in both humans and many other animals, why is the idea of teenagers so new?\nprefrontal cortex | neural pruning | risk-taking | neophilia | differentiation",
+      "links": [
+        {
+          "label": "UCLA - adolescence across the animal kingdom",
+          "url": "https://developingadolescent.semel.ucla.edu/blog/item/adolescence-across-the-animal-kingdom"
+        },
+        {
+          "label": "UCLA podcast - adolescence across species",
+          "url": "https://developingadolescent.semel.ucla.edu/podcasts/item/epic-journeys-what-we-can-learn-from-adolescence-across-species"
+        },
+        {
+          "label": "Britannica - adolescence overview",
+          "url": "https://www.britannica.com/science/adolescence"
+        },
+        {
+          "label": "Scientific American - The Amazing Teen Brain",
+          "url": "https://www.scientificamerican.com/article/the-amazing-teen-brain/"
+        },
+        {
+          "label": "KidsHealth NZ - Adolescent Brain Development",
+          "url": "https://www.kidshealth.org.nz/adolescent-brain-development"
+        },
+        {
+          "label": "Frontiers for Young Minds - Brain pruning / adolescence",
+          "url": "https://kids.frontiersin.org/articles/10.3389/frym.2014.00016"
+        }
+      ],
+      "deepLinkAnalysis": "The UCLA article and podcast are not just support sources: they change the way the entry should be taught. They show adolescence as an evolutionary and cross-species stage of exploration, learning, dispersal, status sensitivity, risk, and plasticity. That means adolescence should not be framed only as a modern human problem or a defective half-adult brain.\nThe Scientific American link is central for the keyword slides. It explains the adolescent brain as adaptable and still under construction, with the prefrontal cortex maturing later than reward and emotion systems. This helps students understand risk-taking as a mismatch and an opportunity, not just stupidity.\nThe KidsHealth brain-development page is useful for visuals because it provides teen-friendly diagrams of the prefrontal cortex and related brain areas. It should guide image choice for the prefrontal cortex slide.\nThe raw Britney Spears line should be used as a hook only: she was 20, so the entry is deliberately separating teenager from adolescent. The real lesson is that adolescence is biological and developmental, while teenager is a modern social/cultural label.",
+      "studentExplanation": "Adolescence is not just a modern human invention. The UCLA links show that many animals also pass through a risky, flexible learning stage between childhood and adulthood, when they explore, leave safe places, learn social rules, and test themselves. The newer part is the teenager as a social identity: a visible age group shaped by school, youth culture, spending money, music, media, and modern expectations. Even the famous idea that the brain is “finished at 25” is too simple: brain development is gradual, uneven, and shaped by experience.\n\nThe notes add an important correction to the “brain finished at 25” shortcut: adolescent development involves pruning, integration, segregation, white matter connections, and social learning across a flexible range, not one magic birthday. The modern teenager is newer than adolescence itself because school, consumer culture, music, media, and youth identity made that stage visible. Use this to connect biology, language, and culture: what transition is happening, when society recognizes it, how people perform or resist maturity, and why growing up rarely matches one clean age line.",
+      "whyItMatters": "At the entry level, this separates three ideas students often mix together: puberty, adolescence, and teenager identity. At the section level, it opens Going Pains by showing that growing up is biological, social, linguistic, and cultural all at once. At the year-theme level, adolescence is a classic threshold: a person is no longer simply a child, but not yet fully settled into adult roles.",
+      "takeaway": "Adolescence is ancient, but teenage identity is modern",
+      "subjects": [
+        "Sciences",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Narrated Endings",
+        "Measuring Human Worth",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "prefrontal cortex",
+        "neural pruning",
+        "risk-taking",
+        "neophilia",
+        "differentiation"
+      ],
+      "debateRelevance": "Useful when debating whether adolescence should be understood mainly as biology, culture, language, or a changing social identity.",
+      "counterargument": "Biology matters, but teenage identity is also shaped by school, media, economics, family, and law.",
+      "visualSections": [
+        {
+          "title": "Science keywords: the adolescent brain and behavior",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Prefrontal cortex",
+              "note": "The prefrontal cortex helps with planning, self-control, judging consequences, and thinking ahead, but these systems continue developing through adolescence.",
+              "imageGuidance": "Find a clear teen-brain diagram with the prefrontal cortex highlighted, ideally from KidsHealth NZ or another educational health source. Use the exact diagram if the source provides a usable labelled image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Find a short educational video explaining the prefrontal cortex and adolescent decision-making for young students. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific educational brain diagram requested; preserve source link rather than fabricating a labelled medical diagram."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Neural pruning",
+              "note": "Neural pruning is the brain’s way of trimming less-used connections so frequently used pathways become more efficient.",
+              "imageGuidance": "Find a realistic educational diagram of synaptic pruning or adolescent brain pruning from a science education source. If no perfect image exists, create a realistic WSC-style diagram showing weaker connections fading and stronger connections becoming brighter. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining synaptic pruning in adolescence or brain development. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Frontiers for Young Minds - Brain pruning / adolescence",
+                  "url": "https://kids.frontiersin.org/articles/10.3389/frym.2014.00016"
+                }
+              ],
+              "url": "https://kids.frontiersin.org/articles/10.3389/frym.2014.00016",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/neural-pruning.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Risk-taking",
+              "note": "Risk-taking can be dangerous, but in adolescence it can also support exploration, learning, independence, and social growth.",
+              "imageGuidance": "Find a realistic, non-sensational image of adolescents facing a safe decision or supervised challenge, not reckless danger. If no good source image appears, generate a realistic WSC-style scene of teens weighing risk and reward. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining why adolescents take risks and how risk-taking can be managed positively. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/risk-taking.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Neophilia",
+              "note": "Neophilia means attraction to new experiences; in adolescence it can push young people and animals to explore beyond familiar safety.",
+              "imageGuidance": "Find a realistic image of an adolescent animal or human exploring a new environment, preferably connected to the UCLA animal adolescence article. If no exact image exists, create a realistic WSC-style image showing a teen at the edge of a new path. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video about novelty-seeking, exploration, or adolescent learning across species. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/neophilia.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Differentiation",
+              "note": "Differentiation is becoming more distinct as your own person: separate from parents, childhood routines, and earlier identities.",
+              "imageGuidance": "Find a realistic image of a teen choosing between different identity symbols, paths, or social roles. If /imagesearch cannot find a strong concept image, generate a realistic WSC-style image of a young person stepping from a family silhouette toward their own path. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining adolescent identity formation, autonomy, or individuation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/differentiation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Sarah-Jayne Blakemore: The mysterious workings of the adolescent brain",
+          "url": "https://www.youtube.com/watch?v=6zVS8HIPUng"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Thresholds",
+        "Transition"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Measuring Human Worth",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Measuring Human Worth",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Going Pains"
+    },
+    {
+      "id": "raw.going-pains.002",
+      "order": 2,
+      "sectionId": "going-pains",
+      "mediaIds": [
+        "asset.going-pains.raw.english-adolescent-vs-teenager",
+        "asset.going-pains.raw.french-adolescent-ado",
+        "asset.going-pains.raw.japanese-juudai-seishun-shishunki",
+        "asset.going-pains.raw.mandarin-chinese-and-arabic-youth",
+        "asset.going-pains.raw.spanish-adolescente-number-puzzle"
+      ],
+      "questionIds": [
+        "question.going-pains.100.002",
+        "question.going-pains.200.002"
+      ],
+      "title": "Growing Up Has Different Names",
+      "guidingSection": "Going Pains",
+      "rawOfficialText": "The word “adolescent” comes from a Latin word meaning “to grow toward”. But “teenager” relies on a quirk of the English language—that the numbers 11 and 12 have their own unique words, while 13 through 19 are compound words that combine a single-digit number and a suffix meaning “ten” (four-teen, six-teen, and so on). How do other languages refer to adolescents and teenagers—and does your own first language differentiate between these two terms? What are their different connotations? Do cultures with languages that use a -ten suffix for the numbers 11 and 12 define the “teenage” years differently? For instance, in Spanish, the -ten suffix only comes into play at 16—diez (10) y seis (6); do children only become teenagers at 16 in Spanish-speaking countries?",
+      "links": [
+        {
+          "label": "Etymonline - adolescent",
+          "url": "https://www.etymonline.com/word/adolescent"
+        },
+        {
+          "label": "Etymonline - teenager",
+          "url": "https://www.etymonline.com/word/teenager"
+        },
+        {
+          "label": "Britannica - adolescence",
+          "url": "https://www.britannica.com/science/adolescence"
+        }
+      ],
+      "deepLinkAnalysis": "This raw entry is mostly linguistic, so the key content is inside the wording itself. “Adolescent” comes from a growth-oriented Latin root, while “teenager” depends on a number pattern. Students should see that a word can define a life stage differently even when it points to similar ages.\nThe Spanish example is especially useful because it shows that English -teen does not map perfectly onto other languages. Spanish has special words for 11-15 and dieci- forms beginning at 16, but Spanish-speaking cultures do not wait until 16 to recognize adolescence.\nThe flashcards should not just translate “teenager.” They should compare whether a language frames the stage as age, growth, youth, puberty, or social identity.",
+      "studentExplanation": "The word adolescent points toward growth: it comes from a root meaning to grow or grow toward maturity. The word teenager works differently: it depends on the English number pattern from thirteen to nineteen. That means the two words overlap, but they do not carry the same feeling. Adolescent sounds developmental or scientific; teenager sounds more social and cultural. Other languages divide the age range differently, which reminds us that life stages are partly biological and partly shaped by language.\n\nMake language part of the evidence. “Adolescent” points toward growth and maturity, while “teenager” depends on English number words; other languages sort youth, puberty, and social age in different ways. That means the category is partly biological, partly linguistic, and partly cultural. Use this to connect biology, language, and culture: what transition is happening, when society recognizes it, how people perform or resist maturity, and why growing up rarely matches one clean age line.",
+      "whyItMatters": "At the entry level, this helps students notice that words do not just label growing up; they shape how people imagine it. At the section level, it adds language and culture to the science of adolescence. At the year-theme level, it connects to thresholds because language is one way societies draw fuzzy borders between child, youth, and adult.",
+      "takeaway": "Life stages are shaped by biology and language",
+      "subjects": [
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Measuring Human Worth",
+        "Infrastructure Shapes Behavior",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "English: adolescent vs teenager",
+        "French: adolescent / ado",
+        "Spanish: adolescente and the number puzzle",
+        "Japanese: juudai / seishun / shishunki",
+        "Mandarin Chinese and Arabic: youth more than “teen”"
+      ],
+      "debateRelevance": "Useful when debating how much words and languages shape the boundaries between childhood, youth, and adulthood.",
+      "counterargument": "Language shapes categories, but people can still recognize adolescence even when their language divides ages differently.",
+      "visualSections": [
+        {
+          "title": "Language flashcards: how words draw age borders",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "English: adolescent vs teenager",
+              "note": "English separates a developmental word, adolescent, from a number-based social label, teenager.",
+              "imageGuidance": "Find a realistic educational visual of English dictionary entries or language-learning flashcards. If no suitable image exists, generate a realistic WSC-style flashcard with “adolescent” and “teenager” side by side. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video about the word teenager, adolescence, or how languages classify age groups. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Etymonline - adolescent",
+                  "url": "https://www.etymonline.com/word/adolescent"
+                }
+              ],
+              "url": "https://www.etymonline.com/word/adolescent",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/english-adolescent-vs-teenager.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "French: adolescent / ado",
+              "note": "French commonly uses adolescent/adolescente and the shortened ado, emphasizing youth and development more than an exact -teen number pattern.",
+              "imageGuidance": "Find a realistic French language flashcard or dictionary-style image. If none is strong, generate a realistic WSC-style French flashcard with adolescent/adolescente/ado. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video or language explainer about French age words for teenagers/adolescents. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Etymonline - adolescent",
+                  "url": "https://www.etymonline.com/word/adolescent"
+                }
+              ],
+              "url": "https://www.etymonline.com/word/adolescent",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/french-adolescent-ado.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Spanish: adolescente and the number puzzle",
+              "note": "Spanish has adolescente, but the number pattern is different: the ten-based forms become obvious from dieciséis onward, not from thirteen.",
+              "imageGuidance": "Find a realistic Spanish number chart or language-learning visual showing once, doce, trece, catorce, quince, dieciséis. If no perfect image exists, generate a realistic WSC-style chart. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining Spanish teen numbers and/or the word adolescente. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/spanish-adolescente-number-puzzle.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Japanese: juudai / seishun / shishunki",
+              "note": "Japanese can frame the age group through “teen years,” youth, or puberty/adolescence depending on context, showing that one English label does not transfer perfectly.",
+              "imageGuidance": "Find a realistic Japanese language-learning flashcard or chart for teen/youth/adolescence terms. If no suitable image exists, generate a realistic WSC-style language card. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining Japanese words for teenager, youth, or adolescence. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/japanese-juudai-seishun-shishunki.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Mandarin Chinese and Arabic: youth more than “teen”",
+              "note": "Mandarin and Arabic can describe adolescence or youth without using the exact English -teen structure, showing that cultures can recognize the stage without the same number logic.",
+              "imageGuidance": "Find a realistic multilingual comparison chart including Chinese and Arabic age/youth terms. If no suitable source exists, generate a realistic WSC-style multilingual flashcard set. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video about how different languages name adolescence or youth. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Etymonline - teenager",
+                  "url": "https://www.etymonline.com/word/teenager"
+                }
+              ],
+              "url": "https://www.etymonline.com/word/teenager",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/mandarin-chinese-and-arabic-youth.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Transition",
+        "Adulthood"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Measuring Human Worth",
+        "Infrastructure Shapes Behavior",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Measuring Human Worth",
+          "Infrastructure Shapes Behavior",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "Going Pains"
+    },
+    {
+      "id": "raw.going-pains.003",
+      "order": 3,
+      "sectionId": "going-pains",
+      "mediaIds": [
+        "asset.going-pains.raw.drivers-license",
+        "asset.going-pains.raw.first-paycheck",
+        "asset.going-pains.raw.graduation",
+        "asset.going-pains.raw.guan-li",
+        "asset.going-pains.raw.sweet-sixteens",
+        "asset.going-pains.raw.voting-and-national-service"
+      ],
+      "questionIds": [
+        "question.going-pains.100.003",
+        "question.going-pains.200.003"
+      ],
+      "title": "Rites, Rules, and the Moment You “Become” an Adult",
+      "guidingSection": "Going Pains",
+      "rawOfficialText": "Many cultures hold special ceremonies to celebrate the passage from the dependency of childhood to the responsibilities of adulthood. With your team, explore the following rites of passage and consider: what is the difference between a cultural rite, such as a quinceañera, and a secular one, like graduating from high school?\nSweet sixteens | Fiesta de Quinceañera | Vision quests | Guan Li | Seijin no Hi | Bar and Bat Mitzvahs | Walkabout | Khatam al-Quran | debuts | high school graduation | driver’s license | first paycheck | national service | voting | moving out",
+      "links": [
+        {
+          "label": "Quinceañera visual",
+          "url": "https://commons.wikimedia.org/wiki/File:Quincea%C3%B1eras_001.jpg"
+        },
+        {
+          "label": "Coming of Age Day visual",
+          "url": "https://commons.wikimedia.org/wiki/File:Coming_of_Age_Day.jpg"
+        },
+        {
+          "label": "Bar mitzvah visuals",
+          "url": "https://commons.wikimedia.org/wiki/Category:Bar_mitzvah"
+        },
+        {
+          "label": "Britannica - rite of passage",
+          "url": "https://www.britannica.com/topic/rite-of-passage"
+        },
+        {
+          "label": "Britannica - Arnold van Gennep",
+          "url": "https://www.britannica.com/biography/Arnold-van-Gennep"
+        }
+      ],
+      "deepLinkAnalysis": "The Britannica/van Gennep framework should shape this entry: rites of passage are not random celebrations; they organize movement from one status to another through separation, transition/liminality, and incorporation. This links directly to the year theme and to liminal thresholds.\nThe raw list deliberately mixes traditional, religious, public, legal, and everyday rites. The slideshow should keep that variety instead of making every example look like a birthday party.\nThe three Wikimedia visual links matter because rites of passage are highly visual. Quinceañera, Seijin no Hi, and Bar/Bat Mitzvah examples will help students see how clothing, ceremony, public recognition, and family/community presence make transition visible.\nWalkabout needs especially careful handling. The slide should avoid treating it as a generic adventure or tourist myth; it should be framed respectfully as a concept often simplified or misrepresented in outside sources.",
+      "studentExplanation": "Growing up is usually gradual, but many communities create special moments that say: now something has changed. Some rites of passage are cultural or religious, like a quinceañera, Seijin no Hi, or bar/bat mitzvah. Others are secular or legal, like graduation, voting, a driver’s license, national service, or moving out. The important point is that a rite turns a slow and messy transition into a visible social moment that other people recognize.\n\nThe extra sources help students ask what the ceremony is doing socially. A quinceanera, Seijin no Hi, bar or bat mitzvah, vision quest, graduation, driver’s license, or national service does not cause maturity by itself; it gives a community a visible moment when it agrees to treat a person differently. Use this to connect biology, language, and culture: what transition is happening, when society recognizes it, how people perform or resist maturity, and why growing up rarely matches one clean age line.",
+      "whyItMatters": "At the entry level, this shows that adulthood is not only biology; it is also marked by symbols, ceremonies, rights, and responsibilities. At the section level, it gives a social answer to the science of adolescence: rites of passage make change legible. At the year-theme level, rites of passage are literal threshold events between one status and another.",
+      "takeaway": "Communities give visible shape to uncertain transitions",
+      "subjects": [
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Narrated Endings",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Sweet sixteens",
+        "Fiesta de Quinceañera",
+        "Vision quests",
+        "Guan Li",
+        "Seijin no Hi",
+        "Bar and Bat Mitzvahs",
+        "Walkabout",
+        "Khatam al-Quran",
+        "debuts",
+        "high school graduation",
+        "driver’s license",
+        "first paycheck",
+        "national service",
+        "voting",
+        "moving out",
+        "Graduation",
+        "Voting and national service"
+      ],
+      "debateRelevance": "Useful when debating whether rites of passage create adulthood or simply give public shape to gradual change.",
+      "counterargument": "Rituals can mark a threshold, but they do not instantly create maturity, responsibility, or adult confidence.",
+      "visualSections": [
+        {
+          "title": "Group 1: customs and traditions",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Sweet sixteens",
+              "note": "A sweet sixteen celebration can mark social maturity, family recognition, and increased independence in some North American contexts.",
+              "imageGuidance": "Find a realistic photograph of a sweet sixteen celebration, preferably with a family/community celebration rather than a luxury-party stereotype. If no suitable image exists, create a realistic WSC-style coming-of-age party image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining sweet sixteen celebrations or modern coming-of-age customs. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/sweet-sixteens.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Fiesta de Quinceañera",
+              "note": "A quinceañera marks a girl’s fifteenth birthday as a passage toward womanhood in many Latin American and Latino communities.",
+              "imageGuidance": "Use /imagesearch to find the exact Wikimedia Commons image or a reliable photograph from the linked Quinceañera category. This is a real cultural ceremony, so use a real image rather than a generated one. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Find a short educational video explaining the meaning and symbols of a quinceañera, ideally 5-7 minutes or shorter. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Quinceañera visual",
+                  "url": "https://commons.wikimedia.org/wiki/File:Quincea%C3%B1eras_001.jpg"
+                }
+              ],
+              "url": "https://commons.wikimedia.org/wiki/File:Quincea%C3%B1eras_001.jpg",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific cultural rite; preserve source/education link rather than using an invented ritual photograph."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Vision quests",
+              "note": "Vision quests are often described as spiritual journeys connected to guidance, identity, and transition in some Indigenous traditions, but they must be presented respectfully and specifically.",
+              "imageGuidance": "Find a respectful educational image connected to Indigenous coming-of-age/vision quest contexts from a museum or cultural education source. Avoid generic “Native American costume” stock images. If no proper source exists, use a LINK button rather than generating a culturally inaccurate image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If no meaningful still image exists, use the source as a LINK button only. If the app still requires an image and this is not an exact artwork, known photo, poster, building, patent, object, screenshot, or named visual source, then use /imagegen or /imagecreator to create a realistic concept image.",
+              "videoGuidance": "Find a short educational video from a trustworthy Indigenous, museum, or educational source explaining vision quests or coming-of-age ceremonies respectfully. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Culturally specific Indigenous topic; source-link-only avoids generic or inaccurate imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Guan Li",
+              "note": "Guan Li was a Confucian coming-of-age ritual in which a young man symbolically entered adult social responsibility.",
+              "imageGuidance": "Find a realistic historical or museum-style image of Guan Li, Chinese coming-of-age ritual, or Confucian ceremonial clothing. If no exact educational image exists, create a realistic WSC-style historical ceremony scene only after /imagesearch fails. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video about Guan Li, Ji Li, or Chinese coming-of-age rituals. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/guan-li.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "religion, spirituality, and public ceremony",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Seijin no Hi",
+              "note": "Japan’s Coming of Age Day publicly celebrates young people who have reached legal adulthood.",
+              "imageGuidance": "Use /imagesearch to find the exact Wikimedia Commons Coming of Age Day image or another reliable photograph of Seijin no Hi / Seijin shiki. This should be a real photograph, not a generated image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Find a short educational video explaining Seijin no Hi / Coming of Age Day in Japan. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific public Japanese coming-of-age ceremony; preserve real source/photo link rather than generated imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Bar and Bat Mitzvahs",
+              "note": "Bar and Bat Mitzvahs mark Jewish religious coming of age and new responsibility within the community.",
+              "imageGuidance": "Use /imagesearch to find a reliable image from the linked Bar mitzvah Wikimedia category or another educational/community source. Avoid staged stereotypes. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Find a short educational video explaining bar and bat mitzvahs for young students. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific Jewish rite; preserve source link rather than using staged stereotype imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Walkabout",
+              "note": "Walkabout is often simplified in outside descriptions; students should understand it as a sensitive, culturally specific topic, not a generic survival adventure.",
+              "imageGuidance": "Use /imagesearch to find a respectful educational image from an Indigenous Australian, museum, or academic source. Do not use generic desert-adventure stock images. If no appropriate image exists, use LINK button only. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If no meaningful still image exists, use the source as a LINK button only. If the app still requires an image and this is not an exact artwork, known photo, poster, building, patent, object, screenshot, or named visual source, then use /imagegen or /imagecreator to create a realistic concept image.",
+              "videoGuidance": "Find a short educational video from a reputable educational or Indigenous source about Aboriginal Australian coming-of-age, country, and cultural learning. Avoid tourism-style videos. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Culturally specific Indigenous Australian topic; source-link-only avoids tourism-style or inaccurate imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Khatam al-Quran",
+              "note": "Khatam al-Quran can mark completion of reading or reciting the Qur’an, often recognized by family, school, or community.",
+              "imageGuidance": "Find a respectful realistic image of a Qur’an completion ceremony, Islamic school celebration, or children reading Qur’an in an educational setting. Avoid decorative Qur’an-only images if they do not show the rite. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining Khatam al-Quran or Qur’an completion ceremonies in a respectful way. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific religious completion rite; preserve/source-link-first media rather than inventing a ceremony scene."
+            }
+          ]
+        },
+        {
+          "title": "modern social and legal thresholds",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Graduation",
+              "note": "Graduation makes a school transition public through clothing, ceremony, certificates, and community recognition.",
+              "imageGuidance": "Find a realistic graduation image with caps/gowns or certificates. If no suitable image exists, generate a realistic WSC-style graduation threshold image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining graduation as a rite of passage or milestone. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/graduation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Driver’s license",
+              "note": "A driver’s license can feel like a rite of passage because it changes mobility, freedom, and responsibility.",
+              "imageGuidance": "Find a realistic image of a young driver receiving a license, driving lesson, or DMV-style document without exposing private information. If none works, generate a realistic WSC-style driver-license milestone scene. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video about learning to drive as a teen milestone or responsibility. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/drivers-license.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "First paycheck",
+              "note": "A first paycheck can mark the threshold into work, money management, and adult responsibility.",
+              "imageGuidance": "Find a realistic image of a first paycheck, work uniform, or teen at a first job. Avoid images showing private personal data. If needed, generate a realistic WSC-style first-job/paycheck scene. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining first jobs, paychecks, or financial responsibility for teens. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/first-paycheck.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Voting and national service",
+              "note": "Voting and national service show how adulthood can be defined by civic rights and duties, not only by age or emotion.",
+              "imageGuidance": "Find a realistic image of a young voter, ballot box, or national service ceremony from an official or educational source. If no single image works, create a realistic WSC-style split image of voting and civic duty. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Find a short educational video explaining voting age, civic responsibility, or national service as adult duties. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/voting-and-national-service.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Hundreds of Maasai warriors come of age during 'Eunoto' ceremony in Kenya | AFP",
+          "url": "https://www.youtube.com/watch?v=vwLQy1hv1cw"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Thresholds",
+        "Transition"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Visible vs Real",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Going Pains"
+    },
+    {
+      "id": "raw.going-pains.004",
+      "order": 4,
+      "sectionId": "going-pains",
+      "mediaIds": [
+        "asset.going-pains.raw.in-mrs-tilschers-class",
+        "asset.going-pains.raw.let-me-begin-again"
+      ],
+      "questionIds": [
+        "question.going-pains.100.004",
+        "question.going-pains.200.004"
+      ],
+      "title": "Growing Up Is Messy",
+      "guidingSection": "Going Pains",
+      "rawOfficialText": "A ceremony offers a definite moment: now you are a man, or woman, or more broadly an adult. But the transition to adulthood is rarely a single, clean step; more often, it is a series of stumbles. The following works explore the messy middle years, where childhood collides with the expectations of tradition, society, and self-identity. As you explore them, consider: is adulthood a destination you reach or a mask you learn to wear?\nGwendolyn Brooks | “We Real Cool” (1963) | Virginia Driving Hawk Sneve | “The Medicine Bag” (1975) | Carol Ann Duffy | “In Mrs. Tilscher’s Class” (1990) | Joss Whedon | “Where Do We Go From Here?” (2001) | Karen Russell | “Lucy's Home for Girls Raised by Wolves” (2006) | Ruth B | “Lost Boy” (2015) | Major Jackson | “Let Me Begin Again” (2021)",
+      "links": [
+        {
+          "label": "Gwendolyn Brooks - We Real Cool",
+          "url": "https://www.poetryfoundation.org/poetrymagazine/poems/28112/we-real-cool"
+        },
+        {
+          "label": "Virginia Driving Hawk Sneve - The Medicine Bag",
+          "url": "https://www.btboces.org/Downloads/7_The%20Medicine%20Bag%20by%20Virginia%20Driving%20Hawk%20Sneve.pdf"
+        },
+        {
+          "label": "Carol Ann Duffy - In Mrs. Tilscher’s Class",
+          "url": "https://www.scottishpoetrylibrary.org.uk/poem/in-mrs-tilschers-class/"
+        },
+        {
+          "label": "Joss Whedon - Where Do We Go From Here?",
+          "url": "https://www.youtube.com/watch?v=TiWwucVyX9s"
+        },
+        {
+          "label": "Karen Russell - St. Lucy’s Home for Girls Raised by Wolves",
+          "url": "https://cisyeo.pbworks.com/f/Girls+Raised+By+Wolves.pdf"
+        },
+        {
+          "label": "Ruth B - Lost Boy",
+          "url": "https://www.youtube.com/watch?v=58TBZnvyGwQ"
+        },
+        {
+          "label": "Major Jackson - Let Me Begin Again",
+          "url": "https://poets.org/poem/let-me-begin-again"
+        }
+      ],
+      "deepLinkAnalysis": "The links are the actual raw content here. The entry has little meaning without the works, because each work gives a different model of the messy middle: rebellion, inherited responsibility, classroom innocence fading, uncertainty after conflict, forced adaptation, escapist belonging, and restart after damage.\nWe Real Cool should be taught as compressed teenage bravado racing toward consequences. The shortness and repeated “we” make identity feel collective, performative, and fragile.\nThe Medicine Bag and St. Lucy’s Home for Girls Raised by Wolves are crucial because they complicate growth: becoming older may mean carrying heritage, adapting under pressure, or being split between worlds, not simply “finding yourself.”\nIn Mrs. Tilscher’s Class should anchor the transition from childhood security to adolescent awareness. It is especially useful because the imagery turns classroom comfort into heat, curiosity, and storm-like change.\nThe video/song links should remain in the app as media content, not citations. Where Do We Go From Here? and Lost Boy let students hear uncertainty and escape rather than only read about them.",
+      "studentExplanation": "The works in this entry do not present adulthood as one clean step. They show rebellion, embarrassment, inherited responsibility, classroom innocence fading, forced adaptation, escape, and the wish to begin again. Together, they make adolescence feel like a messy middle space where childhood and adulthood overlap. The linked poems, stories, and songs are not optional support: they are the content students need to explore in order to understand the entry.\n\nUse the literature and songs as different models of messiness rather than as a single message. Brooks, Sneve, Duffy, Miranda, Springsteen, and the other works show rebellion, shame, family duty, classroom innocence, performance, and escape, so students should ask what each text thinks growing up costs. Use this to connect biology, language, and culture: what transition is happening, when society recognizes it, how people perform or resist maturity, and why growing up rarely matches one clean age line.",
+      "whyItMatters": "At the entry level, this helps students see that art often captures growing up better than a definition can. At the section level, it gives emotional depth to Going Pains: growing up is something people feel, perform, resist, and survive. At the year-theme level, the entry asks whether adulthood is a destination someone reaches or a role someone slowly learns to wear.",
+      "takeaway": "Adulthood can feel like roles learned through mistakes",
+      "subjects": [
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Movement Without Arrival"
+      ],
+      "examples": [
+        "Gwendolyn Brooks",
+        "“We Real Cool” (1963)",
+        "Virginia Driving Hawk Sneve",
+        "“The Medicine Bag” (1975)",
+        "Carol Ann Duffy",
+        "“In Mrs. Tilscher’s Class” (1990)",
+        "Joss Whedon",
+        "“Where Do We Go From Here?” (2001)",
+        "Karen Russell",
+        "“Lucy's Home for Girls Raised by Wolves” (2006)",
+        "Ruth B",
+        "“Lost Boy” (2015)",
+        "Major Jackson",
+        "“Let Me Begin Again” (2021)",
+        "We Real Cool",
+        "The Medicine Bag",
+        "In Mrs. Tilscher’s Class",
+        "Where Do We Go From Here?",
+        "St. Lucy’s Home for Girls Raised by Wolves",
+        "Lost Boy",
+        "Let Me Begin Again"
+      ],
+      "debateRelevance": "Useful when debating whether art captures adolescence better than definitions, ceremonies, or science alone.",
+      "counterargument": "Art reveals emotional truth, but it cannot replace historical, cultural, or psychological context.",
+      "visualSections": [
+        {
+          "title": "Works slideshow: messy middle years",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "We Real Cool",
+              "note": "Gwendolyn Brooks compresses teenage rebellion into a fast, collective voice that sounds confident but points toward danger.",
+              "imageGuidance": "Use /imagesearch to find the Poetry Foundation page visual, a Gwendolyn Brooks portrait from a reputable archive, or a source image connected to the poem. Do not generate a fake book cover for the poem. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video or reading/analysis of “We Real Cool,” ideally under 7 minutes. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Gwendolyn Brooks - We Real Cool",
+                  "url": "https://www.poetryfoundation.org/poetrymagazine/poems/28112/we-real-cool"
+                },
+                {
+                  "label": "Gwendolyn Brooks image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Gwendolyn_Brooks.jpg",
+                  "license": "CC BY-SA 2.0 source image"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poetrymagazine/poems/28112/we-real-cool",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Gwendolyn_Brooks.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "CC BY-SA 2.0 source image"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Medicine Bag",
+              "note": "Virginia Driving Hawk Sneve’s story shows a boy negotiating embarrassment, heritage, family responsibility, and respect for tradition.",
+              "imageGuidance": "Use /imagesearch to find a legitimate cover/classroom-source visual or author/source image connected to The Medicine Bag. If no strong image exists, use a LINK button to the PDF rather than generating a culturally vague image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If no meaningful still image exists, use the source as a LINK button only. If the app still requires an image and this is not an exact artwork, known photo, poster, building, patent, object, screenshot, or named visual source, then use /imagegen or /imagecreator to create a realistic concept image.",
+              "videoGuidance": "Use /youtubesearch to find a short educational summary or reading support video for The Medicine Bag. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Virginia Driving Hawk Sneve - The Medicine Bag",
+                  "url": "https://www.btboces.org/Downloads/7_The%20Medicine%20Bag%20by%20Virginia%20Driving%20Hawk%20Sneve.pdf"
+                }
+              ],
+              "url": "https://www.btboces.org/Downloads/7_The%20Medicine%20Bag%20by%20Virginia%20Driving%20Hawk%20Sneve.pdf",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific story/source PDF; preserve link rather than generating culturally vague imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "In Mrs. Tilscher’s Class",
+              "note": "Carol Ann Duffy shows childhood security changing into adolescent curiosity, discomfort, heat, and storm-like transition.",
+              "imageGuidance": "Use /imagesearch to find the Scottish Poetry Library page visual or a reliable image of Carol Ann Duffy. If no exact useful image exists, generate a realistic WSC-style classroom threshold image, not anime. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining In Mrs. Tilscher’s Class. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Carol Ann Duffy - In Mrs. Tilscher’s Class",
+                  "url": "https://www.scottishpoetrylibrary.org.uk/poem/in-mrs-tilschers-class/"
+                }
+              ],
+              "url": "https://www.scottishpoetrylibrary.org.uk/poem/in-mrs-tilschers-class/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/in-mrs-tilschers-class.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Where Do We Go From Here?",
+              "note": "This song/performance turns the aftermath of conflict into a shared question: after change, what direction remains?",
+              "imageGuidance": "Use /imagesearch to find an official or reliable still from the linked performance/video, or keep the video LINK as the main media. Do not invent character art. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find the linked song/performance or a short educational explanation of the song’s role as a transition moment. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Joss Whedon - Where Do We Go From Here?",
+                  "url": "https://www.youtube.com/watch?v=TiWwucVyX9s"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=TiWwucVyX9s",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact song/performance reference; use video/source link rather than generated character art."
+            },
+            {
+              "kind": "text-slide",
+              "title": "St. Lucy’s Home for Girls Raised by Wolves",
+              "note": "Karen Russell uses forced adaptation to show how identity can become unstable when someone is pressured to fit a new social world.",
+              "imageGuidance": "Use /imagesearch to find a reliable book/source image connected to Karen Russell or St. Lucy’s Home for Girls Raised by Wolves. If no exact usable image exists, use a LINK button to the story PDF rather than generating wolf-girl fantasy art. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If no meaningful still image exists, use the source as a LINK button only. If the app still requires an image and this is not an exact artwork, known photo, poster, building, patent, object, screenshot, or named visual source, then use /imagegen or /imagecreator to create a realistic concept image.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining the story, assimilation, identity, or stages of adaptation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Karen Russell - St. Lucy’s Home for Girls Raised by Wolves",
+                  "url": "https://cisyeo.pbworks.com/f/Girls+Raised+By+Wolves.pdf"
+                }
+              ],
+              "url": "https://cisyeo.pbworks.com/f/Girls+Raised+By+Wolves.pdf",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact contemporary story; preserve story/source link rather than generated fantasy imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Lost Boy",
+              "note": "Ruth B uses the Peter Pan myth to express escape, suspension, and the wish to belong somewhere else when growing up hurts.",
+              "imageGuidance": "Use /imagesearch to find the official video thumbnail or song/album artwork connected to Ruth B’s Lost Boy. Do not generate Peter Pan imagery unless no exact source image is usable and the app requires a concept image. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find the official song video or a short educational lyric/theme explanation, ideally under 7 minutes. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Ruth B - Lost Boy",
+                  "url": "https://www.youtube.com/watch?v=58TBZnvyGwQ"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=58TBZnvyGwQ",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact Ruth B song/video reference; use official video/source link rather than generated Peter Pan imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Let Me Begin Again",
+              "note": "Major Jackson imagines growth not as a perfect arrival but as a restart after fear, damage, and disappointment.",
+              "imageGuidance": "Use /imagesearch to find the Poets.org page image, a portrait of Major Jackson, or a source-linked image. If no exact image works, generate a realistic WSC-style image of a young person starting again on a path after a storm. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short reading or educational explanation of Let Me Begin Again, ideally under 7 minutes. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Major Jackson - Let Me Begin Again",
+                  "url": "https://poets.org/poem/let-me-begin-again"
+                }
+              ],
+              "url": "https://poets.org/poem/let-me-begin-again",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/let-me-begin-again.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Adulthood",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Movement Without Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Movement Without Arrival"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "How to practice effectively...for just about anything - Annie Bosler and Don Greene",
+          "url": "https://www.youtube.com/watch?v=f2O6mQkFiiw"
+        }
+      ],
+      "sectionTitle": "Going Pains"
+    },
+    {
+      "id": "raw.going-pains.005",
+      "order": 5,
+      "sectionId": "going-pains",
+      "mediaIds": [
+        "asset.going-pains.raw.adulting-turns-adulthood-into-a-verb",
+        "asset.going-pains.raw.everyday-tasks-symbolic-weight",
+        "asset.going-pains.raw.role-playing-adulthood"
+      ],
+      "questionIds": [
+        "question.going-pains.100.005",
+        "question.going-pains.200.005"
+      ],
+      "title": "“Adulting”: Acting Like a Grown-Up",
+      "guidingSection": "Going Pains",
+      "rawOfficialText": "Millennials—people born between about 1981 and 1995—gave us side parts, skinny jeans, and “adulting”. This term transformed adulthood into a verb, something you do (often with great effort) rather than something you simply are. Whether going to bed early, scheduling a dentist appointment, or buying a vacuum cleaner, describing your actions as “adulting” implies you are just role-playing as a grown-up. Consider with your team: is being an adult a specific feeling or just a collection of habits and responsibilities? When do you think you will feel like an adult?",
+      "links": [
+        {
+          "label": "Time - definition and discussion of “adulting”",
+          "url": "https://time.com/4361866/adulting-definition-meaning/"
+        }
+      ],
+      "deepLinkAnalysis": "The Time article must be treated as core content because it explains the cultural logic of “adulting”: the speaker performs adult tasks while keeping ironic distance from being a “real adult.” The word is funny because it turns adulthood into an action rather than a settled identity.\nThis entry should connect to the app’s year theme through performance and thresholds. “Adulting” makes adulthood feel like a series of repeatable tasks: paying bills, scheduling appointments, sleeping responsibly, buying practical objects, and managing everyday life.\nThe entry is strongest when it does not mock young adults. It should show that adulting language reveals real uncertainty about when adulthood begins in contemporary life.",
+      "studentExplanation": "Adulting turns adulthood into a verb: something you do, often awkwardly, instead of something you simply are. The Time link explains why the joke works: when people say they are “adulting,” they often mean they are doing grown-up tasks while still feeling a little distant from the identity of a “real adult.” Paying bills, making appointments, cooking, cleaning, buying practical things, or going to bed early can all feel like performances of adulthood before adulthood feels natural.\n\nThe useful detail is that “adulting” names a gap between task and identity. Paying bills, scheduling appointments, cooking, cleaning, or making practical purchases can make someone look adult from the outside while still feeling like rehearsal on the inside. Use this to connect biology, language, and culture: what transition is happening, when society recognizes it, how people perform or resist maturity, and why growing up rarely matches one clean age line.",
+      "whyItMatters": "At the entry level, this helps students understand why adulthood can feel like a performance. At the section level, it modernizes Going Pains by showing how culture jokes about the gap between responsibility and identity. At the year-theme level, adulting is a liminal habit: a person is doing adult things while still asking whether they have really arrived.",
+      "takeaway": "Adulthood may be performed before it feels real",
+      "subjects": [
+        "Sociology",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Adulting turns adulthood into a verb",
+        "Everyday tasks, symbolic weight",
+        "Role-playing adulthood"
+      ],
+      "debateRelevance": "Useful when debating whether adulthood is an identity, a feeling, or a repeated performance of responsibilities.",
+      "counterargument": "Adulting language can reveal real uncertainty, but it may also exaggerate how new or unique modern adulthood difficulties are.",
+      "visualSections": [
+        {
+          "title": "Adulting as performance",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Adulting turns adulthood into a verb",
+              "note": "“adulting” describes doing adult tasks while not fully feeling like an adult.",
+              "imageGuidance": "Use /imagesearch to find a realistic image or article visual about adulting, preferably connected to the Time article. If no good image exists, use /imagegen or /imagecreator to create a realistic WSC-style scene of a young adult surrounded by bills, calendar reminders, and household tasks. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining the word adulting and its cultural meaning, ideally under 7 minutes. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Time - definition and discussion of “adulting”",
+                  "url": "https://time.com/4361866/adulting-definition-meaning/"
+                }
+              ],
+              "url": "https://time.com/4361866/adulting-definition-meaning/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/going-pains/adulting-turns-adulthood-into-a-verb.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Everyday tasks, symbolic weight",
+              "note": "Bedtime, dentist appointments, bills, cooking, cleaning, and practical purchases become funny because they carry the emotional weight of adulthood.",
+              "imageGuidance": "Use /imagesearch to find a realistic image of everyday adult responsibilities: calendar, bills, grocery list, cleaning supplies, and appointment reminder. If no suitable image exists, generate a realistic WSC-style “adulting checklist.” The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short video about life skills, adult responsibilities, or why everyday tasks can feel stressful for young adults. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/everyday-tasks-symbolic-weight.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Role-playing adulthood",
+              "note": "The word suggests a gap between acting grown-up and feeling grown-up.",
+              "imageGuidance": "Use /imagesearch to find a realistic image of a young adult looking uncertain while handling adult tasks. If no suitable image exists, generate a realistic WSC-style image of a person wearing an oversized “adult” coat while doing practical tasks. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational or cultural explainer about emerging adulthood, adult identity, or feeling like an adult. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [],
+              "src": "assets/raw-content/going-pains/role-playing-adulthood.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "When are you actually an adult? - Shannon Odell",
+          "url": "https://www.youtube.com/watch?v=AESkozhaT4s"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Adulthood",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Delayed Arrival",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Going Pains"
+    },
+    {
+      "id": "raw.going-pains.006",
+      "order": 6,
+      "sectionId": "going-pains",
+      "mediaIds": [],
+      "questionIds": [
+        "question.going-pains.100.006",
+        "question.going-pains.200.006"
+      ],
+      "title": "The Last Threshold",
+      "guidingSection": "Going Pains",
+      "rawOfficialText": "Life is a journey—but does it end with a final port of call or a temporary layover? Explore the following works and discuss with your team: how do they handle the idea of life approaching its last liminal moment?\nRumi | “A stone I died” (c. 13th century) | John Donne | “Death Be not Proud” (1633) | Alfred Lord Tennyson | “Ulysses” (1842) | Emily Dickinson | “Because I could not stop for Death” (1890) | Rabindranath Tagore | “Gitanjali 95” (1913) | Dmitri Shostakovich | 15th Symphony: Fourth Movement (1972) | Thich Nhat Hanh | “Please Call Me by My True Names” (1976) | David Berman | “A Letter from Isaac Asimov to his Wife Janet, Written on His Deathbed” (1999) | Linkin Park | “In the End” (2000)",
+      "links": [
+        {
+          "label": "Rumi - “A stone I died”",
+          "url": "https://www.poetseers.org/the-poetseers/rumi/a-stone-i-died/"
+        },
+        {
+          "label": "John Donne - “Death Be Not Proud”",
+          "url": "https://www.poetryfoundation.org/poems/44107/holy-sonnets-death-be-not-proud"
+        },
+        {
+          "label": "Tennyson - “Ulysses”",
+          "url": "https://www.poetryfoundation.org/poems/45392/ulysses"
+        },
+        {
+          "label": "Emily Dickinson - “Because I could not stop for Death”",
+          "url": "https://www.poetryfoundation.org/poems/47652/because-i-could-not-stop-for-death-479"
+        },
+        {
+          "label": "Tagore - “Gitanjali 95”",
+          "url": "https://poets.org/poem/gitanjali-95"
+        },
+        {
+          "label": "Shostakovich 15th Symphony: Fourth Movement",
+          "url": "https://www.youtube.com/watch?v=QLng0R1FzC4&t=1740s"
+        },
+        {
+          "label": "Thich Nhat Hanh - “Please Call Me by My True Names”",
+          "url": "https://www.parallax.org/mindfulnessbell/article/poem-please-call-me-by-my-true-names/"
+        },
+        {
+          "label": "David Berman / Asimov letter",
+          "url": "https://biblioklept.org/2019/08/21/a-letter-from-isaac-asimov-to-his-wife-janet-written-on-his-deathbed-david-berman/"
+        },
+        {
+          "label": "Linkin Park - “In the End”",
+          "url": "https://www.youtube.com/watch?v=eVTXPUF4Oz4"
+        }
+      ],
+      "deepLinkAnalysis": "This entry widens Going Pains from the painful threshold of adolescence to the final threshold of life. The links are the content: each poem, song, letter, and symphony gives a different answer to whether death is an ending, crossing, transformation, defiance, or continuation.\nRumi and Tagore are useful for death as transformation or continuity. Donne and Linkin Park are more confrontational: Donne directly challenges death’s power, while Linkin Park turns effort and time into loss and frustration.\nTennyson’s Ulysses and Dickinson’s carriage poem are both journey-based, but they handle the last threshold differently: restless courage versus calm, strange transport. These should be paired in the student explanation or slideshow.\nThich Nhat Hanh’s poem adds an important non-Western and non-individualistic dimension: identity is not a single fixed self, but part of a larger web of suffering, compassion, and continuity.\nShostakovich and the music examples are crucial because they show that last thresholds can be expressed without literal explanation. Music can make the end feel suspended, haunted, repetitive, or unresolved.",
+      "studentExplanation": "This entry moves from growing up to the final threshold: the approach of death. The linked works do not agree on what death means. Rumi imagines transformation, Donne challenges death’s power, Tennyson’s Ulysses keeps pushing toward one more voyage, Dickinson turns death into a calm carriage ride, Tagore treats death as another meeting with the unknown, Thich Nhat Hanh expands identity beyond one self, and Linkin Park makes time and effort feel fragile. Together, the works ask whether death is a final destination, a crossing, a transformation, or an unresolved mystery.\n\nThe poems and songs should be treated as competing maps of death: Rumi imagines transformation, Donne argues against death’s authority, Tennyson keeps pushing forward, Dickinson turns death into a carriage ride, Tagore frames it as encounter, and Thich Nhat Hanh challenges the idea of a single self ending. Use this to connect biology, language, and culture: what transition is happening, when society recognizes it, how people perform or resist maturity, and why growing up rarely matches one clean age line.",
+      "whyItMatters": "At the entry level, this helps students compare artistic ways of imagining death. At the section level, it gives Going Pains a powerful final turn: the section begins with adolescence as a first unstable threshold and ends with death as the last threshold. At the year-theme level, it connects to endings, journeys, and liminality because the end of life is also imagined as a passage, port, layover, or transformation.",
+      "takeaway": "Art imagines death as ending, passage, and meaning",
+      "subjects": [
+        "Language and Literature",
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Rumi",
+        "“A stone I died” (c. 13th century)",
+        "John Donne",
+        "“Death Be not Proud” (1633)",
+        "Alfred Lord Tennyson",
+        "“Ulysses” (1842)",
+        "Emily Dickinson",
+        "“Because I could not stop for Death” (1890)",
+        "Rabindranath Tagore",
+        "“Gitanjali 95” (1913)",
+        "Dmitri Shostakovich",
+        "15th Symphony: Fourth Movement (1972)",
+        "Thich Nhat Hanh",
+        "“Please Call Me by My True Names” (1976)",
+        "David Berman",
+        "“A Letter from Isaac Asimov to his Wife Janet, Written on His Deathbed” (1999)",
+        "Linkin Park",
+        "“In the End” (2000)",
+        "Rumi — “A stone I died”",
+        "John Donne — “Death Be Not Proud”",
+        "Tennyson — “Ulysses”",
+        "Emily Dickinson — “Because I could not stop for Death”",
+        "Tagore — “Gitanjali 95”",
+        "Shostakovich — Symphony No. 15, Fourth Movement",
+        "Thich Nhat Hanh — “Please Call Me by My True Names”",
+        "David Berman / Asimov letter",
+        "Linkin Park — “In the End”"
+      ],
+      "debateRelevance": "Useful when debating whether death should be imagined as an ending, a crossing, a transformation, or an unresolved mystery.",
+      "counterargument": "Art can make death thinkable, but different traditions and individuals may disagree deeply about what the final threshold means.",
+      "visualSections": [
+        {
+          "title": "Works slideshow: the last liminal moment",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Rumi — “A stone I died”",
+              "note": "Rumi imagines death as repeated transformation from one form of being into another, not simply disappearance.",
+              "imageGuidance": "Use /imagesearch to find a respectful source image connected to Rumi, manuscript art, or the linked poem page. Do not generate fake Persian manuscript art if a source image is available. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining Rumi’s idea of transformation or the poem’s spiritual view of death. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Rumi - “A stone I died”",
+                  "url": "https://www.poetseers.org/the-poetseers/rumi/a-stone-i-died/"
+                }
+              ],
+              "url": "https://www.poetseers.org/the-poetseers/rumi/a-stone-i-died/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem/spiritual source; preserve source link unless a clearly reusable source image is selected."
+            },
+            {
+              "kind": "text-slide",
+              "title": "John Donne — “Death Be Not Proud”",
+              "note": "Donne personifies death and refuses to treat it as the final winner.",
+              "imageGuidance": "Use /imagesearch to find a reliable John Donne portrait or Poetry Foundation/academy page visual. This is a named poet/work, so prefer exact source imagery. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find a short educational explanation of “Death Be Not Proud,” ideally under 7 minutes. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "John Donne - “Death Be Not Proud”",
+                  "url": "https://www.poetryfoundation.org/poems/44107/holy-sonnets-death-be-not-proud"
+                },
+                {
+                  "label": "John Donne portrait image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Unknown_artist_-_John_Donne_-_NPG_6790_-_National_Portrait_Gallery.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/44107/holy-sonnets-death-be-not-proud",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Unknown_artist_-_John_Donne_-_NPG_6790_-_National_Portrait_Gallery.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Tennyson — “Ulysses”",
+              "note": "Tennyson’s aging Ulysses refuses stillness and imagines the end as one more voyage into the unknown.",
+              "imageGuidance": "Use /imagesearch to find a reliable portrait of Alfred Lord Tennyson or a public-domain Ulysses/sea-voyage artwork tied to the poem. If not exact, use source imagery rather than generic ship clipart. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If /imagesearch cannot find a perfect image and the slide is only illustrating a concept, psychological effect, social situation, or general idea, use /imagegen or /imagecreator to create a realistic concept image. Do not use generated art for exact artworks, real historical photos, known posters, specific buildings, patents, objects, or named visual sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining Tennyson’s “Ulysses” and its restless final voyage. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Tennyson - “Ulysses”",
+                  "url": "https://www.poetryfoundation.org/poems/45392/ulysses"
+                },
+                {
+                  "label": "Alfred Lord Tennyson image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Alfred,_Lord_Tennyson_MET_DP295235.jpg",
+                  "license": "CC0 / public domain dedication"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/45392/ulysses",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Alfred,_Lord_Tennyson_MET_DP295235.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "CC0 / public domain dedication"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Emily Dickinson — “Because I could not stop for Death”",
+              "note": "Dickinson turns death into a calm carriage ride, making the last threshold strangely polite, slow, and unsettling.",
+              "imageGuidance": "Use /imagesearch to find a reliable Emily Dickinson portrait, manuscript/source image, or Poetry Foundation page visual. Do not generate a fake Dickinson portrait. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining Dickinson’s carriage metaphor and the journey toward eternity. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "John Donne - “Death Be Not Proud”",
+                  "url": "https://www.poetryfoundation.org/poems/44107/holy-sonnets-death-be-not-proud"
+                },
+                {
+                  "label": "Emily Dickinson daguerreotype - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Emily_Dickinson_daguerreotype_(Restored).jpg",
+                  "license": "Public domain historical photograph"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/44107/holy-sonnets-death-be-not-proud",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Emily_Dickinson_daguerreotype_(Restored).jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical photograph"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Tagore — “Gitanjali 95”",
+              "note": "Tagore compares birth and death as movements into the unknown that can still feel held by something familiar.",
+              "imageGuidance": "Use /imagesearch to find a reliable portrait of Rabindranath Tagore or Poets.org source visual connected to Gitanjali 95. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find a short educational explanation of Gitanjali 95 or Tagore’s spiritual view of life and death. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Tagore - “Gitanjali 95”",
+                  "url": "https://poets.org/poem/gitanjali-95"
+                },
+                {
+                  "label": "Rabindranath Tagore portrait - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore_portrait_(3).jpg",
+                  "license": "Public domain portrait"
+                }
+              ],
+              "url": "https://poets.org/poem/gitanjali-95",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rabindranath_Tagore_portrait_(3).jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain portrait"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Shostakovich — Symphony No. 15, Fourth Movement",
+              "note": "Shostakovich’s music circles final questions through repetition, quiet tension, and unresolved atmosphere rather than direct statement.",
+              "imageGuidance": "Use /imagesearch to find a reliable photograph of Dmitri Shostakovich or an official performance/source image connected to Symphony No. 15. Do not generate fake orchestra art if a real source image is available. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find the linked performance or a short educational explanation of Shostakovich’s Symphony No. 15, fourth movement. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Shostakovich 15th Symphony: Fourth Movement",
+                  "url": "https://www.youtube.com/watch?v=QLng0R1FzC4&t=1740s"
+                },
+                {
+                  "label": "Dmitri Shostakovich image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Fireman_Shostakovich.jpg",
+                  "license": "Public domain historical photograph"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=QLng0R1FzC4&t=1740s",
+              "previewLabel": "Play video",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Fireman_Shostakovich.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical photograph"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Thich Nhat Hanh — “Please Call Me by My True Names”",
+              "note": "Thich Nhat Hanh expands identity beyond one self, connecting suffering, compassion, and continuity across many forms of life.",
+              "imageGuidance": "Use /imagesearch to find a reliable photograph of Thich Nhat Hanh from Plum Village/Parallax or a source image from the poem page. Do not generate a fake monk portrait. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video about Thich Nhat Hanh, interbeing, or “Please Call Me by My True Names.” The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Thich Nhat Hanh - “Please Call Me by My True Names”",
+                  "url": "https://www.parallax.org/mindfulnessbell/article/poem-please-call-me-by-my-true-names/"
+                }
+              ],
+              "url": "https://www.parallax.org/mindfulnessbell/article/poem-please-call-me-by-my-true-names/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact poet/teacher and poem source; preserve source link rather than generating a portrait."
+            },
+            {
+              "kind": "text-slide",
+              "title": "David Berman / Asimov letter",
+              "note": "The Asimov deathbed letter, reframed through David Berman, turns departure into tenderness, intimacy, and unfinished goodbye.",
+              "imageGuidance": "Use /imagesearch to find a reliable photograph of Isaac Asimov, David Berman, or source-page image. If no meaningful image exists, keep a LINK button rather than inventing a deathbed scene. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. If no meaningful still image exists, use the source as a LINK button only. If the app still requires an image and this is not an exact artwork, known photo, poster, building, patent, object, screenshot, or named visual source, then use /imagegen or /imagecreator to create a realistic concept image.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video about Isaac Asimov’s final letter, David Berman, or literary last letters; if none exists, use a link-only media card. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "David Berman / Asimov letter",
+                  "url": "https://biblioklept.org/2019/08/21/a-letter-from-isaac-asimov-to-his-wife-janet-written-on-his-deathbed-david-berman/"
+                },
+                {
+                  "label": "Isaac Asimov image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Isaac.Asimov01.jpg",
+                  "license": "Public domain Library of Congress photograph"
+                }
+              ],
+              "url": "https://biblioklept.org/2019/08/21/a-letter-from-isaac-asimov-to-his-wife-janet-written-on-his-deathbed-david-berman/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Isaac.Asimov01.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain Library of Congress photograph"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Linkin Park — “In the End”",
+              "note": "Linkin Park turns the final threshold into frustration about effort, time, and what slips away despite trying.",
+              "imageGuidance": "Use /imagesearch to find official album artwork, official music video thumbnail, or reliable source image for Linkin Park’s “In the End.” Do not generate band imagery. The agent must use /imagesearch first. The image must be realistic, not anime. It must be visually inspired by the app UI; WSC app mandatory. Keep the beige/brown/maroon app atmosphere in the container, frame, or surrounding UI. Because this slide refers to an exact artwork, known ritual photograph, known source page, historical object, official screenshot, or named visual source, the agent must not substitute a generic generated image. Do not use /imagegen or /imagecreator unless the exact asset is impossible to use and the placeholder is clearly marked non-final.",
+              "videoGuidance": "Use /youtubesearch to find the official video or a short educational analysis of the song’s themes of effort, time, and loss. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the exact concept, ritual, work, or example; avoid vague motivational content, long lectures, and unrelated entertainment clips.",
+              "links": [
+                {
+                  "label": "Linkin Park - “In the End”",
+                  "url": "https://www.youtube.com/watch?v=eVTXPUF4Oz4"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=eVTXPUF4Oz4",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact song/video reference; use official video/source link rather than generated band imagery."
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Endings",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Movement Without Arrival",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Going Pains"
+    }
+  ]
+}

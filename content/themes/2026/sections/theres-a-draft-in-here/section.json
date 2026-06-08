@@ -1,0 +1,35 @@
+{
+  "id": "theres-a-draft-in-here",
+  "title": "There’s a Draft in Here",
+  "shortTitle": "There's a Draft in Here",
+  "originalTitle": "There's a Draft in Here",
+  "order": 5,
+  "themeId": "wsc-2026",
+  "blurb": "Versions, sketches, rewrites, and the slow growth of finished work.",
+  "angle": "Before a final work appears, there is almost always a draft, and often several.",
+  "subjectIds": [
+    "visual-and-performing-arts"
+  ],
+  "bigIdeaIds": [
+    "incompletion-that-stays-active",
+    "visible-vs-real",
+    "performed-progress",
+    "infrastructure-shapes-behavior",
+    "narrated-endings"
+  ],
+  "legacyIds": [
+    "theres-a-draft"
+  ],
+  "assetIds": {
+    "cover": "asset.theres-a-draft-in-here.card.cover",
+    "icon": "asset.theres-a-draft-in-here.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.theres-a-draft-in-here",
+    "questions": "questions.theres-a-draft-in-here",
+    "guide": "guide.theres-a-draft-in-here",
+    "media": "media.theres-a-draft-in-here",
+    "alpacards": "alpacards.theres-a-draft-in-here",
+    "channelVideos": "channel.theres-a-draft-in-here"
+  }
+}

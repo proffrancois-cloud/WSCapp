@@ -1,0 +1,118 @@
+{
+  "id": "media.introductory-questions",
+  "sectionId": "introductory-questions",
+  "assets": [
+    {
+      "id": "asset.introductory-questions.raw.3d-television",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/3d-television.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.adolescence-as-a-threshold",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/adolescence-as-a-threshold.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.ending-vs-point-of-no-return",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/ending-vs-point-of-no-return.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.food-pills",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/food-pills.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.ford-nucleon-concept-car",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/ford-nucleon-concept-car.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.journey-destination-and-regret",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/journey-destination-and-regret.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.lotr-return-of-the-king-free-location",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/lotr-return-of-the-king-free-location.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.progress-and-diminishing-returns",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/progress-and-diminishing-returns.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.progress-bars-change-the-story",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/progress-bars-change-the-story.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.starting-university-is-not-the-same-as-finishing",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/starting-university-is-not-the-same-as-finishing.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.the-question-that-opens-the-route",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/the-question-that-opens-the-route.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.unfinished-video-games",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/unfinished-video-games.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.why-finishing-is-harder-than-starting",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/why-finishing-is-harder-than-starting.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.introductory-questions.raw.why-some-futures-stay-almost-there",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/introductory-questions/why-some-futures-stay-almost-there.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

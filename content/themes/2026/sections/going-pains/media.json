@@ -1,0 +1,166 @@
+{
+  "id": "media.going-pains",
+  "sectionId": "going-pains",
+  "assets": [
+    {
+      "id": "asset.going-pains.raw.adulting-turns-adulthood-into-a-verb",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/adulting-turns-adulthood-into-a-verb.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.differentiation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/differentiation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.drivers-license",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/drivers-license.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.english-adolescent-vs-teenager",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/english-adolescent-vs-teenager.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.everyday-tasks-symbolic-weight",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/everyday-tasks-symbolic-weight.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.first-paycheck",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/first-paycheck.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.french-adolescent-ado",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/french-adolescent-ado.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.graduation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/graduation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.guan-li",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/guan-li.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.in-mrs-tilschers-class",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/in-mrs-tilschers-class.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.japanese-juudai-seishun-shishunki",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/japanese-juudai-seishun-shishunki.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.let-me-begin-again",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/let-me-begin-again.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.mandarin-chinese-and-arabic-youth",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/mandarin-chinese-and-arabic-youth.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.neophilia",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/neophilia.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.neural-pruning",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/neural-pruning.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.risk-taking",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/risk-taking.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.role-playing-adulthood",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/role-playing-adulthood.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.spanish-adolescente-number-puzzle",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/spanish-adolescente-number-puzzle.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.sweet-sixteens",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/sweet-sixteens.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.going-pains.raw.voting-and-national-service",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/going-pains/voting-and-national-service.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

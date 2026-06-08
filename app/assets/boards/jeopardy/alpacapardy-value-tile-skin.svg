@@ -1,0 +1,74 @@
+<svg
+  id="alpacapardy-value-tile-skin"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 320 140"
+  width="320"
+  height="140"
+  fill="none"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Alpacapardy value tile skin</title>
+  <desc id="desc">
+    Reusable playable value tile for Alpacapardy, with maroon body, brown structure,
+    beige value area, and restrained yellow premium accents.
+  </desc>
+
+  <defs>
+    <style>
+      .tile-shadow {
+        fill: #4b2f21;
+        opacity: 0.22;
+      }
+
+      .tile-frame {
+        fill: #5a3726;
+      }
+
+      .tile-body {
+        fill: #6d1f26;
+        stroke: #4b2f21;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .value-panel {
+        fill: #ead8b7;
+        stroke: #5a3726;
+        stroke-width: 2.5;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .inner-line {
+        fill: none;
+        stroke: #d0a63a;
+        stroke-width: 1.75;
+        opacity: 0.9;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .accent {
+        fill: #d8b13f;
+      }
+
+      .micro-accent {
+        fill: #c79a2d;
+        opacity: 0.9;
+      }
+    </style>
+  </defs>
+
+  <path
+    class="tile-shadow"
+    d="M24 108H296C302.627 108 308 113.373 308 120V122C308 128.627 302.627 134 296 134H24C17.373 134 12 128.627 12 122V120C12 113.373 17.373 108 24 108Z"
+  />
+
+  <rect x="10" y="10" width="300" height="118" rx="14" class="tile-frame"/>
+  <rect x="16" y="16" width="288" height="106" rx="12" class="tile-body"/>
+  <rect x="34" y="30" width="252" height="64" rx="10" class="value-panel"/>
+  <rect x="42" y="38" width="236" height="48" rx="8" class="inner-line"/>
+  <rect x="146" y="20" width="28" height="6" rx="3" class="accent"/>
+  <rect x="26" y="42" width="6" height="18" rx="3" class="micro-accent"/>
+  <rect x="288" y="42" width="6" height="18" rx="3" class="micro-accent"/>
+  <path class="accent" d="M142 104H178L172 112H148L142 104Z"/>
+</svg>

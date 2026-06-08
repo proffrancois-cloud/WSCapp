@@ -1,0 +1,44 @@
+{
+  "id": "were-all-in-this-to-get-there",
+  "title": "We're All in This to Get There",
+  "shortTitle": "We Are All in This to Get There",
+  "originalTitle": "We're All in This to Get There",
+  "order": 6,
+  "themeId": "wsc-2026",
+  "blurb": "Megaprojects, delays, collective coordination, and construction that never seems to end.",
+  "angle": "The journey is not only personal. It is political, logistical, and collective.",
+  "subjectIds": [
+    "design-architecture-urbanism",
+    "history",
+    "economics-and-trade",
+    "computer-science-technology",
+    "philosophy",
+    "psychology"
+  ],
+  "bigIdeaIds": [
+    "infrastructure-shapes-behavior",
+    "delayed-arrival",
+    "movement-without-arrival",
+    "incompletion-that-stays-active",
+    "performed-progress",
+    "visible-vs-real",
+    "managing-uncertainty",
+    "measuring-human-worth",
+    "narrated-endings"
+  ],
+  "legacyIds": [
+    "were-all-in-this"
+  ],
+  "assetIds": {
+    "cover": "asset.were-all-in-this-to-get-there.card.cover",
+    "icon": "asset.were-all-in-this-to-get-there.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.were-all-in-this-to-get-there",
+    "questions": "questions.were-all-in-this-to-get-there",
+    "guide": "guide.were-all-in-this-to-get-there",
+    "media": "media.were-all-in-this-to-get-there",
+    "alpacards": "alpacards.were-all-in-this-to-get-there",
+    "channelVideos": "channel.were-all-in-this-to-get-there"
+  }
+}

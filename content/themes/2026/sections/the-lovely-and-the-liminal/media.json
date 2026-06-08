@@ -1,0 +1,214 @@
+{
+  "id": "media.the-lovely-and-the-liminal",
+  "sectionId": "the-lovely-and-the-liminal",
+  "assets": [
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.antespace-rooms-before-rooms",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/antespace-rooms-before-rooms.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.ascending-and-descending",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/ascending-and-descending.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.backrooms",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/backrooms.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.beneath-the-roses",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/beneath-the-roses.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.christinas-world",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/christinas-world.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.liminal-spaces-in-architecture",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/liminal-spaces-in-architecture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.picture-of-the-railroad-at-takanawa",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/picture-of-the-railroad-at-takanawa.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.pools",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/pools.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.rain-steam-and-speed",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/rain-steam-and-speed.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.six-in-four",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/six-in-four.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.the-distant-is-imminent",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-distant-is-imminent.webp",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.the-gare-saint-lazare",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-gare-saint-lazare.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.the-persistence-of-memory",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-persistence-of-memory.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.the-railway-station",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-railway-station.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.the-stanley-parable",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-stanley-parable.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.the-treachery-of-images",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-treachery-of-images.webp",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.train-station-agra-1983",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/train-station-agra-1983.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.alpacard.where-do-we-come-from-what-are-we-where-are-we-going",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/where-do-we-come-from-what-are-we-where-are-we-going.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.antespace-rooms-before-rooms",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/antespace-rooms-before-rooms.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.beauty-that-does-not-arrive",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/beauty-that-does-not-arrive.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.designing-anxiety-down",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/designing-anxiety-down.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.drip-drip-drip",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/drip-drip-drip.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.found-footage-as-disorientation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/found-footage-as-disorientation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.information-and-uncertainty",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/information-and-uncertainty.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.keeping-still",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/keeping-still.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.the-lovely-and-the-liminal.raw.purposiveness-without-purpose",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/the-lovely-and-the-liminal/purposiveness-without-purpose.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

@@ -1,0 +1,1386 @@
+{
+  "id": "raw.progress-not-regress",
+  "sectionId": "progress-not-regress",
+  "entries": [
+    {
+      "id": "raw.progress-not-regress.001",
+      "order": 1,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.brad-myers-and-percent-done-indicators",
+        "asset.progress-not-regress.raw.progress-as-reassurance"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.001",
+        "question.progress-not-regress.200.001"
+      ],
+      "title": "The History of the Progress Bar, Brad A. Myers",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "Before 1985, you'd have had no idea how long it would take to install a program on your computer - or to save a file, or to complete an online form. (To be fair, there were no online forms.) Consider the history of the progress bar, then discuss with your team: what other activities and interactions in life would benefit from a progress bar?",
+      "links": [
+        {
+          "label": "History of the progress bar - Gizmodo",
+          "url": "https://gizmodo.com/where-the-progress-bar-came-from-1538713383"
+        },
+        {
+          "label": "Brad A. Myers progress indicator research context",
+          "url": "https://www.cs.cmu.edu/~bam/percentdone.html"
+        },
+        {
+          "label": "Related waiting psychology context - APS",
+          "url": "https://www.psychologicalscience.org/news/why-waiting-is-torture.html"
+        }
+      ],
+      "studentExplanation": "In early personal computing, waiting could feel like failure: users often had no clear way to know whether a program was working, frozen, or about to crash. Brad A. Myers's research on percent-done progress indicators showed that a visible sign of progress could make waiting feel more acceptable. The most important insight is that people were not only asking, 'Is the computer done?' They were asking, 'Is anything happening at all?' A progress bar answers that emotional question, even when its timing is imperfect.\n\nAdd the experiment context: Myers’s percent-done indicators mattered because users preferred seeing status, even when the estimate was imperfect. The progress bar became a small emotional technology: it reassures people that a hidden system has not stopped. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this shows that progress is partly psychological: humans tolerate delays better when they can see movement. At the section level, it introduces Progress, Not Regress by showing that waiting can be designed, measured, and even manipulated. At the year-theme level, it connects to 'Are We There Yet?' because a progress bar is one of the clearest modern answers to that question.",
+      "takeaway": "Progress can be something users need to feel, not only something systems measure",
+      "subjects": [
+        "Computer Science / Technology",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Performed Progress",
+        "Delayed Arrival",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "(To be fair, there were no online forms",
+        "Before the bar",
+        "Brad Myers and percent-done indicators",
+        "Progress as reassurance"
+      ],
+      "debateRelevance": "Useful when debating whether visible feedback makes waiting more humane or simply trains people to accept delay.",
+      "counterargument": "Too much visible progress can also create anxiety, impatience, or false expectations when the indicator is inaccurate.",
+      "visualSections": [
+        {
+          "title": "The History of the Progress Bar, Brad A. Myers",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Brad Myers and percent-done indicators",
+              "note": "This slide anchors the topic in the 1985 research rather than treating progress bars as a random design trend.",
+              "imageGuidance": "Use /imagesearch to find a realistic image or page screenshot connected to Brad A. Myers or the percent-done progress indicator paper. If a clean academic image is not available, use /imagecreator to create a realistic WSC app-style academic card showing a paper title, a simple progress bar, and a small computer terminal. The image must be realistic, not anime, and WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video on progress indicators, perceived waiting, or UX feedback. If no Brad Myers-specific video exists, choose a short UX video explaining why progress indicators reduce uncertainty.",
+              "links": [
+                {
+                  "label": "Brad A. Myers progress indicator research context",
+                  "url": "https://gizmodo.com/where-the-progress-bar-came-from-1538713383"
+                },
+                {
+                  "label": "Myers' interview",
+                  "url": "https://www.youtube.com/watch?v=7KeX6cTYpWo"
+                }
+              ],
+              "url": "https://gizmodo.com/where-the-progress-bar-came-from-1538713383",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/brad-myers-and-percent-done-indicators.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Myers' interview",
+          "url": "https://www.youtube.com/watch?v=7KeX6cTYpWo"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Progress as reassurance",
+          "note": "This slide explains that a progress bar is not only information; it is emotional reassurance during a delay.",
+          "imageGuidance": "Use /imagecreator to create a realistic WSC app-style image of a user waiting calmly while a progress bar moves, with subtle UI elements in beige/brown/maroon. Do not use anime. If using /imagesearch, look for realistic UX waiting images, but generated is preferred because the idea is abstract.",
+          "videoGuidance": "Use /youtubesearch for a video explaining perceived performance, progress feedback, or user patience in interface design, ideally under 7 minutes.",
+          "links": [
+            {
+              "label": "History of the progress bar - Gizmodo",
+              "url": "https://gizmodo.com/where-the-progress-bar-came-from-1538713383"
+            }
+          ],
+          "url": "https://gizmodo.com/where-the-progress-bar-came-from-1538713383",
+          "previewLabel": "Open source",
+          "src": "assets/raw-content/progress-not-regress/progress-as-reassurance.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Waiting"
+      ],
+      "primaryBigIdea": "Performed Progress",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Performed Progress",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Visible vs Real",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.002",
+      "order": 2,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.console-output",
+        "asset.progress-not-regress.raw.indeterminate-progress-bar",
+        "asset.progress-not-regress.raw.percent-done-progress-indicator",
+        "asset.progress-not-regress.raw.skeleton-screen",
+        "asset.progress-not-regress.raw.splash-screen",
+        "asset.progress-not-regress.raw.throbber"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.002",
+        "question.progress-not-regress.200.002"
+      ],
+      "title": "Progress Bar, So Many of Them!",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "Bars are not the only way to pass time. Explore the following alternatives to the standard progress bar, then discuss with your team: what are the advantages and disadvantages of each approach?\n\nindeterminate progress bar | splash screen | console output | skeleton screen | throbber",
+      "links": [],
+      "studentExplanation": "Not every waiting interface is a progress bar. Some indicators show a percentage, some only signal that work is happening, and some distract or prepare the user while content loads. These patterns all answer the same emotional problem in different ways: users dislike being left in the dark. A good loading pattern does not merely decorate a delay; it tells the user what kind of delay they are experiencing.\n\nThe varieties should be explained by what kind of uncertainty they solve. Percent bars estimate completion, indeterminate bars and throbbers show activity without a number, splash screens brand the wait, console output tells developers what is happening, and skeleton screens preview the final layout to reduce cognitive load. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students compare different interface solutions to waiting. At the section level, it expands progress from one famous bar into a whole design language of perceived movement. At the year-theme level, it connects to waiting because different indicators change how close to 'there' a user feels, even before anything is actually finished.",
+      "takeaway": "One estimates completion, while the other mainly signals ongoing activity",
+      "subjects": [
+        "Computer Science / Technology"
+      ],
+      "bigIdeas": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Bars are not the only way to pass time",
+        "Percent-done progress indicator",
+        "Indeterminate progress bar",
+        "Splash screen",
+        "Console output",
+        "Skeleton screen",
+        "Throbber"
+      ],
+      "debateRelevance": "Useful when debating whether exact progress, partial structure, or simple activity indicators are the most honest way to handle waiting.",
+      "counterargument": "Some users may prefer fewer decorative loading patterns and more direct information about what is actually happening.",
+      "visualSections": [
+        {
+          "title": "Progress Bar, So Many of Them!",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Percent-done progress indicator",
+              "note": "A determinate bar shows how much of a process is complete, usually with a percentage or visible fill.",
+              "imageGuidance": "Use /imagecreator directly. Recreate a realistic animated GIF-style UI asset showing a beige/brown/maroon progress bar moving from 0% to 100%. It must be realistic, not anime, and must be inspired by the app UI; WSC app mandatory. No /imagesearch needed because the current GIF is only a pattern reference.",
+              "videoGuidance": "Use /youtubesearch only if a short educational UI video is needed; otherwise no video is required for this slide.",
+              "links": [],
+              "src": "assets/raw-content/progress-not-regress/percent-done-progress-indicator.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Indeterminate progress bar",
+              "note": "An indeterminate bar shows activity without telling the user how much remains.",
+              "imageGuidance": "Use /imagecreator directly. Create a realistic animated UI asset with a moving stripe or sliding segment that never gives a percentage. Match the WSC beige/brown/maroon UI, realistic not anime, WSC app mandatory.",
+              "videoGuidance": "No video required unless the agent finds a short UI design explainer under 7 minutes about determinate vs indeterminate loading.",
+              "links": [],
+              "src": "assets/raw-content/progress-not-regress/indeterminate-progress-bar.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Splash screen",
+              "note": "A splash screen gives users a branded or visual waiting moment before the main interface appears.",
+              "imageGuidance": "Use /imagecreator directly. Create a realistic WSC app-style loading splash screen with a centered logo/card, subtle alpaca-free interface look, beige/brown/maroon palette, not anime. It should feel like a polished app loading moment.",
+              "videoGuidance": "Use /youtubesearch only for a short explainer about splash screens if needed; not essential.",
+              "links": [],
+              "src": "assets/raw-content/progress-not-regress/splash-screen.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Console output",
+              "note": "Console output reassures technical users by showing text lines that prove a process is actively running.",
+              "imageGuidance": "Use /imagecreator directly. Create a realistic terminal window with short loading lines and a clean WSC-themed frame. It must look like real console output, not a cartoon. WSC app mandatory.",
+              "videoGuidance": "No video required unless a short beginner video about terminal/console feedback is useful.",
+              "links": [],
+              "src": "assets/raw-content/progress-not-regress/console-output.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Skeleton screen",
+              "note": "A skeleton screen shows the layout of a page before the real content loads, helping users feel that the interface is taking shape.",
+              "imageGuidance": "Use /imagecreator directly. Recreate a realistic skeleton loading card/page with placeholder rectangles, shimmer effect, and WSC app color theme. It must be realistic, not anime. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch for a short educational video under 7 minutes explaining skeleton screens in UX if available.",
+              "links": [],
+              "src": "assets/raw-content/progress-not-regress/skeleton-screen.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Throbber",
+              "note": "A throbber is a spinning or pulsing activity indicator that says something is loading without showing how much remains.",
+              "imageGuidance": "Use /imagecreator directly. Create a realistic animated circular loading throbber in WSC beige/brown/maroon styling. It must be clean and UI-like, not anime. WSC app mandatory.",
+              "videoGuidance": "No video required unless the agent finds a short beginner video about loading indicators.",
+              "links": [],
+              "src": "assets/raw-content/progress-not-regress/throbber.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Why Progress Bars Lie.",
+          "url": "https://www.youtube.com/watch?v=ydD4VHOy9eM"
+        },
+        {
+          "title": "Progress Bars - Computerphile",
+          "url": "https://www.youtube.com/watch?v=uHh0qpc1BR4"
+        },
+        {
+          "title": "How the progress bar keeps you sane | Small Thing Big Idea, a TED series",
+          "url": "https://www.youtube.com/watch?v=NAYkF04IZHI"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Waiting"
+      ],
+      "primaryBigIdea": "Visible vs Real",
+      "secondaryBigIdeas": [
+        "Performed Progress",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Visible vs Real",
+        "secondaryBigIdeas": [
+          "Performed Progress",
+          "Delayed Arrival",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.003",
+      "order": 3,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.comfort-or-deception",
+        "asset.progress-not-regress.raw.crosswalk-button",
+        "asset.progress-not-regress.raw.elevator-close-door-button"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.003",
+        "question.progress-not-regress.200.003"
+      ],
+      "title": "Placebo Buttons, Feeling Faker",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "Some progress bars continue to inch along even when a process is actually stuck; the idea is to encourage people not to give up. Explore the idea of placebo buttons - such as the 'close door' buttons on elevators that almost never close the doors, or pedestrian crossing buttons that don't have any impact on traffic lights - then discuss with your team: when, if ever, is it okay to mislead people so that they feel better about a process?",
+      "links": [
+        {
+          "label": "Placebo buttons - You Are Not So Smart",
+          "url": "https://youarenotsosmart.com/2010/08/23/placebo-buttons/"
+        },
+        {
+          "label": "Smithsonian - Does That Button Really Work?",
+          "url": "https://www.smithsonianmag.com/smart-news/does-button-really-workor-it-placebo-180955054/"
+        },
+        {
+          "label": "HowStuffWorks - Crosswalk and elevator buttons",
+          "url": "https://auto.howstuffworks.com/car-driving-safety/safety-regulatory-devices/crosswalk-elevator-close-buttons-work-placebo.htm"
+        }
+      ],
+      "studentExplanation": "A placebo button is a control that feels meaningful even when it has little or no effect on the system. Some elevator close-door buttons, some crosswalk buttons, and even dummy thermostats have been discussed this way. The key idea is not simply that buttons are fake, but that people feel calmer when they can do something. Placebo buttons turn waiting from helpless passivity into an action, even if the action does not truly change the result. People are less impatient because they feel in control... but is misleading acceptable if it reduces stress?\n\nPlacebo buttons are useful because they reveal the ethical line in “performed progress.” A crosswalk button, elevator close-door button, thermostat, or fake loading animation may comfort users, but it also raises the question of whether designers are giving control or only staging it. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students understand the difference between real control and perceived control. At the section level, it complicates progress by showing that people may accept waiting better when they believe they are influencing it. At the year-theme level, it raises the question of whether feeling closer to 'there' is valuable if the system has quietly misled us.",
+      "takeaway": "When users are deceived about a choice that matters",
+      "subjects": [
+        "Psychology",
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Delayed Arrival",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior",
+        "Performed Progress"
+      ],
+      "examples": [
+        "Some progress bars continue to inch along even when a process is actually stuck",
+        "the idea is to encourage people not to give up",
+        "Elevator close-door button",
+        "Crosswalk button",
+        "Comfort or deception?"
+      ],
+      "debateRelevance": "Useful when debating whether harmless perceived control is acceptable or whether it weakens trust in designed systems.",
+      "counterargument": "A placebo-style button may be defensible only when the stakes are low and users are not denied meaningful control.",
+      "visualSections": [
+        {
+          "title": "Placebo Buttons, Feeling Faker",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Elevator close-door button",
+              "note": "Example of a button that may make pushing feel in control but does not have any real impact.",
+              "imageGuidance": "Use /imagesearch to find a realistic close-up photo of an elevator control panel with the close-door button visible. It must be realistic, not anime. Prefer a clear public-domain or reputable article image. If no perfect photo is found, use /imagecreator or /imagegen to create a realistic WSC app-style close-up of an elevator button panel. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, 5-7 minutes maximum, explaining placebo buttons or the psychology of perceived control.",
+              "links": [
+                {
+                  "label": "Placebo buttons - You Are Not So Smart",
+                  "url": "https://youarenotsosmart.com/2010/02/10/placebo-buttons/"
+                },
+                {
+                  "label": "How did we come up with placebo buttons",
+                  "url": "https://www.youtube.com/watch?v=qOnV-NQhNDw"
+                }
+              ],
+              "url": "https://youarenotsosmart.com/2010/02/10/placebo-buttons/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/elevator-close-door-button.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Crosswalk button",
+              "note": "Example of a button that may make pushing feel in control but does not have any real impact.",
+              "imageGuidance": "Use /imagesearch to find a realistic photo of a pedestrian crossing button at a street corner. If possible, use a source that discusses inactive or timed crosswalk buttons. If no perfect image exists, use /imagecreator to create a realistic WSC app-style street-crossing button image. Not anime; WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining pedestrian crossing buttons, placebo buttons, or how traffic signals work.",
+              "links": [
+                {
+                  "label": "Placebo buttons - You Are Not So Smart",
+                  "url": "https://youarenotsosmart.com/2010/02/10/placebo-buttons/"
+                },
+                {
+                  "label": "How did we come up with placebo buttons",
+                  "url": "https://www.youtube.com/watch?v=qOnV-NQhNDw"
+                }
+              ],
+              "url": "https://youarenotsosmart.com/2010/02/10/placebo-buttons/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/crosswalk-button.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "How did we come up with placebo buttons",
+          "url": "https://www.youtube.com/watch?v=qOnV-NQhNDw"
+        },
+        {
+          "title": "The power of the placebo effect - Emma Bryce",
+          "url": "https://www.youtube.com/watch?v=z03FQGlGgo0"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Comfort or deception?",
+          "note": "This slide frames the ethical question: is misleading acceptable if it reduces stress?",
+          "imageGuidance": "Use /imagecreator to create a realistic WSC app-style image showing two sides: one person calmer after pressing a button, another transparent note saying “real control?” The image should be realistic, not anime, and should not look like a meme. WSC app mandatory.",
+          "videoGuidance": "Use /youtubesearch for a short video on design ethics, dark patterns, or perceived control in UX, maximum 5-7 minutes.",
+          "links": [],
+          "src": "assets/raw-content/progress-not-regress/comfort-or-deception.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Waiting"
+      ],
+      "primaryBigIdea": "Delayed Arrival",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Delayed Arrival",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Infrastructure Shapes Behavior",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.004",
+      "order": 4,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.baggage-claim-psychology",
+        "asset.progress-not-regress.raw.moving-vs-waiting"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.004",
+        "question.progress-not-regress.200.004"
+      ],
+      "title": "The Airport Baggage Claim Trick",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "Some schemes can be quite elaborate. For instance, one airport discovered that, if planes parked further away so that people had to walk longer to baggage claim, they complained less about waiting for their bags once they got there. They were happier moving along than idling at the carousel, even if the total wait time was the same. Can you think of other situations in which people could be tricked into feeling less impatient?",
+      "links": [
+        {
+          "label": "Why Waiting Is Torture - Association for Psychological Science",
+          "url": "https://www.psychologicalscience.org/news/why-waiting-is-torture.html"
+        },
+        {
+          "label": "New York Times source referenced by APS",
+          "url": "https://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html"
+        }
+      ],
+      "studentExplanation": "The Houston baggage-claim story shows that people do not experience all waiting the same way. Standing still at a carousel feels different from walking toward baggage, even if the total time is similar. The airport did not simply make luggage arrive faster; it changed the middle of the journey so passengers felt active rather than stuck. In other words, people often prefer visible movement to passive waiting, even if the total time to reach the destination is the same.\n\nThe Houston baggage example is about perceived time, not just actual time. Moving passengers through a longer walk changed the experience because walking feels more active than standing still; students should compare whether that is smart service design or a way of hiding delay. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students understand that waiting depends on design, not only duration. At the section level, it moves the idea of progress from screens to physical space. At the year-theme level, it shows that the route itself can change whether we feel close to arrival.",
+      "takeaway": "They change how people experience progress or waiting",
+      "subjects": [
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Some schemes can be quite elaborate",
+        "Moving vs. waiting",
+        "Baggage claim psychology"
+      ],
+      "debateRelevance": "Useful when debating whether service design should reduce actual delays or reshape how delays are experienced.",
+      "counterargument": "Changing the route can disguise inconvenience if the underlying service problem remains unsolved.",
+      "visualSections": [
+        {
+          "title": "The Airport Baggage Claim Trick",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Moving vs. waiting",
+              "note": "There is an emotional cost of waiting depending on whether people feel occupied or stuck.",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style split-screen: left side passengers standing impatiently at a baggage carousel; right side passengers walking through a bright airport corridor toward baggage claim. The image must be realistic, not anime, and inspired by the app UI; WSC app mandatory. Use /imagesearch first only if the agent finds a clear public-domain airport corridor/baggage claim comparison.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 7 minutes explaining why waiting feels longer when people are idle.",
+              "links": [
+                {
+                  "label": "Why Waiting Is Torture - Association for Psychological Science",
+                  "url": "https://www.psychologicalscience.org/news/why-waiting-is-torture.html"
+                },
+                {
+                  "label": "the psychology behind it",
+                  "url": "https://www.youtube.com/watch?v=MjYw2BaI6hs"
+                }
+              ],
+              "url": "https://www.psychologicalscience.org/news/why-waiting-is-torture.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/moving-vs-waiting.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Baggage claim psychology",
+              "note": "This emotional cost caused by the wait was studied and reduced at Houston Airport. Not by reducing this amount of time, but by keeping travelers busy.",
+              "imageGuidance": "Use /imagecreator to create a realistic visual of a simple airport path diagram: gate -> long walk -> baggage carousel, with WSC-style colors. It should not be an icon-only SVG; it should look like a realistic app card. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch for a video on waiting psychology, queue design, or airport baggage claim design. Maximum 5-7 minutes.",
+              "links": [
+                {
+                  "label": "Baggage claim at Houston airport",
+                  "url": "https://www.youtube.com/watch?v=4viR6PcQboU"
+                }
+              ],
+              "src": "assets/raw-content/progress-not-regress/baggage-claim-psychology.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=4viR6PcQboU",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "the psychology behind it",
+          "url": "https://www.youtube.com/watch?v=MjYw2BaI6hs"
+        },
+        {
+          "title": "Baggage claim at Houston airport",
+          "url": "https://www.youtube.com/watch?v=4viR6PcQboU"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Waiting"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Infrastructure Shapes Behavior",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.005",
+      "order": 5,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.endowed-progress-effect",
+        "asset.progress-not-regress.raw.nudge-or-manipulation",
+        "asset.progress-not-regress.raw.progress-feedback-can-help-or-hurt"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.005",
+        "question.progress-not-regress.200.005"
+      ],
+      "title": "Effect of Progress Indicators on Individuals",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "Designers have discovered that progress bars in apps make users more likely to complete tasks such as surveys and applications. Discuss with your team: is it okay to design interfaces that persuade people to complete actions? Is there a point past which nudging becomes manipulation?",
+      "links": [
+        {
+          "label": "Progress indicators and task completion - PMC / Interacting with Computers",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2910434/"
+        },
+        {
+          "label": "Endowed Progress Effect - Journal of Consumer Research",
+          "url": "https://academic.oup.com/jcr/article/32/4/504/1787425"
+        },
+        {
+          "label": "Endowed Progress Effect - Xavier Dreze publication page",
+          "url": "https://www.xdreze.org/Publications/pseudo.html"
+        }
+      ],
+      "studentExplanation": "Progress indicators can change whether people continue or quit. In surveys, applications, games, and loyalty systems, users often respond not only to the task itself but to the feeling that they are getting somewhere. Research on progress feedback shows that visible progress can encourage completion when it feels motivating, but it can also backfire if progress looks slow or discouraging. The endowed progress effect adds another layer: people are more likely to finish when they feel they have already begun, even if that head start was partly artificial.\n\nAdd the endowed-progress mechanism: people are more motivated when they feel they have already begun, especially when a bar starts partly filled or moves quickly at first. That can help learners and users persist, but it can also be used to keep people spending time or money. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students understand that progress design can shape behavior. At the section level, it turns waiting indicators into persuasion tools. At the year-theme level, it asks whether being shown that we are “almost there” helps us reach a good destination or manipulates us into completing someone else’s goal.",
+      "takeaway": "Designed progress can motivate action, but it also raises questions about nudging and control",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Performed Progress",
+        "Delayed Arrival",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Is there a point past which nudging becomes manipulation",
+        "Endowed progress effect",
+        "Progress feedback can help or hurt",
+        "Nudge or manipulation?"
+      ],
+      "debateRelevance": "Useful when debating when user motivation becomes persuasion, and when persuasion becomes manipulation.",
+      "counterargument": "A progress indicator can also help users make informed choices when it is transparent and easy to abandon.",
+      "visualSections": [
+        {
+          "title": "Effect of Progress Indicators on Individuals",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Endowed progress effect",
+              "note": "A small artificial head start can make people more likely to complete a task. That's the Endowed effect.",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style loyalty card or survey progress example: one card with 0/8 complete and another with 2/10 already stamped, making the second feel started. The image must be realistic, not anime, and WSC app mandatory. If /imagesearch finds a clear study diagram from a reliable source, it can be used, but generated may better fit the app.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 7 minutes explaining the endowed progress effect or goal-gradient/progress motivation.",
+              "links": [
+                {
+                  "label": "Progress indicators and task completion - PMC",
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2910434/"
+                },
+                {
+                  "label": "The endowed effect in 1mn",
+                  "url": "https://www.youtube.com/watch?v=p7h58MTD9q0"
+                }
+              ],
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2910434/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/endowed-progress-effect.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Nudge or manipulation?",
+              "note": "",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style visual with a progress bar and two labels: “helpful nudge” and “manipulative pressure.” Keep it clean, serious, not meme-like, not anime. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch for a short educational video on nudges, dark patterns, or persuasive design, maximum 5-7 minutes.",
+              "links": [
+                {
+                  "label": "Where is the moral barrier?",
+                  "url": "https://www.youtube.com/watch?v=jVTg3ZsNTTY"
+                }
+              ],
+              "src": "assets/raw-content/progress-not-regress/nudge-or-manipulation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=jVTg3ZsNTTY",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The endowed effect in 1mn",
+          "url": "https://www.youtube.com/watch?v=p7h58MTD9q0"
+        },
+        {
+          "title": "Where is the moral barrier?",
+          "url": "https://www.youtube.com/watch?v=jVTg3ZsNTTY"
+        },
+        {
+          "title": "Theme park queues manipulate your sense of time, here's how",
+          "url": "https://www.youtube.com/watch?v=z9FQVPwmDLc"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Progress feedback can help or hurt",
+          "note": "This slide shows that progress indicators are not automatically good; discouraging feedback can make users quit.",
+          "imageGuidance": "Use /imagecreator to create a realistic split-screen app survey: one version shows encouraging early progress, the other shows slow discouraging progress. Use WSC beige/brown/maroon UI and realistic style, not anime. WSC app mandatory.",
+          "videoGuidance": "Use /youtubesearch to find a short video about progress indicators, gamification, or UX nudges, maximum 5-7 minutes.",
+          "links": [
+            {
+              "label": "Progress indicators and task completion - PMC / Interacting with Computers",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2910434/"
+            }
+          ],
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2910434/",
+          "previewLabel": "Open source",
+          "src": "assets/raw-content/progress-not-regress/progress-feedback-can-help-or-hurt.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Waiting"
+      ],
+      "primaryBigIdea": "Performed Progress",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Performed Progress",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Visible vs Real",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.006",
+      "order": 6,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.chrome-dinosaur-game",
+        "asset.progress-not-regress.raw.restaurant-table-games"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.006",
+        "question.progress-not-regress.200.006"
+      ],
+      "title": "Play to Wait",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "In 1994, the developers of Namco's Ridge Racer added an Easter egg to their loading screens - a version of the studio's classic Galaxian game. Google Chrome does something similar: its Dinosaur Game appears when your device goes offline temporarily. In the real world, some restaurants now encourage diners to play games on table-mounted payment terminals (for a fee) while waiting for their food. Discuss with your team: should more processes come with these kinds of auxiliary games to help people pass the time?",
+      "links": [
+        {
+          "label": "Google blog - Chrome Dinosaur Game",
+          "url": "https://blog.google/products-and-platforms/products/chrome/chrome-dino/"
+        },
+        {
+          "label": "Wired - Namco loading-screen minigame patent",
+          "url": "https://www.wired.com/story/namco-patent-ends-allowing-loading-screen-minigames"
+        },
+        {
+          "label": "NBC Chicago - restaurant table games fee",
+          "url": "https://www.nbcchicago.com/investigations/consumer/restaurant-tablet-games-charges/3148266/"
+        }
+      ],
+      "studentExplanation": "Auxiliary games turn waiting into a small side activity. Ridge Racer famously let players play Galaxian during loading, Chrome's Dino game turns internet failure into a mini runner, and some restaurants now offer games on table terminals while customers wait. These examples show a shift from showing progress to filling time. The user is not necessarily closer to the end, but the wait becomes more active, playful, or profitable.\n\nLoading games show that waiting can be converted into play. Ridge Racer, Chrome Dino, and restaurant-table games all fill delay differently: one entertains during technical limits, one turns disconnection into a mini-game, and one can become a hidden paid distraction. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students understand that waiting can be transformed into entertainment. At the section level, it expands progress design beyond bars and buttons into play. At the year-theme level, it connects to journeys because the middle of a route can become valuable, enjoyable, or exploitative in its own right.",
+      "takeaway": "Entertainment can help waiting, but it can also monetize or exploit boredom",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Ridge Racer loading game",
+        "Chrome Dinosaur Game",
+        "Restaurant table games"
+      ],
+      "debateRelevance": "Useful when debating whether boredom should be filled with entertainment or whether every idle moment is being monetized.",
+      "counterargument": "Small waiting games can be harmless or delightful when they are optional and not used to hide fees.",
+      "visualSections": [
+        {
+          "title": "Play to Wait",
+          "items": [
+            {
+              "kind": "video-slide",
+              "title": "Ridge Racer loading game",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find a realistic image or screenshot related to Ridge Racer loading-screen Galaxian. This is a specific game-history example, so use the exact reference if possible. If no usable image exists, use /imagecreator to create a realistic WSC-style “loading screen with mini-game” concept without copying protected game graphics. Not anime; WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short video under 7 minutes about Ridge Racer, Galaxian during loading, or the history of loading-screen minigames.",
+              "links": [
+                {
+                  "label": "Wired - Namco loading-screen minigame patent",
+                  "url": "https://www.wired.com/story/namco-patent-ends-allowing-loading-screen-minigames"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=3NwttfFV09k",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific copyrighted game-history example; preserve source links rather than generating or embedding fake Ridge Racer/Galaxian graphics.",
+              "videoUrl": "https://www.youtube.com/watch?v=3NwttfFV09k",
+              "videoLabel": "Ridge Racer loading game"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Chrome Dinosaur Game",
+              "note": "Probably the most famous example of an auxiliary game during an internet outage.",
+              "imageGuidance": "Use /imagesearch to find an official or clearly recognizable Chrome Dino image from Google or a reliable source. Because this is a known object, do not generate a replacement unless no usable image is found. If generating, create a realistic WSC app-style offline screen inspired by the idea, not a direct copy. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a clear short video, maximum 5-7 minutes, explaining the Chrome Dino game and why Google created it.",
+              "links": [
+                {
+                  "label": "How it came up?",
+                  "url": "https://www.youtube.com/watch?v=KgIGQveivwo"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=KgIGQveivwo",
+              "previewLabel": "Open source",
+              "imageMode": "source-image",
+              "imageLicense": "BSD-licensed Chromium open-source asset via Wikimedia Commons",
+              "src": "assets/raw-content/progress-not-regress/chrome-dinosaur-game.png"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Ridge Racer loading game",
+          "url": "https://www.youtube.com/watch?v=3NwttfFV09k"
+        },
+        {
+          "title": "How it came up?",
+          "url": "https://www.youtube.com/watch?v=KgIGQveivwo"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Restaurant table games",
+          "note": "This slide shows how waiting games can become a paid service or hidden cost.",
+          "imageGuidance": "Use /imagesearch to find a realistic image of a restaurant table payment/game tablet, preferably from a news or consumer article. If no clear image is found, use /imagecreator to create a realistic WSC-style restaurant table with a tablet offering games while diners wait. Not anime; WSC app mandatory.",
+          "videoGuidance": "Use /youtubesearch to find a short consumer/educational video explaining restaurant table games or table-terminal charges if available, maximum 5-7 minutes.",
+          "links": [
+            {
+              "label": "Wired - Namco loading-screen minigame patent",
+              "url": "https://www.wired.com/story/namco-patent-ends-allowing-loading-screen-minigames"
+            }
+          ],
+          "url": "https://www.wired.com/story/namco-patent-ends-allowing-loading-screen-minigames",
+          "previewLabel": "Open source",
+          "src": "assets/raw-content/progress-not-regress/restaurant-table-games.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Waiting",
+        "Progress"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Performed Progress",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.007",
+      "order": 7,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.gini-coefficient",
+        "asset.progress-not-regress.raw.gross-national-income-gni",
+        "asset.progress-not-regress.raw.human-development-index-hdi",
+        "asset.progress-not-regress.raw.labor-productivity",
+        "asset.progress-not-regress.raw.multidimensional-poverty-index-mpi",
+        "asset.progress-not-regress.raw.passport-index",
+        "asset.progress-not-regress.raw.pentagon-pizza-report",
+        "asset.progress-not-regress.raw.world-happiness-report"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.007",
+        "question.progress-not-regress.200.007"
+      ],
+      "title": "How Can Societies Measure Progress?",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "You can't know if you're there yet without some way to measure progress; the same is true for entire societies. Learn about the following socioeconomic indicators with your team: what do they try to measure? Then look up the numbers corresponding to your country and discuss with your team: how accurately do they reflect what it's like to live there? And how should we decide what the end - or goal - of a society is?\n\nGross Domestic Product | Gross National Income | Gini Coefficient\n\nHuman Development Index | Multidimensional Poverty Index | Labor Productivity\n\nHappiness Index | Passport Index | Big Mac Index",
+      "links": [
+        {
+          "label": "UNDP - Human Development Index",
+          "url": "https://hdr.undp.org/en/content/human-development-index-hdi"
+        },
+        {
+          "label": "UNDP - Global Multidimensional Poverty Index",
+          "url": "https://hdr.undp.org/content/2025-global-multidimensional-poverty-index-mpi"
+        },
+        {
+          "label": "World Happiness Report FAQ",
+          "url": "https://www.worldhappiness.report/faq/"
+        },
+        {
+          "label": "Henley Passport Index methodology",
+          "url": "https://www.henleyglobal.com/passport-index/about"
+        },
+        {
+          "label": "Britannica Money - Big Mac Index",
+          "url": "https://www.britannica.com/money/big-mac-index"
+        },
+        {
+          "label": "OECD - GDP per hour worked",
+          "url": "https://www.oecd.org/en/data/indicators/gdp-per-hour-worked.html"
+        },
+        {
+          "label": "World Bank GNI classification background",
+          "url": "https://datahelpdesk.worldbank.org/knowledgebase/articles/378831-why-use-gni-per-capita-to-classify-economies-into"
+        }
+      ],
+      "studentExplanation": "Societies need progress indicators too. But national progress is harder than a loading bar because countries do not have one obvious destination. GDP measures production; GNI focuses on residents' income; the Gini coefficient points to inequality; HDI adds health, education, and living standards; MPI looks at overlapping poverty; labor productivity measures output per hour worked; happiness rankings ask people to evaluate their own lives; passport rankings measure travel access; and the Big Mac Index compares purchasing power through a familiar product. Together, these indicators show that what we measure shapes what we think progress means.\n\nThe extra notes clarify why no national indicator is enough alone: GDP and GNI measure money, Gini measures inequality, HDI adds health and education, MPI tracks overlapping poverty, labor productivity measures output, and passport or Big Mac indexes reveal only specific slices of life. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students understand what different socioeconomic indicators actually measure. At the section level, it expands progress from screens and waiting rooms to whole societies. At the year-theme level, it asks one of the biggest 'Are we there yet?' questions: if a country is trying to get somewhere better, who decides what better means?",
+      "takeaway": "A society's progress depends on what it chooses to count as success",
+      "subjects": [
+        "Economics & Trade",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Measuring Human Worth",
+        "Performed Progress",
+        "Visible vs Real",
+        "Movement Without Arrival"
+      ],
+      "examples": [
+        "You can't know if you're there yet without some way to measure progress",
+        "the same is true for entire societies",
+        "And how should we decide what the end - or goal - of a society is",
+        "Gross Domestic Product | Gross National Income | Gini Coefficient",
+        "Gross Domestic Product (GDP)",
+        "Gross National Income (GNI)",
+        "Gini Coefficient",
+        "Human Development Index (HDI)",
+        "Multidimensional Poverty Index (MPI)",
+        "Labor Productivity",
+        "World Happiness Report",
+        "Passport Index",
+        "Big Mac Index"
+      ],
+      "debateRelevance": "Useful when debating whether economic growth, human development, equality, happiness, or mobility should define a society's success.",
+      "counterargument": "Indicators are rough tools; no number can fully capture lived experience, justice, culture, or meaning.",
+      "visualSections": [
+        {
+          "title": "How Can Societies Measure Progress?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Gross National Income (GNI)",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find an official/educational GNI visual from OECD, World Bank, BEA, or similar. The current app has a blue Investopedia-style image that is decent but not ideal. Replace with a reliable source if possible; otherwise use /imagecreator to make a realistic WSC-style comparison card: GDP inside borders vs GNI resident income including abroad. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "GNI",
+                  "url": "https://www.youtube.com/watch?v=pGKPQW2yFBQ"
+                }
+              ],
+              "src": "assets/raw-content/progress-not-regress/gross-national-income-gni.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=pGKPQW2yFBQ",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Gini Coefficient",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find a reliable Gini coefficient diagram, ideally from World Bank, OECD, Our World in Data, or a university source. The current app image is visually clear but generic; replace if a stronger source is found. If needed, use /imagecreator to make a realistic WSC-style inequality distribution visual. Not anime; WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "Gini",
+                  "url": "https://www.youtube.com/watch?v=BwSB__Ugo1s"
+                }
+              ],
+              "src": "assets/raw-content/progress-not-regress/gini-coefficient.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=BwSB__Ugo1s",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Human Development Index (HDI)",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find the official UNDP HDI dimensions diagram or a high-quality UNDP/WHO educational HDI visual. The current app image is usable but should be replaced by an official UNDP-style source if possible. Exact official HDI diagram preferred. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "HDI",
+                  "url": "https://www.youtube.com/watch?v=1ScfqaCp2Ho"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=1ScfqaCp2Ho",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/human-development-index-hdi.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Multidimensional Poverty Index (MPI)",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find the official Global MPI dimensions/indicators diagram from UNDP or OPHI. The current app already has a Global MPI diagram; use /imagesearch to locate the closest official version online and replace if better. Do not generate unless no official image can be found. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "MPI",
+                  "url": "https://www.youtube.com/watch?v=VomtcG4f2IM"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=VomtcG4f2IM",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/multidimensional-poverty-index-mpi.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Labor Productivity",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find an OECD or official-style productivity visual or chart. The current app has a blue Investopedia-style image; replace if a more authoritative OECD visual is available. If no perfect image exists, use /imagecreator to make a realistic WSC-style output-per-hour card. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "Labor Productivity",
+                  "url": "https://www.youtube.com/watch?v=afvBjUkrQMk"
+                }
+              ],
+              "src": "assets/raw-content/progress-not-regress/labor-productivity.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=afvBjUkrQMk",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "World Happiness Report",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find an official World Happiness Report ranking chart or methodology visual. The current app has a chart image; use /imagesearch to locate the exact or better official version. Do not generate unless no official source is usable. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "World Happiness Report",
+                  "url": "https://www.youtube.com/watch?v=VMbaOcyDtsQ"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=VMbaOcyDtsQ",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/world-happiness-report.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Passport Index",
+              "note": "",
+              "imageGuidance": "Use /imagesearch to find an official Henley Passport Index visual, ranking table, or methodology graphic. The current app has a passport mosaic image; keep only if it is clearer than the official image. Prefer official Henley visual/ranking. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, explaining this indicator or how countries measure progress. For GDP/HDI/MPI/World Happiness/Big Mac Index, prefer videos from official organizations, universities, economics educators, or reputable news/education channels.",
+              "links": [
+                {
+                  "label": "Passport Index",
+                  "url": "https://www.youtube.com/watch?v=KXyJ5p2BaeY"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=KXyJ5p2BaeY",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/passport-index.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Pentagon Pizza Report",
+              "note": "",
+              "imageGuidance": "Generated with /imagegen as a super-realistic WSC-style educational visual for the Pentagon Pizza Index.",
+              "videoGuidance": "Use the attached YouTube explainer for the Pentagon Pizza Report/Pentagon Pizza Index.",
+              "links": [
+                {
+                  "label": "Pentagon Pizza Report",
+                  "url": "https://www.youtube.com/watch?v=X6Oo8kE0Hd0"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=X6Oo8kE0Hd0",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/pentagon-pizza-report.png",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "GNI",
+          "url": "https://www.youtube.com/watch?v=pGKPQW2yFBQ"
+        },
+        {
+          "title": "Gini",
+          "url": "https://www.youtube.com/watch?v=BwSB__Ugo1s"
+        },
+        {
+          "title": "HDI",
+          "url": "https://www.youtube.com/watch?v=1ScfqaCp2Ho"
+        },
+        {
+          "title": "MPI",
+          "url": "https://www.youtube.com/watch?v=VomtcG4f2IM"
+        },
+        {
+          "title": "Labor Productivity",
+          "url": "https://www.youtube.com/watch?v=afvBjUkrQMk"
+        },
+        {
+          "title": "World Happiness Report",
+          "url": "https://www.youtube.com/watch?v=VMbaOcyDtsQ"
+        },
+        {
+          "title": "Passport Index",
+          "url": "https://www.youtube.com/watch?v=KXyJ5p2BaeY"
+        },
+        {
+          "title": "Pentagon Pizza Report",
+          "url": "https://www.youtube.com/watch?v=X6Oo8kE0Hd0"
+        },
+        {
+          "title": "Entering The World's Happiest Country (Bhutan)",
+          "url": "https://www.youtube.com/watch?v=YsQPqwzg8is"
+        },
+        {
+          "title": "Gross National Happiness Model of Bhutan (Learning World S4E41, 3/3)",
+          "url": "https://www.youtube.com/watch?v=-6JEY7JuDdQ"
+        },
+        {
+          "title": "What is \"Gross National Happiness\" ? Explained by Morten Sondergaard",
+          "url": "https://www.youtube.com/watch?v=7Zqdqa4YNvI"
+        },
+        {
+          "title": "What is GDP? | Back to Basics",
+          "url": "https://www.youtube.com/watch?v=hBqWRayc1kE"
+        },
+        {
+          "title": "'Big Mac Index' explained (explainity® explainer video)",
+          "url": "https://www.youtube.com/watch?v=b71uzrr8hUs"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress"
+      ],
+      "primaryBigIdea": "Measuring Human Worth",
+      "secondaryBigIdeas": [
+        "Performed Progress",
+        "Visible vs Real",
+        "Movement Without Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Measuring Human Worth",
+        "secondaryBigIdeas": [
+          "Performed Progress",
+          "Visible vs Real",
+          "Movement Without Arrival"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    },
+    {
+      "id": "raw.progress-not-regress.008",
+      "order": 8,
+      "sectionId": "progress-not-regress",
+      "mediaIds": [
+        "asset.progress-not-regress.raw.progress-is-not-automatic",
+        "asset.progress-not-regress.raw.what-would-the-painting-show-today"
+      ],
+      "questionIds": [
+        "question.progress-not-regress.100.008",
+        "question.progress-not-regress.200.008"
+      ],
+      "title": "Is the World on Its Way to a Better or Worse Place?",
+      "guidingSection": "Progress, Not Regress",
+      "rawOfficialText": "The Second Law of Thermodynamics suggests that closed systems always grow more disordered over time. Left to themselves, things get messier: your room won't clean itself. Yet many people take for granted that the world as a whole should become better over time. 'The arc of the moral universe is long, but it bends toward justice,' said Martin Luther King, Jr., a quote that may have preceded and certainly outlived him. But it turns out that this idea that the world improves over time may be a relatively new one (alternate link). Discuss with your team: is the world growing better? Be sure to check out the artist Will Crawford's answer to this question in this 1909 painting. What would a painting with the same title look like today?",
+      "links": [
+        {
+          "label": "The Atlantic - Progress is not natural / progress history context",
+          "url": "https://www.theatlantic.com/magazine/archive/2023/01/science-technology-vaccine-invention-history/672227/"
+        },
+        {
+          "label": "Will Crawford - Surely the World Is Growing Better - Library of Congress/Wikimedia",
+          "url": "https://commons.wikimedia.org/wiki/File:Surely_the_world_is_growing_better_-_Will_Crawford._LCCN2011647517.jpg"
+        },
+        {
+          "label": "Theodore Roosevelt Center - Will Crawford image record",
+          "url": "https://www.theodorerooseveltcenter.org/digital-library/o288522/"
+        },
+        {
+          "label": "MLK / moral arc quote context - White House archive",
+          "url": "https://obamawhitehouse.archives.gov/blog/2011/10/21/arc-moral-universe-long-it-bends-toward-justice"
+        },
+        {
+          "label": "Theodore Parker / MLK quote history context",
+          "url": "https://bendingarc.com/the-arc"
+        }
+      ],
+      "studentExplanation": "This entry contrasts two ideas of time. The Second Law of Thermodynamics gives a simple image of decline: left alone, systems tend toward disorder. But modern societies often imagine history as progress: more knowledge, more justice, better health, better rights, and a better future. That optimistic idea is not universal or timeless. Some cultures imagined history as cyclical, controlled by higher powers, or outside human influence. Will Crawford's 1909 cartoon adds a dark twist: if technology improves warfare, then 'the world is growing better' can become bitter irony.\n\nUse “Surely the World Is Growing Better” as a test of progress stories. A painting full of more advanced warfare can imply that technology improves capacity without improving morality, so students should ask whether progress means power, comfort, fairness, safety, or wisdom. Use this to separate real progress from visible progress: what is actually changing, what the user can see, how the indicator changes behavior, and when reassurance becomes manipulation.",
+      "whyItMatters": "At the entry level, this helps students ask whether progress is natural, chosen, measured, or imagined. At the section level, it closes Progress, Not Regress by questioning the assumption that forward movement is always improvement. At the year-theme level, it connects to bright and dark futures because getting 'there' only matters if we know whether 'there' is better, worse, or simply more powerful.",
+      "takeaway": "Whether human progress is real, automatic, fragile, or partly imagined",
+      "subjects": [
+        "Philosophy",
+        "History"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Managing Uncertainty",
+        "Measuring Human Worth",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Left to themselves, things get messier: your room won't clean itself",
+        ", a quote that may have preceded and certainly outlived him",
+        "Discuss with your team: is the world growing better",
+        "What would a painting with the same title look like today",
+        "Surely the World Is Growing Better",
+        "The moral arc",
+        "Progress is not automatic",
+        "What would the painting show today?"
+      ],
+      "debateRelevance": "Useful when debating whether progress is real, automatic, fragile, or a story societies tell about themselves.",
+      "counterargument": "Long-term improvements in medicine, rights, knowledge, and living standards still support a serious case for progress.",
+      "visualSections": [
+        {
+          "title": "Is the World on Its Way to a Better or Worse Place?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Surely the World Is Growing Better",
+              "note": "Will Crawford's 1909 satire: new technology may be progress, but it can also expand the scale of war. Are we leaning towards a better or a worse world?",
+              "imageGuidance": "Use /imagesearch to find the exact Will Crawford 1909 image “Surely the world is growing better” from the Library of Congress, Wikimedia Commons, or Theodore Roosevelt Center. This is a known historical image, so do not use /imagecreator as a replacement. Image must be exact and realistic; WSC app mandatory for framing only.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, maximum 5-7 minutes, about technological progress and warfare, or about political cartoons and progress if available.",
+              "links": [
+                {
+                  "label": "Will Crawford - Surely the World Is Growing Better - Library of Congress/Wikimedia",
+                  "url": "https://commons.wikimedia.org/wiki/File:Surely_the_world_is_growing_better_-_Will_Crawford._LCCN2011647517.jpg"
+                }
+              ],
+              "url": "https://commons.wikimedia.org/wiki/File:Surely_the_world_is_growing_better_-_Will_Crawford._LCCN2011647517.jpg",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Surely_the_world_is_growing_better_-_Will_Crawford._LCCN2011647517.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical image via Library of Congress/Wikimedia Commons"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The moral arc",
+              "note": "Martin Luther King Jr. had hope for the future.",
+              "imageGuidance": "Use /imagesearch to find a realistic public-domain photo of Martin Luther King Jr. speaking or marching, or a reliable visual connected to the Selma/civil-rights context. If no suitable image exists, use /imagecreator to create a realistic WSC-style quote card with no fake portrait. Not anime; WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 7 minutes explaining the “arc of the moral universe” quote or civil-rights progress as active struggle.",
+              "links": [
+                {
+                  "label": "MLK / moral arc quote context - White House archive",
+                  "url": "https://obamawhitehouse.archives.gov/blog/2011/10/21/arc-moral-universe-long-it-bends-toward-justice"
+                },
+                {
+                  "label": "Martin Luther King Jr. photo - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Martin_Luther_King,_Jr..jpg",
+                  "license": "Public domain / Wikimedia Commons source image"
+                },
+                {
+                  "label": "The arc of the moral universe...",
+                  "url": "https://www.youtube.com/watch?v=yeVITdHsY6I"
+                },
+                {
+                  "label": "reflection of afro-american figures on the speech",
+                  "url": "https://www.youtube.com/watch?v=I9CTpFLJulo"
+                },
+                {
+                  "label": "I have a dream",
+                  "url": "https://www.youtube.com/watch?v=vP4iY1TtS3s"
+                }
+              ],
+              "url": "https://obamawhitehouse.archives.gov/blog/2011/10/21/arc-moral-universe-long-it-bends-toward-justice",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Martin_Luther_King,_Jr..jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain / Wikimedia Commons source image"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Progress is not automatic",
+              "note": "The question really is: does it purely depend on human will?",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style split image: one side a neglected room/system getting messier, the other a maintained society/infrastructure improving through deliberate work. Do not use anime. WSC app mandatory. /imagesearch can be used first for real maintenance/decay images but generated is appropriate because this is a conceptual illustration.",
+              "videoGuidance": "Use /youtubesearch for a clear educational video under 7 minutes about progress, entropy as analogy, or why social progress requires institutions and action.",
+              "links": [
+                {
+                  "label": "The Atlantic - Progress is not natural / progress history context",
+                  "url": "https://www.theatlantic.com/magazine/archive/2023/01/science-technology-vaccine-invention-history/672227/"
+                }
+              ],
+              "url": "https://www.theatlantic.com/magazine/archive/2023/01/science-technology-vaccine-invention-history/672227/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/progress-not-regress/progress-is-not-automatic.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The arc of the moral universe...",
+          "url": "https://www.youtube.com/watch?v=yeVITdHsY6I"
+        },
+        {
+          "title": "reflection of afro-american figures on the speech",
+          "url": "https://www.youtube.com/watch?v=I9CTpFLJulo"
+        },
+        {
+          "title": "I have a dream",
+          "url": "https://www.youtube.com/watch?v=vP4iY1TtS3s"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "What would the painting show today?",
+          "note": "This slide gives students a creative prompt to imagine a modern version of Crawford’s question.",
+          "imageGuidance": "Use /imagecreator or /imagegen to create a realistic WSC app-style contemporary satirical image inspired by the idea “Surely the World Is Growing Better?” showing modern progress with ambivalence: phones, AI, climate anxiety, drones, medical advances, and social tension. It must not imitate Crawford’s artwork exactly; it must be realistic, not anime, and WSC app mandatory.",
+          "videoGuidance": "Use /youtubesearch if a short video on modern progress optimism/pessimism is useful, maximum 5-7 minutes.",
+          "links": [],
+          "src": "assets/raw-content/progress-not-regress/what-would-the-painting-show-today.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Bright and Dark Future"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Measuring Human Worth",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Measuring Human Worth",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Progress, Not Regress"
+    }
+  ]
+}

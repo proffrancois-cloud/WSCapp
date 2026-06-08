@@ -1,0 +1,32 @@
+.DS_Store
+**/.DS_Store
+
+# Local dependency installs
+app/node_modules/
+exports/**/node_modules/
+
+# Generated desktop/web/video outputs
+builds/
+dist/
+app/dist-3d/
+exports/
+output/
+outputs/
+reports/
+test-results/
+
+# Local reference and archived lock material; the live app source is in app/
+references/
+v2-lock/
+archive/toreview/
+
+# Common local-only files
+.playwright-cli/
+app/.playwright-cli/
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+
+.vercel

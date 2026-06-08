@@ -1,0 +1,126 @@
+<svg
+  id="alpaca-run-yale-destination"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 140 140"
+  width="140"
+  height="140"
+  fill="none"
+  aria-labelledby="title desc"
+  role="img"
+>
+  <title id="title">Alpaca Run final destination marker</title>
+  <desc id="desc">
+    Premium final destination marker for Alpaca Run, designed as an original academic medallion.
+  </desc>
+
+  <defs>
+    <style>
+      .gold-fill { fill: #fcd127; }
+      .gold-stroke { stroke: #fcd127; }
+      .navy-fill { fill: #00356b; }
+      .navy-stroke { stroke: #00356b; }
+      .burgundy-fill { fill: #802922; }
+      .burgundy-stroke { stroke: #802922; }
+      .cream-fill { fill: #fefaf2; }
+      .cream-stroke { stroke: #fefaf2; }
+
+      .ring-outer {
+        fill: #fefaf2;
+        stroke: #fcd127;
+        stroke-width: 6;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .ring-mid {
+        fill: #00356b;
+        stroke: #802922;
+        stroke-width: 4;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .ring-inner {
+        fill: #fefaf2;
+        stroke: #00356b;
+        stroke-width: 3.5;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .crest-field {
+        fill: #802922;
+        stroke: #fcd127;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .fine-line {
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .micro-line {
+        stroke-width: 2.25;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        vector-effect: non-scaling-stroke;
+      }
+    </style>
+  </defs>
+
+  <circle class="ring-outer" cx="70" cy="70" r="46"/>
+  <circle class="ring-mid" cx="70" cy="70" r="35"/>
+  <circle class="ring-inner" cx="70" cy="70" r="24"/>
+
+  <g class="gold-stroke fine-line" opacity="0.95">
+    <path d="M70 9v10"/>
+    <path d="M70 121v10"/>
+    <path d="M9 70h10"/>
+    <path d="M121 70h10"/>
+  </g>
+
+  <g class="gold-stroke micro-line" opacity="0.75">
+    <path d="M28 28l6 6"/>
+    <path d="M112 28l-6 6"/>
+    <path d="M28 112l6-6"/>
+    <path d="M112 112l-6-6"/>
+  </g>
+
+  <path
+    class="crest-field"
+    d="M70 45
+       C77 45 83 47 87 51
+       V66
+       C87 79 78 88 70 93
+       C62 88 53 79 53 66
+       V51
+       C57 47 63 45 70 45Z"
+  />
+
+  <g>
+    <path
+      class="cream-fill"
+      d="M61 59
+         C64 57 67 56 70 56
+         C73 56 76 57 79 59
+         V72
+         C76 70.8 73 70 70 70
+         C67 70 64 70.8 61 72V59Z"
+    />
+    <path class="navy-stroke micro-line" d="M70 57v13"/>
+    <path class="navy-stroke micro-line" d="M61.5 60.5C64 59 66.8 58.3 70 58.3"/>
+    <path class="navy-stroke micro-line" d="M78.5 60.5C76 59 73.2 58.3 70 58.3"/>
+    <path class="gold-stroke micro-line" d="M62.5 75.5H77.5"/>
+  </g>
+
+  <circle class="gold-fill" cx="70" cy="100" r="5.5"/>
+  <path class="gold-stroke fine-line" d="M70 88V94"/>
+
+  <g fill="#fcd127" opacity="0.95">
+    <circle cx="70" cy="24" r="2.8"/>
+    <circle cx="24" cy="70" r="2.8"/>
+    <circle cx="116" cy="70" r="2.8"/>
+  </g>
+</svg>

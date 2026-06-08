@@ -1,0 +1,1842 @@
+{
+  "id": "raw.the-end-is-nearish",
+  "sectionId": "the-end-is-nearish",
+  "entries": [
+    {
+      "id": "raw.the-end-is-nearish.001",
+      "order": 1,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.what-caretakers-should-avoid"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.001",
+        "question.the-end-is-nearish.200.001"
+      ],
+      "title": "When Power Is Supposed to Be Temporary",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "In November 2025, the Supreme Court of Bangladesh restored the practice of caretaker governments. In most countries with parliamentary systems, when an election is about to take place, a caretaker government runs things until the election is over. Learn more about caretaker governments—who staffs them, what are their main responsibilities, and what are they supposed to avoid doing?—and then discuss with your team: should caretaker governments be used in more countries and for longer periods of time? Have any caretaker governments refused to leave office when their time was up?",
+      "links": [
+        {
+          "label": "Caretaker government — Australian Parliamentary Education Office",
+          "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period"
+        },
+        {
+          "label": "Bangladesh Supreme Court reinstates caretaker system - AP",
+          "url": "https://apnews.com/article/b567f5a48c2b7c678a7448fbee6b63ac"
+        }
+      ],
+      "deepLinkAnalysis": "The Australian Parliamentary Education Office link is core content because it explains what a caretaker period actually means in a parliamentary system: the government remains in office, handles day-to-day business, and avoids major decisions unless it consults the opposition. This should shape the student explanation more than a generic definition would.\nThe Bangladesh reference in the raw content matters because it shows caretaker government not as a dusty civics term, but as a living constitutional dispute. The 2025 restoration of a nonpartisan caretaker system should be framed as a response to concerns about election fairness, while also raising the risk that temporary arrangements can become politically contested.\nFor students, the key tension is neutrality vs accountability: a caretaker government may reduce mistrust during elections, but it is still a government with real power in a fragile in-between moment.",
+      "studentExplanation": "A caretaker government is a government for the in-between. During an election or transfer of power, leaders may remain in office to keep the country running, but they are expected to avoid major new decisions that should belong to the next fully empowered government. The Bangladesh case in the raw text makes the issue concrete: caretaker systems can be used to protect election fairness, but they can also become political battlegrounds about who should control the transition.\n\nCaretaker governments are useful because they show a formal near-end period in politics. Their job is continuity, not transformation: keep services running, avoid major new decisions, and preserve trust until the next legitimate government arrives. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this explains how some political systems manage power before a new government fully arrives. At the section level, it opens The End Is Nearish by showing that endings in politics are rarely clean: power can become temporary before it disappears. At the year-theme level, it connects to transition and thresholds because the country is neither fully under the old moment nor fully in the new one.",
+      "takeaway": "It is limited power meant to bridge a transition",
+      "subjects": [
+        "Politics & Government / Global Politics"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Caretaker period",
+        "Bangladesh restores the caretaker model",
+        "What caretakers should avoid"
+      ],
+      "debateRelevance": "Useful when debating whether caretaker systems protect election trust or create new political disputes during fragile transitions.",
+      "counterargument": "Caretaker governments may reduce mistrust, but they can still be partisan, unelected, or hard to hold accountable.",
+      "visualSections": [
+        {
+          "title": "Temporary power and election trust",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Caretaker period",
+              "note": "The basic rule is presented: the government keeps daily operations going but avoids major commitments during an election transition.",
+              "imageGuidance": "Find a realistic image from a parliament or election-period government source, ideally an official photograph of ministers, a parliament chamber, or a swearing-in scene from the PEO/Australian Parliament context. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining caretaker governments, caretaker conventions, or election-period government responsibilities. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Caretaker government — Australian Parliamentary Education Office",
+                  "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period"
+                },
+                {
+                  "label": "Caretaker Conventions - What Happens ...",
+                  "url": "https://www.youtube.com/watch?v=iCPvHzcQQho",
+                  "sourceTitle": "Caretaker Conventions - What Happens if a Big Decision Needs to be Made?"
+                }
+              ],
+              "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Official parliamentary/caretaker-government source requested; preserve source link rather than generating a generic parliament image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Bangladesh restores the caretaker model",
+              "note": "The 2025 Bangladesh case is about election fairness, trust, and constitutional design, not just a vocabulary term.",
+              "imageGuidance": "Find a realistic news image of Bangladesh Supreme Court, Dhaka court, or a press conference related to the November 2025 caretaker-government ruling. Use /imagesearch to locate a reliable journalism image; do not invent a fake court scene if a real image exists. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational news explainer about Bangladesh restoring the caretaker government system or the role of interim/caretaker governments in elections. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Caretaker government — Australian Parliamentary Education Office",
+                  "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period"
+                },
+                {
+                  "label": "Restoration of the Caretaker Government ...",
+                  "url": "https://www.youtube.com/watch?v=efEddr2cAs0",
+                  "sourceTitle": "Restoration of the Caretaker Government System in the Constitution"
+                }
+              ],
+              "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific 2025 Bangladesh Supreme Court/news case; preserve AP/source link rather than inventing a court image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "What caretakers should avoid",
+              "note": "The restraint rule is presented: no major new policy decisions, appointments, or contracts unless necessary or broadly agreed.",
+              "imageGuidance": "Find a realistic, non-anime civic image of a government document, election transition, or official checklist. If no specific source image works, use a realistic WSC-style concept image of a transition desk with “daily business” and “major decisions” separated. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining caretaker conventions, limits on major decisions, or why transition rules exist. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Caretaker Conventions",
+                  "url": "https://www.youtube.com/watch?v=U4k46uZ4NmU",
+                  "sourceTitle": "Caretaker Conventions"
+                }
+              ],
+              "src": "assets/raw-content/the-end-is-nearish/what-caretakers-should-avoid.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Caretaker Conventions - What Happens if a Big Decision Needs to be Made?",
+          "url": "https://www.youtube.com/watch?v=iCPvHzcQQho"
+        },
+        {
+          "title": "Restoration of the Caretaker Government System in the Constitution",
+          "url": "https://www.youtube.com/watch?v=efEddr2cAs0"
+        },
+        {
+          "title": "Caretaker Conventions",
+          "url": "https://www.youtube.com/watch?v=U4k46uZ4NmU"
+        },
+        {
+          "title": "Caretaker Conventions - Explainer",
+          "url": "https://www.youtube.com/watch?v=sjP5YiUQ1NI"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Transition"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Visible vs Real",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.002",
+      "order": 2,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.term-limits-vs-permanent-power",
+        "asset.the-end-is-nearish.raw.the-lame-duck-problem"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.002",
+        "question.the-end-is-nearish.200.002"
+      ],
+      "title": "Lame Ducks and Fading Power",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "The United States has no caretaker governments (neither does Venezuela), but it does limit its presidents to two four-year terms in office. As their second term begins to run out, they inevitably find themselves losing power and influence. They are said to become “lame ducks” as the country turns its attention to younger, healthier ducks who might win the next election. Discuss with your team: to prevent lame ducks, would it be better to have no limits on how long a person can lead a country or organization? What would you advise someone wanting to hold onto power for as long as possible?",
+      "links": [
+        {
+          "label": "Twenty-Second Amendment - Cornell LII",
+          "url": "https://www.law.cornell.edu/constitution/amendmentxxii"
+        },
+        {
+          "label": "EBSCO - Lame duck politics",
+          "url": "https://www.ebsco.com/research-starters/political-science/lame-duck-politics"
+        }
+      ],
+      "deepLinkAnalysis": "The raw content gives the United States as the major example, so the Twenty-Second Amendment should be preserved as a useful added link. It explains the structural cause of many lame-duck moments in U.S. presidential politics: a president cannot be elected more than twice.\nThe entry is not only about the phrase “lame duck.” It is about the gap between legal authority and practical influence. A leader may still have the office, staff, and title, but allies, rivals, donors, media, and voters may already be oriented toward the next leader.\nThe debate should not become simply “term limits good or bad.” It should ask what societies gain and lose when endings are visible in advance: predictability, accountability, weakened influence, succession battles, or protection against permanent rule.",
+      "studentExplanation": "A lame duck leader is still in office, but everyone knows the end is coming, so influence starts slipping before the official finish line. In the United States, the two-term presidential limit helps create this problem because a second-term president cannot run again. The real issue is a trade-off: term limits can protect a system from permanent leadership, but they can also make a leader weaker before the term is actually over.\n\nA lame duck has office without the same future leverage. The important “when” is before the term actually ends: allies, opponents, voters, and bureaucracies start reacting to the next leader, so power fades socially before it disappears legally. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students see that political endings can begin before the calendar says they have arrived. At the section level, it extends The End Is Nearish from temporary governments to fading authority. At the year-theme level, it connects to endings and prediction because knowing the finish line changes how everyone behaves before reaching it.",
+      "takeaway": "Formal office and real influence can diverge",
+      "subjects": [
+        "Politics & Government / Global Politics"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "The lame duck problem",
+        "The two-term limit",
+        "Term limits vs permanent power"
+      ],
+      "debateRelevance": "Useful when debating whether term limits protect democracy enough to justify end-of-term weakness.",
+      "counterargument": "Lame-duck weakness can be a price worth paying if term limits prevent leaders from staying in power indefinitely.",
+      "visualSections": [
+        {
+          "title": "Fading power before the finish line",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The lame duck problem",
+              "note": "Lame duck is presented as a leader with formal authority but declining influence because departure is expected.",
+              "imageGuidance": "Find a realistic image of an outgoing leader, transition meeting, or government office after an election. If no exact source is needed, use /imagecreator or /imagegen only after /imagesearch fails. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining lame-duck presidents, lame-duck sessions, or loss of power near the end of a term. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Lame Duck Explained",
+                  "url": "https://www.youtube.com/watch?v=wZYRUcWIwBE",
+                  "sourceTitle": "The Lame Duck Explained"
+                },
+                {
+                  "label": "The 20th Amendment: Fixing Americas ...",
+                  "url": "https://www.youtube.com/watch?v=hHUQUkbgtDw",
+                  "sourceTitle": "The 20th Amendment: Fixing Americas Lame Duck Problem"
+                }
+              ],
+              "src": "assets/raw-content/the-end-is-nearish/the-lame-duck-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=wZYRUcWIwBE",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The two-term limit",
+              "note": "U.S. lame-duck periods are connected to the 22nd Amendment and presidential term limits.",
+              "imageGuidance": "Find a realistic image of the U.S. Constitution, 22nd Amendment page, presidential transition, or official government building. Prefer an official/legal education source. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining the 22nd Amendment and why U.S. presidents are limited to two elected terms. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "America 101: Why Do We ...",
+                  "url": "https://www.youtube.com/watch?v=-3zjS7lZ06o",
+                  "sourceTitle": "America 101: Why Do We Have Presidential Term Limits? | History"
+                },
+                {
+                  "label": "Why can President's only run ...",
+                  "url": "https://www.youtube.com/watch?v=ZW-ahwNaOLg",
+                  "sourceTitle": "Why can President's only run two terms?"
+                }
+              ],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific U.S. constitutional/legal reference; preserve Cornell/source link rather than using a generic civic image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Term limits vs permanent power",
+              "note": "The trade-off is between weakening leaders at the end and preventing leaders from staying indefinitely.",
+              "imageGuidance": "Find a realistic civic image showing a ballot, term-limit poster, or leadership transition. If no good image exists, use /imagecreator or /imagegen for a realistic WSC-style image of two paths: “term limit” and “permanent rule risk.” The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video about term limits, leadership transitions, or why democracies limit executive power. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/term-limits-vs-permanent-power.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The Lame Duck Explained",
+          "url": "https://www.youtube.com/watch?v=wZYRUcWIwBE"
+        },
+        {
+          "title": "The 20th Amendment: Fixing Americas Lame Duck Problem",
+          "url": "https://www.youtube.com/watch?v=hHUQUkbgtDw"
+        },
+        {
+          "title": "America 101: Why Do We Have Presidential Term Limits? | History",
+          "url": "https://www.youtube.com/watch?v=-3zjS7lZ06o"
+        },
+        {
+          "title": "Why can President's only run two terms?",
+          "url": "https://www.youtube.com/watch?v=ZW-ahwNaOLg"
+        },
+        {
+          "title": "Why are politicians called lame ducks? | VOA News",
+          "url": "https://www.youtube.com/watch?v=GP6T6HBldQA"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Transition"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Thresholds & Irreversibility",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.003",
+      "order": 3,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.the-future-leader-in-the-present",
+        "asset.the-end-is-nearish.raw.uncertainty-as-control"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.003",
+        "question.the-end-is-nearish.200.003"
+      ],
+      "title": "If No One Knew Who Was Next",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "Queen Elizabeth I’s solution was to delay naming her successor. “I know the inconstancy of the people of England,” she is said to have told the Scottish ambassador, “How they ever mislike the present government and have their eyes fixed upon the person who is next to succeed.” Discuss with your team: would it be better if no one knew who the next leader would be until after the current leader left (or died)? Can you find an example of such a system?",
+      "links": [
+        {
+          "label": "Elizabeth I - Britannica",
+          "url": "https://www.britannica.com/biography/Elizabeth-I"
+        }
+      ],
+      "deepLinkAnalysis": "The raw Elizabeth quotation matters because it identifies a psychological mechanism: subjects may “mislike” present government and look toward the next ruler before the current reign ends. This makes succession a mental transition before it is a legal one.\nElizabeth I’s delayed succession is a strong case for the section because it shows that uncertainty can be useful to someone in power. Not naming the future can preserve present loyalty, but it can also store up danger, factional competition, and anxiety.\nStudents should be pushed toward a nuanced debate: clear succession can stabilize the future, while ambiguous succession can preserve current authority. Both choices have risks.",
+      "studentExplanation": "Elizabeth I delayed naming a successor because succession is not just a legal detail; it changes where people place their loyalty. If everyone knows who comes next, the future leader can start shaping the present before the old reign is over. But if no one knows, the current leader may preserve authority while creating uncertainty, rivalry, and fear about what happens after the end.\n\nElizabeth I’s succession strategy shows uncertainty as a political tool. Naming an heir can stabilize a future transition, but it can also create a rival center of loyalty in the present, so not knowing who is next can help a ruler remain the only focus. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this shows that transitions can begin in people’s minds before they happen officially. At the section level, it deepens The End Is Nearish by asking when an ending truly starts: at death, departure, announcement, or rumor. At the year-theme level, it connects to thresholds and prediction because the future can pull power away from the present.",
+      "takeaway": "Knowing the next leader can stabilize and weaken",
+      "subjects": [
+        "History",
+        "Politics & Government / Global Politics"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Elizabeth I and delayed succession",
+        "The future leader in the present",
+        "Uncertainty as control"
+      ],
+      "debateRelevance": "Useful when debating whether clear succession plans create stability or weaken the current leader before departure.",
+      "counterargument": "Keeping succession unclear may preserve current authority, but it can also create instability, intrigue, and conflict later.",
+      "visualSections": [
+        {
+          "title": "Succession as a psychological threshold",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Elizabeth I and delayed succession",
+              "note": "Elizabeth might avoid naming a successor because she knew that attention to the next ruler could weaken loyalty.",
+              "imageGuidance": "Find a realistic historical portrait of Queen Elizabeth I from a museum or archive source. This is a named historical figure, so use /imagesearch for an exact reliable portrait, not a generated queen image. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining Elizabeth I, her succession problem, and why the question of who came next was politically sensitive. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Elizabeth I - Britannica",
+                  "url": "https://www.britannica.com/biography/Elizabeth-I"
+                },
+                {
+                  "label": "Elizabeth I portrait image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Elizabeth_I_(Armada_Portrait).jpg",
+                  "license": "Public domain historical artwork reproduction"
+                },
+                {
+                  "label": "Why Queen Elizabeth Never Nominated ...",
+                  "url": "https://youtu.be/oS-68O3Y1ao",
+                  "sourceTitle": "Why Queen Elizabeth Never Nominated a Successor? #history #england #britishhistory #elizabethi"
+                }
+              ],
+              "url": "https://www.britannica.com/biography/Elizabeth-I",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Elizabeth_I_(Armada_Portrait).jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The future leader in the present",
+              "note": "Indeed, future rulers become powerful even before taking office.",
+              "imageGuidance": "Find a realistic image of a succession announcement, royal council, or modern leadership transition. If no exact image is needed and /imagesearch fails, use /imagecreator or /imagegen for a realistic WSC-style scene of people turning from an old leader toward a named successor. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video on political succession, royal succession, or how leadership transitions affect power before the transfer is official. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/the-future-leader-in-the-present.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Uncertainty as control",
+              "note": "She knew that not knowing the successor would preserve her authority.",
+              "imageGuidance": "Find a realistic image of a sealed document, succession council, or uncertain political transition. Use a realistic concept image only if no direct source image works. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video about succession crises, ambiguous succession, or historical problems caused by unclear succession. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/uncertainty-as-control.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Why Queen Elizabeth Never Nominated a Successor? #history #england #britishhistory #elizabethi",
+          "url": "https://youtu.be/oS-68O3Y1ao"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Transition",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Thresholds & Irreversibility",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.004",
+      "order": 4,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.useful-warning-or-false-precision"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.004",
+        "question.the-end-is-nearish.200.004"
+      ],
+      "title": "The Clock That Measures Doom",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "Someday there may be nobody left to lead. Consider the Doomsday Clock, which tries to measure how close we are to the end of human civilization. Discuss with your team: how accurate do you think it is, and in what ways, if any, is it a helpful tool?",
+      "links": [
+        {
+          "label": "Doomsday Clock — Business Insider",
+          "url": "https://www.businessinsider.com/why-the-doomsday-clock-is-3-minutes-to-midnight-2016-1"
+        },
+        {
+          "label": "Doomsday Clock - Bulletin of the Atomic Scientists",
+          "url": "https://thebulletin.org/doomsday-clock/"
+        },
+        {
+          "label": "2026 Doomsday Clock Statement - Bulletin",
+          "url": "https://thebulletin.org/doomsday-clock/2026-statement/"
+        }
+      ],
+      "deepLinkAnalysis": "The Business Insider link should be preserved, but the official Bulletin links should also be added because they are the primary source for the clock. The Doomsday Clock is not a literal scientific countdown. It is a public-warning symbol set by experts to communicate humanity’s vulnerability to global catastrophe.\nThe 2026 update matters because the clock is current and changing: the Bulletin set it at 85 seconds to midnight, citing nuclear risk, climate change, disruptive technologies such as AI, biosecurity concerns, and declining international cooperation. This gives the entry a stronger contemporary anchor than the older 2016 article alone.\nThe student explanation should preserve the central ambiguity: the clock is powerful because it dramatizes risk, but potentially misleading because its precision looks more exact than its underlying expert judgment really is.",
+      "studentExplanation": "The Doomsday Clock is not a machine that calculates the exact end of civilization. It is a symbolic warning created by the Bulletin of the Atomic Scientists to make global catastrophic risk visible. The current official links matter because they show the clock is updated as a judgment about changing dangers such as nuclear weapons, climate change, AI, biosecurity, and international conflict. Its strength is also its weakness: it gets attention, but it can look more mathematically precise than it really is.\n\nThe Doomsday Clock should be explained as symbolic risk communication, not a literal timer. Its power comes from turning many dangers into one simple image, but its weakness is that the image can look more precise than global risk really is. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students separate symbolic measurement from literal prediction. At the section level, it introduces apocalypse as something people try to communicate through public images and countdowns. At the year-theme level, it connects to prediction and thresholds because the clock makes humanity feel almost at a point of no return.",
+      "takeaway": "They can motivate concern without being forecasts",
+      "subjects": [
+        "Sciences"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "The Doomsday Clock as symbol",
+        "85 seconds to midnight",
+        "Useful warning or false precision?"
+      ],
+      "debateRelevance": "Useful when debating whether symbolic public warnings help people confront global risk or oversimplify complex threats.",
+      "counterargument": "The Doomsday Clock can focus attention, but critics may see it as too subjective or too precise-looking for a symbolic judgment.",
+      "visualSections": [
+        {
+          "title": "Symbolic countdowns and global risk",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Doomsday Clock as symbol",
+              "note": "Clock is presented as a warning image, not a literal scientific timer.",
+              "imageGuidance": "Find the official Doomsday Clock image from the Bulletin of the Atomic Scientists, preferably the current clock image. This is a named public symbol, so use /imagesearch for the exact official image and do not generate a replacement. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining what the Doomsday Clock is and why it was created. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Doomsday Clock — Business Insider",
+                  "url": "https://www.businessinsider.com/why-the-doomsday-clock-is-3-minutes-to-midnight-2016-1"
+                },
+                {
+                  "label": "The Doomsday Clock, explained",
+                  "url": "https://www.youtube.com/watch?v=jCnWPbn-ZKo",
+                  "sourceTitle": "The Doomsday Clock, explained"
+                },
+                {
+                  "label": "Doomsday Clock: Why 90 Seconds ...",
+                  "url": "https://youtu.be/5PdaDijytBQ",
+                  "sourceTitle": "Doomsday Clock: Why 90 Seconds to Midnight?"
+                },
+                {
+                  "label": "Doomsday Clock: 90 Seconds to ...",
+                  "url": "https://youtu.be/XySaWuTQkEg",
+                  "sourceTitle": "Doomsday Clock: 90 Seconds to Midnight"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=jCnWPbn-ZKo",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific Bulletin of the Atomic Scientists symbol; preserve source link rather than using a generated clock."
+            },
+            {
+              "kind": "text-slide",
+              "title": "85 seconds to midnight",
+              "note": "Current 2026 setting is presented as an expert warning about multiple catastrophic risks.",
+              "imageGuidance": "Find a realistic official image or screenshot from the 2026 Bulletin statement showing the 85-seconds-to-midnight update. Preserve the official link. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video or official announcement explaining the 2026 Doomsday Clock update. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Doomsday Clock: Why 85 seconds ...",
+                  "url": "https://www.youtube.com/watch?v=FzKVuLn4E5U",
+                  "sourceTitle": "Doomsday Clock: Why 85 seconds to midnight has experts alarmed"
+                }
+              ],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific current Doomsday Clock setting; preserve source link rather than using a generated exact-setting graphic."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Useful warning or false precision?",
+              "note": "The criticism is presented: a clock suggests precision, but the setting is a symbolic expert judgment.",
+              "imageGuidance": "Find a realistic image of a public warning sign, risk chart, or symbolic clock used in a civic/science context. If no perfect source exists, use /imagecreator or /imagegen for a realistic WSC-style image showing a symbolic clock next to expert notes. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video discussing the usefulness and limitations of symbolic risk warnings like the Doomsday Clock. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/useful-warning-or-false-precision.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=jCnWPbn-ZKo",
+              "previewLabel": "Play video",
+              "hidden": true,
+              "hiddenReason": "Hidden by Video fix.docx; asset retained in project."
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The Doomsday Clock, explained",
+          "url": "https://www.youtube.com/watch?v=jCnWPbn-ZKo"
+        },
+        {
+          "title": "What Happens When the Doomsday Clock Hits Midnight?",
+          "url": "https://www.youtube.com/watch?v=5PdaDijytBQ"
+        },
+        {
+          "title": "Doomsday Clock: 90 Seconds to Midnight",
+          "url": "https://youtu.be/XySaWuTQkEg"
+        },
+        {
+          "title": "Doomsday Clock: Why 85 seconds to midnight has experts alarmed",
+          "url": "https://www.youtube.com/watch?v=FzKVuLn4E5U"
+        },
+        {
+          "title": "A history of the Doomsday Clock in 4 minutes",
+          "url": "https://www.youtube.com/watch?v=79kNHGoTg-M"
+        },
+        {
+          "title": "Doomsday Clock Says We Are Closer to Disaster",
+          "url": "https://www.youtube.com/watch?v=UH5IbGTfPk8"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Thresholds & Irreversibility",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.005",
+      "order": 5,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.london-in-1666",
+        "asset.the-end-is-nearish.raw.religious-prophetic-movements",
+        "asset.the-end-is-nearish.raw.scientific-and-technological-panics",
+        "asset.the-end-is-nearish.raw.the-viral-formula"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.005",
+        "question.the-end-is-nearish.200.005"
+      ],
+      "title": "Why People Keep Predicting the End",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "Midnight was coming. The world was on fire and people were dying of a terrible illness. Surely, the end of the world was near—or so thought Londoners in 1666. It was also near in 1844, 1910, 1988, 2000 and 2012. Doomsday predictions come and go more frequently in the social media age, but people have been predicting (and rescheduling) the end of the world for as long as they could hold up signs on street corners. With your team, explore the following instances of imminent doom and consider: what do they have in common? What leads people to believe them—and what makes a doomsday prediction go viral? The Millerites (1844) | Halley’s Comet Panic (1910)\nThe Jupiter Effect (1974) | Hon-Ming Chen (1988) | The Y2K bug (2000)\nLarge Hadron Collider (2008) | Mayan Apocalypse (2012)",
+      "links": [
+        {
+          "label": "Londoners in 1666 — Wellcome Collection",
+          "url": "https://wellcomecollection.org/stories/devilry-and-doom-in-1666"
+        },
+        {
+          "label": "List of predicted apocalyptic dates — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/List_of_dates_predicted_for_apocalyptic_events"
+        },
+        {
+          "label": "10 failed doomsday predictions — Britannica",
+          "url": "https://www.britannica.com/list/10-failed-doomsday-predictions"
+        },
+        {
+          "label": "Ten notable apocalypses that didn’t happen — Smithsonian",
+          "url": "https://www.smithsonianmag.com/history/ten-notable-apocalypses-that-obviously-didnt-happen-9126331/"
+        },
+        {
+          "label": "Hold up signs — YouTube",
+          "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8"
+        }
+      ],
+      "deepLinkAnalysis": "The Wellcome article on 1666 is especially important because it does more than list a failed prediction. It shows why apocalyptic thinking felt plausible: plague, religious conflict, the Great Fire, the number 666, pamphlets, mystical movements, and scientific utopian dreams all mixed into a shared crisis imagination.\nThe Britannica and Smithsonian links are useful for patterns across cases: Millerites, Halley’s Comet panic, Hon-Ming Chen/True Way, Y2K, and the Mayan Apocalypse all show that failed predictions can come from religion, astronomy, calendars, computing, media panic, or charismatic authority.\nThe classroom focus should be pattern recognition. Doomsday predictions spread when fear, uncertainty, authority, simple dates, media amplification, and a meaningful story of chaos combine. The question is less “why were they wrong?” and more “why did they feel convincing?”",
+      "studentExplanation": "Doomsday predictions often appear when people already feel that the world is unstable. The 1666 link shows Londoners connecting plague, fire, religious conflict, and the number 666 into a story of final judgment. Later examples did the same with comets, calendars, computers, or physics experiments. These predictions fail again and again, but they spread because they turn confusing fear into a simple story with a date, a cause, and a dramatic ending.\n\nThe supplemental examples show repeated patterns: ominous numbers, comets, calendars, failed prophecies, cult leadership, computer bugs, and scientific misunderstanding can all become end-times narratives. Students should ask why failed predictions often lead to revision, not disappearance. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students compare failed apocalypses as social and emotional patterns. At the section level, it expands The End Is Nearish from official risk warnings to viral belief. At the year-theme level, it connects to prediction and endings because people often want the chaos of the present to point toward a meaningful final threshold.",
+      "takeaway": "Chaos becomes easier to handle as a story",
+      "subjects": [
+        "History",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "The Millerites (1844)",
+        "Halley’s Comet Panic (1910)",
+        "The Jupiter Effect (1974)",
+        "Hon-Ming Chen (1988)",
+        "The Y2K bug (2000)",
+        "Large Hadron Collider (2008)",
+        "Mayan Apocalypse (2012)",
+        "London in 1666",
+        "Religious prophetic movements",
+        "Scientific and technological panics",
+        "The viral formula"
+      ],
+      "debateRelevance": "Useful when debating why apocalyptic predictions spread and why failed predictions often return in new forms.",
+      "counterargument": "Doomsday predictions can seem irrational, but they often grow from real uncertainty, crisis, and the human search for pattern.",
+      "visualSections": [
+        {
+          "title": "Why doomsday stories go viral",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "London in 1666",
+              "note": "Plague, fire, religious conflict, pamphlets, and the symbolic number 666 made apocalypse feel believable.",
+              "imageGuidance": "Find the main Wellcome Collection illustration from “Devilry and doom in 1666” if available. This is a named source image, so use /imagesearch and preserve the exact article image rather than making generic London fire art. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video about the Great Fire of London, plague, or 1666 apocalyptic fears. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Londoners in 1666 — Wellcome Collection",
+                  "url": "https://wellcomecollection.org/stories/devilry-and-doom-in-1666"
+                }
+              ],
+              "url": "https://wellcomecollection.org/stories/devilry-and-doom-in-1666",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/the-end-is-nearish/london-in-1666.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Religious prophetic movements",
+              "note": "Millerites and Hon-Ming Chen connect to charismatic prophecy, date-setting and group belief.",
+              "imageGuidance": "Find a realistic historical image connected to Millerites or Great Disappointment, or a reliable educational image of a prophecy movement. If no exact image works, use a realistic WSC-style image of people gathered around a dated prophecy poster. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining the Millerites, Great Disappointment, or failed religious end-times predictions. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Millerites (1844)",
+                  "url": "https://youtu.be/4z80wKIwW6w",
+                  "sourceTitle": "The Millerites and the Great Disappointment"
+                },
+                {
+                  "label": "Hon-Ming Chen (1988)",
+                  "url": "https://youtu.be/968AuE248tI",
+                  "sourceTitle": "Hon-Ming Chen and God's Salvation Church"
+                },
+                {
+                  "label": "Mayan Apocalypse (2012)",
+                  "url": "https://youtu.be/KjKUqQ2uSzg",
+                  "sourceTitle": "The Mayan Apocalypse"
+                }
+              ],
+              "src": "assets/raw-content/the-end-is-nearish/religious-prophetic-movements.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Scientific and technological panics",
+              "note": "That modern apocalypse can come from comets, computers, colliders, or calendars appears as well as religion.",
+              "imageGuidance": "Find a realistic collage-like source image for Halley’s Comet, Y2K computer panic, Large Hadron Collider, or Mayan Apocalypse. Prefer one exact case image from a reliable source. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining Y2K, Halley’s Comet panic, or why scientific events can become apocalyptic rumors. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Halley's Comet Panic (1910)",
+                  "url": "https://youtu.be/bcUSxV_zHQM",
+                  "sourceTitle": "Halley's Comet Panic"
+                },
+                {
+                  "label": "The Y2K bug (2000)",
+                  "url": "https://youtu.be/kyZDa09U7gc",
+                  "sourceTitle": "The Y2K Bug"
+                }
+              ],
+              "src": "assets/raw-content/the-end-is-nearish/scientific-and-technological-panics.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The viral formula",
+              "note": "The repeat pattern is identified: fear + uncertainty + authority + date + media spread.",
+              "imageGuidance": "Find a realistic image of street-corner prophecy signs, pamphlets, or social media rumor spread. Avoid memes unless they are historical/source-relevant. If no strong image exists, use /imagecreator or /imagegen for a realistic WSC-style image showing a rumor moving from pamphlets to phones. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video about why conspiracy theories, rumors, or apocalyptic predictions spread. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "As usual The Simpsons were right",
+                  "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8",
+                  "sourceTitle": "The Simpson - The End Is Near !"
+                }
+              ],
+              "src": "assets/raw-content/the-end-is-nearish/the-viral-formula.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8",
+              "previewLabel": "Play video"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The Millerites and the Great Disappointment",
+          "url": "https://youtu.be/4z80wKIwW6w"
+        },
+        {
+          "title": "Hon-Ming Chen and God's Salvation Church",
+          "url": "https://youtu.be/968AuE248tI"
+        },
+        {
+          "title": "The Mayan Apocalypse",
+          "url": "https://youtu.be/KjKUqQ2uSzg"
+        },
+        {
+          "title": "Halley's Comet Panic",
+          "url": "https://youtu.be/bcUSxV_zHQM"
+        },
+        {
+          "title": "The Y2K Bug",
+          "url": "https://youtu.be/kyZDa09U7gc"
+        },
+        {
+          "title": "The Simpson - The End Is Near !",
+          "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8"
+        },
+        {
+          "title": "Everything You Wanted to Know About Y2K but Were Afraid to Ask",
+          "url": "https://www.youtube.com/watch?v=-g0vULa09Uk"
+        },
+        {
+          "title": "'End of the world' theory spreads on TikTok. It's not the 1st time",
+          "url": "https://www.youtube.com/watch?v=uhk-wkTMQmg"
+        },
+        {
+          "title": "HOW THE WORLD WILL END | Countdown to Armageddon | History",
+          "url": "https://www.youtube.com/watch?v=IdMFXwKbraI"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Endings"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Thresholds & Irreversibility",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.006",
+      "order": 6,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.asset.the-last-judgment",
+        "asset.the-end-is-nearish.raw.apocalypse-art-as-a-visual-language"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.006",
+        "question.the-end-is-nearish.200.006"
+      ],
+      "title": "Renaissance Visions of the End",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "The four horsemen of the apocalypse, fires raging across more than California: the Book of Revelation has long offered artists a rich source of imagery for the end of the world. As you explore the following works from the European Renaissance, ask yourself: how does each artist distinguish between the destinations of the saved and the doomed—and is their tone one of terror or acceptance?\n\nAlbrecht Dürer | The Four Horsemen of the Apocalypse (1498)\nSandro Botticelli | The Mystical Nativity (1500)\nMichelangelo | The Last Judgment (1536–1541)\nPieter Bruegel the Elder | The Triumph of Death (c. 1562)",
+      "links": [
+        {
+          "label": "Rich source of imagery — Hyperallergic",
+          "url": "https://hyperallergic.com/apocalypse-art-has-never-been-more-relevant-bibliotheque-nationale-de-france/"
+        },
+        {
+          "label": "The Four Horsemen of the Apocalypse — Met Museum",
+          "url": "https://www.metmuseum.org/art/collection/search/336215"
+        },
+        {
+          "label": "The Mystical Nativity — National Gallery",
+          "url": "https://www.nationalgallery.org.uk/paintings/sandro-botticelli-mystic-nativity"
+        },
+        {
+          "label": "The Last Judgment — Vatican Museums",
+          "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/giudizio-universale.html"
+        },
+        {
+          "label": "The Triumph of Death — AF Prado Museum",
+          "url": "https://www.afpradomuseum.org/the-triumph-of-death-brueghel-the-elder"
+        }
+      ],
+      "deepLinkAnalysis": "The Hyperallergic link should frame apocalypse art as a long visual tradition, not just a set of scary pictures. It helps students understand why Revelation imagery remains reusable: artists can use the end of the world to think about fear, judgment, crisis, and the order beyond disaster.\nThe artwork links must be treated as central content. Dürer’s Four Horsemen is kinetic and violent; Botticelli’s Mystical Nativity mixes birth with apocalyptic renewal and demons pushed underground; Michelangelo’s Last Judgment separates saved and damned around Christ’s commanding gesture; Bruegel’s Triumph of Death turns the end into social collapse, where every class is vulnerable.\nThe slideshow should emphasize comparison: who is saved, who is doomed, what tone dominates, and whether the end feels like terror, justice, warning, order, or acceptance.",
+      "studentExplanation": "Renaissance apocalypse art does not simply show destruction. It turns the end of the world into a visual system of judgment: some figures rise, some fall, some are saved, and some are overwhelmed. The links matter because each artwork imagines the final threshold differently. Dürer makes the horsemen feel fast and violent; Botticelli connects apocalypse to renewal; Michelangelo builds a vast moral drama; Bruegel makes death spread across everyday society.\n\nThe Renaissance works make apocalypse visual through judgment, hierarchy, scripture, fear, and order. Durer, Botticelli, Michelangelo, Bruegel, Cole, and Martin each choose different signs of finality, so students should ask what kind of ending each image wants viewers to fear or accept. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students read apocalypse as visual storytelling about morality, fear, and destiny. At the section level, it gives The End Is Nearish an art-history dimension. At the year-theme level, it connects to endings and thresholds because these works imagine the most extreme crossing: the final separation between one state of being and another.",
+      "takeaway": "The end becomes a moral threshold",
+      "subjects": [
+        "Visual and Performing Arts",
+        "History"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Managing Uncertainty",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Albrecht Dürer",
+        "The Four Horsemen of the Apocalypse (1498)",
+        "Sandro Botticelli",
+        "The Mystical Nativity (1500)",
+        "Michelangelo",
+        "The Last Judgment (1536–1541)",
+        "Pieter Bruegel the Elder",
+        "The Triumph of Death (c. 1562)",
+        "Albrecht Dürer - The Four Horsemen of the Apocalypse",
+        "Sandro Botticelli - The Mystical Nativity",
+        "Michelangelo - The Last Judgment",
+        "Pieter Bruegel - The Triumph of Death",
+        "Apocalypse art as a visual language"
+      ],
+      "debateRelevance": "Useful when debating how religious art turns fear, judgment, symbolism, and moral order into visual arguments.",
+      "counterargument": "Renaissance apocalypse art is powerful, but it reflects a specific Christian visual tradition rather than every culture's ending imagery.",
+      "visualSections": [
+        {
+          "title": "Exact works: Renaissance apocalypse",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Albrecht Dürer - The Four Horsemen of the Apocalypse",
+              "note": "Motion, danger, and the compressed violence of Revelation appear in woodcut form.",
+              "imageGuidance": "Find the exact Met Museum image of Albrecht Dürer’s “The Four Horsemen, from The Apocalypse” (1498). This is an exact artwork, so use /imagesearch for the museum/public-domain image only. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining Dürer’s Apocalypse woodcuts or the Four Horsemen image. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Four Horsemen of the Apocalypse — Met Museum",
+                  "url": "https://www.metmuseum.org/art/collection/search/336215"
+                },
+                {
+                  "label": "Dürer Four Horsemen image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_The_Four_Horsemen,_from_The_Apocalypse_-_Google_Art_Project.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.metmuseum.org/art/collection/search/336215",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Albrecht_D%C3%BCrer_-_The_Four_Horsemen,_from_The_Apocalypse_-_Google_Art_Project.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sandro Botticelli - The Mystical Nativity",
+              "note": "Botticelli combines Christ’s birth, angels, demons, political turmoil, and apocalyptic hope.",
+              "imageGuidance": "Find the exact National Gallery image of Botticelli’s “Mystic Nativity.” This is an exact artwork; do not use a generic nativity image or generated art. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining Botticelli’s Mystic Nativity, its inscription, and its apocalyptic elements. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Mystical Nativity — National Gallery",
+                  "url": "https://www.nationalgallery.org.uk/paintings/sandro-botticelli-mystic-nativity"
+                },
+                {
+                  "label": "Botticelli Mystic Nativity image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_Mystic_Nativity_-_Google_Art_Project.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.nationalgallery.org.uk/paintings/sandro-botticelli-mystic-nativity",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Sandro_Botticelli_-_Mystic_Nativity_-_Google_Art_Project.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Michelangelo - The Last Judgment",
+              "note": "The saved and damned are arranged around Christ, with the final verdict about to be pronounced.",
+              "imageGuidance": "Find the exact Vatican Museums image/photogallery of Michelangelo’s “The Last Judgement” in the Sistine Chapel. This is an exact artwork; use /imagesearch only. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining Michelangelo’s Last Judgment and the separation of saved and damned. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Last Judgment — Vatican Museums",
+                  "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/giudizio-universale.html"
+                },
+                {
+                  "label": "Michelangelo Last Judgment image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Michelangelo,_Last_Judgment_(Sistine_Chapel).jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/giudizio-universale.html",
+              "previewLabel": "Open source",
+              "src": "assets/flashcards/alpacards/the-last-judgment.png",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Pieter Bruegel - The Triumph of Death",
+              "note": "Death not appears as one event but as a landscape-wide invasion affecting all classes of society.",
+              "imageGuidance": "Find the exact Prado image of Pieter Bruegel the Elder’s “The Triumph of Death.” This is an exact artwork; use /imagesearch and a museum source. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video from the Prado or another museum explaining The Triumph of Death. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Triumph of Death — AF Prado Museum",
+                  "url": "https://www.afpradomuseum.org/the-triumph-of-death-brueghel-the-elder"
+                },
+                {
+                  "label": "Bruegel Triumph of Death image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Thetriumphofdeath.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.afpradomuseum.org/the-triumph-of-death-brueghel-the-elder",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Thetriumphofdeath.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Apocalypse art as a visual language",
+              "note": "The artworks belong to a broader tradition of using the end of the world to think about crisis and judgment.",
+              "imageGuidance": "Find a realistic image from the Hyperallergic article or a museum exhibition page about apocalypse art. If no exact image is available, keep the article as a LINK button rather than generating a false exhibition image. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video about apocalypse imagery in art history or the Book of Revelation in visual art. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Four Horsemen of the Apocalypse — Met Museum",
+                  "url": "https://www.metmuseum.org/art/collection/search/336215"
+                }
+              ],
+              "url": "https://www.metmuseum.org/art/collection/search/336215",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/the-end-is-nearish/apocalypse-art-as-a-visual-language.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Michelangelo's The Last Judgement Explained in 10 Minutes",
+          "url": "https://www.youtube.com/watch?v=q724UHh51YU"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Endings",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Managing Uncertainty",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Managing Uncertainty",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.007",
+      "order": 7,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [],
+      "questionIds": [
+        "question.the-end-is-nearish.100.007",
+        "question.the-end-is-nearish.200.007"
+      ],
+      "title": "Modern Apocalypses and New Fears",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "Consider the more recent apocalypses depicted below. How have they changed as the world has moved toward industrial and digital anxiety—and what specific fears are these artists inviting us to explore?\n\nThomas Cole | The Course of Empire: Destruction (1836)\nJohn Martin | The Great Day of His Wrath (1851–1853)\nOtto Dix | World War I prints (1924)\nViktor Schreckengost | Apocalypse ‘42 (1942)\nHarry Louis Freund | Four Horsemen of the Apocalypse (1946)\nSaby Menyhei | The Last of Us: Season 1 Concept Art (2025)\nKevin Sherwood & James McCawley | “Where Are We Going?” (2013)",
+      "links": [
+        {
+          "label": "The Course of Empire: Destruction — Google Arts & Culture",
+          "url": "https://artsandculture.google.com/asset/the-course-of-empire-destruction-thomas-cole/tQFLZqWBxVAINQ?hl=en"
+        },
+        {
+          "label": "The Great Day of His Wrath — Tate",
+          "url": "https://www.tate.org.uk/art/artworks/martin-the-great-day-of-his-wrath-n05613"
+        },
+        {
+          "label": "World War I prints — The Guardian",
+          "url": "https://www.theguardian.com/artanddesign/gallery/2014/may/14/art-apocalypse-otto-dix-first-world-war-der-krieg-in-pictures"
+        },
+        {
+          "label": "Apocalypse ‘42 — Smithsonian American Art Museum",
+          "url": "https://americanart.si.edu/artwork/apocalypse-42-21944"
+        },
+        {
+          "label": "Four Horsemen of the Apocalypse — Nelson-Atkins",
+          "url": "https://art.nelson-atkins.org/objects/19638/four-horsemen-of-the-apocalypse"
+        },
+        {
+          "label": "Season 1 Concept Art",
+          "url": "https://www.menyhei.com/projects/WB6O42?album_id=14910"
+        },
+        {
+          "label": "Where Are We Going? — YouTube",
+          "url": "https://www.youtube.com/watch?v=SR6_J1IVvlg"
+        }
+      ],
+      "deepLinkAnalysis": "The modern works should not be treated as another duplicate of Renaissance apocalypse. The shift is conceptual: doom becomes tied to empire, industry, war, fascism, nuclear memory, digital/post-apocalyptic media, and survival rather than mainly divine judgment.\nThomas Cole’s Destruction visualizes imperial collapse and civic violence; John Martin makes catastrophe cosmic and overwhelming; Otto Dix brings apocalypse down into the body and machinery of war; Schreckengost’s Apocalypse ’42 turns fascist leaders and Death into a wartime ceramic protest; Freund reuses the Four Horsemen after global war; The Last of Us concept art and “Where Are We Going?” show how contemporary games and media build apocalyptic mood through emptiness, atmosphere, and sound.\nThe slides should keep the exact links and exact works. For this entry, images are not optional decorations: the works are the raw content.",
+      "studentExplanation": "Modern apocalyptic works often move away from purely religious judgment and toward fears that humans create: empire collapsing, industry failing, war destroying bodies, fascism spreading, cities emptying, and digital media imagining survival after breakdown. The links are the core content because each work shows a different fear of its time. Together, they ask whether the end of the world now looks less like divine punishment and more like the result of human systems losing control.\n\nModern apocalypse shifts the cause of ruin: war, industry, ideology, disease, technology, and environmental collapse become central. Otto Dix, Schreckengost, Last of Us concept art, and zombie-game music show a world where humans often manufacture the disaster they fear. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students compare how apocalypse changes with history. At the section level, it moves The End Is Nearish from sacred endings to modern anxieties. At the year-theme level, it connects to prediction and the future because every era imagines catastrophe through the technologies, politics, and fears it knows best.",
+      "takeaway": "Doom reflects the fears of each era",
+      "subjects": [
+        "Visual and Performing Arts",
+        "Media / Film"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "Thomas Cole",
+        "The Course of Empire: Destruction (1836)",
+        "John Martin",
+        "The Great Day of His Wrath (1851–1853)",
+        "Otto Dix",
+        "World War I prints (1924)",
+        "Viktor Schreckengost",
+        "Apocalypse ‘42 (1942)",
+        "Harry Louis Freund",
+        "Four Horsemen of the Apocalypse (1946)",
+        "Saby Menyhei",
+        "The Last of Us: Season 1 Concept Art (2025)",
+        "Kevin Sherwood & James McCawley",
+        "“Where Are We Going?” (2013)",
+        "Thomas Cole - The Course of Empire: Destruction",
+        "John Martin - The Great Day of His Wrath",
+        "Otto Dix - World War I prints",
+        "Viktor Schreckengost - Apocalypse ’42",
+        "Harry Louis Freund - Four Horsemen of the Apocalypse",
+        "Saby Menyhei - The Last of Us concept art",
+        "Kevin Sherwood & James McCawley - “Where Are We Going?”"
+      ],
+      "debateRelevance": "Useful when debating whether modern apocalyptic art reflects public fear or actively shapes how societies imagine collapse.",
+      "counterargument": "Modern apocalyptic works may use new fears, but many still repeat older patterns of punishment, chaos, and destruction.",
+      "visualSections": [
+        {
+          "title": "Exact works: modern apocalypse",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Thomas Cole - The Course of Empire: Destruction",
+              "note": "Civilizational collapse appears as war, burning, and the fall of imperial ambition.",
+              "imageGuidance": "Find the exact Google Arts & Culture / New-York Historical image of Thomas Cole’s “The Course of Empire: Destruction.” Use /imagesearch for the exact artwork only. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining Thomas Cole’s Course of Empire series and the collapse theme. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Course of Empire: Destruction — Google Arts & Culture",
+                  "url": "https://artsandculture.google.com/asset/the-course-of-empire-destruction-thomas-cole/tQFLZqWBxVAINQ?hl=en"
+                },
+                {
+                  "label": "Thomas Cole Destruction image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://artsandculture.google.com/asset/the-course-of-empire-destruction-thomas-cole/tQFLZqWBxVAINQ?hl=en",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cole_Thomas_The_Course_of_Empire_Destruction_1836.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "John Martin - The Great Day of His Wrath",
+              "note": "Cosmic-scale disaster, sublime terror, and overwhelming divine or earthly destruction fill the scene.",
+              "imageGuidance": "Find the exact Tate image of John Martin’s “The Great Day of His Wrath.” Use /imagesearch for the exact artwork only. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining John Martin’s apocalyptic paintings or this work specifically. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Great Day of His Wrath — Tate",
+                  "url": "https://www.tate.org.uk/art/artworks/martin-the-great-day-of-his-wrath-n05613"
+                },
+                {
+                  "label": "John Martin Great Day image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.tate.org.uk/art/artworks/martin-the-great-day-of-his-wrath-n05613",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Otto Dix - World War I prints",
+              "note": "Modern war appears as mechanized, bodily, and historically real apocalypse.",
+              "imageGuidance": "Find an exact image from Otto Dix’s Der Krieg / World War I prints via a museum or reliable article source. Use the Guardian link as a starting point but prefer a museum/source image if available. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining Otto Dix’s World War I prints or anti-war art. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "World War I prints — The Guardian",
+                  "url": "https://www.theguardian.com/artanddesign/gallery/2014/may/14/art-apocalypse-otto-dix-first-world-war-der-krieg-in-pictures"
+                }
+              ],
+              "url": "https://www.theguardian.com/artanddesign/gallery/2014/may/14/art-apocalypse-otto-dix-first-world-war-der-krieg-in-pictures",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact protected/curated artwork series; preserve source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Viktor Schreckengost - Apocalypse ’42",
+              "note": "A wartime protest image shows fascist leaders and Death riding across the globe.",
+              "imageGuidance": "Find the exact Smithsonian American Art Museum image of Schreckengost’s “Apocalypse ’42.” Use /imagesearch and the museum source only. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video about Schreckengost, Apocalypse ’42, or art protesting fascism in World War II. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Apocalypse ‘42 — Smithsonian American Art Museum",
+                  "url": "https://americanart.si.edu/artwork/apocalypse-42-21944"
+                }
+              ],
+              "url": "https://americanart.si.edu/artwork/apocalypse-42-21944",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact museum artwork; preserve Smithsonian source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Harry Louis Freund - Four Horsemen of the Apocalypse",
+              "note": "The old Four Horsemen symbol is reworked after global war.",
+              "imageGuidance": "Find the exact Nelson-Atkins Museum image of Harry Louis Freund’s “Four Horsemen of the Apocalypse.” Use /imagesearch for the exact work. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video about the Four Horsemen in modern art or postwar apocalypse imagery. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Apocalypse ‘42 — Smithsonian American Art Museum",
+                  "url": "https://americanart.si.edu/artwork/apocalypse-42-21944"
+                }
+              ],
+              "url": "https://americanart.si.edu/artwork/apocalypse-42-21944",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact museum artwork; preserve Nelson-Atkins source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Saby Menyhei - The Last of Us concept art",
+              "note": "Contemporary apocalypse appears as atmosphere: emptiness, survival, ruined spaces, and systems after collapse.",
+              "imageGuidance": "Find exact images from Saby Menyhei’s The Last of Us Season 1 Concept Art page. This is a named visual source, so use /imagesearch for exact concept-art images and do not create substitutes. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video about The Last of Us concept art, production design, or visual worldbuilding for post-apocalyptic settings. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Season 1 Concept Art",
+                  "url": "https://www.menyhei.com/projects/WB6O42?album_id=14910"
+                }
+              ],
+              "url": "https://www.menyhei.com/projects/WB6O42?album_id=14910",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact contemporary concept art; preserve artist source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Kevin Sherwood & James McCawley - “Where Are We Going?”",
+              "note": "Game-linked music and visuals can build apocalyptic mood through sound and media atmosphere.",
+              "imageGuidance": "Find an official thumbnail/still connected to the YouTube video “Where Are We Going?” or Call of Duty Zombies context. Use /imagesearch for the actual named video/official image, not a generic zombie image. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Use /youtubesearch to locate the exact song/video and, if possible, a short educational or commentary video explaining its mood and context. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Where Are We Going?",
+                  "url": "https://www.youtube.com/watch?v=SR6_J1IVvlg",
+                  "sourceTitle": "\"Where Are We Going\" (Mob of the Dead song) lyrics [OFFICIAL]"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=SR6_J1IVvlg",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact music/video reference; use video/source link rather than a generated still."
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "\"Where Are We Going\" (Mob of the Dead song) lyrics [OFFICIAL]",
+          "url": "https://www.youtube.com/watch?v=SR6_J1IVvlg"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Endings",
+        "The Future"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Visible vs Real",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.008",
+      "order": 8,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.three-sounds-of-ending"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.008",
+        "question.the-end-is-nearish.200.008"
+      ],
+      "title": "A Soundtrack for the End",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "The end of the world can have a soundtrack, too. Consider the musical selections below. What were the circumstances around each one’s creation, and what techniques do they use to achieve their messages and moods?\n\nOlivier Messiaen | Quartet for the End of Time: “Abyss of the Birds” (1940)\nBlack Sabbath | “Electric Funeral” (1970)\nREM | “It’s the End of the World as We Know It” (1987)",
+      "links": [
+        {
+          "label": "Abyss of the Birds — YouTube",
+          "url": "https://www.youtube.com/watch?v=-tPqTqpLG5M"
+        },
+        {
+          "label": "Electric Funeral — YouTube",
+          "url": "https://www.youtube.com/watch?v=4aJT2p2_pDk"
+        },
+        {
+          "label": "It’s the End of the World as We Know It — YouTube",
+          "url": "https://www.youtube.com/watch?v=Z0GFRcFm-aY"
+        }
+      ],
+      "deepLinkAnalysis": "The music links are raw content because they let students hear different strategies for imagining the end. Messiaen’s “Abyss of the Birds” comes from Quartet for the End of Time, composed in wartime captivity and connected to Revelation; its slowness and space make time feel suspended.\nBlack Sabbath’s “Electric Funeral” turns apocalypse into heavy, distorted, nuclear dread. R.E.M.’s “It’s the End of the World as We Know It” does the opposite emotionally: its rapid, crowded, almost cheerful overload makes disaster feel like information chaos and ironic survival.\nThe slideshow should not use album art as decoration only. Each card should make students listen for technique: tempo, texture, repetition, silence, distortion, speed, density, and tone.",
+      "studentExplanation": "Apocalypse can be heard as well as seen. Messiaen makes the end feel suspended, spiritual, and outside ordinary time; Black Sabbath makes it heavy, electric, and nuclear; R.E.M. makes it fast, crowded, and almost funny while still anxious. The links are essential because the lesson is in the sound: different rhythms, textures, silences, and vocal styles create different emotional versions of “the end.”\n\nSound changes the shape of apocalypse. Messiaen’s prisoner-of-war clarinet makes the end spiritual and suspended, Black Sabbath makes nuclear doom heavy and physical, and R.E.M. turns catastrophe into fast, crowded, almost comic overload. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students understand apocalyptic mood through music. At the section level, it broadens The End Is Nearish beyond paintings and prophecies into sound. At the year-theme level, it connects to endings and the future because music can make an ending feel slow, heavy, chaotic, peaceful, or strangely survivable.",
+      "takeaway": "Sound shapes the emotional meaning of endings",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Managing Uncertainty",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "Olivier Messiaen",
+        "Quartet for the End of Time: “Abyss of the Birds” (1940)",
+        "Black Sabbath",
+        "“Electric Funeral” (1970)",
+        "REM",
+        "“It’s the End of the World as We Know It” (1987)",
+        "Messiaen - Abyss of the Birds",
+        "Black Sabbath - Electric Funeral",
+        "R.E.M. - It’s the End of the World as We Know It",
+        "Three sounds of ending"
+      ],
+      "debateRelevance": "Useful when debating whether music can express crisis and endings more powerfully through mood than explanation can through words.",
+      "counterargument": "Musical meaning is partly subjective, so listeners may need historical context before making strong claims about apocalyptic sound.",
+      "visualSections": [
+        {
+          "title": "Apocalyptic sound and mood",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Messiaen - Abyss of the Birds",
+              "note": "The audio conveys suspension, birdsong, spiritual stillness, and the feeling that ordinary time has stopped.",
+              "imageGuidance": "Find a realistic image of Olivier Messiaen, the Quartet for the End of Time manuscript/program, or a clarinetist performing in a solemn concert setting. If no exact source image works, keep the YouTube link as a LINK button. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Use /youtubesearch to locate the exact “Abyss of the Birds” performance or a short educational video explaining Quartet for the End of Time and its prisoner-of-war context. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Abyss of the Birds — YouTube",
+                  "url": "https://www.youtube.com/watch?v=-tPqTqpLG5M",
+                  "sourceTitle": "Abîme des oiseaux - Messiaen | Julien Hervé, clarinet"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=-tPqTqpLG5M",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact music reference; use video/source link rather than a generated performer image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Black Sabbath - Electric Funeral",
+              "note": "The audio conveys nuclear dread through heavy riffs, distortion, and dark imagery.",
+              "imageGuidance": "Find a realistic source image connected to Black Sabbath’s Paranoid era or a legitimate single/album visual if rights/source allow. Avoid generic burning-earth images. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Use /youtubesearch to locate the exact song or a short educational video explaining Black Sabbath, early heavy metal, and nuclear-apocalypse themes. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Electric Funeral — YouTube",
+                  "url": "https://www.youtube.com/watch?v=4aJT2p2_pDk",
+                  "sourceTitle": "Black Sabbath - Electric Funeral"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=4aJT2p2_pDk",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact music reference; use video/source link rather than a generated band image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "R.E.M. - It’s the End of the World as We Know It",
+              "note": "The audio conveys rapid-fire overload, irony, and anxious energy rather than slow solemn doom.",
+              "imageGuidance": "Find an official or reliable image connected to R.E.M.’s “Document” era or the official music video still. Do not use unrelated disaster images. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Use /youtubesearch to locate the official music video or a short educational video explaining the song’s fast stream-of-consciousness style. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "It’s the End of the World as We Know It — YouTube",
+                  "url": "https://www.youtube.com/watch?v=Z0GFRcFm-aY",
+                  "sourceTitle": "R.E.M. - It's The End Of The World"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=Z0GFRcFm-aY",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact music reference; use video/source link rather than a generated band image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Three sounds of ending",
+              "note": "Slow suspension, heavy destruction, and chaotic speed become three different musical versions of apocalypse.",
+              "imageGuidance": "Find a realistic image of a listening comparison setup: headphones, waveform, instruments, and three labeled mood lanes. If /imagesearch fails, use /imagecreator or /imagegen for a realistic WSC-style listening comparison image. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video on how music creates mood through tempo, texture, dynamics, silence, and repetition. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/three-sounds-of-ending.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "hidden": true,
+              "hiddenReason": "Hidden by Video fix.docx; asset retained in project."
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Abîme des oiseaux - Messiaen | Julien Hervé, clarinet",
+          "url": "https://www.youtube.com/watch?v=-tPqTqpLG5M"
+        },
+        {
+          "title": "Black Sabbath - Electric Funeral",
+          "url": "https://www.youtube.com/watch?v=4aJT2p2_pDk"
+        },
+        {
+          "title": "R.E.M. - It's The End Of The World",
+          "url": "https://www.youtube.com/watch?v=Z0GFRcFm-aY"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Endings"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Infrastructure Shapes Behavior",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.009",
+      "order": 9,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.more-turbulent-skies",
+        "asset.the-end-is-nearish.raw.point-of-no-return-debate"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.009",
+        "question.the-end-is-nearish.200.009"
+      ],
+      "title": "The Point of No Return",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "Chaos, then catastrophe. Researchers have found that one of the signs that an ecosystem is about to collapse is that things become more volatile—for instance, the amount of chlorophyll in a lake rapidly spikes and plunges. Global climate change is causing something similar: extreme weather events like hurricanes and droughts have grown more frequent. Even flights are facing more turbulence. Discuss with your team: what should we do if the climate passes a point of no return? Would it be okay to spend fewer resources on fighting climate change if the battle is already lost?",
+      "links": [
+        {
+          "label": "Predicting environmental collapse — Cary Institute",
+          "url": "https://www.caryinstitute.org/news-insights/feature/predicting-environmental-collapse"
+        },
+        {
+          "label": "Grown more frequent — Nature",
+          "url": "https://www.nature.com/articles/s41558-025-02486-9"
+        },
+        {
+          "label": "Facing more turbulence — BBC",
+          "url": "https://www.bbc.com/news/articles/ckgy7jx082ro"
+        },
+        {
+          "label": "Point of no return — The Ecologist",
+          "url": "https://theecologist.org/2025/oct/13/point-no-return-climate"
+        }
+      ],
+      "deepLinkAnalysis": "The Cary Institute link is a major science source because it explains early-warning signals of ecosystem collapse: systems may become more volatile before they break down, such as unstable spikes and plunges in chlorophyll in lakes.\nThe Nature Climate Change link strengthens the entry by showing that global warming is intensifying extreme day-to-day temperature changes in many low- and mid-latitude regions, with risks to health, ecosystems, agriculture, and resilience. This makes “chaos, then catastrophe” a scientific pattern rather than just a dramatic phrase.\nThe BBC turbulence link and Ecologist point-of-no-return debate help translate climate instability into lived experience and ethical debate: if damage is partly locked in, action may shift from total prevention to mitigation, adaptation, justice, and reducing further harm.",
+      "studentExplanation": "A point of no return is a threshold after which change becomes extremely difficult or impossible to undo. The links are central because they show warning signs, not just metaphors: ecosystems may become more volatile before collapse, climate change can increase unstable extreme temperature swings, and even flight turbulence can become one everyday sign of a changing atmosphere. The hardest question is not only whether a threshold exists, but how people should act if they fear they are approaching it.\n\nThe extra climate notes give students concrete warning signs: ecosystems can show instability before collapse, turbulence can worsen as atmospheric patterns change, and tipping points matter because systems may shift before people agree that they have reached the edge. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this connects collapse to evidence and warning signs. At the section level, it turns apocalyptic thinking away from fantasy and toward measurable real-world systems. At the year-theme level, it connects to prediction and thresholds because “nearish” becomes a question of whether action still matters before or after a dangerous crossing.",
+      "takeaway": "Warning signs matter because action still shapes outcomes",
+      "subjects": [
+        "Sciences",
+        "Politics & Government / Global Politics"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Volatility before collapse",
+        "Extreme temperature swings",
+        "More turbulent skies",
+        "Point of no return debate"
+      ],
+      "debateRelevance": "Useful when debating whether societies should keep acting aggressively even when some climate damage may already be locked in.",
+      "counterargument": "Calling a situation a point of no return too early can become an excuse for surrender when reducing harm is still possible.",
+      "visualSections": [
+        {
+          "title": "Evidence, instability, and climate thresholds",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Volatility before collapse",
+              "note": "That a system may wobble more before it breaks is presented: instability can be an early warning sign.",
+              "imageGuidance": "Find a realistic science image or graph from the Cary Institute article showing ecosystem-collapse signals, lake chlorophyll, or volatility before collapse. If a graph is used, preserve the source link. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining ecological tipping points, early-warning signals, or ecosystem collapse. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Predicting environmental collapse — Cary Institute",
+                  "url": "https://www.caryinstitute.org/news-insights/feature/predicting-environmental-collapse"
+                },
+                {
+                  "label": "Is our climate headed for ...",
+                  "url": "https://www.youtube.com/watch?v=EoYSToa2Yfw",
+                  "sourceTitle": "Is our climate headed for a mathematical tipping point? - Victor J. Donnay"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=EoYSToa2Yfw",
+              "previewLabel": "Play video",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific Cary Institute/science-source graph requested; preserve source link rather than fabricating a data graphic."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Extreme temperature swings",
+              "note": "Climate change can increase sharp day-to-day temperature changes, not only average heat.",
+              "imageGuidance": "Find a realistic graph or map from the Nature Climate Change paper or a reliable science-news visualization about extreme day-to-day temperature changes. Use exact source visuals when possible. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining climate volatility, extreme temperature swings, or climate variability under global warming. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Extreme Temperature Swings",
+                  "url": "https://youtu.be/NCPTbfQyMt8",
+                  "sourceTitle": "Extreme Temperature Swings"
+                }
+              ],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific Nature paper/visualization requested; preserve source link rather than fabricating a data graphic.",
+              "url": "https://www.youtube.com/watch?v=EoYSToa2Yfw",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "More turbulent skies",
+              "note": "Turbulence is presented as one visible everyday example of a changing atmosphere, not the whole climate story.",
+              "imageGuidance": "Find a realistic image of an airplane in turbulent weather or an aviation/climate graphic from the BBC article or another reliable source. Do not use sensational crash imagery. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how climate change may affect clear-air turbulence. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Grown more frequent — Nature",
+                  "url": "https://www.nature.com/articles/s41558-025-02486-9"
+                },
+                {
+                  "label": "Why Turbulence Is Getting Worse",
+                  "url": "https://youtu.be/BlloVuDLAzM",
+                  "sourceTitle": "Why Turbulence Is Getting Worse"
+                },
+                {
+                  "label": "The Science of Turbulence",
+                  "url": "https://youtu.be/eR74TkS_puk",
+                  "sourceTitle": "The Science of Turbulence"
+                }
+              ],
+              "url": "https://www.nature.com/articles/s41558-025-02486-9",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/the-end-is-nearish/more-turbulent-skies.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Point of no return debate",
+              "note": "“too late for everything” is different from “too late for nothing.” Action can still reduce harm.",
+              "imageGuidance": "Find a realistic image of a climate threshold diagram, tipping point illustration, or policy debate visual. If /imagesearch fails, use /imagecreator or /imagegen to create a realistic WSC-style threshold road sign with climate evidence cards, not an anime apocalypse. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining climate tipping points and why action still matters even under serious risk. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Point of no return — The Ecologist",
+                  "url": "https://theecologist.org/2025/oct/13/point-no-return-climate"
+                },
+                {
+                  "label": "Have We Passed the Climate ...",
+                  "url": "https://youtu.be/mdTtI5w6xI0",
+                  "sourceTitle": "Have We Passed the Climate Point of No Return?"
+                },
+                {
+                  "label": "Climate Change: Point of No ...",
+                  "url": "https://youtu.be/wEgWhNgXkdU",
+                  "sourceTitle": "Climate Change: Point of No Return"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=EoYSToa2Yfw",
+              "previewLabel": "Play video",
+              "src": "assets/raw-content/the-end-is-nearish/point-of-no-return-debate.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Is our climate headed for a mathematical tipping point? - Victor J. Donnay",
+          "url": "https://www.youtube.com/watch?v=EoYSToa2Yfw"
+        },
+        {
+          "title": "Extreme Temperature Swings",
+          "url": "https://youtu.be/NCPTbfQyMt8"
+        },
+        {
+          "title": "Why Turbulence Is Getting Worse",
+          "url": "https://youtu.be/BlloVuDLAzM"
+        },
+        {
+          "title": "Flight Turbulence Is Actually Getting Worse | NOVA | PBS",
+          "url": "https://www.youtube.com/watch?v=eR74TkS_puk"
+        },
+        {
+          "title": "Have We Passed the Climate Point of No Return?",
+          "url": "https://youtu.be/mdTtI5w6xI0"
+        },
+        {
+          "title": "Climate Change: Point of No Return",
+          "url": "https://youtu.be/wEgWhNgXkdU"
+        },
+        {
+          "title": "Yes, Flights ARE Bumpier Now (And They're Getting Worse)",
+          "url": "https://www.youtube.com/watch?v=dDBas7Wxax4"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Thresholds",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Visible vs Real",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    },
+    {
+      "id": "raw.the-end-is-nearish.010",
+      "order": 10,
+      "sectionId": "the-end-is-nearish",
+      "mediaIds": [
+        "asset.the-end-is-nearish.raw.preparation-vs-exploitation",
+        "asset.the-end-is-nearish.raw.solar-geoengineering-as-a-business-case",
+        "asset.the-end-is-nearish.raw.who-should-govern-last-resort-technologies"
+      ],
+      "questionIds": [
+        "question.the-end-is-nearish.100.010",
+        "question.the-end-is-nearish.200.010"
+      ],
+      "title": "Profiting from Disaster",
+      "guidingSection": "The End is Nearish",
+      "rawOfficialText": "Some investors are looking for business opportunities around the warming of the Earth. Explore some of those opportunities, then discuss with your team: should people be allowed to profit from rising temperatures? Could you imagine a company (or even a government) intentionally contributing to climate change, or other potential disasters, to benefit its own interests?",
+      "links": [
+        {
+          "label": "Business opportunities around warming — Politico",
+          "url": "https://www.politico.com/news/2025/12/26/betting-on-climate-failure-investors-could-earn-billions-00677281"
+        },
+        {
+          "label": "E&E News version of Politico article",
+          "url": "https://www.eenews.net/articles/betting-on-climate-failure-these-investors-could-earn-billions/"
+        }
+      ],
+      "deepLinkAnalysis": "The Politico/E&E link should be treated as the core text of the entry. It is not just about “people making money from climate change” in a vague way; it specifically reports investment in solar geoengineering and planet-cooling technologies with uncertain side effects and weak regulation.\nThe article creates a subtle ethical distinction: investors may not want catastrophe, but they may profit if governments and societies decide warming has become bad enough to justify risky climate intervention. That is different from ordinary climate adaptation, because the business case may grow stronger as prevention fails.\nStudents should not be pushed to think every disaster-related business is evil. The important debate is incentive design: preparation can reduce harm, while profit models can sometimes normalize, exploit, or deepen the conditions they claim to solve.",
+      "studentExplanation": "Profiting from disaster is not as simple as saying all crisis businesses are bad. People need tools, shelters, insurance, adaptation systems, and climate technologies. But the Politico/E&E link raises a sharper problem: if investors can make billions from risky climate interventions such as solar geoengineering, their financial success may depend on climate failure becoming bad enough to create demand. The ethical question is whether preparation reduces harm or quietly creates incentives to accept disaster.\n\nSolar geoengineering and climate-risk investing make the ethical problem sharper. Preparing for harm is not the same as wanting harm, but if a business grows more valuable as disaster worsens, students should ask who controls the tool and who carries the risk. Use this to track how endings begin before they officially happen: what is ending, who notices it first, what signs make it feel near, and why people act differently in the near-end zone.",
+      "whyItMatters": "At the entry level, this helps students distinguish useful preparation from harmful incentives. At the section level, it gives The End Is Nearish a contemporary economic ending: apocalypse becomes a market opportunity. At the year-theme level, it connects to the future and prediction because some systems may begin planning not to prevent collapse, but to profit from living with it.",
+      "takeaway": "Useful response and harmful incentive can overlap",
+      "subjects": [
+        "Economics & Trade",
+        "Philosophy",
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Betting on climate failure",
+        "Solar geoengineering as a business case",
+        "Preparation vs exploitation",
+        "Who should govern last-resort technologies?"
+      ],
+      "debateRelevance": "Useful when debating where preparation for crisis ends and exploitation of crisis begins.",
+      "counterargument": "Some crisis investment can be ethical if it reduces harm, funds adaptation, or builds resilience rather than rewarding worsening conditions.",
+      "visualSections": [
+        {
+          "title": "Incentives at the edge of disaster",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Betting on climate failure",
+              "note": "The exact case is presented: investors are funding companies that may profit from planet-cooling technologies if climate prevention fails.",
+              "imageGuidance": "Find a realistic image from the Politico/E&E article, preferably the plane/storm or geoengineering-related image. Use /imagesearch for the exact article image or a reliable news image; do not use generic money-on-fire art. The agent must use /imagesearch first and find the exact named work, object, source image, official screenshot, historical photograph, or museum page image. Do not replace it with a generic image. Do not use /imagecreator or /imagegen for exact works, exact photos, exact posters, named objects, or named visual sources. If a temporary placeholder is unavoidable, clearly mark it as non-final. The selected image must be realistic/source-accurate, not anime, and must sit inside the beige/brown/maroon WSC app UI.",
+              "videoGuidance": "Find a short educational video explaining climate geoengineering startups, solar geoengineering, or the ethics of profiting from climate risk. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Betting on Solutions: Taking Action ...",
+                  "url": "https://www.youtube.com/watch?v=poiVr_e1Bzw",
+                  "sourceTitle": "Betting on Solutions: Taking Action to Solve the Climate Crisis"
+                }
+              ],
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific Politico/E&E article image requested; preserve source link rather than using a generic money/disaster visual."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Solar geoengineering as a business case",
+              "note": "The technology area is presented: reflecting sunlight or altering the atmosphere to reduce warming, with major governance and side-effect concerns.",
+              "imageGuidance": "Find a realistic diagram or source image of stratospheric aerosol injection / solar geoengineering from a university, scientific, or policy source. If no perfect image exists, use /imagecreator or /imagegen for a realistic WSC-style diagram of sunlight reflection with governance warning labels. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining solar geoengineering and its risks in a neutral, student-friendly way. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Business opportunities around warming — Politico",
+                  "url": "https://www.politico.com/news/2025/12/26/betting-on-climate-failure-investors-could-earn-billions-00677281"
+                },
+                {
+                  "label": "Solar Geoengineering: Should we artificially ...",
+                  "url": "https://www.youtube.com/watch?v=3gvsHkLSxhY",
+                  "sourceTitle": "Solar Geoengineering: Should we artificially cool the planet?"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=M_JXdgPS92k",
+              "previewLabel": "Play video",
+              "src": "assets/raw-content/the-end-is-nearish/solar-geoengineering-as-a-business-case.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Preparation vs exploitation",
+              "note": "Adaptation that reduces harm is contrasted with profit incentives that may grow when harm worsens.",
+              "imageGuidance": "Find a realistic image showing disaster preparation, insurance/adaptation, or climate-resilience planning. If /imagesearch fails, use /imagecreator or /imagegen for a realistic WSC-style split image: “reduce harm” vs “profit from harm.” The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video on disaster capitalism, climate adaptation markets, or ethical crisis investment. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/preparation-vs-exploitation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "hidden": true,
+              "hiddenReason": "Hidden by Video fix.docx; asset retained in project."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Who should govern last-resort technologies?",
+              "note": "Risky planet-scale tools require public, scientific, and international governance, not just private opportunity... but who should be in charge?",
+              "imageGuidance": "Find a realistic image of a climate summit, governance meeting, or scientific panel on geoengineering. If no exact image works, use a realistic WSC-style image of a global table discussing a planet-cooling proposal. The agent must use /imagesearch first. The selected image must be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, then use /imagecreator or /imagegen to create a very realistic image illustrating the idea or psychological/political effect. It must be inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video on geoengineering governance or why planet-scale climate intervention is politically difficult. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, artwork, political case, scientific evidence, or musical example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/the-end-is-nearish/who-should-govern-last-resort-technologies.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=M_JXdgPS92k",
+              "previewLabel": "Play video"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Betting on Solutions: Taking Action to Solve the Climate Crisis",
+          "url": "https://www.youtube.com/watch?v=poiVr_e1Bzw"
+        },
+        {
+          "title": "Solar Geoengineering: Should we artificially cool the planet?",
+          "url": "https://www.youtube.com/watch?v=3gvsHkLSxhY"
+        },
+        {
+          "title": "Solar geoengineering: Can it solve the climate crisis?",
+          "url": "https://www.youtube.com/watch?v=ZVVlgdtSdRM"
+        },
+        {
+          "title": "Could solar geoengineering counter global warming?",
+          "url": "https://www.youtube.com/watch?v=OGdz5gYqm-o"
+        }
+      ],
+      "legacyBigIdeas": [
+        "The Future",
+        "Endings"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Thresholds & Irreversibility",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "The End is Nearish"
+    }
+  ]
+}

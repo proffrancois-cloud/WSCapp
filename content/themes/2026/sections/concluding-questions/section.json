@@ -1,0 +1,40 @@
+{
+  "id": "concluding-questions",
+  "title": "Concluding Questions",
+  "shortTitle": "Concluding Questions",
+  "originalTitle": "Concluding Questions",
+  "order": 15,
+  "themeId": "wsc-2026",
+  "blurb": "Patience, quitting, Zeno's paradox, open endings, and what comes after arrival.",
+  "angle": "The theme closes by asking when to continue, when to stop, and where to go next.",
+  "subjectIds": [
+    "psychology",
+    "philosophy",
+    "language-and-literature",
+    "media-film"
+  ],
+  "bigIdeaIds": [
+    "narrated-endings",
+    "movement-without-arrival",
+    "thresholds-and-irreversibility",
+    "performed-progress",
+    "managing-uncertainty",
+    "delayed-arrival",
+    "infrastructure-shapes-behavior",
+    "measuring-human-worth",
+    "incompletion-that-stays-active"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.concluding-questions.card.cover",
+    "icon": "asset.concluding-questions.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.concluding-questions",
+    "questions": "questions.concluding-questions",
+    "guide": "guide.concluding-questions",
+    "media": "media.concluding-questions",
+    "alpacards": "alpacards.concluding-questions",
+    "channelVideos": "channel.concluding-questions"
+  }
+}

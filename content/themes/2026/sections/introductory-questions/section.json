@@ -1,0 +1,43 @@
+{
+  "id": "introductory-questions",
+  "title": "Introductory Questions",
+  "shortTitle": "Introductory Questions",
+  "originalTitle": "Introductory Questions",
+  "order": 1,
+  "themeId": "wsc-2026",
+  "blurb": "Beginnings, arrivals, points of no return, and what endings really mean.",
+  "angle": "The theme opens with its simplest and deepest question: what does it actually mean to be there?",
+  "subjectIds": [
+    "philosophy",
+    "psychology",
+    "economics-and-trade",
+    "visual-and-performing-arts",
+    "media-film",
+    "sociology",
+    "sciences",
+    "history"
+  ],
+  "bigIdeaIds": [
+    "movement-without-arrival",
+    "delayed-arrival",
+    "infrastructure-shapes-behavior",
+    "managing-uncertainty",
+    "thresholds-and-irreversibility",
+    "narrated-endings",
+    "performed-progress",
+    "visible-vs-real"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.introductory-questions.card.cover",
+    "icon": "asset.introductory-questions.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.introductory-questions",
+    "questions": "questions.introductory-questions",
+    "guide": "guide.introductory-questions",
+    "media": "media.introductory-questions",
+    "alpacards": "alpacards.introductory-questions",
+    "channelVideos": "channel.introductory-questions"
+  }
+}

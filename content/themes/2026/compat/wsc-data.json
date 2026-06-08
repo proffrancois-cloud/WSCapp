@@ -1,0 +1,1220 @@
+{
+  "theme": {
+    "name": "Are We There Yet?",
+    "year": 2026,
+    "gameName": "WSC 2026 Study Routes",
+    "summary": "The 2026 theme explores travel, waiting, progress, thresholds, drafts, roads, navigation, and futures that always seem almost here."
+  },
+  "palette": {
+    "burgundy": "#8A6338",
+    "cream": "#ECD9AA",
+    "creamSoft": "#F3E3BC",
+    "gold": "#C89C44",
+    "navy": "#6B4E16",
+    "sky": "#B98953"
+  },
+  "insights": [
+    {
+      "title": "Destination vs. journey",
+      "body": "The theme keeps asking whether we should value arrival, motion itself, or the moment of transition between the two."
+    },
+    {
+      "title": "Progress vs. waiting",
+      "body": "Progress bars, endless construction, adolescence, and political transitions all return to the same question: how much longer?"
+    },
+    {
+      "title": "Draft vs. final form",
+      "body": "Works of art, products, and even societies move through prototypes, revisions, and unfinished states before looking complete."
+    },
+    {
+      "title": "Infrastructure vs. imagination",
+      "body": "Roads, hotels, sidewalks, navigation tools, and future predictions show how an idea becomes a livable world."
+    },
+    {
+      "title": "Patience vs. quitting",
+      "body": "The ending of the theme asks its hardest question: when should we keep going, and when should we stop?"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "special-area",
+      "label": "Special Area",
+      "description": "Big ideas, the psychology of waiting, thresholds, mental prototypes, and the philosophy of getting there.",
+      "color": "#C89C44",
+      "soft": "rgba(200, 156, 68, 0.16)"
+    },
+    {
+      "id": "history",
+      "label": "History",
+      "description": "Roads, hotels, term limits, giant projects, navigation, and long traditions of movement.",
+      "color": "#8A6338",
+      "soft": "rgba(138, 99, 56, 0.12)"
+    },
+    {
+      "id": "social-studies",
+      "label": "Social Studies",
+      "description": "Governments in transition, urban planning, tourism, collective behavior, and public policy.",
+      "color": "#B98953",
+      "soft": "rgba(185, 137, 83, 0.14)"
+    },
+    {
+      "id": "science-technology",
+      "label": "Science & Technology",
+      "description": "Navigation, cognition, adolescence, interfaces, AI, quantum computing, prototypes, and transport.",
+      "color": "#6B4E16",
+      "soft": "rgba(107, 78, 22, 0.12)"
+    },
+    {
+      "id": "art-music",
+      "label": "Art & Music",
+      "description": "Paintings, songs, road imagery, creative drafts, and liminal landscapes.",
+      "color": "#A87645",
+      "soft": "rgba(168, 118, 69, 0.12)"
+    },
+    {
+      "id": "literature-media",
+      "label": "Literature & Media",
+      "description": "Travel narratives, ambiguous endings, storyboards, long takes, famous lines, and screen culture.",
+      "color": "#7A5A33",
+      "soft": "rgba(122, 90, 51, 0.12)"
+    }
+  ],
+  "presets": [
+    {
+      "id": "all",
+      "label": "Full theme route",
+      "sectionIds": "*"
+    },
+    {
+      "id": "progress",
+      "label": "Progress & drafts",
+      "sectionIds": [
+        "introductory-questions",
+        "progress-not-regress",
+        "more-to-do",
+        "theres-a-draft",
+        "were-all-in-this",
+        "monkey-see"
+      ]
+    },
+    {
+      "id": "roads",
+      "label": "Roads & movement",
+      "sectionIds": [
+        "where-the-sidewalk-starts",
+        "home-and-wandering",
+        "roads-and-futures",
+        "call-of-duty-free"
+      ]
+    },
+    {
+      "id": "future",
+      "label": "Future & endings",
+      "sectionIds": [
+        "the-end-is-nearish",
+        "the-lovely-and-the-liminal",
+        "next-year-in-futurism",
+        "concluding-questions"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "introductory-questions",
+      "title": "Introductory Questions",
+      "originalTitle": "Introductory Questions",
+      "blurb": "Beginnings, arrivals, points of no return, and what endings really mean.",
+      "angle": "The theme opens with its simplest and deepest question: what does it actually mean to be there?"
+    },
+    {
+      "id": "progress-not-regress",
+      "title": "Progress, Not Regress",
+      "originalTitle": "Progress, Not Regress",
+      "blurb": "Progress bars, time perception, and the management of waiting.",
+      "angle": "WSC asks how we measure progress and how we survive periods that feel motionless."
+    },
+    {
+      "id": "more-to-do",
+      "title": "More To Do Than Can Ever Be Listed",
+      "originalTitle": "More To Do Than Can Ever Be Listed",
+      "blurb": "To-do lists, unfinished memory, and ways of deciding what matters most.",
+      "angle": "Here, progress is measured as much by what we never finish as by what we do."
+    },
+    {
+      "id": "the-end-is-nearish",
+      "title": "The End is Nearish",
+      "originalTitle": "The End is Nearish",
+      "blurb": "Political transitions, term limits, exits from office, and temporary in-between phases.",
+      "angle": "Societies also experience endings that are delayed, imperfect, or only partly complete."
+    },
+    {
+      "id": "theres-a-draft",
+      "title": "There's a Draft in Here",
+      "originalTitle": "There's a Draft in Here",
+      "blurb": "Versions, sketches, rewrites, and the slow growth of finished work.",
+      "angle": "Before a final work appears, there is almost always a draft, and often several."
+    },
+    {
+      "id": "were-all-in-this",
+      "title": "We Are All in This to Get There",
+      "originalTitle": "We're All in This to Get There",
+      "blurb": "Megaprojects, delays, collective coordination, and construction that never seems to end.",
+      "angle": "The journey is not only personal. It is political, logistical, and collective."
+    },
+    {
+      "id": "where-the-sidewalk-starts",
+      "title": "Where the Sidewalk Starts",
+      "originalTitle": "Where the Sidewalk Starts",
+      "blurb": "Sidewalks, moving walkways, stroads, and the spaces between different uses.",
+      "angle": "WSC pays attention to the modest surfaces that quietly make movement possible."
+    },
+    {
+      "id": "monkey-see",
+      "title": "Monkey See, Monkey Prototype",
+      "originalTitle": "Monkey See, Monkey Prototype",
+      "blurb": "Prototyping, testing, fidelity, wireframes, and biomimicry.",
+      "angle": "The future never arrives all at once. It is built through repeated experiments."
+    },
+    {
+      "id": "the-lovely-and-the-liminal",
+      "title": "The Lovely and the Liminal",
+      "originalTitle": "The Lovely and the Liminal",
+      "blurb": "Thresholds, in-between spaces, the doorway effect, and the aesthetics of transition.",
+      "angle": "Being between two places, ages, or states becomes a major subject in its own right."
+    },
+    {
+      "id": "going-pains",
+      "title": "Going Pains",
+      "originalTitle": "Going Pains",
+      "blurb": "Adolescence, rites of passage, the developing brain, and in-between identities.",
+      "angle": "Human growth is a near-perfect example of being not there yet."
+    },
+    {
+      "id": "home-and-wandering",
+      "title": "Home and Wandering",
+      "originalTitle": "Home and Wandering",
+      "blurb": "Navigation, migration, compasses, maps, and the pull of home.",
+      "angle": "To arrive anywhere, you first need some way to know where you are going."
+    },
+    {
+      "id": "roads-and-futures",
+      "title": "Where We're Going, We'll Still Need Them",
+      "originalTitle": "Where We're Going, We'll Still Need Them",
+      "blurb": "Road networks, future infrastructure, routes, detours, and the road-trip imagination.",
+      "angle": "Even in the future, physical and symbolic roads shape how we move through the world."
+    },
+    {
+      "id": "call-of-duty-free",
+      "title": "Call of Duty-Free",
+      "originalTitle": "Call of Duty-Free",
+      "blurb": "Hotels, the Grand Tour, mass tourism, entrepots, and the movement of goods.",
+      "angle": "Travel is also about sleeping, trading, consuming, and leaving traces behind."
+    },
+    {
+      "id": "next-year-in-futurism",
+      "title": "Next Year in Futurism",
+      "originalTitle": "Next Year in Futurism",
+      "blurb": "Perpetually promised technologies, AGI, quantum computing, fusion, and delayed futures.",
+      "angle": "The theme asks why some futures always seem to be just two years away."
+    },
+    {
+      "id": "concluding-questions",
+      "title": "Concluding Questions",
+      "originalTitle": "Concluding Questions",
+      "blurb": "Patience, quitting, Zeno's paradox, open endings, and what comes after arrival.",
+      "angle": "The theme closes by asking when to continue, when to stop, and where to go next."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "sectionId": "introductory-questions",
+      "subjectIds": [
+        "special-area",
+        "literature-media"
+      ],
+      "prompt": "The saying 'A journey of a thousand miles begins with...' ends how?",
+      "options": [
+        "a precise map",
+        "a single step",
+        "a destination",
+        "a promise"
+      ],
+      "answerIndex": 1,
+      "explanation": "The line is traditionally associated with Laozi. It captures the idea that a vast journey begins with one very small decision."
+    },
+    {
+      "id": "q02",
+      "sectionId": "introductory-questions",
+      "subjectIds": [
+        "literature-media"
+      ],
+      "prompt": "Which Lord of the Rings film is often remembered for having several fake endings?",
+      "options": [
+        "The Fellowship of the Ring",
+        "The Two Towers",
+        "The Return of the King",
+        "The Hobbit: The Battle of the Five Armies"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Return of the King is famous for stacking one ending after another, which fits the WSC question of endings that seem unwilling to end."
+    },
+    {
+      "id": "q03",
+      "sectionId": "introductory-questions",
+      "subjectIds": [
+        "art-music",
+        "literature-media"
+      ],
+      "prompt": "Who sings 'And now, the end is near' at the start of 'My Way'?",
+      "options": [
+        "Elvis Presley",
+        "Frank Sinatra",
+        "Dean Martin",
+        "Nat King Cole"
+      ],
+      "answerIndex": 1,
+      "explanation": "The song has become a classic emblem of reflection, closure, and theatrical endings."
+    },
+    {
+      "id": "q04",
+      "sectionId": "introductory-questions",
+      "subjectIds": [
+        "history"
+      ],
+      "prompt": "In Roman history, to 'cross the Rubicon' mainly means to...",
+      "options": [
+        "choose a faster route",
+        "reverse a decision",
+        "pass a point of no return",
+        "sign a political truce"
+      ],
+      "answerIndex": 2,
+      "explanation": "The phrase comes from Julius Caesar and now refers to making an irreversible choice."
+    },
+    {
+      "id": "q05",
+      "sectionId": "progress-not-regress",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "What kind of interface is used when progress is happening but the exact duration is unknown?",
+      "options": [
+        "a determinate progress bar",
+        "a spinner or indeterminate indicator",
+        "a breadcrumb trail",
+        "a heat map"
+      ],
+      "answerIndex": 1,
+      "explanation": "When a percentage cannot be estimated reliably, designers often use an indeterminate indicator to show that work is still happening."
+    },
+    {
+      "id": "q06",
+      "sectionId": "progress-not-regress",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "In interface design, what is a skeleton screen?",
+      "options": [
+        "a minimalist error page",
+        "a 3D wireframe model",
+        "a ghost layout shown before real content loads",
+        "a screen used only for security testing"
+      ],
+      "answerIndex": 2,
+      "explanation": "A skeleton screen displays placeholder blocks so that waiting feels shorter and more structured."
+    },
+    {
+      "id": "q07",
+      "sectionId": "progress-not-regress",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "In project management, a milestone is mainly...",
+      "options": [
+        "an unexpected expense",
+        "a delay penalty",
+        "a major checkpoint",
+        "a mandatory final version"
+      ],
+      "answerIndex": 2,
+      "explanation": "A milestone marks an important stage in the journey, much like a marker on a road."
+    },
+    {
+      "id": "q08",
+      "sectionId": "progress-not-regress",
+      "subjectIds": [
+        "special-area",
+        "social-studies"
+      ],
+      "prompt": "Which law says that work expands to fill the time available for its completion?",
+      "options": [
+        "Moore's law",
+        "Parkinson's law",
+        "Metcalfe's law",
+        "Goodhart's law"
+      ],
+      "answerIndex": 1,
+      "explanation": "Parkinson's law helps explain why progress can look slower simply because the time frame stretches."
+    },
+    {
+      "id": "q09",
+      "sectionId": "more-to-do",
+      "subjectIds": [
+        "science-technology",
+        "special-area"
+      ],
+      "prompt": "The Zeigarnik effect refers to the fact that we tend to remember...",
+      "options": [
+        "unfinished tasks better than finished ones",
+        "tasks delegated to others",
+        "tasks done in groups",
+        "tasks linked to a reward"
+      ],
+      "answerIndex": 0,
+      "explanation": "Unfinished tasks stay more active in the mind, which is why incompletion can feel so mentally noisy."
+    },
+    {
+      "id": "q10",
+      "sectionId": "more-to-do",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "The Eisenhower Matrix sorts tasks according to which two variables?",
+      "options": [
+        "cost and duration",
+        "urgency and importance",
+        "solitude and collaboration",
+        "quality and difficulty"
+      ],
+      "answerIndex": 1,
+      "explanation": "The method contrasts urgency with importance to help people decide what actually deserves attention."
+    },
+    {
+      "id": "q11",
+      "sectionId": "more-to-do",
+      "subjectIds": [
+        "history",
+        "special-area"
+      ],
+      "prompt": "Who popularized the note-taking and planning system known as the Bullet Journal?",
+      "options": [
+        "Ryder Carroll",
+        "David Allen",
+        "Tim Ferriss",
+        "Austin Kleon"
+      ],
+      "answerIndex": 0,
+      "explanation": "Ryder Carroll designed the method as a flexible way to organize tasks, notes, and reflection in one place."
+    },
+    {
+      "id": "q12",
+      "sectionId": "more-to-do",
+      "subjectIds": [
+        "special-area"
+      ],
+      "prompt": "In the 'Eat That Frog' method, what should you do first?",
+      "options": [
+        "the shortest task",
+        "the most enjoyable task",
+        "the hardest or most important task",
+        "the most collaborative task"
+      ],
+      "answerIndex": 2,
+      "explanation": "The idea is to tackle the heaviest task first so that the unfinished item does not dominate the whole day."
+    },
+    {
+      "id": "q13",
+      "sectionId": "the-end-is-nearish",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "In many parliamentary systems, a caretaker government mainly exists to...",
+      "options": [
+        "rewrite the constitution",
+        "handle the transition around an election",
+        "extend the length of terms",
+        "replace parliament permanently"
+      ],
+      "answerIndex": 1,
+      "explanation": "A caretaker government keeps things running during a transition without launching major new changes."
+    },
+    {
+      "id": "q14",
+      "sectionId": "the-end-is-nearish",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "Which amendment to the U.S. Constitution limits a president to two elected terms?",
+      "options": [
+        "the 12th",
+        "the 18th",
+        "the 22nd",
+        "the 25th"
+      ],
+      "answerIndex": 2,
+      "explanation": "The 22nd Amendment, adopted after Franklin Roosevelt, created the modern two-term limit."
+    },
+    {
+      "id": "q15",
+      "sectionId": "the-end-is-nearish",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "The phrase 'lame duck' usually refers to...",
+      "options": [
+        "an improvised wartime leader",
+        "an outgoing officeholder with reduced influence",
+        "a parliament with no opposition",
+        "a leader without an absolute majority"
+      ],
+      "answerIndex": 1,
+      "explanation": "A lame duck is still in office but already on the way out, and therefore usually weaker politically."
+    },
+    {
+      "id": "q16",
+      "sectionId": "the-end-is-nearish",
+      "subjectIds": [
+        "history"
+      ],
+      "prompt": "Why is the Roman figure Cincinnatus so often cited as a political model?",
+      "options": [
+        "he rejected every military office",
+        "he seized power for life",
+        "he gave up power and returned to his farm",
+        "he founded the first modern senate"
+      ],
+      "answerIndex": 2,
+      "explanation": "Cincinnatus symbolizes temporary power willingly surrendered, which makes him useful in discussions of endings in office."
+    },
+    {
+      "id": "q17",
+      "sectionId": "theres-a-draft",
+      "subjectIds": [
+        "art-music",
+        "literature-media"
+      ],
+      "prompt": "The working title 'Scrambled Eggs' eventually became which Beatles classic?",
+      "options": [
+        "Hey Jude",
+        "Yesterday",
+        "Let It Be",
+        "Penny Lane"
+      ],
+      "answerIndex": 1,
+      "explanation": "Before reaching its final form, 'Yesterday' circulated under that temporary title, a perfect example of a masterpiece passing through draft form."
+    },
+    {
+      "id": "q18",
+      "sectionId": "theres-a-draft",
+      "subjectIds": [
+        "art-music"
+      ],
+      "prompt": "Which Edvard Munch painting is often presented as the development of 'Despair'?",
+      "options": [
+        "Madonna",
+        "The Scream",
+        "Anxiety",
+        "The Dance of Life"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Scream intensifies and transforms the emotional world already present in Despair."
+    },
+    {
+      "id": "q19",
+      "sectionId": "theres-a-draft",
+      "subjectIds": [
+        "literature-media",
+        "art-music"
+      ],
+      "prompt": "In film and animation, what is a storyboard mainly used for?",
+      "options": [
+        "composing the score",
+        "previsualizing a sequence of shots",
+        "rewriting dialogue after filming",
+        "calculating the marketing budget"
+      ],
+      "answerIndex": 1,
+      "explanation": "A storyboard turns an idea into a visible sequence before the camera or animation process begins."
+    },
+    {
+      "id": "q20",
+      "sectionId": "theres-a-draft",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "What is the main purpose of a low-fidelity wireframe?",
+      "options": [
+        "to test structure and flow quickly",
+        "to present final textures",
+        "to validate server-side code",
+        "to choose a marketing campaign"
+      ],
+      "answerIndex": 0,
+      "explanation": "A low-fidelity wireframe helps teams test layout and user flow before investing in visual detail."
+    },
+    {
+      "id": "q21",
+      "sectionId": "were-all-in-this",
+      "subjectIds": [
+        "history",
+        "art-music"
+      ],
+      "prompt": "In which city is the Sagrada Familia located?",
+      "options": [
+        "Madrid",
+        "Seville",
+        "Barcelona",
+        "Valencia"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Sagrada Familia in Barcelona has become one of the world's most famous symbols of the giant, unfinished project."
+    },
+    {
+      "id": "q22",
+      "sectionId": "were-all-in-this",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "What does Brooks's law suggest about a software project that is already late?",
+      "options": [
+        "it should always reduce scope",
+        "adding more people often makes it later",
+        "software delays do not really exist",
+        "timelines depend only on hardware"
+      ],
+      "answerIndex": 1,
+      "explanation": "Brooks emphasized coordination costs: adding more people does not automatically speed up a late project."
+    },
+    {
+      "id": "q23",
+      "sectionId": "were-all-in-this",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "The Ryugyong Hotel, often cited as a famously delayed megaproject, is in...",
+      "options": [
+        "Seoul",
+        "Pyongyang",
+        "Tokyo",
+        "Ulaanbaatar"
+      ],
+      "answerIndex": 1,
+      "explanation": "The North Korean Ryugyong Hotel is frequently mentioned in discussions of monumental, delayed, or stalled development."
+    },
+    {
+      "id": "q24",
+      "sectionId": "were-all-in-this",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "Berlin Brandenburg Airport became famous because it...",
+      "options": [
+        "was moved onto an island",
+        "opened only after years of delays",
+        "operated without control towers",
+        "was converted into a museum"
+      ],
+      "answerIndex": 1,
+      "explanation": "Its extended delay made it a modern case study in governance, planning, and project management."
+    },
+    {
+      "id": "q25",
+      "sectionId": "where-the-sidewalk-starts",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "What is another common name for a moving walkway?",
+      "options": [
+        "tramline",
+        "travelator",
+        "skybridge",
+        "parkway"
+      ],
+      "answerIndex": 1,
+      "explanation": "Travelator is a common term for the moving walkway that helps pedestrians move forward."
+    },
+    {
+      "id": "q26",
+      "sectionId": "where-the-sidewalk-starts",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "Why do many urbanist critics dislike the stroad?",
+      "options": [
+        "it mixes the functions of a street and a fast road",
+        "it always bans public transport",
+        "it is reserved for historic centers",
+        "it exists only for heavy trucks"
+      ],
+      "answerIndex": 0,
+      "explanation": "A stroad combines the drawbacks of a street and a road: it is often unsafe, confusing, and unpleasant."
+    },
+    {
+      "id": "q27",
+      "sectionId": "where-the-sidewalk-starts",
+      "subjectIds": [
+        "history"
+      ],
+      "prompt": "Which ancient city is often cited for its raised stepping stones and early sidewalk-like features?",
+      "options": [
+        "Athens",
+        "Pompeii",
+        "Babylon",
+        "Alexandria"
+      ],
+      "answerIndex": 1,
+      "explanation": "Pompeii offers striking examples of organized pedestrian movement through raised stones and street design."
+    },
+    {
+      "id": "q28",
+      "sectionId": "where-the-sidewalk-starts",
+      "subjectIds": [
+        "literature-media",
+        "art-music"
+      ],
+      "prompt": "In The Jetsons, moving sidewalks mainly symbolize...",
+      "options": [
+        "a return to village life",
+        "a futuristic vision of automated convenience",
+        "nostalgia for railways",
+        "the rejection of private cars"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Jetsons use mechanized infrastructure to imagine a future with less friction and more effortless movement."
+    },
+    {
+      "id": "q29",
+      "sectionId": "monkey-see",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "The main purpose of a prototype is usually to...",
+      "options": [
+        "replace the finished product",
+        "test an idea before production",
+        "guarantee commercial success",
+        "freeze the design after the first version"
+      ],
+      "answerIndex": 1,
+      "explanation": "A prototype exists to teach, test, and refine before large-scale production begins."
+    },
+    {
+      "id": "q30",
+      "sectionId": "monkey-see",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "Which option best represents high fidelity?",
+      "options": [
+        "a paper sketch",
+        "a rough doodle diagram",
+        "an interactive prototype close to the final product",
+        "a bullet-point idea list"
+      ],
+      "answerIndex": 2,
+      "explanation": "The higher the fidelity, the more closely the prototype resembles the eventual product."
+    },
+    {
+      "id": "q31",
+      "sectionId": "monkey-see",
+      "subjectIds": [
+        "science-technology",
+        "history"
+      ],
+      "prompt": "To preserve secrecy, some early iPhone prototypes were hidden inside what?",
+      "options": [
+        "iPod-like casings",
+        "Game Boy consoles",
+        "camera bodies",
+        "desk phones"
+      ],
+      "answerIndex": 0,
+      "explanation": "Apple reportedly disguised some prototypes inside hardware that looked more like iPods than phones."
+    },
+    {
+      "id": "q32",
+      "sectionId": "monkey-see",
+      "subjectIds": [
+        "special-area",
+        "science-technology"
+      ],
+      "prompt": "Biomimicry means...",
+      "options": [
+        "copying only animals in robotics",
+        "drawing design inspiration from living systems",
+        "replacing natural materials with plastics",
+        "making every object biodegradable"
+      ],
+      "answerIndex": 1,
+      "explanation": "Biomimicry studies strategies from the living world and adapts them into human designs and systems."
+    },
+    {
+      "id": "q33",
+      "sectionId": "the-lovely-and-the-liminal",
+      "subjectIds": [
+        "science-technology",
+        "special-area"
+      ],
+      "prompt": "The doorway effect mainly refers to the tendency to...",
+      "options": [
+        "walk more slowly in hallways",
+        "forget why you entered a room",
+        "change your accent in a new place",
+        "dream more vividly near doors"
+      ],
+      "answerIndex": 1,
+      "explanation": "Crossing from one space into another can disrupt the short-term maintenance of an intention."
+    },
+    {
+      "id": "q34",
+      "sectionId": "the-lovely-and-the-liminal",
+      "subjectIds": [
+        "special-area",
+        "literature-media"
+      ],
+      "prompt": "The word 'liminal' comes from a Latin word meaning...",
+      "options": [
+        "horizon",
+        "threshold",
+        "journey",
+        "waiting"
+      ],
+      "answerIndex": 1,
+      "explanation": "It comes from limen, the Latin word for threshold."
+    },
+    {
+      "id": "q35",
+      "sectionId": "the-lovely-and-the-liminal",
+      "subjectIds": [
+        "literature-media",
+        "art-music"
+      ],
+      "prompt": "Which film was actually shot in a single continuous take inside the Hermitage Museum?",
+      "options": [
+        "1917",
+        "Birdman",
+        "Russian Ark",
+        "Victoria"
+      ],
+      "answerIndex": 2,
+      "explanation": "Russian Ark is famous for being filmed in one continuous shot, making it a powerful example of cinematic passage through space."
+    },
+    {
+      "id": "q36",
+      "sectionId": "the-lovely-and-the-liminal",
+      "subjectIds": [
+        "art-music"
+      ],
+      "prompt": "Which Edward Hopper painting is often discussed as an icon of suspended, liminal urban space?",
+      "options": [
+        "Automat",
+        "Nighthawks",
+        "Gas",
+        "Rooms by the Sea"
+      ],
+      "answerIndex": 1,
+      "explanation": "Nighthawks captures a feeling of being between inside and outside, contact and isolation."
+    },
+    {
+      "id": "q37",
+      "sectionId": "going-pains",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "The prefrontal cortex generally continues maturing until about...",
+      "options": [
+        "age 12",
+        "the early teen years",
+        "the mid-twenties",
+        "age 40"
+      ],
+      "answerIndex": 2,
+      "explanation": "Its slow development helps explain why adolescence remains an extended transitional state."
+    },
+    {
+      "id": "q38",
+      "sectionId": "going-pains",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "The modern social category of the 'teenager' became especially prominent in which century?",
+      "options": [
+        "the 17th",
+        "the 18th",
+        "the 19th",
+        "the 20th"
+      ],
+      "answerIndex": 3,
+      "explanation": "The idea of the teenager rose sharply in the 20th century alongside mass schooling, youth culture, and targeted consumption."
+    },
+    {
+      "id": "q39",
+      "sectionId": "going-pains",
+      "subjectIds": [
+        "science-technology",
+        "special-area"
+      ],
+      "prompt": "The term neophilia refers to...",
+      "options": [
+        "fear of novelty",
+        "attraction to what is new",
+        "rejection of rites of passage",
+        "memory of childhood"
+      ],
+      "answerIndex": 1,
+      "explanation": "Neophilia is a tendency to seek or enjoy novelty, often linked to exploration and risk-taking."
+    },
+    {
+      "id": "q40",
+      "sectionId": "going-pains",
+      "subjectIds": [
+        "social-studies",
+        "history"
+      ],
+      "prompt": "Which anthropologist is especially associated with the concept of rites of passage?",
+      "options": [
+        "Claude Levi-Strauss",
+        "Margaret Mead",
+        "Arnold van Gennep",
+        "Bronislaw Malinowski"
+      ],
+      "answerIndex": 2,
+      "explanation": "Arnold van Gennep developed the classic framework of separation, liminality, and reintegration."
+    },
+    {
+      "id": "q41",
+      "sectionId": "home-and-wandering",
+      "subjectIds": [
+        "history",
+        "science-technology"
+      ],
+      "prompt": "The magnetic compass was first developed in...",
+      "options": [
+        "Greece",
+        "the Arab world",
+        "China",
+        "Italy"
+      ],
+      "answerIndex": 2,
+      "explanation": "China played a major role in the development of the compass, which transformed long-distance navigation."
+    },
+    {
+      "id": "q42",
+      "sectionId": "home-and-wandering",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "What does a sextant mainly measure?",
+      "options": [
+        "water depth",
+        "the angle between a celestial object and the horizon",
+        "ship speed",
+        "air pressure"
+      ],
+      "answerIndex": 1,
+      "explanation": "A sextant helps estimate position by measuring the angle of a celestial body relative to the horizon."
+    },
+    {
+      "id": "q43",
+      "sectionId": "home-and-wandering",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "North American monarch butterflies notably migrate toward...",
+      "options": [
+        "Greenland",
+        "Mexico",
+        "Patagonia",
+        "the Sahara"
+      ],
+      "answerIndex": 1,
+      "explanation": "Their migration to Mexico is one of the best-known examples of extraordinary animal navigation."
+    },
+    {
+      "id": "q44",
+      "sectionId": "home-and-wandering",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "GPS mainly locates a device through...",
+      "options": [
+        "triangulation from local radio towers",
+        "trilateration using satellites",
+        "thermal mapping",
+        "terrain recognition"
+      ],
+      "answerIndex": 1,
+      "explanation": "The system compares signal travel times from multiple satellites to estimate position."
+    },
+    {
+      "id": "q45",
+      "sectionId": "roads-and-futures",
+      "subjectIds": [
+        "history",
+        "science-technology"
+      ],
+      "prompt": "John Loudon McAdam is associated with what kind of road surface?",
+      "options": [
+        "the vaulted Roman road",
+        "macadam",
+        "wooden corduroy road",
+        "the suspended highway"
+      ],
+      "answerIndex": 1,
+      "explanation": "Macadam became one of the defining technologies in the history of modern road building."
+    },
+    {
+      "id": "q46",
+      "sectionId": "roads-and-futures",
+      "subjectIds": [
+        "science-technology",
+        "social-studies"
+      ],
+      "prompt": "What does Braess's paradox show about traffic systems?",
+      "options": [
+        "more roads always reduce congestion",
+        "a new road can sometimes make traffic worse",
+        "pedestrians always slow cities down",
+        "roundabouts are always better than traffic lights"
+      ],
+      "answerIndex": 1,
+      "explanation": "The paradox shows that a richer network is not always more efficient when many people optimize for themselves at once."
+    },
+    {
+      "id": "q47",
+      "sectionId": "roads-and-futures",
+      "subjectIds": [
+        "history",
+        "art-music"
+      ],
+      "prompt": "What nickname helped make Route 66 famous in the American imagination?",
+      "options": [
+        "The Last Mile",
+        "The Mother Road",
+        "The Golden Track",
+        "The Open Ribbon"
+      ],
+      "answerIndex": 1,
+      "explanation": "Route 66 is widely known as 'The Mother Road,' a title reinforced by literature, music, and road-trip mythology."
+    },
+    {
+      "id": "q48",
+      "sectionId": "roads-and-futures",
+      "subjectIds": [
+        "history"
+      ],
+      "prompt": "Which great ancient route linked Susa and Sardis in the Persian Empire?",
+      "options": [
+        "the Appian Way",
+        "the Royal Road",
+        "the Via Egnatia",
+        "the Incense Route"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Persian Royal Road allowed messages, resources, and authority to move quickly across the empire."
+    },
+    {
+      "id": "q49",
+      "sectionId": "call-of-duty-free",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "The Grand Tour was mainly undertaken by...",
+      "options": [
+        "itinerant Asian merchants",
+        "young European aristocrats",
+        "West African pilgrims",
+        "American military scientists"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Grand Tour functioned as an educational and cultural rite of passage for elite Europeans."
+    },
+    {
+      "id": "q50",
+      "sectionId": "call-of-duty-free",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "Which Japanese establishment is often described as the oldest operating hotel in the world?",
+      "options": [
+        "The Peninsula Tokyo",
+        "Nishiyama Onsen Keiunkan",
+        "Imperial Hotel Kyoto",
+        "Hakone Gora House"
+      ],
+      "answerIndex": 1,
+      "explanation": "Nishiyama Onsen Keiunkan frequently appears in discussions of the oldest hotels still in operation."
+    },
+    {
+      "id": "q51",
+      "sectionId": "call-of-duty-free",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "An entrepot mainly serves to...",
+      "options": [
+        "manufacture goods on site",
+        "train local merchants",
+        "store and redistribute goods in transit",
+        "house luxury travelers"
+      ],
+      "answerIndex": 2,
+      "explanation": "An entrepot works as a node for storage, exchange, and re-export rather than final local use."
+    },
+    {
+      "id": "q52",
+      "sectionId": "call-of-duty-free",
+      "subjectIds": [
+        "social-studies"
+      ],
+      "prompt": "Dark tourism refers to visits to...",
+      "options": [
+        "only caves and underground spaces",
+        "sites associated with death, disaster, or trauma",
+        "closed parks",
+        "places where photography is banned"
+      ],
+      "answerIndex": 1,
+      "explanation": "Dark tourism raises difficult questions about memory, curiosity, respect, and the consumption of tragedy."
+    },
+    {
+      "id": "q53",
+      "sectionId": "next-year-in-futurism",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "Nuclear fusion naturally powers...",
+      "options": [
+        "the Moon",
+        "the Sun",
+        "comets",
+        "lightning"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Sun runs on fusion, which is why scientists hope to reproduce the process as a human energy source."
+    },
+    {
+      "id": "q54",
+      "sectionId": "next-year-in-futurism",
+      "subjectIds": [
+        "science-technology",
+        "history"
+      ],
+      "prompt": "Nikola Tesla's Wardenclyffe Tower was mainly intended to...",
+      "options": [
+        "launch private rockets",
+        "transmit wireless communications and possibly power",
+        "manufacture graphene",
+        "store government data"
+      ],
+      "answerIndex": 1,
+      "explanation": "Wardenclyffe represented Tesla's ambitious vision of global wireless transmission, but it never fully came to life."
+    },
+    {
+      "id": "q55",
+      "sectionId": "next-year-in-futurism",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "The phrase 'quantum supremacy' refers to the moment when...",
+      "options": [
+        "a quantum computer performs a task impractical for a classical one",
+        "quantum physics replaces all classical physics",
+        "encryption becomes impossible",
+        "classical processors vanish from the market"
+      ],
+      "answerIndex": 0,
+      "explanation": "The term refers to superiority on a specific computational task, not the total replacement of classical computing."
+    },
+    {
+      "id": "q56",
+      "sectionId": "next-year-in-futurism",
+      "subjectIds": [
+        "science-technology",
+        "special-area"
+      ],
+      "prompt": "AGI stands for...",
+      "options": [
+        "Automated Graphics Interface",
+        "Artificial General Intelligence",
+        "Adaptive Global Internet",
+        "Augmented Generative Index"
+      ],
+      "answerIndex": 1,
+      "explanation": "AGI refers to the idea of an artificial intelligence able to learn and reason across a wide range of contexts."
+    },
+    {
+      "id": "q57",
+      "sectionId": "concluding-questions",
+      "subjectIds": [
+        "social-studies",
+        "special-area"
+      ],
+      "prompt": "The sunk cost fallacy is the tendency to...",
+      "options": [
+        "overestimate future costs",
+        "continue mainly because you already invested heavily",
+        "refuse all financial risk",
+        "underestimate a certain loss"
+      ],
+      "answerIndex": 1,
+      "explanation": "This bias pushes people to keep going because they have already paid, even when quitting would be wiser."
+    },
+    {
+      "id": "q58",
+      "sectionId": "concluding-questions",
+      "subjectIds": [
+        "science-technology"
+      ],
+      "prompt": "In modern mathematics, Zeno's dichotomy paradox is partly resolved by the idea that...",
+      "options": [
+        "space does not exist",
+        "an infinite number of steps can converge to a finite total",
+        "time locally stops",
+        "distance has no midpoint"
+      ],
+      "answerIndex": 1,
+      "explanation": "Convergent series show how infinitely many divisions can still produce a finite overall distance."
+    },
+    {
+      "id": "q59",
+      "sectionId": "concluding-questions",
+      "subjectIds": [
+        "history",
+        "social-studies"
+      ],
+      "prompt": "What was Francis Fukuyama mainly arguing with the phrase 'The End of History'?",
+      "options": [
+        "that no more events would happen",
+        "that ancient history no longer mattered",
+        "that liberal democracy seemed to have triumphed as an ideological horizon",
+        "that all monarchies would disappear immediately"
+      ],
+      "answerIndex": 2,
+      "explanation": "Fukuyama was not claiming that nothing would happen, but that one political model seemed to have won the great ideological contest of the era."
+    },
+    {
+      "id": "q60",
+      "sectionId": "concluding-questions",
+      "subjectIds": [
+        "literature-media"
+      ],
+      "prompt": "Which television series is famous for ending with a cut to black?",
+      "options": [
+        "Breaking Bad",
+        "Mad Men",
+        "The Sopranos",
+        "Lost"
+      ],
+      "answerIndex": 2,
+      "explanation": "The ending of The Sopranos became one of the best-known examples of a deliberately ambiguous conclusion."
+    }
+  ]
+}

@@ -1,0 +1,864 @@
+{
+  "id": "raw.concluding-questions",
+  "sectionId": "concluding-questions",
+  "entries": [
+    {
+      "id": "raw.concluding-questions.001",
+      "order": 1,
+      "sectionId": "concluding-questions",
+      "mediaIds": [
+        "asset.concluding-questions.raw.future-costs-vs-past-costs",
+        "asset.concluding-questions.raw.when-past-effort-becomes-a-trap"
+      ],
+      "questionIds": [
+        "question.concluding-questions.100.001",
+        "question.concluding-questions.200.001"
+      ],
+      "title": "When Is It Wise to Let Go?",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "When is it a good idea to give up? Be sure to learn about the sunk cost fallacy. Does it imply that we should quit on things more often? How about on people?",
+      "links": [
+        {
+          "label": "The Decision Lab - The Sunk Cost Fallacy",
+          "url": "https://thedecisionlab.com/biases/the-sunk-cost-fallacy"
+        }
+      ],
+      "studentExplanation": "The sunk cost fallacy happens when people keep investing time, money, effort, or emotion into something mainly because they have already invested so much. That can make quitting feel like wasting the past, even when continuing would create more stress or harm. This entry asks students to separate wise persistence from irrational attachment: sometimes “not giving up” is courage, but sometimes letting go is the clearest decision.\n\nAdd the decision frame: sunk cost is about refusing to waste the past, even though only future costs and future benefits can still be changed. Students should test each case by asking whether continuing serves a real goal, protects a person, or only keeps an old promise alive because quitting feels embarrassing. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this helps students understand that stopping can be a serious decision, not just failure. At the section level, it turns the theme’s final questions toward judgment: when is a destination no longer worth the route? At the year-theme level, it connects to endings and progress because choosing to stop can itself become a threshold, a reset, or the start of a better path.",
+      "takeaway": "Stopping can be rational when the future no longer justifies the cost",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Performed Progress"
+      ],
+      "examples": [
+        "When is it a good idea to give up",
+        "Be sure to learn about the sunk cost fallacy",
+        "Does it imply that we should quit on things more often",
+        "How about on people",
+        "When past effort becomes a trap",
+        "Future costs vs. past costs"
+      ],
+      "debateRelevance": "Useful when debating whether perseverance is always admirable or whether stopping can be the wiser future-facing choice.",
+      "counterargument": "Quitting too quickly can also be harmful when a relationship, project, or commitment still has a realistic path forward.",
+      "visualSections": [
+        {
+          "title": "When Is It Wise to Let Go?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "When past effort becomes a trap",
+              "note": "Previous investment can pull people toward bad future choices.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of a person looking at a half-finished project, ticket, or plan while deciding whether to continue. A simple decision fork or realistic desk scene works better than a cartoon brain or generic business icon.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational explanation of the sunk cost fallacy, preferably with examples involving tickets, projects, relationships, or school commitments.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/when-past-effort-becomes-a-trap.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Future costs vs. past costs",
+              "note": "A rational decision should focus on what comes next, not only what has already been spent.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic decision-making image: two labeled paths, “continue” and “stop,” with time/money/energy notes. If no strong real image exists, generate a clean WSC-style realistic visual of a student comparing future costs and future benefits.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video on how to avoid the sunk cost fallacy by focusing on future costs and benefits.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/future-costs-vs-past-costs.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Why Do We Go All In on Lost Causes?",
+          "url": "https://www.youtube.com/watch?v=HMBWMdP0-tg"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Endings",
+        "Progress"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Thresholds & Irreversibility",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Concluding Questions"
+    },
+    {
+      "id": "raw.concluding-questions.002",
+      "order": 2,
+      "sectionId": "concluding-questions",
+      "mediaIds": [
+        "asset.concluding-questions.raw.when-timing-helps",
+        "asset.concluding-questions.raw.when-timing-hurts"
+      ],
+      "questionIds": [
+        "question.concluding-questions.100.002",
+        "question.concluding-questions.200.002"
+      ],
+      "title": "Would You Want to Know the Exact Waiting Time?",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "Is it always better to know how long it’ll take you to get somewhere? If not, what are examples of times when it would be better not to know?",
+      "links": [],
+      "studentExplanation": "People often say they want certainty, but exact timing is not always comforting. A countdown can help when you need to plan a connection, deadline, or safety decision. But in emotional situations, knowing exactly how long you must wait can make every minute feel heavier. This entry asks whether information is useful because it is accurate, or because it helps people act and cope.\n\nThe helpful distinction is practical waiting versus emotional waiting. A countdown can help at an airport gate, train platform, hospital queue, or project deadline because it supports planning, but in grief, punishment, illness, or suspense, exact time can make the delay heavier by turning every minute into something to watch. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this helps students see that knowledge changes feelings, not just decisions. At the section level, it returns to one of the year’s biggest questions: does knowing where you are in a journey always help? At the year-theme level, it connects to waiting and prediction because progress information can reduce anxiety, increase stress, or do both at the same time.",
+      "takeaway": "Information helps most when it improves action or coping",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "examples": [
+        "Is it always better to know how long it’ll take you to get somewhere",
+        "If not, what are examples of times when it would be better not to know",
+        "When timing helps",
+        "When timing hurts"
+      ],
+      "debateRelevance": "Useful when debating whether transparency about waiting times always helps or whether exact knowledge can sometimes worsen dread.",
+      "counterargument": "People may still deserve accurate timing information even when it is uncomfortable, especially if it affects safety or responsibility.",
+      "visualSections": [
+        {
+          "title": "Would You Want to Know the Exact Waiting Time?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "When timing helps",
+              "note": "Exact timing can be useful when people need to plan, connect, prepare, or stay safe.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of a transit countdown board, hospital appointment schedule, or airport departure screen where timing clearly helps planning. Avoid generic clocks unless the image clearly shows a decision being supported.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining how waiting time, countdowns, or progress information affect planning and anxiety.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/when-timing-helps.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "When timing hurts",
+              "note": "Precise information can make waiting more stressful when it gives no control.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of someone waiting anxiously with a timer, phone notification, or countdown. If /imagesearch finds only generic stock images, use /imagecreator or /imagegen to create a realistic WSC-style scene of a student facing a long countdown with no way to change the outcome.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video about uncertainty, anxiety, or the psychology of waiting, ideally with clear examples for young viewers.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/when-timing-hurts.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Waiting",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Movement Without Arrival",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Concluding Questions"
+    },
+    {
+      "id": "raw.concluding-questions.003",
+      "order": 3,
+      "sectionId": "concluding-questions",
+      "mediaIds": [
+        "asset.concluding-questions.raw.achilles-and-the-tortoise",
+        "asset.concluding-questions.raw.infinite-steps-finite-arrival",
+        "asset.concluding-questions.raw.the-arrow-paradox",
+        "asset.concluding-questions.raw.the-dichotomy-paradox"
+      ],
+      "questionIds": [
+        "question.concluding-questions.100.003",
+        "question.concluding-questions.200.003"
+      ],
+      "title": "Zeno and the Problem of Ever Getting There",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "What if it takes us forever to get there? Consider the “dichotomy paradox” posed by the Greek philosopher Zeno. He observed that to walk across a thing—for instance, Greenland (which belongs to Denmark)—first you need to walk across half of it. Then you need to walk across half of what’s left, then half of what’s left after that, and so forth. Since there is always another half to go, you’ll never reach the other end. How would you solve this and his other paradoxes of motion?",
+      "links": [
+        {
+          "label": "Zeno’s paradoxes of motion - TheCollector",
+          "url": "https://www.thecollector.com/zeno-paradoxes-motion-time/"
+        }
+      ],
+      "studentExplanation": "Zeno’s dichotomy paradox asks how anyone can ever arrive if every journey can be divided into more halfway steps forever. To cross a distance, you first reach halfway, then halfway of what remains, then halfway again, endlessly. Everyday life tells us motion obviously happens, but the paradox makes arrival feel logically puzzling. The linked article should be treated as content because it also introduces Zeno’s other motion puzzles and why later mathematics mattered.\n\nUse Zeno as more than a math trick: the paradox makes ordinary motion feel impossible by dividing a journey into endlessly smaller steps. The student explanation should connect the philosophical puzzle to the year theme: sometimes “Are we there yet?” becomes hard because the destination is not far away, but because the logic of arrival itself feels unstable. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this helps students understand a famous paradox about motion and infinity. At the section level, it turns the theme’s simple question into a philosophical problem: what does “getting there” mean if the route can be divided forever? At the year-theme level, it connects to journeys and thresholds because arrival is no longer just physical; it becomes a problem of reasoning.",
+      "takeaway": "Getting there can be simple in life but strange in logic",
+      "subjects": [
+        "Philosophy",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "What if it takes us forever to get there",
+        "Consider the “dichotomy paradox” posed by the Greek philosopher Zeno",
+        "Since there is always another half to go, you’ll never reach the other end",
+        "How would you solve this and his other paradoxes of motion",
+        "The Dichotomy Paradox",
+        "Achilles and the Tortoise",
+        "The Arrow Paradox",
+        "Infinite steps, finite arrival"
+      ],
+      "debateRelevance": "Useful when debating whether arrival is obvious in everyday life but strange when logic, infinity, and motion are examined closely.",
+      "counterargument": "A modern mathematical response says that an infinite series of smaller distances can still add up to a finite total.",
+      "visualSections": [
+        {
+          "title": "Zeno and the Problem of Ever Getting There",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Dichotomy Paradox",
+              "note": "The half, half-again, half-again problem makes arrival seem impossible.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic or educational diagram of Zeno’s dichotomy paradox showing a path divided into halves. If no clean real diagram is found, use /imagecreator or /imagegen to create a realistic WSC-style path across a landscape divided into half-steps. Do not use anime.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining Zeno’s dichotomy paradox for middle school or high school students.",
+              "links": [
+                {
+                  "label": "Zeno’s paradoxes of motion - TheCollector",
+                  "url": "https://www.thecollector.com/zeno-paradoxes-motion-time/"
+                }
+              ],
+              "url": "https://www.thecollector.com/zeno-paradoxes-motion-time/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/concluding-questions/the-dichotomy-paradox.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Achilles and the Tortoise",
+              "note": "Zeno uses a race to make catching up seem impossible.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for an educational illustration of Achilles and the tortoise paradox. If no accurate public-domain or educational diagram exists, create a realistic WSC-style race path with Achilles behind a tortoise and repeated smaller gaps.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining Achilles and the tortoise with clear visuals and no excessive technical detail.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/achilles-and-the-tortoise.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Arrow Paradox",
+              "note": "Motion becomes strange if time is divided into still instants.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic educational diagram of an arrow in flight separated into instants. If needed, generate a realistic WSC-style image of a flying arrow frozen across multiple time slices.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining the arrow paradox and the difference between instant and motion.",
+              "links": [
+                {
+                  "label": "Zeno’s paradoxes of motion - TheCollector",
+                  "url": "https://www.thecollector.com/zeno-paradoxes-motion-time/"
+                }
+              ],
+              "url": "https://www.thecollector.com/zeno-paradoxes-motion-time/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/concluding-questions/the-arrow-paradox.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Infinite steps, finite arrival",
+              "note": "The modern response is that infinitely many smaller steps can still add to a finite distance.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a simple realistic mathematical visual showing 1/2 + 1/4 + 1/8 approaching 1. If no perfect image exists, generate a clean WSC-style number-line or path diagram showing shrinking steps reaching a finish point.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining how infinite geometric series help resolve Zeno’s paradoxes.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/infinite-steps-finite-arrival.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Achilles and the Tortoise - 60-Second Adventures in Thought (1/6)",
+          "url": "https://www.youtube.com/watch?v=skM37PcZmWE"
+        },
+        {
+          "title": "What is Zeno's Dichotomy Paradox? - Colm Kelleher",
+          "url": "https://www.youtube.com/watch?v=EfqVnj-sgcc"
+        },
+        {
+          "title": "Zeno's Paradox - Achilles And The Tortoise",
+          "url": "https://www.youtube.com/watch?v=3vNlf2zGLaE"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Infrastructure Shapes Behavior",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "Concluding Questions"
+    },
+    {
+      "id": "raw.concluding-questions.004",
+      "order": 4,
+      "sectionId": "concluding-questions",
+      "mediaIds": [
+        "asset.concluding-questions.raw.when-patience-becomes-a-problem",
+        "asset.concluding-questions.raw.why-some-people-can-wait"
+      ],
+      "questionIds": [
+        "question.concluding-questions.100.004",
+        "question.concluding-questions.200.004"
+      ],
+      "title": "Patience: A Virtue, a Strategy, or a Burden?",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "“Are we there yet?” is a question linked with impatience. Explore the psychology of patience: what makes some people willing to calmly wait a little longer? Is patience more valued in some cultures than in others? And does patience have downsides?",
+      "links": [
+        {
+          "label": "Video link on impatience / patience",
+          "url": "https://www.youtube.com/watch?v=Gn51xYvJhQI"
+        }
+      ],
+      "studentExplanation": "Patience is the ability to tolerate delay, difficulty, or uncertainty without losing control immediately. It can come from self-control, trust, habit, cultural expectations, or the belief that waiting will lead to something worthwhile. But patience is not automatically good. Sometimes it helps people endure wisely; sometimes it becomes an excuse to accept unfairness or delay needed action.\n\nAdd the social side of patience: it can be discipline, trust, spiritual practice, politeness, or strategy, but it can also be used to make people accept unfair delays. The Shrek “Are we there yet?” clip is funny because it turns patience into a shared test inside a journey, but the serious question is who is asking someone else to wait and why. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this helps students treat patience as a psychological and cultural skill, not just a slogan. At the section level, it returns directly to “Are we there yet?” as a question about emotion. At the year-theme level, it connects to waiting and progress because how people handle delay can shape whether a journey feels manageable, meaningless, or unjust.",
+      "takeaway": "Waiting is wise only when it supports a better response",
+      "subjects": [
+        "Psychology",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Measuring Human Worth"
+      ],
+      "examples": [
+        "“Are we there yet",
+        "” is a question linked with impatience",
+        "Is patience more valued in some cultures than in others",
+        "And does patience have downsides",
+        "Why some people can wait",
+        "When patience becomes a problem"
+      ],
+      "debateRelevance": "Useful when debating whether patience is a virtue, a strategy, a cultural expectation, or a form of passivity.",
+      "counterargument": "Impatience is not always childish; it can be a reasonable response to injustice, avoidable delay, or broken promises.",
+      "visualSections": [
+        {
+          "title": "Patience: A Virtue, a Strategy, or a Burden?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Why some people can wait",
+              "note": "Patience appears as a mix of self-control, trust, habit, and expectation.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic educational image showing a student waiting calmly with a visible delayed reward or future goal. If /imagesearch does not find a precise image, use /imagecreator or /imagegen to create a realistic WSC-style waiting scene with a goal visible in the background.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Use /youtubesearch to find the exact linked video if possible, or a similar short educational video explaining patience, delayed gratification, and self-control.",
+              "links": [
+                {
+                  "label": "Shrek 2: Are we there yet? (HD CLIP)",
+                  "url": "https://www.youtube.com/watch?v=Gn51xYvJhQI"
+                }
+              ],
+              "videoUrl": "https://www.youtube.com/watch?v=Gn51xYvJhQI",
+              "videoLabel": "Video link on impatience / patience",
+              "src": "assets/raw-content/concluding-questions/why-some-people-can-wait.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=Gn51xYvJhQI",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "When patience becomes a problem",
+              "note": "Patience can become harmful when it prevents necessary action.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image showing someone waiting while an unfair or broken situation continues. Avoid melodramatic images; the picture should communicate passivity versus action. If needed, generate a realistic WSC-style image of two choices: “wait longer” and “act now.”",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video on healthy patience versus passivity, or on when waiting can become avoidance.",
+              "links": [
+                {
+                  "label": "Video link on impatience / patience",
+                  "url": "https://www.youtube.com/watch?v=Gn51xYvJhQI"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=Gn51xYvJhQI",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=Gn51xYvJhQI",
+              "videoLabel": "Video link on impatience / patience",
+              "src": "assets/raw-content/concluding-questions/when-patience-becomes-a-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Waiting",
+        "Progress"
+      ],
+      "primaryBigIdea": "Delayed Arrival",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Measuring Human Worth"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Delayed Arrival",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Performed Progress",
+          "Measuring Human Worth"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Shrek 2: Are we there yet? (HD CLIP)",
+          "url": "https://www.youtube.com/watch?v=Gn51xYvJhQI"
+        }
+      ],
+      "sectionTitle": "Concluding Questions"
+    },
+    {
+      "id": "raw.concluding-questions.005",
+      "order": 5,
+      "sectionId": "concluding-questions",
+      "mediaIds": [
+        "asset.concluding-questions.raw.can-history-have-a-final-destination"
+      ],
+      "questionIds": [
+        "question.concluding-questions.100.005",
+        "question.concluding-questions.200.005"
+      ],
+      "title": "The End of History—or Just Another Delay?",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "World War I was “the War to End All Wars”; 1989 was, per Francis Fukuyama, “The End of History”. The first meant achieving global peace; the second trumpeted the triumph of liberal democracy. The world isn’t there yet, in either case, but is it getting closer? Should one or both of these be our goals in the first place?",
+      "links": [
+        {
+          "label": "The Conversation / repost - The End of History explained",
+          "url": "https://theconversation.com/the-end-of-history-francis-fukuyamas-controversial-idea-explained-193225"
+        }
+      ],
+      "studentExplanation": "This entry compares two huge historical hopes: the hope that World War I would end major war, and the belief that liberal democracy had won the main ideological struggle after the Cold War. Neither claim means that history literally stopped. Instead, both imagine a final destination: a world beyond war, or a political system beyond serious rivals. The question is whether humanity should aim for such endpoints, or whether history is too unstable for final arrival.\n\nThe two examples work because they both imagine a final destination for conflict: World War I as a war that would end war, and Fukuyama’s argument as an ideological endpoint after the Cold War. The sources make this useful as a warning: people often call something “over” because they need closure, even when the next phase has already started. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this helps students understand two famous claims about historical endings. At the section level, it moves from personal choices and waiting to global political hopes. At the year-theme level, it connects to endings and progress because it asks whether societies can ever say “we’re there” in peace, politics, or history.",
+      "takeaway": "A political ending can be inspiring but partial and reversible",
+      "subjects": [
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Delayed Arrival",
+        "Performed Progress",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "World War I was “the War to End All Wars”",
+        "1989 was, per Francis Fukuyama, “The End of History”",
+        "The first meant achieving global peace",
+        "the second trumpeted the triumph of liberal democracy",
+        "The “War to End All Wars”",
+        "Fukuyama’s “End of History”",
+        "Can history have a final destination?"
+      ],
+      "debateRelevance": "Useful when debating whether humanity should aim for final political endings such as lasting peace or a stable ideological endpoint.",
+      "counterargument": "Peace and democratic progress can still be meaningful goals even if history never reaches a completely final endpoint.",
+      "visualSections": [
+        {
+          "title": "The End of History—or Just Another Delay?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The “War to End All Wars”",
+              "note": "The idealistic hope that World War I might create lasting peace becomes tragic and ironic.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic historical image connected to World War I and the phrase “the war to end all wars,” preferably a public-domain WWI image or a book/newspaper reference. This is a historical topic, so do not generate if an appropriate real image is available.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining why World War I was called “the war to end all wars” and why that hope failed.",
+              "links": [
+                {
+                  "label": "World War I Armistice image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Waffenstillstand_gr.jpg",
+                  "license": "Public domain historical artwork/source image"
+                }
+              ],
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Waffenstillstand_gr.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical artwork/source image"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Fukuyama’s “End of History”",
+              "note": "Fukuyama meant the apparent ideological triumph of liberal democracy, not the end of events.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of Francis Fukuyama, the cover of The End of History and the Last Man, or a reputable article image about the thesis. Since this is a named thinker/book, use /imagesearch and do not invent a portrait.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining Fukuyama’s End of History thesis clearly and neutrally.",
+              "links": [
+                {
+                  "label": "The Conversation / repost - The End of History explained",
+                  "url": "https://theconversation.com/the-end-of-history-francis-fukuyamas-controversial-idea-explained-193225"
+                }
+              ],
+              "url": "https://theconversation.com/the-end-of-history-francis-fukuyamas-controversial-idea-explained-193225",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named thinker/book thesis; preserve source link rather than generating a fake portrait or cover."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Can history have a final destination?",
+              "note": "The attraction and danger of grand political endings are compared.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of a forked road, global summit, peace monument, or historical timeline used in an educational context. If no suitable image exists, generate a realistic WSC-style visual of a timeline leading to a question mark rather than a final finish line.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video about whether history progresses toward peace, democracy, or recurring conflict.",
+              "links": [
+                {
+                  "label": "The Conversation / repost - The End of History explained",
+                  "url": "https://theconversation.com/the-end-of-history-francis-fukuyamas-controversial-idea-explained-193225"
+                }
+              ],
+              "url": "https://theconversation.com/the-end-of-history-francis-fukuyamas-controversial-idea-explained-193225",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/concluding-questions/can-history-have-a-final-destination.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Endings",
+        "Progress"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Performed Progress",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Performed Progress",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "Concluding Questions"
+    },
+    {
+      "id": "raw.concluding-questions.006",
+      "order": 6,
+      "sectionId": "concluding-questions",
+      "mediaIds": [],
+      "questionIds": [
+        "question.concluding-questions.100.006",
+        "question.concluding-questions.200.006"
+      ],
+      "title": "When Stories Refuse to End Clearly",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "I choose to believe. Endings aren’t always clear. In the final episode of Stargate Universe, a starship flies off into the vast emptiness between galaxies, its fate never to be resolved; cancellation left its crew’s future ambiguous. Other works of fiction have ended with more deliberate uncertainty. The Sopranos infamously cut to black; the last chapter of Life of Pi lets us decide whether the main character really made friends with a tiger; Deckard may or may not be a replicant. How important is it that stories end definitively? Can you think of any that should have ended a little earlier—or skipped their epilogues?",
+      "links": [
+        {
+          "label": "Stargate Universe abrupt ending",
+          "url": "https://staticonthetv.substack.com/p/in-hindsight-stargate-universes-abrupt"
+        },
+        {
+          "label": "The Sopranos cut to black",
+          "url": "https://screenrant.com/the-sopranos-cut-to-black-ending-legacy-17-years-later/"
+        },
+        {
+          "label": "Life of Pi ending",
+          "url": "https://screenrant.com/life-of-pi-movie-ending-spoilers/"
+        },
+        {
+          "label": "Harry Potter epilogue problems",
+          "url": "https://screenrant.com/harry-potter-epilogue-problems/"
+        },
+        {
+          "label": "Blade Runner / Deckard ambiguity - BFI support link",
+          "url": "https://www.bfi.org.uk/features/blade-runner"
+        }
+      ],
+      "studentExplanation": "Some stories refuse to end with full certainty. Sometimes that happens because a show is cancelled before it can finish. Sometimes the uncertainty is deliberate, as with The Sopranos cut to black or Life of Pi asking which version of the story we prefer. Blade Runner adds uncertainty about identity itself, while the Harry Potter epilogue shows the opposite risk: an ending can feel too neat. This entry asks whether stories need closure, or whether an ending can be powerful because it leaves us still thinking.\n\nThe extra explanation should separate accidental uncertainty from chosen ambiguity. A cancelled show leaves viewers without information; The Sopranos, Blade Runner, Life of Pi, and over-neat epilogues ask a different question: whether an ending should answer everything, or leave the audience inside the work after the plot stops. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this helps students compare unfinished, ambiguous, and over-closed endings. At the section level, it shifts the final questions from history and philosophy into narrative. At the year-theme level, it connects to endings and liminality because some stories remain memorable precisely because they stop at a threshold rather than fully crossing it.",
+      "takeaway": "Ambiguity works when uncertainty deepens the meaning",
+      "subjects": [
+        "Language and Literature",
+        "Media / Film"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Managing Uncertainty",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "I choose to believe",
+        "Endings aren’t always clear",
+        "cancellation left its crew’s future ambiguous",
+        "Other works of fiction have ended with more deliberate uncertainty",
+        "Stargate Universe: cancelled before arrival",
+        "The Sopranos: cut to black",
+        "Life of Pi: which story do you believe?",
+        "Blade Runner: is Deckard human?",
+        "Harry Potter: when closure is too neat"
+      ],
+      "debateRelevance": "Useful when debating whether audiences deserve definitive closure or whether uncertainty can make an ending more powerful.",
+      "counterargument": "Ambiguity only works when it feels earned; otherwise it can seem like cancellation, avoidance, or unfinished planning.",
+      "visualSections": [
+        {
+          "title": "When Stories Refuse to End Clearly",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Stargate Universe: cancelled before arrival",
+              "note": "The difference between an intended open ending and an unresolved ending caused by cancellation is made visible.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a real still or official image from Stargate Universe showing the Destiny ship or crew. This is a named TV work, so use the exact show image via /imagesearch and do not generate a fake spaceship unless only a generic concept card is needed.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational or analytical video about Stargate Universe’s ending, cancellation, or unresolved story. If no 5-7 minute video exists, use a reliable short clip or analysis and preserve the article link.",
+              "links": [
+                {
+                  "label": "Stargate Universe abrupt ending",
+                  "url": "https://staticonthetv.substack.com/p/in-hindsight-stargate-universes-abrupt"
+                }
+              ],
+              "url": "https://staticonthetv.substack.com/p/in-hindsight-stargate-universes-abrupt",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named television work; preserve source link rather than embedding or generating a fake still."
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Sopranos: cut to black",
+              "note": "A sudden ending can force the audience to interpret danger, death, and uncertainty.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a real still from The Sopranos final diner scene or a reputable article image about the cut-to-black ending. This is a named TV scene, so /imagesearch must find the actual scene or no image should be embedded.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational analysis of The Sopranos ending and why the cut to black became controversial.",
+              "links": [
+                {
+                  "label": "The Sopranos cut to black",
+                  "url": "https://screenrant.com/the-sopranos-cut-to-black-ending-legacy-17-years-later/"
+                }
+              ],
+              "url": "https://screenrant.com/the-sopranos-cut-to-black-ending-legacy-17-years-later/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named television scene; preserve source link rather than embedding or generating a fake still."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Life of Pi: which story do you believe?",
+              "note": "Ambiguity appears as a philosophical choice between two versions of truth, survival, faith, and storytelling.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a real official still from Life of Pi showing Pi and Richard Parker or the lifeboat. Use /imagesearch for the exact film image; do not create a fake tiger scene. Preserve the source link for ending analysis.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational explanation of the Life of Pi ending and the two-story choice.",
+              "links": [
+                {
+                  "label": "Life of Pi ending",
+                  "url": "https://screenrant.com/life-of-pi-movie-ending-spoilers/"
+                }
+              ],
+              "url": "https://screenrant.com/life-of-pi-movie-ending-spoilers/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named film/book ending; preserve source link rather than generating a fake tiger/lifeboat image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Blade Runner: is Deckard human?",
+              "note": "Ambiguity about identity, memory, and humanity appears through science fiction.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a real still from Blade Runner showing Deckard or the unicorn clue. This is a named film and exact case, so use /imagesearch and do not generate a replacement still. If rights are an issue, keep only the LINK button and text card.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video explaining the Deckard replicant ambiguity in Blade Runner.",
+              "links": [
+                {
+                  "label": "Blade Runner / Deckard ambiguity - BFI support link",
+                  "url": "https://www.bfi.org.uk/features/blade-runner"
+                }
+              ],
+              "url": "https://www.bfi.org.uk/features/blade-runner",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named film ambiguity; preserve BFI/source link rather than generating a lookalike still."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Harry Potter: when closure is too neat",
+              "note": "Ambiguity is compared with the opposite problem: an epilogue that may close too much too quickly.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a real still from the Harry Potter 19 Years Later epilogue or a reliable article image. This is a named film/book ending, so use /imagesearch only; do not generate lookalike characters.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational or analytical video on why the Harry Potter epilogue is debated, preferably focused on narrative closure and aftermath.",
+              "links": [
+                {
+                  "label": "Harry Potter epilogue problems",
+                  "url": "https://screenrant.com/harry-potter-epilogue-problems/"
+                }
+              ],
+              "url": "https://screenrant.com/harry-potter-epilogue-problems/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named film/book epilogue; preserve source link rather than generating lookalike characters."
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Endings",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Managing Uncertainty",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Managing Uncertainty",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "Concluding Questions"
+    },
+    {
+      "id": "raw.concluding-questions.007",
+      "order": 7,
+      "sectionId": "concluding-questions",
+      "mediaIds": [
+        "asset.concluding-questions.raw.arrival-as-a-new-beginning",
+        "asset.concluding-questions.raw.what-now"
+      ],
+      "questionIds": [
+        "question.concluding-questions.100.007",
+        "question.concluding-questions.200.007"
+      ],
+      "title": "We’re There. What Comes After?",
+      "guidingSection": "Concluding Questions",
+      "rawOfficialText": "This ending is clear: we’re there. Where do we go next?",
+      "links": [],
+      "studentExplanation": "The theme ends by finally saying the words students have been waiting for: we’re there. But the next sentence immediately opens a new journey. That is the point: arrival can be real, but it rarely ends thinking, growth, or movement. A finished route can become a beginning, and a destination can become the place where the next question starts.\n\nTreat this as the final pivot of the whole theme: arrival is real, but it is not the same as disappearance of motion. A finish line can become a starting line, a graduation can become a new uncertainty, and the phrase “we’re there” matters because it immediately raises the next destination. Use this to return to the theme: what counts as arrival, when waiting or quitting becomes reasonable, how closure changes a story or decision, and why getting there often opens another question.",
+      "whyItMatters": "At the entry level, this closes the theme with a simple but powerful reversal. At the section level, it turns concluding questions into a doorway toward what comes next. At the year-theme level, it connects to journeys and endings because the final answer to “Are we there yet?” is not just yes; it is also “what now?”",
+      "takeaway": "Getting there often begins the next journey",
+      "subjects": [
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "This ending is clear: we’re there",
+        "Where do we go next",
+        "Arrival as a new beginning",
+        "What now?"
+      ],
+      "debateRelevance": "Useful when debating whether arrival is a final state or a threshold that creates new routes, responsibilities, and questions.",
+      "counterargument": "Some endings really are final, and not every arrival needs to be turned into another task or journey.",
+      "visualSections": [
+        {
+          "title": "We’re There. What Comes After?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Arrival as a new beginning",
+              "note": "Final destination appears as a threshold into another route.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of a finish line that opens into another path, a graduation doorway, or travelers reaching a signpost with multiple next directions. If no perfect image exists, generate a realistic WSC-app-style image with a warm beige/brown/maroon palette, a route ending at “We’re there,” and a new path beginning beyond it.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational video or reflective classroom-friendly video about endings becoming beginnings, goal completion, or life as continuing journeys.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/arrival-as-a-new-beginning.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "What now?",
+              "note": "A completed theme becomes a next project, next route, or next question.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, known poster, specific building, patent, object, or named visual source, then the agent should use /imagecreator or /imagegen to create a realistic WSC-app-style image that illustrates the idea without becoming decorative or cartoonish. Search for a realistic image of a student/team looking at a map after reaching a destination. If needed, generate a realistic WSC-style final-route image with subtle app UI inspiration and no anime style.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter if better. The video must explain the concept for young learners and should not be a random motivational clip, meme, or unrelated lecture. Search for a short educational or motivational video about reflection after reaching a goal, avoiding generic speeches and choosing something classroom-appropriate.",
+              "links": [],
+              "src": "assets/raw-content/concluding-questions/what-now.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Endings"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Thresholds & Irreversibility",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "Concluding Questions"
+    }
+  ]
+}

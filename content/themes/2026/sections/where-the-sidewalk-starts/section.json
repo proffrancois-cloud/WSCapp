@@ -1,0 +1,38 @@
+{
+  "id": "where-the-sidewalk-starts",
+  "title": "Where the Sidewalk Starts",
+  "shortTitle": "Where the Sidewalk Starts",
+  "originalTitle": "Where the Sidewalk Starts",
+  "order": 7,
+  "themeId": "wsc-2026",
+  "blurb": "Sidewalks, moving walkways, stroads, and the spaces between different uses.",
+  "angle": "WSC pays attention to the modest surfaces that quietly make movement possible.",
+  "subjectIds": [
+    "design-architecture-urbanism",
+    "geography-human-geography",
+    "visual-and-performing-arts"
+  ],
+  "bigIdeaIds": [
+    "infrastructure-shapes-behavior",
+    "movement-without-arrival",
+    "thresholds-and-irreversibility",
+    "delayed-arrival",
+    "managing-uncertainty",
+    "performed-progress",
+    "narrated-endings",
+    "visible-vs-real"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.where-the-sidewalk-starts.card.cover",
+    "icon": "asset.where-the-sidewalk-starts.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.where-the-sidewalk-starts",
+    "questions": "questions.where-the-sidewalk-starts",
+    "guide": "guide.where-the-sidewalk-starts",
+    "media": "media.where-the-sidewalk-starts",
+    "alpacards": "alpacards.where-the-sidewalk-starts",
+    "channelVideos": "channel.where-the-sidewalk-starts"
+  }
+}

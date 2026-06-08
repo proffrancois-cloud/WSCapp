@@ -1,0 +1,1623 @@
+{
+  "id": "raw.home-and-wandering",
+  "sectionId": "home-and-wandering",
+  "entries": [
+    {
+      "id": "raw.home-and-wandering.001",
+      "order": 1,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.astrolabe",
+        "asset.home-and-wandering.raw.chronometer",
+        "asset.home-and-wandering.raw.latitude-and-longitude",
+        "asset.home-and-wandering.raw.log-tables-and-ephemerides",
+        "asset.home-and-wandering.raw.magnetic-compass",
+        "asset.home-and-wandering.raw.sextant",
+        "asset.home-and-wandering.raw.the-log-and-line"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.001",
+        "question.home-and-wandering.200.001"
+      ],
+      "title": "Finding the Sea: Tools That Made the Ocean Measurable",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "In the fifteenth century, Europeans launched their caravels and galleons on what would become a merciless colonial crusade around the globe. They relied on a Chinese invention, the compass, which transformed the ocean from a terrifying void into a measurable grid. Learn about other key innovations that helped these smallpox-toting explorers navigate the seas, then discuss with your team: what would the world be like today if Europeans had simply stayed home?\nastrolabe | sextant | log tables and ephemerides | magnetic compass\nthe log and line | chronometer | latitude and longitude",
+      "links": [
+        {
+          "label": "Compass - National Geographic Education",
+          "url": "https://education.nationalgeographic.org/resource/compass/"
+        }
+      ],
+      "deepLinkAnalysis": "The National Geographic compass link is central, not optional: it explains both the mechanics and the historical consequences of the compass. It makes clear that a compass indicates direction by aligning a magnetized needle with Earth’s magnetic field, but it also emphasizes complications such as magnetic declination, deviation caused by ship materials, and the later rise of gyrocompasses, solar compasses, and GPS.\nThe strongest content upgrade is the article’s impact section: the compass helped long-distance exploration and trade, but it also helped colonization, disease, enslavement, and the remaking of global relationships. That matches the raw text’s phrase “merciless colonial crusade” and keeps the entry morally serious rather than treating navigation tools as neutral gadgets.",
+      "studentExplanation": "European ocean expansion depended on instruments that turned the sea into something measurable: direction, speed, time, position, and coordinates. The compass link matters because it shows that the compass was not just a needle pointing north; sailors also had to understand magnetic variation, ship interference, and how navigation tools changed the world. These tools made journeys more reliable, but they also helped power trade, empire, disease, and conquest, so progress in navigation was never politically neutral.\n\nThe added notes clarify what each tool makes measurable: the compass gives direction, the astrolabe and sextant measure celestial angles, log tables and ephemerides make calculations possible, the log and line estimates speed, and the chronometer helps solve longitude. Navigation is therefore a system of measurements, not one magic instrument. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this shows that leaving home across the ocean required tools, measurements, and learned systems. At the section level, it opens Home and Wandering by asking how humans convert frightening unknown space into routes. At the year-theme level, it connects to “Are We There Yet?” because knowing where you are can create power, but that power can be used for exploration, commerce, domination, or survival.",
+      "takeaway": "Navigation technology can make unknown space measurable, but it can also expand power and empire.",
+      "subjects": [
+        "History",
+        "Geography / Human Geography"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Performed Progress"
+      ],
+      "examples": [
+        "astrolabe",
+        "sextant",
+        "log tables and ephemerides",
+        "magnetic compass",
+        "the log and line",
+        "chronometer",
+        "latitude and longitude"
+      ],
+      "debateRelevance": "Useful when debating whether navigation tools should be seen as neutral progress or as technologies that helped produce colonial power.",
+      "counterargument": "Navigation tools can enable harm, but they can also support rescue, trade, scientific knowledge, and safer movement.",
+      "visualSections": [
+        {
+          "title": "Measuring the sea with sky and magnetism",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Astrolabe",
+              "note": "Astrolabe is presented as an older sky-measuring instrument that helped sailors estimate latitude by observing celestial bodies.",
+              "imageGuidance": "Find a very realistic image of a historical mariner’s astrolabe, preferably from a museum, maritime collection, or educational archive. The image should show the instrument clearly enough that students see it as a measuring device, not decoration. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how an astrolabe works for navigation, ideally with a simple demonstration. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/astrolabe.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sextant",
+              "note": "Sextant is presented as a more precise angle-measuring tool used to connect the horizon, the sky, and a ship’s position.",
+              "imageGuidance": "Find a very realistic image of a nautical sextant, preferably in use at sea or displayed by a maritime museum. The instrument should be visibly recognizable. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video showing how a sextant measures angles and helps estimate position at sea. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/sextant.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Log tables and ephemerides",
+              "note": "Navigation required printed calculations and astronomical data, not only physical tools.",
+              "imageGuidance": "Find a realistic image of historical nautical almanacs, ephemerides, log tables, or navigation tables. The visual should show pages of astronomical/navigation data rather than a generic book. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how sailors used astronomical tables or nautical almanacs to calculate position. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/log-tables-and-ephemerides.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Magnetic compass",
+              "note": "The compass made direction portable and reliable, while still requiring correction for magnetic variation.",
+              "imageGuidance": "Find a realistic image of a magnetic compass used for navigation, ideally maritime or historical. Also preserve the National Geographic compass link as a source button because it explains south-pointing Chinese compasses, declination, deviation, and global impact. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining the magnetic compass and why it changed navigation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Compass - National Geographic Education",
+                  "url": "https://education.nationalgeographic.org/resource/compass/"
+                }
+              ],
+              "url": "https://education.nationalgeographic.org/resource/compass/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/magnetic-compass.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Speed, time, and coordinates",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The log and line",
+              "note": "Log and line is presented as a simple tool for estimating a ship’s speed through the water.",
+              "imageGuidance": "Find a realistic historical image, diagram, or museum photo of a chip log / log line used by sailors. The image should show the rope/knots or wooden log clearly. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how the log and line measured ship speed. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/the-log-and-line.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Chronometer",
+              "note": "Marine chronometer is presented as a timekeeping breakthrough that made longitude much easier to calculate.",
+              "imageGuidance": "Find a realistic image of a marine chronometer, preferably a historical Harrison-style or museum example. It must look like a precision timekeeping instrument. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining why accurate timekeeping solved the longitude problem. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/chronometer.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Latitude and longitude",
+              "note": "Latitude and longitude is presented as a global coordinate grid that makes position describable.",
+              "imageGuidance": "Find a clear realistic map or globe image showing latitude and longitude lines. The visual should make the grid system obvious to young students. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining latitude and longitude with simple examples. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/latitude-and-longitude.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "6 Fascinating Ways Our Ancestors Navigated the Oceans",
+          "url": "https://www.youtube.com/watch?v=2Bv8dc19HQ0"
+        },
+        {
+          "title": "How does math guide our ships at sea? - George Christoph",
+          "url": "https://www.youtube.com/watch?v=AGCUm_jWtt4"
+        },
+        {
+          "title": "How the compass unlocked the world | Small Thing Big Idea, a TED series",
+          "url": "https://www.youtube.com/watch?v=Eup2J0oAq9Y"
+        },
+        {
+          "title": "How We Solved the Greatest Riddle In Navigation",
+          "url": "https://www.youtube.com/watch?v=1o3_w0Ypb78"
+        },
+        {
+          "title": "Star Compass | PBS HAWAIʻI",
+          "url": "https://www.youtube.com/watch?v=RN2URJqFpTg"
+        },
+        {
+          "title": "The longitude problem: history's deadliest riddle",
+          "url": "https://www.youtube.com/watch?v=3mHC-Pf8-dU"
+        },
+        {
+          "title": "The Sunstone: Secret of Viking Navigation",
+          "url": "https://www.youtube.com/watch?v=eq9NE2qQzTo"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Progress"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.002",
+      "order": 2,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.constant-frequency",
+        "asset.home-and-wandering.raw.cryptochromes",
+        "asset.home-and-wandering.raw.desert-ants",
+        "asset.home-and-wandering.raw.dung-beetle",
+        "asset.home-and-wandering.raw.echolocation",
+        "asset.home-and-wandering.raw.frequency-modulation",
+        "asset.home-and-wandering.raw.homing-pigeons",
+        "asset.home-and-wandering.raw.honeybees",
+        "asset.home-and-wandering.raw.indigo-bunting",
+        "asset.home-and-wandering.raw.magnetoreception",
+        "asset.home-and-wandering.raw.olfactory-navigation",
+        "asset.home-and-wandering.raw.sea-turtles",
+        "asset.home-and-wandering.raw.spatial-memory",
+        "asset.home-and-wandering.raw.sunlight-polarization",
+        "asset.home-and-wandering.raw.zugunruhe"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.002",
+        "question.home-and-wandering.200.002"
+      ],
+      "title": "How Animals Find Their Way",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "We have Google Maps, or Baidu, but how do other animals know when they’ve arrived? From the monarch butterfly’s multigenerational migration to the globe-trotting of the humpback whale, animals follow astoundingly complex routes around the Earth. Learn more about their migration patterns and processes through the terms and examples below, then consider: are animals truly navigating, or just following their instincts? And is human activity making it harder for them to find their way?\nmagnetoreception | cryptochromes | olfactory navigation | echolocation | zugunruhe\nconstant frequency | frequency modulation | sunlight polarization | spatial memory\nindigo bunting | dung beetle | honeybees | homing pigeons | sea turtles | desert ants",
+      "links": [
+        {
+          "label": "Indigo bunting - stars of navigation",
+          "url": "https://www.birdwatching.com/stories/indigobunting-stars.html"
+        },
+        {
+          "label": "Dung beetles navigate by the Milky Way",
+          "url": "https://www.science.org/content/article/dung-beetles-navigate-milky-way"
+        },
+        {
+          "label": "Honeybees and landmarks",
+          "url": "https://www.popsci.com/environment/honeybees-landmarks/"
+        },
+        {
+          "label": "Homing pigeons / bird navigation - Smithsonian",
+          "url": "https://ssec.si.edu/stemvisions-blog/how-do-birds-navigate"
+        },
+        {
+          "label": "Sea turtles and geomagnetic landmarks - NSF",
+          "url": "https://www.nsf.gov/news/geomagnetic-landmarks-give-turtles-sense-where"
+        },
+        {
+          "label": "Desert ants and path integration",
+          "url": "https://serres-lab.com/navigation-news-from-the-royal-institute-of-navigation-path-integration-lessons-from-the-desert-ants/"
+        }
+      ],
+      "deepLinkAnalysis": "The animal links make this entry much richer than a list of terms. The indigo bunting link emphasizes star learning: young birds appear to learn the rotating night sky and use it for migration. The sea turtle NSF link is especially important because it explains a “magnetic map”: turtles can detect differences in Earth’s magnetic field and orient toward feeding or nesting areas, not simply wander by instinct.\nThe honeybee and desert-ant examples add a useful contrast: animals can use landmarks, path integration, memory, polarized light, smell, sound, or magnetic cues depending on species and environment. The human-impact angle should not be generic; students should see that artificial light, noise, habitat change, pollution, buildings, undersea cables, and disrupted smells can interfere with the signals animals use to move.",
+      "studentExplanation": "Animals navigate through many overlapping systems: magnetic sensing, stars, polarized light, smells, echoes, landmarks, spatial memory, and restless migration behavior. The links are important because each example shows a different kind of “map”: indigo buntings use the night sky, sea turtles use magnetic patterns, bees and ants use landmarks and path integration, and pigeons combine several cues. This makes the debate sharper: migration may be instinctive, but it can also involve sophisticated orientation that human activity can disrupt.\n\nUse animal navigation as a set of different “maps”: birds can use stars or magnetism, turtles read magnetic signatures, bees follow landmarks and polarization, bats use echoes, and migratory restlessness changes behavior before the journey begins. The point is that a route can be stored in bodies, senses, and seasons. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this shows students that navigation is not only a human invention. At the section level, it expands Home and Wandering from ships and maps to living bodies moving across the planet. At the year-theme level, it connects to home because many animals somehow leave, wander, and return with stunning precision.",
+      "takeaway": "Animals navigate through body, environment, memory, and signals that human activity can disrupt.",
+      "subjects": [
+        "Sciences",
+        "Geography / Human Geography"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "magnetoreception",
+        "cryptochromes",
+        "olfactory navigation",
+        "echolocation",
+        "zugunruhe",
+        "constant frequency",
+        "frequency modulation",
+        "sunlight polarization",
+        "spatial memory",
+        "indigo bunting",
+        "dung beetle",
+        "honeybees",
+        "homing pigeons",
+        "sea turtles",
+        "desert ants"
+      ],
+      "debateRelevance": "Useful when debating whether animal navigation is instinctive programming or a flexible intelligence shaped by environment and memory.",
+      "counterargument": "Animal navigation may not match human planning, so calling it navigation can risk projecting human concepts onto other species.",
+      "visualSections": [
+        {
+          "title": "Navigation senses and drives",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Magnetoreception",
+              "note": "Magnetoreception is presented as the ability to sense Earth’s magnetic field for orientation.",
+              "imageGuidance": "Find a realistic educational image or diagram showing an animal sensing Earth’s magnetic field, ideally birds or sea turtles with magnetic field lines. Avoid cartoon animal GPS visuals. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining magnetoreception in animals, especially birds or sea turtles. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/magnetoreception.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Cryptochromes",
+              "note": "Cryptochromes is presented as light-sensitive proteins linked to magnetic orientation in some animals.",
+              "imageGuidance": "Find a realistic science diagram showing cryptochrome proteins, bird eyes, or light-based magnetic sensing. It should be visually understandable to young teenagers. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining cryptochromes or light-dependent magnetic sensing in birds. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/cryptochromes.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Olfactory navigation",
+              "note": "Olfactory navigation is presented as finding the way through smell cues.",
+              "imageGuidance": "Find a realistic image of an animal using smell trails or scent cues for navigation, preferably salmon, pigeons, mammals, or insects. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how smell can help animals navigate or return home. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Indigo bunting - stars of navigation",
+                  "url": "https://www.birdwatching.com/stories/indigobunting-stars.html"
+                }
+              ],
+              "url": "https://www.birdwatching.com/stories/indigobunting-stars.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/olfactory-navigation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Echolocation",
+              "note": "Echolocation is presented as navigation by reflected sound, especially in bats and whales.",
+              "imageGuidance": "Find a realistic educational image of a bat or whale using sound waves for echolocation. The visual should show emitted sound and returning echoes. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining echolocation in bats or whales. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/echolocation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Zugunruhe",
+              "note": "Zugunruhe is presented as migratory restlessness before seasonal movement.",
+              "imageGuidance": "Find a realistic image of migratory birds becoming active or restless before migration, ideally in a scientific or educational context. If no exact image works, use a realistic concept image. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining zugunruhe or the biological drive behind bird migration. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/zugunruhe.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Signals animals read",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Constant frequency",
+              "note": "Constant-frequency calls is presented as stable sound signals useful for detecting motion or fine detail in echolocation.",
+              "imageGuidance": "Find a realistic diagram of bat echolocation calls showing constant frequency vs frequency modulation if possible. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining constant-frequency and frequency-modulated echolocation in bats. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/constant-frequency.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Frequency modulation",
+              "note": "Frequency modulation is presented as changing sound frequency, useful for gathering rich information in echolocation.",
+              "imageGuidance": "Find a realistic science visual of a frequency-modulated sound wave, ideally linked to bat echolocation. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining frequency modulation in animal echolocation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/frequency-modulation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sunlight polarization",
+              "note": "Polarized light is presented as a navigation cue, especially for insects such as bees and ants.",
+              "imageGuidance": "Find a realistic educational image or diagram showing polarized sunlight patterns and insect navigation. Avoid abstract rainbow art. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how bees, ants, or insects use polarized light to navigate. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/sunlight-polarization.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Spatial memory",
+              "note": "Spatial memory is presented as remembering landmarks, routes, and layouts.",
+              "imageGuidance": "Find a realistic image of an animal moving through landmarks or a map-like environment, preferably bees, pigeons, or ants in a research context. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining spatial memory in animal navigation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/spatial-memory.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Animal case studies",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Indigo bunting",
+              "note": "Indigo buntings are linked to learning and using star patterns for migration.",
+              "imageGuidance": "Find a realistic photo of an indigo bunting, preferably one suitable for a slide about night migration. Preserve the linked “Stars of Navigation” page as a content source. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video on bird migration by the stars or indigo bunting navigation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Indigo bunting - stars of navigation",
+                  "url": "https://www.birdwatching.com/stories/indigobunting-stars.html"
+                }
+              ],
+              "url": "https://www.birdwatching.com/stories/indigobunting-stars.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/indigo-bunting.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Dung beetle",
+              "note": "Some dung beetles orient using the Milky Way or polarized light while rolling dung balls.",
+              "imageGuidance": "Find a realistic photo or science image of a dung beetle rolling a dung ball, ideally at night or with sky navigation context. Preserve the Science article link. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining dung beetles navigating by the Milky Way. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Dung beetles navigate by the Milky Way",
+                  "url": "https://www.science.org/content/article/dung-beetles-navigate-milky-way"
+                }
+              ],
+              "url": "https://www.science.org/content/article/dung-beetles-navigate-milky-way",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/dung-beetle.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Honeybees",
+              "note": "Honeybees can use landmarks and route memory, not only instinct.",
+              "imageGuidance": "Find a realistic image of honeybees near linear landmarks, flowers, or flight paths; preserve the Popular Science link as the content source. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how honeybees use landmarks, dance, or memory to navigate. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Honeybees and landmarks",
+                  "url": "https://www.popsci.com/environment/honeybees-landmarks/"
+                }
+              ],
+              "url": "https://www.popsci.com/environment/honeybees-landmarks/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/honeybees.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Homing pigeons",
+              "note": "Homing pigeons is presented as a classic case of multi-cue navigation.",
+              "imageGuidance": "Find a realistic photo of homing pigeons in flight or returning to a loft. Use a reliable educational/science source if possible. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining how homing pigeons navigate using magnetic, smell, sun, and landmark cues. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Homing pigeons / bird navigation - Smithsonian",
+                  "url": "https://ssec.si.edu/stemvisions-blog/how-do-birds-navigate"
+                }
+              ],
+              "url": "https://ssec.si.edu/stemvisions-blog/how-do-birds-navigate",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/homing-pigeons.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sea turtles",
+              "note": "Sea turtles is presented as a strong example of magnetic-map navigation over ocean distances.",
+              "imageGuidance": "Find a realistic image from the NSF article if possible: turtle in a research setup, turtle swimming, or sea turtle hatchlings heading to sea. Preserve the NSF link. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining sea turtle magnetic navigation or natal homing. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Sea turtles and geomagnetic landmarks - NSF",
+                  "url": "https://www.nsf.gov/news/geomagnetic-landmarks-give-turtles-sense-where"
+                }
+              ],
+              "url": "https://www.nsf.gov/news/geomagnetic-landmarks-give-turtles-sense-where",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/sea-turtles.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Desert ants",
+              "note": "Desert ants is presented as path-integration experts that count distance and direction in harsh landscapes.",
+              "imageGuidance": "Find a realistic image of desert ants in a desert setting or in a path-integration research diagram. Preserve the Serres/RIN source link. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining desert-ant path integration or “how ants find their way home.” The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Desert ants and path integration",
+                  "url": "https://serres-lab.com/navigation-news-from-the-royal-institute-of-navigation-path-integration-lessons-from-the-desert-ants/"
+                }
+              ],
+              "url": "https://serres-lab.com/navigation-news-from-the-royal-institute-of-navigation-path-integration-lessons-from-the-desert-ants/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/desert-ants.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Animal Magnetism: How Animals Navigate",
+          "url": "https://www.youtube.com/watch?v=EbHSkZySTBw"
+        },
+        {
+          "title": "‘Blindfolded’ ants reveal clues to insect navigation",
+          "url": "https://www.youtube.com/watch?v=OavY1onkRxA"
+        },
+        {
+          "title": "Bird migration, a perilous journey - Alyssa Klavans",
+          "url": "https://www.youtube.com/watch?v=Q-mMMpl_T80"
+        },
+        {
+          "title": "Dung Beetles Navigate Using the Stars",
+          "url": "https://www.youtube.com/watch?v=MMlOKY734TM"
+        },
+        {
+          "title": "How Baby Sea Turtles Find Their Way Home",
+          "url": "https://www.youtube.com/watch?v=fpAObF1B_sI"
+        },
+        {
+          "title": "How Do Birds Know Where To Go When They Migrate?",
+          "url": "https://www.youtube.com/watch?v=4JUYyMHOHb8"
+        },
+        {
+          "title": "How the Earth’s Fastest Ants Survive Extreme Heat 🐜 | Evolution Earth | PBS",
+          "url": "https://www.youtube.com/watch?v=E9DF2WGGED8"
+        },
+        {
+          "title": "Pigeon Genius | National Geographic",
+          "url": "https://www.youtube.com/watch?v=v4GZgQWoVvM"
+        },
+        {
+          "title": "Pigeons' Brains: Navigation Abilities Linked to Special Neurons",
+          "url": "https://www.youtube.com/watch?v=LtngCRvVj9Q"
+        },
+        {
+          "title": "Skin & Bones - Big Idea: Echolocation (new version)",
+          "url": "https://www.youtube.com/watch?v=i6IF7a24AFk"
+        },
+        {
+          "title": "The Waggle Dance  | Inside the Animal Mind | BBC",
+          "url": "https://www.youtube.com/watch?v=12Q8FfyLLso"
+        },
+        {
+          "title": "We Don't Know: Magnetoreception",
+          "url": "https://www.youtube.com/watch?v=tdXb_4EkYtU"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Visible vs Real",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.003",
+      "order": 3,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.inuit-mental-and-physical-maps",
+        "asset.home-and-wandering.raw.polynesian-star-compass-and-ocean-swells",
+        "asset.home-and-wandering.raw.the-legendary-viking-sunstone"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.003",
+        "question.home-and-wandering.200.003"
+      ],
+      "title": "Wayfinding Without Screens",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "“We know where we are,” sang Moana’s ancestors—and they knew it without maps, compasses, or access to Starlink. Instead, Polynesians drew on a complex system of non-instrument navigation, including the star compass, ocean swells, and animal sightings. In the Arctic, the Inuit use the night sky and other markers to find their way—even in a landscape almost uniformly white with ice and snow. With your team, explore traditional navigation methods (including some that may be legendary) and consider: how does the journey change if the map is not on our screen but in our mind? Would the world be better off if more people knew how to navigate it without their phones?",
+      "links": [
+        {
+          "label": "Polynesian wayfinding - Hōkūleʻa",
+          "url": "https://hokulea.com/polynesian-wayfinding/"
+        },
+        {
+          "label": "Arctic Wayfinders - Terrain.org",
+          "url": "https://www.terrain.org/2019/nonfiction/arctic-wayfinders/"
+        },
+        {
+          "label": "Did Vikings navigate by polarized light? - Scientific American",
+          "url": "https://www.scientificamerican.com/article/did-vikings-navigate/"
+        }
+      ],
+      "deepLinkAnalysis": "The Hōkūleʻa link is the core content source for Polynesian non-instrument navigation: it grounds the entry in real wayfinding systems such as star compass knowledge, swell patterns, wind, clouds, birds, and careful memory. The Moana link is useful as an accessible cultural doorway, but the Hōkūleʻa page should carry the explanation so the app does not treat Disney as the authority.\nThe Arctic Wayfinders article is extremely rich and should shape the slideshow. It explains Inuit navigation as learned environmental literacy: snowdrifts, currents, sounds, animal movement, atmospheric effects, cairns/inuksuit, oral knowledge, sketch maps, and driftwood/tactile maps. The Viking link is different: it should be framed as possible/legendary navigation, not as fully settled fact.",
+      "studentExplanation": "Wayfinding without screens is not guessing. Polynesian navigators read stars, swells, winds, birds, clouds, and memory across huge ocean distances, while Inuit travelers read snow, ice, sound, currents, cairns, animal movement, and story-linked landmarks in the Arctic. The links matter because they show navigation as a relationship with the world: the map can live in the body, memory, elders, and environment, not only on a phone.\n\nThe supplemental sources make traditional navigation feel practical rather than mystical: Polynesian navigators read stars, swells, winds, birds, and clouds; Inuit travelers used memory, landmarks, snow, and local knowledge; Viking sunstone stories point to polarized light. No-screen navigation is still data, just not a phone map. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this helps students respect traditional navigation as skilled knowledge rather than “primitive” travel. At the section level, it deepens Home and Wandering by contrasting device-based navigation with attention-based navigation. At the year-theme level, it asks whether “getting there” changes when the route is something you know, feel, and remember rather than something an app displays.",
+      "takeaway": "Wayfinding can live in memory, story, body, sky, ice, wind, and practiced attention.",
+      "subjects": [
+        "Psychology",
+        "History"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "Moana’s doorway into wayfinding",
+        "Polynesian star compass and ocean swells",
+        "Inuit mental and physical maps",
+        "The legendary Viking sunstone"
+      ],
+      "debateRelevance": "Useful when debating whether technological navigation improves human freedom or weakens older forms of attention and place-knowledge.",
+      "counterargument": "Digital tools can expand access and safety, especially for people who lack inherited local knowledge or expert training.",
+      "visualSections": [
+        {
+          "title": "Navigation carried in mind, body, and environment",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Polynesian star compass and ocean swells",
+              "note": "Polynesian navigation combines star paths, swell patterns, wind, birds, and memory.",
+              "imageGuidance": "Find a realistic image from Hōkūleʻa, a Polynesian voyaging canoe, or an educational star-compass diagram. Preserve the Hōkūleʻa link as the content source. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video on Polynesian wayfinding, ideally with Hōkūleʻa or Nainoa Thompson. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Polynesian wayfinding - Hōkūleʻa",
+                  "url": "https://hokulea.com/polynesian-wayfinding/"
+                }
+              ],
+              "url": "https://hokulea.com/polynesian-wayfinding/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/polynesian-star-compass-and-ocean-swells.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Inuit mental and physical maps",
+              "note": "Arctic navigation is presented as learned place literacy using snow, sound, currents, cairns, maps, stories, and memory.",
+              "imageGuidance": "Find a realistic image from the Terrain.org article or a reliable source showing an Inuit map, inuksuk/cairn, snowdrift pattern, or Arctic wayfinding marker. Exact source images are preferred. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining Inuit wayfinding, mental maps, inuksuit, or Arctic navigation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/inuit-mental-and-physical-maps.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The legendary Viking sunstone",
+              "note": "That some navigation methods may be debated or legendary, such is presented as using polarized light to find the sun.",
+              "imageGuidance": "Find a realistic image or diagram of a Viking sunstone / calcite crystal navigation experiment, ideally from a science or museum source. Frame it as debated/possible, not certain. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining the Viking sunstone hypothesis and polarized-light navigation. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Did Vikings navigate by polarized light? - Scientific American",
+                  "url": "https://www.scientificamerican.com/article/did-vikings-navigate/"
+                }
+              ],
+              "url": "https://www.scientificamerican.com/article/did-vikings-navigate/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/the-legendary-viking-sunstone.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Hokulea: How to navigate without instruments",
+          "url": "https://www.youtube.com/watch?v=dla3RoQo37M"
+        },
+        {
+          "title": "How did Polynesian wayfinders navigate the Pacific Ocean? - Alan Tamayose and Shantell De Silva",
+          "url": "https://www.youtube.com/watch?v=m8bDCaPhOek"
+        },
+        {
+          "title": "Lin-Manuel Miranda, Opetaia Foa'i - We Know The Way (From \"Moana\")",
+          "url": "https://www.youtube.com/watch?v=ubZrAmRxy_M"
+        }
+      ],
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.004",
+      "order": 4,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.fog-of-war-in-games",
+        "asset.home-and-wandering.raw.fog-of-world",
+        "asset.home-and-wandering.raw.when-less-information-changes-experience"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.004",
+        "question.home-and-wandering.200.004"
+      ],
+      "title": "Should Some Parts of the World Stay Foggy?",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "In some video games, such as Zelda and Yakuza, the unexplored regions of the map are cloudy until you visit them. The real world used to be more like that: Columbus sailed into the unknown (and never reached his intended “there”) and you couldn’t know what was around the riverbend until you went around the riverbend. Some mapping apps now offer the chance to recreate that experience by masking regions of the map until you set foot in them. Check out one example, Fog of World, which promises us the chance to “experience a richer life”, then discuss with your team: can limiting easy access to knowledge really enrich our experience of the world? If so, what else should we keep “foggy”?",
+      "links": [
+        {
+          "label": "Fog of World official site",
+          "url": "https://fogofworld.app/en/"
+        }
+      ],
+      "deepLinkAnalysis": "The Fog of World link is not just a software reference; it supplies the central emotional claim. The app sells itself as a way to “experience a richer life” by hiding unexplored places and turning the world into something gradually revealed. That means the entry is not anti-map; it asks whether full information can flatten curiosity.\nThe game references matter because they show how fog-of-war mechanics make exploration feel earned. The key classroom idea is a trade-off: easy knowledge increases safety and efficiency, but limited knowledge can increase attention, surprise, memory, and personal investment.",
+      "studentExplanation": "Fog of World turns real travel into something closer to game exploration: places stay hidden until you physically visit them. The link matters because the app does not promise better efficiency; it promises a richer experience. That raises the entry’s real question: do maps help us by reducing uncertainty, or can too much certainty make the world feel pre-spoiled before we arrive?\n\nConnect the game idea to real experience: fog of war and Fog of World make ignorance visible, which can make exploration feel meaningful. If every route is already revealed, students should ask whether safety and efficiency improve, and whether discovery, risk, privacy, or wonder are reduced. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this asks whether knowledge always improves experience. At the section level, it shifts Home and Wandering from navigation accuracy to the feeling of discovery. At the year-theme level, it connects to “Are We There Yet?” because sometimes the route becomes meaningful precisely because we cannot see the whole destination in advance.",
+      "takeaway": "Perfect maps can make travel efficient, but they can also shrink mystery, discovery, and wandering.",
+      "subjects": [
+        "Computer Science / Technology",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Fog of war in games",
+        "Fog of World",
+        "When less information changes experience"
+      ],
+      "debateRelevance": "Useful when debating whether the world should be fully mapped, tracked, and knowable, or whether uncertainty has value.",
+      "counterargument": "Fog and uncertainty can be meaningful, but lack of information can also be dangerous, exclusionary, or inefficient.",
+      "visualSections": [
+        {
+          "title": "Discovery with and without the map",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Fog of war in games",
+              "note": "The game mechanic is presented: unexplored regions stay hidden until the player reaches them.",
+              "imageGuidance": "Find a realistic screenshot or clearly labeled image of a fog-of-war map mechanic from a game, preferably Zelda/Yakuza-style exploration if allowed, or a generic game map with unexplored cloudy areas. Avoid fantasy art that hides the map idea. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining fog of war or exploration mechanics in games. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/fog-of-war-in-games.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Fog of World",
+              "note": "Fog of World applies a game-like discovery mechanic to real-world movement.",
+              "imageGuidance": "Find a realistic screenshot or official image from Fog of World showing visited areas revealed and unvisited areas masked. Use the official site/app store images if possible. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video or app walkthrough explaining Fog of World and how it masks unvisited places. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Fog of World official site",
+                  "url": "https://fogofworld.app/en/"
+                }
+              ],
+              "url": "https://fogofworld.app/en/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/fog-of-world.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "When less information changes experience",
+              "note": "Uncertainty can make a journey feel more active, personal, and memorable.",
+              "imageGuidance": "Find a realistic image of a traveler looking at a partly covered map or a phone map with unexplored areas. The visual should feel like discovery, not confusion or danger. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video about why uncertainty, exploration, or surprise can make travel more memorable. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/when-less-information-changes-experience.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Tech Report | Fog of World",
+          "url": "https://www.youtube.com/watch?v=2Ma2Ye7r8o8"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Home & Wandering",
+        "Routes, Roads & Navigation"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Managing Uncertainty",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.005",
+      "order": 5,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.recent-airport-limbo-cases"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.005",
+        "question.home-and-wandering.200.005"
+      ],
+      "title": "Stuck in Transit",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "In the 2004 film The Terminal, a traveler lands at an American airport only to discover that his country’s government has collapsed. With his passport no longer valid, he can’t enter the United States, but he also can’t go home again—so he ends up living at the airport indefinitely. Watch highlights from the film with your team, then consider the real case of Mehran Karimi Nasser that inspired it. Why do you think Steven Spielberg made the changes to the story that he did? And what should governments do in situations like these? You may also want to look into some more recent examples of people stuck in airports, including that of Edward Snowden.",
+      "links": [
+        {
+          "label": "The Terminal highlights - YouTube playlist",
+          "url": "https://www.youtube.com/playlist?list=PLZbXA4lyCtqqUoWrFzmaFPYt9enUvRK3b"
+        },
+        {
+          "label": "Mehran Karimi Nasseri / true story support",
+          "url": "https://screenrant.com/the-terminal-true-story-every-change-movie/"
+        },
+        {
+          "label": "Airport-limbo examples - Sydney Morning Herald",
+          "url": "https://www.smh.com.au/traveller/travel-news/how-people-end-up-living-at-airports-for-months--even-years--at-a-time-20221116-h27w1y.html"
+        },
+        {
+          "label": "Edward Snowden airport limbo - Reuters",
+          "url": "https://www.reuters.com/article/world/uk/russian-airport-limbo-ends-for-snowden-new-life-begins-idUSBRE9710U0/"
+        }
+      ],
+      "deepLinkAnalysis": "The film link gives students the accessible version: an airport designed for movement becomes a home-like prison. But the real Nasseri case is essential because the story is not only quirky; it is about documents, asylum, statelessness, mental strain, and systems that do not know what to do with someone between legal categories.\nThe Reuters Snowden link is a strong political comparison. Snowden’s airport limbo was shorter, but the article shows the same structure: a transit zone becomes a no-man’s-land while passports, asylum requests, diplomatic pressure, and state power decide whether a person can move. The entry should show airports as spaces where legal identity can break down.",
+      "studentExplanation": "The Terminal turns an airport into a home, prison, and border all at once: a traveler can move around the terminal but cannot truly enter or leave. The real case of Mehran Karimi Nasseri and the Reuters story about Edward Snowden make the idea more serious. Airport limbo is not just inconvenience; it can happen when passports, asylum, state collapse, and international pressure trap someone between legal systems.\n\nThe sources make the airport a legal and emotional threshold: Mehran Karimi Nasseri, Edward Snowden, and The Terminal are not simply “waiting” stories. They show that a person can be physically at a border, gate, or terminal while politically and legally unable to arrive anywhere. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this shows how a place built for movement can become a place of suspension. At the section level, it gives Home and Wandering a clear liminal case: neither home nor destination, neither arrival nor departure. At the year-theme level, it asks what “there” means when a person reaches an airport but still has no place where they fully belong.",
+      "takeaway": "A transit space can become a suspended home when law, paperwork, and politics block arrival.",
+      "subjects": [
+        "Politics & Government / Global Politics",
+        "Geography / Human Geography"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "The Terminal: airport as suspended home",
+        "Mehran Karimi Nasseri",
+        "Recent airport-limbo cases",
+        "Edward Snowden in transit"
+      ],
+      "debateRelevance": "Useful when debating whether legal categories can turn a journey into an indefinite state of suspension.",
+      "counterargument": "Airport limbo is dramatic, but many cases depend on rare legal circumstances rather than ordinary travel experience.",
+      "visualSections": [
+        {
+          "title": "When transit stops moving",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Terminal: airport as suspended home",
+              "note": "The film premise is presented: a traveler is physically inside an airport but legally blocked from entering or returning.",
+              "imageGuidance": "Find an official still or poster from The Terminal showing Viktor in the airport terminal. This is a named film source, so use exact film material or a LINK button rather than an invented airport image. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video or official clip explaining The Terminal premise, ideally 5-7 minutes maximum or shorter. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The Terminal highlights - YouTube playlist",
+                  "url": "https://www.youtube.com/playlist?list=PLZbXA4lyCtqqUoWrFzmaFPYt9enUvRK3b"
+                }
+              ],
+              "url": "https://www.youtube.com/playlist?list=PLZbXA4lyCtqqUoWrFzmaFPYt9enUvRK3b",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact film reference; preserve source link/video only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Mehran Karimi Nasseri",
+              "note": "The real case behind the film is presented: a man lived for years in an airport transit zone amid legal and identity complications.",
+              "imageGuidance": "Find a realistic historical photo of Mehran Karimi Nasseri in Charles de Gaulle Airport or a reliable article image about his case. This is a real person and known case, so do not generate a substitute portrait. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining the true story of Mehran Karimi Nasseri and how it inspired The Terminal. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Mehran Karimi Nasseri / true story support",
+                  "url": "https://screenrant.com/the-terminal-true-story-every-change-movie/"
+                }
+              ],
+              "url": "https://screenrant.com/the-terminal-true-story-every-change-movie/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact real person; preserve source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Recent airport-limbo cases",
+              "note": "Airport limbo is not only one famous story; other people have also become stuck in airports for legal or bureaucratic reasons.",
+              "imageGuidance": "Find a realistic news image of an airport transit area or a specific reliable article image about people stuck in airports. Avoid generic vacation airport scenes. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining modern airport-limbo cases or how transit zones can trap people legally. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Airport-limbo examples - Sydney Morning Herald",
+                  "url": "https://www.smh.com.au/traveller/travel-news/how-people-end-up-living-at-airports-for-months--even-years--at-a-time-20221116-h27w1y.html"
+                }
+              ],
+              "url": "https://www.smh.com.au/traveller/travel-news/how-people-end-up-living-at-airports-for-months--even-years--at-a-time-20221116-h27w1y.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/recent-airport-limbo-cases.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Edward Snowden in transit",
+              "note": "Snowden is presented as a political version of transit limbo, where passport, asylum, and diplomatic pressure shaped movement.",
+              "imageGuidance": "Find a reliable Reuters/news image connected to Snowden at Moscow Sheremetyevo or his airport period. This is a known news case, so use a real news image and do not generate a substitute. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining Snowden’s airport limbo and asylum situation, with neutral framing. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Edward Snowden airport limbo - Reuters",
+                  "url": "https://www.reuters.com/article/world/uk/russian-airport-limbo-ends-for-snowden-new-life-begins-idUSBRE9710U0/"
+                }
+              ],
+              "url": "https://www.reuters.com/article/world/uk/russian-airport-limbo-ends-for-snowden-new-life-begins-idUSBRE9710U0/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact real person/news event; preserve source link only."
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The Man Who Was Stuck in Paris Airport for 18 Years",
+          "url": "https://www.youtube.com/watch?v=rM4ZpJOAY4k"
+        },
+        {
+          "title": "The Terminal (2004) Trailer #1 | Movieclips Classic Trailers",
+          "url": "https://www.youtube.com/watch?v=iZqQRmhRvyg"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Thresholds",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Thresholds & Irreversibility",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.006",
+      "order": 6,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.border-line-vs-human-threshold",
+        "asset.home-and-wandering.raw.closed-borders-and-political-pressure"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.006",
+        "question.home-and-wandering.200.006"
+      ],
+      "title": "Reaching the Border Is Not the Same as Being Accepted",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "Immigrants by land and sea can also face obstacles to entry when they reach their destinations. Consider the case of the St. Louis, a ship carrying Jewish refugees from Nazi Germany in 1939. The passengers were denied entry in the United States, Canada, and Cuba, and many ultimately died in Nazi concentration camps. More recently, the United States has stopped allowing people to ask for asylum at its southern border; European countries are also increasingly reluctant to accept refugees. Explore the reasons behind these anti-immigrant policies; do some make more sense than others? Then, discuss with your team: how open should countries be to those arriving at their borders in dire need? Should there be limits on the number admitted, and, if so, how should those limits be calculated?",
+      "links": [
+        {
+          "label": "The St. Louis refugee ship - HISTORY",
+          "url": "https://www.history.com/articles/wwii-jewish-refugee-ship-st-louis-1939"
+        },
+        {
+          "label": "Migration and European politics - Axios",
+          "url": "https://www.axios.com/2018/08/24/migration-drives-populist-surge-across-europe"
+        }
+      ],
+      "deepLinkAnalysis": "The St. Louis link is the moral center of the entry. It turns border policy from an abstract debate into a concrete historical tragedy: Jewish refugees fleeing Nazi Germany reached the Americas, were denied entry by multiple countries, and many later died after being forced back into Europe. The point for students is that arrival can fail at the threshold.\nThe modern-policy side should be handled carefully and neutrally. Anti-immigrant policies can be defended through arguments about capacity, security, law, and political stability, but the St. Louis case warns that border decisions can have life-or-death consequences. The slideshow should make the comparison without pretending all historical and current cases are identical.",
+      "studentExplanation": "Arriving at a border is not the same as being welcomed through it. The St. Louis case shows this in the most tragic way: people fleeing Nazi Germany reached possible safety, but the United States, Canada, and Cuba refused them, and many later died in the Holocaust. Modern asylum and refugee debates are different in context, but they raise the same threshold question: when people arrive in danger, how do states balance law, capacity, fear, responsibility, and human need?\n\nThe St. Louis and migration poems show that arrival has two layers: reaching a place and being recognized by that place. Borders are not just lines on maps; they are decisions made by states, publics, documents, ships, ports, and the stories countries tell about welcome. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this shows that borders are decisions, not just map lines. At the section level, it deepens Home and Wandering by showing that wandering can end at a closed threshold. At the year-theme level, it asks whether “getting there” matters if the destination refuses to let you belong.",
+      "takeaway": "A border is not only a line on a map; it is a moral threshold that decides who may enter.",
+      "subjects": [
+        "Politics & Government / Global Politics",
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "The St. Louis: arrival refused",
+        "Closed borders and political pressure",
+        "Border line vs human threshold"
+      ],
+      "debateRelevance": "Useful when debating whether borders mainly protect communities or create unjust exclusions at the threshold.",
+      "counterargument": "Borders can be cruel, but states also argue that they need rules to manage security, resources, and legal responsibility.",
+      "visualSections": [
+        {
+          "title": "Borders as moral thresholds",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The St. Louis: arrival refused",
+              "note": "St. Louis is presented as a refugee ship whose passengers reached possible safety but were refused entry.",
+              "imageGuidance": "Find a real historical photo of the MS St. Louis, its passengers, or a museum/archive image connected to the voyage. Use the exact historical case and preserve the HISTORY link. Do not create a generic refugee boat image. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining the voyage of the MS St. Louis and its consequences for Jewish refugees. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "The St. Louis refugee ship - HISTORY",
+                  "url": "https://www.history.com/articles/wwii-jewish-refugee-ship-st-louis-1939"
+                }
+              ],
+              "url": "https://www.history.com/articles/wwii-jewish-refugee-ship-st-louis-1939",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact historical ship/event; preserve source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Closed borders and political pressure",
+              "note": "Border decisions are shaped by law, fear, resources, public opinion, and political movements.",
+              "imageGuidance": "Find a realistic news or data visual about recent asylum/refugee policy or European migration politics from a reputable source. Avoid sensational border-crisis imagery. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining asylum policy, refugee limits, or European migration politics in a balanced way. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/closed-borders-and-political-pressure.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Border line vs human threshold",
+              "note": "A drawn border is contrasted with the human reality of being accepted, refused, detained, or returned.",
+              "imageGuidance": "Find a realistic image of a border crossing, passport-control point, or asylum-processing space that shows procedure rather than dramatic conflict. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining what happens when people ask for asylum at a border. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [],
+              "src": "assets/raw-content/home-and-wandering/border-line-vs-human-threshold.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "How attitudes to migration in Europe changed over ten years | BBC News",
+          "url": "https://www.youtube.com/watch?v=Any_lJ1Uwws"
+        },
+        {
+          "title": "How Lady Liberty became a beacon for immigrants",
+          "url": "https://www.youtube.com/watch?v=JEZ49GvKeEQ"
+        },
+        {
+          "title": "Immigrants at Ellis Island | History",
+          "url": "https://www.youtube.com/watch?v=bDNKHWzQiz8"
+        },
+        {
+          "title": "Micro History: The Voyage of the St. Louis (1939)",
+          "url": "https://www.youtube.com/watch?v=V9J5sEAQ_yU"
+        },
+        {
+          "title": "What \"Lady Liberty\" and Ellis Island Mean Today | National Geographic",
+          "url": "https://www.youtube.com/watch?v=HGkqh-iwS28"
+        },
+        {
+          "title": "What does it mean to be a refugee? - Benedetta Berti and Evelien Borgman",
+          "url": "https://www.youtube.com/watch?v=25bwiSikRsI"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Thresholds",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Thresholds & Irreversibility",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Thresholds & Irreversibility",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.007",
+      "order": 7,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [
+        "asset.home-and-wandering.raw.mother-country-exile-as-family-memory",
+        "asset.home-and-wandering.raw.prospective-immigrants-door-as-choice",
+        "asset.home-and-wandering.raw.sound-of-one-immigrant-clapping",
+        "asset.home-and-wandering.raw.the-new-colossus-welcome-as-symbol",
+        "asset.home-and-wandering.raw.we-are-americans-now-identity-in-new-landscape"
+      ],
+      "questionIds": [
+        "question.home-and-wandering.100.007",
+        "question.home-and-wandering.200.007"
+      ],
+      "title": "Poems of Migration and In-Between Lives",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "Consider the following poems that speak to the immigrant experience. Are they expressing something universal, or are they too constrained by the specific experience of migrating to the United States? In what ways do they relate to the idea of thresholds and liminal spaces?\nEmma Lazarus | “The New Colossus” (1883)\nAdrienne Rich | “Prospective Immigrants Please Note” (1963)\nMarilyn Chin | “We Are Americans Now, We Live in the Tundra” (1987)\nAdrian Castro | “The Sound of One Immigrant Clapping” (2005)\nRichard Blanco | “Mother Country” (2019)",
+      "links": [
+        {
+          "label": "Emma Lazarus - “The New Colossus”",
+          "url": "https://www.poetryfoundation.org/poems/46550/the-new-colossus"
+        },
+        {
+          "label": "Adrienne Rich - “Prospective Immigrants Please Note”",
+          "url": "https://www.getty.edu/education/teachers/classroom_resources/curricula/dorothea_lange/downloads/lange_lesson11_adriennerich.rtf"
+        },
+        {
+          "label": "Marilyn Chin - “We Are Americans Now, We Live in the Tundra”",
+          "url": "https://poets.org/poem/we-are-americans-now-we-live-tundra"
+        },
+        {
+          "label": "Adrian Castro - “The Sound of One Immigrant Clapping”",
+          "url": "https://poets.org/poem/sound-one-immigrant-clapping"
+        },
+        {
+          "label": "Richard Blanco - “Mother Country”",
+          "url": "https://poets.org/poem/mother-country"
+        }
+      ],
+      "deepLinkAnalysis": "These poem links should not be treated as decoration; each gives a different angle on migration. “The New Colossus” turns immigration into a symbol of welcome attached to the Statue of Liberty. Adrienne Rich’s poem is almost a threshold manual: crossing and not crossing both change the person. Marilyn Chin’s poem complicates becoming American through ancestry, environment, irony, and identity.\nAdrian Castro’s poem works through sound, music, language, and Caribbean memory; it asks how an immigrant voice survives displacement. Richard Blanco’s “Mother Country” moves through family memory and exile, making migration intergenerational rather than only personal. The slideshow should therefore compare emotional functions: welcome, warning, transformation, language, and inherited memory.",
+      "studentExplanation": "These poems show migration from the inside: hope, warning, memory, ancestry, language, loss, and the strange feeling of being between homes. The links matter because each poem gives a different version of the threshold. Lazarus imagines welcome, Rich warns that crossing changes you, Chin explores becoming American while carrying older histories, Castro focuses on voice and language, and Blanco turns exile into family memory. Together they show that migration is not only movement; it is a transformation of identity.\n\nRead the poems as different emotional geographies. Lazarus imagines welcome, Rich warns that every choice has risk, Chin uses animals and tundra to show displacement, Castro turns identity into rhythm, and Blanco shows how memory travels with ordinary objects from the old home. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this helps students see how poetry can hold complicated migration feelings in a small space. At the section level, it gives Home and Wandering an emotional and literary voice after the policy and navigation entries. At the year-theme level, it connects to thresholds because migrants may cross borders physically while still living between languages, memories, and homes.",
+      "takeaway": "Migration poetry turns movement, exile, welcome, and belonging into felt human experience.",
+      "subjects": [
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "Emma Lazarus",
+        "“The New Colossus” (1883)",
+        "Adrienne Rich",
+        "“Prospective Immigrants Please Note” (1963)",
+        "Marilyn Chin",
+        "“We Are Americans Now, We Live in the Tundra” (1987)",
+        "Adrian Castro",
+        "“The Sound of One Immigrant Clapping” (2005)",
+        "Richard Blanco",
+        "“Mother Country” (2019)",
+        "“The New Colossus”: welcome as symbol",
+        "“Prospective Immigrants Please Note”: the door as choice",
+        "“We Are Americans Now, We Live in the Tundra”: identity in a new landscape",
+        "“The Sound of One Immigrant Clapping”: voice and rhythm",
+        "“Mother Country”: exile as family memory"
+      ],
+      "debateRelevance": "Useful when debating how literature can reveal the emotional truth of migration better than policy language.",
+      "counterargument": "Poems can deepen empathy, but they cannot replace the legal, economic, and political analysis migration also requires.",
+      "visualSections": [
+        {
+          "title": "Migration poems as thresholds",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "“The New Colossus”: welcome as symbol",
+              "note": "How Lazarus helped shape the Statue of Liberty is presented as a symbol of welcome to immigrants.",
+              "imageGuidance": "Find a realistic image of the Statue of Liberty with the poem plaque or a reliable Poetry Foundation/Library of Congress-style image connected to “The New Colossus.” Use the exact poem/source, not generic patriotic art. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining Emma Lazarus, “The New Colossus,” and immigration symbolism. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Emma Lazarus - “The New Colossus”",
+                  "url": "https://www.poetryfoundation.org/poems/46550/the-new-colossus"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/46550/the-new-colossus",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/the-new-colossus-welcome-as-symbol.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "“Prospective Immigrants Please Note”: the door as choice",
+              "note": "Rich’s poem as a threshold poem is presented: crossing or not crossing both have consequences.",
+              "imageGuidance": "Find a realistic image of a doorway, border gate, or threshold used in a migration/choice context. If a reliable worksheet/source image from the Getty material exists, use it; otherwise use a realistic conceptual image. The agent must use /imagesearch first. The image should be very realistic, not anime, and visually compatible with the beige/brown/maroon WSC app UI. If /imagesearch cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, screenshot, or named visual source, the agent should use /imagecreator to create a very realistic concept image inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video or reading/explainer of Adrienne Rich’s poem and its threshold metaphor. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Adrienne Rich - “Prospective Immigrants Please Note”",
+                  "url": "https://www.getty.edu/education/teachers/classroom_resources/curricula/dorothea_lange/downloads/lange_lesson11_adriennerich.rtf"
+                }
+              ],
+              "url": "https://www.getty.edu/education/teachers/classroom_resources/curricula/dorothea_lange/downloads/lange_lesson11_adriennerich.rtf",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/prospective-immigrants-door-as-choice.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "“We Are Americans Now, We Live in the Tundra”: identity in a new landscape",
+              "note": "Chin’s poem is presented as mixing Americanness, ancestry, irony, environmental imagery, and cultural displacement.",
+              "imageGuidance": "Find a realistic image of Marilyn Chin from Poets.org or a reliable author image, or a concept image of city/tundra displacement if no suitable author/work image is usable. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video, reading, or teacher-friendly explanation of Marilyn Chin’s poem, ancestry, and immigrant identity. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Marilyn Chin - “We Are Americans Now, We Live in the Tundra”",
+                  "url": "https://poets.org/poem/we-are-americans-now-we-live-tundra"
+                }
+              ],
+              "url": "https://poets.org/poem/we-are-americans-now-we-live-tundra",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/we-are-americans-now-identity-in-new-landscape.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "“The Sound of One Immigrant Clapping”: voice and rhythm",
+              "note": "Castro’s poem is presented as linking immigrant identity to sound, language, Caribbean rhythm, silence, and arrival.",
+              "imageGuidance": "Find a realistic image of Adrian Castro from Poets.org or a reliable author/source image. If a concept visual is needed, show hands, rhythm, language, and migration in a realistic WSC-app style. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video or reading of Adrian Castro’s poem or a brief explainer of immigrant voice and language in poetry. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Adrienne Rich - “Prospective Immigrants Please Note”",
+                  "url": "https://www.getty.edu/education/teachers/classroom_resources/curricula/dorothea_lange/downloads/lange_lesson11_adriennerich.rtf"
+                }
+              ],
+              "url": "https://www.getty.edu/education/teachers/classroom_resources/curricula/dorothea_lange/downloads/lange_lesson11_adriennerich.rtf",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/sound-of-one-immigrant-clapping.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "“Mother Country”: exile as family memory",
+              "note": "Blanco’s poem is presented as connecting migration to family history, Cuba, memory, and inherited belonging.",
+              "imageGuidance": "Find a realistic image of Richard Blanco from Poets.org or a reliable author page, or a realistic concept image of family migration memory if no exact image is suitable. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video or reading of Richard Blanco’s “Mother Country” or a brief educational video about Blanco and exile memory. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Richard Blanco - “Mother Country”",
+                  "url": "https://poets.org/poem/mother-country"
+                }
+              ],
+              "url": "https://poets.org/poem/mother-country",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/home-and-wandering/mother-country-exile-as-family-memory.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "\"New Colossus\" by Emma Lazarus",
+          "url": "https://www.youtube.com/watch?v=NaKUuk78L1A"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Home & Wandering",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Thresholds & Irreversibility",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "Home and Wandering"
+    },
+    {
+      "id": "raw.home-and-wandering.008",
+      "order": 8,
+      "sectionId": "home-and-wandering",
+      "mediaIds": [],
+      "questionIds": [
+        "question.home-and-wandering.100.008",
+        "question.home-and-wandering.200.008"
+      ],
+      "title": "Art, Music, and the Migrant In-Between",
+      "guidingSection": "Home and Wandering",
+      "rawOfficialText": "Some artists, too, explore the liminality of the migrant. Whether between home and the unfamiliar, or legal and “alien” status, how does each of them treat the state of being in-between?\nFrida Kahlo | The Bus (1929)\nJacob Lawrence | Migration (1941)\nLed Zeppelin | “Immigrant Song” (1970)\nFiddler on the Roof | “Far From the Home I Love” (1971)\nGenesis | “Illegal Alien” (1983)\nBrendan Graham | “Isle of Hope, Isle of Tears” (1995)\nKovi Konowiecki | Borderlands (2016)\nLos Tigres del Norte | “Somos Mas Americanos” (2013)",
+      "links": [
+        {
+          "label": "Frida Kahlo - The Bus",
+          "url": "https://www.fridakahlo.org/the-bus.jsp"
+        },
+        {
+          "label": "Jacob Lawrence - The Migration Series",
+          "url": "https://lawrencemigration.phillipscollection.org/the-migration-series"
+        },
+        {
+          "label": "Led Zeppelin - “Immigrant Song”",
+          "url": "https://www.youtube.com/watch?v=P3Y8OWkiUts"
+        },
+        {
+          "label": "Genesis - “Illegal Alien”",
+          "url": "https://www.youtube.com/watch?v=aqQv3qef21A"
+        },
+        {
+          "label": "Brendan Graham - “Isle of Hope, Isle of Tears”",
+          "url": "https://www.youtube.com/watch?v=0zGMfqHciP0"
+        },
+        {
+          "label": "Kovi Konowiecki - Borderlands",
+          "url": "https://phmuseum.com/projects/borderlands-1"
+        },
+        {
+          "label": "Los Tigres del Norte - “Somos Mas Americanos”",
+          "url": "https://www.youtube.com/watch?v=OljZou-Z1Ps"
+        }
+      ],
+      "deepLinkAnalysis": "The visual-art links matter because they turn migration and in-betweenness into scenes. Kahlo’s The Bus is not only transport; it places social classes and identities side by side in a moving public threshold. Lawrence’s Migration Series is the anchor: its 60 panels turn mass movement into a visual narrative of departure, labor, hope, crowding, and collective transformation.\nThe music links widen the emotional range. “Immigrant Song” uses mythic voyage energy; “Far From the Home I Love” makes leaving home intimate and painful; “Illegal Alien” is historically useful but should be handled carefully because its tone and stereotypes can feel dated or offensive; “Isle of Hope, Isle of Tears” turns Ellis Island into memory and hope; “Somos Mas Americanos” is political identity and protest, challenging who gets called American. Borderlands adds a contemporary photographic language of people living near literal and symbolic borders.",
+      "studentExplanation": "These works show the migrant in-between through images, panels, rhythm, theater, protest, and memory. Jacob Lawrence’s Migration Series is the strongest visual anchor because it turns mass movement into a 60-panel story of collective displacement and hope. The songs add emotional range: leaving home, crossing borders, being labeled “alien,” remembering Ellis Island, or insisting that identity cannot be reduced to paperwork. Together, the works show that migration is not only a policy topic; it is something people see, hear, perform, and carry in their bodies.\n\nThe art and music add the sensory layer of migration: Kahlo’s bus compresses social classes and personal trauma, Lawrence turns migration into a sequence, Fiddler makes leaving a village intimate, and songs such as “Somos Mas Americanos” challenge the idea that borders get the final word. Use this to track movement beyond simple maps: what is guiding the traveler, where the threshold or border sits, how tools, animals, memory, or law shape arrival, and why being near home is not always the same as belonging.",
+      "whyItMatters": "At the entry level, this helps students compare how different art forms make migration visible and audible. At the section level, it closes Home and Wandering by moving from routes and policies to identity and expression. At the year-theme level, it connects to home and liminality because these works ask what it feels like to live between departure and belonging.",
+      "takeaway": "Art and music can show migrant in-betweenness in ways that policy language cannot.",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Frida Kahlo",
+        "The Bus (1929)",
+        "Jacob Lawrence",
+        "Migration (1941)",
+        "Led Zeppelin",
+        "“Immigrant Song” (1970)",
+        "Fiddler on the Roof",
+        "“Far From the Home I Love” (1971)",
+        "Genesis",
+        "“Illegal Alien” (1983)",
+        "Brendan Graham",
+        "“Isle of Hope, Isle of Tears” (1995)",
+        "Kovi Konowiecki",
+        "Borderlands (2016)",
+        "Los Tigres del Norte",
+        "“Somos Mas Americanos” (2013)",
+        "Frida Kahlo, The Bus",
+        "Jacob Lawrence, Migration Series",
+        "Led Zeppelin, “Immigrant Song”",
+        "Fiddler on the Roof, “Far From the Home I Love”",
+        "Genesis, “Illegal Alien”",
+        "Brendan Graham, “Isle of Hope, Isle of Tears”",
+        "Kovi Konowiecki, Borderlands",
+        "Los Tigres del Norte, “Somos Mas Americanos”"
+      ],
+      "debateRelevance": "Useful when debating whether migrant art represents personal memory, political critique, cultural identity, or all three at once.",
+      "counterargument": "Art can represent migrant life powerfully, but it can also simplify, aestheticize, or commercialize real displacement.",
+      "visualSections": [
+        {
+          "title": "Art, music, and migrant liminality",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Frida Kahlo, The Bus",
+              "note": "Bus appears as a moving social threshold where different identities share a temporary public space.",
+              "imageGuidance": "Find the exact painting The Bus (1929) by Frida Kahlo from a reliable art page or museum-style source. This is a named artwork, so use the exact work and do not generate a substitute. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video about The Bus or Frida Kahlo’s early social/political paintings. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Frida Kahlo - The Bus",
+                  "url": "https://www.fridakahlo.org/the-bus.jsp"
+                }
+              ],
+              "url": "https://www.fridakahlo.org/the-bus.jsp",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact artwork; preserve source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Jacob Lawrence, Migration Series",
+              "note": "Migration Series is presented as a 60-panel visual story of the Great Migration and collective movement.",
+              "imageGuidance": "Find official images from The Phillips Collection / Migration Series site, preferably a panel showing trains, crowds, luggage, or movement. This is a named artwork series, so use the exact source images. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video explaining Jacob Lawrence’s Migration Series and the Great Migration. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Jacob Lawrence - The Migration Series",
+                  "url": "https://lawrencemigration.phillipscollection.org/the-migration-series"
+                }
+              ],
+              "url": "https://lawrencemigration.phillipscollection.org/the-migration-series",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact artwork series; preserve source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Led Zeppelin, “Immigrant Song”",
+              "note": "Song is presented as a mythic, forceful version of voyage and arrival, not a literal immigrant-policy document.",
+              "imageGuidance": "Find a realistic official or archival image connected to Led Zeppelin’s “Immigrant Song,” album/performance context, or a reliable music-history page. Do not generate band imagery. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find the official audio/video or a short educational music-history explainer about “Immigrant Song” and its voyage imagery. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Led Zeppelin - “Immigrant Song”",
+                  "url": "https://www.youtube.com/watch?v=P3Y8OWkiUts"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=P3Y8OWkiUts",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Genesis, “Illegal Alien”",
+              "note": "This source is presented as a problematic 1980s pop-cultural treatment of undocumented migration, useful for discussing language, stereotype, and tone.",
+              "imageGuidance": "Find an official still or source image from the Genesis “Illegal Alien” video/page. Because the piece is dated and sensitive, avoid celebratory or comic framing; use exact source imagery or a LINK button only. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find the official video if appropriate or a short educational discussion of how pop culture has represented undocumented migration; avoid uncritical promotional clips. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Genesis - “Illegal Alien”",
+                  "url": "https://www.youtube.com/watch?v=aqQv3qef21A"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=aqQv3qef21A",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Brendan Graham, “Isle of Hope, Isle of Tears”",
+              "note": "The song as Ellis Island memory is presented: hope, grief, and the emotional threshold of arrival.",
+              "imageGuidance": "Find a realistic image of Ellis Island, the Annie Moore statue, or an official source connected to “Isle of Hope, Isle of Tears.” Use exact historical/heritage imagery where possible. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a performance or short educational video explaining “Isle of Hope, Isle of Tears,” Annie Moore, and Ellis Island migration memory. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Brendan Graham - “Isle of Hope, Isle of Tears”",
+                  "url": "https://www.youtube.com/watch?v=0zGMfqHciP0"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=0zGMfqHciP0",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Kovi Konowiecki, Borderlands",
+              "note": "Borderlands is presented as contemporary photography about living near literal and symbolic borders.",
+              "imageGuidance": "Find exact images from Kovi Konowiecki’s Borderlands project on PhMuseum or the photographer’s official source. This is a named photo project, so use exact project images or a LINK button; do not generate substitute border photography. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find a short educational video or interview about Kovi Konowiecki’s Borderlands or documentary photography of border identity. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Kovi Konowiecki - Borderlands",
+                  "url": "https://phmuseum.com/projects/borderlands-1"
+                }
+              ],
+              "url": "https://phmuseum.com/projects/borderlands-1",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact artist/photo project; preserve source link only."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Los Tigres del Norte, “Somos Mas Americanos”",
+              "note": "Song is presented as a political statement about identity, belonging, and who has the right to be called American.",
+              "imageGuidance": "Find an official image, still, or reliable source connected to Los Tigres del Norte’s “Somos Mas Americanos.” Use exact source material, not generic flag imagery. The agent must use /imagesearch first and find the exact named work, object, photo, page image, screenshot, patent, map, or source image. Do not replace it with a generic image. Do not use /imagecreator for an exact source unless the app needs a temporary placeholder and the placeholder is clearly marked as non-final. The image must not be anime; when a realistic reconstruction is unavoidable, it must be very realistic and inspired by the app UI, WSC app mandatory.",
+              "videoGuidance": "Find the official music video/performance or a short educational video explaining the song’s migration and identity message. The agent must use /youtubesearch. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video should explain the exact concept, work, or example, not just provide vague background or entertainment.",
+              "links": [
+                {
+                  "label": "Los Tigres del Norte - “Somos Mas Americanos”",
+                  "url": "https://www.youtube.com/watch?v=OljZou-Z1Ps"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=OljZou-Z1Ps",
+              "previewLabel": "Play video"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Home & Wandering",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Thresholds & Irreversibility",
+          "Visible vs Real"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Jacob Lawrence, The Migration Series (short version)",
+          "url": "https://www.youtube.com/watch?v=ZLC8xRNcJvE"
+        },
+        {
+          "title": "Fiddler On The Roof - Far From The Home I Love",
+          "url": "https://www.youtube.com/watch?v=MasUusA6F4k"
+        }
+      ],
+      "sectionTitle": "Home and Wandering"
+    }
+  ]
+}

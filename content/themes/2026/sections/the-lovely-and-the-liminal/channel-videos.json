@@ -1,0 +1,704 @@
+{
+  "id": "channel.the-lovely-and-the-liminal",
+  "sectionId": "the-lovely-and-the-liminal",
+  "videos": [
+    {
+      "id": "video.the-lovely-and-the-liminal.001",
+      "playlistIndex": 1,
+      "title": "Max Richter's music to sleep by",
+      "channel": "CBS Sunday Morning",
+      "url": "https://www.youtube.com/watch?v=USGaszNg2po",
+      "duration": "5:15",
+      "uploadDate": "Unknown",
+      "contentType": "music/song",
+      "formatStyle": "audio/music video",
+      "score": 5.4,
+      "verdict": "Metadata-only candidate; review manually before relying on it.",
+      "description": "Contextual video about Max Richter's music to sleep by. WSC link: The End is Nearish / Apocalyptic aesthetics.",
+      "keyTerms": [
+        "max",
+        "richter's",
+        "music",
+        "sleep",
+        "cbs",
+        "sunday",
+        "morning"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Music for Airports?"
+      ],
+      "bigIdeaLabels": [
+        "Endings",
+        "Thresholds",
+        "Drafts & Prototypes",
+        "Progress",
+        "Tourism",
+        "Journeys",
+        "Apocalyptic aesthetics",
+        "Demo culture in music",
+        "From inns to hotels"
+      ],
+      "bigIdeaIds": [
+        "endings",
+        "thresholds",
+        "drafts-and-prototypes",
+        "progress",
+        "tourism",
+        "journeys",
+        "apocalyptic-aesthetics",
+        "demo-culture-in-music",
+        "from-inns-to-hotels"
+      ],
+      "subjectLabels": [
+        "Visual and Performing Arts",
+        "Psychology"
+      ],
+      "subjectIds": [
+        "visual-and-performing-arts",
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Music for Airports?",
+          "why": "Approved review placement under Music for Airports?."
+        }
+      ],
+      "sourceId": "playlist-001-USGaszNg2po",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.002",
+      "playlistIndex": 2,
+      "title": "The Stanley Parable Launch Trailer",
+      "channel": "stanleyparable",
+      "url": "https://www.youtube.com/watch?v=fBtX0S2J32Y",
+      "duration": "2:09",
+      "uploadDate": "Unknown",
+      "contentType": "trailer / media clip",
+      "formatStyle": "edited media footage",
+      "score": 6.5,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Contextual video about The Stanley Parable Launch Trailer. WSC link: The Lovely and the Liminal / Liminality.",
+      "keyTerms": [
+        "stanley",
+        "parable",
+        "launch",
+        "trailer",
+        "stanleyparable"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Playable Liminality"
+      ],
+      "bigIdeaLabels": [
+        "Liminality",
+        "Waiting",
+        "Drafts & Prototypes",
+        "Prediction",
+        "Minimum viable product",
+        "Fake demos and vaporware"
+      ],
+      "bigIdeaIds": [
+        "liminality",
+        "waiting",
+        "drafts-and-prototypes",
+        "prediction",
+        "minimum-viable-product",
+        "fake-demos-and-vaporware"
+      ],
+      "subjectLabels": [
+        "Media / Film",
+        "Computer Science / Technology"
+      ],
+      "subjectIds": [
+        "media-film",
+        "computer-science-technology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Playable Liminality",
+          "why": "Approved review placement under Playable Liminality."
+        }
+      ],
+      "sourceId": "playlist-002-fBtX0S2J32Y",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.003",
+      "playlistIndex": 33,
+      "title": "Pools - Exclusive Release Date & Gameplay Trailer",
+      "channel": "IGN",
+      "url": "https://www.youtube.com/watch?v=p7a8GAYOEck",
+      "duration": "1:56",
+      "uploadDate": "2024-04-11T08:15:05-07:00",
+      "viewCount": 439140,
+      "contentType": "trailer / media clip",
+      "formatStyle": "edited media footage",
+      "score": 7.1,
+      "verdict": "Strong WSC candidate.",
+      "description": "Check out this eerie exclusive trailer for Pools, the upcoming psychological horror game coming to PC via Steam on April 26, 2024. WSC link: Progress, Not Regress / Progress bars.",
+      "keyTerms": [
+        "games",
+        "game",
+        "pools",
+        "trailer",
+        "horror",
+        "new",
+        "trailers",
+        "upcoming",
+        "ign",
+        "psychological",
+        "gaming",
+        "exclusive",
+        "gameplay",
+        "steam",
+        "look",
+        "release",
+        "date",
+        "check"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Playable Liminality"
+      ],
+      "bigIdeaLabels": [
+        "Progress",
+        "Waiting",
+        "Drafts & Prototypes",
+        "Prediction",
+        "Liminality",
+        "Progress bars",
+        "Iteration loops",
+        "Fake demos and vaporware",
+        "Identity thresholds"
+      ],
+      "bigIdeaIds": [
+        "progress",
+        "waiting",
+        "drafts-and-prototypes",
+        "prediction",
+        "liminality",
+        "progress-bars",
+        "iteration-loops",
+        "fake-demos-and-vaporware",
+        "identity-thresholds"
+      ],
+      "subjectLabels": [
+        "Media / Film",
+        "Computer Science / Technology"
+      ],
+      "subjectIds": [
+        "media-film",
+        "computer-science-technology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Playable Liminality",
+          "why": "Approved review placement under Playable Liminality."
+        }
+      ],
+      "sourceId": "playlist-033-p7a8GAYOEck",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.004",
+      "playlistIndex": 48,
+      "title": "Richard Artschwager: Six in Four",
+      "channel": "Whitney Museum of American Art",
+      "url": "https://www.youtube.com/watch?v=gtopu6ikQhk",
+      "duration": "10:37",
+      "uploadDate": "2015-06-30T11:51:18-07:00",
+      "viewCount": 4130,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 6.8,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Manual Alpaca Channel placement for Shared Liminal Spaces.",
+      "keyTerms": [
+        "art",
+        "whitney",
+        "richard",
+        "artschwager",
+        "six",
+        "four",
+        "museum",
+        "elevators",
+        "american",
+        "installation",
+        "artist",
+        "work",
+        "new",
+        "visual",
+        "designed",
+        "bring",
+        "visitors",
+        "contact"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Shared Liminal Spaces"
+      ],
+      "bigIdeaLabels": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Delayed Arrival"
+      ],
+      "bigIdeaIds": [
+        "infrastructure-shapes-behavior",
+        "thresholds-irreversibility",
+        "movement-without-arrival",
+        "delayed-arrival"
+      ],
+      "subjectLabels": [
+        "Visual and Performing Arts"
+      ],
+      "subjectIds": [
+        "visual-and-performing-arts"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Shared Liminal Spaces",
+          "why": "User-confirmed placement under Shared Liminal Spaces."
+        }
+      ],
+      "sourceId": "playlist-048-gtopu6ikQhk",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.005",
+      "playlistIndex": 142,
+      "title": "Lost in the Backrooms: Exploring the Internet's Creepiest Liminal Space | Monstrum",
+      "channel": "Storied",
+      "url": "https://www.youtube.com/watch?v=Ir9do-YQoC8",
+      "duration": "11:16",
+      "uploadDate": "2024-06-06T09:04:24-07:00",
+      "viewCount": 243418,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Ever felt like a place seems real yet oddly unsettling? WSC link: The Lovely and the Liminal / Liminality.",
+      "keyTerms": [
+        "pbs",
+        "vol",
+        "backrooms",
+        "liminal",
+        "digital",
+        "emily",
+        "zarka",
+        "exploring",
+        "monstrum",
+        "folklore",
+        "reality",
+        "audio",
+        "executive",
+        "producer",
+        "spaces",
+        "space",
+        "like",
+        "yet"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Lost in the In-Between"
+      ],
+      "bigIdeaLabels": [
+        "Liminality",
+        "Waiting",
+        "Liminal aesthetics online",
+        "The uncanny and familiar strangeness",
+        "Liminal spaces in architecture"
+      ],
+      "bigIdeaIds": [
+        "liminality",
+        "waiting",
+        "liminal-aesthetics-online",
+        "the-uncanny-and-familiar-strangeness",
+        "liminal-spaces-in-architecture"
+      ],
+      "subjectLabels": [
+        "Media / Film",
+        "Psychology"
+      ],
+      "subjectIds": [
+        "media-film",
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Lost in the In-Between",
+          "why": "Manually placed under Lost in the In-Between."
+        }
+      ],
+      "sourceId": "playlist-142-Ir9do-YQoC8",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.006",
+      "playlistIndex": 143,
+      "title": "Backrooms | Official Trailer HD | A24",
+      "channel": "A24",
+      "url": "https://www.youtube.com/watch?v=0HjdiohVOik",
+      "duration": "2:18",
+      "uploadDate": "2026-03-31T08:59:00-07:00",
+      "viewCount": 27270256,
+      "contentType": "trailer / media clip",
+      "formatStyle": "edited media footage",
+      "score": 6.5,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "SUBSCRIBE: http://bit.ly/A24subscribe A film by Kane Parsons, starring Chiwetel Ejiofor, Renate Reinsve, Mark Duplass, Finn Bennett, and Lukita Maxwell. WSC link: The Lovely and the Liminal / Liminality.",
+      "keyTerms": [
+        "a24",
+        "bit",
+        "backrooms",
+        "trailer",
+        "subscribe",
+        "film",
+        "kane",
+        "parsons",
+        "chiwetel",
+        "ejiofor",
+        "renate",
+        "reinsve",
+        "mark",
+        "duplass",
+        "finn",
+        "bennett",
+        "lukita",
+        "maxwell"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Lost in the In-Between"
+      ],
+      "bigIdeaLabels": [
+        "Liminality",
+        "Waiting",
+        "Drafts & Prototypes",
+        "Prediction",
+        "Progress",
+        "Planning & Projects",
+        "Endings",
+        "Thresholds",
+        "Fake demos and vaporware",
+        "Demo culture in music"
+      ],
+      "bigIdeaIds": [
+        "liminality",
+        "waiting",
+        "drafts-and-prototypes",
+        "prediction",
+        "progress",
+        "planning-and-projects",
+        "endings",
+        "thresholds",
+        "fake-demos-and-vaporware",
+        "demo-culture-in-music"
+      ],
+      "subjectLabels": [
+        "Media / Film",
+        "Psychology"
+      ],
+      "subjectIds": [
+        "media-film",
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Lost in the In-Between",
+          "why": "Manually placed under Lost in the In-Between."
+        }
+      ],
+      "sourceId": "playlist-143-0HjdiohVOik",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.007",
+      "playlistIndex": 144,
+      "title": "Why should you read \"Waiting For Godot\"? - Iseult Gillespie",
+      "channel": "TED-Ed",
+      "url": "https://www.youtube.com/watch?v=Cz5ey3RqDBI",
+      "duration": "5:04",
+      "uploadDate": "2018-10-15T08:00:10-07:00",
+      "viewCount": 1190239,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "animation / voiceover",
+      "score": 7.3,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Contextual video about Why should you read \"Waiting For Godot\"? - Iseult Gillespie. WSC link: The Lovely and the Liminal / Liminality.",
+      "keyTerms": [
+        "godot",
+        "iseult",
+        "gillespie",
+        "ted",
+        "waiting",
+        "read",
+        "ted-ed",
+        "patreon",
+        "teded",
+        "lesson",
+        "two",
+        "tree",
+        "tragicomedy",
+        "tom",
+        "pichardo-espaillat",
+        "check",
+        "page",
+        "view"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Stuck in the In-Between"
+      ],
+      "bigIdeaLabels": [
+        "Liminality",
+        "Waiting",
+        "Journeys",
+        "Destinations",
+        "Thresholds",
+        "Progress",
+        "Tourism",
+        "Waiting and anticipation",
+        "Skeleton screens and placebo progress",
+        "Liminal spaces in architecture"
+      ],
+      "bigIdeaIds": [
+        "liminality",
+        "waiting",
+        "journeys",
+        "destinations",
+        "thresholds",
+        "progress",
+        "tourism",
+        "waiting-and-anticipation",
+        "skeleton-screens-and-placebo-progress",
+        "liminal-spaces-in-architecture"
+      ],
+      "subjectLabels": [
+        "Language and Literature",
+        "Visual and Performing Arts"
+      ],
+      "subjectIds": [
+        "language-and-literature",
+        "visual-and-performing-arts"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Stuck in the In-Between",
+          "why": "Manually placed under Stuck in the In-Between."
+        }
+      ],
+      "sourceId": "playlist-144-Cz5ey3RqDBI",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.008",
+      "title": "Brian Eno - Ambient 1: Music for Airports [Full Album]",
+      "url": "https://www.youtube.com/watch?v=vNwYtllyt3Q",
+      "description": "Manual Alpaca Channel placement for Music for Airports?.",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Music for Airports?"
+      ],
+      "bigIdeaLabels": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "bigIdeaIds": [
+        "thresholds-irreversibility",
+        "delayed-arrival",
+        "movement-without-arrival",
+        "infrastructure-shapes-behavior"
+      ],
+      "subjectLabels": [
+        "Visual and Performing Arts",
+        "Psychology"
+      ],
+      "subjectIds": [
+        "visual-and-performing-arts",
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Music for Airports?",
+          "why": "User-confirmed placement under Music for Airports?."
+        }
+      ],
+      "sourceId": "manual-the-lovely-and-the-liminal-music-for-airports-vNwYtllyt3Q",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.009",
+      "title": "Do Doorways Actually Make Us Forget Things?",
+      "url": "https://www.youtube.com/watch?v=TcWUSuMpdso",
+      "description": "Manual Alpaca Channel placement for The Doorway Effect.",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "The Doorway Effect"
+      ],
+      "bigIdeaLabels": [
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "bigIdeaIds": [
+        "thresholds-irreversibility",
+        "visible-vs-real",
+        "delayed-arrival",
+        "infrastructure-shapes-behavior"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "The Doorway Effect",
+          "why": "User-confirmed placement under The Doorway Effect."
+        }
+      ],
+      "sourceId": "manual-the-lovely-and-the-liminal-the-doorway-effect-TcWUSuMpdso",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    },
+    {
+      "id": "video.the-lovely-and-the-liminal.010",
+      "title": "Dali, The Persistence of Memory",
+      "url": "https://www.youtube.com/watch?v=6mp-fBJNQmU",
+      "description": "Manual Alpaca Channel placement for Is “Liminal” Becoming Too Broad?.",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "sectionTitles": [
+        "The Lovely and the Liminal"
+      ],
+      "entryTitles": [
+        "Is “Liminal” Becoming Too Broad?"
+      ],
+      "bigIdeaLabels": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Movement Without Arrival"
+      ],
+      "bigIdeaIds": [
+        "thresholds-irreversibility",
+        "delayed-arrival",
+        "managing-uncertainty",
+        "movement-without-arrival"
+      ],
+      "subjectLabels": [
+        "Visual and Performing Arts"
+      ],
+      "subjectIds": [
+        "visual-and-performing-arts"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "the-lovely-and-the-liminal",
+          "sectionTitle": "The Lovely and the Liminal",
+          "entryTitle": "Is “Liminal” Becoming Too Broad?",
+          "why": "User-confirmed placement under Is “Liminal” Becoming Too Broad?."
+        }
+      ],
+      "sourceId": "manual-the-lovely-and-the-liminal-is-liminal-becoming-too-broad-6mp-fBJNQmU",
+      "canonicalSectionId": "the-lovely-and-the-liminal",
+      "assetId": null
+    }
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "id": "channel.more-to-do-than-can-ever-be-listed",
+  "sectionId": "more-to-do-than-can-ever-be-listed",
+  "videos": [
+    {
+      "id": "video.more-to-do-than-can-ever-be-listed.001",
+      "playlistIndex": 22,
+      "title": "The Eisenhower matrix: How to manage your tasks with EISENHOWER",
+      "channel": "EISENHOWER",
+      "url": "https://www.youtube.com/watch?v=tT89OZ7TNwc",
+      "duration": "2:24",
+      "uploadDate": "2012-09-02T12:02:05-07:00",
+      "viewCount": 1503231,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 6.8,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Manual Alpaca Channel placement for A Brief on To-Do Lists.",
+      "keyTerms": [
+        "eisenhower",
+        "matrix",
+        "management",
+        "tasks",
+        "time",
+        "productivity",
+        "task",
+        "manage",
+        "quick",
+        "easy",
+        "introduction",
+        "urgency-importance",
+        "helping",
+        "enthusiasts",
+        "prioritize",
+        "reduced",
+        "stress",
+        "increased"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "sectionTitles": [
+        "More To Do Than Can Ever Be Listed"
+      ],
+      "entryTitles": [
+        "A Brief on To-Do Lists"
+      ],
+      "bigIdeaLabels": [
+        "Incompletion That Stays Active",
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "bigIdeaIds": [
+        "incompletion-that-stays-active",
+        "infrastructure-shapes-behavior",
+        "movement-without-arrival",
+        "performed-progress"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "sectionTitle": "More To Do Than Can Ever Be Listed",
+          "entryTitle": "A Brief on To-Do Lists",
+          "why": "User-confirmed placement under A Brief on To-Do Lists."
+        }
+      ],
+      "sourceId": "playlist-022-tT89OZ7TNwc",
+      "canonicalSectionId": "more-to-do-than-can-ever-be-listed",
+      "assetId": null
+    },
+    {
+      "id": "video.more-to-do-than-can-ever-be-listed.002",
+      "playlistIndex": 23,
+      "title": "5 Smarter Ways to Organize Your To-Do List",
+      "channel": "The Muse",
+      "url": "https://www.youtube.com/watch?v=ibGnjSKLqTc",
+      "duration": "1:07",
+      "uploadDate": "2016-06-07T09:44:00-07:00",
+      "viewCount": 277597,
+      "contentType": "Shorts / short clip",
+      "formatStyle": "mixed or unknown",
+      "score": 7.1,
+      "verdict": "Strong WSC candidate.",
+      "description": "You know that feeling of making lists but still never getting anything done? WSC link: More To Do Than Can Ever Be Listed / Task methods and prioritization.",
+      "keyTerms": [
+        "list",
+        "muse",
+        "themuse",
+        "organize",
+        "to-do",
+        "done",
+        "get",
+        "always",
+        "ways",
+        "know",
+        "getting",
+        "stuff",
+        "career",
+        "advice",
+        "thedailymuse",
+        "much",
+        "things",
+        "give"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "sectionTitles": [
+        "More To Do Than Can Ever Be Listed"
+      ],
+      "entryTitles": [
+        "A Brief on To-Do Lists"
+      ],
+      "bigIdeaLabels": [
+        "Planning & Projects",
+        "Progress",
+        "Task methods and prioritization",
+        "Done lists and visible accomplishment",
+        "Why humans make lists",
+        "Bucket lists and aspirational lists"
+      ],
+      "bigIdeaIds": [
+        "planning-and-projects",
+        "progress",
+        "task-methods-and-prioritization",
+        "done-lists-and-visible-accomplishment",
+        "why-humans-make-lists",
+        "bucket-lists-and-aspirational-lists"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "sectionTitle": "More To Do Than Can Ever Be Listed",
+          "entryTitle": "A Brief on To-Do Lists",
+          "why": "Approved review placement under A Brief on To-Do Lists."
+        }
+      ],
+      "sourceId": "playlist-023-ibGnjSKLqTc",
+      "canonicalSectionId": "more-to-do-than-can-ever-be-listed",
+      "assetId": null
+    },
+    {
+      "id": "video.more-to-do-than-can-ever-be-listed.003",
+      "playlistIndex": 24,
+      "title": "Zeigarnik Effect Explained",
+      "channel": "Psychology Exposed",
+      "url": "https://www.youtube.com/watch?v=tckBMMHy90A",
+      "duration": "3:08",
+      "uploadDate": "2025-10-29T07:15:11-07:00",
+      "viewCount": 6558,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Manual Alpaca Channel placement for The Zeigarnik Effect and the Done List.",
+      "keyTerms": [
+        "psychology",
+        "zeigarnik",
+        "effect",
+        "interrupted",
+        "tasks",
+        "cognitive",
+        "participants",
+        "social",
+        "behavior",
+        "brain",
+        "explained",
+        "exposed",
+        "psychological",
+        "phenomenon",
+        "describes",
+        "people",
+        "remember",
+        "unfinished"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "sectionTitles": [
+        "More To Do Than Can Ever Be Listed"
+      ],
+      "entryTitles": [
+        "The Zeigarnik Effect and the Done List"
+      ],
+      "bigIdeaLabels": [
+        "Incompletion That Stays Active",
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "bigIdeaIds": [
+        "incompletion-that-stays-active",
+        "managing-uncertainty",
+        "delayed-arrival",
+        "infrastructure-shapes-behavior"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "sectionTitle": "More To Do Than Can Ever Be Listed",
+          "entryTitle": "The Zeigarnik Effect and the Done List",
+          "why": "User-confirmed placement under The Zeigarnik Effect and the Done List."
+        }
+      ],
+      "sourceId": "playlist-024-tckBMMHy90A",
+      "canonicalSectionId": "more-to-do-than-can-ever-be-listed",
+      "assetId": null
+    },
+    {
+      "id": "video.more-to-do-than-can-ever-be-listed.004",
+      "playlistIndex": 25,
+      "title": "Eat the Frog",
+      "channel": "Utrecht University",
+      "url": "https://www.youtube.com/watch?v=MWJcRt_DoxY",
+      "duration": "0:55",
+      "uploadDate": "2019-07-10T06:51:07-07:00",
+      "viewCount": 34728,
+      "contentType": "Shorts / short clip",
+      "formatStyle": "mixed or unknown",
+      "score": 6.5,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Manual Alpaca Channel placement for A Brief on To-Do Lists.",
+      "keyTerms": [
+        "eat",
+        "frog",
+        "utrecht",
+        "university",
+        "time",
+        "management",
+        "facebook",
+        "utrechtuniversity",
+        "instagram",
+        "twitter",
+        "explain",
+        "frog'",
+        "technique",
+        "clear",
+        "fog",
+        "information",
+        "visit",
+        "students"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "sectionTitles": [
+        "More To Do Than Can Ever Be Listed"
+      ],
+      "entryTitles": [
+        "A Brief on To-Do Lists"
+      ],
+      "bigIdeaLabels": [
+        "Incompletion That Stays Active",
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "bigIdeaIds": [
+        "incompletion-that-stays-active",
+        "infrastructure-shapes-behavior",
+        "movement-without-arrival",
+        "performed-progress"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "sectionTitle": "More To Do Than Can Ever Be Listed",
+          "entryTitle": "A Brief on To-Do Lists",
+          "why": "User-confirmed placement under A Brief on To-Do Lists."
+        }
+      ],
+      "sourceId": "playlist-025-MWJcRt_DoxY",
+      "canonicalSectionId": "more-to-do-than-can-ever-be-listed",
+      "assetId": null
+    },
+    {
+      "id": "video.more-to-do-than-can-ever-be-listed.005",
+      "playlistIndex": 80,
+      "title": "Ivy Lee Method | A 100-Year Old Productivity System for Stress Free Prioritization",
+      "channel": "Vihan Chelliah",
+      "url": "https://www.youtube.com/watch?v=NYsYD1c_HVA",
+      "duration": "4:31",
+      "uploadDate": "2020-10-31T09:00:11-07:00",
+      "viewCount": 14109,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Manual Alpaca Channel placement for A Brief on To-Do Lists.",
+      "keyTerms": [
+        "productivity",
+        "ivy",
+        "lee",
+        "method",
+        "free",
+        "prioritization",
+        "prioritize",
+        "tasks",
+        "lists",
+        "tips",
+        "system",
+        "stress",
+        "simple",
+        "year",
+        "old",
+        "productive",
+        "vihanchelliah",
+        "vihan"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "sectionTitles": [
+        "More To Do Than Can Ever Be Listed"
+      ],
+      "entryTitles": [
+        "A Brief on To-Do Lists"
+      ],
+      "bigIdeaLabels": [
+        "Incompletion That Stays Active",
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "bigIdeaIds": [
+        "incompletion-that-stays-active",
+        "infrastructure-shapes-behavior",
+        "movement-without-arrival",
+        "performed-progress"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "sectionTitle": "More To Do Than Can Ever Be Listed",
+          "entryTitle": "A Brief on To-Do Lists",
+          "why": "User-confirmed placement under A Brief on To-Do Lists."
+        }
+      ],
+      "sourceId": "playlist-080-NYsYD1c_HVA",
+      "canonicalSectionId": "more-to-do-than-can-ever-be-listed",
+      "assetId": null
+    },
+    {
+      "id": "video.more-to-do-than-can-ever-be-listed.006",
+      "playlistIndex": 81,
+      "title": "How to Bullet Journal",
+      "channel": "Bullet Journal",
+      "url": "https://www.youtube.com/watch?v=fm15cmYU0IM",
+      "duration": "4:11",
+      "uploadDate": "2015-05-21T05:24:53-07:00",
+      "viewCount": 15741835,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Hi, let me give you a brief overview of a method I invented that will help you track the past, organize the present, and plan for the future. WSC link: More To Do Than Can Ever Be Listed / Task methods and prioritization.",
+      "keyTerms": [
+        "bulletjournal",
+        "bullet",
+        "journal",
+        "playlist",
+        "bit",
+        "method",
+        "analog",
+        "notebook",
+        "ryder",
+        "course",
+        "products",
+        "newsletter",
+        "pages",
+        "facebook",
+        "pinterest",
+        "twitter",
+        "book",
+        "youtu"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "sectionTitles": [
+        "More To Do Than Can Ever Be Listed"
+      ],
+      "entryTitles": [
+        "A Brief on To-Do Lists"
+      ],
+      "bigIdeaLabels": [
+        "Planning & Projects",
+        "Progress",
+        "Routes, Roads & Navigation",
+        "Journeys",
+        "Task methods and prioritization",
+        "Done lists and visible accomplishment",
+        "Historical list traditions",
+        "Retrofit logic",
+        "Prediction",
+        "Bright and Dark Future"
+      ],
+      "bigIdeaIds": [
+        "planning-and-projects",
+        "progress",
+        "routes-roads-and-navigation",
+        "journeys",
+        "task-methods-and-prioritization",
+        "done-lists-and-visible-accomplishment",
+        "historical-list-traditions",
+        "retrofit-logic",
+        "prediction",
+        "bright-and-dark-future"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "sectionTitle": "More To Do Than Can Ever Be Listed",
+          "entryTitle": "A Brief on To-Do Lists",
+          "why": "Approved review placement under A Brief on To-Do Lists."
+        }
+      ],
+      "sourceId": "playlist-081-fm15cmYU0IM",
+      "canonicalSectionId": "more-to-do-than-can-ever-be-listed",
+      "assetId": null
+    }
+  ]
+}

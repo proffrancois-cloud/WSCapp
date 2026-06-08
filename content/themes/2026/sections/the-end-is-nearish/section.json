@@ -1,0 +1,42 @@
+{
+  "id": "the-end-is-nearish",
+  "title": "The End is Nearish",
+  "shortTitle": "The End is Nearish",
+  "originalTitle": "The End is Nearish",
+  "order": 4,
+  "themeId": "wsc-2026",
+  "blurb": "Political transitions, term limits, exits from office, and temporary in-between phases.",
+  "angle": "Societies also experience endings that are delayed, imperfect, or only partly complete.",
+  "subjectIds": [
+    "politics-and-government-global-politics",
+    "history",
+    "sciences",
+    "sociology",
+    "visual-and-performing-arts",
+    "media-film",
+    "economics-and-trade",
+    "philosophy",
+    "language-and-literature"
+  ],
+  "bigIdeaIds": [
+    "narrated-endings",
+    "thresholds-and-irreversibility",
+    "visible-vs-real",
+    "managing-uncertainty",
+    "delayed-arrival",
+    "infrastructure-shapes-behavior"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.the-end-is-nearish.card.cover",
+    "icon": "asset.the-end-is-nearish.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.the-end-is-nearish",
+    "questions": "questions.the-end-is-nearish",
+    "guide": "guide.the-end-is-nearish",
+    "media": "media.the-end-is-nearish",
+    "alpacards": "alpacards.the-end-is-nearish",
+    "channelVideos": "channel.the-end-is-nearish"
+  }
+}

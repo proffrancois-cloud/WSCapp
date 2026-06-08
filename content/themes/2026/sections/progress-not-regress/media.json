@@ -1,0 +1,254 @@
+{
+  "id": "media.progress-not-regress",
+  "sectionId": "progress-not-regress",
+  "assets": [
+    {
+      "id": "asset.progress-not-regress.alpacard.chrome-dinosaur-game",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/chrome-dinosaur-game.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.alpacard.galaxian",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/galaxian.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.alpacard.ridge-racer-loading-screen-galaxian",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/ridge-racer-loading-screen-galaxian.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.baggage-claim-psychology",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/baggage-claim-psychology.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.brad-myers-and-percent-done-indicators",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/brad-myers-and-percent-done-indicators.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.chrome-dinosaur-game",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/chrome-dinosaur-game.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.comfort-or-deception",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/comfort-or-deception.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.console-output",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/console-output.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.crosswalk-button",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/crosswalk-button.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.elevator-close-door-button",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/elevator-close-door-button.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.endowed-progress-effect",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/endowed-progress-effect.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.gini-coefficient",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/gini-coefficient.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.gross-national-income-gni",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/gross-national-income-gni.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.human-development-index-hdi",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/human-development-index-hdi.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.indeterminate-progress-bar",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/indeterminate-progress-bar.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.labor-productivity",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/labor-productivity.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.moving-vs-waiting",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/moving-vs-waiting.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.multidimensional-poverty-index-mpi",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/multidimensional-poverty-index-mpi.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.nudge-or-manipulation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/nudge-or-manipulation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.passport-index",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/passport-index.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.pentagon-pizza-report",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/pentagon-pizza-report.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.percent-done-progress-indicator",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/percent-done-progress-indicator.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.progress-as-reassurance",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/progress-as-reassurance.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.progress-feedback-can-help-or-hurt",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/progress-feedback-can-help-or-hurt.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.progress-is-not-automatic",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/progress-is-not-automatic.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.restaurant-table-games",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/restaurant-table-games.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.skeleton-screen",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/skeleton-screen.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.splash-screen",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/splash-screen.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.throbber",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/throbber.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.what-would-the-painting-show-today",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/what-would-the-painting-show-today.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.progress-not-regress.raw.world-happiness-report",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/progress-not-regress/world-happiness-report.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

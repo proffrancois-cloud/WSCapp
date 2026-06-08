@@ -1,0 +1,1041 @@
+{
+  "id": "questions.going-pains",
+  "sectionId": "going-pains",
+  "levels": {
+    "100": [
+      {
+        "id": "question.going-pains.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the main difference between adolescence and “teenager”?",
+        "correctAnswer": "Adolescence is developmental; teenager is social",
+        "wrongAnswers": [
+          "Adolescence is cultural; teenager is biological",
+          "Adolescence begins only after the teen years",
+          "Adolescence and teenager mean exactly the same thing"
+        ],
+        "explanation": "Adolescence is developmental; teenager is social.",
+        "visibleCorrectExplanation": "Adolescence is developmental; teenager is social.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Adolescence is cultural; teenager is biological",
+            "explanation": "That answer changes the point: Adolescence is developmental; teenager is social."
+          },
+          {
+            "label": "C",
+            "answer": "Adolescence begins only after the teen years",
+            "explanation": "That answer changes the point: Adolescence is developmental; teenager is social."
+          },
+          {
+            "label": "D",
+            "answer": "Adolescence and teenager mean exactly the same thing",
+            "explanation": "That answer changes the point: Adolescence is developmental; teenager is social."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_going-pains_1_098",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_going-pains_1_098",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.001"
+      },
+      {
+        "id": "question.going-pains.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What idea is built into the word “adolescent”?",
+        "correctAnswer": "Growing toward adulthood",
+        "wrongAnswers": [
+          "Staying exactly like a child",
+          "Refusing responsibility permanently",
+          "Turning into a number category"
+        ],
+        "explanation": "Growing toward adulthood.",
+        "visibleCorrectExplanation": "Growing toward adulthood.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Staying exactly like a child",
+            "explanation": "That answer changes the point: Growing toward adulthood."
+          },
+          {
+            "label": "C",
+            "answer": "Refusing responsibility permanently",
+            "explanation": "That answer changes the point: Growing toward adulthood."
+          },
+          {
+            "label": "D",
+            "answer": "Turning into a number category",
+            "explanation": "That answer changes the point: Growing toward adulthood."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_going-pains_2_064",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_going-pains_2_064",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.002"
+      },
+      {
+        "id": "question.going-pains.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the main purpose of a rite of passage?",
+        "correctAnswer": "Mark a change in status or life stage",
+        "wrongAnswers": [
+          "Make birthdays last much longer",
+          "Replace exams with ceremonies",
+          "Mark appearance rather than a real change in status"
+        ],
+        "explanation": "Mark a change in status or life stage.",
+        "visibleCorrectExplanation": "Mark a change in status or life stage.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Make birthdays last much longer",
+            "explanation": "That answer changes the point: Mark a change in status or life stage."
+          },
+          {
+            "label": "C",
+            "answer": "Replace exams with ceremonies",
+            "explanation": "That answer changes the point: Mark a change in status or life stage."
+          },
+          {
+            "label": "D",
+            "answer": "Mark appearance rather than a real change in status",
+            "explanation": "That answer changes the point: Mark a change in status or life stage."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_going-pains_3_065",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_going-pains_3_065",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.003"
+      },
+      {
+        "id": "question.going-pains.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do many works about adolescence share?",
+        "correctAnswer": "They show growth as confusing and uneven",
+        "wrongAnswers": [
+          "They show adulthood as simple and complete",
+          "They focus only on grades and exams",
+          "They prove growing up should be avoided"
+        ],
+        "explanation": "They show growth as confusing and uneven.",
+        "visibleCorrectExplanation": "They show growth as confusing and uneven.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They show adulthood as simple and complete",
+            "explanation": "That answer changes the point: They show growth as confusing and uneven."
+          },
+          {
+            "label": "C",
+            "answer": "They focus only on grades and exams",
+            "explanation": "That answer changes the point: They show growth as confusing and uneven."
+          },
+          {
+            "label": "D",
+            "answer": "They prove growing up should be avoided",
+            "explanation": "That answer changes the point: They show growth as confusing and uneven."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_going-pains_4_044",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_going-pains_4_044",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.004"
+      },
+      {
+        "id": "question.going-pains.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does “adulting” usually mean?",
+        "correctAnswer": "Doing grown-up tasks that feel effortful",
+        "wrongAnswers": [
+          "Becoming old in a single night",
+          "Refusing all ordinary responsibilities",
+          "Turning school into a full-time job"
+        ],
+        "explanation": "Doing grown-up tasks that feel effortful.",
+        "visibleCorrectExplanation": "Doing grown-up tasks that feel effortful.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Becoming old in a single night",
+            "explanation": "That answer changes the point: Doing grown-up tasks that feel effortful."
+          },
+          {
+            "label": "C",
+            "answer": "Refusing all ordinary responsibilities",
+            "explanation": "That answer changes the point: Doing grown-up tasks that feel effortful."
+          },
+          {
+            "label": "D",
+            "answer": "Turning school into a full-time job",
+            "explanation": "That answer changes the point: Doing grown-up tasks that feel effortful."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_going-pains_5_022",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_going-pains_5_022",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.005"
+      },
+      {
+        "id": "question.going-pains.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do these works mainly explore?",
+        "correctAnswer": "Death as a final threshold or passage",
+        "wrongAnswers": [
+          "Death as a topic to ignore completely",
+          "Death from one identical religious view",
+          "Death through literal airports and ships"
+        ],
+        "explanation": "Death as a final threshold or passage.",
+        "visibleCorrectExplanation": "Death as a final threshold or passage.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Death as a topic to ignore completely",
+            "explanation": "That answer changes the point: Death as a final threshold or passage."
+          },
+          {
+            "label": "C",
+            "answer": "Death from one identical religious view",
+            "explanation": "That answer changes the point: Death as a final threshold or passage."
+          },
+          {
+            "label": "D",
+            "answer": "Death through literal airports and ships",
+            "explanation": "That answer changes the point: Death as a final threshold or passage."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_going-pains_6_024",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_going-pains_6_024",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.006"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.going-pains.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does the prefrontal cortex help people do?",
+        "correctAnswer": "Plan, self-control, and think ahead",
+        "wrongAnswers": [
+          "Breathe, digest, and grow hair",
+          "Remember feelings rather than plan or control future actions",
+          "Control physical traits rather than planning or impulse control"
+        ],
+        "explanation": "Plan, self-control, and think ahead.",
+        "visibleCorrectExplanation": "Plan, self-control, and think ahead.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Breathe, digest, and grow hair",
+            "explanation": "That answer changes the point: Plan, self-control, and think ahead."
+          },
+          {
+            "label": "C",
+            "answer": "Remember feelings rather than plan or control future actions",
+            "explanation": "That answer changes the point: Plan, self-control, and think ahead."
+          },
+          {
+            "label": "D",
+            "answer": "Control physical traits rather than planning or impulse control",
+            "explanation": "That answer changes the point: Plan, self-control, and think ahead."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_going-pains_1_155",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_going-pains_1_155",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.001"
+      },
+      {
+        "id": "question.going-pains.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is “teenager” especially tied to English?",
+        "correctAnswer": "It depends on the thir-teen to nine-teen pattern",
+        "wrongAnswers": [
+          "It comes directly from Latin medical vocabulary",
+          "It exists only in countries with high schools",
+          "It names a body system rather than an English age pattern"
+        ],
+        "explanation": "It depends on the thir-teen to nine-teen pattern.",
+        "visibleCorrectExplanation": "It depends on the thir-teen to nine-teen pattern.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It comes directly from Latin medical vocabulary",
+            "explanation": "That answer changes the point: It depends on the thir-teen to nine-teen pattern."
+          },
+          {
+            "label": "C",
+            "answer": "It exists only in countries with high schools",
+            "explanation": "That answer changes the point: It depends on the thir-teen to nine-teen pattern."
+          },
+          {
+            "label": "D",
+            "answer": "It names a body system rather than an English age pattern",
+            "explanation": "That answer changes the point: It depends on the thir-teen to nine-teen pattern."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_going-pains_2_147",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_going-pains_2_147",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.002"
+      },
+      {
+        "id": "question.going-pains.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is one difference between cultural and secular rites?",
+        "correctAnswer": "One stresses tradition; one stresses institutions",
+        "wrongAnswers": [
+          "One is always real; one is always fake",
+          "One happens only before age ten",
+          "One removes all family involvement"
+        ],
+        "explanation": "One stresses tradition; one stresses institutions.",
+        "visibleCorrectExplanation": "One stresses tradition; one stresses institutions.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "One is always real; one is always fake",
+            "explanation": "That answer changes the point: One stresses tradition; one stresses institutions."
+          },
+          {
+            "label": "C",
+            "answer": "One happens only before age ten",
+            "explanation": "That answer changes the point: One stresses tradition; one stresses institutions."
+          },
+          {
+            "label": "D",
+            "answer": "One removes all family involvement",
+            "explanation": "That answer changes the point: One stresses tradition; one stresses institutions."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_going-pains_3_189",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_going-pains_3_189",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.003"
+      },
+      {
+        "id": "question.going-pains.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can art show adolescence powerfully?",
+        "correctAnswer": "It can hold mixed feelings and contradictions",
+        "wrongAnswers": [
+          "It is always more factual than science",
+          "It removes emotion from difficult subjects",
+          "Use one art form to define every part of growing up"
+        ],
+        "explanation": "It can hold mixed feelings and contradictions.",
+        "visibleCorrectExplanation": "It can hold mixed feelings and contradictions.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is always more factual than science",
+            "explanation": "That answer changes the point: It can hold mixed feelings and contradictions."
+          },
+          {
+            "label": "C",
+            "answer": "It removes emotion from difficult subjects",
+            "explanation": "That answer changes the point: It can hold mixed feelings and contradictions."
+          },
+          {
+            "label": "D",
+            "answer": "Use one art form to define every part of growing up",
+            "explanation": "That answer changes the point: It can hold mixed feelings and contradictions."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_going-pains_4_128",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_going-pains_4_128",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.004"
+      },
+      {
+        "id": "question.going-pains.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which is a typical example of adulting?",
+        "correctAnswer": "Scheduling appointments or paying bills",
+        "wrongAnswers": [
+          "Playing hide-and-seek after class",
+          "Forgetting every responsibility",
+          "Avoiding tasks rather than handling everyday adult responsibilities"
+        ],
+        "explanation": "Scheduling appointments or paying bills.",
+        "visibleCorrectExplanation": "Scheduling appointments or paying bills.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Playing hide-and-seek after class",
+            "explanation": "That answer changes the point: Scheduling appointments or paying bills."
+          },
+          {
+            "label": "C",
+            "answer": "Forgetting every responsibility",
+            "explanation": "That answer changes the point: Scheduling appointments or paying bills."
+          },
+          {
+            "label": "D",
+            "answer": "Avoiding tasks rather than handling everyday adult responsibilities",
+            "explanation": "That answer changes the point: Scheduling appointments or paying bills."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_going-pains_5_121",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_going-pains_5_121",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.005"
+      },
+      {
+        "id": "question.going-pains.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which poem turns death into a carriage ride?",
+        "correctAnswer": "Dickinson’s “Because I could not stop for Death”",
+        "wrongAnswers": [
+          "Tennyson’s “Ulysses”",
+          "Linkin Park’s “In the End”",
+          "Brooks’s “We Real Cool”"
+        ],
+        "explanation": "Dickinson’s “Because I could not stop for Death”.",
+        "visibleCorrectExplanation": "Dickinson’s “Because I could not stop for Death”.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Tennyson’s “Ulysses”",
+            "explanation": "That answer changes the point: Dickinson’s “Because I could not stop for Death”."
+          },
+          {
+            "label": "C",
+            "answer": "Linkin Park’s “In the End”",
+            "explanation": "That answer changes the point: Dickinson’s “Because I could not stop for Death”."
+          },
+          {
+            "label": "D",
+            "answer": "Brooks’s “We Real Cool”",
+            "explanation": "That answer changes the point: Dickinson’s “Because I could not stop for Death”."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_going-pains_6_142",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_going-pains_6_142",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.going-pains.006"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.going-pains.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Physical growth can be uneven and uncomfortable. Which idea gives the best comparison?",
+        "correctAnswer": "Adolescence as transition",
+        "wrongAnswers": [
+          "Leaving home and separation",
+          "Adaptation and migration",
+          "Training, effort, and performance"
+        ],
+        "explanation": "Correct: Adolescence as transition.",
+        "visibleCorrectExplanation": "Correct: Adolescence as transition.",
+        "visibleConnection": "The question starts from a concrete detail in Literal growing pains: Physical growth can be uneven and uncomfortable. It is really asking which answer handles a similar pressure. Adolescence as transition is the best connection because it places identity between childhood and adulthood, where rules, expectations, and self-image do not line up cleanly. Both ideas ask alpacas to notice that Pain can accompany growth, but pain alone does not prove that growth is happening.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains__225",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains__225",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Leaving home and separation",
+            "explanation": "That answer changes the point: Adolescence as transition."
+          },
+          {
+            "label": "C",
+            "answer": "Adaptation and migration",
+            "explanation": "That answer changes the point: Adolescence as transition."
+          },
+          {
+            "label": "D",
+            "answer": "Training, effort, and performance",
+            "explanation": "That answer changes the point: Adolescence as transition."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Leaving home and separation?",
+        "correctAnswer": "Adaptation and migration",
+        "wrongAnswers": [
+          "Training, effort, and performance",
+          "The danger of glorifying struggle",
+          "Literal growing pains"
+        ],
+        "explanation": "Correct: Adaptation and migration.",
+        "visibleCorrectExplanation": "Correct: Adaptation and migration.",
+        "visibleConnection": "The question starts from a concrete detail in Leaving home and separation: Leaving home can create excitement and grief at once. It is really asking which answer handles a similar pressure. Adaptation and migration is the best connection because it turns movement into survival work: arrival requires learning new codes while carrying old ones. Both ideas ask alpacas to notice that Leaving home can look like independence while still carrying dependence, grief, habit, and obligation.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains__226",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains__226",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Training, effort, and performance",
+            "explanation": "That answer changes the point: Adaptation and migration."
+          },
+          {
+            "label": "C",
+            "answer": "The danger of glorifying struggle",
+            "explanation": "That answer changes the point: Adaptation and migration."
+          },
+          {
+            "label": "D",
+            "answer": "Literal growing pains",
+            "explanation": "That answer changes the point: Adaptation and migration."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Training, effort, and performance into a different form?",
+        "correctAnswer": "The danger of glorifying struggle",
+        "wrongAnswers": [
+          "Literal growing pains",
+          "Adolescence as transition",
+          "Leaving home and separation"
+        ],
+        "explanation": "Correct: The danger of glorifying struggle.",
+        "visibleCorrectExplanation": "Correct: The danger of glorifying struggle.",
+        "visibleConnection": "The question starts from a concrete detail in Training, effort, and performance: Practice can strengthen ability gradually. It is really asking which answer handles a similar pressure. The danger of glorifying struggle is the best connection because it exposes how growth stories can excuse harm by making suffering sound noble after the fact. Both ideas ask alpacas to notice that Effort becomes meaningful when it produces capacity, not when it simply proves endurance.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains__227",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains__227",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Literal growing pains",
+            "explanation": "That answer changes the point: The danger of glorifying struggle."
+          },
+          {
+            "label": "C",
+            "answer": "Adolescence as transition",
+            "explanation": "That answer changes the point: The danger of glorifying struggle."
+          },
+          {
+            "label": "D",
+            "answer": "Leaving home and separation",
+            "explanation": "That answer changes the point: The danger of glorifying struggle."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Adaptation and migration?",
+        "correctAnswer": "Training, effort, and performance",
+        "wrongAnswers": [
+          "The danger of glorifying struggle",
+          "Literal growing pains",
+          "Adolescence as transition"
+        ],
+        "explanation": "Correct: Training, effort, and performance.",
+        "visibleCorrectExplanation": "Correct: Training, effort, and performance.",
+        "visibleConnection": "The question starts from a concrete detail in Adaptation and migration: Adaptation may involve language, norms, food, climate, and behavior expectations. It is really asking which answer handles a similar pressure. Training, effort, and performance is the best connection because it converts discomfort into preparation, but only if the pain actually builds capacity rather than just proving toughness. Both ideas ask alpacas to notice that Migration asks people to learn a new world without fully unloading the old one.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains__228",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains__228",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The danger of glorifying struggle",
+            "explanation": "That answer changes the point: Training, effort, and performance."
+          },
+          {
+            "label": "C",
+            "answer": "Literal growing pains",
+            "explanation": "That answer changes the point: Training, effort, and performance."
+          },
+          {
+            "label": "D",
+            "answer": "Adolescence as transition",
+            "explanation": "That answer changes the point: Training, effort, and performance."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Adolescence as transition?",
+        "correctAnswer": "Training, effort, and performance",
+        "wrongAnswers": [
+          "The danger of glorifying struggle",
+          "Literal growing pains",
+          "Leaving home and separation"
+        ],
+        "explanation": "Correct: Training, effort, and performance.",
+        "visibleCorrectExplanation": "Correct: Training, effort, and performance.",
+        "visibleConnection": "The question starts from a concrete detail in Adolescence as transition: Young people renegotiate identity and autonomy. It is really asking which answer handles a similar pressure. Training, effort, and performance is the best connection because it converts discomfort into preparation, but only if the pain actually builds capacity rather than just proving toughness. Both ideas ask alpacas to notice that Adolescence is hard because expectations change faster than certainty does.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains__229",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains__229",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The danger of glorifying struggle",
+            "explanation": "That answer changes the point: Training, effort, and performance."
+          },
+          {
+            "label": "C",
+            "answer": "Literal growing pains",
+            "explanation": "That answer changes the point: Training, effort, and performance."
+          },
+          {
+            "label": "D",
+            "answer": "Leaving home and separation",
+            "explanation": "That answer changes the point: Training, effort, and performance."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is the modern teenager considered a newer idea?",
+        "correctAnswer": "School, media, and youth culture made it visible",
+        "wrongAnswers": [
+          "No young people existed before modern schools",
+          "Hormones were discovered only recently",
+          "Earlier societies never counted people’s ages"
+        ],
+        "explanation": "Correct: School, media, and youth culture made it visible.",
+        "visibleCorrectExplanation": "Correct: School, media, and youth culture made it visible.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains_1_302",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains_1_302",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "No young people existed before modern schools",
+            "explanation": "That answer changes the point: School, media, and youth culture made it visible."
+          },
+          {
+            "label": "C",
+            "answer": "Hormones were discovered only recently",
+            "explanation": "That answer changes the point: School, media, and youth culture made it visible."
+          },
+          {
+            "label": "D",
+            "answer": "Earlier societies never counted people’s ages",
+            "explanation": "That answer changes the point: School, media, and youth culture made it visible."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does the Spanish example matter?",
+        "correctAnswer": "Number patterns do not map across languages",
+        "wrongAnswers": [
+          "Spanish has no way to discuss adolescence",
+          "Culture is determined only by grammar",
+          "All languages count ages in the same way"
+        ],
+        "explanation": "Correct: Number patterns do not map across languages.",
+        "visibleCorrectExplanation": "Correct: Number patterns do not map across languages.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains_2_303",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains_2_303",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Spanish has no way to discuss adolescence",
+            "explanation": "That answer changes the point: Number patterns do not map across languages."
+          },
+          {
+            "label": "C",
+            "answer": "Culture is determined only by grammar",
+            "explanation": "That answer changes the point: Number patterns do not map across languages."
+          },
+          {
+            "label": "D",
+            "answer": "All languages count ages in the same way",
+            "explanation": "That answer changes the point: Number patterns do not map across languages."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can a driver’s license feel like a rite?",
+        "correctAnswer": "It signals mobility and responsibility",
+        "wrongAnswers": [
+          "It is older than religious ceremonies",
+          "It automatically makes someone wise",
+          "It is mainly a decorative document"
+        ],
+        "explanation": "Correct: It signals mobility and responsibility.",
+        "visibleCorrectExplanation": "Correct: It signals mobility and responsibility.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains_3_304",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains_3_304",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is older than religious ceremonies",
+            "explanation": "That answer changes the point: It signals mobility and responsibility."
+          },
+          {
+            "label": "C",
+            "answer": "It automatically makes someone wise",
+            "explanation": "That answer changes the point: It signals mobility and responsibility."
+          },
+          {
+            "label": "D",
+            "answer": "It is mainly a decorative document",
+            "explanation": "That answer changes the point: It signals mobility and responsibility."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does “not a girl, not yet a woman” suggest?",
+        "correctAnswer": "A person can be between childhood and adulthood",
+        "wrongAnswers": [
+          "Identity becomes completely fixed at thirteen",
+          "Adulthood begins in one exact moment",
+          "Youth is always simple to understand"
+        ],
+        "explanation": "Correct: A person can be between childhood and adulthood.",
+        "visibleCorrectExplanation": "Correct: A person can be between childhood and adulthood.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains_4_305",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains_4_305",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Identity becomes completely fixed at thirteen",
+            "explanation": "That answer changes the point: A person can be between childhood and adulthood."
+          },
+          {
+            "label": "C",
+            "answer": "Adulthood begins in one exact moment",
+            "explanation": "That answer changes the point: A person can be between childhood and adulthood."
+          },
+          {
+            "label": "D",
+            "answer": "Youth is always simple to understand",
+            "explanation": "That answer changes the point: A person can be between childhood and adulthood."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is “adulting” often used jokingly?",
+        "correctAnswer": "It shows distance from feeling fully adult",
+        "wrongAnswers": [
+          "It proves adult life is always easy",
+          "It makes paperwork naturally hilarious",
+          "It means only children can joke"
+        ],
+        "explanation": "Correct: It shows distance from feeling fully adult.",
+        "visibleCorrectExplanation": "Correct: It shows distance from feeling fully adult.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains_5_306",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains_5_306",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves adult life is always easy",
+            "explanation": "That answer changes the point: It shows distance from feeling fully adult."
+          },
+          {
+            "label": "C",
+            "answer": "It makes paperwork naturally hilarious",
+            "explanation": "That answer changes the point: It shows distance from feeling fully adult."
+          },
+          {
+            "label": "D",
+            "answer": "It means only children can joke",
+            "explanation": "That answer changes the point: It shows distance from feeling fully adult."
+          }
+        ]
+      },
+      {
+        "id": "question.going-pains.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does death as a threshold suggest?",
+        "correctAnswer": "Death can be imagined as a crossing",
+        "wrongAnswers": [
+          "Death becomes unserious or harmless",
+          "All writers agree about afterlife",
+          "Art turns death into science"
+        ],
+        "explanation": "Correct: Death can be imagined as a crossing.",
+        "visibleCorrectExplanation": "Correct: Death can be imagined as a crossing.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_going-pains_6_307",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "going-pains",
+        "sectionIds": [
+          "going-pains"
+        ],
+        "guidingSectionPrimary": "Going Pains",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_going-pains_6_307",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Death becomes unserious or harmless",
+            "explanation": "That answer changes the point: Death can be imagined as a crossing."
+          },
+          {
+            "label": "C",
+            "answer": "All writers agree about afterlife",
+            "explanation": "That answer changes the point: Death can be imagined as a crossing."
+          },
+          {
+            "label": "D",
+            "answer": "Art turns death into science",
+            "explanation": "That answer changes the point: Death can be imagined as a crossing."
+          }
+        ]
+      }
+    ]
+  }
+}

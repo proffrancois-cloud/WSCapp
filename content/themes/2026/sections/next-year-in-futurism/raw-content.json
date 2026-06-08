@@ -1,0 +1,1609 @@
+{
+  "id": "raw.next-year-in-futurism",
+  "sectionId": "next-year-in-futurism",
+  "entries": [
+    {
+      "id": "raw.next-year-in-futurism.001",
+      "order": 1,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.artificial-general-intelligence",
+        "asset.next-year-in-futurism.raw.cure-for-cancer",
+        "asset.next-year-in-futurism.raw.flying-cars-advanced-air-mobility",
+        "asset.next-year-in-futurism.raw.food-pills",
+        "asset.next-year-in-futurism.raw.graphene",
+        "asset.next-year-in-futurism.raw.nanotechnology",
+        "asset.next-year-in-futurism.raw.space-elevator",
+        "asset.next-year-in-futurism.raw.virtual-reality"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.001",
+        "question.next-year-in-futurism.200.001"
+      ],
+      "title": "Always Almost There",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "“Science has not yet mastered prophecy,” Neil Armstrong (the first man on the moon) once said. “We predict too much for the next year and yet far too little for the next ten.” Indeed, some technologies exist in a tantalizing but perpetual “almost there”, always just a few years away. Consider the examples below, then discuss with your team: why are these technologies stuck in the near future, and which one would you be most excited to see in action?\n\nfusion power | cure for cancer | graphene | flying cars | virtual reality\nnanotechnology | space elevator | food pills | artificial general intelligence",
+      "links": [
+        {
+          "label": "DOE - Fusion Energy",
+          "url": "https://www.energy.gov/topics/fusion-energy"
+        },
+        {
+          "label": "NASA - Advanced Air Mobility",
+          "url": "https://www.nasa.gov/mission/advanced-air-mobility"
+        },
+        {
+          "label": "NCI - What is cancer?",
+          "url": "https://www.cancer.gov/about-cancer/understanding/what-is-cancer"
+        },
+        {
+          "label": "Graphene Flagship - Graphene",
+          "url": "https://graphene-flagship.eu/materials/graphene/"
+        },
+        {
+          "label": "BBC Science Focus - AI bubble and AGI limits",
+          "url": "https://www.sciencefocus.com/future-technology/hidden-forces-ai-bubble"
+        }
+      ],
+      "studentExplanation": "Some technologies become permanent residents of the near future: famous enough to feel inevitable, but difficult enough to remain unfinished, niche, expensive, or socially awkward. Fusion power, flying cars, graphene, nanotechnology, life-extension dreams, and AGI all show the same pattern: the idea can be scientifically meaningful while the path to everyday use is delayed by engineering, cost, safety, regulation, scale, or exaggerated expectations. The Neil Armstrong quote matters because it warns students that humans often overestimate the immediate future and underestimate slower, deeper change.\n\nThe added futurism notes group these examples as promises that are technically imaginable but socially or physically hard: fusion has to produce usable net energy at scale, cancer is many diseases, graphene is difficult to commercialize, and space elevators require materials and orbital engineering beyond ordinary construction. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this helps students separate technical possibility from real-world arrival. At the section level, it opens futurism as a study of delayed promises, not just cool inventions. At the year-theme level, it connects to prediction and progress because being “almost there” can become its own long liminal state.",
+      "takeaway": "Imagination can move faster than engineering, markets, and social trust",
+      "subjects": [
+        "Computer Science / Technology",
+        "Sciences"
+      ],
+      "bigIdeas": [
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "fusion power",
+        "cure for cancer",
+        "graphene",
+        "flying cars",
+        "virtual reality",
+        "nanotechnology",
+        "space elevator",
+        "food pills",
+        "artificial general intelligence",
+        "Flying cars / advanced air mobility"
+      ],
+      "debateRelevance": "Useful when debating whether delayed technologies are failures, long-term research bets, or examples of futurist overconfidence.",
+      "counterargument": "Some technologies that seem permanently delayed are still progressing; repeated over-promising does not make the underlying research useless.",
+      "visualSections": [
+        {
+          "title": "Always Almost There - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Cure for cancer",
+              "note": "The phrase “a cure for cancer” hides the fact that cancer is many diseases with different causes, mutations, and treatments.",
+              "imageGuidance": "Use /imagesearch first to find a realistic medical or educational image showing diverse cancer cells or a cancer research lab, not a scary generic tumor stock image. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why there is not one single cure for cancer. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "NCI - What is cancer?",
+                  "url": "https://www.cancer.gov/about-cancer/understanding/what-is-cancer"
+                }
+              ],
+              "url": "https://www.cancer.gov/about-cancer/understanding/what-is-cancer",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/cure-for-cancer.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Graphene",
+              "note": "Graphene has remarkable properties, but the challenge is turning a laboratory wonder-material into cheap, reliable everyday products.",
+              "imageGuidance": "Use /imagesearch first to find a realistic microscope/atomic lattice image or official graphene visualization from a university/Graphene Flagship-style source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains what graphene is and why adoption has been slower than early hype. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Graphene Flagship - Graphene",
+                  "url": "https://graphene-flagship.eu/materials/graphene/"
+                }
+              ],
+              "url": "https://graphene-flagship.eu/materials/graphene/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/graphene.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Flying cars / advanced air mobility",
+              "note": "The old dream of flying cars now looks more like eVTOL air taxis, but safety, noise, regulation, cost, and city infrastructure remain barriers.",
+              "imageGuidance": "Use /imagesearch first to find a realistic NASA Advanced Air Mobility or eVTOL air taxi concept/test image, not a fantasy sci-fi flying car. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains advanced air mobility, eVTOLs, and why flying cars are hard to make normal. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "NASA - Advanced Air Mobility",
+                  "url": "https://www.nasa.gov/mission/advanced-air-mobility"
+                }
+              ],
+              "url": "https://www.nasa.gov/mission/advanced-air-mobility",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/flying-cars-advanced-air-mobility.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Virtual reality",
+              "note": "VR arrived, but not as a universal replacement for screens or daily life; adoption depends on comfort, cost, social use, and content.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of a person using a VR headset in an educational or work setting, not a cyberpunk fantasy scene. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why virtual reality has not fully replaced ordinary screens. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/virtual-reality.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Always Almost There - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Nanotechnology",
+              "note": "Nanotechnology is real in materials and medicine, but the grand “tiny machines everywhere” version remains more complicated than early futurism suggested.",
+              "imageGuidance": "Use /imagesearch first to find a realistic nanotechnology lab or scientific nanoscale visualization from a university or research source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains what nanotechnology is and why the hype was larger than everyday adoption. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/nanotechnology.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Space elevator",
+              "note": "A space elevator is simple as an idea but extreme as engineering: the required materials, safety, and orbital mechanics remain enormous challenges.",
+              "imageGuidance": "Use /imagesearch first to find a clear realistic diagram or concept image of a space elevator from an educational/science source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why a space elevator is difficult to build. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/space-elevator.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Food pills",
+              "note": "Food pills reveal the difference between nutrient delivery and the social, sensory, cultural experience of eating.",
+              "imageGuidance": "Use /imagesearch first to find a realistic educational comparison image showing meal replacement pills or compact nutrition beside actual food, not a goofy pill bottle joke. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why food pills or total meal replacements have not replaced eating. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/food-pills.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Artificial general intelligence",
+              "note": "AGI is one of the biggest “almost there” ideas because current AI is impressive, but general flexible understanding remains contested.",
+              "imageGuidance": "Use /imagesearch first to find a realistic educational image of AI research or human-AI comparison, not robot heads or glowing brains. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains the difference between narrow AI and artificial general intelligence. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/artificial-general-intelligence.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Progress"
+      ],
+      "primaryBigIdea": "Delayed Arrival",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Delayed Arrival",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Performed Progress",
+          "Visible vs Real"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Graphene: The Next Big (But Thin) Thing",
+          "url": "https://www.youtube.com/watch?v=Mcg9_ML2mXY"
+        },
+        {
+          "title": "Yes, scientists are actually building an elevator to space - Fabio Pacucci",
+          "url": "https://www.youtube.com/watch?v=HQhmsDkZhQA"
+        },
+        {
+          "title": "Space Elevator – Science Fiction or the Future of Mankind?",
+          "url": "https://www.youtube.com/watch?v=qPQQwqGWktE"
+        },
+        {
+          "title": "Fusion power",
+          "url": "https://www.youtube.com/watch?v=mZsaaturR6E"
+        }
+      ],
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.002",
+      "order": 2,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.a-forecast-as-a-time-capsule",
+        "asset.next-year-in-futurism.raw.autonomous-miles",
+        "asset.next-year-in-futurism.raw.cashless-payments",
+        "asset.next-year-in-futurism.raw.new-mobile-form-factor",
+        "asset.next-year-in-futurism.raw.vr-addiction",
+        "asset.next-year-in-futurism.raw.work-becomes-freelance"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.002",
+        "question.next-year-in-futurism.200.002"
+      ],
+      "title": "What 2018 Thought 2028 Would Look Like",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "With apologies to Mr. Armstrong, sometimes people also predict too much for the next ten. Consider these predictions for the year 2028, made in 2018. Are there any that haven’t come true yet but that you think still might in the next two years?",
+      "links": [
+        {
+          "label": "Kindred Capital - Take me to the Year 2028",
+          "url": "https://kindredcapital.medium.com/take-me-to-the-year-2028-1dd405bd30b6"
+        }
+      ],
+      "studentExplanation": "A 2018 forecast for 2028 is useful not because it gives a perfect map of the future, but because it reveals what investors and technology thinkers thought was accelerating at that moment. The article predicts a new mobile form factor, major autonomous-car adoption, a huge freelance workforce, longer lives, security drones, mainstream vegetarianism, cashless payment, solar growth, enhanced athletes, VR addiction, and more Brexit talks. Students should treat the article as a time capsule: some predictions were directionally smart, some were too fast, and some reveal the hopes and fears of 2018 more than the reality of 2028.\n\nTreat the 2018 forecast as a time capsule, not just a checklist. It predicted new phone forms, autonomous miles, freelancers, cashless payments, VR addiction, wireless charging, and altered sports; the useful exercise is to ask which predictions failed because the tech was hard, and which failed because people did not adopt them. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this teaches students to evaluate predictions after time has passed. At the section level, it gives a concrete forecast to test rather than abstract futurism. At the year-theme level, it connects to prediction and progress because the future is partly imagined from the anxieties, investments, and blind spots of the present.",
+      "takeaway": "Predictions are also documents of the present that produced them",
+      "subjects": [
+        "Economics & Trade",
+        "Computer Science / Technology"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Performed Progress"
+      ],
+      "examples": [
+        "A forecast as a time capsule",
+        "New mobile form factor",
+        "Autonomous miles",
+        "Work becomes freelance",
+        "Cashless payments",
+        "VR addiction"
+      ],
+      "debateRelevance": "Useful when debating whether forecasts should be judged by accuracy alone or also as evidence of the anxieties and assumptions of their moment.",
+      "counterargument": "Even a forecast that misses its timeline may still identify a real trend or pressure before it becomes obvious.",
+      "visualSections": [
+        {
+          "title": "What 2018 Thought 2028 Would Look Like - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "A forecast as a time capsule",
+              "note": "The 2018 article is a snapshot of investor-era optimism about exponential change and digital disruption.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of a person reviewing an old 2018 tech forecast on a laptop or a webpage screenshot if available. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains how to evaluate old technology predictions. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/a-forecast-as-a-time-capsule.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "New mobile form factor",
+              "note": "The article expected a major replacement for the smartphone interface, such as retinal display, voice, and gesture.",
+              "imageGuidance": "Use /imagesearch first to find a realistic AR glasses or wearable display image from a credible technology source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains AR glasses or wearable computing as a possible future of smartphones. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/new-mobile-form-factor.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Autonomous miles",
+              "note": "The forecast expected autonomous vehicles to take a huge share of driving, showing how safety and economics can be overestimated.",
+              "imageGuidance": "Use /imagesearch first to find a realistic autonomous vehicle testing on a road with visible sensors, from a company or reputable news source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why autonomous driving adoption has been slower than predicted. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/autonomous-miles.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "What 2018 Thought 2028 Would Look Like - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Work becomes freelance",
+              "note": "The prediction imagined an “ultra-flexible” labor future, raising questions about freedom, insecurity, and platform work.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of remote or freelance workers using laptops in different locations, not a corporate stock cliché. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains gig economy or freelance work trends for students. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/work-becomes-freelance.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Cashless payments",
+              "note": "The forecast saw cash disappearing quickly, which invites comparison with mobile payments, cards, and unequal access.",
+              "imageGuidance": "Use /imagesearch first to find a realistic contactless payment or mobile wallet image from a bank/payment/official source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains cashless societies and their advantages and risks. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/cashless-payments.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "VR addiction",
+              "note": "The article worried that immersive virtual worlds could become an escape from difficult real conditions.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of VR use that shows immersion and isolation without making it look like sci-fi horror. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains VR addiction or the psychology of immersive technologies. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/vr-addiction.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Progress"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.003",
+      "order": 3,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [],
+      "questionIds": [
+        "question.next-year-in-futurism.100.003",
+        "question.next-year-in-futurism.200.003"
+      ],
+      "title": "Tesla’s Tower and the Meaning of “Soon”",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "“It will soon be possible to transmit wireless messages all over the world so simply that any individual can own and operate his own apparatus,” the inventor Nikola Tesla told the New York Times in 1904. Whether it was an accurate prediction of the smartphone depends on what you think the meaning of “soon” is. For Tesla, soon meant, “I’m building it right now; I just need more funding.” Read more about his Wardenclyffe Tower and the reasons it failed, then discuss with your team: what if it had succeeded?",
+      "links": [
+        {
+          "label": "Tesla Science Center - The Tower",
+          "url": "https://teslasciencecenter.org/history/tower/"
+        },
+        {
+          "label": "Tesla Science Center - History of Wardenclyffe",
+          "url": "https://teslasciencecenter.org/staging/history/"
+        },
+        {
+          "label": "Tesla Science Center - The Journey",
+          "url": "https://teslasciencecenter.org/history/journey/"
+        }
+      ],
+      "studentExplanation": "Tesla’s 1904 prediction of personal wireless communication sounds astonishingly close to the smartphone, but Wardenclyffe shows why being visionary is not the same as arriving. Tesla imagined global wireless communication and power, and the tower was meant to be a prototype for a worldwide system. The project failed because of funding, timing, technical ambition, and lack of institutional support. Students should see Tesla as both impressively forward-looking and overconfident about how soon a world-scale system could be built.\n\nWardenclyffe makes “soon” historically concrete: Tesla imagined wireless communication and power before infrastructure, funding, regulation, and physics could make the dream practical. The tower failed not only as an invention but as a promise that depended on a whole system arriving with it. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this shows that a prediction can point in the right direction while still failing in its actual form. At the section level, it develops futurism as a problem of timing, funding, infrastructure, and credibility. At the year-theme level, it connects to progress and planning because the future belongs not only to big ideas, but to ideas that can survive implementation.",
+      "takeaway": "A prediction can be visionary and still fail as a practical route",
+      "subjects": [
+        "History"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "Tesla’s 1904 “soon”",
+        "Wardenclyffe Tower",
+        "Why the tower failed"
+      ],
+      "debateRelevance": "Useful when debating whether visionary ideas matter without the funding, infrastructure, and timing needed to make them real.",
+      "counterargument": "Tesla's vision was striking, but treating Wardenclyffe as a direct smartphone prediction can simplify the messy history of communications infrastructure.",
+      "visualSections": [
+        {
+          "title": "Tesla’s Tower and the Meaning of “Soon”",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Tesla’s 1904 “soon”",
+              "note": "Tesla imagined wireless messages around the world long before smartphones, but his “soon” compressed decades of technical and commercial difficulty.",
+              "imageGuidance": "Use /imagesearch first to find a historical photograph or reliable image of Nikola Tesla or a 1900s wireless communication context. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains Tesla’s wireless communication vision and why it mattered. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Tesla Science Center - The Tower",
+                  "url": "https://teslasciencecenter.org/history/tower/"
+                },
+                {
+                  "label": "Nikola Tesla portrait - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:N.Tesla.JPG",
+                  "license": "Public domain historical photograph"
+                }
+              ],
+              "url": "https://teslasciencecenter.org/history/tower/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/N.Tesla.JPG",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical photograph"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Wardenclyffe Tower",
+              "note": "Wardenclyffe was meant to be a prototype for worldwide wireless communication and possibly wireless power.",
+              "imageGuidance": "Use /imagesearch first to find the exact historical Wardenclyffe Tower image or Tesla Science Center image of the tower/laboratory. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains Wardenclyffe Tower and Tesla’s global wireless project. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Tesla Science Center - The Tower",
+                  "url": "https://teslasciencecenter.org/history/tower/"
+                },
+                {
+                  "label": "Wardenclyffe Tower image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Wardenclyffe_Tower_1904.jpeg",
+                  "license": "Public domain historical photograph"
+                },
+                {
+                  "label": "Wardenclyffe Tower image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Wardenclyffe_Tower_-_1904.jpg",
+                  "license": "Public domain historical photograph"
+                }
+              ],
+              "url": "https://teslasciencecenter.org/history/tower/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Wardenclyffe_Tower_-_1904.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical photograph"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Why the tower failed",
+              "note": "The project ran out of money, support, and practical credibility before Tesla could make the system work.",
+              "imageGuidance": "Use /imagesearch first to find a realistic historical image of the surviving Wardenclyffe laboratory or the demolished/abandoned site from a reliable source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why Wardenclyffe Tower failed despite Tesla’s vision. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Tesla Science Center - The Tower",
+                  "url": "https://teslasciencecenter.org/history/tower/"
+                },
+                {
+                  "label": "Wardenclyffe Tower image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Wardenclyffe_Tower_1904.jpeg",
+                  "license": "Public domain historical photograph"
+                },
+                {
+                  "label": "Wardenclyffe demolition image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Wardenclyffe_tower_tesla_new_york_demolition_july_september_1917.png",
+                  "license": "Public domain historical image"
+                }
+              ],
+              "url": "https://teslasciencecenter.org/history/tower/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Wardenclyffe_tower_tesla_new_york_demolition_july_september_1917.png",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain historical image"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The quest for Nikola Tesla’s wireless power technology",
+          "url": "https://www.youtube.com/watch?v=z97iOZQd-B4"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Planning & Projects"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Infrastructure Shapes Behavior",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.004",
+      "order": 4,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.forecast-audit-checklist",
+        "asset.next-year-in-futurism.raw.hype-cycle",
+        "asset.next-year-in-futurism.raw.invention-vs-adoption",
+        "asset.next-year-in-futurism.raw.the-word-soon"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.004",
+        "question.next-year-in-futurism.200.004"
+      ],
+      "title": "Future Promises and the Problem of Timing",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "Tesla is far from the only person to have declared that “it will soon be possible…” Sentences that begin with this and similar phrases (e.g., “In a few years, everyone will…”) almost always make ambitious predictions about the near future. Search online for examples like them, then discuss with your team: for each one, are we there yet, and how long did it take us to get there? If not, how close are we? Here are three examples to get you started.\n\n“…for one man to be heard by every human being on Earth” (1925)\n“…to launch a satellite that makes its own solar array in orbit” (2019)\n“…for humans to live a thousand years or more” (2025)",
+      "links": [
+        {
+          "label": "Gartner - Hype Cycle explanation",
+          "url": "https://www.gartner.com/en/research/methodologies/gartner-hype-cycle"
+        },
+        {
+          "label": "Our World in Data - Technology adoption",
+          "url": "https://ourworldindata.org/technology-adoption"
+        },
+        {
+          "label": "Pew Research Center - Internet and technology reports",
+          "url": "https://www.pewresearch.org/topic/internet-technology/"
+        }
+      ],
+      "studentExplanation": "Futurist language often sounds precise while remaining vague. Phrases like “soon,” “in a few years,” and “everyone will” turn uncertainty into confidence. Sometimes the prediction is not completely wrong: the technology arrives later, smaller, more unevenly, or in a form people did not expect. This entry trains students to read prediction language carefully and ask what exactly is being promised: technical possibility, mass adoption, cheap access, legal permission, or cultural acceptance.\n\nUse this as a forecast-audit tool. Students should ask what would have to exist for a promise to arrive: materials, cost, laws, public trust, maintenance, energy, training, and demand. A technology can be invented and still not be socially ready. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, students learn that prediction is partly language analysis. At the section level, this moves futurism beyond gadgets and into rhetoric. At the year-theme level, it connects to progress because “Are we there yet?” often depends on whose timeline is being sold.",
+      "takeaway": "Prediction requires evidence about systems, not only ideas",
+      "subjects": [
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Performed Progress"
+      ],
+      "examples": [
+        "The word “soon”",
+        "Invention vs adoption",
+        "Hype cycle",
+        "Forecast audit checklist"
+      ],
+      "debateRelevance": "Useful when debating whether confident future language motivates progress or hides uncertainty behind an illusion of inevitability.",
+      "counterargument": "Bold language can mislead, but it can also attract funding, attention, and effort to fragile early-stage ideas.",
+      "visualSections": [
+        {
+          "title": "Future Promises and the Problem of Timing",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The word “soon”",
+              "note": "“Soon” sounds helpful, but it can hide whether a technology is months, years, or decades away from ordinary use.",
+              "imageGuidance": "Use /imagesearch first to find a realistic conceptual image of a calendar, prototype, and future headline showing uncertain timing. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why technology predictions often miss timelines. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/the-word-soon.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Invention vs adoption",
+              "note": "A technology can exist as a demo long before it becomes cheap, safe, legal, and common.",
+              "imageGuidance": "Use /imagesearch first to find a realistic adoption curve or diffusion-of-innovation chart from an educational source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains technology adoption curves for beginners. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Our World in Data - Technology adoption",
+                  "url": "https://ourworldindata.org/technology-adoption"
+                }
+              ],
+              "url": "https://ourworldindata.org/technology-adoption",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/invention-vs-adoption.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Hype cycle",
+              "note": "Many technologies move from excitement to disappointment before finding a realistic place in the world.",
+              "imageGuidance": "Use /imagesearch first to find a clear educational hype cycle diagram from Gartner or another reputable educational source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains the technology hype cycle. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Gartner - Hype Cycle explanation",
+                  "url": "https://www.gartner.com/en/research/methodologies/gartner-hype-cycle"
+                }
+              ],
+              "url": "https://www.gartner.com/en/research/methodologies/gartner-hype-cycle",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/hype-cycle.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Forecast audit checklist",
+              "note": "Practical evaluation questions shape the slide: what is promised, by when, for whom, at what cost, and with what evidence.",
+              "imageGuidance": "Use /imagesearch first to find a realistic classroom or notebook checklist for evaluating future claims, in WSC app style. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains how to evaluate future claims or technology hype. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/forecast-audit-checklist.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Progress"
+      ],
+      "primaryBigIdea": "Delayed Arrival",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Delayed Arrival",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Visible vs Real",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.005",
+      "order": 5,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.bioprinting",
+        "asset.next-year-in-futurism.raw.cellular-reprogramming",
+        "asset.next-year-in-futurism.raw.cryonics",
+        "asset.next-year-in-futurism.raw.digital-immortality",
+        "asset.next-year-in-futurism.raw.health-and-aging-telomere-extension",
+        "asset.next-year-in-futurism.raw.organ-transplants-and-power",
+        "asset.next-year-in-futurism.raw.organoids",
+        "asset.next-year-in-futurism.raw.senotherapeutics"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.005",
+        "question.next-year-in-futurism.200.005"
+      ],
+      "title": "How Long Should Humans Try to Live?",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "Two humans that want to live a thousand years are the presidents of China and Russia. In September 2025, they were overheard talking about using organ transplants to extend their lives indefinitely. As a strategy, organ transplants have major shortcomings: it can be hard to find the organs, and just as hard to stop our immune systems from rejecting them. But people have invested billions of dollars in developing other approaches. Learn more about those listed below, then discuss with your team: if science does find ways for us to live much longer lives, would there be any reason to hesitate before using them?\n\norganoids | bioprinting | plasma transfusion | senotherapeutics\ncellular reprogramming | cellular rejuvenation | telomere extension\ncaloric restriction | digital immortality | cryonics",
+      "links": [
+        {
+          "label": "Reuters - hot mic discussion of organ transplants and immortality",
+          "url": "https://www.reuters.com/business/media-telecom/hot-mic-picks-up-putin-xi-discussing-organ-transplants-immortality-2025-09-03/"
+        },
+        {
+          "label": "Washington Post - wager on living to 150",
+          "url": "https://www.washingtonpost.com/science/2025/09/05/aging-experts-respond-putin-xi-longevity/"
+        },
+        {
+          "label": "BBC article from working draft",
+          "url": "https://www.bbc.com/news/articles/cly1w9z72r6o"
+        },
+        {
+          "label": "National Institute on Aging - aging biology",
+          "url": "https://www.nia.nih.gov/health/what-do-we-know-about-healthy-aging"
+        }
+      ],
+      "studentExplanation": "Life-extension futurism mixes serious biology with extreme fantasy. The overheard Putin-Xi conversation about organ transplants and living to 150 makes the topic political as well as scientific: longer life is not just a medical dream, but also a question of power, inequality, and who gets access. Some technologies aim to repair tissues, slow cell damage, or replace organs. Others, like cryonics or digital immortality, ask whether preserving a body or data would really preserve a person. The strongest question is not only “Can humans live longer?” but “What kind of world would be created if only some people could?”\n\nThe sources make longevity a stack of partial tools: organ transplants require rejection management, edited pig organs and stem cells are experimental, organoids model organs rather than replace full bodies, and bioprinting still struggles to create working tissues at scale. The ethical question is who gets more life, not just whether more life is possible. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this helps students see life extension as science plus ethics. At the section level, it turns futurism inward toward the body and identity. At the year-theme level, it connects to bright/dark futures because longer life can sound hopeful, unfair, frightening, or politically dangerous depending on who benefits.",
+      "takeaway": "Whether longer life would be safe, fair, meaningful, and desirable",
+      "subjects": [
+        "Sciences",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Narrated Endings",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "organoids",
+        "bioprinting",
+        "plasma transfusion",
+        "senotherapeutics",
+        "cellular reprogramming",
+        "cellular rejuvenation",
+        "telomere extension",
+        "caloric restriction",
+        "digital immortality",
+        "cryonics",
+        "Organ transplants and power"
+      ],
+      "debateRelevance": "Useful when debating whether extreme life extension should be pursued as medical progress, political power, personal freedom, or social risk.",
+      "counterargument": "Longer life can sound unequal or frightening, but many life-extension tools may first appear as ordinary disease prevention or healthier aging.",
+      "visualSections": [
+        {
+          "title": "How Long Should Humans Try to Live? - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Organ transplants and power",
+              "note": "The Putin-Xi hot-mic story turns life extension into a political question about who might get extreme medical access.",
+              "imageGuidance": "Use /imagesearch first to find a realistic news image from the Beijing parade/hot-mic event or reliable Reuters/AP-style source showing Xi and Putin at the event. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains the Putin-Xi longevity hot mic story and the ethics of life extension. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Reuters - hot mic discussion of organ transplants and immortality",
+                  "url": "https://www.reuters.com/business/media-telecom/hot-mic-picks-up-putin-xi-discussing-organ-transplants-immortality-2025-09-03/"
+                }
+              ],
+              "url": "https://www.reuters.com/business/media-telecom/hot-mic-picks-up-putin-xi-discussing-organ-transplants-immortality-2025-09-03/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/organ-transplants-and-power.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Organoids",
+              "note": "Organoids are mini tissue models grown in labs, useful for research but not the same as growing replacement humans or complete organs.",
+              "imageGuidance": "Use /imagesearch first to find a realistic scientific image of organoids or lab-grown tissue from a university/NIH/research source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains what organoids are and why they matter in medicine. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/organoids.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Bioprinting",
+              "note": "Bioprinting suggests a future of printed tissue, but full transplantable organs are much harder than printing simple structures.",
+              "imageGuidance": "Use /imagesearch first to find a realistic 3D bioprinting lab image or bioprinted tissue image from a university/medical source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains 3D bioprinting of tissues and its limits. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/bioprinting.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Senotherapeutics",
+              "note": "Senotherapeutics target damaged or aging cells, showing that life extension may be about healthier aging, not immortality.",
+              "imageGuidance": "Use /imagesearch first to find a realistic medical/scientific illustration of senescent cells or cell aging from a reputable science source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains senescent cells and therapies for healthy aging. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/senotherapeutics.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "How Long Should Humans Try to Live? - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Cellular reprogramming",
+              "note": "Reprogramming aims to reverse some cell-age markers, but translating it safely to humans remains difficult.",
+              "imageGuidance": "Use /imagesearch first to find a realistic lab image or educational diagram of cellular reprogramming or stem-cell reprogramming. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains cellular reprogramming and aging research. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/cellular-reprogramming.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Telomere extension",
+              "note": "Telomeres are linked to cell division and aging, but simply extending them is not a magic immortality switch.",
+              "imageGuidance": "Use /imagesearch first to find a realistic educational diagram of chromosomes and telomeres from a biology source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains telomeres and aging without exaggerating immortality claims. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/health-and-aging-telomere-extension.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Digital immortality",
+              "note": "Uploading or preserving personal data raises the question: is a copy of memories or speech really the same person?",
+              "imageGuidance": "Use /imagesearch first to find a realistic conceptual image of a digital archive of a person’s voice/photos/messages, in WSC style. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains digital immortality and identity questions. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Reuters - hot mic discussion of organ transplants and immortality",
+                  "url": "https://www.reuters.com/business/media-telecom/hot-mic-picks-up-putin-xi-discussing-organ-transplants-immortality-2025-09-03/"
+                }
+              ],
+              "url": "https://www.reuters.com/business/media-telecom/hot-mic-picks-up-putin-xi-discussing-organ-transplants-immortality-2025-09-03/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/digital-immortality.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Cryonics",
+              "note": "Cryonics preserves bodies or brains in hope of future revival, but it remains speculative and ethically contested.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of cryonics equipment or a cryonics facility from a reputable source, not sci-fi pods. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains what cryonics is and why it is controversial. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/cryonics.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Bright and Dark Future",
+        "Progress"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Performed Progress",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Performed Progress",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.006",
+      "order": 6,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [],
+      "questionIds": [
+        "question.next-year-in-futurism.100.006",
+        "question.next-year-in-futurism.200.006"
+      ],
+      "title": "Yesterday’s Tomorrow",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "Read about some of the futuristic technologies predicted in the past, then watch this video that shows how those predictions evolved across the 20th century. Some of them seem fantastical—an Olympics on the moon in the year 2020?—but others may already be within our reach, or just slightly beyond (where they may or may not get stuck). With your team, consider: what can we learn about the past from where people thought we were going? Are any of the things that people predicted about the 21st century things you might now predict for the 22nd?",
+      "links": [
+        {
+          "label": "Rare Historical Photos - retro future predictions",
+          "url": "https://rarehistoricalphotos.com/retro-future-predictions/"
+        }
+      ],
+      "studentExplanation": "Old visions of the future are not just funny mistakes. They show what past societies thought progress should look like: faster travel, easier homes, space colonies, automated work, new foods, and dazzling machines. Some predictions seem absurd now, but others look like early versions of technologies that arrived differently. Students should read retrofuturism as a mirror: every future picture also reveals the past that imagined it.\n\nRetrofuturism should be explained as looking at old futures from the present. Moon Olympics, automatic homes, nuclear cars, food pills, and streamlined cities reveal what past societies feared, desired, or misunderstood, so failed predictions still teach history. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this teaches students to compare accuracy with cultural meaning. At the section level, it gives futurism historical depth. At the year-theme level, it connects to prediction because “tomorrow” always carries the values, fears, and design tastes of “yesterday.”",
+      "takeaway": "Every imagined tomorrow also reveals the culture that imagined it",
+      "subjects": [
+        "History",
+        "Media / Film"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Retrofuturism",
+        "Moon Olympics",
+        "Automated homes",
+        "Future transport",
+        "Why old futures are useful"
+      ],
+      "debateRelevance": "Useful when debating whether old predictions should be laughed at as failed forecasts or studied as cultural evidence.",
+      "counterargument": "Some retrofutures are spectacle, but spectacle still reveals what people wanted, feared, and thought progress should look like.",
+      "visualSections": [
+        {
+          "title": "Yesterday’s Tomorrow - Group 1",
+          "items": []
+        },
+        {
+          "title": "Yesterday’s Tomorrow - Group 2",
+          "items": []
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Bright and Dark Future"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism",
+      "channelVideos": [
+        {
+          "title": "Past Predictions of the Future Every Decade",
+          "url": "https://www.youtube.com/watch?v=UOtb5jUogXw"
+        }
+      ]
+    },
+    {
+      "id": "raw.next-year-in-futurism.007",
+      "order": 7,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.post-quantum-readiness",
+        "asset.next-year-in-futurism.raw.q-day",
+        "asset.next-year-in-futurism.raw.quantum-supremacy",
+        "asset.next-year-in-futurism.raw.still-not-everyday-computing"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.007",
+        "question.next-year-in-futurism.200.007"
+      ],
+      "title": "Quantum Supremacy and the Fear of Q-Day",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "Who wouldn’t want quantum supremacy? In 2019, Google made a splashy headline: they’d achieved it! Others soon claimed they had too. But researchers admit quantum computers still have no practical purpose, even as cryptographers worry that they could someday be used to hack even the most encrypted passwords. Read more about this much-dreaded Q-Day, then discuss with your team: should we be developing technologies that have unclear practical advantages but clear downsides?",
+      "links": [
+        {
+          "label": "Popular Mechanics - Google quantum supremacy",
+          "url": "https://www.popularmechanics.com/science/energy/a29563154/google-achieves-quantum-supremacy/"
+        },
+        {
+          "label": "CNBC - quantum computing applications and limits",
+          "url": "https://www.cnbc.com/2025/06/27/quantum-computing-applications-how-it-works.html"
+        },
+        {
+          "label": "WIRED - Q-Day and encryption risk",
+          "url": "https://www.wired.com/story/q-day-apocalypse-quantum-computers-encryption/"
+        }
+      ],
+      "studentExplanation": "Quantum computing is a good example of a technology that can be impressive before it is broadly useful. “Quantum supremacy” means a quantum system performed a specific task beyond what a classical computer could easily do, but that does not mean quantum computers are ready for everyday work. At the same time, cybersecurity experts worry about Q-Day: the moment when a powerful enough quantum computer could break major encryption systems. The same technology can therefore look like a scientific triumph and a security threat before most people can use it at all.\n\nAdd the distinction between milestone and usefulness: quantum supremacy proves a quantum machine can outperform classical machines on a specific task, but it does not mean everyday quantum laptops have arrived. Q-Day is a security fear about cryptography, planning, and migration before the threat is practical. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this helps students separate breakthrough headlines from practical usefulness. At the section level, it makes futurism darker by showing that risk can arrive before benefit. At the year-theme level, it connects to bright/dark futures and prediction because the future may be powerful before it is safe.",
+      "takeaway": "Society must prepare for risks before everyday benefits are obvious",
+      "subjects": [
+        "Computer Science / Technology",
+        "Sciences"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Quantum supremacy",
+        "Still not everyday computing",
+        "Q-Day",
+        "Post-quantum readiness"
+      ],
+      "debateRelevance": "Useful when debating whether technologies with unclear practical benefits but plausible risks should be developed quickly, slowly, or differently.",
+      "counterargument": "Many valuable technologies first looked abstract or risky, so rejecting research too early can also carry social costs.",
+      "visualSections": [
+        {
+          "title": "Quantum Supremacy and the Fear of Q-Day",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Quantum supremacy",
+              "note": "A headline breakthrough can mean success on a narrow benchmark, not everyday usefulness.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of Google Sycamore/Willow quantum chip or a real quantum processor from a credible tech source. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains quantum supremacy in simple terms. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Popular Mechanics - Google quantum supremacy",
+                  "url": "https://www.popularmechanics.com/science/energy/a29563154/google-achieves-quantum-supremacy/"
+                }
+              ],
+              "url": "https://www.popularmechanics.com/science/energy/a29563154/google-achieves-quantum-supremacy/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/quantum-supremacy.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Still not everyday computing",
+              "note": "Quantum computers may be useful for chemistry, physics, and materials problems, but they are not replacements for normal computers.",
+              "imageGuidance": "Use /imagesearch first to find a realistic quantum computer laboratory image showing cooling hardware and actual equipment. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains what quantum computers are useful for today and what remains difficult. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "CNBC - quantum computing applications and limits",
+                  "url": "https://www.cnbc.com/2025/06/27/quantum-computing-applications-how-it-works.html"
+                }
+              ],
+              "url": "https://www.cnbc.com/2025/06/27/quantum-computing-applications-how-it-works.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/still-not-everyday-computing.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Q-Day",
+              "note": "Q-Day is the feared moment when quantum computers could break current encryption systems fast enough to expose secrets.",
+              "imageGuidance": "Use /imagesearch first to find a realistic cybersecurity image showing encryption/key systems under future quantum threat, not a glowing sci-fi hacker. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains Q-Day and why quantum computers threaten encryption. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "WIRED - Q-Day and encryption risk",
+                  "url": "https://www.wired.com/story/q-day-apocalypse-quantum-computers-encryption/"
+                }
+              ],
+              "url": "https://www.wired.com/story/q-day-apocalypse-quantum-computers-encryption/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/q-day.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Post-quantum readiness",
+              "note": "The risk is not only building quantum computers; it is whether society updates encryption before old secrets become exposed.",
+              "imageGuidance": "Use /imagesearch first to find a realistic visual of cybersecurity migration or locked data moving to quantum-safe protection. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains post-quantum cryptography for beginners. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Popular Mechanics - Google quantum supremacy",
+                  "url": "https://www.popularmechanics.com/science/energy/a29563154/google-achieves-quantum-supremacy/"
+                }
+              ],
+              "url": "https://www.popularmechanics.com/science/energy/a29563154/google-achieves-quantum-supremacy/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/post-quantum-readiness.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Bright and Dark Future",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.008",
+      "order": 8,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.assessment-after-ai",
+        "asset.next-year-in-futurism.raw.authorship-and-responsibility",
+        "asset.next-year-in-futurism.raw.detection-limits",
+        "asset.next-year-in-futurism.raw.signs-of-ai-writing"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.008",
+        "question.next-year-in-futurism.200.008"
+      ],
+      "title": "Can We Still Tell Human Writing from AI Writing?",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "Certainly, here are some examples of text generated by large language models. It’s not just the use of em dashes, but the use of negative parallel structures like this. Wikipedia has compiled a list of signs that a piece of text has been generated by AI. We may soon get to a point where we won’t be able to accurately distinguish human- and AI-generated content—at least, not without setting deliberate traps. Will it matter?",
+      "links": [
+        {
+          "label": "Wikipedia - Signs of AI writing",
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+        },
+        {
+          "label": "HuffPost / article on AI cheating concerns",
+          "url": "https://www.huffpost.com/entry/history-professor-ai-cheating-students_n_69178150e4b0781acfd62540"
+        },
+        {
+          "label": "Guardian - students and AI use",
+          "url": "https://www.theguardian.com/education/2025/feb/26/uk-universities-warned-to-stress-test-assessments-as-92-of-students-use-ai"
+        }
+      ],
+      "studentExplanation": "As AI writing becomes smoother, students should move beyond simple “spot the em dash” detection. Wikipedia’s list of signs matters because it shows that AI text often has patterns: generic balance, over-explanation, polished emptiness, formulaic contrast, or repeated structures. But the deeper issue is authorship. If a text sounds human enough, readers still need to ask who is responsible for its claims, whether the writer understands them, and whether school assignments are measuring thinking or just finished output.\n\nThe explanation should move beyond “AI sounds generic.” Students should ask who is responsible for a text, whether detectors are reliable, how style can be imitated, and why assessment changes when writing can be produced quickly but not always truthfully or thoughtfully. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this helps students think about trust and authorship, not only cheating. At the section level, it brings futurism into school and writing. At the year-theme level, it connects to drafts and bright/dark futures because AI can help produce text while also making source, voice, and responsibility harder to see.",
+      "takeaway": "Whether source and authorship still matter when output looks convincing",
+      "subjects": [
+        "Computer Science / Technology",
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Narrated Endings",
+        "Incompletion That Stays Active",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Signs of AI writing",
+        "Detection limits",
+        "Authorship and responsibility",
+        "Assessment after AI"
+      ],
+      "debateRelevance": "Useful when debating whether writing should be judged only by output quality or also by authorship, responsibility, and declared process.",
+      "counterargument": "Detection may become harder, but context, disclosure, assessment design, and accountability can still make authorship meaningful.",
+      "visualSections": [
+        {
+          "title": "Can We Still Tell Human Writing from AI Writing?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Signs of AI writing",
+              "note": "Some AI-generated text has repeated patterns, but no single clue proves the source by itself.",
+              "imageGuidance": "Use /imagesearch first to find a realistic screenshot-style educational visual comparing a human draft and an AI-like polished paragraph with highlighted patterns. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains common signs of AI-generated writing and why detection is hard. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Wikipedia - Signs of AI writing",
+                  "url": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+                }
+              ],
+              "url": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/signs-of-ai-writing.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Detection limits",
+              "note": "AI detectors and human guesses can be uncertain, especially when people revise, prompt carefully, or write in formulaic styles.",
+              "imageGuidance": "Use /imagesearch first to find a realistic classroom or teacher desk scene showing uncertain AI-detection results and annotated writing. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why AI writing detectors are imperfect. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/detection-limits.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Authorship and responsibility",
+              "note": "The key question is not only “Who wrote it?” but who understands, owns, and is responsible for the meaning.",
+              "imageGuidance": "Use /imagesearch first to find a realistic image of a student reviewing an AI-assisted essay draft with notes about source, voice, and responsibility. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains AI writing, authorship, and academic integrity. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/authorship-and-responsibility.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Assessment after AI",
+              "note": "Schools may need more oral, in-class, process-based, and reflective assessment instead of relying only on polished take-home products.",
+              "imageGuidance": "Use /imagesearch first to find a realistic classroom assessment scene with discussion, handwritten planning, and draft process visible. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains how schools are adapting assessment in the age of AI. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Guardian - students and AI use",
+                  "url": "https://www.theguardian.com/education/2025/feb/26/uk-universities-warned-to-stress-test-assessments-as-92-of-students-use-ai"
+                }
+              ],
+              "url": "https://www.theguardian.com/education/2025/feb/26/uk-universities-warned-to-stress-test-assessments-as-92-of-students-use-ai",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/assessment-after-ai.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Bright and Dark Future",
+        "Drafts & Prototypes"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Incompletion That Stays Active",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Incompletion That Stays Active",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.009",
+      "order": 9,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.hallucinations",
+        "asset.next-year-in-futurism.raw.narrow-ai-vs-agi",
+        "asset.next-year-in-futurism.raw.outlier-problem",
+        "asset.next-year-in-futurism.raw.scaling-laws-and-the-ai-bubble",
+        "asset.next-year-in-futurism.raw.should-we-want-agi"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.009",
+        "question.next-year-in-futurism.200.009"
+      ],
+      "title": "What Would AGI Change?",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "Deep learning-driven neural networks excel at competing high school English assignments, but it’s not clear that they’re getting anywhere close to artificial general intelligence (AGI)—that is, to an AI that mirrors the ability of humans to learn, understand, and apply knowledge across unlimited contexts. Discuss with your team: should we want to get there? How will our lives change if and when we do?",
+      "links": [
+        {
+          "label": "BBC Science Focus - AI bubble and AGI limits",
+          "url": "https://www.sciencefocus.com/future-technology/hidden-forces-ai-bubble"
+        }
+      ],
+      "studentExplanation": "Artificial general intelligence, or AGI, would be much broader than today’s task-specific AI. Current systems can write, summarize, code, classify, or generate media impressively, but they still struggle with reliability, grounding, outliers, and true understanding. The Science Focus article is useful because it challenges the assumption that simply scaling bigger models will automatically reach AGI. Students should understand the key debate: the question is not only whether AGI is possible, but whether society should race toward something that could transform work, knowledge, power, and human self-understanding.\n\nUse narrow AI versus AGI as the first distinction. Current systems can be impressive and brittle at once: they generate fluent work, hallucinate, depend on data and evaluation, and struggle with rare cases. The real question is what human institutions would change if a general system became reliable. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this helps students distinguish current AI from the larger AGI idea. At the section level, it raises the stakes of futurism by asking what kind of intelligence society is trying to build. At the year-theme level, it connects to bright/dark futures because AGI can be imagined as salvation, disruption, or both.",
+      "takeaway": "The real destination is not only technical but civilizational",
+      "subjects": [
+        "Computer Science / Technology",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Narrow AI vs AGI",
+        "Scaling laws and the AI bubble",
+        "Hallucinations",
+        "Outlier problem",
+        "Should we want AGI?"
+      ],
+      "debateRelevance": "Useful when debating whether AGI should be treated as a technical destination, an ethical threshold, or a speculative distraction.",
+      "counterargument": "AGI is speculative enough that both utopian and catastrophic claims can outrun the evidence.",
+      "visualSections": [
+        {
+          "title": "What Would AGI Change? - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Narrow AI vs AGI",
+              "note": "Narrow AI performs specific tasks; AGI would apply learning and reasoning flexibly across many contexts.",
+              "imageGuidance": "Use /imagesearch first to find a realistic educational comparison diagram of narrow AI task boxes versus broad cross-domain AGI capability. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains the difference between narrow AI and AGI. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/narrow-ai-vs-agi.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Scaling laws and the AI bubble",
+              "note": "The idea that bigger models always become better may not hold forever, which matters for AGI timelines and investment hype.",
+              "imageGuidance": "Use /imagesearch first to find a realistic chart-like educational visual showing model size, data, compute, and diminishing gains, in WSC style. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains AI scaling laws and why they may not guarantee AGI. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "BBC Science Focus - AI bubble and AGI limits",
+                  "url": "https://www.sciencefocus.com/future-technology/hidden-forces-ai-bubble"
+                }
+              ],
+              "url": "https://www.sciencefocus.com/future-technology/hidden-forces-ai-bubble",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/next-year-in-futurism/scaling-laws-and-the-ai-bubble.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Hallucinations",
+              "note": "AI systems can produce confident falsehoods, showing the difference between pattern prediction and reliable understanding.",
+              "imageGuidance": "Use /imagesearch first to find a realistic educational image of an AI answer being fact-checked with highlighted invented claims. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains AI hallucinations and why they happen. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/hallucinations.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "What Would AGI Change? - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Outlier problem",
+              "note": "AI can fail when facing situations unlike its training data, which limits trust in real-world settings.",
+              "imageGuidance": "Use /imagesearch first to find a realistic visual of an AI system facing an unusual edge-case scenario, such as a strange road hazard or rare medical image, in WSC style. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains the outlier problem or edge cases in AI. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/outlier-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Should we want AGI?",
+              "note": "The AGI debate is ethical and social: what happens to work, power, learning, and human meaning if such a system arrives?",
+              "imageGuidance": "Use /imagesearch first to find a realistic classroom debate or policy meeting about AGI, with humans reviewing consequences rather than a robot icon. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains AGI risks and benefits for beginners. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/should-we-want-agi.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Bright and Dark Future",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    },
+    {
+      "id": "raw.next-year-in-futurism.010",
+      "order": 10,
+      "sectionId": "next-year-in-futurism",
+      "mediaIds": [
+        "asset.next-year-in-futurism.raw.because-its-there",
+        "asset.next-year-in-futurism.raw.choosing-the-next-frontier",
+        "asset.next-year-in-futurism.raw.heat-pressure-and-limits",
+        "asset.next-year-in-futurism.raw.rivalry-vs-cooperation"
+      ],
+      "questionIds": [
+        "question.next-year-in-futurism.100.010",
+        "question.next-year-in-futurism.200.010"
+      ],
+      "title": "The Next Frontier Underground",
+      "guidingSection": "Next Year in Futurism",
+      "rawOfficialText": "“Because it’s there,” the British explorer George Mallory once responded, when asked why he wanted to climb Mt. Everest. (It’s not clear if he ever got there.) During the Cold War, both the United States and the Soviet Union looked the opposite direction and launched rival projects to drill as deep as possible into the Earth’s crust. The United States made it about 600 meters; the Soviet Union, about 12,000—resulting in the Kola Superdeep Borehole. The project only shut down in 1992 after the Soviet Union itself went into a hole. Learn more about this project and others like it, then discuss with your team: what, if anything, should be the next frontier humanity tries to reach—and why? And are races—and heated rivalries—the best way to get somewhere quickly?",
+      "links": [
+        {
+          "label": "BBC Future - the deepest hole ever dug",
+          "url": "https://www.bbc.com/future/article/20190503-the-deepest-hole-we-have-ever-dug"
+        },
+        {
+          "label": "Orion Magazine - Kola Borehole",
+          "url": "https://orionmagazine.org/article/kola-borehole-russia-scientific-dig/"
+        },
+        {
+          "label": "Wikipedia - Kola Superdeep Borehole",
+          "url": "https://en.wikipedia.org/wiki/Kola_Superdeep_Borehole"
+        }
+      ],
+      "studentExplanation": "The Kola Superdeep Borehole reminds students that the future is not always above us in space or ahead of us in computers. Sometimes the next frontier is below our feet. During the Cold War, the United States and Soviet Union competed to drill deep into Earth’s crust; the Soviet project reached more than 12 kilometers before heat, technical limits, and political collapse ended the effort. The entry asks whether rivalry helps humanity move faster, or whether it can distort exploration into prestige competition.\n\nThe Kola Superdeep Borehole and Everest-style “because it’s there” logic show that frontiers are not only outward into space. Underground exploration runs into heat, pressure, tools, funding, and national rivalry, so “frontier” means a limit where curiosity meets physical resistance. Use this to audit promises: what future is being predicted, when people expected it, how technical or social limits delayed it, and why “soon” can be a feeling rather than a calendar date.",
+      "whyItMatters": "At the entry level, this shows that frontiers are chosen and culturally framed. At the section level, it closes futurism by asking not just what we can chase, but why we chase it. At the year-theme level, it connects to progress and prediction because getting “there” depends on values, not only distance.",
+      "takeaway": "Whether competition helps discovery or distorts the reasons for exploring",
+      "subjects": [
+        "Sciences"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior",
+        "Performed Progress"
+      ],
+      "examples": [
+        "“Because it’s there”",
+        "The Kola Superdeep Borehole",
+        "Heat, pressure, and limits",
+        "Rivalry vs cooperation",
+        "Choosing the next frontier"
+      ],
+      "debateRelevance": "Useful when debating whether human frontiers should be chosen through rivalry, shared curiosity, prestige, or public need.",
+      "counterargument": "Rivalry can distort priorities, but it can also accelerate effort in ways purely cooperative systems may not always match.",
+      "visualSections": [
+        {
+          "title": "The Next Frontier Underground - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "“Because it’s there”",
+              "note": "Mallory’s Everest phrase frames exploration as desire, challenge, and prestige, not only practical need.",
+              "imageGuidance": "Use /imagesearch first to find a realistic historical image of George Mallory or Mount Everest expedition context from a reliable archive. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains George Mallory and the phrase “because it’s there”. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/because-its-there.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Kola Superdeep Borehole",
+              "note": "The Soviet project reached about 12,262 meters, making the ground itself into a Cold War frontier.",
+              "imageGuidance": "Use /imagesearch first to find a real image of the Kola Superdeep Borehole site, cap, or abandoned drilling structure from BBC/Orion/Wikimedia/reliable sources. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. Because this is a named real source/object/work, use the exact image or a reliable source version; do not replace it with a generic illustration. Do not use /imagecreator or /imagegen unless the app needs a separate supplementary conceptual background, and never as a substitute for the exact source image.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains the Kola Superdeep Borehole and why it was built. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [
+                {
+                  "label": "Orion Magazine - Kola Borehole",
+                  "url": "https://orionmagazine.org/article/kola-borehole-russia-scientific-dig/"
+                },
+                {
+                  "label": "Kola Superdeep Borehole image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Kola_Superdeep_Borehole_site_2007.jpg",
+                  "license": "Wikimedia Commons source image"
+                },
+                {
+                  "label": "Kola Superdeep Borehole image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B2%D0%B5%D1%80%D1%85%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%B0%D1%8F_%D1%81%D0%BA%D0%B2%D0%B0%D0%B6%D0%B8%D0%BD%D0%B0_crop.jpg",
+                  "license": "CC BY-SA 3.0 Wikimedia Commons source image"
+                }
+              ],
+              "url": "https://orionmagazine.org/article/kola-borehole-russia-scientific-dig/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9A%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B2%D0%B5%D1%80%D1%85%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%B0%D1%8F_%D1%81%D0%BA%D0%B2%D0%B0%D0%B6%D0%B8%D0%BD%D0%B0_crop.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "CC BY-SA 3.0 Wikimedia Commons source image"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Heat, pressure, and limits",
+              "note": "At extreme depth, high temperature and rock behavior made drilling far harder than surface ambition suggested.",
+              "imageGuidance": "Use /imagesearch first to find a realistic scientific cross-section or drilling-depth diagram showing Earth crust depth and heat limits; if no perfect source exists, use /imagecreator or /imagegen in WSC style. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains why drilling deep into Earth is so difficult. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/heat-pressure-and-limits.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "The Next Frontier Underground - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Rivalry vs cooperation",
+              "note": "Races can speed exploration, but they can also make prestige more important than knowledge or safety.",
+              "imageGuidance": "Use /imagesearch first to find a realistic split image of two scientific teams or nations competing to reach a frontier, in WSC app style. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains how Cold War rivalry shaped science and exploration. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/rivalry-vs-cooperation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Choosing the next frontier",
+              "note": "The final question is philosophical: which frontiers are worth pursuing, and who gets to decide?",
+              "imageGuidance": "Use /imagesearch first to find a realistic WSC-style classroom debate image with students comparing space, ocean, deep earth, AI, and medicine as possible future frontiers. The image must be realistic, not anime, and must feel visually compatible with the beige/brown/maroon WSC app UI; WSC app mandatory. If /imagesearch cannot find a perfect image and the slide is illustrating a general idea rather than an exact known source, use /imagecreator or /imagegen to create a realistic educational image that illustrates the concept while respecting the World Scholar app theme.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, that explains scientific frontiers and why humans explore. Avoid hype clips, product ads, sensational thumbnails, or videos that only decorate the topic.",
+              "links": [],
+              "src": "assets/raw-content/next-year-in-futurism/choosing-the-next-frontier.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Progress",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Infrastructure Shapes Behavior",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Next Year in Futurism"
+    }
+  ]
+}

@@ -1,0 +1,1041 @@
+{
+  "id": "questions.monkey-see-monkey-prototype",
+  "sectionId": "monkey-see-monkey-prototype",
+  "levels": {
+    "100": [
+      {
+        "id": "question.monkey-see-monkey-prototype.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a prototype?",
+        "correctAnswer": "An early model built to test an idea",
+        "wrongAnswers": [
+          "A final version sold to all customers",
+          "A model for testing, not a legal status for a finished product",
+          "A test version before mass production, not a factory rule"
+        ],
+        "explanation": "An early model built to test an idea.",
+        "visibleCorrectExplanation": "An early model built to test an idea.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A final version sold to all customers",
+            "explanation": "That answer changes the point: An early model built to test an idea."
+          },
+          {
+            "label": "C",
+            "answer": "A model for testing, not a legal status for a finished product",
+            "explanation": "That answer changes the point: An early model built to test an idea."
+          },
+          {
+            "label": "D",
+            "answer": "A test version before mass production, not a factory rule",
+            "explanation": "That answer changes the point: An early model built to test an idea."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_monkey-see-monkey-prototype_1_005",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_monkey-see-monkey-prototype_1_005",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.001"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is rapid prototyping?",
+        "correctAnswer": "Fast testing with early models",
+        "wrongAnswers": [
+          "Selling products before design",
+          "Copying inventions without testing",
+          "Replacing inventors with printers"
+        ],
+        "explanation": "Fast testing with early models.",
+        "visibleCorrectExplanation": "Fast testing with early models.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Selling products before design",
+            "explanation": "That answer changes the point: Fast testing with early models."
+          },
+          {
+            "label": "C",
+            "answer": "Copying inventions without testing",
+            "explanation": "That answer changes the point: Fast testing with early models."
+          },
+          {
+            "label": "D",
+            "answer": "Replacing inventors with printers",
+            "explanation": "That answer changes the point: Fast testing with early models."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_monkey-see-monkey-prototype_2_013",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_monkey-see-monkey-prototype_2_013",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.002"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is vibe coding?",
+        "correctAnswer": "Building software through AI prompts",
+        "wrongAnswers": [
+          "Fixing computers with music apps",
+          "Testing games only by feeling",
+          "Designing robots without software"
+        ],
+        "explanation": "Building software through AI prompts.",
+        "visibleCorrectExplanation": "Building software through AI prompts.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Fixing computers with music apps",
+            "explanation": "That answer changes the point: Building software through AI prompts."
+          },
+          {
+            "label": "C",
+            "answer": "Testing games only by feeling",
+            "explanation": "That answer changes the point: Building software through AI prompts."
+          },
+          {
+            "label": "D",
+            "answer": "Designing robots without software",
+            "explanation": "That answer changes the point: Building software through AI prompts."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_monkey-see-monkey-prototype_3_006",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_monkey-see-monkey-prototype_3_006",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.003"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What was hidden inside the Mechanical Turk?",
+        "correctAnswer": "A human chess player",
+        "wrongAnswers": [
+          "A small electric computer",
+          "A magnetic chess manual",
+          "A second public chessboard"
+        ],
+        "explanation": "A human chess player.",
+        "visibleCorrectExplanation": "A human chess player.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A small electric computer",
+            "explanation": "That answer changes the point: A human chess player."
+          },
+          {
+            "label": "C",
+            "answer": "A magnetic chess manual",
+            "explanation": "That answer changes the point: A human chess player."
+          },
+          {
+            "label": "D",
+            "answer": "A second public chessboard",
+            "explanation": "That answer changes the point: A human chess player."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_monkey-see-monkey-prototype_4_047",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_monkey-see-monkey-prototype_4_047",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.004"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a rigged demo?",
+        "correctAnswer": "A demo hiding key limits",
+        "wrongAnswers": [
+          "A demo filmed in public",
+          "A demo with clear labels",
+          "A demo of a finished item"
+        ],
+        "explanation": "A demo hiding key limits.",
+        "visibleCorrectExplanation": "A demo hiding key limits.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A demo filmed in public",
+            "explanation": "That answer changes the point: A demo hiding key limits."
+          },
+          {
+            "label": "C",
+            "answer": "A demo with clear labels",
+            "explanation": "That answer changes the point: A demo hiding key limits."
+          },
+          {
+            "label": "D",
+            "answer": "A demo of a finished item",
+            "explanation": "That answer changes the point: A demo hiding key limits."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_monkey-see-monkey-prototype_5_007",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_monkey-see-monkey-prototype_5_007",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.005"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is hidden labor in automation?",
+        "correctAnswer": "Human work behind a system",
+        "wrongAnswers": [
+          "Software that needs no updates",
+          "A robot working without people",
+          "A store with no technology"
+        ],
+        "explanation": "Human work behind a system.",
+        "visibleCorrectExplanation": "Human work behind a system.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Software that needs no updates",
+            "explanation": "That answer changes the point: Human work behind a system."
+          },
+          {
+            "label": "C",
+            "answer": "A robot working without people",
+            "explanation": "That answer changes the point: Human work behind a system."
+          },
+          {
+            "label": "D",
+            "answer": "A store with no technology",
+            "explanation": "That answer changes the point: Human work behind a system."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_monkey-see-monkey-prototype_6_025",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_monkey-see-monkey-prototype_6_025",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.006"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.monkey-see-monkey-prototype.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do designers use sketches early on?",
+        "correctAnswer": "To explore ideas before final choices",
+        "wrongAnswers": [
+          "To replace all later product testing",
+          "To prove the product already works",
+          "To avoid talking with real users"
+        ],
+        "explanation": "To explore ideas before final choices.",
+        "visibleCorrectExplanation": "To explore ideas before final choices.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To replace all later product testing",
+            "explanation": "That answer changes the point: To explore ideas before final choices."
+          },
+          {
+            "label": "C",
+            "answer": "To prove the product already works",
+            "explanation": "That answer changes the point: To explore ideas before final choices."
+          },
+          {
+            "label": "D",
+            "answer": "To avoid talking with real users",
+            "explanation": "That answer changes the point: To explore ideas before final choices."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_monkey-see-monkey-prototype_1_122",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_monkey-see-monkey-prototype_1_122",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.001"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why are 3D printers useful in design?",
+        "correctAnswer": "They turn ideas into testable shapes",
+        "wrongAnswers": [
+          "They make every product safe",
+          "They remove all design choices",
+          "They replace all expert feedback"
+        ],
+        "explanation": "They turn ideas into testable shapes.",
+        "visibleCorrectExplanation": "They turn ideas into testable shapes.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They make every product safe",
+            "explanation": "That answer changes the point: They turn ideas into testable shapes."
+          },
+          {
+            "label": "C",
+            "answer": "They remove all design choices",
+            "explanation": "That answer changes the point: They turn ideas into testable shapes."
+          },
+          {
+            "label": "D",
+            "answer": "They replace all expert feedback",
+            "explanation": "That answer changes the point: They turn ideas into testable shapes."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_monkey-see-monkey-prototype_2_115",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_monkey-see-monkey-prototype_2_115",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.002"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does vibe coding attract beginners?",
+        "correctAnswer": "It makes creation feel more accessible",
+        "wrongAnswers": [
+          "It removes every possible bug",
+          "It makes planning unnecessary",
+          "It ends the need for support"
+        ],
+        "explanation": "It makes creation feel more accessible.",
+        "visibleCorrectExplanation": "It makes creation feel more accessible.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes every possible bug",
+            "explanation": "That answer changes the point: It makes creation feel more accessible."
+          },
+          {
+            "label": "C",
+            "answer": "It makes planning unnecessary",
+            "explanation": "That answer changes the point: It makes creation feel more accessible."
+          },
+          {
+            "label": "D",
+            "answer": "It ends the need for support",
+            "explanation": "That answer changes the point: It makes creation feel more accessible."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_monkey-see-monkey-prototype_3_123",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_monkey-see-monkey-prototype_3_123",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.003"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is Wizard of Oz testing?",
+        "correctAnswer": "Simulating automation with human help",
+        "wrongAnswers": [
+          "Testing robots only after release",
+          "Building machines without users",
+          "Replacing research with magic tricks"
+        ],
+        "explanation": "Simulating automation with human help.",
+        "visibleCorrectExplanation": "Simulating automation with human help.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Testing robots only after release",
+            "explanation": "That answer changes the point: Simulating automation with human help."
+          },
+          {
+            "label": "C",
+            "answer": "Building machines without users",
+            "explanation": "That answer changes the point: Simulating automation with human help."
+          },
+          {
+            "label": "D",
+            "answer": "Replacing research with magic tricks",
+            "explanation": "That answer changes the point: Simulating automation with human help."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_monkey-see-monkey-prototype_4_108",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_monkey-see-monkey-prototype_4_108",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.004"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do companies use impressive demos?",
+        "correctAnswer": "To build confidence and attention",
+        "wrongAnswers": [
+          "To avoid all public interest",
+          "To prove mass production works",
+          "To replace engineering work"
+        ],
+        "explanation": "To build confidence and attention.",
+        "visibleCorrectExplanation": "To build confidence and attention.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To avoid all public interest",
+            "explanation": "That answer changes the point: To build confidence and attention."
+          },
+          {
+            "label": "C",
+            "answer": "To prove mass production works",
+            "explanation": "That answer changes the point: To build confidence and attention."
+          },
+          {
+            "label": "D",
+            "answer": "To replace engineering work",
+            "explanation": "That answer changes the point: To build confidence and attention."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_monkey-see-monkey-prototype_5_118",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_monkey-see-monkey-prototype_5_118",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.005"
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why might startups use human help early?",
+        "correctAnswer": "Full automation may not be ready",
+        "wrongAnswers": [
+          "Customers always reject AI tools",
+          "Manual work proves no demand",
+          "Human labor removes all risk"
+        ],
+        "explanation": "Full automation may not be ready.",
+        "visibleCorrectExplanation": "Full automation may not be ready.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Customers always reject AI tools",
+            "explanation": "That answer changes the point: Full automation may not be ready."
+          },
+          {
+            "label": "C",
+            "answer": "Manual work proves no demand",
+            "explanation": "That answer changes the point: Full automation may not be ready."
+          },
+          {
+            "label": "D",
+            "answer": "Human labor removes all risk",
+            "explanation": "That answer changes the point: Full automation may not be ready."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_monkey-see-monkey-prototype_6_129",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_monkey-see-monkey-prototype_6_129",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.monkey-see-monkey-prototype.006"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.monkey-see-monkey-prototype.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: It may test form, function, or user reaction. Which idea gives the best comparison?",
+        "correctAnswer": "Minimum viable product",
+        "wrongAnswers": [
+          "Iteration loops",
+          "Fake demos and vaporware",
+          "Copying, borrowing, and innovation"
+        ],
+        "explanation": "Correct: Minimum viable product.",
+        "visibleCorrectExplanation": "Correct: Minimum viable product.",
+        "visibleConnection": "The question starts from a concrete detail in What a prototype is: It may test form, function, or user reaction. It is really asking which answer handles a similar pressure. Minimum viable product is the best connection because it shrinks completion to the smallest usable version, testing whether a thing deserves more work before pretending it is finished. Both ideas ask alpacas to notice that A prototype is honest only when people know what is being tested and what is still missing.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype__240",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype__240",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Iteration loops",
+            "explanation": "That answer changes the point: Minimum viable product."
+          },
+          {
+            "label": "C",
+            "answer": "Fake demos and vaporware",
+            "explanation": "That answer changes the point: Minimum viable product."
+          },
+          {
+            "label": "D",
+            "answer": "Copying, borrowing, and innovation",
+            "explanation": "That answer changes the point: Minimum viable product."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Iteration loops?",
+        "correctAnswer": "Fake demos and vaporware",
+        "wrongAnswers": [
+          "Copying, borrowing, and innovation",
+          "Prototype ethics",
+          "What a prototype is"
+        ],
+        "explanation": "Correct: Fake demos and vaporware.",
+        "visibleCorrectExplanation": "Correct: Fake demos and vaporware.",
+        "visibleConnection": "The question starts from a concrete detail in Iteration loops: Iteration assumes first versions are incomplete. It is really asking which answer handles a similar pressure. Fake demos and vaporware is the best connection because it performs readiness before readiness exists, selling the appearance of arrival as if it were arrival itself. Both ideas ask alpacas to notice that Iteration values learning over pride. It treats version one as a question, not a promise.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype__241",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype__241",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Copying, borrowing, and innovation",
+            "explanation": "That answer changes the point: Fake demos and vaporware."
+          },
+          {
+            "label": "C",
+            "answer": "Prototype ethics",
+            "explanation": "That answer changes the point: Fake demos and vaporware."
+          },
+          {
+            "label": "D",
+            "answer": "What a prototype is",
+            "explanation": "That answer changes the point: Fake demos and vaporware."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Copying, borrowing, and innovation into a different form?",
+        "correctAnswer": "Prototype ethics",
+        "wrongAnswers": [
+          "What a prototype is",
+          "Minimum viable product",
+          "Iteration loops"
+        ],
+        "explanation": "Correct: Prototype ethics.",
+        "visibleCorrectExplanation": "Correct: Prototype ethics.",
+        "visibleConnection": "The question starts from a concrete detail in Copying, borrowing, and innovation: Originality is often built from existing patterns. It is really asking which answer handles a similar pressure. Prototype ethics is the best connection because it tests whether unfinished systems should be allowed to affect real people while their risks are still being discovered. Both ideas ask alpacas to notice that Innovation is rarely pure originality. The problem is whether borrowing builds understanding or hides dependence.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype__242",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype__242",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "What a prototype is",
+            "explanation": "That answer changes the point: Prototype ethics."
+          },
+          {
+            "label": "C",
+            "answer": "Minimum viable product",
+            "explanation": "That answer changes the point: Prototype ethics."
+          },
+          {
+            "label": "D",
+            "answer": "Iteration loops",
+            "explanation": "That answer changes the point: Prototype ethics."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Fake demos and vaporware?",
+        "correctAnswer": "Copying, borrowing, and innovation",
+        "wrongAnswers": [
+          "Prototype ethics",
+          "What a prototype is",
+          "Minimum viable product"
+        ],
+        "explanation": "Correct: Copying, borrowing, and innovation.",
+        "visibleCorrectExplanation": "Correct: Copying, borrowing, and innovation.",
+        "visibleConnection": "The question starts from a concrete detail in Fake demos and vaporware: A staged demo can exaggerate readiness. It is really asking which answer handles a similar pressure. Copying, borrowing, and innovation is the best connection because it blurs imitation and invention, asking when repetition becomes learning and when it becomes theft. Both ideas ask alpacas to notice that Markets often reward the performance of arrival before anyone checks whether the thing can work.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype__243",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype__243",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Prototype ethics",
+            "explanation": "That answer changes the point: Copying, borrowing, and innovation."
+          },
+          {
+            "label": "C",
+            "answer": "What a prototype is",
+            "explanation": "That answer changes the point: Copying, borrowing, and innovation."
+          },
+          {
+            "label": "D",
+            "answer": "Minimum viable product",
+            "explanation": "That answer changes the point: Copying, borrowing, and innovation."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Minimum viable product?",
+        "correctAnswer": "Copying, borrowing, and innovation",
+        "wrongAnswers": [
+          "Prototype ethics",
+          "What a prototype is",
+          "Iteration loops"
+        ],
+        "explanation": "Correct: Copying, borrowing, and innovation.",
+        "visibleCorrectExplanation": "Correct: Copying, borrowing, and innovation.",
+        "visibleConnection": "The question starts from a concrete detail in Minimum viable product: The goal is learning, not perfection. It is really asking which answer handles a similar pressure. Copying, borrowing, and innovation is the best connection because it blurs imitation and invention, asking when repetition becomes learning and when it becomes theft. Both ideas ask alpacas to notice that MVP logic can prevent waste, but it can also make users test unfinished systems without enough protection.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype__244",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype__244",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Prototype ethics",
+            "explanation": "That answer changes the point: Copying, borrowing, and innovation."
+          },
+          {
+            "label": "C",
+            "answer": "What a prototype is",
+            "explanation": "That answer changes the point: Copying, borrowing, and innovation."
+          },
+          {
+            "label": "D",
+            "answer": "Iteration loops",
+            "explanation": "That answer changes the point: Copying, borrowing, and innovation."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does user testing usually reveal?",
+        "correctAnswer": "How real people respond to a design",
+        "wrongAnswers": [
+          "How much a company should charge",
+          "Which patent lawyer should be hired",
+          "Which factory can ship the fastest"
+        ],
+        "explanation": "Correct: How real people respond to a design.",
+        "visibleCorrectExplanation": "Correct: How real people respond to a design.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype_1_322",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype_1_322",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "How much a company should charge",
+            "explanation": "That answer changes the point: How real people respond to a design."
+          },
+          {
+            "label": "C",
+            "answer": "Which patent lawyer should be hired",
+            "explanation": "That answer changes the point: How real people respond to a design."
+          },
+          {
+            "label": "D",
+            "answer": "Which factory can ship the fastest",
+            "explanation": "That answer changes the point: How real people respond to a design."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is one benefit of makerspaces?",
+        "correctAnswer": "They widen access to design tools",
+        "wrongAnswers": [
+          "They make training unnecessary",
+          "They prevent all design errors",
+          "They guarantee profitable products"
+        ],
+        "explanation": "Correct: They widen access to design tools.",
+        "visibleCorrectExplanation": "Correct: They widen access to design tools.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype_2_323",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype_2_323",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They make training unnecessary",
+            "explanation": "That answer changes the point: They widen access to design tools."
+          },
+          {
+            "label": "C",
+            "answer": "They prevent all design errors",
+            "explanation": "That answer changes the point: They widen access to design tools."
+          },
+          {
+            "label": "D",
+            "answer": "They guarantee profitable products",
+            "explanation": "That answer changes the point: They widen access to design tools."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What risk can AI-generated software create?",
+        "correctAnswer": "It may hide bugs behind a smooth demo",
+        "wrongAnswers": [
+          "It always runs slower than websites",
+          "It prevents people from making apps",
+          "It only works for video games"
+        ],
+        "explanation": "Correct: It may hide bugs behind a smooth demo.",
+        "visibleCorrectExplanation": "Correct: It may hide bugs behind a smooth demo.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype_3_324",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype_3_324",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It always runs slower than websites",
+            "explanation": "That answer changes the point: It may hide bugs behind a smooth demo."
+          },
+          {
+            "label": "C",
+            "answer": "It prevents people from making apps",
+            "explanation": "That answer changes the point: It may hide bugs behind a smooth demo."
+          },
+          {
+            "label": "D",
+            "answer": "It only works for video games",
+            "explanation": "That answer changes the point: It may hide bugs behind a smooth demo."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can simulated automation help designers?",
+        "correctAnswer": "It tests reactions before full building",
+        "wrongAnswers": [
+          "It proves the product already works",
+          "It removes all engineering problems",
+          "It makes user consent irrelevant"
+        ],
+        "explanation": "Correct: It tests reactions before full building.",
+        "visibleCorrectExplanation": "Correct: It tests reactions before full building.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype_4_325",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype_4_325",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves the product already works",
+            "explanation": "That answer changes the point: It tests reactions before full building."
+          },
+          {
+            "label": "C",
+            "answer": "It removes all engineering problems",
+            "explanation": "That answer changes the point: It tests reactions before full building."
+          },
+          {
+            "label": "D",
+            "answer": "It makes user consent irrelevant",
+            "explanation": "That answer changes the point: It tests reactions before full building."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What can make a demo misleading?",
+        "correctAnswer": "It hides staging or human control",
+        "wrongAnswers": [
+          "It shows the product being tested",
+          "It admits the design is unfinished",
+          "It explains what still fails"
+        ],
+        "explanation": "Correct: It hides staging or human control.",
+        "visibleCorrectExplanation": "Correct: It hides staging or human control.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype_5_326",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype_5_326",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It shows the product being tested",
+            "explanation": "That answer changes the point: It hides staging or human control."
+          },
+          {
+            "label": "C",
+            "answer": "It admits the design is unfinished",
+            "explanation": "That answer changes the point: It hides staging or human control."
+          },
+          {
+            "label": "D",
+            "answer": "It explains what still fails",
+            "explanation": "That answer changes the point: It hides staging or human control."
+          }
+        ]
+      },
+      {
+        "id": "question.monkey-see-monkey-prototype.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can hidden labor damage trust?",
+        "correctAnswer": "Users may misjudge the product",
+        "wrongAnswers": [
+          "Workers become more visible",
+          "Automation becomes fully clear",
+          "Customers receive too much detail"
+        ],
+        "explanation": "Correct: Users may misjudge the product.",
+        "visibleCorrectExplanation": "Correct: Users may misjudge the product.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_monkey-see-monkey-prototype_6_327",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "monkey-see-monkey-prototype",
+        "sectionIds": [
+          "monkey-see-monkey-prototype"
+        ],
+        "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_monkey-see-monkey-prototype_6_327",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Workers become more visible",
+            "explanation": "That answer changes the point: Users may misjudge the product."
+          },
+          {
+            "label": "C",
+            "answer": "Automation becomes fully clear",
+            "explanation": "That answer changes the point: Users may misjudge the product."
+          },
+          {
+            "label": "D",
+            "answer": "Customers receive too much detail",
+            "explanation": "That answer changes the point: Users may misjudge the product."
+          }
+        ]
+      }
+    ]
+  }
+}

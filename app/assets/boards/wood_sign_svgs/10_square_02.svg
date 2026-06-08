@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" fill="none">
+  <defs>
+    <linearGradient id="woodGrad" x1="0" y1="0" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0b24b"/>
+      <stop offset="0.45" stop-color="#d89532"/>
+      <stop offset="0.72" stop-color="#ffd277"/>
+      <stop offset="1" stop-color="#d89532"/>
+    </linearGradient>
+    <filter id="softShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="4.8" stdDeviation="5.6" flood-color="#2f1708" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <rect x="28" y="28" width="304" height="304" rx="28" fill="url(#woodGrad)" stroke="#2f1708" stroke-width="16"/>
+    <rect x="53" y="53" width="254" height="254" rx="20" stroke="#4b250d" stroke-width="8"/>
+    <path d="M 40.0 187.0 L 320.0 186.1" stroke="#4b250d" stroke-width="4.0" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 104.5 69.1 C 142.9 66.4, 209.8 63.5, 248.7 74.4" stroke="#7a3b12" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.55"/><path d="M 80.3 100.3 C 128.4 101.9, 223.0 105.5, 270.4 102.0" stroke="#7a3b12" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.53"/><path d="M 100.1 128.8 C 143.6 123.3, 209.2 123.5, 258.0 125.4" stroke="#7a3b12" stroke-width="2.7" fill="none" stroke-linecap="round" opacity="0.34"/><path d="M 121.2 146.6 C 163.4 145.9, 214.4 140.7, 250.0 142.8" stroke="#7a3b12" stroke-width="3.3" fill="none" stroke-linecap="round" opacity="0.37"/><path d="M 111.8 183.0 C 163.1 178.9, 223.2 183.3, 271.5 184.5" stroke="#7a3b12" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.50"/><path d="M 123.0 208.0 C 167.0 204.3, 211.3 209.8, 239.1 205.3" stroke="#7a3b12" stroke-width="3.8" fill="none" stroke-linecap="round" opacity="0.33"/><path d="M 86.5 237.5 C 151.2 235.7, 209.5 235.8, 272.8 228.8" stroke="#7a3b12" stroke-width="3.4" fill="none" stroke-linecap="round" opacity="0.55"/><path d="M 105.0 267.5 C 142.5 261.0, 197.5 271.2, 242.6 263.8" stroke="#7a3b12" stroke-width="2.7" fill="none" stroke-linecap="round" opacity="0.47"/><path d="M 97.3 295.6 C 153.0 291.4, 222.9 294.1, 266.3 290.3" stroke="#7a3b12" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.30"/>
+    <ellipse cx="137.3" cy="83.9" rx="25.2" ry="12.4" fill="none" stroke="#7a3b12" stroke-width="2.9" opacity="0.40" transform="rotate(5.0 137.3 83.9)"/>
+  </g>
+</svg>

@@ -1,0 +1,1350 @@
+{
+  "id": "raw.call-of-duty-free",
+  "sectionId": "call-of-duty-free",
+  "entries": [
+    {
+      "id": "raw.call-of-duty-free.001",
+      "order": 1,
+      "sectionId": "call-of-duty-free",
+      "mediaIds": [
+        "asset.call-of-duty-free.raw.image10",
+        "asset.call-of-duty-free.raw.image11",
+        "asset.call-of-duty-free.raw.image12",
+        "asset.call-of-duty-free.raw.image13",
+        "asset.call-of-duty-free.raw.image4",
+        "asset.call-of-duty-free.raw.image5",
+        "asset.call-of-duty-free.raw.image6",
+        "asset.call-of-duty-free.raw.image7",
+        "asset.call-of-duty-free.raw.image8",
+        "asset.call-of-duty-free.raw.image9",
+        "asset.call-of-duty-free.raw.nishiyama-onsen-keiunkan"
+      ],
+      "questionIds": [
+        "question.call-of-duty-free.100.001",
+        "question.call-of-duty-free.200.001"
+      ],
+      "title": "From Roadside Stops to Hotels",
+      "guidingSection": "Call of Duty-Free",
+      "rawOfficialText": "People on the road have historically needed places to park themselves too. With your team, explore the history of inns and hotels, including what might be the oldest hotel in the world. What differentiates a hotel from earlier forms of accommodation, such as post houses?",
+      "links": [
+        {
+          "label": "History of hotels article",
+          "url": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury"
+        },
+        {
+          "label": "YouTube video on Nishiyama Onsen Keiunkan",
+          "url": "https://www.youtube.com/watch?v=_8W2LIfl5RE"
+        },
+        {
+          "label": "Guinness record for the oldest hotel",
+          "url": "https://www.guinnessworldrecords.com/world-records/oldest-hotel"
+        },
+        {
+          "label": "Nishiyama Onsen Keiunkan official English site",
+          "url": "https://www.keiunkan.co.jp/en/"
+        }
+      ],
+      "studentExplanation": "Travelers have always needed support spaces: places to stop, sleep, feed animals, exchange news, wait safely, or continue a route the next day. Earlier forms such as caravanserais, monasteries, inns, taverns, and post houses were mainly tied to survival, trade, pilgrimage, or transport systems. A hotel became more specialized: a commercial place mainly designed to host travelers with comfort, privacy, service, and sometimes status. Nishiyama Onsen Keiunkan in Japan, recognized by Guinness as the world’s oldest hotel, makes the idea concrete: hospitality can become a centuries-long institution, not just a night’s shelter.\n\nThe supplemental notes make the timeline clearer: caravanserais, post houses, inns, and monasteries were not all “hotels”; they solved older route problems such as safety, animals, news, food, and shelter. Modern hotels become more specialized commercial spaces, and Nishiyama Onsen Keiunkan is useful because it shows hospitality as an institution that can survive renovations, changing roads, and changing travelers. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
+      "whyItMatters": "At the entry level, this helps students understand that hotels are part of a long infrastructure of movement. At the section level, it opens Call of Duty-Free by showing that travel depends not only on roads, ships, or vehicles, but also on stopover systems. At the year-theme level, it connects to “Are We There Yet?” because inns, post houses, and hotels are spaces of the in-between: you are no longer at home, but not fully at your final destination either.",
+      "takeaway": "Travel creates support spaces, and those spaces evolve as movement, comfort, commerce, and tourism change",
+      "subjects": [
+        "History"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "People on the road have historically needed places to park themselves too",
+        "What differentiates a hotel from earlier forms of accommodation, such as post houses",
+        "From Inns to Hotels",
+        "Ancient World",
+        "Caravanserais",
+        "Greece and Rome",
+        "Medieval Monasteries",
+        "Inns and Taverns",
+        "The Word “Hotel”",
+        "Renaissance and Grand Travel",
+        "First Modern Hotels",
+        "Railways, Steamships, and the Hotel Boom",
+        "Grand Hotels and Modern Comfort",
+        "Oldest Hotel in the World",
+        "Educational video for timeline"
+      ],
+      "debateRelevance": "Useful when debating whether travel infrastructure should be judged only by movement or also by the stopover spaces that make journeys possible.",
+      "counterargument": "Some earlier lodging spaces were so different from modern hotels that calling the whole development a single evolution can oversimplify local histories.",
+      "specialAssets": [
+        {
+          "kind": "timeline",
+          "label": "Interactive timeline",
+          "title": "From Inns to Hotels",
+          "note": "Follow the line and open each point to see how travel accommodation evolved from ancient stopovers into modern hotels.",
+          "points": [
+            {
+              "title": "Ancient World",
+              "note": "Some of the earliest formal lodging services appeared in ancient civilizations where merchants, officials, and travelers needed places to stay between centers of power and trade.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: ancient inn lodging archaeology Mesopotamia Roman mansio or ancient lodging site; use a real archaeological/historical image.",
+              "src": "assets/raw-content/call-of-duty-free/image4.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Caravanserais",
+              "note": "Caravanserais developed along trade routes such as the Silk Road as protected courtyard stops for traders, animals, goods, food, and rest.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: real caravanserai Silk Road courtyard Wikimedia Commons.",
+              "src": "assets/raw-content/call-of-duty-free/image5.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Greece and Rome",
+              "note": "Greek hospitality had a moral dimension, while Romans built mansiones and mutationes along roads for officials, messengers, soldiers, and organized travel.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Roman mansio remains Roman road lodging archaeological site.",
+              "src": "assets/raw-content/call-of-duty-free/image6.png",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Medieval Monasteries",
+              "note": "Medieval monasteries often sheltered pilgrims and travelers, showing that lodging could be charitable and religious rather than commercial.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: medieval monastery guest house pilgrims lodging.",
+              "src": "assets/raw-content/call-of-duty-free/image7.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Inns and Taverns",
+              "note": "As trade and town life grew, inns and taverns became paid lodging and social spaces where travelers could sleep, eat, exchange news, and continue their journey.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: historic inn tavern medieval Europe public domain.",
+              "src": "assets/raw-content/call-of-duty-free/image8.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "The Word “Hotel”",
+              "note": "The word hotel comes from French hôtel and gradually came to refer to lodging places offering more specialized hospitality and comfort.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: early hotel France 17th century historic hotel exterior.",
+              "src": "assets/raw-content/call-of-duty-free/image9.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Renaissance and Grand Travel",
+              "note": "As elite travel expanded, wealthier travelers expected better lodging in major cities such as Venice, Paris, and London.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: historical Venice inn grand tour lodging painting public domain.",
+              "src": "assets/raw-content/call-of-duty-free/image10.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "First Modern Hotels",
+              "note": "By the late 18th century, modern hotels offered private rooms, dining, and more standardized service, helping define the hotel as more than a roadside stop.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: first modern hotel Grand Hotel London 18th century hotel historical image.",
+              "src": "assets/raw-content/call-of-duty-free/image11.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Railways, Steamships, and the Hotel Boom",
+              "note": "The 19th century transformed travel scale: railways and steamships made hotels central to business, leisure, and urban growth.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: 19th century railway hotel historical photograph.",
+              "src": "assets/raw-content/call-of-duty-free/image12.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Grand Hotels and Modern Comfort",
+              "note": "By the late 19th and early 20th centuries, grand hotels became symbols of luxury, status, elevators, telephones, plumbing, concierge service, and room service.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: grand hotel belle epoque lobby historical photograph.",
+              "src": "assets/raw-content/call-of-duty-free/image13.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": []
+            },
+            {
+              "title": "Oldest Hotel in the World",
+              "note": "Nishiyama Onsen Keiunkan in Yamanashi, Japan, is recognized by Guinness World Records as the oldest hotel in the world, operating since 705 AD.",
+              "src": "assets/raw-content/call-of-duty-free/nishiyama-onsen-keiunkan.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact/source-preserved real timeline image",
+              "links": [
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Wikipedia-Nisiyama-Onsen-705AD.jpg"
+                },
+                {
+                  "label": "Guinness record for the oldest hotel",
+                  "url": "https://www.guinnessworldrecords.com/world-records/oldest-hotel"
+                },
+                {
+                  "label": "Official English site",
+                  "url": "https://www.keiunkan.co.jp/en/"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "visualSections": [
+        {
+          "title": "Timeline support",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Educational video for timeline",
+              "note": "Optional support video that helps students connect one named hotel to the larger history of lodging.",
+              "imageGuidance": "No extra image needed beyond the timeline images.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Nishiyama Onsen Keiunkan oldest hotel history OR history of hotels for students.",
+              "links": [
+                {
+                  "label": "YouTube video on Nishiyama Onsen Keiunkan",
+                  "url": "https://www.youtube.com/watch?v=_8W2LIfl5RE"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=_8W2LIfl5RE",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=_8W2LIfl5RE"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Tourism",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "A V.I.P. Tour of London's Most Famous Hotel | Condé Nast Traveler",
+          "url": "https://www.youtube.com/watch?v=LG3avHJ6ZrM"
+        },
+        {
+          "title": "History of Roadside Lodging | The Henry Ford’s Innovation Nation",
+          "url": "https://www.youtube.com/watch?v=5PIwo-kQcuQ"
+        },
+        {
+          "title": "The Saturday Evening Post History Minute: What Happened to the American Motel?",
+          "url": "https://www.youtube.com/watch?v=SbkCvXLgYYE"
+        },
+        {
+          "title": "World’s first motel in San Luis Obispo marks 100 years but future remains uncertain",
+          "url": "https://www.youtube.com/watch?v=oQpO18Wxu0U"
+        }
+      ],
+      "sectionTitle": "Call of Duty-Free"
+    },
+    {
+      "id": "raw.call-of-duty-free.002",
+      "order": 2,
+      "sectionId": "call-of-duty-free",
+      "mediaIds": [
+        "asset.call-of-duty-free.raw.image14",
+        "asset.call-of-duty-free.raw.image16"
+      ],
+      "questionIds": [
+        "question.call-of-duty-free.100.002",
+        "question.call-of-duty-free.200.002"
+      ],
+      "title": "The Grand Tour: Travel as a Rite of Passage",
+      "guidingSection": "Call of Duty-Free",
+      "rawOfficialText": "The rise of hotels coincided with the rise of tourism—travel for leisure, instead of for migration or business. Historians trace the roots of modern tourism to the grand tours of the 17th and 18th centuries, in which young aristocrats would travel across Europe as a rite of passage. Review a typical grand tourist itinerary, then discuss with your team: in what sense does this tradition continue today?",
+      "links": [
+        {
+          "label": "Historic UK — The Grand Tour",
+          "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+        },
+        {
+          "label": "ThoughtCo — The Grand Tour of Europe",
+          "url": "https://www.thoughtco.com/grand-tour-of-europe-1435014"
+        },
+        {
+          "label": "Britannica — Grand Tour",
+          "url": "https://www.britannica.com/topic/grand-tour"
+        }
+      ],
+      "studentExplanation": "In the 17th and 18th centuries, many wealthy young British aristocrats took a long European journey called the Grand Tour. It was meant to complete their education by exposing them to language, art, classical ruins, manners, diplomacy, and elite social life. The typical route moved from Britain to France and then into Italy, with major stops such as Paris, Lyon, Venice, Florence, Rome, and Naples. The Grand Tour helps students see one of the birthplaces of modern tourism: travel was no longer only for business, migration, war, or pilgrimage. It became a cultural experience, a rite of passage, and a way of shaping identity and status.\n\nAdd the social map: the Grand Tour was mainly a wealthy British rite of passage in the seventeenth and eighteenth centuries, moving through France and Italy and sometimes the Low Countries or German states. It turned travel into education, status, language practice, art collecting, and social networking, which is why it belongs between schooling, tourism, and adulthood. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
+      "whyItMatters": "At the entry level, this shows how travel became educational, cultural, and social rather than only practical. At the section level, it explains why hotels and tourism developed together: once travel became desirable in itself, systems grew to host and guide travelers. At the year-theme level, it connects to “Are We There Yet?” because the Grand Tour turns the journey itself into the point: the traveler is not only trying to arrive somewhere, but to be changed by the road.",
+      "takeaway": "Many travelers still use travel to gain culture, identity, memories, status, and personal growth",
+      "subjects": [
+        "History"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "Typical Grand Tour Itinerary",
+        "England / Departure",
+        "Crossing the Channel",
+        "Paris",
+        "Lyon",
+        "Crossing the Alps",
+        "Venice",
+        "Florence",
+        "Rome",
+        "Naples",
+        "Typical Grand Tour Activities"
+      ],
+      "debateRelevance": "Useful when debating whether educational travel genuinely broadens people or mainly performs class, status, and cultural polish.",
+      "counterargument": "Modern study abroad and gap years can resemble the Grand Tour, but they also differ because many travelers are not aristocrats and travel is far more accessible.",
+      "specialAssets": [
+        {
+          "kind": "route-map",
+          "label": "Interactive route map",
+          "title": "Typical Grand Tour Itinerary",
+          "note": "Select a pin on the map to see why that stop mattered on the Grand Tour.",
+          "src": "assets/raw-content/call-of-duty-free/image14.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "source-preserved-map",
+          "imageLicense": "Source-preserved instructional map",
+          "pins": [
+            {
+              "number": 1,
+              "title": "England / Departure",
+              "note": "The journey usually began in Britain, especially for wealthy young English aristocrats sent abroad as part of their education and rite of passage.",
+              "x": 30,
+              "y": 39
+            },
+            {
+              "number": 2,
+              "title": "Crossing the Channel",
+              "note": "Crossing from Britain to continental Europe marked both a physical departure and a symbolic step into elite European culture.",
+              "x": 33,
+              "y": 47
+            },
+            {
+              "number": 3,
+              "title": "Paris",
+              "note": "Paris was a center of manners, language, fashion, court culture, and elite social life.",
+              "x": 34,
+              "y": 52
+            },
+            {
+              "number": 4,
+              "title": "Lyon",
+              "note": "Lyon often worked as a transition point between northern France and the route toward the Alps and Italy.",
+              "x": 46,
+              "y": 58
+            },
+            {
+              "number": 5,
+              "title": "Crossing the Alps",
+              "note": "The Alps were a difficult, memorable passage into the Italian world of art, antiquity, and classical heritage.",
+              "x": 50,
+              "y": 58
+            },
+            {
+              "number": 6,
+              "title": "Venice",
+              "note": "Venice offered beauty, trade history, canals, spectacle, and a distinctive urban culture.",
+              "x": 55,
+              "y": 66
+            },
+            {
+              "number": 7,
+              "title": "Florence",
+              "note": "Florence represented Renaissance art, architecture, collections, and cultivated taste.",
+              "x": 53,
+              "y": 69
+            },
+            {
+              "number": 8,
+              "title": "Rome",
+              "note": "Rome was often the central goal, with ancient ruins, Catholic power, classical history, and major artworks.",
+              "x": 55,
+              "y": 73
+            },
+            {
+              "number": 9,
+              "title": "Naples",
+              "note": "Naples and nearby sites such as Vesuvius and classical ruins extended the tour toward dramatic landscape and antiquity.",
+              "x": 61,
+              "y": 79
+            }
+          ],
+          "links": [
+            {
+              "label": "Historic UK — The Grand Tour",
+              "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+            },
+            {
+              "label": "ThoughtCo — The Grand Tour of Europe",
+              "url": "https://www.thoughtco.com/grand-tour-of-europe-1435014"
+            },
+            {
+              "label": "Britannica — Grand Tour",
+              "url": "https://www.britannica.com/topic/grand-tour"
+            },
+            {
+              "label": "The Grand Tour",
+              "url": "https://www.youtube.com/watch?v=kGu4eQ65h60"
+            }
+          ]
+        },
+        {
+          "kind": "image-card",
+          "label": "Reference image",
+          "title": "Typical Grand Tour Activities",
+          "note": "Journaling, sketching, languages, collecting, art viewing, socializing, gambling, and drinking all helped turn the journey into a rite of passage.",
+          "src": "assets/raw-content/call-of-duty-free/image16.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Public-domain/source-preserved Grand Tour artwork",
+          "links": [
+            {
+              "label": "Historic UK — The Grand Tour",
+              "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+            },
+            {
+              "label": "ThoughtCo — The Grand Tour of Europe",
+              "url": "https://www.thoughtco.com/grand-tour-of-europe-1435014"
+            },
+            {
+              "label": "Britannica — Grand Tour",
+              "url": "https://www.britannica.com/topic/grand-tour"
+            },
+            {
+              "label": "Public-domain Grand Tour artwork source",
+              "url": "https://commons.wikimedia.org/wiki/File:Johan_Zoffany_-_Tribuna_of_the_Uffizi_-_Google_Art_Project.jpg"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Tourism",
+        "Adulthood / Transition"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "Call of Duty-Free"
+    },
+    {
+      "id": "raw.call-of-duty-free.003",
+      "order": 3,
+      "sectionId": "call-of-duty-free",
+      "mediaIds": [
+        "asset.call-of-duty-free.raw.golden-age-flying-boat-cabin-16x9",
+        "asset.call-of-duty-free.raw.ordinary-travel-problem",
+        "asset.call-of-duty-free.raw.tourist-misbehavior-social-distance"
+      ],
+      "questionIds": [
+        "question.call-of-duty-free.100.003",
+        "question.call-of-duty-free.200.003"
+      ],
+      "title": "The Golden Age of Travel… or Just a Golden Myth?",
+      "guidingSection": "Call of Duty-Free",
+      "rawOfficialText": "Some people long for the so-called “Golden Age of Travel”: an era of opulent ocean liners, spacious flying boats, and wealthy travelers dressed to impress. They contrast this glowing picture with cramped modern airplanes and images of bad tourist behavior. Whether or not such a golden era ever existed, discuss: what should be done to improve the travel experience today, and does travel make people act in ways they would not at home?",
+      "links": [
+        {
+          "label": "Atlantic — The Golden Age of Flying Wasn’t All That Golden",
+          "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+        },
+        {
+          "label": "Tourism Management — Tourist misbehavior and informal social control",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0261517720301849"
+        },
+        {
+          "label": "Tourist misbehavior abstract / accessible summary",
+          "url": "https://www.researchgate.net/publication/347308508_Tourist_misbehavior_Psychological_closeness_to_fellow_consumers_and_informal_social_control"
+        },
+        {
+          "label": "Overtourism socio-psychology overview",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7305059/"
+        }
+      ],
+      "studentExplanation": "People often imagine a “Golden Age of Travel” when ocean liners were elegant, planes were spacious, and passengers dressed well. But that picture is only partly true. Older travel could be glamorous for the wealthy, but it was also expensive, less accessible, less safe, and not always comfortable. The real question is why the past looks better in memory. Once travel becomes ordinary, crowded, cheap enough for more people, and filmed constantly, its problems become more visible. Tourist misbehavior adds another layer: when people are away from home, anonymous, and less connected to local norms, they may feel fewer social brakes. That means bad travel behavior is not just about rude individuals; it is also about crowding, social distance, status, and how tourism changes behavior.\n\nThe sources stress that nostalgia is doing a lot of work here. Ocean liners, early aviation, and formal passenger culture could look elegant, but they were also expensive, exclusive, slower, and less safe; modern “golden age” campaigns often use manners and dress as symbols for bigger anxieties about crowding, delays, and loss of shared rules. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
+      "whyItMatters": "At the entry level, this helps students separate nostalgia from historical reality. At the section level, it deepens Call of Duty-Free by showing that tourism is not only infrastructure and destinations, but also behavior and expectations. At the year-theme level, it connects to “Are We There Yet?” because it asks whether travel has really declined, or whether people experience it differently once the extraordinary becomes routine.",
+      "takeaway": "Travel experiences are shaped by memory, access, class, crowding, behavior, and expectations—not just comfort",
+      "subjects": [
+        "Psychology",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Performed Progress",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "The golden myth",
+        "The ordinary travel problem",
+        "Tourist misbehavior and social distance"
+      ],
+      "debateRelevance": "Useful when debating whether travel has declined or whether wider access, crowding, and constant visibility have changed expectations.",
+      "counterargument": "Some modern travel problems are real regressions in comfort and dignity, not only nostalgia or changed expectations.",
+      "visualSections": [
+        {
+          "title": "Golden age or golden myth?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The golden myth",
+              "note": "A nostalgic image of elegant travel raises the question of who actually had access to it.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: public domain golden age air travel ocean liner flying boat passengers 1930s 1950s photo. Use real historical image only.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: golden age of air travel myth explained.",
+              "links": [
+                {
+                  "label": "Atlantic — The Golden Age of Flying Wasn’t All That Golden",
+                  "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+                },
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Interior_view_of_a_Pan_Am_Sikorsky_S-43A_(Baby_Clipper).jpg"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/golden-age-flying-boat-cabin-16x9.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The ordinary travel problem",
+              "note": "Once a technology becomes normal, people notice crowding, discomfort, delays, cost-cutting, and rude behavior more easily.",
+              "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Search target: crowded airport passengers modern airplane waiting line realistic. If generated, make it realistic and app-themed, not sensational.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: why air travel feels worse today history of air travel.",
+              "links": [
+                {
+                  "label": "Atlantic — The Golden Age of Flying Wasn’t All That Golden",
+                  "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/ordinary-travel-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Tourist misbehavior and social distance",
+              "note": "Tourists may feel less connected to local norms and less likely to be corrected by people around them.",
+              "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Create or find a realistic visual of a tourist ignoring local norms while locals/other travelers react; avoid shaming any culture, nationality, or identity.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: tourist behavior social norms overtourism explained.",
+              "links": [
+                {
+                  "label": "Tourism Management — Tourist misbehavior and informal social control",
+                  "url": "https://www.sciencedirect.com/science/article/pii/S0261517720301849"
+                },
+                {
+                  "label": "Tourist misbehavior abstract / accessible summary",
+                  "url": "https://www.researchgate.net/publication/347308508_Tourist_misbehavior_Psychological_closeness_to_fellow_consumers_and_informal_social_control"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/tourist-misbehavior-social-distance.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "What It Was Like During The Golden Age Of Flying",
+          "url": "https://www.youtube.com/watch?v=IlyCN6tVSPo"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Tourism",
+        "Progress"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Performed Progress",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Performed Progress",
+          "Visible vs Real",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Call of Duty-Free"
+    },
+    {
+      "id": "raw.call-of-duty-free.004",
+      "order": 4,
+      "sectionId": "call-of-duty-free",
+      "mediaIds": [
+        "asset.call-of-duty-free.raw.deep-exchange-tourism",
+        "asset.call-of-duty-free.raw.image17",
+        "asset.call-of-duty-free.raw.image18",
+        "asset.call-of-duty-free.raw.image19",
+        "asset.call-of-duty-free.raw.image20",
+        "asset.call-of-duty-free.raw.image21",
+        "asset.call-of-duty-free.raw.image22",
+        "asset.call-of-duty-free.raw.image23",
+        "asset.call-of-duty-free.raw.image24",
+        "asset.call-of-duty-free.raw.image25"
+      ],
+      "questionIds": [
+        "question.call-of-duty-free.100.004",
+        "question.call-of-duty-free.200.004"
+      ],
+      "title": "Traveling Differently: The Search for “Authentic” Tourism",
+      "guidingSection": "Call of Duty-Free",
+      "rawOfficialText": "Although nothing beats a Jet2 Holiday, tourists are increasingly avoiding tours that shuffle everyone through the same overcrowded museums and restaurants in favor of more “authentic” travel experiences. Explore niche forms of travel—heritage tourism, ecotourism, gastrotourism, agritourism, monastic retreats, voluntourism, edutourism, wellness retreats, and dark tourism—and consider what role social media may have had in promoting them. How realistic is deep exchange and learning while on holiday?",
+      "links": [
+        {
+          "label": "World Heritage image pool",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=World%20Heritage%20tourism"
+        },
+        {
+          "label": "Petra gallery/category",
+          "url": "https://commons.wikimedia.org/wiki/Category:Petra"
+        },
+        {
+          "label": "Chernobyl disaster category",
+          "url": "https://commons.wikimedia.org/wiki/Category:Chernobyl_disaster"
+        },
+        {
+          "label": "Disaster memorials category",
+          "url": "https://commons.wikimedia.org/wiki/Category:Disaster_memorials"
+        },
+        {
+          "label": "Overtourism and social media example — Guardian",
+          "url": "https://www.theguardian.com/world/2025/may/19/balearics-hit-back-at-selfie-tourism-as-sites-become-overwhelmed"
+        },
+        {
+          "label": "Overtourism and social media example — Reuters Dolomites",
+          "url": "https://www.reuters.com/business/environment/no-selfies-please-dolomites-push-back-against-overtourism-ahead-games-2026-01-15/"
+        }
+      ],
+      "studentExplanation": "Many travelers now say they want something more “authentic” than the same overcrowded museums, restaurants, and landmarks. This creates a paradox. Social media can help people discover quieter places and more meaningful forms of travel, but it can also send huge crowds to those same places until they become trends. Heritage tourism, ecotourism, gastrotourism, agritourism, monastic retreats, voluntourism, edutourism, wellness retreats, and dark tourism all promise a different kind of journey. Some genuinely encourage learning and respect; others can become another way of consuming places, people, or suffering.\n\nUse Xiaohongshu and Instagram tourism as the practical case: a niche bookstore, food stall, monastery, farm, or historic site can become famous because people want something “real,” then become less authentic because everyone repeats the same photo. The key is not to decide that heritage, eco-, gastro-, or dark tourism is automatically good or bad; ask who benefits, who performs, and what gets consumed. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
+      "whyItMatters": "At the entry level, this helps students understand why niche tourism has grown and why “authenticity” is difficult to define. At the section level, it pushes Call of Duty-Free beyond hotels and transport into the meaning travelers want from travel. At the year-theme level, it connects to “Are We There Yet?” by asking whether travel is really about reaching a place, or about the kind of experience and identity travelers hope to find there.",
+      "takeaway": "Whether travel can create real learning and respect, or just turn new experiences into another product",
+      "subjects": [
+        "Sociology",
+        "Media / Film"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "How realistic is deep exchange and learning while on holiday",
+        "Heritage tourism",
+        "Ecotourism",
+        "Gastrotourism",
+        "Agritourism",
+        "Monastic retreats",
+        "Voluntourism",
+        "Edutourism",
+        "Wellness retreats",
+        "Dark tourism",
+        "Can niche tourism really create deep exchange?"
+      ],
+      "debateRelevance": "Useful when debating whether niche tourism creates real exchange or simply turns new places and experiences into more consumable content.",
+      "counterargument": "Niche tourism can sometimes support conservation, learning, and local economies when it is planned carefully and led by communities.",
+      "visualGallery": [
+        {
+          "kind": "text-slide",
+          "title": "Heritage tourism",
+          "note": "Travel focused on the history, identity, monuments, museums, old neighborhoods, or cultural legacy of a place.",
+          "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Petra heritage tourism Wikimedia Commons OR UNESCO World Heritage tourism real photo. Use real place image if Petra is used.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: heritage tourism explained for students.",
+          "links": [
+            {
+              "label": "World Heritage image pool",
+              "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=World%20Heritage%20tourism"
+            },
+            {
+              "label": "Overtourism and social media example — Guardian",
+              "url": "https://www.theguardian.com/world/2025/may/19/balearics-hit-back-at-selfie-tourism-as-sites-become-overwhelmed"
+            },
+            {
+              "label": "Overtourism and social media example — Reuters Dolomites",
+              "url": "https://www.reuters.com/business/environment/no-selfies-please-dolomites-push-back-against-overtourism-ahead-games-2026-01-15/"
+            }
+          ],
+          "src": "assets/raw-content/call-of-duty-free/image17.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Ecotourism",
+          "note": "Travel to natural areas that tries to respect ecosystems, support conservation, and benefit local communities.",
+          "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Kakum National Park ecotourism photo or Jeju World Natural Heritage Center real image. Use real photo.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: ecotourism explained conservation communities.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image18.png",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Gastrotourism",
+          "note": "Travel shaped by food: local dishes, markets, producers, cooking, recipes, and culinary identity.",
+          "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Search target: real outdoor food market cooking travel photo. If generating, show realistic food-market travel scene inspired by real markets.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: food tourism gastrotourism explained.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image19.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Agritourism",
+          "note": "Travel to farms, vineyards, ranches, or rural businesses for learning, recreation, food, or hospitality.",
+          "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Search target: agritourism farm vineyard visitors real photo. If generated, show realistic farm/vineyard visitor experience.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: agritourism explained.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image20.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Monastic retreats",
+          "note": "Travel centered on silence, reflection, spiritual rest, and simple living, often in monasteries or religious communities.",
+          "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Meteora monastery cliffside Greece real photo OR monastery mountainside retreat real photo. Use real image.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: monastic retreat explained monastery silence travel.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image21.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Voluntourism",
+          "note": "Travel combined with short-term volunteer work, often debated because good intentions do not always create long-term benefit.",
+          "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Search target: community volunteering travel clean-up real photo. If generated, show respectful realistic volunteering without poverty tourism stereotypes.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: voluntourism pros cons explained.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image22.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Edutourism",
+          "note": "Travel mainly designed for learning through study trips, language immersion, museums, field visits, workshops, or universities.",
+          "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Search target: students museum tour study abroad university field trip real photo. If generated, show realistic learners at museum/university.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: educational tourism edutourism explained.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image23.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Wellness retreats",
+          "note": "Travel focused on well-being through rest, healthy routines, relaxation, fitness, healing, or spiritual balance.",
+          "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Search target: wellness retreat spa yoga nature realistic photo. If generated, keep realistic and non-promotional.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: wellness tourism explained.",
+          "links": [],
+          "src": "assets/raw-content/call-of-duty-free/image24.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Dark tourism",
+          "note": "Travel to places connected with death, tragedy, disaster, or difficult history; it raises questions about respect and memory.",
+          "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Chernobyl disaster memorial real photo OR disaster memorial category Wikimedia Commons. Use real place image.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: dark tourism explained ethics memory.",
+          "links": [
+            {
+              "label": "World Heritage image pool",
+              "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=World%20Heritage%20tourism"
+            },
+            {
+              "label": "Overtourism and social media example — Guardian",
+              "url": "https://www.theguardian.com/world/2025/may/19/balearics-hit-back-at-selfie-tourism-as-sites-become-overwhelmed"
+            },
+            {
+              "label": "Overtourism and social media example — Reuters Dolomites",
+              "url": "https://www.reuters.com/business/environment/no-selfies-please-dolomites-push-back-against-overtourism-ahead-games-2026-01-15/"
+            },
+            {
+              "label": "Chernobyl disaster category",
+              "url": "https://commons.wikimedia.org/wiki/Category:Chernobyl_disaster"
+            }
+          ],
+          "src": "assets/raw-content/call-of-duty-free/image25.jpeg",
+          "preserveOriginalColor": true,
+          "imageMode": "exact-source-image",
+          "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+        },
+        {
+          "kind": "text-slide",
+          "title": "Can niche tourism really create deep exchange?",
+          "note": "Sometimes yes, but only when travelers go beyond trends and treat local people and places as more than content or self-image.",
+          "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. Create or find a realistic image of respectful small-group cultural exchange, not staged poverty tourism and not a generic selfie image.",
+          "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: responsible tourism authentic travel overtourism social media.",
+          "links": [
+            {
+              "label": "World Heritage image pool",
+              "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=World%20Heritage%20tourism"
+            },
+            {
+              "label": "Overtourism and social media example — Guardian",
+              "url": "https://www.theguardian.com/world/2025/may/19/balearics-hit-back-at-selfie-tourism-as-sites-become-overwhelmed"
+            },
+            {
+              "label": "Overtourism and social media example — Reuters Dolomites",
+              "url": "https://www.reuters.com/business/environment/no-selfies-please-dolomites-push-back-against-overtourism-ahead-games-2026-01-15/"
+            }
+          ],
+          "src": "assets/raw-content/call-of-duty-free/deep-exchange-tourism.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset"
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Overtourism- How Mass Tourism Is Impacting The World",
+          "url": "https://www.youtube.com/watch?v=sBhqXdCk5qk"
+        },
+        {
+          "title": "Exploring China's crazy Instagram culture",
+          "url": "https://www.youtube.com/watch?v=dEB8V-dQ5aQ"
+        },
+        {
+          "title": "Countries crack down on rowdy tourists l GMA",
+          "url": "https://www.youtube.com/watch?v=3iH6iqTiLQg"
+        },
+        {
+          "title": "How ‘trashy’ tourism threatens world-famous destinations",
+          "url": "https://www.youtube.com/watch?v=9aW_Dlq0lnk"
+        },
+        {
+          "title": "Insider MALAY STREET FOOD TOUR at Night Market Jalan TAR in Kuala, Lumpur!",
+          "url": "https://www.youtube.com/watch?v=cYc8JfglL-A"
+        },
+        {
+          "title": "Is Rome being ruined by crowds?",
+          "url": "https://www.youtube.com/watch?v=V2AjTZG_D8g"
+        },
+        {
+          "title": "Subject knowledge animation: What is Ecotourism?",
+          "url": "https://www.youtube.com/watch?v=1i4ioqIaXrE"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Tourism",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "Call of Duty-Free"
+    },
+    {
+      "id": "raw.call-of-duty-free.005",
+      "order": 5,
+      "sectionId": "call-of-duty-free",
+      "mediaIds": [
+        "asset.call-of-duty-free.raw.goods-transfer-network",
+        "asset.call-of-duty-free.raw.image26",
+        "asset.call-of-duty-free.raw.image27",
+        "asset.call-of-duty-free.raw.image28",
+        "asset.call-of-duty-free.raw.image29",
+        "asset.call-of-duty-free.raw.image30",
+        "asset.call-of-duty-free.raw.image31",
+        "asset.call-of-duty-free.raw.image32",
+        "asset.call-of-duty-free.raw.image33",
+        "asset.call-of-duty-free.raw.image34",
+        "asset.call-of-duty-free.raw.image35",
+        "asset.call-of-duty-free.raw.image36",
+        "asset.call-of-duty-free.raw.image37",
+        "asset.call-of-duty-free.raw.image38",
+        "asset.call-of-duty-free.raw.image39",
+        "asset.call-of-duty-free.raw.image40"
+      ],
+      "questionIds": [
+        "question.call-of-duty-free.100.005",
+        "question.call-of-duty-free.200.005"
+      ],
+      "title": "When Goods Travel: The World of Trade Hubs",
+      "guidingSection": "Call of Duty-Free",
+      "rawOfficialText": "People aren’t the only things that travel; goods do too. Before long-distance shipping, a trader who did not want to confront the full length of a trade road might transport goods to or from an entrepôt. These market towns were not destinations but waystations where goods were imported, stored, and traded again without being subject to local duties. Learn terms and places: entrepôts, waystations, free-trade zones, transshipment, caravanserai, Silk Road, Piraeus, Tyrus, Lothal, Carthage, Shimoda & Hakodate, Malacca, Istanbul, Chicago, Hong Kong.",
+      "links": [
+        {
+          "label": "Silk Road — Britannica",
+          "url": "https://www.britannica.com/topic/Silk-Road-trade-route"
+        },
+        {
+          "label": "Maps of the Silk Road — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Silk_Road"
+        },
+        {
+          "label": "Ports and harbours in Hong Kong — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Category:Ports_and_harbours_in_Hong_Kong"
+        },
+        {
+          "label": "Container port image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=container%20port"
+        },
+        {
+          "label": "Caravanserai image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=caravanserai"
+        },
+        {
+          "label": "Piraeus port image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Piraeus%20port"
+        },
+        {
+          "label": "Lothal image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Lothal"
+        },
+        {
+          "label": "Carthage ancient port image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Carthage%20ancient%20port"
+        },
+        {
+          "label": "Malacca port image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Malacca%20port"
+        },
+        {
+          "label": "Chicago freight image search — Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Chicago%20rail%20freight"
+        }
+      ],
+      "studentExplanation": "Journeys are not only about people. Goods also move through routes, stops, transfer points, ports, warehouses, and trade policies. An entrepôt, a caravanserai, a waystation, a free-trade zone, or a transshipment point is not usually the final destination. It is a place where goods pause, change hands, avoid or delay duties, move from one vehicle to another, or connect one economy to another. From the Silk Road to Hong Kong and Chicago, trade hubs show that the modern world is built on things being constantly in transit: not fully here, not fully there, but moving through systems.\n\nThe extra notes help define the vocabulary: an entrepot stores and redistributes goods, a free-trade zone changes the tax and customs rules, transshipment combines routes through a middle point, and ports such as Hong Kong, Istanbul, Chicago, Lothal, Tyre, or Malacca matter because goods often “arrive” several times before reaching a buyer. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
+      "whyItMatters": "At the entry level, this helps students understand that trade depends on routes and stopovers as much as human travel does. At the section level, it completes Call of Duty-Free by showing that movement includes goods, capital, customs, storage, and policy. At the year-theme level, it connects to “Are We There Yet?” because modern economies depend on things that are always between origins and destinations.",
+      "takeaway": "Goods rarely move in one simple jump; they depend on intermediate places that organize transit, storage, policy, and exchange",
+      "subjects": [
+        "Economics & Trade",
+        "Geography / Human Geography"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "People aren’t the only things that travel",
+        "goods do too",
+        "Entrepôt",
+        "Waystation",
+        "Free-trade zone",
+        "Transshipment",
+        "Caravanserai",
+        "Silk Road",
+        "Piraeus",
+        "Tyre",
+        "Lothal",
+        "Carthage",
+        "Shimoda & Hakodate",
+        "Malacca",
+        "Istanbul",
+        "Chicago"
+      ],
+      "debateRelevance": "Useful when debating whether trade hubs should be seen as mere middle points or as powerful places that shape economies and routes.",
+      "counterargument": "A trade hub can be important, but final destinations, producers, workers, and consumers also shape trade systems.",
+      "visualSections": [
+        {
+          "title": "Key trade words",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Entrepôt",
+              "note": "A trade stop where goods are imported, stored, and traded again before moving on.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: warehouse port customs entrepot real photo Wikimedia Commons or Unsplash; choose reusable image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: entrepot free trade zone transshipment explained.",
+              "links": [],
+              "src": "assets/raw-content/call-of-duty-free/image40.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Waystation",
+              "note": "A stopping place where travelers, messengers, or goods pause for rest, supplies, or transfer.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: historic roadside inn waystation trade route real image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: waystation trade routes history explained.",
+              "links": [],
+              "src": "assets/raw-content/call-of-duty-free/image39.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Free-trade zone",
+              "note": "An area near a port or airport where goods can be stored or reexported without normal customs duties applying immediately.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: container port free trade zone real photo.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: free trade zone explained for students.",
+              "links": [
+                {
+                  "label": "Silk Road — Britannica",
+                  "url": "https://www.britannica.com/topic/Silk-Road-trade-route"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image38.png",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Transshipment",
+              "note": "Moving cargo from one vessel or vehicle to another while it is still in transit.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: container crane cargo transshipment port real photo.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: transshipment explained shipping cargo.",
+              "links": [],
+              "src": "assets/raw-content/call-of-duty-free/image37.png",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Caravanserai",
+              "note": "A protected roadside building where caravans, traders, and animals could stop on overland trade routes.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: caravanserai courtyard Silk Road real photo Wikimedia Commons.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: caravanserai Silk Road explained.\nSection 2 — Ancient routes and historic trade hubs",
+              "links": [
+                {
+                  "label": "Caravanserai image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=caravanserai"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image36.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            }
+          ]
+        },
+        {
+          "title": "Ancient routes and historic trade hubs",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Silk Road",
+              "note": "A network linking China with the West, moving goods such as silk and metals as well as ideas, religions, technologies, and disease.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Silk Road map Wikimedia Commons route network. Use a real map source.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Silk Road explained for students.",
+              "links": [
+                {
+                  "label": "Silk Road — Britannica",
+                  "url": "https://www.britannica.com/topic/Silk-Road-trade-route"
+                },
+                {
+                  "label": "Maps of the Silk Road — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Silk_Road"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image35.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Piraeus",
+              "note": "The port of Athens, connecting the Greek city to maritime trade and wider Mediterranean exchange.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Piraeus port Greece real photo Wikimedia Commons.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Piraeus ancient port Athens trade history.",
+              "links": [
+                {
+                  "label": "Piraeus port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Piraeus%20port"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image34.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Tyre",
+              "note": "A major Phoenician trade city whose maritime networks made it powerful across the Mediterranean.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Tyre Lebanon ancient port ruins real photo.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Tyre Phoenician trade city explained.",
+              "links": [],
+              "src": "assets/raw-content/call-of-duty-free/image33.png",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Lothal",
+              "note": "An Indus civilization site often connected to early port and trading activity in South Asian history.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Lothal dockyard Indus Valley real photo Wikimedia Commons.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Lothal Indus Valley port trade explained.",
+              "links": [
+                {
+                  "label": "Lothal image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Lothal"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image32.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Carthage",
+              "note": "A North African port and trading power whose location helped control Mediterranean routes.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Carthage ancient port Tunisia ruins real photo.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Carthage trade empire explained.\nSection 3 — Later and modern gateway hubs",
+              "links": [
+                {
+                  "label": "Carthage ancient port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Carthage%20ancient%20port"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image31.png",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            }
+          ]
+        },
+        {
+          "title": "Later and modern gateway hubs",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Shimoda & Hakodate",
+              "note": "Japanese ports opened to foreign trade in the 19th century, marking a forced re-entry into international exchange networks.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Shimoda port Hakodate port historical Japan real image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: opening of Japan Shimoda Hakodate ports explained.",
+              "links": [],
+              "src": "assets/raw-content/call-of-duty-free/image30.png",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Malacca",
+              "note": "A crucial Southeast Asian port near the Strait of Malacca, a key corridor between the Indian Ocean and East Asia.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Malacca port Strait of Malacca real photo.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Strait of Malacca trade route explained.",
+              "links": [
+                {
+                  "label": "Malacca port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Malacca%20port"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image29.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Istanbul",
+              "note": "A city on the Bosporus that links Europe and Asia and has long connected trade systems and empires.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Istanbul Bosphorus port real photo.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Istanbul Bosphorus trade crossroads explained.",
+              "links": [],
+              "src": "assets/raw-content/call-of-duty-free/image28.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Chicago",
+              "note": "An inland trade hub shaped by rail, commodities, distribution, and its location in the American farm belt.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Chicago rail freight commodity exchange historical or modern image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Chicago rail commodity trade hub explained.",
+              "links": [
+                {
+                  "label": "Chicago freight image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Chicago%20rail%20freight"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image27.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Hong Kong",
+              "note": "A free port and major global trade hub where geography, customs policy, speed, and low barriers shape exchange.",
+              "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Hong Kong container port free port real photo Wikimedia Commons.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: Hong Kong free port trade hub explained.",
+              "links": [
+                {
+                  "label": "Ports and harbours in Hong Kong — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Category:Ports_and_harbours_in_Hong_Kong"
+                }
+              ],
+              "src": "assets/raw-content/call-of-duty-free/image26.jpeg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            }
+          ]
+        },
+        {
+          "title": "Synthesis",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "What do all these places have in common?",
+              "note": "They matter because they help goods move, pause, transfer, and connect economies across space and time.",
+              "imageGuidance": "The agent must use /imagesearch first to collect real reference images. If no perfect reusable image exists and the slide is illustrating a general concept rather than a specific named place/object, use /imagecreator or /imagegen to create a realistic WSC app-style image, largely inspired by real references. It must be realistic, not anime, and WSC app mandatory. If needed, create a clean realistic WSC-style visual of goods moving through a route network, but real place slides should use real images.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: how global supply chains work ports warehouses trade hubs.",
+              "links": [
+                {
+                  "label": "Maps of the Silk Road — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Silk_Road"
+                },
+                {
+                  "label": "Ports and harbours in Hong Kong — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Category:Ports_and_harbours_in_Hong_Kong"
+                },
+                {
+                  "label": "Container port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=container%20port"
+                },
+                {
+                  "label": "Caravanserai image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=caravanserai"
+                },
+                {
+                  "label": "Piraeus port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Piraeus%20port"
+                },
+                {
+                  "label": "Lothal image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Lothal"
+                },
+                {
+                  "label": "Carthage ancient port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Carthage%20ancient%20port"
+                },
+                {
+                  "label": "Malacca port image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Malacca%20port"
+                },
+                {
+                  "label": "Chicago freight image search — Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Chicago%20rail%20freight"
+                },
+                {
+                  "label": "Global Supply Chains Explained | A-Level Economics Revision",
+                  "url": "https://www.youtube.com/watch?v=LJvm1qyt54Q"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=LJvm1qyt54Q",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=LJvm1qyt54Q",
+              "src": "assets/raw-content/call-of-duty-free/goods-transfer-network.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "visualFooterQuestion": {
+        "question": "What do all these places have in common?",
+        "answer": "They are not important because people simply arrive there. They are important because they help goods move, pause, transfer, and connect one economy to another."
+      },
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Journeys"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "The Silk Road: Connecting the ancient world through trade - Shannon Harris Castelo",
+          "url": "https://www.youtube.com/watch?v=vn3e37VWc0k"
+        }
+      ],
+      "sectionTitle": "Call of Duty-Free"
+    }
+  ]
+}

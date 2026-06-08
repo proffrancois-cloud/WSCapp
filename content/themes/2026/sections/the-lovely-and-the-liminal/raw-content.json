@@ -1,0 +1,1284 @@
+{
+  "id": "raw.the-lovely-and-the-liminal",
+  "sectionId": "the-lovely-and-the-liminal",
+  "entries": [
+    {
+      "id": "raw.the-lovely-and-the-liminal.001",
+      "order": 1,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.001",
+        "question.the-lovely-and-the-liminal.200.001"
+      ],
+      "title": "The Doorway Effect",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "You’re there now—but why? If you’ve ever forgotten why you walked into a room, you may have experienced what scientists call the doorway effect. This temporary amnesia happens when you pass through the threshold of a liminal space; scientists theorize that the brain may “reset” short-term memories when it finds itself in a new setting. Liminality is that state of being in-between: you aren’t where you were but you’re also not where you’re going. As you explore this concept, discuss with your team: what are other examples of liminal spaces and thresholds in our own lives?",
+      "links": [
+        {
+          "label": "Doorway effect - Scientific American",
+          "url": "https://www.scientificamerican.com/article/why-walking-through-doorway-makes-you-forget/"
+        }
+      ],
+      "deepLinkAnalysis": "The Scientific American article is not just a citation: it supplies the core mechanism. In the experiment, participants remembered carried objects less accurately and more slowly after passing through a doorway than after walking the same distance in the same room. The important idea for students is not “doors are magic”; it is that the brain organizes experience into event models, and a new setting can tell the mind that the previous event is less relevant.\nThis makes the entry stronger than a metaphor. Liminality is usually poetic or cultural, but this link gives it a cognitive basis: thresholds can change what the mind keeps active.",
+      "studentExplanation": "The doorway effect is the familiar moment when you enter a room and suddenly forget why you came there. The Scientific American link matters because it explains an experiment: people remembered less well after crossing a doorway, even when the distance walked was the same. That suggests a threshold can act like a mental boundary. Liminality is therefore not only an artistic mood; it can be a real cognitive experience, where the brain treats a new place as a new “event.”\n\nThe doorway effect is useful because it makes liminality cognitive, not just aesthetic. A threshold can divide memory into events, so walking through a door may prompt the brain to update context and drop the previous intention. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this gives students a concrete everyday example of liminality. At the section level, it opens The Lovely and the Liminal by showing that the in-between can affect memory, attention, and focus. At the year-theme level, it connects to thresholds because “getting there” can change what we remember from “back there.”",
+      "takeaway": "A threshold can change what the mind keeps active.",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Visible vs Real",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Crossing the threshold",
+        "Event models and memory reset"
+      ],
+      "debateRelevance": "Useful when debating whether liminality is only symbolic or whether thresholds have measurable effects on thought and attention.",
+      "counterargument": "The doorway effect is a specific cognitive pattern, so it should not be stretched too far into a total explanation of all liminal experience.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": []
+        }
+      ],
+      "legacyBigIdeas": [
+        "Liminality",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Delayed Arrival",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "The Lovely and the Liminal",
+      "channelVideos": [
+        {
+          "title": "Do Doorways Actually Make Us Forget Things?",
+          "url": "https://www.youtube.com/watch?v=TcWUSuMpdso"
+        }
+      ]
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.002",
+      "order": 2,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [
+        "asset.the-lovely-and-the-liminal.asset.backrooms",
+        "asset.the-lovely-and-the-liminal.raw.found-footage-as-disorientation"
+      ],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.002",
+        "question.the-lovely-and-the-liminal.200.002"
+      ],
+      "title": "Lost in the In-Between",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "Most films take you from one spot to another, through the lens of the camera, as stuff happens in front of you. But some “found footage” has become famous for losing the viewer in the in-between. Watch one of the most popular of these efforts, The Backrooms (2022), then discuss with your team: did it make you feel uneasy? Have you ever had a moment when you felt adrift in this way—and, if so, where?",
+      "links": [
+        {
+          "label": "The Backrooms - original short film",
+          "url": "https://www.youtube.com/watch?v=H4dGpz6cnHo"
+        },
+        {
+          "label": "Backrooms - A24 film page",
+          "url": "https://a24films.com/films/backrooms"
+        }
+      ],
+      "deepLinkAnalysis": "The YouTube short is the real core of the entry. It uses found footage not to document a clear event but to make the viewer feel dropped into a space without stable orientation: yellow rooms, fluorescent light, repetitive corridors, awkward camera movement, and no comforting explanation.\nThe A24 page adds an important update: the Backrooms idea has moved from internet short to feature film, with A24 listing a May 29, 2026 release, Kane Parsons directing, and a synopsis built around a strange doorway in a furniture showroom. That makes the entry a useful example of how liminal aesthetics have become mainstream horror language.",
+      "studentExplanation": "The Backrooms makes liminality frightening by removing the normal promise that a space will lead somewhere. Found footage usually feels like evidence, but here the shaky camera makes students feel trapped inside repetitive rooms, harsh lights, and corridors that look familiar but wrong. The A24 link matters too: the idea has become important enough to become a 2026 film, which shows how strongly liminal horror has entered popular culture.\n\nThe Backrooms turns a transition space into a trap. Its horror comes from rooms that look ordinary but have no proper destination, and found footage makes the viewer feel as if the evidence is being discovered rather than narrated. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this shows how liminality can produce unease rather than beauty. At the section level, it introduces the darker side of The Lovely and the Liminal: being in-between can feel uncanny, empty, and directionless. At the year-theme level, it connects to “Are We There Yet?” because the viewer keeps moving but never feels closer to arrival.",
+      "takeaway": "A passage becomes terrifying when it never resolves.",
+      "subjects": [
+        "Media / Film",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "The Backrooms: familiar but wrong",
+        "Found footage as disorientation"
+      ],
+      "debateRelevance": "Useful when debating whether liminal unease in film comes mainly from in-between space itself or from broader horror techniques layered onto it.",
+      "counterargument": "The Backrooms may feel liminal, but much of its power also comes from horror pacing, sound, repetition, and audience expectation.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Backrooms: familiar but wrong",
+              "note": "Ordinary-looking architecture can become unsettling when it is empty, repetitive, and directionless.",
+              "imageGuidance": "Find a still image from Kane Pixels’ The Backrooms (2022) showing the yellow corridors, fluorescent lighting, and repetitive empty rooms. The agent must use the IMAGESEARCH skill and should look for the exact original Backrooms visual style, not a random liminal hallway. Because this is a named visual source, do not generate a substitute image unless no usable still can be found and the generated image is only used as a placeholder in the app theme.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Prefer the original Backrooms short or a brief educational explainer about why Backrooms-style liminal horror feels unsettling.",
+              "links": [
+                {
+                  "label": "CC0 Backrooms source image",
+                  "url": "https://commons.wikimedia.org/wiki/File:HobbyTown_USA_Oshkosh_interior_under_construction_2002_(The_Backrooms).jpg"
+                },
+                {
+                  "label": "The Backrooms (Found Footage)",
+                  "url": "https://www.youtube.com/watch?v=H4dGpz6cnHo"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=H4dGpz6cnHo",
+              "previewLabel": "Play video",
+              "src": "assets/flashcards/alpacards/backrooms.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "CC0, 640 x 480 historical Backrooms source image"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Found footage as disorientation",
+              "note": "Found footage can make the viewer feel present, unstable, and personally lost inside the scene.",
+              "imageGuidance": "Find an image that clearly shows a found-footage point of view: shaky handheld camera framing, empty corridor, low-quality surveillance or camcorder feel. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. The video should explain found footage as a film technique and why it creates realism or unease.",
+              "links": [
+                {
+                  "label": "The Backrooms (Found Footage)",
+                  "url": "https://www.youtube.com/watch?v=H4dGpz6cnHo"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=H4dGpz6cnHo",
+              "previewLabel": "Play video",
+              "src": "assets/raw-content/the-lovely-and-the-liminal/found-footage-as-disorientation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Liminality",
+        "Waiting"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Delayed Arrival",
+          "Managing Uncertainty"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "The Backrooms - original short film",
+          "url": "https://www.youtube.com/watch?v=H4dGpz6cnHo"
+        }
+      ],
+      "sectionTitle": "The Lovely and the Liminal"
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.003",
+      "order": 3,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.003",
+        "question.the-lovely-and-the-liminal.200.003"
+      ],
+      "title": "Playable Liminality",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "The Backrooms helped inspire this video game. Consider it and other games that take players into eerie landscapes, abandoned buildings, and foggy nowheres—such as Galactic Cafe’s The Stanley Parable (2013). What aspects of liminal spaces make them effective settings for these games?",
+      "links": [
+        {
+          "label": "POOLS official site",
+          "url": "https://poolsthegame.com/"
+        },
+        {
+          "label": "The Stanley Parable official site",
+          "url": "https://www.stanleyparable.com/"
+        }
+      ],
+      "deepLinkAnalysis": "The POOLS link is central because the official page says the game is inspired by liminal spaces, found footage, Backrooms, and poolrooms. It also makes a key design point: there are no monsters, no dialogue, no interface, and no normal story; sound, echo, water, architecture, and getting lost create the atmosphere.\nThe Stanley Parable link adds a different kind of liminality: office corridors, choices, endings that do not quite end, and a game that openly breaks its own rules. The official page even describes contradiction and says the game will end and never end, which is a perfect game-based version of suspended arrival.",
+      "studentExplanation": "Liminal games make the in-between interactive. In POOLS, players explore empty poolrooms with no monsters, dialogue, or normal interface; the sound, echoes, water, and architecture make the space feel oppressive. In The Stanley Parable, liminality comes from choices, office corridors, broken rules, and endings that do not behave like final endings. The player is not just watching uncertainty; the player has to move, decide, hesitate, and sometimes fail to arrive.\n\nGames make liminality active: POOLS uses empty architecture, water, echo, and absence; The Stanley Parable uses corridors, narration, choice, and looping endings. The player is not just shown uncertainty; the player has to move through it and test whether choices matter. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this shows why liminal spaces are powerful game settings: they turn confusion into something the player must navigate. At the section level, it expands liminality from film into interactive media. At the year-theme level, it connects to wandering and thresholds because movement can become meaningful even when the destination is unclear.",
+      "takeaway": "Exploration matters even when arrival stays unstable.",
+      "subjects": [
+        "Media / Film",
+        "Computer Science / Technology"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Narrated Endings",
+        "Movement Without Arrival"
+      ],
+      "examples": [
+        "POOLS: no monster, still oppressive",
+        "The Stanley Parable: corridors and choice"
+      ],
+      "debateRelevance": "Useful when debating whether liminality becomes stronger in games because the player must navigate uncertainty personally rather than just observe it.",
+      "counterargument": "These games may use liminal space well, but their impact also depends heavily on pacing, interaction design, and narrative framing rather than architecture alone.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "POOLS: no monster, still oppressive",
+              "note": "Atmosphere can create tension even without enemies, dialogue, or a traditional story.",
+              "imageGuidance": "Find an official screenshot from POOLS showing empty poolrooms, blue water, tiled architecture, and a sense of unnatural emptiness. The agent must use the IMAGESEARCH skill and prioritize the official POOLS website, Steam page, or press images. Because POOLS is a specific named game, use an exact screenshot, not a generated substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short gameplay/explainer video that shows POOLS’ liminal spaces without relying on jump scares.",
+              "links": []
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Stanley Parable: corridors and choice",
+              "note": "Office space, narration, contradiction, and repeated endings create a playable form of being stuck between choice and control.",
+              "imageGuidance": "Find an official screenshot from The Stanley Parable showing Stanley in an office corridor, doorway choice, or branching hallway. Use the IMAGESEARCH skill and prioritize the official site, Steam page, or press kit. Because this is a specific named game, do not replace it with generic office art.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining The Stanley Parable’s choices, narration, and endings, not a full playthrough.",
+              "links": [
+                {
+                  "label": "The Stanley Parable official site",
+                  "url": "https://www.stanleyparable.com/"
+                }
+              ],
+              "url": "https://www.stanleyparable.com/",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Pools - Exclusive Release Date & Gameplay Trailer",
+          "url": "https://www.youtube.com/watch?v=p7a8GAYOEck"
+        },
+        {
+          "title": "The Stanley Parable Launch Trailer",
+          "url": "https://www.youtube.com/watch?v=fBtX0S2J32Y"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Liminality",
+        "Routes, Roads & Navigation"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Narrated Endings",
+        "Movement Without Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Narrated Endings",
+          "Movement Without Arrival"
+        ]
+      },
+      "sectionTitle": "The Lovely and the Liminal"
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.004",
+      "order": 4,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [
+        "asset.the-lovely-and-the-liminal.raw.beauty-that-does-not-arrive",
+        "asset.the-lovely-and-the-liminal.raw.purposiveness-without-purpose"
+      ],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.004",
+        "question.the-lovely-and-the-liminal.200.004"
+      ],
+      "title": "Beauty Without Arrival",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "The philosopher Immanuel Kant argues that beauty is something that affects us as if it had a purpose even when it doesn’t. Beauty doesn’t need to be going anywhere. Does Kant’s thinking help us understand why people might be attracted to liminal spaces?",
+      "links": [
+        {
+          "label": "Kant’s Aesthetics and Teleology - Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/kant-aesthetics/"
+        },
+        {
+          "label": "Immanuel Kant: Aesthetics - Internet Encyclopedia of Philosophy",
+          "url": "https://iep.utm.edu/kantaest/"
+        }
+      ],
+      "deepLinkAnalysis": "The Stanford source clarifies the key phrase often summarized as “purposiveness without purpose”: beauty can appear organized or meaningful without serving a practical function. This is exactly why the entry belongs in The Lovely and the Liminal.\nThe philosophical point should not be reduced to “pretty empty places.” It asks why a space can feel as if it matters even when it is not useful, not a destination, and not clearly explained.",
+      "studentExplanation": "Kant helps students think about beauty as something that can feel meaningful without being useful. A liminal space may not be a destination, and it may not have a clear purpose, but it can still feel charged, balanced, strange, or emotionally important. This entry shifts the section from horror to attraction: people may like liminal spaces because they feel as if they mean something, even when they do not clearly “do” anything.\n\nKant helps explain why purposeless spaces can still feel meaningful. A station, corridor, empty room, or dreamlike image may not solve a practical need, but it can feel composed, charged, or worth attention even when it does not lead anywhere obvious. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this gives students a philosophical explanation for why in-between spaces can be beautiful. At the section level, it balances the creepy examples by showing the “lovely” side of liminality. At the year-theme level, it asks whether the value of a journey always depends on arriving somewhere, or whether a suspended moment can matter by itself.",
+      "takeaway": "A place can feel significant without completing a journey.",
+      "subjects": [
+        "Philosophy",
+        "Language and Literature"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Narrated Endings",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Purposiveness without purpose",
+        "Beauty that does not arrive"
+      ],
+      "debateRelevance": "Useful when debating whether places need a clear practical role in order to deserve attention, beauty, and emotional value.",
+      "counterargument": "People may be drawn to liminal spaces for discomfort, nostalgia, or cultural fashion as much as for anything that resembles Kantian beauty.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Purposiveness without purpose",
+              "note": "Kant's idea appears through something that feels meaningful, arranged, or satisfying without serving a practical goal.",
+              "imageGuidance": "Find a clear educational diagram or visual metaphor for “purposiveness without purpose,” such as a balanced natural form, abstract structure, or aesthetic object that feels meaningful without obvious use. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short explanation of Kant’s aesthetics, especially “purposiveness without purpose,” using simple language.",
+              "links": [],
+              "src": "assets/raw-content/the-lovely-and-the-liminal/purposiveness-without-purpose.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Beauty that does not arrive",
+              "note": "Kant connects to liminal spaces: a place can matter aesthetically even when it is not a destination.",
+              "imageGuidance": "Find a calm, high-quality image of a non-specific liminal space that feels beautiful rather than frightening, such as an empty corridor with soft light, a quiet platform, or a sunlit transitional interior. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on liminal spaces as an aesthetic, preferably explaining both attraction and unease.",
+              "links": [],
+              "src": "assets/raw-content/the-lovely-and-the-liminal/beauty-that-does-not-arrive.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Liminality",
+        "Destinations"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Narrated Endings",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Narrated Endings",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "The Lovely and the Liminal"
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.005",
+      "order": 5,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [
+        "asset.the-lovely-and-the-liminal.asset.rain-steam-and-speed",
+        "asset.the-lovely-and-the-liminal.asset.the-gare-saint-lazare",
+        "asset.the-lovely-and-the-liminal.raw.drip-drip-drip"
+      ],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.005",
+        "question.the-lovely-and-the-liminal.200.005"
+      ],
+      "title": "Shared Liminal Spaces",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "We also pass through shared liminal spaces in the real world: train stations (and trains!), airports, elevators. Consider the following works, then discuss with your team: in what sense does each of them depict a liminal setting?\n\nJ.M.W. Turner | Rain, Steam, and Speed (1844)\n\nWilliam Powell Firth | The Railway Station (1862)\n\nTsukioka Yoshitoshi | Picture of the Railroad at Takanawa (1871)\n\nClaude Monet | Gare Saint-Lazare (1877)\n\nYilan Folk Song | “Drip, Drip, Drip” (c. 1924)\n\nSteve McCurry | Train Station, Agra, 1983 (1983)\n\nRichard Artschwager | Six in Four (2015)",
+      "links": [
+        {
+          "label": "Turner - Rain, Steam, and Speed",
+          "url": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-rain-steam-and-speed-the-great-western-railway"
+        },
+        {
+          "label": "Frith - The Railway Station",
+          "url": "https://www.rct.uk/collection/405292/the-railway-station"
+        },
+        {
+          "label": "Yoshitoshi - Picture of the Railroad at Takanawa",
+          "url": "https://www.visitpham.org/objects/330908"
+        },
+        {
+          "label": "Monet - The Gare St-Lazare",
+          "url": "https://www.nationalgallery.org.uk/paintings/claude-monet-the-gare-st-lazare"
+        },
+        {
+          "label": "Yilan Folk Song - Drip, Drip, Drip",
+          "url": "https://lyricstranslate.com/en/diu-diu-tong-zi-drip-drip-drip.html"
+        },
+        {
+          "label": "Steve McCurry - Train Station, Agra, 1983",
+          "url": "https://www.solldn.com/journal/journals-steve-mccurry-agra-fort-station/"
+        },
+        {
+          "label": "Artschwager - Six in Four",
+          "url": "https://whitney.org/media/130"
+        }
+      ],
+      "deepLinkAnalysis": "The links turn this entry into a mini-gallery of public transition. Turner and Monet show railways as modern forces of speed, smoke, steam, and atmosphere; the station is not just a location but a new way of feeling time.\nFrith, Yoshitoshi, and McCurry add social and historical layers: stations gather social classes, modernization, waiting bodies, crowds, and daily life. Artschwager’s Six in Four shifts from trains to elevators, turning a tiny vertical passage into a permanent artwork in a museum.\nThe slideshow should not treat all works as identical. Each work shows a different mode of shared liminality: speed, crowding, modernization, atmosphere, song-memory, public waiting, and elevator enclosure.",
+      "studentExplanation": "Shared liminal spaces are places many people pass through together: stations, trains, airports, platforms, and elevators. The works in this entry show that these spaces can be fast, smoky, crowded, noisy, lonely, modern, or even artistic. A train station is not just a background; it is a place where people wait, depart, arrive, separate, meet, and briefly share the same in-between moment.\n\nRailway stations and elevators show liminality as collective experience. Turner, Firth, Yoshitoshi, Monet, McCurry, and Artschwager all make passing-through visible, from steam and crowds to doors, mirrors, and brief shared waiting. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this helps students see liminality in real public spaces. At the section level, it connects the concept to art, music, photography, and architecture. At the year-theme level, it shows that modern life often happens between departure and arrival, especially in shared transit spaces.",
+      "takeaway": "Public life often happens between departure and arrival.",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "J.M.W. Turner",
+        "Rain, Steam, and Speed (1844)",
+        "William Powell Firth",
+        "The Railway Station (1862)",
+        "Tsukioka Yoshitoshi",
+        "Picture of the Railroad at Takanawa (1871)",
+        "Claude Monet",
+        "Gare Saint-Lazare (1877)",
+        "Yilan Folk Song",
+        "“Drip, Drip, Drip” (c. 1924)",
+        "Steve McCurry",
+        "Train Station, Agra, 1983 (1983)",
+        "Richard Artschwager",
+        "Six in Four (2015)",
+        "Rain, Steam, and Speed",
+        "The Railway Station",
+        "Picture of the Railroad at Takanawa",
+        "Gare Saint-Lazare",
+        "“Drip, Drip, Drip”",
+        "Train Station, Agra, 1983",
+        "Six in Four"
+      ],
+      "debateRelevance": "Useful when debating whether shared transit spaces are merely practical or whether they reveal something deeper about modern collective life.",
+      "counterargument": "Some of these works may speak more directly about modernity, industry, speed, or crowd life than about liminality in a strict sense.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Rain, Steam, and Speed",
+              "note": "Turner shows railway travel as speed, weather, technology, and uncertainty crossing the landscape.",
+              "imageGuidance": "Find the exact artwork J.M.W. Turner, Rain, Steam, and Speed - The Great Western Railway (1844). Use the IMAGESEARCH skill and prioritize the National Gallery page. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Turner’s Rain, Steam, and Speed or railways in nineteenth-century art.",
+              "links": [
+                {
+                  "label": "Turner - Rain, Steam, and Speed",
+                  "url": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-rain-steam-and-speed-the-great-western-railway"
+                },
+                {
+                  "label": "Rain, Steam, and Speed image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Rain_Steam_and_Speed_the_Great_Western_Railway.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-rain-steam-and-speed-the-great-western-railway",
+              "previewLabel": "Open source",
+              "src": "assets/flashcards/alpacards/rain-steam-and-speed.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Railway Station",
+              "note": "Frith turns the station into a crowded social theater where different people wait, part, meet, and move.",
+              "imageGuidance": "Find the exact artwork William Powell Frith, The Railway Station (1862). Use the IMAGESEARCH skill and prioritize the Royal Collection Trust page. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Frith’s The Railway Station or Victorian railway stations and social life.",
+              "links": [
+                {
+                  "label": "Frith - The Railway Station",
+                  "url": "https://www.rct.uk/collection/405292/the-railway-station"
+                }
+              ],
+              "url": "https://www.rct.uk/collection/405292/the-railway-station",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Picture of the Railroad at Takanawa",
+              "note": "Yoshitoshi shows the railroad as a symbol of modernization, movement, and public spectacle in Japan.",
+              "imageGuidance": "Find the exact print Tsukioka Yoshitoshi, Picture of the Railroad at Takanawa (1871). Use the IMAGESEARCH skill and prioritize the Philadelphia Museum of Art page. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Meiji-era railroads or Japanese prints of modernization.",
+              "links": [
+                {
+                  "label": "Yoshitoshi - Picture of the Railroad at Takanawa",
+                  "url": "https://www.visitpham.org/objects/330908"
+                }
+              ],
+              "url": "https://www.visitpham.org/objects/330908",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Gare Saint-Lazare",
+              "note": "Monet turns the station into atmosphere: steam, glass, iron, passengers, and modern light inside a transit space.",
+              "imageGuidance": "Find the exact artwork Claude Monet, The Gare St-Lazare (1877). Use the IMAGESEARCH skill and prioritize the National Gallery page. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining Monet’s Gare Saint-Lazare series and the modern railway station.",
+              "links": [
+                {
+                  "label": "Monet - The Gare St-Lazare",
+                  "url": "https://www.nationalgallery.org.uk/paintings/claude-monet-the-gare-st-lazare"
+                },
+                {
+                  "label": "La Gare Saint-Lazare image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:La_Gare_Saint-Lazare_-_Claude_Monet.jpg",
+                  "license": "Public domain artwork reproduction"
+                }
+              ],
+              "url": "https://www.nationalgallery.org.uk/paintings/claude-monet-the-gare-st-lazare",
+              "previewLabel": "Open source",
+              "src": "assets/flashcards/alpacards/the-gare-saint-lazare.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain artwork reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "“Drip, Drip, Drip”",
+              "note": "The folk song turns rail travel into sound, rhythm, memory, and local experience.",
+              "imageGuidance": "Find an image related to the Taiwanese folk song “Diu Diu Deng / Drip, Drip, Drip,” ideally a historical image of a Taiwanese train, tunnel, or railway associated with the song. Use IMAGESEARCH first. If no exact historical image is available, use image generation to create a World Scholar themed visual of a small train entering a tunnel in rainy Taiwan, without pretending it is archival. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short performance or educational explanation of “Diu Diu Deng / Drip, Drip, Drip” and its railway/tunnel imagery.",
+              "links": [
+                {
+                  "label": "Yilan Folk Song - Drip, Drip, Drip",
+                  "url": "https://lyricstranslate.com/en/diu-diu-tong-zi-drip-drip-drip.html"
+                }
+              ],
+              "url": "https://lyricstranslate.com/en/diu-diu-tong-zi-drip-drip-drip.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/the-lovely-and-the-liminal/drip-drip-drip.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Train Station, Agra, 1983",
+              "note": "McCurry’s photograph uses the station as a human waiting space: crowded, temporary, and full of paused journeys.",
+              "imageGuidance": "Find Steve McCurry, Train Station, Agra, 1983. Use the IMAGESEARCH skill and prioritize the SOL LDN / Steve McCurry source. Because this is a named photograph, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video or interview segment on Steve McCurry’s train-station photography or public waiting spaces.",
+              "links": [
+                {
+                  "label": "Steve McCurry - Train Station, Agra, 1983",
+                  "url": "https://www.solldn.com/journal/journals-steve-mccurry-agra-fort-station/"
+                }
+              ],
+              "url": "https://www.solldn.com/journal/journals-steve-mccurry-agra-fort-station/",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Six in Four",
+              "note": "Artschwager turns elevators into permanent art, making a tiny passage-space into an immersive threshold.",
+              "imageGuidance": "Find images of Richard Artschwager’s Six in Four elevator installations at the Whitney Museum. Use IMAGESEARCH and prioritize the Whitney Museum media page or related Whitney artwork pages. Because this is a specific installed artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for the Whitney video Richard Artschwager: Six in Four or a short educational museum video about the work.",
+              "links": [
+                {
+                  "label": "Artschwager - Six in Four",
+                  "url": "https://whitney.org/media/130"
+                }
+              ],
+              "url": "https://whitney.org/media/130",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Richard Artschwager: Six in Four",
+          "url": "https://www.youtube.com/watch?v=gtopu6ikQhk"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Liminality",
+        "Journeys"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Movement Without Arrival",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "The Lovely and the Liminal"
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.006",
+      "order": 6,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [
+        "asset.the-lovely-and-the-liminal.raw.antespace-rooms-before-rooms",
+        "asset.the-lovely-and-the-liminal.raw.designing-anxiety-down",
+        "asset.the-lovely-and-the-liminal.raw.information-and-uncertainty"
+      ],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.006",
+        "question.the-lovely-and-the-liminal.200.006"
+      ],
+      "title": "The Architecture of Waiting",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "If you’ve ever gone to the doctor, the odds are good you’ve sat in a room waiting for someone to call your name. With your team, explore the architecture of waiting. How can a waiting room decrease anxiety (or amplify it)? How would you design waiting rooms differently for different purposes?",
+      "links": [
+        {
+          "label": "Architecture of waiting / non-places - ArtReview",
+          "url": "https://artreview.com/just-passing-through-the-history-of-societys-non-places/"
+        },
+        {
+          "label": "The psychology of waiting rooms - Medium",
+          "url": "https://medium.com/@oliviaturne442/the-psychology-of-waiting-rooms-how-design-influences-anxiety-5660fee79657"
+        }
+      ],
+      "deepLinkAnalysis": "The ArtReview article is especially important. It introduces antespace: rooms you enter on the way to other rooms, where mobility and immobility converge. It also shows that waiting is social and political: layouts, doors, appointment screens, and access rules organize behavior.\nThe waiting-room psychology link brings the concept down to student-level design choices: light, color, furniture, noise, privacy, personal space, and uncertainty can reduce or intensify anxiety. Together the links show that waiting rooms are not neutral containers; they are designed emotional thresholds.",
+      "studentExplanation": "Waiting rooms are designed thresholds. They hold people between one stage and the next: before a doctor, interview, office, flight, or decision. The links show two important ideas. First, waiting spaces have a history and can organize social behavior. Second, design choices such as light, color, seating, noise, privacy, and information can change anxiety. A waiting room is therefore not just a room with chairs; it is architecture that shapes how waiting feels.\n\nThe architecture notes add history: antechambers, waiting rooms, atriums, queues, and angled seating can choreograph patience, status, silence, and anxiety. A waiting room is therefore not neutral; it organizes people while they are between one authority and the next. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this helps students notice that waiting is shaped by space. At the section level, it connects liminality to everyday design rather than only art or horror. At the year-theme level, it connects to waiting because the journey can feel very different depending on how the in-between is designed.",
+      "takeaway": "Design can shape how uncertainty is felt.",
+      "subjects": [
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Antespace: rooms before rooms",
+        "Designing anxiety down",
+        "Information and uncertainty"
+      ],
+      "debateRelevance": "Useful when debating whether emotional experience in waiting spaces comes mainly from design or mainly from the stressful event people are anticipating.",
+      "counterargument": "Design matters, but it may not outweigh the deeper anxiety caused by what people are waiting for in the first place.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Antespace: rooms before rooms",
+              "note": "That some rooms exist mainly is presented as prefaces to other rooms or events.",
+              "imageGuidance": "Find an image of an antechamber, atrium, lobby, or waiting area that clearly functions as a room before another room. Use IMAGESEARCH first; if no perfect image exists, generate a World Scholar themed image of a beige/brown waiting antechamber with visible doorways and a sense of paused movement. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for an educational video on antechambers, atriums, non-places, or architecture of waiting.",
+              "links": [
+                {
+                  "label": "The psychology of waiting rooms - Medium",
+                  "url": "https://medium.com/@oliviaturne442/the-psychology-of-waiting-rooms-how-design-influences-anxiety-5660fee79657"
+                }
+              ],
+              "url": "https://medium.com/@oliviaturne442/the-psychology-of-waiting-rooms-how-design-influences-anxiety-5660fee79657",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/the-lovely-and-the-liminal/antespace-rooms-before-rooms.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Designing anxiety down",
+              "note": "Color, lighting, layout, sound, and seating can make waiting feel calmer or more stressful.",
+              "imageGuidance": "Find a clear comparison image of a calm waiting room versus a stressful or cramped waiting room, or a healthcare design image showing comfortable seating, soft lighting, and personal space. Use IMAGESEARCH first; if no perfect comparison exists, generate a two-panel World Scholar style image comparing anxious vs. calming waiting-room design. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video about waiting-room design, healthcare design, or environmental psychology.",
+              "links": [],
+              "src": "assets/raw-content/the-lovely-and-the-liminal/designing-anxiety-down.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Information and uncertainty",
+              "note": "Appointment screens, queues, and unclear timing change how waiting feels.",
+              "imageGuidance": "Find an image of a waiting-room appointment screen, queue display, or reception area where people are visibly waiting for their turn. Use IMAGESEARCH first; if no perfect image exists, generate a World Scholar themed waiting room with an appointment screen and seated students/adults waiting. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short video on the psychology of waiting, uncertainty, and queue design.",
+              "links": [],
+              "src": "assets/raw-content/the-lovely-and-the-liminal/information-and-uncertainty.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Waiting",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "The Lovely and the Liminal"
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.007",
+      "order": 7,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.007",
+        "question.the-lovely-and-the-liminal.200.007"
+      ],
+      "title": "Is “Liminal” Becoming Too Broad?",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "In recent years, the popular meaning of the word “liminal” has expanded to include more of the not-quite-right and not-quite-there. Consider the following pieces and then discuss with your team: is it fair to describe them as liminal works? Or are we using the term liminal too loosely?\n\nPaul Gauguin | Where Do We Come From? What Are We? Where Are We Going? (1897-98)\n\nRene Magritte | The Treachery of Images (1929)\n\nSalvador Dali | The Persistence of Memory (1931)\n\nAndrew Wyeth | Christina’s World (1948)\n\nM. C. Escher | Ascending and Descending (1960)\n\nGregory Crewdson | Beneath the Roses (2004)\n\nCamille Seaman | The Distant is Imminent (2020)",
+      "links": [
+        {
+          "label": "Gauguin - Where Do We Come From?",
+          "url": "https://collections.mfa.org/objects/32558/where-do-we-come-from-what-are-we-where-are-we-going"
+        },
+        {
+          "label": "Magritte - The Treachery of Images",
+          "url": "https://www.moma.org/slideshows/22/372"
+        },
+        {
+          "label": "Dali - The Persistence of Memory",
+          "url": "https://www.moma.org/collection/works/79018"
+        },
+        {
+          "label": "Wyeth - Christina’s World",
+          "url": "https://www.moma.org/collection/works/78455"
+        },
+        {
+          "label": "Escher - Ascending and Descending",
+          "url": "https://www.nga.gov/artworks/61281-ascending-and-descending"
+        },
+        {
+          "label": "Crewdson - Beneath the Roses",
+          "url": "https://gagosian.com/exhibitions/2005/gregory-crewdson-beneath-the-roses/"
+        },
+        {
+          "label": "Seaman - The Distant is Imminent",
+          "url": "https://fineacts.co/the-distant-is-imminent"
+        }
+      ],
+      "deepLinkAnalysis": "The links deliberately stretch the word “liminal.” Gauguin asks life-stage questions; Magritte separates image from thing; Dali destabilizes time; Wyeth suspends a figure between distance and home; Escher traps people in impossible circulation; Crewdson photographs suburban scenes as eerie thresholds; Seaman uses the language of climate future as imminent.\nThis entry should not simply say “all these are liminal.” The point is to make students judge the category. Some works are literally about thresholds or endless movement; others are emotionally, philosophically, or visually liminal. The question is whether the concept gains richness or loses precision as it expands.",
+      "studentExplanation": "The word liminal now often means more than a literal threshold. People use it for works that feel suspended, strange, not-quite-right, dreamlike, unresolved, or caught between states. The links in this entry are a test: some works are clearly about in-between spaces or impossible movement, while others are only liminal in mood, question, or interpretation. Students should not just label everything “liminal”; they should decide how precise or loose the word should be.\n\nUse the artworks as a precision test. Gauguin asks life-stage questions, Magritte separates image from object, Dali melts time, Escher loops stairs, and Crewdson makes suburbs eerie; students should decide whether each is liminal by structure, mood, or only vibe. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this helps students use a concept critically instead of repeating a trend word. At the section level, it tests the boundaries of The Lovely and the Liminal. At the year-theme level, it connects to thresholds because ideas themselves can cross thresholds: a precise term can become a broad cultural label.",
+      "takeaway": "The term liminal can reveal patterns but must stay precise.",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Movement Without Arrival"
+      ],
+      "examples": [
+        "Paul Gauguin",
+        "Where Do We Come From? What Are We? Where Are We Going? (1897-98)",
+        "Rene Magritte",
+        "The Treachery of Images (1929)",
+        "Salvador Dali",
+        "The Persistence of Memory (1931)",
+        "Andrew Wyeth",
+        "Christina’s World (1948)",
+        "M. C. Escher",
+        "Ascending and Descending (1960)",
+        "Gregory Crewdson",
+        "Beneath the Roses (2004)",
+        "Camille Seaman",
+        "The Distant is Imminent (2020)",
+        "Where Do We Come From?",
+        "The Treachery of Images",
+        "The Persistence of Memory",
+        "Christina’s World",
+        "Ascending and Descending",
+        "Beneath the Roses",
+        "The Distant is Imminent"
+      ],
+      "debateRelevance": "Useful when debating whether concepts stay valuable by remaining precise or by expanding through broader cultural use.",
+      "counterargument": "A term can gain cultural life by broadening, so a looser use of liminal is not automatically a misuse.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Where Do We Come From?",
+              "note": "Gauguin turns human life into questions of origin, identity, and destination.",
+              "imageGuidance": "Find the exact artwork Paul Gauguin, Where Do We Come From? What Are We? Where Are We Going? Use IMAGESEARCH and prioritize the Museum of Fine Arts Boston page. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining Gauguin’s painting and its three life questions.",
+              "links": [
+                {
+                  "label": "Gauguin - Where Do We Come From?",
+                  "url": "https://collections.mfa.org/objects/32558/where-do-we-come-from-what-are-we-where-are-we-going"
+                }
+              ],
+              "url": "https://collections.mfa.org/objects/32558/where-do-we-come-from-what-are-we-where-are-we-going",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Treachery of Images",
+              "note": "Magritte creates liminality between image, language, and object: a painted pipe is not an actual pipe.",
+              "imageGuidance": "Find the exact artwork Rene Magritte, The Treachery of Images / Ceci n’est pas une pipe. Use IMAGESEARCH and prioritize MoMA/LACMA or museum sources. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining Magritte’s image/text paradox.",
+              "links": [
+                {
+                  "label": "Magritte - The Treachery of Images",
+                  "url": "https://www.moma.org/slideshows/22/372"
+                }
+              ],
+              "url": "https://www.moma.org/slideshows/22/372",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Christina’s World",
+              "note": "Wyeth suspends the viewer between distance, vulnerability, desire, and the unreachable house.",
+              "imageGuidance": "Find the exact artwork Andrew Wyeth, Christina’s World (1948). Use IMAGESEARCH and prioritize MoMA. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining Christina’s World, space, distance, and longing.",
+              "links": [
+                {
+                  "label": "Wyeth - Christina’s World",
+                  "url": "https://www.moma.org/collection/works/78455"
+                }
+              ],
+              "url": "https://www.moma.org/collection/works/78455",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Ascending and Descending",
+              "note": "Escher turns architecture into impossible circulation, where movement never becomes progress.",
+              "imageGuidance": "Find the exact artwork M. C. Escher, Ascending and Descending (1960). Use IMAGESEARCH and prioritize the National Gallery of Art page. Because this is an exact artwork, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining Escher’s impossible stairs and visual paradox.",
+              "links": [
+                {
+                  "label": "Escher - Ascending and Descending",
+                  "url": "https://www.nga.gov/artworks/61281-ascending-and-descending"
+                }
+              ],
+              "url": "https://www.nga.gov/artworks/61281-ascending-and-descending",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Beneath the Roses",
+              "note": "Crewdson makes ordinary suburban scenes feel staged, paused, and psychologically unresolved.",
+              "imageGuidance": "Find a representative image from Gregory Crewdson’s Beneath the Roses series using IMAGESEARCH, prioritizing the Gagosian exhibition page. Because this is a named art series, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Gregory Crewdson’s staged photography and uncanny suburban atmosphere.",
+              "links": [
+                {
+                  "label": "Crewdson - Beneath the Roses",
+                  "url": "https://gagosian.com/exhibitions/2005/gregory-crewdson-beneath-the-roses/"
+                }
+              ],
+              "url": "https://gagosian.com/exhibitions/2005/gregory-crewdson-beneath-the-roses/",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Distant is Imminent",
+              "note": "Seaman frames climate danger as something both far away and already arriving.",
+              "imageGuidance": "Find the exact image or official campaign visual for Camille Seaman, The Distant is Imminent (2020) using IMAGESEARCH, prioritizing Fine Acts. Because this is a named visual source, do not generate a substitute unless the agent cannot find an accessible image, in which case use a LINK button only.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Camille Seaman or climate imagery that explains how distant futures become present danger.",
+              "links": [
+                {
+                  "label": "Seaman - The Distant is Imminent",
+                  "url": "https://fineacts.co/the-distant-is-imminent"
+                }
+              ],
+              "url": "https://fineacts.co/the-distant-is-imminent",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Liminality",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Managing Uncertainty",
+        "Movement Without Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Managing Uncertainty",
+          "Movement Without Arrival"
+        ]
+      },
+      "sectionTitle": "The Lovely and the Liminal",
+      "channelVideos": [
+        {
+          "title": "Dali, The Persistence of Memory",
+          "url": "https://www.youtube.com/watch?v=6mp-fBJNQmU"
+        }
+      ]
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.008",
+      "order": 8,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [
+        "asset.the-lovely-and-the-liminal.raw.keeping-still"
+      ],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.008",
+        "question.the-lovely-and-the-liminal.200.008"
+      ],
+      "title": "Stuck in the In-Between",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "To be in-between is to pass through a space where the normal rules of movement, time, and social interaction are suspended—but only briefly, on the way to elsewhere. But what happens if you’re stuck in such a place? As you explore the selections below, consider: how should we approach spending time in liminal spaces? Should we do more to seek them out?\n\nSamuel Beckett | Waiting for Godot, Scene 2 (1953)\n\nPablo Neruda | “Keeping Still” (1958)\n\nPhilippe Orreindy | I'll Wait for the Next One... (2002)\n\nMarcel Ayme | “The Man Who Could Walk through Walls” (1941)\n\nAmor Towles | A Gentleman in Moscow (Excerpt) (2019)",
+      "links": [
+        {
+          "label": "Waiting for Godot PDF",
+          "url": "https://www.lsgalilei.org/images/FilesGalilei/Docenti/Dipartimenti/Lingue/WaitingForGodotGB.pdf"
+        },
+        {
+          "label": "Keeping Still PDF",
+          "url": "https://www.mcgill.ca/poetrymatters/files/poetrymatters/neruda_-_keeping_still.pdf"
+        },
+        {
+          "label": "The Man Who Could Walk through Walls",
+          "url": "https://shortstoryproject.com/stories/the-man-who-could-walk-through-walls/"
+        },
+        {
+          "label": "A Gentleman in Moscow excerpt",
+          "url": "https://www.cbsnews.com/news/book-excerpt-a-gentleman-in-moscow-by-amor-towles/"
+        }
+      ],
+      "deepLinkAnalysis": "Waiting for Godot is the anchor: the linked PDF shows a setting reduced to a country road, a tree, evening, and repeated waiting. The famous “We’re waiting for Godot” dynamic makes delay the structure of life, not just a plot point.\nNeruda’s “Keeping Still” changes stuckness into chosen stillness: pausing can become reflection rather than failure. Orreindy’s short film literalizes urban waiting and missed human connection. Aymé’s wall-walker and Towles’s hotel-bound count both explore confinement: unusual freedom or elegance can still become a form of being stuck.",
+      "studentExplanation": "This entry asks what happens when liminality stops being brief. In Waiting for Godot, waiting becomes a whole existence. In Neruda’s “Keeping Still,” stopping can become a conscious pause. In I’ll Wait for the Next One..., waiting happens in a public transit space but becomes emotional. In The Man Who Could Walk through Walls and A Gentleman in Moscow, unusual spaces and limits reshape identity. The in-between is no longer just a passage; it becomes a condition.\n\nThe sources show liminality becoming a life condition. Godot never arrives, Neruda asks for a pause from constant doing, the subway short film turns waiting into disappointment, Dutilleul gets trapped in the wall, and Rostov lives between punishment and refuge inside a hotel. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this deepens liminality into time, waiting, and confinement. At the section level, it connects literature, film, and fiction around suspended life. At the year-theme level, it asks whether being “not there yet” can become meaningful, painful, or even chosen.",
+      "takeaway": "A passage can become a way of living.",
+      "subjects": [
+        "Language and Literature",
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Delayed Arrival",
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Narrated Endings"
+      ],
+      "examples": [
+        "Samuel Beckett",
+        "Waiting for Godot, Scene 2 (1953)",
+        "Pablo Neruda",
+        "“Keeping Still” (1958)",
+        "Philippe Orreindy",
+        "I'll Wait for the Next One... (2002)",
+        "Marcel Ayme",
+        "“The Man Who Could Walk through Walls” (1941)",
+        "Amor Towles",
+        "A Gentleman in Moscow (Excerpt) (2019)",
+        "Waiting for Godot",
+        "Keeping Still",
+        "I’ll Wait for the Next One...",
+        "The Man Who Could Walk through Walls",
+        "A Gentleman in Moscow"
+      ],
+      "debateRelevance": "Useful when debating whether prolonged suspension can be meaningful and reflective or whether it mainly becomes sterile, frustrating, and destructive.",
+      "counterargument": "Some liminal states create insight, but being trapped in-between can also drain agency, hope, and dignity instead of enriching experience.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Waiting for Godot",
+              "note": "Beckett turns waiting into an entire dramatic situation: little happens, but the waiting itself becomes meaningful.",
+              "imageGuidance": "Find a stage image or production still of Waiting for Godot showing two characters near a bare tree or empty road. Use IMAGESEARCH and prioritize educational/theater sources. Because this is a named play, use a real production image or official educational image rather than a generated substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational explanation of Waiting for Godot and the Theatre of the Absurd.",
+              "links": [
+                {
+                  "label": "Waiting for Godot PDF",
+                  "url": "https://www.lsgalilei.org/images/FilesGalilei/Docenti/Dipartimenti/Lingue/WaitingForGodotGB.pdf"
+                },
+                {
+                  "label": "Waiting for Godot: The Absurdity of The Human Condition",
+                  "url": "https://www.youtube.com/watch?v=bWWuxIIhFEU"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=bWWuxIIhFEU",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Keeping Still",
+              "note": "Neruda imagines stillness as a pause that could interrupt ordinary rush, violence, and distraction.",
+              "imageGuidance": "Find a calm image representing collective stillness or quiet pause, ideally connected to Pablo Neruda’s “Keeping Still” if available. Use IMAGESEARCH first; if no perfect image exists, generate a World Scholar themed visual of people quietly pausing together in a public space, without pretending it is a historical image. The agent must use the IMAGESEARCH skill first. If IMAGESEARCH cannot find a perfect image and this slide is not about an exact artwork, known historical photo, poster, building, patent, object, or named visual source, the agent should use image generation to create a clear image illustrating the idea while respecting the World Scholar app theme and beige/brown/maroon visual style.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational reading or explanation of Pablo Neruda’s “Keeping Still.”",
+              "links": [
+                {
+                  "label": "Keeping Still PDF",
+                  "url": "https://www.mcgill.ca/poetrymatters/files/poetrymatters/neruda_-_keeping_still.pdf"
+                }
+              ],
+              "url": "https://www.mcgill.ca/poetrymatters/files/poetrymatters/neruda_-_keeping_still.pdf",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/the-lovely-and-the-liminal/keeping-still.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Man Who Could Walk through Walls",
+              "note": "Aymé’s story turns walls into thresholds: freedom, temptation, and entrapment become linked.",
+              "imageGuidance": "Find an image related to Marcel Aymé’s The Man Who Could Walk through Walls, ideally the Paris statue or a book/illustration showing a man emerging from a wall. Use IMAGESEARCH first; because this is a named story and known statue, prefer the exact statue or published artwork rather than image generation.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Marcel Aymé’s story or the Montmartre statue Le Passe-Muraille.",
+              "links": [
+                {
+                  "label": "The Man Who Could Walk through Walls",
+                  "url": "https://shortstoryproject.com/stories/the-man-who-could-walk-through-walls/"
+                },
+                {
+                  "label": "Le Passe-muraille sculpture image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Le_Passe-muraille.jpg",
+                  "license": "CC0"
+                }
+              ],
+              "url": "https://shortstoryproject.com/stories/the-man-who-could-walk-through-walls/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Le_Passe-muraille.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "CC0"
+            },
+            {
+              "kind": "text-slide",
+              "title": "A Gentleman in Moscow",
+              "note": "Towles turns a hotel into a life-space: confinement can become routine, identity, and unexpected community.",
+              "imageGuidance": "Find a relevant image of the Metropol Hotel Moscow or an official image tied to A Gentleman in Moscow. Use IMAGESEARCH first; because the Metropol is a real building and the novel is named, use the exact hotel or official book/series image, not a generic hotel corridor.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining A Gentleman in Moscow and the idea of confinement inside a hotel.",
+              "links": [
+                {
+                  "label": "A Gentleman in Moscow excerpt",
+                  "url": "https://www.cbsnews.com/news/book-excerpt-a-gentleman-in-moscow-by-amor-towles/"
+                },
+                {
+                  "label": "Hotel Metropol Moscow image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Hotel_Metropol_Moscow.jpg",
+                  "license": "Creative Commons licensed source image"
+                }
+              ],
+              "url": "https://www.cbsnews.com/news/book-excerpt-a-gentleman-in-moscow-by-amor-towles/",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Hotel_Metropol_Moscow.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Creative Commons licensed source image"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Waiting",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Delayed Arrival",
+      "secondaryBigIdeas": [
+        "Thresholds & Irreversibility",
+        "Movement Without Arrival",
+        "Narrated Endings"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Delayed Arrival",
+        "secondaryBigIdeas": [
+          "Thresholds & Irreversibility",
+          "Movement Without Arrival",
+          "Narrated Endings"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Why should you read \"Waiting For Godot\"? - Iseult Gillespie",
+          "url": "https://www.youtube.com/watch?v=Cz5ey3RqDBI"
+        }
+      ],
+      "sectionTitle": "The Lovely and the Liminal"
+    },
+    {
+      "id": "raw.the-lovely-and-the-liminal.009",
+      "order": 9,
+      "sectionId": "the-lovely-and-the-liminal",
+      "mediaIds": [],
+      "questionIds": [
+        "question.the-lovely-and-the-liminal.100.009",
+        "question.the-lovely-and-the-liminal.200.009"
+      ],
+      "title": "Music for Airports?",
+      "guidingSection": "The Lovely and the Liminal",
+      "rawOfficialText": "Some people put on a little music when they’re talking with someone else, or when they’re eating dinner—just to fill the room with a certain kind of background sound. Ambient music is designed to do exactly that, without needing you to focus on it—and it’s a newer genre than you might think. Consider the examples below, beginning with composer Brian Eno’s effort to make airports less stressful, and then discuss with your team: should we be playing more ambient music and fewer pop songs, podcasts, and YouTube videos when the goal is just to keep away the quiet? Or is ambient music best reserved for liminal spaces—is it, in fact, music for airports?\n\nBrian Eno | Ambient 1: Music for Airports (1979)\n\nHiroshi Yoshimura | Music for Nine Postcards (1982)\n\nMax Richter | Sleep (2015)",
+      "links": [
+        {
+          "label": "Hiroshi Yoshimura - Music for Nine Postcards",
+          "url": "https://youtu.be/Qj1Q-0d1WZo"
+        },
+        {
+          "label": "Max Richter - Sleep",
+          "url": "https://www.youtube.com/watch?v=CWYA99Zb13Y"
+        }
+      ],
+      "deepLinkAnalysis": "Music for Airports is central because it was designed for a liminal environment: an airport terminal where people are waiting, anxious, and between destinations. Eno’s ambient idea is that music can be interesting if noticed but ignorable if not, shaping a space without demanding focus.\nYoshimura and Richter expand the idea. Music for Nine Postcards creates a quiet environment for looking, waiting, and dwelling; Sleep turns music into an extended threshold between waking and sleeping. Together the examples show liminality as sound: atmosphere, not narrative.",
+      "studentExplanation": "Ambient music is designed to shape a space without demanding full attention. Brian Eno’s Music for Airports is the key example because it was made for a liminal place: an airport, where people wait, move, worry, and pass through. Hiroshi Yoshimura’s Music for Nine Postcards and Max Richter’s Sleep show that ambient music can also support looking, resting, drifting, or crossing between waking and sleep. This entry turns liminality into sound.\n\nAmbient music should be explained as design for attention. Eno wanted music that could be ignored and still reward listening, and the airport matters because travelers there are anxious, suspended, and between places; Yoshimura and Richter broaden the idea into looking, resting, and sleeping. Use this to test the word “liminal” carefully: what threshold is present, where movement pauses, how the space changes memory or feeling, and whether the in-between is useful, beautiful, scary, or too vague.",
+      "whyItMatters": "At the entry level, this helps students understand music as atmosphere rather than performance. At the section level, it closes The Lovely and the Liminal by showing that liminal spaces can be designed through sound. At the year-theme level, it connects to waiting because sound can change how “not there yet” feels.",
+      "takeaway": "Sound can design how transition feels.",
+      "subjects": [
+        "Visual and Performing Arts",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Brian Eno",
+        "Ambient 1: Music for Airports (1979)",
+        "Hiroshi Yoshimura",
+        "Music for Nine Postcards (1982)",
+        "Max Richter",
+        "Sleep (2015)",
+        "Music for Airports",
+        "Music for Nine Postcards",
+        "Sleep"
+      ],
+      "debateRelevance": "Useful when debating whether ambient sound can genuinely improve liminal spaces or whether it simply fills silence without solving the deeper experience of waiting.",
+      "counterargument": "Ambient music may support atmosphere, but it is not inherently tied to liminal spaces and may function just as well as a broader aesthetic choice.",
+      "visualSections": [
+        {
+          "title": "Slideshow / display content",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Music for Nine Postcards",
+              "note": "Yoshimura’s music creates a quiet environment for looking, dwelling, and gentle attention.",
+              "imageGuidance": "Find the official album cover for Hiroshi Yoshimura, Music for Nine Postcards (1982), or a reliable image connected to the album. Use IMAGESEARCH first. Because this is a specific album cover, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video on Hiroshi Yoshimura, Japanese ambient music, or environmental music.",
+              "links": [
+                {
+                  "label": "Hiroshi Yoshimura - Music for Nine Postcards",
+                  "url": "https://youtu.be/Qj1Q-0d1WZo"
+                },
+                {
+                  "label": "Hiroshi Yoshimura (吉村弘) - Blink",
+                  "url": "https://youtu.be/Qj1Q-0d1WZo"
+                }
+              ],
+              "url": "https://youtu.be/Qj1Q-0d1WZo",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sleep",
+              "note": "Richter’s Sleep turns music into a long threshold between waking, rest, and dreaming.",
+              "imageGuidance": "Find the official album cover or performance image for Max Richter, Sleep (2015). Use IMAGESEARCH first and prioritize official music/publisher sources. Because this is a named album/work, do not generate a substitute.",
+              "videoGuidance": "The agent must use the YOUTUBESEARCH skill. Find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers and focused on explaining this exact concept, work, or example. Search for a short educational video explaining Max Richter’s Sleep and music designed around sleeping or slow listening.",
+              "links": [
+                {
+                  "label": "Max Richter - Sleep",
+                  "url": "https://www.youtube.com/watch?v=CWYA99Zb13Y"
+                },
+                {
+                  "label": "🌑Sleep",
+                  "url": "https://www.youtube.com/watch?v=CWYA99Zb13Y"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=CWYA99Zb13Y",
+              "previewLabel": "Play video"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Waiting",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Movement Without Arrival",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Max Richter's music to sleep by",
+          "url": "https://www.youtube.com/watch?v=USGaszNg2po"
+        },
+        {
+          "title": "Brian Eno - Ambient 1: Music for Airports [Full Album]",
+          "url": "https://www.youtube.com/watch?v=vNwYtllyt3Q"
+        }
+      ],
+      "sectionTitle": "The Lovely and the Liminal"
+    }
+  ]
+}

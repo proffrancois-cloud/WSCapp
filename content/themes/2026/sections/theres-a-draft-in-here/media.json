@@ -1,0 +1,198 @@
+{
+  "id": "media.theres-a-draft-in-here",
+  "sectionId": "theres-a-draft-in-here",
+  "assets": [
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.bedroom-in-arles",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/bedroom-in-arles.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.dance-i",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/dance-i.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.dance-ii",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/dance-ii.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.despair",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/despair.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.isleworth-mona-lisa",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/isleworth-mona-lisa.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.la-chambre-de-van-gogh-a-arles",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/la-chambre-de-van-gogh-a-arles.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.mona-lisa-louvre-version",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/mona-lisa-louvre-version.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.the-bedroom",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-bedroom.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.alpacard.the-scream",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/the-scream.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.bedroom-in-arles-1888",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/bedroom-in-arles-1888.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.bedroom-in-arles-1889-a",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/bedroom-in-arles-1889-a.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.bedroom-in-arles-1889-b",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/bedroom-in-arles-1889-b.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.dance-i-1909",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/dance-i-1909.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.dance-ii-1910",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/dance-ii-1910.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.despair-1892",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/despair-1892.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.how-artists-transfer-drafts-to-canvas",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/how-artists-transfer-drafts-to-canvas.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.matisse-dance-i-to-dance-ii",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/matisse-dance-i-to-dance-ii.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.mona-lisa-isleworth",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/mona-lisa-isleworth.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.mona-lisa-louvre",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/mona-lisa-louvre.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.mona-lisa-version-copy-or-draft",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/mona-lisa-version-copy-or-draft.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.munch-from-despair-to-the-scream",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/munch-from-despair-to-the-scream.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.the-scream-1893",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/the-scream-1893.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.van-goghs-bedroom-three-versions",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/van-goghs-bedroom-three-versions.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.theres-a-draft-in-here.raw.why-the-internet-changes-drafts",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/theres-a-draft-in-here/why-the-internet-changes-drafts.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

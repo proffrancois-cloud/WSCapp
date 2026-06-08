@@ -1,0 +1,800 @@
+{
+  "id": "channel.progress-not-regress",
+  "sectionId": "progress-not-regress",
+  "videos": [
+    {
+      "id": "video.progress-not-regress.001",
+      "playlistIndex": 12,
+      "title": "The power of the placebo effect - Emma Bryce",
+      "channel": "TED-Ed",
+      "url": "https://www.youtube.com/watch?v=z03FQGlGgo0",
+      "duration": "4:37",
+      "uploadDate": "2016-04-04T08:02:42-07:00",
+      "viewCount": 4812225,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "animation / voiceover",
+      "score": 7.9,
+      "verdict": "Strong WSC candidate.",
+      "description": "Contextual video about The power of the placebo effect - Emma Bryce. WSC link: Progress, Not Regress / Progress as measurement problem.",
+      "keyTerms": [
+        "placebo",
+        "effect",
+        "emma",
+        "bryce",
+        "ted",
+        "ted-ed",
+        "lesson",
+        "drugs",
+        "placebos",
+        "globizco",
+        "health",
+        "science",
+        "power",
+        "view",
+        "full",
+        "lessons",
+        "the-power-of-the-placebo-effect-emma-bryce",
+        "unexplained"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "Placebo Buttons, Feeling Faker"
+      ],
+      "bigIdeaLabels": [
+        "Progress",
+        "Waiting",
+        "Planning & Projects",
+        "Routes, Roads & Navigation",
+        "Liminality",
+        "Progress as measurement problem",
+        "Skeleton screens and placebo progress",
+        "The Zeigarnik Effect",
+        "Shared destinations and unequal benefits",
+        "Hostile architecture and exclusion"
+      ],
+      "bigIdeaIds": [
+        "progress",
+        "waiting",
+        "planning-and-projects",
+        "routes-roads-and-navigation",
+        "liminality",
+        "progress-as-measurement-problem",
+        "skeleton-screens-and-placebo-progress",
+        "the-zeigarnik-effect",
+        "shared-destinations-and-unequal-benefits",
+        "hostile-architecture-and-exclusion"
+      ],
+      "subjectLabels": [
+        "Psychology",
+        "Design / Architecture / Urbanism"
+      ],
+      "subjectIds": [
+        "psychology",
+        "design-architecture-urbanism"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "Placebo Buttons, Feeling Faker",
+          "why": "Approved review placement under Placebo Buttons, Feeling Faker."
+        }
+      ],
+      "sourceId": "playlist-012-z03FQGlGgo0",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.002",
+      "playlistIndex": 13,
+      "title": "How the progress bar keeps you sane | Small Thing Big Idea, a TED series",
+      "channel": "TED",
+      "url": "https://www.youtube.com/watch?v=NAYkF04IZHI",
+      "duration": "3:48",
+      "uploadDate": "2018-11-03T09:36:18-07:00",
+      "viewCount": 242752,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Manual Alpaca Channel placement for Progress Bar, So Many of Them!.",
+      "keyTerms": [
+        "ted",
+        "progress",
+        "bar",
+        "small",
+        "thing",
+        "big",
+        "idea",
+        "series",
+        "daniel",
+        "engber",
+        "design",
+        "keeps",
+        "sane",
+        "makes",
+        "waiting",
+        "exciting",
+        "mitigates",
+        "fear"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "Progress Bar, So Many of Them!"
+      ],
+      "bigIdeaLabels": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "bigIdeaIds": [
+        "visible-vs-real",
+        "performed-progress",
+        "delayed-arrival",
+        "managing-uncertainty"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology"
+      ],
+      "subjectIds": [
+        "computer-science-technology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "Progress Bar, So Many of Them!",
+          "why": "User-confirmed placement under Progress Bar, So Many of Them!."
+        }
+      ],
+      "sourceId": "playlist-013-NAYkF04IZHI",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.003",
+      "playlistIndex": 14,
+      "title": "Why Progress Bars Lie.",
+      "channel": "ChillSingh",
+      "url": "https://www.youtube.com/watch?v=ydD4VHOy9eM",
+      "duration": "0:30",
+      "uploadDate": "2025-05-12T01:32:04-07:00",
+      "viewCount": 2960,
+      "contentType": "Shorts / short clip",
+      "formatStyle": "mixed or unknown",
+      "score": 7.1,
+      "verdict": "Strong WSC candidate.",
+      "description": "Ever wondered why progress bars never seem accurate? WSC link: Progress, Not Regress / Progress as measurement problem.",
+      "keyTerms": [
+        "progress",
+        "bars",
+        "bar",
+        "tech",
+        "software",
+        "facts",
+        "design",
+        "lie",
+        "loading",
+        "user",
+        "apps",
+        "load",
+        "behind",
+        "development",
+        "chillsingh",
+        "ever",
+        "wondered",
+        "never"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "Progress Bar, So Many of Them!"
+      ],
+      "bigIdeaLabels": [
+        "Progress",
+        "Waiting",
+        "Progress as measurement problem",
+        "Progress bars",
+        "Determinate vs indeterminate indicators",
+        "Skeleton screens and placebo progress",
+        "Moral and social progress"
+      ],
+      "bigIdeaIds": [
+        "progress",
+        "waiting",
+        "progress-as-measurement-problem",
+        "progress-bars",
+        "determinate-vs-indeterminate-indicators",
+        "skeleton-screens-and-placebo-progress",
+        "moral-and-social-progress"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology"
+      ],
+      "subjectIds": [
+        "computer-science-technology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "Progress Bar, So Many of Them!",
+          "why": "Approved review placement under Progress Bar, So Many of Them!."
+        }
+      ],
+      "sourceId": "playlist-014-ydD4VHOy9eM",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.004",
+      "playlistIndex": 15,
+      "title": "What is GDP? | Back to Basics",
+      "channel": "IMF",
+      "url": "https://www.youtube.com/watch?v=hBqWRayc1kE",
+      "duration": "1:46",
+      "uploadDate": "2017-08-21T06:59:17-07:00",
+      "viewCount": 1178050,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 6.8,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Manual Alpaca Channel placement for How Can Societies Measure Progress?.",
+      "keyTerms": [
+        "gdp",
+        "basics",
+        "back",
+        "imf",
+        "even",
+        "care",
+        "find",
+        "minutes",
+        "backtobasics",
+        "whatisgdp",
+        "videos",
+        "playlist",
+        "list",
+        "plmyae4wv1yqyrb6h1",
+        "xjwy73hjvdr6obx",
+        "concepts",
+        "finance",
+        "learning"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "How Can Societies Measure Progress?"
+      ],
+      "bigIdeaLabels": [
+        "Measuring Human Worth",
+        "Performed Progress",
+        "Visible vs Real",
+        "Movement Without Arrival"
+      ],
+      "bigIdeaIds": [
+        "measuring-human-worth",
+        "performed-progress",
+        "visible-vs-real",
+        "movement-without-arrival"
+      ],
+      "subjectLabels": [
+        "Economics & Trade",
+        "Sociology"
+      ],
+      "subjectIds": [
+        "economics-trade",
+        "sociology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "How Can Societies Measure Progress?",
+          "why": "User-confirmed placement under How Can Societies Measure Progress?."
+        }
+      ],
+      "sourceId": "playlist-015-hBqWRayc1kE",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.005",
+      "playlistIndex": 16,
+      "title": "What is \"Gross National Happiness\" ? Explained by Morten Sondergaard",
+      "channel": "mallorcamorten",
+      "url": "https://www.youtube.com/watch?v=7Zqdqa4YNvI",
+      "duration": "3:29",
+      "uploadDate": "2010-12-13T04:08:57-08:00",
+      "viewCount": 320476,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 6.8,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "What is \"Gross National Happiness\" explained in 3 min - Inspired by GNHFund.com - Created by MortenSondergaard.com WSC link: Progress, Not Regress / Progress as measurement problem.",
+      "keyTerms": [
+        "gross",
+        "national",
+        "happiness",
+        "explained",
+        "morten",
+        "sondergaard",
+        "gnhfund",
+        "mallorcamorten",
+        "min",
+        "inspired",
+        "created",
+        "mortensondergaard",
+        "gnh",
+        "gunter",
+        "pauli",
+        "bhutan",
+        "thunder",
+        "dragon"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "How Can Societies Measure Progress?"
+      ],
+      "bigIdeaLabels": [
+        "Progress",
+        "Waiting",
+        "Planning & Projects",
+        "Prediction",
+        "Bright and Dark Future",
+        "Tourism",
+        "Journeys",
+        "Progress as measurement problem",
+        "Historical list traditions",
+        "Retrofuturism"
+      ],
+      "bigIdeaIds": [
+        "progress",
+        "waiting",
+        "planning-and-projects",
+        "prediction",
+        "bright-and-dark-future",
+        "tourism",
+        "journeys",
+        "progress-as-measurement-problem",
+        "historical-list-traditions",
+        "retrofuturism"
+      ],
+      "subjectLabels": [
+        "Economics & Trade",
+        "Sociology"
+      ],
+      "subjectIds": [
+        "economics-trade",
+        "sociology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "How Can Societies Measure Progress?",
+          "why": "Approved review placement under How Can Societies Measure Progress?."
+        }
+      ],
+      "sourceId": "playlist-016-7Zqdqa4YNvI",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.006",
+      "playlistIndex": 19,
+      "title": "Gross National Happiness Model of Bhutan (Learning World S4E41, 3/3)",
+      "channel": "WISE Channel",
+      "url": "https://www.youtube.com/watch?v=-6JEY7JuDdQ",
+      "duration": "3:04",
+      "uploadDate": "2014-07-09T01:51:40-07:00",
+      "viewCount": 15210,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "There are few places in the world where happiness is the ultimate goal. WSC link: Progress, Not Regress / Progress as measurement problem.",
+      "keyTerms": [
+        "happiness",
+        "wise",
+        "education",
+        "bhutan",
+        "world",
+        "innovation",
+        "gross",
+        "national",
+        "model",
+        "learning",
+        "kingdom",
+        "gdp",
+        "school",
+        "system",
+        "productive",
+        "wiseqatar",
+        "summit",
+        "twitter"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "How Can Societies Measure Progress?"
+      ],
+      "bigIdeaLabels": [
+        "Progress",
+        "Waiting",
+        "Drafts & Prototypes",
+        "Prediction",
+        "Progress as measurement problem",
+        "What a prototype is",
+        "Minimum viable product",
+        "Copying, borrowing, and innovation"
+      ],
+      "bigIdeaIds": [
+        "progress",
+        "waiting",
+        "drafts-and-prototypes",
+        "prediction",
+        "progress-as-measurement-problem",
+        "what-a-prototype-is",
+        "minimum-viable-product",
+        "copying-borrowing-and-innovation"
+      ],
+      "subjectLabels": [
+        "Economics & Trade",
+        "Sociology"
+      ],
+      "subjectIds": [
+        "economics-trade",
+        "sociology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "How Can Societies Measure Progress?",
+          "why": "Approved review placement under How Can Societies Measure Progress?."
+        }
+      ],
+      "sourceId": "playlist-019--6JEY7JuDdQ",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.007",
+      "playlistIndex": 20,
+      "title": "Entering The World's Happiest Country (Bhutan)",
+      "channel": "Drew Binsky",
+      "url": "https://www.youtube.com/watch?v=YsQPqwzg8is",
+      "duration": "2:50",
+      "uploadDate": "2018-07-28T18:33:01-07:00",
+      "viewCount": 119162,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Truthfully, I have never witnessed happier human beings than right here, in this lovely country called BHUTAN. WSC link: Introductory Questions / Ordinary life as journey.",
+      "keyTerms": [
+        "bhutan",
+        "happiness",
+        "country",
+        "gross",
+        "national",
+        "gnh",
+        "bhutanese",
+        "travel",
+        "pillars",
+        "people",
+        "carbon",
+        "drewbinsky",
+        "asian",
+        "culture",
+        "entering",
+        "world's",
+        "happiest",
+        "drew"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "How Can Societies Measure Progress?"
+      ],
+      "bigIdeaLabels": [
+        "Journeys",
+        "Destinations",
+        "Thresholds",
+        "Progress",
+        "Waiting",
+        "Tourism",
+        "Liminality",
+        "Ordinary life as journey",
+        "Progress as measurement problem",
+        "Tourism types"
+      ],
+      "bigIdeaIds": [
+        "journeys",
+        "destinations",
+        "thresholds",
+        "progress",
+        "waiting",
+        "tourism",
+        "liminality",
+        "ordinary-life-as-journey",
+        "progress-as-measurement-problem",
+        "tourism-types"
+      ],
+      "subjectLabels": [
+        "Economics & Trade",
+        "Sociology"
+      ],
+      "subjectIds": [
+        "economics-trade",
+        "sociology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "How Can Societies Measure Progress?",
+          "why": "Approved review placement under How Can Societies Measure Progress?."
+        }
+      ],
+      "sourceId": "playlist-020-YsQPqwzg8is",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.008",
+      "playlistIndex": 21,
+      "title": "'Big Mac Index' explained (explainity® explainer video)",
+      "channel": "explainitychannel",
+      "url": "https://www.youtube.com/watch?v=b71uzrr8hUs",
+      "duration": "2:45",
+      "uploadDate": "2020-09-02T10:00:16-07:00",
+      "viewCount": 43140,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Manual Alpaca Channel placement for How Can Societies Measure Progress?.",
+      "keyTerms": [
+        "explainity",
+        "erkl",
+        "mac",
+        "film",
+        "explainer",
+        "explain",
+        "big",
+        "index",
+        "explanatory",
+        "use",
+        "education-project",
+        "produced",
+        "private",
+        "may",
+        "purposes",
+        "please",
+        "reference",
+        "training"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "How Can Societies Measure Progress?"
+      ],
+      "bigIdeaLabels": [
+        "Measuring Human Worth",
+        "Performed Progress",
+        "Visible vs Real",
+        "Movement Without Arrival"
+      ],
+      "bigIdeaIds": [
+        "measuring-human-worth",
+        "performed-progress",
+        "visible-vs-real",
+        "movement-without-arrival"
+      ],
+      "subjectLabels": [
+        "Economics & Trade",
+        "Sociology"
+      ],
+      "subjectIds": [
+        "economics-trade",
+        "sociology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "How Can Societies Measure Progress?",
+          "why": "User-confirmed placement under How Can Societies Measure Progress?."
+        }
+      ],
+      "sourceId": "playlist-021-b71uzrr8hUs",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.009",
+      "playlistIndex": 64,
+      "title": "Theme park queues manipulate your sense of time, here's how",
+      "channel": "coaster bot",
+      "url": "https://www.youtube.com/watch?v=z9FQVPwmDLc",
+      "duration": "16:40",
+      "uploadDate": "2022-04-03T10:32:12-07:00",
+      "viewCount": 1347535,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "We’ve all come to expect at least one thing from a visit to a theme park - queues. WSC link: Where the Sidewalk Starts / Navigation and wayfinding.",
+      "keyTerms": [
+        "theme",
+        "park",
+        "queues",
+        "queue",
+        "coaster",
+        "roller",
+        "coasters",
+        "parks",
+        "coasterbot",
+        "disney",
+        "universal",
+        "manipulate",
+        "sense",
+        "time",
+        "bot",
+        "hour",
+        "okay",
+        "twitter"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "Effect of Progress Indicators on Individuals"
+      ],
+      "bigIdeaLabels": [
+        "Routes, Roads & Navigation",
+        "Liminality",
+        "Journeys",
+        "Destinations",
+        "Thresholds",
+        "Endings",
+        "Navigation and wayfinding",
+        "Waiting and anticipation",
+        "Destination vs journey",
+        "Ordinary life as journey"
+      ],
+      "bigIdeaIds": [
+        "routes-roads-and-navigation",
+        "liminality",
+        "journeys",
+        "destinations",
+        "thresholds",
+        "endings",
+        "navigation-and-wayfinding",
+        "waiting-and-anticipation",
+        "destination-vs-journey",
+        "ordinary-life-as-journey"
+      ],
+      "subjectLabels": [
+        "Psychology"
+      ],
+      "subjectIds": [
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "Effect of Progress Indicators on Individuals",
+          "why": "Manually placed under Effect of Progress Indicators on Individuals."
+        }
+      ],
+      "sourceId": "playlist-064-z9FQVPwmDLc",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    },
+    {
+      "id": "video.progress-not-regress.010",
+      "title": "Progress Bars - Computerphile",
+      "url": "https://www.youtube.com/watch?v=uHh0qpc1BR4",
+      "description": "Manual Alpaca Channel placement for Progress Bar, So Many of Them!.",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "sectionTitles": [
+        "Progress, Not Regress"
+      ],
+      "entryTitles": [
+        "Progress Bar, So Many of Them!"
+      ],
+      "bigIdeaLabels": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Delayed Arrival",
+        "Managing Uncertainty"
+      ],
+      "bigIdeaIds": [
+        "visible-vs-real",
+        "performed-progress",
+        "delayed-arrival",
+        "managing-uncertainty"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology"
+      ],
+      "subjectIds": [
+        "computer-science-technology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "progress-not-regress",
+          "sectionTitle": "Progress, Not Regress",
+          "entryTitle": "Progress Bar, So Many of Them!",
+          "why": "User-confirmed placement under Progress Bar, So Many of Them!."
+        }
+      ],
+      "sourceId": "manual-progress-not-regress-progress-bar-so-many-of-them-uHh0qpc1BR4",
+      "canonicalSectionId": "progress-not-regress",
+      "assetId": null
+    }
+  ]
+}

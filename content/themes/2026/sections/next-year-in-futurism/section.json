@@ -1,0 +1,41 @@
+{
+  "id": "next-year-in-futurism",
+  "title": "Next Year in Futurism",
+  "shortTitle": "Next Year in Futurism",
+  "originalTitle": "Next Year in Futurism",
+  "order": 14,
+  "themeId": "wsc-2026",
+  "blurb": "Perpetually promised technologies, AGI, quantum computing, fusion, and delayed futures.",
+  "angle": "The theme asks why some futures always seem to be just two years away.",
+  "subjectIds": [
+    "computer-science-technology",
+    "sciences",
+    "economics-and-trade",
+    "history",
+    "philosophy",
+    "media-film",
+    "language-and-literature"
+  ],
+  "bigIdeaIds": [
+    "delayed-arrival",
+    "managing-uncertainty",
+    "performed-progress",
+    "visible-vs-real",
+    "narrated-endings",
+    "infrastructure-shapes-behavior",
+    "incompletion-that-stays-active"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.next-year-in-futurism.card.cover",
+    "icon": "asset.next-year-in-futurism.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.next-year-in-futurism",
+    "questions": "questions.next-year-in-futurism",
+    "guide": "guide.next-year-in-futurism",
+    "media": "media.next-year-in-futurism",
+    "alpacards": "alpacards.next-year-in-futurism",
+    "channelVideos": "channel.next-year-in-futurism"
+  }
+}

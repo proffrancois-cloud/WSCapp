@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alpaca Campus | WSC Live Campus</title>
+    <meta name="description" content="Live WSC campus with rooms, chat, and alpaca customization." />
+    <meta name="theme-color" content="#2d6f69" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./alpaca-campus.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <main class="campus-root" aria-label="Alpaca Campus">
+      <section class="campus-stage" aria-label="Live campus room">
+        <div id="campus-game" class="campus-game"></div>
+
+        <nav class="campus-hud campus-toolbar" aria-label="Campus tools">
+          <button type="button" class="campus-icon-btn" data-campus-panel="settings" title="Settings" aria-label="Settings">⚙</button>
+        </nav>
+
+        <div class="campus-hud campus-live-status" aria-live="polite">
+          <span id="campus-status">Loading campus...</span>
+          <span id="campus-online-count">1 online</span>
+        </div>
+
+        <ol id="campus-toast-rail" class="campus-toast-rail" aria-live="polite"></ol>
+
+        <section class="campus-chat" aria-label="Room chat">
+          <ol id="campus-chat-log" class="campus-chat-log"></ol>
+          <form id="campus-chat-form" class="campus-chat-form">
+            <input
+              id="campus-chat-input"
+              type="text"
+              maxlength="180"
+              autocomplete="off"
+              placeholder="Message the room"
+              aria-label="Message the room"
+            />
+            <button type="submit" class="campus-send-btn">Send</button>
+          </form>
+        </section>
+
+        <aside id="campus-drawer" class="campus-drawer" hidden>
+          <header class="campus-drawer-header">
+            <span id="campus-drawer-eyebrow" class="campus-eyebrow">Alpaca Campus</span>
+            <h2 id="campus-drawer-title">Panel</h2>
+            <button id="campus-close-drawer" class="campus-icon-btn" type="button" aria-label="Close panel">×</button>
+          </header>
+          <div id="campus-drawer-body" class="campus-drawer-body"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="../src/vendor/phaser.min.js"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../src/services/auth-service.js"></script>
+    <script src="../src/services/supabase-profile-service.js"></script>
+    <script src="../generated/current-runtime/data.js"></script>
+    <script src="../generated/current-runtime/knowledge-bank.js"></script>
+    <script src="../generated/current-runtime/raw-content-bank.js"></script>
+    <script src="../generated/current-runtime/content/alpacards.js"></script>
+    <script src="../alpaca-channel.js"></script>
+    <script src="../content/debate/debate-lab-data.js"></script>
+    <script src="../src/features/alpaca-campus/data/cosmetics.js"></script>
+    <script src="../src/features/alpaca-campus/data/avatar-assets.js"></script>
+    <script src="../src/features/alpaca-campus/data/quests.js"></script>
+    <script src="../src/features/alpaca-campus/data/rooms.js"></script>
+    <script src="../src/features/alpaca-campus/data/room-assets.js"></script>
+    <script src="../src/features/alpaca-campus/data/content-bridge.js"></script>
+    <script src="../src/features/alpaca-campus/chat/chat-safety.js"></script>
+    <script src="../src/features/alpaca-campus/persistence/campus-api.js"></script>
+    <script src="../src/features/alpaca-campus/realtime/room-channel.js"></script>
+    <script src="../src/features/alpaca-campus/game/movement-engine.js"></script>
+    <script src="../src/features/alpaca-campus/game/avatar-renderer.js"></script>
+    <script src="../src/features/alpaca-campus/game/campus-world-scene.js"></script>
+    <script src="../src/features/alpaca-campus/campus-app.js"></script>
+  </body>
+</html>

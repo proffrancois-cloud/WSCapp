@@ -1,0 +1,270 @@
+{
+  "id": "media.where-the-sidewalk-starts",
+  "sectionId": "where-the-sidewalk-starts",
+  "assets": [
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.9th-avenue-parkade",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/9th-avenue-parkade.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.garagenatelier-car-park",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/garagenatelier-car-park.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.grand-park-los-angeles",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/grand-park-los-angeles.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.hostile-architecture",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/hostile-architecture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.lego-parking-house",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/lego-parking-house.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.michigan-theater-parking-garage",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/michigan-theater-parking-garage.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.moving-sidewalks",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/moving-sidewalks.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.parc-des-celestins-parking-des-celestins",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/parc-des-celestins-parking-des-celestins.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.parking-lots-as-architecture",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/parking-lots-as-architecture.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.robie-house",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/robie-house.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.sidewalks-as-urban-infrastructure",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/sidewalks-as-urban-infrastructure.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.snout-house",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/snout-house.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.alpacard.temple-street-parking-garage",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/temple-street-parking-garage.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.1893-moving-sidewalk-great-wharf",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/1893-moving-sidewalk-great-wharf.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.a-billion-parking-spaces",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/a-billion-parking-spaces.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.airport-moving-walkway",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/airport-moving-walkway.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.car-convenience-versus-street-life",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/car-convenience-versus-street-life.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.free-parking-is-not-free",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/free-parking-is-not-free.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.future-idea-limited-use",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/future-idea-limited-use.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image1",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image1.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image10",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image10.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image11",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image11.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image12",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image12.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image13",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image13.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image14",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image14.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image16",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image16.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image5",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image5.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image6",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image6.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image7",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image7.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.image9",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/image9.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.robie-house-exterior",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/robie-house-exterior.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.sidewalk-as-civic-life",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/sidewalk-as-civic-life.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.where-the-sidewalk-starts.raw.when-sidewalks-fail-pedestrians",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/where-the-sidewalk-starts/when-sidewalks-fail-pedestrians.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

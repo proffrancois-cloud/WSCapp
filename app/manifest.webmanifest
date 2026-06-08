@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "WSC 2026 Study Routes",
+  "short_name": "WSC Routes",
+  "description": "Explore the 2026 World Scholar's Cup theme through routes, checkpoints, and challenges.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3e3bc",
+  "theme_color": "#8a6338",
+  "categories": ["education", "games"],
+  "icons": [
+    {
+      "src": "./app-icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./app-icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

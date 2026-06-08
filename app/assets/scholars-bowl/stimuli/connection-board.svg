@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Connection board stimulus</title>
+  <desc id="desc">A board of media fragments points toward a blank center label, emphasizing that the task is to infer the shared pattern.</desc>
+  <rect width="1280" height="720" fill="#efe7dc"/>
+  <rect x="90" y="58" width="1100" height="604" rx="24" fill="#2c3336"/>
+  <g stroke="#ffce55" stroke-width="5" opacity=".85">
+    <line x1="298" y1="206" x2="640" y2="360"/>
+    <line x1="982" y1="206" x2="640" y2="360"/>
+    <line x1="300" y1="514" x2="640" y2="360"/>
+    <line x1="982" y1="514" x2="640" y2="360"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-weight="900">
+    <rect x="154" y="126" width="288" height="150" rx="12" fill="#ffffff"/>
+    <text x="298" y="190" text-anchor="middle" font-size="27" fill="#20312d">MAP</text>
+    <text x="298" y="230" text-anchor="middle" font-size="19" fill="#6b4e16">route or rule?</text>
+    <rect x="838" y="126" width="288" height="150" rx="12" fill="#ffffff"/>
+    <text x="982" y="190" text-anchor="middle" font-size="27" fill="#20312d">LYRIC</text>
+    <text x="982" y="230" text-anchor="middle" font-size="19" fill="#6b4e16">warning or mood?</text>
+    <rect x="154" y="444" width="288" height="150" rx="12" fill="#ffffff"/>
+    <text x="298" y="508" text-anchor="middle" font-size="27" fill="#20312d">GRAPH</text>
+    <text x="298" y="548" text-anchor="middle" font-size="19" fill="#6b4e16">measure or meaning?</text>
+    <rect x="838" y="444" width="288" height="150" rx="12" fill="#ffffff"/>
+    <text x="982" y="508" text-anchor="middle" font-size="27" fill="#20312d">DOOR</text>
+    <text x="982" y="548" text-anchor="middle" font-size="19" fill="#6b4e16">crossing or story?</text>
+    <rect x="492" y="284" width="296" height="152" rx="18" fill="#fff36f" stroke="#c9b438" stroke-width="6"/>
+    <text x="640" y="350" text-anchor="middle" font-size="38" fill="#2c3336">?</text>
+    <text x="640" y="394" text-anchor="middle" font-size="22" fill="#2c3336">missing connection</text>
+  </g>
+</svg>

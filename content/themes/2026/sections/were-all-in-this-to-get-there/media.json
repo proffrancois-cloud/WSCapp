@@ -1,0 +1,390 @@
+{
+  "id": "media.were-all-in-this-to-get-there",
+  "sectionId": "were-all-in-this-to-get-there",
+  "assets": [
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.berlin-brandenburg-airport",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/berlin-brandenburg-airport.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.crazy-horse-memorial",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/crazy-horse-memorial.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.la-sagrada-familia",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/la-sagrada-familia.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.milan-cathedral",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/milan-cathedral.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.nusantara-capital-city",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/nusantara-capital-city.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.ryugyong-hotel",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/ryugyong-hotel.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.alpacard.wonderland-amusement-park",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/wonderland-amusement-park.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.agile-devops-coordination-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/agile-devops-coordination-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.agile-manifesto-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/agile-manifesto-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.berlin-brandenburg-airport-construction",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/berlin-brandenburg-airport-construction.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.brooks-law-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/brooks-law-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.chaos-engineering-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/chaos-engineering-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.command-control-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/command-control-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.conways-law-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/conways-law-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.critical-path-method-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/critical-path-method-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.dependencies-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/dependencies-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.ford-assembly-line-1913",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/ford-assembly-line-1913.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.gantt-chart-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/gantt-chart-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.harmonogram-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/harmonogram-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.hawthorne-effect-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/hawthorne-effect-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.hofstadters-law-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/hofstadters-law-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.hoover-dam-construction-1934",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/hoover-dam-construction-1934.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.illichs-law-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/illichs-law-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image1",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image1.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image19",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image19.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image2",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image2.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image24",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image24.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image36",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image36.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image37",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image37.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image4",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image4.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image7",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image7.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image8",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image8.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.image9",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/image9.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.laborits-law-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/laborits-law-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.milan-cathedral-old",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/milan-cathedral-old.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.pert-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/pert-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.putts-law-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/putts-law-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.risk-register-matrix-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/risk-register-matrix-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.ryugyong-hotel",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/ryugyong-hotel.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.sashimi-model-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/sashimi-model-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.six-sigma-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/six-sigma-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.software-project-management-dashboard",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/software-project-management-dashboard.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.the-80-20-question-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/the-80-20-question-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.the-90-90-rule-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/the-90-90-rule-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.the-three-ways-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/the-three-ways-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.toyota-production-system-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/toyota-production-system-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.useful-shortcut-or-dangerous-excuse-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/useful-shortcut-or-dangerous-excuse-schema.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.were-all-in-this-to-get-there.raw.waterfall-model-schema",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/were-all-in-this-to-get-there/waterfall-model-schema.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

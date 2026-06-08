@@ -1,0 +1,361 @@
+{
+  "id": "channel.where-the-sidewalk-starts",
+  "sectionId": "where-the-sidewalk-starts",
+  "videos": [
+    {
+      "id": "video.where-the-sidewalk-starts.001",
+      "playlistIndex": 30,
+      "title": "Open HD | The Jetsons | Warner Archive",
+      "channel": "Warner Bros. Classics",
+      "url": "https://www.youtube.com/watch?v=uPnZpENoypo",
+      "duration": "3:00",
+      "uploadDate": "2019-09-04T18:12:59-07:00",
+      "viewCount": 525471,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.2,
+      "verdict": "Strong WSC candidate.",
+      "description": "The Jetsons (1962 - 1963) #WarnerArchive #WarnerBros #TheJetsons \"Meet George Jetson ... WSC link: Next Year in Futurism / False imminence.",
+      "keyTerms": [
+        "warner",
+        "archive",
+        "jetsons",
+        "warnerarchive",
+        "bros",
+        "family",
+        "series",
+        "george",
+        "movies",
+        "first",
+        "home",
+        "entertainment",
+        "blu-ray",
+        "original",
+        "rosie",
+        "arthur",
+        "davis",
+        "oscar"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "sectionTitles": [
+        "Where the Sidewalk Starts"
+      ],
+      "entryTitles": [
+        "Why Moving Sidewalks Never Took Over the World"
+      ],
+      "bigIdeaLabels": [
+        "Prediction",
+        "Bright and Dark Future",
+        "Home & Wandering",
+        "Journeys",
+        "Endings",
+        "Progress",
+        "False imminence",
+        "What home is",
+        "Diaspora and multiple belonging",
+        "Closure vs continuation"
+      ],
+      "bigIdeaIds": [
+        "prediction",
+        "bright-and-dark-future",
+        "home-and-wandering",
+        "journeys",
+        "endings",
+        "progress",
+        "false-imminence",
+        "what-home-is",
+        "diaspora-and-multiple-belonging",
+        "closure-vs-continuation"
+      ],
+      "subjectLabels": [
+        "Design / Architecture / Urbanism"
+      ],
+      "subjectIds": [
+        "design-architecture-urbanism"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-the-sidewalk-starts",
+          "sectionTitle": "Where the Sidewalk Starts",
+          "entryTitle": "Why Moving Sidewalks Never Took Over the World",
+          "why": "Manually placed under Why Moving Sidewalks Never Took Over the World."
+        }
+      ],
+      "sourceId": "playlist-030-uPnZpENoypo",
+      "canonicalSectionId": "where-the-sidewalk-starts",
+      "assetId": null
+    },
+    {
+      "id": "video.where-the-sidewalk-starts.002",
+      "playlistIndex": 31,
+      "title": "Top 10 Times The Jetsons Predicted the Future",
+      "channel": "MsMojo",
+      "url": "https://www.youtube.com/watch?v=OXOgRY_oNrw",
+      "duration": "11:21",
+      "uploadDate": "2024-03-04T17:00:08-08:00",
+      "viewCount": 241467,
+      "contentType": "educational or contextual video",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Ok, but where is our levitating mall? WSC link: Next Year in Futurism / False imminence.",
+      "keyTerms": [
+        "jetsons",
+        "future",
+        "times",
+        "predicted",
+        "top",
+        "animated",
+        "msmojo",
+        "predictions",
+        "youtu",
+        "movies",
+        "shows",
+        "futuristic",
+        "printing",
+        "chat",
+        "play",
+        "games",
+        "watchmojo",
+        "wmojo"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "sectionTitles": [
+        "Where the Sidewalk Starts"
+      ],
+      "entryTitles": [
+        "Why Moving Sidewalks Never Took Over the World"
+      ],
+      "bigIdeaLabels": [
+        "Prediction",
+        "Bright and Dark Future",
+        "Routes, Roads & Navigation",
+        "Journeys",
+        "False imminence",
+        "Retrofit logic",
+        "What futurism does",
+        "AI as future symbol",
+        "Retrofuturism",
+        "The Future"
+      ],
+      "bigIdeaIds": [
+        "prediction",
+        "bright-and-dark-future",
+        "routes-roads-and-navigation",
+        "journeys",
+        "false-imminence",
+        "retrofit-logic",
+        "what-futurism-does",
+        "ai-as-future-symbol",
+        "retrofuturism",
+        "the-future"
+      ],
+      "subjectLabels": [
+        "Design / Architecture / Urbanism"
+      ],
+      "subjectIds": [
+        "design-architecture-urbanism"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-the-sidewalk-starts",
+          "sectionTitle": "Where the Sidewalk Starts",
+          "entryTitle": "Why Moving Sidewalks Never Took Over the World",
+          "why": "Manually placed under Why Moving Sidewalks Never Took Over the World."
+        }
+      ],
+      "sourceId": "playlist-031-OXOgRY_oNrw",
+      "canonicalSectionId": "where-the-sidewalk-starts",
+      "assetId": null
+    },
+    {
+      "id": "video.where-the-sidewalk-starts.003",
+      "playlistIndex": 124,
+      "title": "Why Did Garages Take Over the American Home?",
+      "channel": "This House",
+      "url": "https://www.youtube.com/watch?v=JgvwMchKNgg",
+      "duration": "12:59",
+      "uploadDate": "2025-11-09T08:00:24-08:00",
+      "viewCount": 229885,
+      "contentType": "pedagogical explainer",
+      "formatStyle": "mixed or unknown",
+      "score": 7.4,
+      "verdict": "Strong WSC candidate.",
+      "description": "Visit the VSA website to learn how you can get involved today: https://victoriansociety.org/ Garages weren’t always the face of American homes. WSC link: Where We’re Going, We’ll Still Need Them / Roads as hidden foundation.",
+      "keyTerms": [
+        "house",
+        "garage",
+        "american",
+        "history",
+        "garages",
+        "front",
+        "photos",
+        "user",
+        "today",
+        "century",
+        "ken",
+        "carriage",
+        "houses",
+        "snout",
+        "model",
+        "by-sa",
+        "wikipedia",
+        "gilded"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "sectionTitles": [
+        "Where the Sidewalk Starts"
+      ],
+      "entryTitles": [
+        "What Is a Snout House?"
+      ],
+      "bigIdeaLabels": [
+        "Routes, Roads & Navigation",
+        "Journeys",
+        "Home & Wandering",
+        "Destinations",
+        "Thresholds",
+        "Drafts & Prototypes",
+        "Prediction",
+        "Roads as hidden foundation",
+        "What home is",
+        "What counts as an ending"
+      ],
+      "bigIdeaIds": [
+        "routes-roads-and-navigation",
+        "journeys",
+        "home-and-wandering",
+        "destinations",
+        "thresholds",
+        "drafts-and-prototypes",
+        "prediction",
+        "roads-as-hidden-foundation",
+        "what-home-is",
+        "what-counts-as-an-ending"
+      ],
+      "subjectLabels": [
+        "Design / Architecture / Urbanism"
+      ],
+      "subjectIds": [
+        "design-architecture-urbanism"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-the-sidewalk-starts",
+          "sectionTitle": "Where the Sidewalk Starts",
+          "entryTitle": "What Is a Snout House?",
+          "why": "Approved review placement under What Is a Snout House?."
+        }
+      ],
+      "sourceId": "playlist-124-JgvwMchKNgg",
+      "canonicalSectionId": "where-the-sidewalk-starts",
+      "assetId": null
+    },
+    {
+      "id": "video.where-the-sidewalk-starts.004",
+      "title": "Amanda Burden: How public spaces make cities work",
+      "url": "https://www.youtube.com/watch?v=j7fRIGphgtk",
+      "description": "Manual Alpaca Channel placement for Turning Parking Into Public Space.",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "sectionTitles": [
+        "Where the Sidewalk Starts"
+      ],
+      "entryTitles": [
+        "Turning Parking Into Public Space"
+      ],
+      "bigIdeaLabels": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "bigIdeaIds": [
+        "infrastructure-shapes-behavior",
+        "movement-without-arrival",
+        "thresholds-irreversibility",
+        "visible-vs-real"
+      ],
+      "subjectLabels": [
+        "Design / Architecture / Urbanism",
+        "Geography / Human Geography"
+      ],
+      "subjectIds": [
+        "design-architecture-urbanism",
+        "geography-human-geography"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-the-sidewalk-starts",
+          "sectionTitle": "Where the Sidewalk Starts",
+          "entryTitle": "Turning Parking Into Public Space",
+          "why": "User-confirmed placement under Turning Parking Into Public Space."
+        }
+      ],
+      "sourceId": "manual-where-the-sidewalk-starts-turning-parking-into-public-space-j7fRIGphgtk",
+      "canonicalSectionId": "where-the-sidewalk-starts",
+      "assetId": null
+    },
+    {
+      "id": "video.where-the-sidewalk-starts.005",
+      "title": "Sustainable Cities: Crash Course Geography #49",
+      "url": "https://www.youtube.com/watch?v=ZMn-bCdThEg",
+      "description": "Manual Alpaca Channel placement for Turning Parking Into Public Space.",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "sectionTitles": [
+        "Where the Sidewalk Starts"
+      ],
+      "entryTitles": [
+        "Turning Parking Into Public Space"
+      ],
+      "bigIdeaLabels": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "bigIdeaIds": [
+        "infrastructure-shapes-behavior",
+        "movement-without-arrival",
+        "thresholds-irreversibility",
+        "visible-vs-real"
+      ],
+      "subjectLabels": [
+        "Design / Architecture / Urbanism",
+        "Geography / Human Geography"
+      ],
+      "subjectIds": [
+        "design-architecture-urbanism",
+        "geography-human-geography"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-the-sidewalk-starts",
+          "sectionTitle": "Where the Sidewalk Starts",
+          "entryTitle": "Turning Parking Into Public Space",
+          "why": "User-confirmed placement under Turning Parking Into Public Space."
+        }
+      ],
+      "sourceId": "manual-where-the-sidewalk-starts-turning-parking-into-public-space-ZMn-bCdThEg",
+      "canonicalSectionId": "where-the-sidewalk-starts",
+      "assetId": null
+    }
+  ]
+}

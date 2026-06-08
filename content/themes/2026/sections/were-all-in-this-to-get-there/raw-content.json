@@ -1,0 +1,1470 @@
+{
+  "id": "raw.were-all-in-this-to-get-there",
+  "sectionId": "were-all-in-this-to-get-there",
+  "entries": [
+    {
+      "id": "raw.were-all-in-this-to-get-there.001",
+      "order": 1,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.berlin-brandenburg-airport-construction",
+        "asset.were-all-in-this-to-get-there.raw.image1",
+        "asset.were-all-in-this-to-get-there.raw.image2",
+        "asset.were-all-in-this-to-get-there.raw.image4",
+        "asset.were-all-in-this-to-get-there.raw.image7",
+        "asset.were-all-in-this-to-get-there.raw.milan-cathedral-old",
+        "asset.were-all-in-this-to-get-there.raw.ryugyong-hotel"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.001",
+        "question.were-all-in-this-to-get-there.200.001"
+      ],
+      "title": "Projects That Took Too Long to Get There",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "As returning scholars might remember, some big projects take much too long to finish - high speed rail in California, the Haunted Chocolatier, these outlines. Some never get there at all. Explore the following examples of projects that were not finished on time, then discuss with your team: What factors, if any, did these delays have in common? How would you have overcome them? And are there projects out there in the world today that you predict will suffer a similar fate?\n\nLa Sagrada Familia | Spain\nNusantara Capital City | Indonesia\nRyugyong Hotel | North Korea\nWonderland Amusement Park | China\nBerlin Brandenburg Airport | Germany\nMilan Cathedral | Italy\nCrazy Horse Memorial | South Dakota",
+      "links": [
+        {
+          "label": "La Sagrada Familia - Guinness World Records",
+          "url": "https://www.guinnessworldrecords.com/news/2025/1/oldest-active-construction-project-la-sagrada-familia-to-finish-in-2026"
+        },
+        {
+          "label": "Nusantara Capital City - Asia Times",
+          "url": "https://asiatimes.com/2025/12/indonesias-new-capital-falls-victim-to-the-politics-of-forgetting/"
+        },
+        {
+          "label": "Crazy Horse Memorial - Business Insider",
+          "url": "https://www.businessinsider.com/crazy-horse-monument-isnt-finished-70-years-on-photos-2019-9"
+        }
+      ],
+      "studentExplanation": "Some big projects become famous because the finish line keeps moving. La Sagrada Familia, Nusantara, Ryugyong Hotel, Wonderland, Berlin Brandenburg Airport, Milan Cathedral, and Crazy Horse Memorial each show a different reason why a project can remain unfinished or arrive very late: funding gaps, political change, technical systems, symbolism, design changes, land disputes, cultural controversy, or simply the enormous scale of the goal. This entry asks students to compare delays as patterns, not just as amusing failures.\n\nThe source examples give different kinds of delay: Sagrada Familia mixes faith, design, war, and scale; Nusantara depends on politics and logistics; Ryugyong Hotel reflects economic crisis; Berlin Brandenburg shows system failure; Crazy Horse raises symbolism, labor, and controversy. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this helps students see delay as a structural problem, not just bad luck. At the section level, it opens We are All in This to Get There by showing why project management matters: large ambitions can easily slip when many people, institutions, materials, and expectations must align. At the year-theme level, it connects to progress and delay because some destinations are so large that getting there becomes a multi-generation struggle.",
+      "takeaway": "Large projects are shaped by systems of ambition, money, politics, design, and time",
+      "subjects": [
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "Some never get there at all",
+        "How would you have overcome them",
+        "La Sagrada Familia",
+        "Spain",
+        "Nusantara Capital City",
+        "Indonesia",
+        "Ryugyong Hotel",
+        "North Korea",
+        "Wonderland Amusement Park",
+        "China",
+        "Berlin Brandenburg Airport",
+        "Germany"
+      ],
+      "debateRelevance": "Useful when debating whether huge delays come mainly from bad management or from unavoidable complexity in ambitious public projects.",
+      "counterargument": "A delayed project is not automatically worthless; some projects retain cultural, symbolic, or political value even when completion slips.",
+      "visualSections": [
+        {
+          "title": "Projects That Took Too Long to Get There",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "La Sagrada Familia | Spain",
+              "note": "A cathedral-scale project where design ambition, religious symbolism, lost plans, war, funding, tourism, and modern technology all shape a construction timeline across generations.",
+              "imageGuidance": "Use /imagesearch to find a real, rights-safe image of La Sagrada Familia under construction, ideally with cranes or visible unfinished towers. Do not use /imagecreator or /imagegen because this is a specific architectural work. Preserve the Guinness link and prefer official, museum, Wikimedia, or reputable journalism images.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [
+                {
+                  "label": "La Sagrada Familia - Guinness World Records",
+                  "url": "https://www.guinnessworldrecords.com/news/2025/1/oldest-active-construction-project-la-sagrada-familia-to-finish-in-2026"
+                }
+              ],
+              "url": "https://www.guinnessworldrecords.com/news/2025/1/oldest-active-construction-project-la-sagrada-familia-to-finish-in-2026",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image1.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Nusantara Capital City | Indonesia",
+              "note": "A state-planned capital relocation project where political commitment, budget limits, land rights, and national priorities affect whether the city can arrive on schedule.",
+              "imageGuidance": "Use /imagesearch to find a real image of Nusantara construction, masterplan site, government buildings, or aerial work-in-progress. Do not generate a fake futuristic capital. Use a real photograph from a reputable source, official Indonesian source, Reuters/AP-style journalism, or Wikimedia if available.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [
+                {
+                  "label": "Nusantara Capital City - Asia Times",
+                  "url": "https://asiatimes.com/2025/12/indonesias-new-capital-falls-victim-to-the-politics-of-forgetting/"
+                }
+              ],
+              "url": "https://asiatimes.com/2025/12/indonesias-new-capital-falls-victim-to-the-politics-of-forgetting/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image2.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Ryugyong Hotel | North Korea",
+              "note": "A hotel that became a symbol of unfinished ambition: huge, visible, and iconic, but never functioning as the normal destination it was meant to become.",
+              "imageGuidance": "Use /imagesearch to find a real photograph of the Ryugyong Hotel, preferably showing its unfinished or isolated skyline presence. Do not generate or stylize the building. Use an image from a reputable photo source, Wikimedia, or serious journalism.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Ryugyong_Hotel._Pyongyang,_North_Korea._(2605005424).jpg"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/ryugyong-hotel.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Wonderland Amusement Park | China",
+              "note": "A never-opened theme park that turned into an abandoned landscape before being demolished, showing how imagined destinations can stall before they ever welcome visitors.",
+              "imageGuidance": "Use /imagesearch to find a real photograph of abandoned Wonderland Amusement Park in Beijing/Chenzhuang before demolition, ideally with the castle-like frame. Do not use /imagecreator or /imagegen. Use source images from reputable journalism, Wikimedia, or documentary-quality sources.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image4.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Berlin Brandenburg Airport | Germany",
+              "note": "A modern airport delayed by fire safety, planning, management, regulatory, and technical failures, showing that advanced societies can still fail to coordinate complexity.",
+              "imageGuidance": "Use /imagesearch to find a real photograph of Berlin Brandenburg Airport during construction or before delayed opening, ideally with terminal construction context. Do not generate an airport image. Use official airport, Wikimedia, or reputable journalism images.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Airport_Berlin_Brandenburg_Terminal_2011_06_26.jpg"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/berlin-brandenburg-airport-construction.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Milan Cathedral | Italy",
+              "note": "A cathedral whose construction spanned centuries, turning delay into historical identity rather than simple failure.",
+              "imageGuidance": "Use /imagesearch to find a real image of Milan Cathedral, ideally an archival/construction-related image or a visual that supports the centuries-long building process. Do not generate the cathedral. Use official Duomo, Wikimedia, museum, or reputable educational sources.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Old_Milan_Cathedral_(32578214415).jpg"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/milan-cathedral-old.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Crazy Horse Memorial | South Dakota",
+              "note": "An ongoing monumental carving whose scale, family-led continuation, funding choices, and cultural controversy make completion itself part of the story.",
+              "imageGuidance": "Use /imagesearch to find a real image of Crazy Horse Memorial in progress, ideally showing the mountain carving and unfinished horse area. Do not generate or approximate it. Use Britannica, Wikimedia, official memorial, or reputable journalism images.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes exists for this exact project. If no strong short video exists, keep the image and article LINK button as the main media.",
+              "links": [
+                {
+                  "label": "Crazy Horse Memorial - Business Insider",
+                  "url": "https://www.businessinsider.com/crazy-horse-monument-isnt-finished-70-years-on-photos-2019-9"
+                }
+              ],
+              "url": "https://www.businessinsider.com/crazy-horse-monument-isnt-finished-70-years-on-photos-2019-9",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image7.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Sagrada Familia Basilica Nears Completion After 140 Years",
+          "url": "https://www.youtube.com/watch?v=1Iun51pT3kY"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Delay"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Movement Without Arrival",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "We're All in This to Get There"
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.002",
+      "order": 2,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.agile-devops-coordination-schema",
+        "asset.were-all-in-this-to-get-there.raw.critical-path-method-schema",
+        "asset.were-all-in-this-to-get-there.raw.ford-assembly-line-1913",
+        "asset.were-all-in-this-to-get-there.raw.gantt-chart-schema",
+        "asset.were-all-in-this-to-get-there.raw.image36",
+        "asset.were-all-in-this-to-get-there.raw.image8",
+        "asset.were-all-in-this-to-get-there.raw.image9",
+        "asset.were-all-in-this-to-get-there.raw.milan-cathedral-old",
+        "asset.were-all-in-this-to-get-there.raw.software-project-management-dashboard"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.002",
+        "question.were-all-in-this-to-get-there.200.002"
+      ],
+      "title": "Project Management Before It Had a Name",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "The science of project management aims to prevent delays and failures like those above. And, while it has only been formally studied in recent centuries, project management itself is not a new concept. The makers of the Egyptian pyramids had to deploy a large workforce. China built a notable wall. The Romans devised their roads. Medieval cathedrals reached breathtaking heights. All of these things were complex operations that had to be managed somehow. Consider the history of project management, then discuss with your team: are such megaprojects harder to build now than in the past?",
+      "links": [
+        {
+          "label": "History of project management",
+          "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day"
+        }
+      ],
+      "studentExplanation": "Project management was not invented in a modern office. Ancient builders, imperial states, cathedral workshops, factories, engineers, and software teams all faced the same basic challenge: many people had to coordinate work, materials, timing, risk, and authority to reach a goal. What changes over time is not the need to manage projects, but the tools and assumptions used to do it: oral command, hierarchy, ledgers, craft workshops, assembly lines, scientific management, Gantt charts, critical path methods, software dashboards, and agile feedback loops.\n\nAncient builders, Roman road planners, cathedral workshops, and early factories all needed project management even if they did not use that term. The what/where/how is coordination: people, materials, time, authority, risk, and sequence had to line up before modern software existed. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this gives historical depth to project management. At the section level, it shows that getting there together has always required coordination, even before modern vocabulary existed. At the year-theme level, it connects to progress because every society has needed ways to turn collective effort into visible movement toward a destination.",
+      "takeaway": "The tools change, but collective work always needs coordination to arrive",
+      "subjects": [
+        "History",
+        "Economics & Trade"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Incompletion That Stays Active",
+        "Performed Progress"
+      ],
+      "examples": [
+        "The makers of the Egyptian pyramids had to deploy a large workforce",
+        "China built a notable wall",
+        "The Romans devised their roads",
+        "Medieval cathedrals reached breathtaking heights",
+        "All of these things were complex operations that had to be managed somehow",
+        "1. Ancient coordination",
+        "2. Classical and imperial organization",
+        "3. Medieval and early modern building",
+        "4. Industrial standardization",
+        "5. Scientific management era",
+        "6. Gantt and schedule visualization",
+        "7. CPM and PERT after World War II"
+      ],
+      "debateRelevance": "Useful when debating whether modern project management is genuinely new or a formal version of old coordination problems.",
+      "counterargument": "Modern megaprojects can be harder to compare with ancient ones because today's regulation, safety, finance, and public accountability add new layers.",
+      "visualSections": [
+        {
+          "title": "Project Management Before It Had a Name",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "1. Ancient coordination",
+              "note": "Pyramids, irrigation, walls, and temples show that large work required labor logistics, food supply, material movement, hierarchy, and time control long before modern project-management vocabulary.",
+              "imageGuidance": "Use /imagesearch to find a real photograph or reputable historical representation of ancient coordinated construction, such as Egyptian pyramid-building reliefs, pyramid quarry/transport visuals, or archaeological construction evidence. Do not use /imagecreator or /imagegen for this timeline entry; use historically grounded real images or museum/archive visuals.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [
+                {
+                  "label": "History of project management",
+                  "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day"
+                }
+              ],
+              "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image8.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "2. Classical and imperial organization",
+              "note": "Roman roads, aqueducts, armies, and imperial building programs show how hierarchy, standards, routes, and logistics helped large systems expand over territory.",
+              "imageGuidance": "Use /imagesearch to find a real image of Roman road construction remains, Roman aqueduct construction, or a historically accurate museum/archaeological visual. No generated empire illustration. Use real images or established historical reconstructions from reputable sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image9.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "3. Medieval and early modern building",
+              "note": "Cathedrals, fortifications, and trade infrastructure required planning across generations, with guild knowledge, patronage, workshops, and changing architectural ambitions.",
+              "imageGuidance": "Use /imagesearch to find a real image of medieval cathedral construction context, ideally a manuscript illumination of builders, a cathedral workshop image, or real cathedral scaffolding/stonework. Avoid invented fantasy medieval construction scenes.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [
+                {
+                  "label": "History of project management",
+                  "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day"
+                },
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Old_Milan_Cathedral_(32578214415).jpg"
+                }
+              ],
+              "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/milan-cathedral-old.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "4. Industrial standardization",
+              "note": "Factories, railways, canals, and mass production made time, cost, standard parts, and sequencing more central to management.",
+              "imageGuidance": "Use /imagesearch to find a real historical image of an early factory, railway construction, canal works, or industrial production line. Do not generate; use real historical images, public-domain archives, or reputable museum sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/ford-assembly-line-1913.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "5. Scientific management era",
+              "note": "Taylor, time study, task analysis, and stopwatches turned work into something to measure and optimize, for better efficiency and also more control.",
+              "imageGuidance": "Use /imagesearch to find a real historical image or public-domain source related to Frederick Taylor, time-and-motion study, early industrial management, or scientific management. Use real images only.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [
+                {
+                  "label": "History of project management",
+                  "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day"
+                }
+              ],
+              "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image36.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "6. Gantt and schedule visualization",
+              "note": "Gantt-style scheduling made project time visible as bars, dependencies, overlaps, and task sequences.",
+              "imageGuidance": "Use /imagesearch to find a real historical Gantt chart image or public-domain bar schedule example if available. If no exact public-domain image exists, use a clean source screenshot from a reputable history-of-Gantt page as reference; do not invent a historically false chart.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/gantt-chart-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "7. CPM and PERT after World War II",
+              "note": "Critical Path Method and PERT formalized the planning of complex networks of tasks, especially in engineering, defense, and large industrial projects.",
+              "imageGuidance": "Use /imagesearch to find a real historical or educational CPM/PERT network diagram from a reputable source. This can be a diagram, but it must correspond to the actual method.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/critical-path-method-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "8. Software project management",
+              "note": "Project-management software moved schedules, tasks, dependencies, dashboards, and collaboration into digital systems.",
+              "imageGuidance": "Use /imagesearch to find a real screenshot or historically relevant image of early project-management software or software dashboard. Use a reputable source; do not create a fake interface unless no real image is usable.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [
+                {
+                  "label": "History of project management",
+                  "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day"
+                }
+              ],
+              "url": "https://www.projectmanagertemplate.com/post/the-history-of-project-management-ancient-to-modern-day",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/software-project-management-dashboard.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "9. Agile, DevOps, and resilient coordination",
+              "note": "Modern project work often emphasizes feedback, iteration, flow, and adaptation when the destination changes during the journey.",
+              "imageGuidance": "Use /imagesearch to find a real educational diagram of agile or DevOps flow from a reputable source. If no clean real image is usable, use /imagecreator only for a schematic WSC-style diagram, because this is a conceptual modern framework rather than a single historical artifact.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video, ideally under 5-7 minutes, explaining the history of project management from ancient megaprojects to modern tools. If no concise high-quality video exists, keep the timeline link as the main support.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/agile-devops-coordination-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "What is project management?",
+          "url": "https://www.youtube.com/watch?v=Jk-JwtScIlw"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Progress"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Incompletion That Stays Active",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Incompletion That Stays Active",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "We're All in This to Get There"
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.003",
+      "order": 3,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.gantt-chart-schema",
+        "asset.were-all-in-this-to-get-there.raw.hoover-dam-construction-1934"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.003",
+        "question.were-all-in-this-to-get-there.200.003"
+      ],
+      "title": "What a Gantt Chart Shows - and What It Hides",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "The makers of the pyramids might have benefitted from a Gantt chart - an approach invented in the early 20th century which shows a project schedule in the form of a bar chart. Some bars represent tasks that can be worked on at the same time; others need earlier bars to be completed before you can start on them. Explore how Gantt Charts helped in the construction of the Hoover Dam in the United States and how they even became popular in the early Soviet Union, then discuss with your team: what is gained when you translate a project into this kind of format - and what is lost?",
+      "links": [
+        {
+          "label": "Gantt chart - Forbes",
+          "url": "https://www.forbes.com/advisor/business/software/what-is-a-gantt-chart/"
+        },
+        {
+          "label": "History of the Gantt chart",
+          "url": "https://ganttchart.com/history_of_the_gantt_chart/"
+        }
+      ],
+      "studentExplanation": "A Gantt chart turns a project into tasks stretched across time. It can show what starts when, what overlaps, and what must wait for an earlier task to finish. That visibility is powerful: it helps teams coordinate complicated work, like the Hoover Dam. But it also has a limit. A neat bar schedule can make messy reality look more controlled than it really is. Weather, materials, workers, design changes, politics, and accidents do not always fit cleanly into bars.\n\nA Gantt chart shows tasks on a timeline, overlaps, assignments, dependencies, baselines, and visible progress. It hides difficulty, morale, weather, politics, rework, and whether a neat schedule has become more important than the real project. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this shows why Gantt charts became influential: they make project time visible. At the section level, it introduces one of the classic tools for making progress legible. At the year-theme level, it connects to planning and delay because seeing a path does not guarantee that the project will follow it.",
+      "takeaway": "A schedule can make work visible without fully controlling reality",
+      "subjects": [
+        "Economics & Trade"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Performed Progress",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Some bars represent tasks that can be worked on at the same time",
+        "others need earlier bars to be completed before you can start on them",
+        "What is a Gantt chart?",
+        "Case study: Hoover Dam"
+      ],
+      "debateRelevance": "Useful when debating whether making project time visible gives teams real control or only a simplified picture.",
+      "counterargument": "A Gantt chart can oversimplify reality, but teams often need shared visual structure before they can coordinate at all.",
+      "visualSections": [
+        {
+          "title": "What a Gantt Chart Shows - and What It Hides",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "What is a Gantt chart?",
+              "note": "A Gantt chart represents tasks over time and makes overlap, duration, sequencing, and dependencies visible.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic Gantt chart. It should be a simple bar schedule with tasks on the vertical axis, time on the horizontal axis, and at least one dependency. No human figures, no construction scene, no anime. This is a conceptual diagram, so generation is appropriate. Use /imagesearch only for reference.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining Gantt charts for beginners.",
+              "links": [
+                {
+                  "label": "Gantt chart - Forbes",
+                  "url": "https://www.forbes.com/advisor/business/software/what-is-a-gantt-chart/"
+                },
+                {
+                  "label": "History of the Gantt chart",
+                  "url": "https://ganttchart.com/history_of_the_gantt_chart/"
+                }
+              ],
+              "url": "https://www.forbes.com/advisor/business/software/what-is-a-gantt-chart/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/gantt-chart-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Case study: Hoover Dam",
+              "note": "Gantt-style scheduling appears as part of a real massive construction project, not only a classroom diagram.",
+              "imageGuidance": "Use /imagesearch to find a real historical photograph of Hoover Dam construction and, if possible, a historical image connected to the project management or scheduling system used on the project. Do not generate the dam or a fake historical chart. Use National Archives, Bureau of Reclamation, Wikimedia, or reputable historical sources.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes about Hoover Dam construction and project management. If no concise video exists, use the historical photo and Gantt history link only.",
+              "links": [
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Construction_Intake_Towers_Hoover_Dam_1934.jpg"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/hoover-dam-construction-1934.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "What is a Gantt chart?  ...explained in under 3 minutes",
+          "url": "https://www.youtube.com/watch?v=tIxIfLfTCF0"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Progress"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Performed Progress",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "We're All in This to Get There"
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.004",
+      "order": 4,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.critical-path-method-schema",
+        "asset.were-all-in-this-to-get-there.raw.dependencies-schema",
+        "asset.were-all-in-this-to-get-there.raw.gantt-chart-schema",
+        "asset.were-all-in-this-to-get-there.raw.harmonogram-schema",
+        "asset.were-all-in-this-to-get-there.raw.image19",
+        "asset.were-all-in-this-to-get-there.raw.image24",
+        "asset.were-all-in-this-to-get-there.raw.pert-schema",
+        "asset.were-all-in-this-to-get-there.raw.risk-register-matrix-schema"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.004",
+        "question.were-all-in-this-to-get-there.200.004"
+      ],
+      "title": "The Iron Triangle and the Tools of Trade-Offs",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "Sleep, study, and a social life: choose two, because you cannot have all three. At least, that is what an old student proverb would have us believe. There is a similar Iron Triangle in project management: scope, time, and cost. You can do something faster, but it will cost more or be smaller in scale. You can do something bigger, but it will take more time or cost more. You can do something more cheaply, but it will end up slower or smaller. Explore the tools below for navigating these pressures, then discuss with your team: are there times when we might want something to be smaller, slower, or more expensive?\n\nKanban | Gantt Charts | Harmonogram | Dependencies | Risk Register\nStakhanovite Movement | Critical Path Method | Program Evaluation and Review Technique",
+      "links": [
+        {
+          "label": "Toyota Kanban system",
+          "url": "https://www.toyotasystems.com/en/product-service/special/kanban/"
+        },
+        {
+          "label": "Toyota UK Kanban guide",
+          "url": "https://mag.toyota.co.uk/kanban-toyota-production-system/"
+        },
+        {
+          "label": "Stakhanovite Movement - Encyclopedia.com",
+          "url": "https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/stakhanovite-movement"
+        }
+      ],
+      "studentExplanation": "The Iron Triangle explains a hard truth: projects usually trade among scope, time, and cost. If a project becomes bigger, it may take longer or cost more. If it becomes faster, it may need more money or a smaller goal. The tools in this entry help teams see work, schedule work, manage risks, and calculate which tasks matter most. But one example, the Stakhanovite movement, also shows that productivity pressure can become political propaganda rather than healthy planning.\n\nThe iron triangle is useful because it turns “do everything” into a visible trade-off among scope, time, and cost. Kanban, risk registers, critical path, PERT, and dependencies all help teams choose, but no tool removes the need to sacrifice something. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this gives students practical tools for understanding trade-offs. At the section level, it explains why projects slip, shrink, or become more expensive. At the year-theme level, it connects to planning because getting there is rarely free: the route always asks what you are willing to sacrifice.",
+      "takeaway": "They make pressure visible so teams can choose compromises more honestly",
+      "subjects": [
+        "Economics & Trade",
+        "Computer Science / Technology"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "Sleep, study, and a social life: choose two, because you cannot have all three",
+        "At least, that is what an old student proverb would have us believe",
+        "There is a similar Iron Triangle in project management: scope, time, and cost",
+        "You can do something faster, but it will cost more or be smaller in scale",
+        "You can do something bigger, but it will take more time or cost more",
+        "You can do something more cheaply, but it will end up slower or smaller",
+        "Kanban",
+        "Gantt Charts",
+        "Harmonogram",
+        "Dependencies",
+        "Risk Register",
+        "Stakhanovite Movement"
+      ],
+      "debateRelevance": "Useful when debating how teams should choose among scope, time, cost, risk, and quality when not everything can improve at once.",
+      "counterargument": "Planning tools clarify pressure, but they cannot remove the difficult value choices built into major projects.",
+      "visualSections": [
+        {
+          "title": "The Iron Triangle and the Tools of Trade-Offs",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Kanban",
+              "note": "A visual pull system that uses cards or signals to control flow and avoid producing too much too early.",
+              "imageGuidance": "Use /imagesearch to find a real image of Toyota kanban cards, a Toyota Production System kanban example, or a real workplace kanban board. Since Kanban has a real industrial origin, prefer a real source image over generated art. If no rights-safe source is usable, use /imagecreator only to create a clean WSC-style Kanban board schema without people or factory context.",
+              "videoGuidance": "Use /youtubesearch to find a concise educational video under 5-7 minutes explaining Kanban or Toyota Production System Kanban.",
+              "links": [
+                {
+                  "label": "Toyota Kanban system",
+                  "url": "https://www.toyotasystems.com/en/product-service/special/kanban/"
+                },
+                {
+                  "label": "Toyota UK Kanban guide",
+                  "url": "https://mag.toyota.co.uk/kanban-toyota-production-system/"
+                }
+              ],
+              "url": "https://www.toyotasystems.com/en/product-service/special/kanban/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image19.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Gantt Charts",
+              "note": "A bar-based time schedule showing tasks, duration, and overlap.",
+              "imageGuidance": "Use /imagecreator to create a clean WSC-style schematic Gantt chart, no human figures, no decorative background, beige/brown/maroon UI.",
+              "videoGuidance": "Use /youtubesearch to find a beginner explanation under 5-7 minutes.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/gantt-chart-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Harmonogram",
+              "note": "A schedule or timetable visualizing planned work over time, especially in Central/Eastern European project-management vocabulary.",
+              "imageGuidance": "Use /imagecreator to create a clean WSC app-style harmonogram/schedule diagram with phases, dates, and task blocks. This is a concept representation, not a real artifact.",
+              "videoGuidance": "Use /youtubesearch for a short educational video explaining project schedules or harmonograms; if not available, no video required.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/harmonogram-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Dependencies",
+              "note": "A dependency means one task must wait for another before it can begin.",
+              "imageGuidance": "Use /imagecreator to create a WSC-style dependency diagram: Task A unlocks Task B, parallel Task C, then final Task D. No people, no icons unless very simple.",
+              "videoGuidance": "Use /youtubesearch to find a concise video on project dependencies or task sequencing.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/dependencies-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Risk register / matrix",
+              "note": "A risk register lists possible problems, their likelihood, impact, and response plan.",
+              "imageGuidance": "Use /imagecreator to create a WSC-style risk register/matrix with likelihood and impact axes plus 3-4 sample risks. No realistic scene; this should be a clean educational diagram.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video on risk registers or risk matrices.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/risk-register-matrix-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Stakhanovite Movement",
+              "note": "A Soviet productivity campaign that rewarded and publicized workers who exceeded quotas, turning work output into ideology and propaganda.",
+              "imageGuidance": "Use /imagesearch to find a real Soviet Stakhanovite propaganda poster or period image of Alexei Stakhanov. This must be a real historical visual, not generated. Prefer archive/museum/Wikimedia/reputable source. Preserve the definition about the 1935 Soviet campaign and 102 tons of coal in one shift.",
+              "videoGuidance": "Use /youtubesearch only if a concise educational video under 5-7 minutes explains the Stakhanovite movement. Otherwise the poster image is the main media.",
+              "links": [
+                {
+                  "label": "Stakhanovite Movement - Encyclopedia.com",
+                  "url": "https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/stakhanovite-movement"
+                }
+              ],
+              "url": "https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/stakhanovite-movement",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image24.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Critical Path Method (CPM)",
+              "note": "CPM identifies which chain of dependent tasks controls the earliest possible project finish date.",
+              "imageGuidance": "Use /imagecreator to create a WSC-style CPM network diagram with nodes, arrows, durations, and a highlighted critical path. No humans, no factory scene.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video explaining CPM under 5-7 minutes.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/critical-path-method-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Program Evaluation and Review Technique (PERT)",
+              "note": "PERT uses optimistic, pessimistic, and most-likely estimates to plan uncertain project timelines.",
+              "imageGuidance": "Use /imagecreator to create a WSC-style PERT network diagram showing uncertain estimates and a likely schedule path. No people, no unrelated icons.",
+              "videoGuidance": "Use /youtubesearch to find a concise PERT explanation under 5-7 minutes.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/pert-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Progress"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Performed Progress",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Performed Progress",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "We're All in This to Get There"
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.005",
+      "order": 5,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.agile-manifesto-schema",
+        "asset.were-all-in-this-to-get-there.raw.chaos-engineering-schema",
+        "asset.were-all-in-this-to-get-there.raw.command-control-schema",
+        "asset.were-all-in-this-to-get-there.raw.sashimi-model-schema",
+        "asset.were-all-in-this-to-get-there.raw.six-sigma-schema",
+        "asset.were-all-in-this-to-get-there.raw.the-three-ways-schema",
+        "asset.were-all-in-this-to-get-there.raw.toyota-production-system-schema",
+        "asset.were-all-in-this-to-get-there.raw.waterfall-model-schema"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.005",
+        "question.were-all-in-this-to-get-there.200.005"
+      ],
+      "title": "Rigid Maps, Fast Pivots, and the New Logic of Work",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "YouTube began as a dating website; Netflix used to mail people movie rentals on DVDs; Amazon started out selling books and now leads the world in cloud computing. Even the project management software juggernaut Slack began as a chat feature inside a video game. Where many large companies in the 20th century planned every step of their projects in advance, today expectations have shifted away from perfectly sequenced plans to faster pivots between products and even business models. Explore this shift, then discuss with your team: is it better to have a rigid map that might be wrong or no map at all and a very fast pair of shoes?\n\nWaterfall method | Command-Control | Toyota Production System | Chaos Engineering\nAgile Manifesto | Six Sigma | Sashimi Model | The Three Ways\nThe Phoenix Project Philosophy",
+      "links": [
+        {
+          "label": "Agile Manifesto",
+          "url": "https://agilemanifesto.org/"
+        },
+        {
+          "label": "The Three Ways - IT Revolution",
+          "url": "https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/"
+        }
+      ],
+      "studentExplanation": "Some projects try to map every step before they begin. Others learn by moving, testing, failing, and changing direction. YouTube, Netflix, Amazon, and Slack show that a project or company can arrive somewhere very different from where it started. The frameworks in this entry show different answers to the same problem: should teams follow a rigid sequence, control the system tightly, improve quality through measurement, or build feedback loops so they can adapt quickly when reality changes?\n\nThe company examples show that arrival can change mid-route: YouTube, Netflix, Amazon, and Slack became different from their starting idea. Waterfall, command-control, Toyota production, Lean, Six Sigma, and Agile are different answers to how much a team should plan before learning from reality. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this helps students compare planning with adaptation. At the section level, it shows that getting there may require changing where there is. At the year-theme level, it connects to progress and prediction because a project can move forward by abandoning its first map.",
+      "takeaway": "In uncertain systems, learning and feedback can matter more than perfect initial sequencing",
+      "subjects": [
+        "Computer Science / Technology",
+        "Economics & Trade"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Infrastructure Shapes Behavior",
+        "Measuring Human Worth",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "YouTube began as a dating website",
+        "Netflix used to mail people movie rentals on DVDs",
+        "Amazon started out selling books and now leads the world in cloud computing",
+        "Waterfall method",
+        "Command-Control",
+        "Toyota Production System",
+        "Chaos Engineering",
+        "Agile Manifesto",
+        "Six Sigma",
+        "Sashimi Model",
+        "The Three Ways",
+        "The Phoenix Project Philosophy"
+      ],
+      "debateRelevance": "Useful when debating whether disciplined long-range planning is wiser than systems designed for feedback and pivots.",
+      "counterargument": "Fast pivots can save a project, but they can also waste effort when teams change direction too often or without principle.",
+      "visualSections": [
+        {
+          "title": "Rigid Maps, Fast Pivots, and the New Logic of Work",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The waterfall model",
+              "note": "A sequential model in which work moves through defined phases, often requirements, design, implementation, testing, and release.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/waterfall-model-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Command-control",
+              "note": "A management style where decisions flow from the top and execution follows hierarchy and instruction.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/command-control-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Toyota Production System",
+              "note": "A production philosophy built around flow, waste reduction, just-in-time, quality, and continuous improvement.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/toyota-production-system-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Chaos Engineering",
+              "note": "A resilience practice that deliberately tests systems by introducing controlled failures to reveal weaknesses.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/chaos-engineering-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Agile Manifesto",
+              "note": "A set of software-development values emphasizing individuals, working software, customer collaboration, and responding to change.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [
+                {
+                  "label": "Agile Manifesto",
+                  "url": "https://agilemanifesto.org/"
+                }
+              ],
+              "url": "https://agilemanifesto.org/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/agile-manifesto-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Six Sigma",
+              "note": "A quality-improvement method that uses measurement and process control to reduce defects and variation.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/six-sigma-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Sashimi Model",
+              "note": "A development model with overlapping phases, like slices of sashimi, rather than strict isolated stages.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/sashimi-model-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The Three Ways",
+              "note": "A DevOps framework focused on flow/systems thinking, feedback loops, and continuous learning.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style schematic representation of this framework. Do not use realistic human scenes, office photos, or anime. The visual should be an educational diagram or abstract system map using the beige/brown/maroon app palette. Use /imagesearch only for exact source visuals such as the Agile Manifesto page or Toyota Production System diagrams if needed for accuracy.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes explaining this specific framework. For The Phoenix Project, use or preserve the provided video link if it clearly supports the entry.",
+              "links": [
+                {
+                  "label": "The Three Ways - IT Revolution",
+                  "url": "https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/"
+                }
+              ],
+              "url": "https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/the-three-ways-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Prediction"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Measuring Human Worth",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Measuring Human Worth",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "We're All in This to Get There",
+      "channelVideos": [
+        {
+          "title": "The Phoenix Project || Book Summary || DevOps",
+          "url": "https://www.youtube.com/watch?v=Cc5wPrMvdao"
+        }
+      ]
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.006",
+      "order": 6,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.ford-assembly-line-1913",
+        "asset.were-all-in-this-to-get-there.raw.image36",
+        "asset.were-all-in-this-to-get-there.raw.image37"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.006",
+        "question.were-all-in-this-to-get-there.200.006"
+      ],
+      "title": "The Stopwatch Era - Then and Now",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "Even before Gantt charts and the waterfall method, there was Frederick Taylor’s Principles of Scientific Management. Taylor thought of workers as gears in a machine; he used stopwatches to measure the one best way to get to the end of a task. Explore the related concepts below, then discuss with your team: in our age of algorithmic management and remote work monitoring, have we returned to the stopwatch era? How would you want to be managed?\n\nTaylorism and the Four Principles | Max Weber’s Bureaucracy | Ford Assembly Line\nTotal Quality Management (TQM)",
+      "links": [
+        {
+          "label": "Principles of Scientific Management - Internet Archive",
+          "url": "https://archive.org/details/principlesofscie00taylrich/page/n5/mode/2up"
+        },
+        {
+          "label": "Max Weber bureaucracy PDF",
+          "url": "http://burawoy.berkeley.edu/Reader.102/Weber.Bureaucracy.pdf"
+        },
+        {
+          "label": "Ford assembly line video",
+          "url": "https://www.youtube.com/watch?v=-QSe8RhWoK8"
+        },
+        {
+          "label": "CIPD monitoring article",
+          "url": "https://www.cipd.org/en/views-and-insights/thought-leadership/insight/monitoring-measures/"
+        }
+      ],
+      "studentExplanation": "The stopwatch era begins with the idea that work can be studied, measured, divided, and optimized. Taylorism searched for the one best way to perform a task; Weber’s bureaucracy organized work through rules and hierarchy; Ford’s assembly line turned production into repeated stages; TQM later pushed organizations to improve quality across the whole system. The question today is whether digital monitoring, algorithmic management, and remote-work tracking bring back the same old tension: efficiency can improve output, but it can also reduce autonomy, trust, and dignity.\n\nTaylor, Weber, Ford, and TQM show a long history of making work measurable, repeatable, and controllable. Digital monitoring revives the same tension: measurement can improve quality and fairness, or make workers feel like tracked parts of a machine. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this helps students understand why measurement can be both useful and dangerous. At the section level, it adds an ethical layer to project management. At the year-theme level, it connects to progress by asking whether more efficient movement is still progress if people feel more controlled.",
+      "takeaway": "Efficiency systems can improve output while also increasing control over people",
+      "subjects": [
+        "Economics & Trade",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Performed Progress",
+        "Measuring Human Worth"
+      ],
+      "examples": [
+        "Taylor thought of workers as gears in a machine",
+        "he used stopwatches to measure the one best way to get to the end of a task",
+        "How would you want to be managed",
+        "Taylorism and the Four Principles",
+        "Max Weber’s Bureaucracy",
+        "Ford Assembly Line",
+        "Total Quality Management (TQM)"
+      ],
+      "debateRelevance": "Useful when debating whether workplace measurement improves output or increases control over workers.",
+      "counterargument": "Some monitoring and measurement genuinely improve coordination and quality, so the ethical issue is how measurement is used.",
+      "visualSections": [
+        {
+          "title": "The Stopwatch Era - Then and Now",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Taylorism and the Four Principles",
+              "note": "Taylorism breaks work into measurable tasks and tries to separate planning from execution in search of efficient methods.",
+              "imageGuidance": "Use /imagesearch to find real historical visuals connected to Frederick Taylor, scientific management, time-and-motion study, or the original Principles of Scientific Management. Preserve the current app images 35 and 36 as references and keep both links/frames if they are useful. If a diagram is needed, use /imagecreator only to create a small WSC-style four-principles schema, not a fake historical photo.",
+              "videoGuidance": "Use /youtubesearch for a concise educational video under 5-7 minutes explaining Taylorism/scientific management.",
+              "links": [
+                {
+                  "label": "Principles of Scientific Management - Internet Archive",
+                  "url": "https://archive.org/details/principlesofscie00taylrich/page/n5/mode/2up"
+                }
+              ],
+              "url": "https://archive.org/details/principlesofscie00taylrich/page/n5/mode/2up",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image36.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Max Weber’s Bureaucracy",
+              "note": "Bureaucracy organizes work through formal offices, rules, hierarchy, expertise, and impersonal procedure.",
+              "imageGuidance": "Use /imagesearch to find a real educational diagram or source visual for Max Weber bureaucracy. If no exact image exists, use /imagecreator to create a clean WSC-style hierarchy/rules/roles diagram. Keep the Berkeley Weber PDF as the main LINK button.",
+              "videoGuidance": "Use /youtubesearch for a short educational video under 5-7 minutes on Weber and bureaucracy.",
+              "links": [
+                {
+                  "label": "Max Weber bureaucracy PDF",
+                  "url": "http://burawoy.berkeley.edu/Reader.102/Weber.Bureaucracy.pdf"
+                }
+              ],
+              "url": "http://burawoy.berkeley.edu/Reader.102/Weber.Bureaucracy.pdf",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/image37.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Ford Assembly Line",
+              "note": "Assembly-line production increases flow by dividing work into repeated stages, but it can also reduce freedom and variety. This division of work was established in 1913 in Ford industries and remains relevant today.",
+              "imageGuidance": "Use /imagesearch to find a real historical photograph of the Ford assembly line in 1913, preferably a public-domain image from Wikimedia, Ford, or archives. Do not generate.",
+              "videoGuidance": "Use /youtubesearch and preserve the provided Ford assembly line video if it is clear and useful. Prefer short educational material under 5-7 minutes.",
+              "links": [
+                {
+                  "label": "Ford assembly line video",
+                  "url": "https://www.youtube.com/watch?v=-QSe8RhWoK8"
+                },
+                {
+                  "label": "Wikimedia Commons image source",
+                  "url": "https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=-QSe8RhWoK8",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/ford-assembly-line-1913.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "exact-source-image",
+              "imageLicense": "Exact or source-preserved visual from the app/source guidance",
+              "videoUrl": "https://www.youtube.com/watch?v=-QSe8RhWoK8"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Progress"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Performed Progress",
+        "Measuring Human Worth"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Performed Progress",
+          "Measuring Human Worth"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "1000 Cars per Day | Henry Ford",
+          "url": "https://www.youtube.com/watch?v=-QSe8RhWoK8"
+        },
+        {
+          "title": "Frederick Taylor Scientific Management",
+          "url": "https://www.youtube.com/watch?v=vNfy_AHG-MU"
+        },
+        {
+          "title": "Total Quality Management Principles: A Comprehensive Overview",
+          "url": "https://www.youtube.com/watch?v=OSz7MvkPhFI"
+        }
+      ],
+      "sectionTitle": "We're All in This to Get There"
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.007",
+      "order": 7,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.brooks-law-schema",
+        "asset.were-all-in-this-to-get-there.raw.conways-law-schema",
+        "asset.were-all-in-this-to-get-there.raw.hawthorne-effect-schema",
+        "asset.were-all-in-this-to-get-there.raw.hofstadters-law-schema",
+        "asset.were-all-in-this-to-get-there.raw.illichs-law-schema",
+        "asset.were-all-in-this-to-get-there.raw.laborits-law-schema",
+        "asset.were-all-in-this-to-get-there.raw.putts-law-schema",
+        "asset.were-all-in-this-to-get-there.raw.the-90-90-rule-schema"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.007",
+        "question.were-all-in-this-to-get-there.200.007"
+      ],
+      "title": "The Laws of Human Effort",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "Managers need people to manage - but those people can be frustratingly slow and easily distracted. Explore the psychological and structural laws that supposedly govern human effort, then discuss with your team: how do they apply to your preparations for this competition?\n\nThe Hawthorne Effect | Hofstadter’s Law | the 90-90 Rule | Conway’s Law\nPutt’s Law | Illich’s Law | Laborit’s Law | Brooks’ Law",
+      "links": [
+        {
+          "label": "The Hawthorne Effect in 3 minutes",
+          "url": "https://youtu.be/o4XX90lqT6E?si=PPJZsy6YLzVTLdYm"
+        },
+        {
+          "label": "90-90 Rule video",
+          "url": "https://youtu.be/BEGStDKSVuU?si=YX9sCbomp_y6ygHX"
+        }
+      ],
+      "studentExplanation": "Plans do not fail only because tools are bad. They also fail because people are people. The Hawthorne Effect suggests observation changes behavior. Hofstadter’s Law warns that work takes longer than expected. The 90-90 Rule jokes that the final part of a project can consume far more time than planned. Conway’s Law says systems often reflect the teams that build them. Brooks’ Law warns that adding people to a late project can make it later. Together, these ideas show that progress depends on psychology, incentives, communication, attention, and structure - not just effort.\n\nThese “laws” are warnings against treating humans as simple inputs. Observation changes behavior, estimates slip, the last part expands, teams mirror communication structures, managers may misunderstand technology, and adding people can create more coordination work than progress. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this helps students understand why teamwork and effort behave unpredictably. At the section level, it explains why project management cannot be only charts and tools. At the year-theme level, it connects to progress because getting there together means managing human attention, coordination, and limits.",
+      "takeaway": "Productivity is shaped by attention, structure, pressure, and coordination",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "The Hawthorne Effect",
+        "Hofstadter’s Law",
+        "the 90-90 Rule",
+        "Conway’s Law",
+        "Putt’s Law",
+        "Illich’s Law",
+        "Laborit’s Law",
+        "Brooks’ Law"
+      ],
+      "debateRelevance": "Useful when debating whether project problems come from weak tools or from the way real humans behave inside plans.",
+      "counterargument": "These laws are useful shortcuts, but they can oversimplify situations shaped by context, culture, and judgment.",
+      "visualSections": [
+        {
+          "title": "The Laws of Human Effort",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Hawthorne Effect",
+              "note": "Observation can change behavior, so measuring work may also change the work itself.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [
+                {
+                  "label": "The Hawthorne Effect in 3 minutes",
+                  "url": "https://youtu.be/o4XX90lqT6E?si=PPJZsy6YLzVTLdYm"
+                }
+              ],
+              "url": "https://youtu.be/o4XX90lqT6E?si=PPJZsy6YLzVTLdYm",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/hawthorne-effect-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset",
+              "videoUrl": "https://youtu.be/o4XX90lqT6E?si=PPJZsy6YLzVTLdYm"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Hofstadter’s Law",
+              "note": "Work takes longer than expected, even when you already expect it to take longer.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/hofstadters-law-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The 90-90 Rule",
+              "note": "A joking software rule suggesting that the last small part of the work can take another enormous amount of time.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [
+                {
+                  "label": "90-90 Rule video",
+                  "url": "https://youtu.be/BEGStDKSVuU?si=YX9sCbomp_y6ygHX"
+                }
+              ],
+              "url": "https://youtu.be/BEGStDKSVuU?si=YX9sCbomp_y6ygHX",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/were-all-in-this-to-get-there/the-90-90-rule-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset",
+              "videoUrl": "https://youtu.be/BEGStDKSVuU?si=YX9sCbomp_y6ygHX"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Conway’s Law",
+              "note": "The design of a system often mirrors the communication structure of the organization that built it.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [
+                {
+                  "label": "What is Conway's Law?",
+                  "url": "https://youtu.be/J2QBP1TraRE?si=dmtHwrmRQDgN6nTz"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/conways-law-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset",
+              "videoUrl": "https://youtu.be/J2QBP1TraRE?si=dmtHwrmRQDgN6nTz"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Putt’s Law",
+              "note": "A satirical rule about organizations where people may rise into positions that reveal mismatches between competence and authority.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/putts-law-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Illich’s Law",
+              "note": "After a certain point, more work can reduce output and quality instead of improving it.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/illichs-law-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Laborit’s Law",
+              "note": "People tend to do what is easiest or most immediately rewarding before difficult but important tasks.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/laborits-law-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Brooks’ Law",
+              "note": "Adding people to a late software project can make it later because coordination costs grow.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style conceptual diagram for this law. No realistic human scenes, no office photos, no anime. Use a simple schema, loop, warning sign, or task-flow representation in the app palette. For the Hawthorne Effect, preserve the current real/reference image if useful and attach the provided short video link.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video under 5-7 minutes for this concept. Preserve the supplied Hawthorne and 90-90 videos where relevant.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/brooks-law-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Delay"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Delayed Arrival",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "What Is the 80-20 Rule? The Pareto Principle explained",
+          "url": "https://www.youtube.com/watch?v=qmyudI54zP8"
+        }
+      ],
+      "sectionTitle": "We're All in This to Get There"
+    },
+    {
+      "id": "raw.were-all-in-this-to-get-there.008",
+      "order": 8,
+      "sectionId": "were-all-in-this-to-get-there",
+      "mediaIds": [
+        "asset.were-all-in-this-to-get-there.raw.the-80-20-question-schema",
+        "asset.were-all-in-this-to-get-there.raw.useful-shortcut-or-dangerous-excuse-schema"
+      ],
+      "questionIds": [
+        "question.were-all-in-this-to-get-there.100.008",
+        "question.were-all-in-this-to-get-there.200.008"
+      ],
+      "title": "The 80/20 Question",
+      "guidingSection": "We're All in This to Get There",
+      "rawOfficialText": "Maybe studying just 20% of this curriculum will get you a high enough score. The Pareto principle suggests that, in any given process, 80% of outcomes come from 20% of inputs. In a project, it implies 20% of the effort can lead to 80% of the results. Discuss with your team: are most people overworking most of the time?",
+      "links": [
+        {
+          "label": "Pareto Principle - Simply Psychology",
+          "url": "https://www.simplypsychology.org/pareto-principle.html"
+        },
+        {
+          "label": "Pareto principle in less than 3 minutes",
+          "url": "https://youtu.be/lsGwqk_agcQ?si=A-yYCHAJzdZlrn0x"
+        }
+      ],
+      "studentExplanation": "The Pareto principle says that in many systems, a small share of causes can produce a large share of results. In project work, it is tempting to say that the right 20% of effort may create 80% of the value. That can help students prioritize, but it can also become a dangerous excuse. The principle is useful only if you can identify what really matters; otherwise, “80/20 thinking” may simply become a way to avoid depth, practice, or difficult material.\n\nThe Pareto principle is powerful only when the important 20 percent is correctly identified. It can sharpen priorities, but students should also ask when 80/20 thinking becomes a shortcut excuse that ignores foundations, practice, or invisible work. Use this to connect ambition to coordination: what the project is trying to finish, where time and resources break down, how tools make work visible, and why people remain the hardest part of planning.",
+      "whyItMatters": "At the entry level, this helps students think critically about efficiency and shortcuts. At the section level, it closes the project-management discussion by asking how much effort is really necessary. At the year-theme level, it connects to progress because getting there may depend less on doing everything and more on choosing the right work wisely.",
+      "takeaway": "Efficiency is powerful only when judgment about what matters is accurate",
+      "subjects": [
+        "Psychology",
+        "Economics & Trade"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Measuring Human Worth",
+        "Performed Progress",
+        "Incompletion That Stays Active"
+      ],
+      "examples": [
+        "Maybe studying just 20% of this curriculum will get you a high enough score",
+        "In a project, it implies 20% of the effort can lead to 80% of the results",
+        "Discuss with your team: are most people overworking most of the time",
+        "The 80/20 question",
+        "Useful shortcut or dangerous excuse?"
+      ],
+      "debateRelevance": "Useful when debating whether efficient focus is wisdom or a shortcut that can become an excuse to avoid depth.",
+      "counterargument": "The 80/20 rule can guide attention, but it becomes misleading when people guess the important 20 percent without evidence.",
+      "visualSections": [
+        {
+          "title": "The 80/20 Question",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The 80/20 question",
+              "note": "The Pareto principle as a prioritization idea is presented: a small portion of inputs may produce a large portion of outcomes.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a clean WSC app-style 80/20 diagram. It should be a schematic or proportional visual, not a realistic scene and not anime. Use app palette. If /imagesearch finds an official or high-quality educational Pareto diagram, use it only as reference.",
+              "videoGuidance": "Use /youtubesearch and preserve the provided short video link about the Pareto principle in less than 3 minutes if it is clear. Also search for a 5-7 minute maximum educational video if a better student-friendly explanation exists.",
+              "links": [
+                {
+                  "label": "Pareto Principle Explained: How the 80/20 Rule Changes Everything",
+                  "url": "https://youtu.be/lsGwqk_agcQ?si=A-yYCHAJzdZlrn0x"
+                }
+              ],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/the-80-20-question-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset",
+              "videoUrl": "https://youtu.be/lsGwqk_agcQ?si=A-yYCHAJzdZlrn0x"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Useful shortcut or dangerous excuse?",
+              "note": "The slogan is tested beyond its surface: 80/20 thinking can help prioritize, but it can also justify skipping necessary depth.",
+              "imageGuidance": "Use /imagecreator to create a WSC-style split diagram: one side shows smart prioritization; the other shows missing important hidden work. No people, no generic clipart, no anime.",
+              "videoGuidance": "Use /youtubesearch for a short educational video on when Pareto thinking helps and when it misleads.",
+              "links": [],
+              "src": "assets/raw-content/were-all-in-this-to-get-there/useful-shortcut-or-dangerous-excuse-schema.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-wsc-diagram",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Planning & Projects"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Measuring Human Worth",
+        "Performed Progress",
+        "Incompletion That Stays Active"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Measuring Human Worth",
+          "Performed Progress",
+          "Incompletion That Stays Active"
+        ]
+      },
+      "sectionTitle": "We're All in This to Get There"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+<svg
+  id="race-timer-widget"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 240 240"
+  width="240"
+  height="240"
+  fill="none"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Survivalpaca countdown timer</title>
+  <desc id="desc">
+    Premium circular countdown timer widget for Survivalpaca, designed for normal, warning, and critical states.
+  </desc>
+
+  <defs>
+    <style>
+      .brown-deep { fill: #4b2f21; stroke: #4b2f21; }
+      .brown { fill: #5a3726; stroke: #5a3726; }
+      .beige { fill: #ead8b7; stroke: #ead8b7; }
+      .beige-soft { fill: #f2e5cb; stroke: #f2e5cb; }
+      .yellow { fill: #d8b13f; stroke: #d8b13f; }
+      .yellow-dark { fill: #b98d31; stroke: #b98d31; }
+      .maroon { fill: #6d1f26; stroke: #6d1f26; }
+      .maroon-deep { fill: #57171d; stroke: #57171d; }
+
+      .shadow-ring {
+        fill: #4b2f21;
+        opacity: 0.16;
+      }
+
+      .outer-frame {
+        fill: #5a3726;
+      }
+
+      .main-body {
+        fill: #ead8b7;
+        stroke: #5a3726;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .track-ring {
+        fill: none;
+        stroke: #c9b18d;
+        stroke-width: 14;
+        opacity: 0.95;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .progress-ring {
+        fill: none;
+        stroke: #6d1f26;
+        stroke-width: 14;
+        stroke-linecap: round;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .warning-ring {
+        fill: none;
+        stroke: #d8b13f;
+        stroke-width: 6;
+        stroke-linecap: round;
+        opacity: 0;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .critical-ring {
+        fill: none;
+        stroke: #57171d;
+        stroke-width: 4;
+        stroke-linecap: round;
+        opacity: 0;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .inner-disc {
+        fill: #f2e5cb;
+        stroke: #5a3726;
+        stroke-width: 2.5;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .inner-line {
+        fill: none;
+        stroke: #d8b13f;
+        stroke-width: 1.5;
+        opacity: 0.9;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .tick-major {
+        stroke: #5a3726;
+        stroke-width: 3;
+        stroke-linecap: round;
+        opacity: 0.72;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .tick-minor {
+        stroke: #b98d31;
+        stroke-width: 2;
+        stroke-linecap: round;
+        opacity: 0.72;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .accent {
+        fill: #d8b13f;
+        opacity: 0.95;
+      }
+
+      .time-text {
+        fill: #5a3726;
+        font-family: Inter, Arial, sans-serif;
+        font-size: 50px;
+        font-weight: 800;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        letter-spacing: 1px;
+      }
+
+      .label-text {
+        fill: #6d1f26;
+        font-family: Inter, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        text-anchor: middle;
+        letter-spacing: 2.6px;
+        opacity: 0.88;
+      }
+
+      .state-normal .progress-ring { stroke: #6d1f26; }
+      .state-normal .warning-ring { opacity: 0; }
+      .state-normal .critical-ring { opacity: 0; }
+
+      .state-warning .progress-ring { stroke: #b98d31; }
+      .state-warning .warning-ring { opacity: 0.95; }
+
+      .state-critical .progress-ring { stroke: #57171d; }
+      .state-critical .warning-ring { opacity: 0.7; }
+      .state-critical .critical-ring { opacity: 1; }
+      .state-critical .time-text { fill: #57171d; }
+    </style>
+  </defs>
+
+  <g id="timer-widget" class="state-normal">
+    <circle class="shadow-ring" cx="120" cy="124" r="102"/>
+    <circle class="outer-frame" cx="120" cy="120" r="104"/>
+    <circle class="main-body" cx="120" cy="120" r="98"/>
+
+    <g id="timer-ticks">
+      <path class="tick-major" d="M120 30V40"/>
+      <path class="tick-major" d="M210 120H200"/>
+      <path class="tick-major" d="M120 210V200"/>
+      <path class="tick-major" d="M30 120H40"/>
+
+      <path class="tick-minor" d="M165 42L161 50"/>
+      <path class="tick-minor" d="M198 75L190 79"/>
+      <path class="tick-minor" d="M198 165L190 161"/>
+      <path class="tick-minor" d="M165 198L161 190"/>
+      <path class="tick-minor" d="M75 198L79 190"/>
+      <path class="tick-minor" d="M42 165L50 161"/>
+      <path class="tick-minor" d="M42 75L50 79"/>
+      <path class="tick-minor" d="M75 42L79 50"/>
+    </g>
+
+    <circle
+      id="timer-track"
+      class="track-ring"
+      cx="120"
+      cy="120"
+      r="70"
+    />
+
+    <circle
+      id="timer-progress"
+      class="progress-ring"
+      cx="120"
+      cy="120"
+      r="70"
+      transform="rotate(-90 120 120)"
+      stroke-dasharray="439.82"
+      stroke-dashoffset="109.95"
+    />
+
+    <circle
+      id="timer-warning-ring"
+      class="warning-ring"
+      cx="120"
+      cy="120"
+      r="82"
+      transform="rotate(-90 120 120)"
+      stroke-dasharray="515.22"
+      stroke-dashoffset="515.22"
+    />
+
+    <circle
+      id="timer-critical-ring"
+      class="critical-ring"
+      cx="120"
+      cy="120"
+      r="89"
+    />
+
+    <circle class="inner-disc" cx="120" cy="120" r="48"/>
+    <circle class="inner-line" cx="120" cy="120" r="40"/>
+
+    <rect x="111" y="18" width="18" height="6" rx="3" class="accent"/>
+    <path class="accent" d="M112 216H128L124 222H116L112 216Z"/>
+
+    <text id="timer-value" x="120" y="112" class="time-text">12</text>
+    <text x="120" y="142" class="label-text">SECONDS</text>
+  </g>
+</svg>

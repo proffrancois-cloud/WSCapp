@@ -1,0 +1,100 @@
+{
+  "id": "channel.where-were-going-well-still-need-them",
+  "sectionId": "where-were-going-well-still-need-them",
+  "videos": [
+    {
+      "id": "video.where-were-going-well-still-need-them.001",
+      "title": "From Rio to Lima – Transoceânica, the world's longest bus journey (5/5) | DW Documentary",
+      "url": "https://www.youtube.com/watch?v=7sVazu3D5hY",
+      "description": "Manual Alpaca Channel placement for Can a Bus Journey Be a Road Trip?.",
+      "sectionIds": [
+        "where-were-going-well-still-need-them"
+      ],
+      "sectionTitles": [
+        "Where We're Going, We'll Still Need Them"
+      ],
+      "entryTitles": [
+        "Can a Bus Journey Be a Road Trip?"
+      ],
+      "bigIdeaLabels": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "bigIdeaIds": [
+        "movement-without-arrival",
+        "infrastructure-shapes-behavior",
+        "visible-vs-real",
+        "managing-uncertainty"
+      ],
+      "subjectLabels": [
+        "Geography / Human Geography",
+        "Sociology"
+      ],
+      "subjectIds": [
+        "geography-human-geography",
+        "sociology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-were-going-well-still-need-them",
+          "sectionTitle": "Where We're Going, We'll Still Need Them",
+          "entryTitle": "Can a Bus Journey Be a Road Trip?",
+          "why": "User-confirmed placement under Can a Bus Journey Be a Road Trip?."
+        }
+      ],
+      "sourceId": "manual-where-we-re-going-we-ll-still-need-them-can-a-bus-journey-be-a-road-trip-7sVazu3D5hY",
+      "canonicalSectionId": "where-were-going-well-still-need-them",
+      "assetId": null
+    },
+    {
+      "id": "video.where-were-going-well-still-need-them.002",
+      "title": "Nat King Cole Trio  \"(Get Your Kicks on) Route 66\"",
+      "url": "https://www.youtube.com/watch?v=9nuDE1SJlPo",
+      "description": "Manual Alpaca Channel placement for Songs, Paintings, and the Feeling of the Highway.",
+      "sectionIds": [
+        "where-were-going-well-still-need-them"
+      ],
+      "sectionTitles": [
+        "Where We're Going, We'll Still Need Them"
+      ],
+      "entryTitles": [
+        "Songs, Paintings, and the Feeling of the Highway"
+      ],
+      "bigIdeaLabels": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Delayed Arrival"
+      ],
+      "bigIdeaIds": [
+        "movement-without-arrival",
+        "infrastructure-shapes-behavior",
+        "visible-vs-real",
+        "delayed-arrival"
+      ],
+      "subjectLabels": [
+        "Visual and Performing Arts",
+        "Media / Film"
+      ],
+      "subjectIds": [
+        "visual-and-performing-arts",
+        "media-film"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "where-were-going-well-still-need-them",
+          "sectionTitle": "Where We're Going, We'll Still Need Them",
+          "entryTitle": "Songs, Paintings, and the Feeling of the Highway",
+          "why": "User-confirmed placement under Songs, Paintings, and the Feeling of the Highway."
+        }
+      ],
+      "sourceId": "manual-where-we-re-going-we-ll-still-need-them-songs-paintings-and-the-feeling-of-the-highway-9nuDE1SJlPo",
+      "canonicalSectionId": "where-were-going-well-still-need-them",
+      "assetId": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "media.more-to-do-than-can-ever-be-listed",
+  "sectionId": "more-to-do-than-can-ever-be-listed",
+  "assets": [
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.1-2-3-method",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/1-2-3-method.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.4-d-method",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/4-d-method.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.bullet-journal",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/bullet-journal.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.closing-the-mental-loop-with-a-plan",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/closing-the-mental-loop-with-a-plan.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.done-list",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/done-list.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.eat-that-frog",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/eat-that-frog.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.eisenhower-method",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/eisenhower-method.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.history-of-the-to-do-list",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/history-of-the-to-do-list.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.ivy-lee-method",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/ivy-lee-method.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.lists-as-order-and-control",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/lists-as-order-and-control.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.must-do-moscow-method",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/must-do-moscow-method.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.poetic-lists",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/poetic-lists.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.practical-lists",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/practical-lists.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.what-kind-of-list-is-a-to-do-list",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/what-kind-of-list-is-a-to-do-list.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.more-to-do-than-can-ever-be-listed.raw.zeigarnik-effect",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/more-to-do-than-can-ever-be-listed/zeigarnik-effect.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

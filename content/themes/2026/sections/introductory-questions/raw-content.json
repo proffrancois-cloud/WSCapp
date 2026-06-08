@@ -1,0 +1,843 @@
+{
+  "id": "raw.introductory-questions",
+  "sectionId": "introductory-questions",
+  "entries": [
+    {
+      "id": "raw.introductory-questions.001",
+      "order": 1,
+      "sectionId": "introductory-questions",
+      "mediaIds": [
+        "asset.introductory-questions.raw.journey-destination-and-regret",
+        "asset.introductory-questions.raw.progress-and-diminishing-returns",
+        "asset.introductory-questions.raw.the-question-that-opens-the-route"
+      ],
+      "questionIds": [
+        "question.introductory-questions.100.001",
+        "question.introductory-questions.200.001"
+      ],
+      "title": "To Consider Before Diving In",
+      "guidingSection": "Introductory Questions",
+      "rawOfficialText": "The journey of a thousand miles begins with a single step, but how does it end?\nHave you ever asked someone, \"Are we there yet?\" If so, whom were you asking—and where were you going? Did you ever get there?\nHave you ever gotten there, then decided it wasn't worth it in the end?\nHow about in the real world? Does knowing something in your life—say, the school year, or a friendship—is about to end change how it feels or what it means to you?\nHas an ending ever taken you by surprise? If so, what kind of ending was it?\nWhen you're working on a group project, how do you keep track of progress?\n\"It’s not the destination, it’s the journey,\" is a phrase often misattributed to the American writer Ralph Waldo Emerson. But is it ever just the destination?\nSometimes, not getting there—or anywhere—can be beautiful too. Are there places that were neither where you started nor where you were going, but were worthwhile destinations in their own right?\nDo you keep a to-do list, or is it something you haven’t gotten around to? How much of your to-do list do you usually end up doing?\nThe question of whether we’re there yet is asked in other fields, too, such as business and economics. Is a product ready to be launched? Have we reached the point of diminishing returns? Do these questions ever apply in everyday life as well?\nHere, the answers are probably yes and we’re getting there. So—let’s get started.",
+      "links": [
+        {
+          "label": "Official WSC 2026 Guiding Questions page",
+          "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+        },
+        {
+          "label": "Britannica Money — Diminishing returns",
+          "url": "https://www.britannica.com/money/diminishing-returns"
+        }
+      ],
+      "studentExplanation": "This opening entry is the map for the whole section. It starts with the old Laozi/Tao Te Ching idea that a huge journey begins from where you are standing, then asks what happens after the first step: how do we know we arrived, whether it was worth it, and whether an ending is physical, emotional, official, or personal? The road-trip question “Are we there yet?” is useful because it shows impatience, dependence on someone else’s route, and uncertainty about distance. The same pattern appears in school years, friendships, group projects, to-do lists, product launches, and diminishing returns: people need signs of progress, but a sign is not the same as meaningful arrival.",
+      "whyItMatters": "At the entry level, this teaches students how to read the theme: arrival is not always simple, and endings can change how a journey feels. At the section level, it gives the introduction a clear job: to connect everyday questions to the larger WSC route. At the year-theme level, it introduces the core tension between journey, destination, progress, waiting, and the point where continuing may no longer be worth it.",
+      "takeaway": "To show that progress questions reach beyond physical travel",
+      "subjects": [
+        "Philosophy",
+        "Psychology",
+        "Economics & Trade"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "The journey of a thousand miles begins with a single step, but how does it end",
+        "Have you ever asked someone, \"Are we there yet",
+        "\" If so, whom were you asking—and where were you going",
+        "Did you ever get there",
+        "The Question That Opens the Route",
+        "Journey, Destination, and Regret",
+        "Progress and Diminishing Returns"
+      ],
+      "debateRelevance": "Useful when debating whether arrival matters more than the route, or whether progress can become less valuable after a certain point.",
+      "counterargument": "Sometimes a destination really does matter more than the route, especially when safety, duty, or urgency is involved.",
+      "visualSections": [
+        {
+          "title": "To Consider Before Diving In",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Question That Opens the Route",
+              "note": "\"Are we there yet?\" is not only about travel; it can also be about life, school, projects, products, and endings.",
+              "imageGuidance": "Use /imagesearch first for a realistic image of a road sign, classroom route map, or journey-planning board that feels like an opening threshold. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image, use /imagecreator or /imagegen to create a realistic WSC-style visual of students at the beginning of a route with subtle progress/destination symbols.",
+              "videoGuidance": "Use /youtubesearch only if a short educational video is needed about journey vs destination or setting goals. Maximum 5-7 minutes. A video is optional here because the entry is mostly reflective.",
+              "links": [
+                {
+                  "label": "Official WSC 2026 Guiding Questions page",
+                  "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+                }
+              ],
+              "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/introductory-questions/the-question-that-opens-the-route.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Journey, Destination, and Regret",
+              "note": "Reaching a destination does not automatically mean the journey was worth it or that the ending feels complete. What matters to you when you travel?",
+              "imageGuidance": "Use /imagesearch first for a realistic image of a person arriving at a destination and pausing thoughtfully rather than celebrating. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no exact image works, use /imagecreator or /imagegen to create a realistic WSC-style arrival scene with mixed emotions.",
+              "videoGuidance": "Use /youtubesearch for a clear, short educational video about goal-setting, regret, or why arrival does not always equal satisfaction. Maximum 5-7 minutes; use only if it clearly supports the slide.",
+              "links": [
+                {
+                  "label": "Enjoy progress",
+                  "url": "https://www.youtube.com/watch?v=3gytyjKC8Ds"
+                }
+              ],
+              "src": "assets/raw-content/introductory-questions/journey-destination-and-regret.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=3gytyjKC8Ds",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Progress and Diminishing Returns",
+              "note": "Diminishing returns: The law of diminishing returns says that, if you keep increasing one factor in the production of goods (such as your workforce) while keeping all other factors the same, you'll reach a point beyond which additional increases will result in a progressive decline in output. In other words, there's a point when adding more inputs will begin to hamper the production process.",
+              "imageGuidance": "Use /imagesearch first for a realistic chart or simple infographic showing diminishing returns, preferably from a reliable economics source. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a clean classroom-friendly visual, use /imagecreator or /imagegen to create a realistic WSC-style curve showing effort rising while benefit flattens.",
+              "videoGuidance": "Use /youtubesearch for a short educational video explaining diminishing returns in simple terms. Maximum 5-7 minutes and appropriate for young teenagers.",
+              "links": [
+                {
+                  "label": "Britannica Money - Diminishing returns",
+                  "url": "https://www.britannica.com/money/diminishing-returns"
+                },
+                {
+                  "label": "Diminishing returns in one example",
+                  "url": "https://www.youtube.com/watch?v=lt6LpwBNSlM"
+                }
+              ],
+              "url": "https://www.britannica.com/money/diminishing-returns",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/introductory-questions/progress-and-diminishing-returns.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Enjoy progress",
+          "url": "https://www.youtube.com/watch?v=3gytyjKC8Ds"
+        },
+        {
+          "title": "Diminishing returns in one example",
+          "url": "https://www.youtube.com/watch?v=lt6LpwBNSlM"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Progress"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Infrastructure Shapes Behavior",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Introductory Questions"
+    },
+    {
+      "id": "raw.introductory-questions.002",
+      "order": 2,
+      "sectionId": "introductory-questions",
+      "mediaIds": [
+        "asset.introductory-questions.raw.ending-vs-point-of-no-return"
+      ],
+      "questionIds": [
+        "question.introductory-questions.100.002",
+        "question.introductory-questions.200.002"
+      ],
+      "title": "Frank Sinatra, My Way",
+      "guidingSection": "Introductory Questions",
+      "rawOfficialText": "\"And now, the end is near,\" croons Frank Sinatra. But how do we know when we're getting to an ending—or to a point of no return?",
+      "links": [
+        {
+          "label": "Frank Sinatra - My Way (Lyrics)",
+          "url": "https://www.youtube.com/watch?v=6pcwq2usV7Y"
+        },
+        {
+          "label": "TIME — My Way and the Paris 2024 closing ceremony context",
+          "url": "https://time.com/7010088/yseult-olympics-closing-ceremony-frank-sinatra-my-way/"
+        }
+      ],
+      "studentExplanation": "“My Way” gives the section a concrete model of a person looking back from the edge of an ending. The song was adapted by Paul Anka from the French “Comme d’habitude,” first recorded by Claude François in 1967, but Anka changed the meaning from a failing relationship into a self-directed life review for Frank Sinatra’s 1969 version. That shift matters: the same melody becomes a different kind of ending depending on the story attached to it. The entry also opens the idea of a point of no return, originally an aviation term for the moment a plane lacks enough fuel to return safely. In the section, it becomes any threshold after which choices, costs, or identity cannot simply be reset.",
+      "whyItMatters": "At the entry level, this turns “the end” into a moment of reflection, not only a finish. At the section level, it gives the introduction an emotional example of how endings can make people review the route behind them. At the year-theme level, it connects to endings and thresholds because looking back only matters so much when the journey cannot simply be replayed.",
+      "takeaway": "The speaker reviews choices that cannot simply be replayed",
+      "subjects": [
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "\"And now, the end is near,\" croons Frank Sinatra",
+        "But how do we know when we're getting to an ending—or to a point of no return",
+        "“My Way” as Life Review",
+        "Ending vs Point of No Return"
+      ],
+      "debateRelevance": "Useful when debating how people recognize endings, irreversible decisions, and the moment when reflection replaces action.",
+      "counterargument": "Some points of no return are only obvious afterward; people may not recognize them clearly while making the choice.",
+      "visualSections": [
+        {
+          "title": "Frank Sinatra, My Way",
+          "items": [
+            {
+              "kind": "video-slide",
+              "title": "Frank Sinatra - My Way (Lyrics)",
+              "note": "Frank Sinatra presents here the end as a moment for looking back at choices, risks, and self-definition.",
+              "imageGuidance": "Use /imagesearch first for a realistic photo of Frank Sinatra performing or a reliable image connected to “My Way.” This is a known artist/song, so do not invent a fake Sinatra image. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no usable image is available, use a LINK button instead of generated Sinatra imagery.",
+              "videoGuidance": "Use /youtubesearch to preserve the linked “My Way” performance as a media button. If adding an explainer, find a short educational video of maximum 5-7 minutes about the song’s meaning or history; otherwise the original performance link is enough.",
+              "links": [
+                {
+                  "label": "Frank Sinatra portrait - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Frank_Sinatra_(1957_studio_portrait_close-up).jpg",
+                  "license": "Public domain Wikimedia Commons source image"
+                }
+              ],
+              "videoUrl": "https://www.youtube.com/watch?v=6pcwq2usV7Y",
+              "videoLabel": "Frank Sinatra - My Way",
+              "imageMode": "source-image",
+              "imageLicense": "Public domain Wikimedia Commons source image",
+              "url": "https://www.youtube.com/watch?v=6pcwq2usV7Y",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Frank Sinatra - My Way (Lyrics)",
+          "url": "https://www.youtube.com/watch?v=6pcwq2usV7Y"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Ending vs Point of No Return",
+          "note": "This slide helps students separate an ending from an irreversible threshold: not every ending is sudden, and not every point of no return is obvious while it is happening.",
+          "imageGuidance": "Use /imagesearch first for a realistic image of a symbolic “point of no return” sign, final curtain, or one-way path. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image, use /imagecreator or /imagegen to create a realistic WSC-style image of a road crossing marked “No return.”",
+          "videoGuidance": "Use /youtubesearch for a short educational video on the idea of a point of no return in stories, psychology, or decision-making. Maximum 5-7 minutes.",
+          "links": [],
+          "src": "assets/raw-content/introductory-questions/ending-vs-point-of-no-return.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Endings",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Narrated Endings",
+          "Movement Without Arrival",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Introductory Questions"
+    },
+    {
+      "id": "raw.introductory-questions.003",
+      "order": 3,
+      "sectionId": "introductory-questions",
+      "mediaIds": [
+        "asset.introductory-questions.raw.lotr-return-of-the-king-free-location",
+        "asset.introductory-questions.raw.progress-bars-change-the-story"
+      ],
+      "questionIds": [
+        "question.introductory-questions.100.003",
+        "question.introductory-questions.200.003"
+      ],
+      "title": "The Lord of the Rings: Nice Trilogy, Strange Ending Experience?",
+      "guidingSection": "Introductory Questions",
+      "rawOfficialText": "In 2003, millions of people gathered at theaters to watch the final Lord of the Rings movie. They watched it for a long time: three and a half hours. Many complained they kept thinking the movie was about to end, only to have it keep going; by most counts, the movie had five separate endings. Today, if you were streaming it at home, you’d easily be able to check how much longer you had to go. Does it make a difference to your experience of a work to know how close you are to the end of it?",
+      "links": [
+        {
+          "label": "Collider — Every ending in The Return of the King, ranked",
+          "url": "https://collider.com/the-lord-of-the-rings-the-return-of-the-king-endings-ranked/"
+        },
+        {
+          "label": "The Ringer — Defense of The Return of the King’s multiple endings",
+          "url": "https://www.theringer.com/2023/12/19/movies/lord-of-the-rings-return-of-the-king-multiple-endings-defense"
+        }
+      ],
+      "studentExplanation": "The Return of the King shows that a story can end in layers instead of one clean stop. In theaters in 2003, viewers could not glance at a progress bar, so every possible ending felt like it might be the last. The film’s repeated closures each answer a different question: the Ring is destroyed, Frodo and Sam are rescued, Aragorn is crowned, the hobbits return to the Shire, Frodo leaves Middle-earth because he cannot fully heal, and Sam finally says “Well, I’m back.” That makes the entry about pacing, patience, and recovery after the obvious goal is complete. The mission can be finished while the emotional, political, and personal consequences are still unfolding.",
+      "whyItMatters": "At the entry level, this shows that endings are partly experienced through pacing, expectation, and information. At the section level, it connects progress to storytelling: the journey through a movie can feel different depending on whether the audience knows how close they are to the end. At the year-theme level, it connects to progress and destinations because “getting there” is not only about the final scene, but about how the route toward closure feels.",
+      "takeaway": "It changes patience, suspense, and expectation",
+      "subjects": [
+        "Media / Film",
+        "Psychology",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Narrated Endings",
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Performed Progress"
+      ],
+      "examples": [
+        "They watched it for a long time: three and a half hours",
+        "by most counts, the movie had five separate endings",
+        "Five Endings and Audience Patience",
+        "Progress Bars Change the Story"
+      ],
+      "debateRelevance": "Useful when debating whether progress indicators and remaining-time information improve an experience or weaken suspense and immersion.",
+      "counterargument": "A progress bar can help audiences plan and manage attention without necessarily ruining the story.",
+      "visualSections": [
+        {
+          "title": "The Lord of the Rings: Nice Trilogy, Strange Ending Experience?",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Five Endings and Audience Patience",
+              "note": "LOTR: the return of the end.",
+              "imageGuidance": "Use /imagesearch first for a realistic, official or reputable still/poster-like image related to The Lord of the Rings: The Return of the King. This is a known film, so do not generate fake film stills. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no usable image is found, use a LINK button only.",
+              "videoGuidance": "Use /youtubesearch for a short educational/review video of maximum 5-7 minutes explaining The Return of the King multiple endings, pacing, or closure. Avoid long fan rants; choose a clear analytical clip.",
+              "links": [
+                {
+                  "label": "Collider - Every ending in The Return of the King, ranked",
+                  "url": "https://collider.com/the-lord-of-the-rings-the-return-of-the-king-endings-ranked/"
+                }
+              ],
+              "url": "https://collider.com/the-lord-of-the-rings-the-return-of-the-king-endings-ranked/",
+              "previewLabel": "Open source",
+              "imageMode": "source-image",
+              "imageLicense": "CC BY-SA 2.0 Wikimedia Commons image of Mount Ngauruhoe, a Lord of the Rings filming-location stand-in for Mount Doom",
+              "src": "assets/raw-content/introductory-questions/lotr-return-of-the-king-free-location.jpg"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Progress Bars Change the Story",
+              "note": "Compares theatrical viewing with streaming: a progress bar can make the audience less surprised, but also less immersed. How minor things can actually change a whole appreciation...",
+              "imageGuidance": "Use /imagesearch first for a realistic image of a streaming progress bar or theater audience watching a long film. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image, use /imagecreator or /imagegen to create a realistic WSC-style split-screen showing theater viewing versus streaming with time remaining.",
+              "videoGuidance": "Use /youtubesearch for a short educational video about pacing, suspense, or how knowing the ending/time left changes viewer experience. Maximum 5-7 minutes.",
+              "links": [],
+              "src": "assets/raw-content/introductory-questions/progress-bars-change-the-story.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "LOTR The Return of the King - The End of All Things",
+          "url": "https://www.youtube.com/watch?v=dOnhBKPSuWA"
+        },
+        {
+          "title": "LOTR The Return of the King - The Fellowship Reunited",
+          "url": "https://www.youtube.com/watch?v=wgtMW38vsUs"
+        },
+        {
+          "title": "LOTR The Return of the King - The Return of the King",
+          "url": "https://www.youtube.com/watch?v=JB7fjEtzrsk"
+        },
+        {
+          "title": "LOTR The Return of the King - Homeward Bound",
+          "url": "https://www.youtube.com/watch?v=J3oXr7XVuhc"
+        },
+        {
+          "title": "LOTR The Return of the King - The Journey to the Grey Havens",
+          "url": "https://www.youtube.com/watch?v=rf67P1BXSEA"
+        },
+        {
+          "title": "Lord of the Rings- The Grey Havens",
+          "url": "https://www.youtube.com/watch?v=qTstBMkeAH8"
+        },
+        {
+          "title": "LOTR The Return of the King - The End",
+          "url": "https://www.youtube.com/watch?v=eMWnDC__o4s"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Endings"
+      ],
+      "primaryBigIdea": "Narrated Endings",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Narrated Endings",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Thresholds & Irreversibility",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Introductory Questions"
+    },
+    {
+      "id": "raw.introductory-questions.004",
+      "order": 4,
+      "sectionId": "introductory-questions",
+      "mediaIds": [
+        "asset.introductory-questions.raw.adolescence-as-a-threshold"
+      ],
+      "questionIds": [
+        "question.introductory-questions.100.004",
+        "question.introductory-questions.200.004"
+      ],
+      "title": "Simba, Teenagers, and Life in the In-Between",
+      "guidingSection": "Introductory Questions",
+      "rawOfficialText": "\"I just can’t wait to be king,\" complains Simba. He is not quite one thing, not quite another. Not everyone is the heir to the throne, but we do all spend time as teenagers, no longer children but not yet adults. Are there advantages to life in the in-between? Would it be better if we transitioned more quickly from childhood to adulthood?",
+      "links": [
+        {
+          "label": "Disney+ — The Lion King official page",
+          "url": "https://www.disneyplus.com/movies/the-lion-king/1HqwiEcje6Nj"
+        },
+        {
+          "label": "Disney song guide — I Just Can’t Wait to Be King",
+          "url": "https://disneynews.us/disney-song/i-just-cant-wait-to-be-king-song/"
+        }
+      ],
+      "studentExplanation": "“I Just Can’t Wait to Be King” comes from Disney’s The Lion King, with music by Elton John and lyrics by Tim Rice. Young Simba imagines kingship as freedom: no orders, no supervision, everyone admiring him. Zazu’s interruptions matter because they reveal what Simba does not yet understand: power also means responsibility, patience, and care for others. That is why the song fits adolescence. Teenagers are no longer small children, but they are not fully adult either; they are in a threshold stage where freedom, identity, and responsibility are being learned unevenly. The entry asks whether the in-between is wasted delay or a necessary space for practice before real consequences arrive.",
+      "whyItMatters": "At the entry level, this gives students a familiar example of liminality. At the section level, it links the introduction to Going Pains and the wider theme of thresholds. At the year-theme level, it asks whether time spent in-between is a problem to escape quickly or a necessary space for growth, practice, and identity.",
+      "takeaway": "He is between childhood and expected responsibility",
+      "subjects": [
+        "Media / Film",
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Thresholds & Irreversibility",
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "\"I just can’t wait to be king,\" complains Simba",
+        "He is not quite one thing, not quite another",
+        "Are there advantages to life in the in-between",
+        "Would it be better if we transitioned more quickly from childhood to adulthood",
+        "“I Just Can’t Wait” as Impatience",
+        "Adolescence as a Threshold"
+      ],
+      "debateRelevance": "Useful when debating whether adolescence and other in-between stages should be shortened or treated as necessary spaces for growth.",
+      "counterargument": "Transition can be valuable, but some slow or unsupported transitions can also leave young people vulnerable.",
+      "visualSections": [
+        {
+          "title": "Simba, Teenagers, and Life in the In-Between",
+          "items": [
+            {
+              "kind": "video-slide",
+              "title": "“I Just Can’t Wait” as Impatience",
+              "note": "Simba wanted status and freedom, but as a teenager, was he ready for it? How impatient was he... Like any teenager maybe?",
+              "imageGuidance": "Use /imagesearch first for an official or reputable image/still related to “I Just Can’t Wait to Be King” or young Simba. This is a known animated film/song, so use the actual source image if available and do not generate a replacement film still. It must be very realistic in rendering of the source media, not anime, and it must be inspired by the app UI; WSC app mandatory. If no usable image exists, use a LINK button only.",
+              "videoGuidance": "Use /youtubesearch to find the official or clean educational clip for “I Just Can’t Wait to Be King,” or a short analysis of the song in The Lion King. Maximum 5-7 minutes.",
+              "links": [],
+              "url": "https://www.youtube.com/watch?v=ysb_gxJ8LE4",
+              "previewLabel": "Play I Just Can't Wait to Be King",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named Disney film/song example; preserve official source links rather than generating a replacement film still.",
+              "videoUrl": "https://www.youtube.com/watch?v=ysb_gxJ8LE4",
+              "videoLabel": "I Just Can't Wait to Be King"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "I Just Can't Wait to Be King",
+          "url": "https://www.youtube.com/watch?v=ysb_gxJ8LE4"
+        },
+        {
+          "title": "I Just Can't Wait to be King   Lyrics",
+          "url": "https://www.youtube.com/watch?v=x8EYP14lLyY"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Adolescence as a Threshold",
+          "note": "This slide links Simba’s impatience to the human experience of being between childhood and adulthood.",
+          "imageGuidance": "Use /imagesearch first for a realistic photograph representing adolescence as a threshold, such as a student standing between childhood objects and adult responsibilities. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image, use /imagecreator or /imagegen to create a realistic WSC-style threshold image of a teenager between two doors labeled childhood and adulthood.",
+          "videoGuidance": "Use /youtubesearch for a short educational video of maximum 5-7 minutes about adolescence as a developmental transition or coming-of-age stories.",
+          "links": [],
+          "src": "assets/raw-content/introductory-questions/adolescence-as-a-threshold.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Transition"
+      ],
+      "primaryBigIdea": "Thresholds & Irreversibility",
+      "secondaryBigIdeas": [
+        "Delayed Arrival",
+        "Narrated Endings",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Thresholds & Irreversibility",
+        "secondaryBigIdeas": [
+          "Delayed Arrival",
+          "Narrated Endings",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "Introductory Questions"
+    },
+    {
+      "id": "raw.introductory-questions.005",
+      "order": 5,
+      "sectionId": "introductory-questions",
+      "mediaIds": [
+        "asset.introductory-questions.raw.3d-television",
+        "asset.introductory-questions.raw.food-pills",
+        "asset.introductory-questions.raw.ford-nucleon-concept-car",
+        "asset.introductory-questions.raw.why-some-futures-stay-almost-there"
+      ],
+      "questionIds": [
+        "question.introductory-questions.100.005",
+        "question.introductory-questions.200.005"
+      ],
+      "title": "Technologies That Seemed Close but Never Arrived",
+      "guidingSection": "Introductory Questions",
+      "rawOfficialText": "Are there lessons we can learn from technologies that once seemed about to arrive—nuclear-powered cars, food pills, 3D televisions, and many more—but haven’t yet?",
+      "links": [
+        {
+          "label": "Smithsonian — Visions of nuclear-powered cars",
+          "url": "https://www.smithsonianmag.com/history/visions-of-nuclear-powered-cars-captivated-cold-war-america-but-the-technology-never-really-worked-180985437/"
+        },
+        {
+          "label": "The Henry Ford — Ford Nucleon artifact",
+          "url": "https://www.thehenryford.org/collections-and-research/digital-collections/artifact/278186"
+        },
+        {
+          "label": "IEEE Spectrum — Why 3-D TV failed",
+          "url": "https://spectrum.ieee.org/3d-tv-is-officially-dead-for-now-and-this-is-why-it-failed"
+        }
+      ],
+      "studentExplanation": "This entry is about futures that looked close because they matched the dreams of their moment, then failed when reality pushed back. Nuclear-powered cars came from the Atomic Age optimism of the late 1950s and early 1960s, with concept models such as the Ford Nucleon, Studebaker-Packard Astral, Arbel Symétric, and Seattle-ite XXI promising extreme range or futuristic travel. The problem was not imagination but practicality: reactors were too large, shielding too heavy, waste unresolved, and costs unsafe for ordinary cars. Food pills also sounded efficient in science fiction, feminism, population anxiety, and the space-race imagination, but pills cannot replace the calories, fiber, volume, and pleasure of meals. 3D television shows a third pattern: a technology can work technically and still fail if it is expensive, inconvenient, uncomfortable, or not useful enough.",
+      "whyItMatters": "At the entry level, this teaches students to question predictions instead of simply believing them. At the section level, it gives the introduction a bridge into futurism. At the year-theme level, it connects to prediction and progress by showing that some futures remain “almost there” because imagination moves faster than real-world adoption.",
+      "takeaway": "Prediction needs reality checks about use, risk, and adoption",
+      "subjects": [
+        "Sciences",
+        "History"
+      ],
+      "bigIdeas": [
+        "Managing Uncertainty",
+        "Visible vs Real",
+        "Performed Progress",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Nuclear-Powered Cars",
+        "Food Pills",
+        "3D Television",
+        "Why Some Futures Stay “Almost There”"
+      ],
+      "debateRelevance": "Useful when debating why some predicted futures fail and whether excitement is enough to make a technology practical.",
+      "counterargument": "Some technologies that seem delayed eventually do arrive after materials, markets, infrastructure, or habits change.",
+      "visualSections": [
+        {
+          "title": "Technologies That Seemed Close but Never Arrived",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Nuclear-Powered Cars",
+              "note": "The Ford Nucleon and similar concepts reflected Atomic Age optimism but failed because the engineering and safety problems were too large.",
+              "imageGuidance": "Use /imagesearch first for the real Ford Nucleon concept car/model from The Henry Ford or another reliable archive. This is a specific known object, so do not generate a fake nuclear car. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If the exact image cannot be embedded, keep a LINK button to the artifact/article.",
+              "videoGuidance": "Use /youtubesearch for a short educational video of maximum 5-7 minutes explaining the Ford Nucleon or nuclear-powered car concepts and why they never became practical.",
+              "links": [
+                {
+                  "label": "Smithsonian - Visions of nuclear-powered cars",
+                  "url": "https://www.smithsonianmag.com/history/visions-of-nuclear-powered-cars-captivated-cold-war-america-but-the-technology-never-really-worked-180985437/"
+                },
+                {
+                  "label": "The nucleon",
+                  "url": "https://www.youtube.com/watch?v=x4AN1oYX6yw"
+                }
+              ],
+              "url": "https://www.smithsonianmag.com/history/visions-of-nuclear-powered-cars-captivated-cold-war-america-but-the-technology-never-really-worked-180985437/",
+              "previewLabel": "Open source",
+              "imageMode": "source-image",
+              "imageLicense": "Public domain Ford Nucleon image via Wikimedia Commons",
+              "src": "assets/raw-content/introductory-questions/ford-nucleon-concept-car.jpg"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Food Pills",
+              "note": "Replacing meals with pills is an old idea. But just like the Nucleon, it might be too ambitious and unrealistic. Calories, nutrition, culture, and pleasure make that dream much harder than it sounds.",
+              "imageGuidance": "Use /imagesearch first for a realistic retrofuturist image or historical illustration of food pills/future meals. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no reliable visual exists, use /imagecreator or /imagegen to create a realistic WSC-style retrofuturist table with meal pills beside a normal plate, making the contrast clear.",
+              "videoGuidance": "Use /youtubesearch for a short educational video of maximum 5-7 minutes about food pills, meal replacements, or failed food futures. The video should explain the concept, not just advertise a product.",
+              "links": [
+                {
+                  "label": "What if?",
+                  "url": "https://www.youtube.com/watch?v=tXbkwi-nwB4"
+                }
+              ],
+              "src": "assets/raw-content/introductory-questions/food-pills.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=tXbkwi-nwB4",
+              "previewLabel": "Open source"
+            },
+            {
+              "kind": "text-slide",
+              "title": "3D Television",
+              "note": "3D televisions are actually technically possible. We can make them... but they failed. A technology can technically exist and still fail if the experience is inconvenient, expensive, uncomfortable, or not useful enough.",
+              "imageGuidance": "Use /imagesearch first for a realistic image of people watching 3D TV with glasses or a retail 3D TV display from a reputable tech source. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no perfect image exists, use /imagecreator or /imagegen to create a realistic WSC-style living room scene where 3D glasses, cost, and inconvenience are visually clear.",
+              "videoGuidance": "Use /youtubesearch for a short educational video of maximum 5-7 minutes explaining why 3D TV did not become a lasting mainstream technology.",
+              "links": [
+                {
+                  "label": "3d TV: fail futur",
+                  "url": "https://www.youtube.com/watch?v=99wyFEfhILo"
+                }
+              ],
+              "src": "assets/raw-content/introductory-questions/3d-television.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=99wyFEfhILo",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The nucleon",
+          "url": "https://www.youtube.com/watch?v=x4AN1oYX6yw"
+        },
+        {
+          "title": "Food pills: what if?",
+          "url": "https://www.youtube.com/watch?v=tXbkwi-nwB4"
+        },
+        {
+          "title": "3d TV: fail futur",
+          "url": "https://www.youtube.com/watch?v=99wyFEfhILo"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Why Some Futures Stay “Almost There”",
+          "note": "This slide compares failed or delayed technologies through barriers: safety, cost, comfort, demand, infrastructure, and timing.",
+          "imageGuidance": "Use /imagesearch first for a realistic chart or infographic about failed future technologies or technology adoption barriers. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no strong image exists, use /imagecreator or /imagegen to create a realistic WSC-style comparison board with columns for safety, cost, usefulness, demand, and timing.",
+          "videoGuidance": "Use /youtubesearch for a short educational video of maximum 5-7 minutes about failed future predictions or technologies that seemed close but never became normal.",
+          "links": [],
+          "src": "assets/raw-content/introductory-questions/why-some-futures-stay-almost-there.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Removed from visible slideshow by Video fix.docx; asset retained in project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Prediction",
+        "Progress"
+      ],
+      "primaryBigIdea": "Managing Uncertainty",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Performed Progress",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Managing Uncertainty",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Performed Progress",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "Introductory Questions"
+    },
+    {
+      "id": "raw.introductory-questions.006",
+      "order": 6,
+      "sectionId": "introductory-questions",
+      "mediaIds": [
+        "asset.introductory-questions.raw.starting-university-is-not-the-same-as-finishing",
+        "asset.introductory-questions.raw.unfinished-video-games",
+        "asset.introductory-questions.raw.why-finishing-is-harder-than-starting"
+      ],
+      "questionIds": [
+        "question.introductory-questions.100.006",
+        "question.introductory-questions.200.006"
+      ],
+      "title": "Things We Commit To but Do Not Finish",
+      "guidingSection": "Introductory Questions",
+      "rawOfficialText": "The truth is that sometimes we’ll never get there at all. Most videogames are left unfinished; nearly half of those who start university don’t get a degree. What do you think causes people to commit to things that they don’t complete—and are modern technologies making it easier or harder for us to get things done?",
+      "links": [
+        {
+          "label": "Game Informer — CNN report: only 10 percent of players finish games",
+          "url": "https://www.gameinformer.com/b/news/archive/2011/08/18/cnn-report-only-10-percent-of-players-finish-games.aspx"
+        },
+        {
+          "label": "National Student Clearinghouse — six-year college completion rates",
+          "url": "https://www.studentclearinghouse.org/nscblog/six-year-college-completion-rates-remain-robust/"
+        },
+        {
+          "label": "NCES — Undergraduate retention and graduation rates",
+          "url": "https://nces.ed.gov/programs/coe/indicator/ctr/undergrad-retention-graduation"
+        }
+      ],
+      "studentExplanation": "This entry turns “Are we there yet?” into the harder question: why do we start routes we never complete? Video games make this visible because many players begin large games but never reach the final mission; analyses point to older and busier players, too many games competing for attention, social media and app distractions, and the rise of multiplayer modes that reward short sessions more than long endings. University degrees, books, projects, and goals can fail for similar reasons: time, money, support, motivation, difficulty, and changing value. Modern tools can help by tracking tasks and breaking work into steps, but they can also create new exits and distractions. Not finishing is sometimes failure, but sometimes it is a rational decision that the destination no longer justifies the cost.",
+      "whyItMatters": "At the entry level, this helps students separate starting from finishing. At the section level, it gives the introduction a realistic counterpoint: some routes do not end in arrival. At the year-theme level, it connects to progress and delay because getting there depends on commitment, structure, support, and the ability to resist or manage distractions.",
+      "takeaway": "Incomplete journeys can come from structure, pressure, and motivation",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Delayed Arrival",
+        "Movement Without Arrival",
+        "Visible vs Real",
+        "Performed Progress"
+      ],
+      "examples": [
+        "The truth is that sometimes we’ll never get there at all",
+        "Most videogames are left unfinished",
+        "nearly half of those who start university don’t get a degree",
+        "Unfinished Video Games",
+        "Starting University Is Not the Same as Finishing",
+        "Why Finishing Is Harder Than Starting"
+      ],
+      "debateRelevance": "Useful when debating whether unfinished journeys should be judged as personal failures or understood through time, structure, support, and motivation.",
+      "counterargument": "Not finishing can sometimes be rational if a goal stops being valuable, safe, affordable, or meaningful.",
+      "visualSections": [
+        {
+          "title": "Things We Commit To but Do Not Finish",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Unfinished Video Games",
+              "note": "90% of players start games but do not finish them because attention, time, design, difficulty, and choice all affect completion.",
+              "imageGuidance": "Use /imagesearch first for a realistic image of a player’s game backlog, unfinished game screen, or progress menu. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image, use /imagecreator or /imagegen to create a realistic WSC-style image of a game library full of “unfinished” progress bars.",
+              "videoGuidance": "Use /youtubesearch for a short educational or analytical video of maximum 5-7 minutes explaining why players often do not finish games, focusing on backlog, time, design, difficulty, or motivation.",
+              "links": [
+                {
+                  "label": "Game Informer - CNN report: only 10 percent of players finish games",
+                  "url": "https://www.gameinformer.com/b/news/archive/2011/08/18/cnn-report-only-10-percent-of-players-finish-games.aspx"
+                },
+                {
+                  "label": "why you never finish a game?",
+                  "url": "https://www.youtube.com/watch?v=Z0gUnF1mCdM"
+                }
+              ],
+              "url": "https://www.gameinformer.com/b/news/archive/2011/08/18/cnn-report-only-10-percent-of-players-finish-games.aspx",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/introductory-questions/unfinished-video-games.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Starting University Is Not the Same as Finishing",
+              "note": "Getting a degree is not only about effort. It depends on support, money, time, responsibilities, institution type, and life events.",
+              "imageGuidance": "Use /imagesearch first for a realistic infographic about college completion or graduation rates from NCES, National Student Clearinghouse, or another reliable education source. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If no clean classroom-friendly infographic exists, use /imagecreator or /imagegen to create a realistic WSC-style progress path from enrollment to graduation with some students paused or diverted.",
+              "videoGuidance": "Use /youtubesearch for a short educational video of maximum 5-7 minutes about college completion, dropout, persistence, or barriers to finishing higher education.",
+              "links": [
+                {
+                  "label": "Financing students",
+                  "url": "https://www.youtube.com/watch?v=W4fE3d3f3YI"
+                }
+              ],
+              "src": "assets/raw-content/introductory-questions/starting-university-is-not-the-same-as-finishing.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=W4fE3d3f3YI",
+              "previewLabel": "Open source"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "why you never finish a game?",
+          "url": "https://www.youtube.com/watch?v=Z0gUnF1mCdM"
+        },
+        {
+          "title": "Financing students",
+          "url": "https://www.youtube.com/watch?v=W4fE3d3f3YI"
+        }
+      ],
+      "hiddenVisuals": [
+        {
+          "kind": "text-slide",
+          "title": "Why Finishing Is Harder Than Starting",
+          "note": "This slide connects games, school, travel, and projects: beginning is often exciting, but finishing requires time, support, structure, and renewed purpose.",
+          "imageGuidance": "Use /imagesearch first for a realistic image of an unfinished checklist, half-completed project board, or progress tracker. It must be very realistic, not anime, and it must be inspired by the app UI; WSC app mandatory. If /imagesearch cannot find a perfect image, use /imagecreator or /imagegen to create a realistic WSC-style progress board with several abandoned routes and one completed route.",
+          "videoGuidance": "Use /youtubesearch for a clear educational video of maximum 5-7 minutes about motivation, task completion, procrastination, or why people abandon goals.",
+          "links": [],
+          "src": "assets/raw-content/introductory-questions/why-finishing-is-harder-than-starting.jpg",
+          "preserveOriginalColor": true,
+          "imageMode": "generated-photorealistic",
+          "imageLicense": "Generated original project asset",
+          "hidden": true,
+          "hiddenReason": "Hidden by Video fix.docx; asset retained and YouTube search spans removed from visible project."
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Delay"
+      ],
+      "primaryBigIdea": "Delayed Arrival",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Visible vs Real",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Delayed Arrival",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Visible vs Real",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Introductory Questions"
+    }
+  ]
+}

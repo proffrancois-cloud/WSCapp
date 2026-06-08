@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Ranking storm stimulus</title>
+  <desc id="desc">A dashboard of rankings, maps, graphs, and comments shows progress becoming an argument about numbers and comparison.</desc>
+  <rect width="1280" height="720" fill="#f3f6f4"/>
+  <g transform="translate(64 58)">
+    <rect width="354" height="270" rx="12" fill="#ffffff" stroke="#b9c8c3"/>
+    <text x="28" y="46" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#20312d">GLOBAL PROGRESS INDEX</text>
+    <g font-family="Inter, Arial, sans-serif" font-size="23" font-weight="800">
+      <text x="30" y="94" fill="#1d725c">1. Country A +0.3</text>
+      <text x="30" y="134" fill="#9b6a16">17. Country B -2</text>
+      <text x="30" y="174" fill="#9b2f2f">83. Country C +12?</text>
+      <text x="30" y="214" fill="#344e68">Rank changed, life?</text>
+    </g>
+  </g>
+  <g transform="translate(466 58)">
+    <rect width="354" height="270" rx="12" fill="#ffffff" stroke="#b9c8c3"/>
+    <text x="28" y="46" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#20312d">MAP OF "BETTER"</text>
+    <path d="M72 130l64-40 86 22 56-40 48 88-78 34-74-21-70 44z" fill="#5ca890"/>
+    <path d="M96 158l42-20 52 26 78-26 24 48-68 24-64-18-48 24z" fill="#f2c56b"/>
+    <path d="M254 108l62-18 20 48-44 22z" fill="#cf5c4d"/>
+    <text x="32" y="236" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#6b4e16">green can hide who is losing</text>
+  </g>
+  <g transform="translate(868 58)">
+    <rect width="354" height="270" rx="12" fill="#ffffff" stroke="#b9c8c3"/>
+    <text x="28" y="46" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900" fill="#20312d">GDP LINE</text>
+    <polyline points="34,214 92,188 150,134 210,118 270,72 324,82" fill="none" stroke="#1f7a8c" stroke-width="10" stroke-linecap="round"/>
+    <polyline points="34,178 92,190 150,186 210,198 270,204 324,212" fill="none" stroke="#b3272d" stroke-width="7" stroke-linecap="round" stroke-dasharray="14 12"/>
+    <text x="34" y="248" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#6b4e16">one line rises, another story sags</text>
+  </g>
+  <g transform="translate(148 388)" font-family="Inter, Arial, sans-serif">
+    <rect width="984" height="238" rx="16" fill="#222a2c"/>
+    <text x="36" y="56" font-size="30" font-weight="900" fill="#f8f2e8">COMMENT THREAD</text>
+    <g font-size="23" font-weight="800">
+      <text x="38" y="106" fill="#ffffff">"We moved up five places. Why does rent feel worse?"</text>
+      <text x="38" y="148" fill="#ffce55">"Your metric ignores waiting, care, and trust."</text>
+      <text x="38" y="190" fill="#f08a70">"If we are winning, why is everyone mad?"</text>
+    </g>
+  </g>
+</svg>

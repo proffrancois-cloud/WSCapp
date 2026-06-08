@@ -1,0 +1,1175 @@
+{
+  "id": "questions.concluding-questions",
+  "sectionId": "concluding-questions",
+  "levels": {
+    "100": [
+      {
+        "id": "question.concluding-questions.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the sunk cost fallacy?",
+        "correctAnswer": "Continuing mainly because much has already been invested",
+        "wrongAnswers": [
+          "Stopping because the next step looks difficult",
+          "Choosing based only on future benefits",
+          "Changing goals after new information"
+        ],
+        "explanation": "Continuing mainly because much has already been invested.",
+        "visibleCorrectExplanation": "Continuing mainly because much has already been invested.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Stopping because the next step looks difficult",
+            "explanation": "That answer changes the point: Continuing mainly because much has already been invested."
+          },
+          {
+            "label": "C",
+            "answer": "Choosing based only on future benefits",
+            "explanation": "That answer changes the point: Continuing mainly because much has already been invested."
+          },
+          {
+            "label": "D",
+            "answer": "Changing goals after new information",
+            "explanation": "That answer changes the point: Continuing mainly because much has already been invested."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_1_019",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_1_019",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.001"
+      },
+      {
+        "id": "question.concluding-questions.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Is exact waiting time always helpful?",
+        "correctAnswer": "No, timing can sometimes increase stress",
+        "wrongAnswers": [
+          "Yes, timing always improves emotions",
+          "No, clocks are usually inaccurate",
+          "Yes, uncertainty never helps people"
+        ],
+        "explanation": "No, timing can sometimes increase stress.",
+        "visibleCorrectExplanation": "No, timing can sometimes increase stress.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Yes, timing always improves emotions",
+            "explanation": "That answer changes the point: No, timing can sometimes increase stress."
+          },
+          {
+            "label": "C",
+            "answer": "No, clocks are usually inaccurate",
+            "explanation": "That answer changes the point: No, timing can sometimes increase stress."
+          },
+          {
+            "label": "D",
+            "answer": "Yes, uncertainty never helps people",
+            "explanation": "That answer changes the point: No, timing can sometimes increase stress."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_2_028",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_2_028",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.002"
+      },
+      {
+        "id": "question.concluding-questions.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is Zeno’s dichotomy paradox about?",
+        "correctAnswer": "A journey divided into endless halfway steps",
+        "wrongAnswers": [
+          "A race decided only by speed",
+          "A route marked by distance but not divided into endless steps",
+          "A measure of time rather than a division of distance"
+        ],
+        "explanation": "A journey divided into endless halfway steps.",
+        "visibleCorrectExplanation": "A journey divided into endless halfway steps.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A race decided only by speed",
+            "explanation": "That answer changes the point: A journey divided into endless halfway steps."
+          },
+          {
+            "label": "C",
+            "answer": "A route marked by distance but not divided into endless steps",
+            "explanation": "That answer changes the point: A journey divided into endless halfway steps."
+          },
+          {
+            "label": "D",
+            "answer": "A measure of time rather than a division of distance",
+            "explanation": "That answer changes the point: A journey divided into endless halfway steps."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_3_033",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_3_033",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.003"
+      },
+      {
+        "id": "question.concluding-questions.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is patience?",
+        "correctAnswer": "Tolerating delay or uncertainty without losing control",
+        "wrongAnswers": [
+          "Avoiding every goal that takes time",
+          "Knowing exactly when waiting will end",
+          "Enjoying boredom in every situation"
+        ],
+        "explanation": "Tolerating delay or uncertainty without losing control.",
+        "visibleCorrectExplanation": "Tolerating delay or uncertainty without losing control.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Avoiding every goal that takes time",
+            "explanation": "That answer changes the point: Tolerating delay or uncertainty without losing control."
+          },
+          {
+            "label": "C",
+            "answer": "Knowing exactly when waiting will end",
+            "explanation": "That answer changes the point: Tolerating delay or uncertainty without losing control."
+          },
+          {
+            "label": "D",
+            "answer": "Enjoying boredom in every situation",
+            "explanation": "That answer changes the point: Tolerating delay or uncertainty without losing control."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_4_001",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_4_001",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.004"
+      },
+      {
+        "id": "question.concluding-questions.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What did “the War to End All Wars” express?",
+        "correctAnswer": "A hope that major war could finally stop",
+        "wrongAnswers": [
+          "A plan for permanent military expansion",
+          "A belief that history had no conflicts",
+          "A name for every war after 1918"
+        ],
+        "explanation": "A hope that major war could finally stop.",
+        "visibleCorrectExplanation": "A hope that major war could finally stop.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A plan for permanent military expansion",
+            "explanation": "That answer changes the point: A hope that major war could finally stop."
+          },
+          {
+            "label": "C",
+            "answer": "A belief that history had no conflicts",
+            "explanation": "That answer changes the point: A hope that major war could finally stop."
+          },
+          {
+            "label": "D",
+            "answer": "A name for every war after 1918",
+            "explanation": "That answer changes the point: A hope that major war could finally stop."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_5_043",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_5_043",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.005"
+      },
+      {
+        "id": "question.concluding-questions.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is an ambiguous ending?",
+        "correctAnswer": "An ending that leaves key meaning open to interpretation",
+        "wrongAnswers": [
+          "An ending with no final scene at all",
+          "An ending that repeats the opening scene",
+          "An ending that explains every question"
+        ],
+        "explanation": "An ending that leaves key meaning open to interpretation.",
+        "visibleCorrectExplanation": "An ending that leaves key meaning open to interpretation.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "An ending with no final scene at all",
+            "explanation": "That answer changes the point: An ending that leaves key meaning open to interpretation."
+          },
+          {
+            "label": "C",
+            "answer": "An ending that repeats the opening scene",
+            "explanation": "That answer changes the point: An ending that leaves key meaning open to interpretation."
+          },
+          {
+            "label": "D",
+            "answer": "An ending that explains every question",
+            "explanation": "That answer changes the point: An ending that leaves key meaning open to interpretation."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_6_016",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_6_016",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.006"
+      },
+      {
+        "id": "question.concluding-questions.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does “we’re there” signal in a journey?",
+        "correctAnswer": "A moment of arrival or completion",
+        "wrongAnswers": [
+          "A wrong turn before the start",
+          "A refusal to move forward",
+          "A route with no destination"
+        ],
+        "explanation": "A moment of arrival or completion.",
+        "visibleCorrectExplanation": "A moment of arrival or completion.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A wrong turn before the start",
+            "explanation": "That answer changes the point: A moment of arrival or completion."
+          },
+          {
+            "label": "C",
+            "answer": "A refusal to move forward",
+            "explanation": "That answer changes the point: A moment of arrival or completion."
+          },
+          {
+            "label": "D",
+            "answer": "A route with no destination",
+            "explanation": "That answer changes the point: A moment of arrival or completion."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_concluding-questions_7_053",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_concluding-questions_7_053",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.007"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.concluding-questions.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which choice best avoids the sunk cost fallacy?",
+        "correctAnswer": "Comparing future costs and benefits before continuing",
+        "wrongAnswers": [
+          "Finishing every project already started",
+          "Ignoring new evidence to stay consistent",
+          "Counting past effort as future value"
+        ],
+        "explanation": "Comparing future costs and benefits before continuing.",
+        "visibleCorrectExplanation": "Comparing future costs and benefits before continuing.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Finishing every project already started",
+            "explanation": "That answer changes the point: Comparing future costs and benefits before continuing."
+          },
+          {
+            "label": "C",
+            "answer": "Ignoring new evidence to stay consistent",
+            "explanation": "That answer changes the point: Comparing future costs and benefits before continuing."
+          },
+          {
+            "label": "D",
+            "answer": "Counting past effort as future value",
+            "explanation": "That answer changes the point: Comparing future costs and benefits before continuing."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_1_153",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_1_153",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.001"
+      },
+      {
+        "id": "question.concluding-questions.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "When is exact timing especially useful?",
+        "correctAnswer": "When it helps planning, safety, or logistics",
+        "wrongAnswers": [
+          "When it gives no control over events",
+          "When it makes a long wait feel heavier",
+          "When it replaces every decision"
+        ],
+        "explanation": "When it helps planning, safety, or logistics.",
+        "visibleCorrectExplanation": "When it helps planning, safety, or logistics.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "When it gives no control over events",
+            "explanation": "That answer changes the point: When it helps planning, safety, or logistics."
+          },
+          {
+            "label": "C",
+            "answer": "When it makes a long wait feel heavier",
+            "explanation": "That answer changes the point: When it helps planning, safety, or logistics."
+          },
+          {
+            "label": "D",
+            "answer": "When it replaces every decision",
+            "explanation": "That answer changes the point: When it helps planning, safety, or logistics."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_2_120",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_2_120",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.002"
+      },
+      {
+        "id": "question.concluding-questions.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does the dichotomy paradox feel convincing?",
+        "correctAnswer": "It turns one trip into infinitely many small tasks",
+        "wrongAnswers": [
+          "It proves people never actually walk",
+          "It treats the problem as a hard route, not an endless division",
+          "It says faster movement alone solves every step of the journey"
+        ],
+        "explanation": "It turns one trip into infinitely many small tasks.",
+        "visibleCorrectExplanation": "It turns one trip into infinitely many small tasks.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves people never actually walk",
+            "explanation": "That answer changes the point: It turns one trip into infinitely many small tasks."
+          },
+          {
+            "label": "C",
+            "answer": "It treats the problem as a hard route, not an endless division",
+            "explanation": "That answer changes the point: It turns one trip into infinitely many small tasks."
+          },
+          {
+            "label": "D",
+            "answer": "It says faster movement alone solves every step of the journey",
+            "explanation": "That answer changes the point: It turns one trip into infinitely many small tasks."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_3_154",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_3_154",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.003"
+      },
+      {
+        "id": "question.concluding-questions.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What can help people wait more calmly?",
+        "correctAnswer": "Trust, self-control, habit, or future reward",
+        "wrongAnswers": [
+          "Ignoring the reason for the delay",
+          "Believing frustration never appears",
+          "Having no expectations at all"
+        ],
+        "explanation": "Trust, self-control, habit, or future reward.",
+        "visibleCorrectExplanation": "Trust, self-control, habit, or future reward.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Ignoring the reason for the delay",
+            "explanation": "That answer changes the point: Trust, self-control, habit, or future reward."
+          },
+          {
+            "label": "C",
+            "answer": "Believing frustration never appears",
+            "explanation": "That answer changes the point: Trust, self-control, habit, or future reward."
+          },
+          {
+            "label": "D",
+            "answer": "Having no expectations at all",
+            "explanation": "That answer changes the point: Trust, self-control, habit, or future reward."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_4_117",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_4_117",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.004"
+      },
+      {
+        "id": "question.concluding-questions.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What did Fukuyama’s “End of History” mainly argue?",
+        "correctAnswer": "Liberal democracy seemed to have no stronger ideological rival",
+        "wrongAnswers": [
+          "Historical events would stop completely",
+          "All countries had become identical democracies",
+          "Politics had become unnecessary everywhere"
+        ],
+        "explanation": "Liberal democracy seemed to have no stronger ideological rival.",
+        "visibleCorrectExplanation": "Liberal democracy seemed to have no stronger ideological rival.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Historical events would stop completely",
+            "explanation": "That answer changes the point: Liberal democracy seemed to have no stronger ideological rival."
+          },
+          {
+            "label": "C",
+            "answer": "All countries had become identical democracies",
+            "explanation": "That answer changes the point: Liberal democracy seemed to have no stronger ideological rival."
+          },
+          {
+            "label": "D",
+            "answer": "Politics had become unnecessary everywhere",
+            "explanation": "That answer changes the point: Liberal democracy seemed to have no stronger ideological rival."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_5_160",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_5_160",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.005"
+      },
+      {
+        "id": "question.concluding-questions.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why might a creator choose an open ending?",
+        "correctAnswer": "To make the audience keep interpreting the story",
+        "wrongAnswers": [
+          "To avoid all responsibility for structure",
+          "To guarantee every viewer feels satisfied",
+          "To remove emotion from the final scene"
+        ],
+        "explanation": "To make the audience keep interpreting the story.",
+        "visibleCorrectExplanation": "To make the audience keep interpreting the story.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To avoid all responsibility for structure",
+            "explanation": "That answer changes the point: To make the audience keep interpreting the story."
+          },
+          {
+            "label": "C",
+            "answer": "To guarantee every viewer feels satisfied",
+            "explanation": "That answer changes the point: To make the audience keep interpreting the story."
+          },
+          {
+            "label": "D",
+            "answer": "To remove emotion from the final scene",
+            "explanation": "That answer changes the point: To make the audience keep interpreting the story."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_6_135",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_6_135",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.006"
+      },
+      {
+        "id": "question.concluding-questions.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does “where do we go next?” suggest?",
+        "correctAnswer": "Arrival can open another direction",
+        "wrongAnswers": [
+          "Every journey was a mistake",
+          "Destinations never matter at all",
+          "Progress stops after success"
+        ],
+        "explanation": "Arrival can open another direction.",
+        "visibleCorrectExplanation": "Arrival can open another direction.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Every journey was a mistake",
+            "explanation": "That answer changes the point: Arrival can open another direction."
+          },
+          {
+            "label": "C",
+            "answer": "Destinations never matter at all",
+            "explanation": "That answer changes the point: Arrival can open another direction."
+          },
+          {
+            "label": "D",
+            "answer": "Progress stops after success",
+            "explanation": "That answer changes the point: Arrival can open another direction."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_concluding-questions_7_132",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_concluding-questions_7_132",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.concluding-questions.007"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.concluding-questions.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Closure can be emotional, narrative, legal, or symbolic. Which idea gives the best comparison?",
+        "correctAnswer": "Perseverance and quitting",
+        "wrongAnswers": [
+          "Arrival paradox",
+          "Linear vs cyclical progress",
+          "Historical endings are messy"
+        ],
+        "explanation": "Correct: Perseverance and quitting.",
+        "visibleCorrectExplanation": "Correct: Perseverance and quitting.",
+        "visibleConnection": "The question starts from a concrete detail in Closure vs continuation: Closure can be emotional, narrative, legal, or symbolic. It is really asking which answer handles a similar pressure. Perseverance and quitting is the best connection because it turns not-arriving into an ethical decision: continuing and stopping can both be wise depending on cost and purpose. Both ideas ask alpacas to notice that Closure is often emotional packaging. Consequences keep moving after the ending has been named.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions__220",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions__220",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Arrival paradox",
+            "explanation": "That answer changes the point: Perseverance and quitting."
+          },
+          {
+            "label": "C",
+            "answer": "Linear vs cyclical progress",
+            "explanation": "That answer changes the point: Perseverance and quitting."
+          },
+          {
+            "label": "D",
+            "answer": "Historical endings are messy",
+            "explanation": "That answer changes the point: Perseverance and quitting."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Arrival paradox?",
+        "correctAnswer": "Linear vs cyclical progress",
+        "wrongAnswers": [
+          "Historical endings are messy",
+          "What counts as 'there'",
+          "Closure vs continuation"
+        ],
+        "explanation": "Correct: Linear vs cyclical progress.",
+        "visibleCorrectExplanation": "Correct: Linear vs cyclical progress.",
+        "visibleConnection": "The question starts from a concrete detail in Arrival paradox: Desire is often sustained by pursuit. It is really asking which answer handles a similar pressure. Linear vs cyclical progress is the best connection because it tests whether movement should be imagined as a line forward or as repeated return, revision, and recurrence. Both ideas ask alpacas to notice that Arrival disappoints when the imagined endpoint was doing more emotional work than the real destination can carry.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions__221",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions__221",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Historical endings are messy",
+            "explanation": "That answer changes the point: Linear vs cyclical progress."
+          },
+          {
+            "label": "C",
+            "answer": "What counts as 'there'",
+            "explanation": "That answer changes the point: Linear vs cyclical progress."
+          },
+          {
+            "label": "D",
+            "answer": "Closure vs continuation",
+            "explanation": "That answer changes the point: Linear vs cyclical progress."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Historical endings are messy into a different form?",
+        "correctAnswer": "What counts as 'there'",
+        "wrongAnswers": [
+          "Closure vs continuation",
+          "Perseverance and quitting",
+          "Arrival paradox"
+        ],
+        "explanation": "Correct: What counts as 'there'.",
+        "visibleCorrectExplanation": "Correct: What counts as 'there'.",
+        "visibleConnection": "The question starts from a concrete detail in Historical endings are messy: A legal end and a lived end may differ. It is really asking which answer handles a similar pressure. What counts as 'there' is the best connection because it makes the final destination a negotiated category rather than a place; “there” depends on who is counting and why. Both ideas ask alpacas to notice that History rarely ends cleanly. It leaves residues that make the next chapter less new than it claims.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions__222",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions__222",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Closure vs continuation",
+            "explanation": "That answer changes the point: What counts as 'there'."
+          },
+          {
+            "label": "C",
+            "answer": "Perseverance and quitting",
+            "explanation": "That answer changes the point: What counts as 'there'."
+          },
+          {
+            "label": "D",
+            "answer": "Arrival paradox",
+            "explanation": "That answer changes the point: What counts as 'there'."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Linear vs cyclical progress?",
+        "correctAnswer": "Historical endings are messy",
+        "wrongAnswers": [
+          "What counts as 'there'",
+          "Closure vs continuation",
+          "Perseverance and quitting"
+        ],
+        "explanation": "Correct: Historical endings are messy.",
+        "visibleCorrectExplanation": "Correct: Historical endings are messy.",
+        "visibleConnection": "The question starts from a concrete detail in Linear vs cyclical progress: Some systems repeat seasons or cycles. It is really asking which answer handles a similar pressure. Historical endings are messy is the best connection because it rejects clean period breaks; historical endings leak into the next era through habits, trauma, institutions, and unfinished conflicts. Both ideas ask alpacas to notice that Linear progress is comforting because it promises distance from the past. Cyclical thinking notices returns, repetitions, and unfinished patterns.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions__223",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions__223",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "What counts as 'there'",
+            "explanation": "That answer changes the point: Historical endings are messy."
+          },
+          {
+            "label": "C",
+            "answer": "Closure vs continuation",
+            "explanation": "That answer changes the point: Historical endings are messy."
+          },
+          {
+            "label": "D",
+            "answer": "Perseverance and quitting",
+            "explanation": "That answer changes the point: Historical endings are messy."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Perseverance and quitting?",
+        "correctAnswer": "Historical endings are messy",
+        "wrongAnswers": [
+          "What counts as 'there'",
+          "Closure vs continuation",
+          "Arrival paradox"
+        ],
+        "explanation": "Correct: Historical endings are messy.",
+        "visibleCorrectExplanation": "Correct: Historical endings are messy.",
+        "visibleConnection": "The question starts from a concrete detail in Perseverance and quitting: Perseverance is often praised. It is really asking which answer handles a similar pressure. Historical endings are messy is the best connection because it rejects clean period breaks; historical endings leak into the next era through habits, trauma, institutions, and unfinished conflicts. Both ideas ask alpacas to notice that The moral story of persistence is incomplete without cost, purpose, and the possibility that stopping is wise.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions__224",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions__224",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "What counts as 'there'",
+            "explanation": "That answer changes the point: Historical endings are messy."
+          },
+          {
+            "label": "C",
+            "answer": "Closure vs continuation",
+            "explanation": "That answer changes the point: Historical endings are messy."
+          },
+          {
+            "label": "D",
+            "answer": "Arrival paradox",
+            "explanation": "That answer changes the point: Historical endings are messy."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can sunk costs feel emotionally powerful?",
+        "correctAnswer": "People dislike feeling that past effort was wasted",
+        "wrongAnswers": [
+          "People prefer decisions with no history",
+          "Past effort always predicts future success",
+          "Quitting removes every future problem"
+        ],
+        "explanation": "Correct: People dislike feeling that past effort was wasted.",
+        "visibleCorrectExplanation": "Correct: People dislike feeling that past effort was wasted.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_1_295",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_1_295",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "People prefer decisions with no history",
+            "explanation": "That answer changes the point: People dislike feeling that past effort was wasted."
+          },
+          {
+            "label": "C",
+            "answer": "Past effort always predicts future success",
+            "explanation": "That answer changes the point: People dislike feeling that past effort was wasted."
+          },
+          {
+            "label": "D",
+            "answer": "Quitting removes every future problem",
+            "explanation": "That answer changes the point: People dislike feeling that past effort was wasted."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can uncertainty sometimes feel easier?",
+        "correctAnswer": "It may protect hope and reduce minute-by-minute focus",
+        "wrongAnswers": [
+          "It always makes waiting shorter",
+          "It removes the outcome completely",
+          "It guarantees a calmer response"
+        ],
+        "explanation": "Correct: It may protect hope and reduce minute-by-minute focus.",
+        "visibleCorrectExplanation": "Correct: It may protect hope and reduce minute-by-minute focus.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_2_296",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_2_296",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It always makes waiting shorter",
+            "explanation": "That answer changes the point: It may protect hope and reduce minute-by-minute focus."
+          },
+          {
+            "label": "C",
+            "answer": "It removes the outcome completely",
+            "explanation": "That answer changes the point: It may protect hope and reduce minute-by-minute focus."
+          },
+          {
+            "label": "D",
+            "answer": "It guarantees a calmer response",
+            "explanation": "That answer changes the point: It may protect hope and reduce minute-by-minute focus."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does a modern mathematical response emphasize?",
+        "correctAnswer": "Infinite smaller parts can have a finite total",
+        "wrongAnswers": [
+          "All paradoxes disappear if ignored",
+          "Motion works only on short journeys",
+          "Ancient logic cannot use examples"
+        ],
+        "explanation": "Correct: Infinite smaller parts can have a finite total.",
+        "visibleCorrectExplanation": "Correct: Infinite smaller parts can have a finite total.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_3_297",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_3_297",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "All paradoxes disappear if ignored",
+            "explanation": "That answer changes the point: Infinite smaller parts can have a finite total."
+          },
+          {
+            "label": "C",
+            "answer": "Motion works only on short journeys",
+            "explanation": "That answer changes the point: Infinite smaller parts can have a finite total."
+          },
+          {
+            "label": "D",
+            "answer": "Ancient logic cannot use examples",
+            "explanation": "That answer changes the point: Infinite smaller parts can have a finite total."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can cultures value patience differently?",
+        "correctAnswer": "They teach different attitudes toward time and restraint",
+        "wrongAnswers": [
+          "They all define waiting in the same way",
+          "Patience exists only in formal ceremonies",
+          "Culture has no effect on emotions"
+        ],
+        "explanation": "Correct: They teach different attitudes toward time and restraint.",
+        "visibleCorrectExplanation": "Correct: They teach different attitudes toward time and restraint.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_4_298",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_4_298",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They all define waiting in the same way",
+            "explanation": "That answer changes the point: They teach different attitudes toward time and restraint."
+          },
+          {
+            "label": "C",
+            "answer": "Patience exists only in formal ceremonies",
+            "explanation": "That answer changes the point: They teach different attitudes toward time and restraint."
+          },
+          {
+            "label": "D",
+            "answer": "Culture has no effect on emotions",
+            "explanation": "That answer changes the point: They teach different attitudes toward time and restraint."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why are both claims difficult to accept today?",
+        "correctAnswer": "Later conflict showed that final closure was fragile",
+        "wrongAnswers": [
+          "No one believed them when they appeared",
+          "Peace became permanent after World War I",
+          "Democracy disappeared immediately in 1989"
+        ],
+        "explanation": "Correct: Later conflict showed that final closure was fragile.",
+        "visibleCorrectExplanation": "Correct: Later conflict showed that final closure was fragile.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_5_299",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_5_299",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "No one believed them when they appeared",
+            "explanation": "That answer changes the point: Later conflict showed that final closure was fragile."
+          },
+          {
+            "label": "C",
+            "answer": "Peace became permanent after World War I",
+            "explanation": "That answer changes the point: Later conflict showed that final closure was fragile."
+          },
+          {
+            "label": "D",
+            "answer": "Democracy disappeared immediately in 1989",
+            "explanation": "That answer changes the point: Later conflict showed that final closure was fragile."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How is cancellation different from deliberate ambiguity?",
+        "correctAnswer": "Cancellation interrupts resolution; design uses uncertainty on purpose",
+        "wrongAnswers": [
+          "Cancellation always creates better endings",
+          "Deliberate ambiguity means nothing was planned",
+          "Both forms always have the same effect"
+        ],
+        "explanation": "Correct: Cancellation interrupts resolution; design uses uncertainty on purpose.",
+        "visibleCorrectExplanation": "Correct: Cancellation interrupts resolution; design uses uncertainty on purpose.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_6_300",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_6_300",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Cancellation always creates better endings",
+            "explanation": "That answer changes the point: Cancellation interrupts resolution; design uses uncertainty on purpose."
+          },
+          {
+            "label": "C",
+            "answer": "Deliberate ambiguity means nothing was planned",
+            "explanation": "That answer changes the point: Cancellation interrupts resolution; design uses uncertainty on purpose."
+          },
+          {
+            "label": "D",
+            "answer": "Both forms always have the same effect",
+            "explanation": "That answer changes the point: Cancellation interrupts resolution; design uses uncertainty on purpose."
+          }
+        ]
+      },
+      {
+        "id": "question.concluding-questions.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can an ending become a threshold?",
+        "correctAnswer": "It closes one stage while opening another",
+        "wrongAnswers": [
+          "It removes every future decision",
+          "It proves the journey did not matter",
+          "It makes progress impossible"
+        ],
+        "explanation": "Correct: It closes one stage while opening another.",
+        "visibleCorrectExplanation": "Correct: It closes one stage while opening another.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_concluding-questions_7_301",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "concluding-questions",
+        "sectionIds": [
+          "concluding-questions"
+        ],
+        "guidingSectionPrimary": "Concluding Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_concluding-questions_7_301",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes every future decision",
+            "explanation": "That answer changes the point: It closes one stage while opening another."
+          },
+          {
+            "label": "C",
+            "answer": "It proves the journey did not matter",
+            "explanation": "That answer changes the point: It closes one stage while opening another."
+          },
+          {
+            "label": "D",
+            "answer": "It makes progress impossible",
+            "explanation": "That answer changes the point: It closes one stage while opening another."
+          }
+        ]
+      }
+    ]
+  }
+}

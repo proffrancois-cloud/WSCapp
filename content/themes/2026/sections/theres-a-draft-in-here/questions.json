@@ -1,0 +1,639 @@
+{
+  "id": "questions.theres-a-draft-in-here",
+  "sectionId": "theres-a-draft-in-here",
+  "levels": {
+    "100": [
+      {
+        "id": "question.theres-a-draft-in-here.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a draft in the creative process?",
+        "correctAnswer": "An early version used to develop a work",
+        "wrongAnswers": [
+          "A final version prepared for public display",
+          "A copy made only after a work is famous",
+          "A label used only for unfinished schoolwork"
+        ],
+        "explanation": "An early version used to develop a work.",
+        "visibleCorrectExplanation": "An early version used to develop a work.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A final version prepared for public display",
+            "explanation": "That answer changes the point: An early version used to develop a work."
+          },
+          {
+            "label": "C",
+            "answer": "A copy made only after a work is famous",
+            "explanation": "That answer changes the point: An early version used to develop a work."
+          },
+          {
+            "label": "D",
+            "answer": "A label used only for unfinished schoolwork",
+            "explanation": "That answer changes the point: An early version used to develop a work."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_theres-a-draft-in-here_1_039",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_theres-a-draft-in-here_1_039",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.theres-a-draft-in-here.001"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a demo in songwriting?",
+        "correctAnswer": "An early recording that tests a song idea",
+        "wrongAnswers": [
+          "A final master prepared for official release",
+          "A concert version recorded after a tour",
+          "A remix made only for radio promotion"
+        ],
+        "explanation": "An early recording that tests a song idea.",
+        "visibleCorrectExplanation": "An early recording that tests a song idea.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A final master prepared for official release",
+            "explanation": "That answer changes the point: An early recording that tests a song idea."
+          },
+          {
+            "label": "C",
+            "answer": "A concert version recorded after a tour",
+            "explanation": "That answer changes the point: An early recording that tests a song idea."
+          },
+          {
+            "label": "D",
+            "answer": "A remix made only for radio promotion",
+            "explanation": "That answer changes the point: An early recording that tests a song idea."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_theres-a-draft-in-here_2_020",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_theres-a-draft-in-here_2_020",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.theres-a-draft-in-here.002"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a cut song?",
+        "correctAnswer": "A song written or recorded but left out of the final work",
+        "wrongAnswers": [
+          "A song shortened only for radio play after release",
+          "A song performed only during the closing credits",
+          "A song that becomes popular before it is written"
+        ],
+        "explanation": "A song written or recorded but left out of the final work.",
+        "visibleCorrectExplanation": "A song written or recorded but left out of the final work.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A song shortened only for radio play after release",
+            "explanation": "That answer changes the point: A song written or recorded but left out of the final work."
+          },
+          {
+            "label": "C",
+            "answer": "A song performed only during the closing credits",
+            "explanation": "That answer changes the point: A song written or recorded but left out of the final work."
+          },
+          {
+            "label": "D",
+            "answer": "A song that becomes popular before it is written",
+            "explanation": "That answer changes the point: A song written or recorded but left out of the final work."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_theres-a-draft-in-here_3_003",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_theres-a-draft-in-here_3_003",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.theres-a-draft-in-here.003"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.theres-a-draft-in-here.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What do the artwork pairs in the creative process mainly show?",
+        "correctAnswer": "Famous works can grow through versions and revisions",
+        "wrongAnswers": [
+          "Great artists never repeat the same idea twice",
+          "Drafts are useful only when they look unfinished",
+          "Final artworks always erase earlier versions completely"
+        ],
+        "explanation": "Famous works can grow through versions and revisions.",
+        "visibleCorrectExplanation": "Famous works can grow through versions and revisions.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Great artists never repeat the same idea twice",
+            "explanation": "That answer changes the point: Famous works can grow through versions and revisions."
+          },
+          {
+            "label": "C",
+            "answer": "Drafts are useful only when they look unfinished",
+            "explanation": "That answer changes the point: Famous works can grow through versions and revisions."
+          },
+          {
+            "label": "D",
+            "answer": "Final artworks always erase earlier versions completely",
+            "explanation": "That answer changes the point: Famous works can grow through versions and revisions."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_theres-a-draft-in-here_1_209",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_theres-a-draft-in-here_1_209",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.theres-a-draft-in-here.001"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What can listeners compare between a demo and a final song?",
+        "correctAnswer": "Changes in arrangement, performance, and production",
+        "wrongAnswers": [
+          "Only the number of people in the audience",
+          "Whether the song title has become shorter",
+          "The legal owner of the recording contract"
+        ],
+        "explanation": "Changes in arrangement, performance, and production.",
+        "visibleCorrectExplanation": "Changes in arrangement, performance, and production.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Only the number of people in the audience",
+            "explanation": "That answer changes the point: Changes in arrangement, performance, and production."
+          },
+          {
+            "label": "C",
+            "answer": "Whether the song title has become shorter",
+            "explanation": "That answer changes the point: Changes in arrangement, performance, and production."
+          },
+          {
+            "label": "D",
+            "answer": "The legal owner of the recording contract",
+            "explanation": "That answer changes the point: Changes in arrangement, performance, and production."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_theres-a-draft-in-here_2_194",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_theres-a-draft-in-here_2_194",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.theres-a-draft-in-here.002"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why might a good song still be removed from a film or musical?",
+        "correctAnswer": "It may no longer fit the story, tone, or pacing",
+        "wrongAnswers": [
+          "It always means the song was poorly written",
+          "It proves the composer wanted fewer songs overall",
+          "It usually happens because audiences heard it early"
+        ],
+        "explanation": "It may no longer fit the story, tone, or pacing.",
+        "visibleCorrectExplanation": "It may no longer fit the story, tone, or pacing.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It always means the song was poorly written",
+            "explanation": "That answer changes the point: It may no longer fit the story, tone, or pacing."
+          },
+          {
+            "label": "C",
+            "answer": "It proves the composer wanted fewer songs overall",
+            "explanation": "That answer changes the point: It may no longer fit the story, tone, or pacing."
+          },
+          {
+            "label": "D",
+            "answer": "It usually happens because audiences heard it early",
+            "explanation": "That answer changes the point: It may no longer fit the story, tone, or pacing."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_theres-a-draft-in-here_3_199",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_theres-a-draft-in-here_3_199",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.theres-a-draft-in-here.003"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.theres-a-draft-in-here.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Drafts are exploratory. Which idea gives the best comparison?",
+        "correctAnswer": "Revision as thinking",
+        "wrongAnswers": [
+          "Demo culture in music",
+          "Manuscripts and crossed-out thinking",
+          "Unfinished masterpieces"
+        ],
+        "explanation": "Correct: Revision as thinking.",
+        "visibleCorrectExplanation": "Correct: Revision as thinking.",
+        "visibleConnection": "The question starts from a concrete detail in Draft vs final version: Drafts are exploratory. It is really asking which answer handles a similar pressure. Revision as thinking is the best connection because it treats revision as discovery, not cleanup; the work finds its shape while being changed. Both ideas ask alpacas to notice that A draft can be less polished and more revealing. It shows choices before they harden into the official version.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here__270",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here__270",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Demo culture in music",
+            "explanation": "That answer changes the point: Revision as thinking."
+          },
+          {
+            "label": "C",
+            "answer": "Manuscripts and crossed-out thinking",
+            "explanation": "That answer changes the point: Revision as thinking."
+          },
+          {
+            "label": "D",
+            "answer": "Unfinished masterpieces",
+            "explanation": "That answer changes the point: Revision as thinking."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Demo culture in music?",
+        "correctAnswer": "Manuscripts and crossed-out thinking",
+        "wrongAnswers": [
+          "Unfinished masterpieces",
+          "Premature polish",
+          "Educational draft culture"
+        ],
+        "explanation": "Correct: Manuscripts and crossed-out thinking.",
+        "visibleCorrectExplanation": "Correct: Manuscripts and crossed-out thinking.",
+        "visibleConnection": "The question starts from a concrete detail in Demo culture in music: Demos are often rougher and less polished. It is really asking which answer handles a similar pressure. Manuscripts and crossed-out thinking is the best connection because it makes thought visible on the page, turning deleted words and revisions into evidence of decisions. Both ideas ask alpacas to notice that Demos attract listeners because roughness can feel closer to the moment of creation than the polished release.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here__271",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here__271",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Unfinished masterpieces",
+            "explanation": "That answer changes the point: Manuscripts and crossed-out thinking."
+          },
+          {
+            "label": "C",
+            "answer": "Premature polish",
+            "explanation": "That answer changes the point: Manuscripts and crossed-out thinking."
+          },
+          {
+            "label": "D",
+            "answer": "Educational draft culture",
+            "explanation": "That answer changes the point: Manuscripts and crossed-out thinking."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Unfinished masterpieces into a different form?",
+        "correctAnswer": "Premature polish",
+        "wrongAnswers": [
+          "Educational draft culture",
+          "Draft vs final version",
+          "Revision as thinking"
+        ],
+        "explanation": "Correct: Premature polish.",
+        "visibleCorrectExplanation": "Correct: Premature polish.",
+        "visibleConnection": "The question starts from a concrete detail in Unfinished masterpieces: An unfinished work invites interpretation. It is really asking which answer handles a similar pressure. Premature polish is the best connection because it makes something look finished before the thinking is finished, hiding weak structure under smooth presentation. Both ideas ask alpacas to notice that Audiences often complete unfinished works with imagination, which can make absence more powerful than closure.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here__272",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here__272",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Educational draft culture",
+            "explanation": "That answer changes the point: Premature polish."
+          },
+          {
+            "label": "C",
+            "answer": "Draft vs final version",
+            "explanation": "That answer changes the point: Premature polish."
+          },
+          {
+            "label": "D",
+            "answer": "Revision as thinking",
+            "explanation": "That answer changes the point: Premature polish."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Educational draft culture?",
+        "correctAnswer": "Draft vs final version",
+        "wrongAnswers": [
+          "Revision as thinking",
+          "Demo culture in music",
+          "Manuscripts and crossed-out thinking"
+        ],
+        "explanation": "Correct: Draft vs final version.",
+        "visibleCorrectExplanation": "Correct: Draft vs final version.",
+        "visibleConnection": "The question starts from a concrete detail in Educational draft culture: Drafts support growth mindset. It is really asking which answer handles a similar pressure. Draft vs final version is the best connection because it makes unfinishedness visible as process evidence; the route to completion becomes part of the work itself. Both ideas ask alpacas to notice that A real draft culture treats feedback as part of making, not as punishment for being unfinished.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here__273",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here__273",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Revision as thinking",
+            "explanation": "That answer changes the point: Draft vs final version."
+          },
+          {
+            "label": "C",
+            "answer": "Demo culture in music",
+            "explanation": "That answer changes the point: Draft vs final version."
+          },
+          {
+            "label": "D",
+            "answer": "Manuscripts and crossed-out thinking",
+            "explanation": "That answer changes the point: Draft vs final version."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Revision as thinking?",
+        "correctAnswer": "Unfinished masterpieces",
+        "wrongAnswers": [
+          "Premature polish",
+          "Educational draft culture",
+          "Draft vs final version"
+        ],
+        "explanation": "Correct: Unfinished masterpieces.",
+        "visibleCorrectExplanation": "Correct: Unfinished masterpieces.",
+        "visibleConnection": "The question starts from a concrete detail in Revision as thinking: Writers and artists often understand their work better during revision. It is really asking which answer handles a similar pressure. Unfinished masterpieces is the best connection because it lets absence become part of value: what is missing invites myth, speculation, and ownership by the audience. Both ideas ask alpacas to notice that Revision is where creators often discover what they were trying to make. Correction is only one small part of it.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here__274",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here__274",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Premature polish",
+            "explanation": "That answer changes the point: Unfinished masterpieces."
+          },
+          {
+            "label": "C",
+            "answer": "Educational draft culture",
+            "explanation": "That answer changes the point: Unfinished masterpieces."
+          },
+          {
+            "label": "D",
+            "answer": "Draft vs final version",
+            "explanation": "That answer changes the point: Unfinished masterpieces."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why must the actual artwork images be used in the creative process?",
+        "correctAnswer": "The visible differences between real versions are the content",
+        "wrongAnswers": [
+          "Any similar image can explain the same idea well",
+          "Generated art is usually more historically accurate",
+          "The titles matter more than the visual comparison"
+        ],
+        "explanation": "Correct: The visible differences between real versions are the content.",
+        "visibleCorrectExplanation": "Correct: The visible differences between real versions are the content.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here_1_368",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here_1_368",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Any similar image can explain the same idea well",
+            "explanation": "That answer changes the point: The visible differences between real versions are the content."
+          },
+          {
+            "label": "C",
+            "answer": "Generated art is usually more historically accurate",
+            "explanation": "That answer changes the point: The visible differences between real versions are the content."
+          },
+          {
+            "label": "D",
+            "answer": "The titles matter more than the visual comparison",
+            "explanation": "That answer changes the point: The visible differences between real versions are the content."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is Strawberry Fields Forever useful for studying drafts?",
+        "correctAnswer": "It lets listeners hear a raw demo beside a famous final version",
+        "wrongAnswers": [
+          "It is famous because it never changed after the first demo",
+          "It proves home recordings are always better than studio work",
+          "It shows that demos are usually unrelated to final songs"
+        ],
+        "explanation": "Correct: It lets listeners hear a raw demo beside a famous final version.",
+        "visibleCorrectExplanation": "Correct: It lets listeners hear a raw demo beside a famous final version.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here_2_369",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here_2_369",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is famous because it never changed after the first demo",
+            "explanation": "That answer changes the point: It lets listeners hear a raw demo beside a famous final version."
+          },
+          {
+            "label": "C",
+            "answer": "It proves home recordings are always better than studio work",
+            "explanation": "That answer changes the point: It lets listeners hear a raw demo beside a famous final version."
+          },
+          {
+            "label": "D",
+            "answer": "It shows that demos are usually unrelated to final songs",
+            "explanation": "That answer changes the point: It lets listeners hear a raw demo beside a famous final version."
+          }
+        ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why was First to Dance not used in Pocahontas?",
+        "correctAnswer": "The story and tone shifted, so the song no longer fit",
+        "wrongAnswers": [
+          "The melody was moved unchanged into Aladdin",
+          "The song was rejected because animation was finished",
+          "The final film had no room for music at all"
+        ],
+        "explanation": "Correct: The story and tone shifted, so the song no longer fit.",
+        "visibleCorrectExplanation": "Correct: The story and tone shifted, so the song no longer fit.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_theres-a-draft-in-here_3_370",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_theres-a-draft-in-here_3_370",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The melody was moved unchanged into Aladdin",
+            "explanation": "That answer changes the point: The story and tone shifted, so the song no longer fit."
+          },
+          {
+            "label": "C",
+            "answer": "The song was rejected because animation was finished",
+            "explanation": "That answer changes the point: The story and tone shifted, so the song no longer fit."
+          },
+          {
+            "label": "D",
+            "answer": "The final film had no room for music at all",
+            "explanation": "That answer changes the point: The story and tone shifted, so the song no longer fit."
+          }
+        ]
+      }
+    ]
+  }
+}

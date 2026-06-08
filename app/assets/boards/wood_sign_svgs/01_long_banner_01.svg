@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" fill="none">
+  <defs>
+    <linearGradient id="woodGrad" x1="0" y1="0" x2="900" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0b24b"/>
+      <stop offset="0.45" stop-color="#d89532"/>
+      <stop offset="0.72" stop-color="#ffd277"/>
+      <stop offset="1" stop-color="#d89532"/>
+    </linearGradient>
+    <filter id="softShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="3.0" stdDeviation="3.5" flood-color="#2f1708" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <rect x="24" y="24" width="852" height="172" rx="32" fill="url(#woodGrad)" stroke="#2f1708" stroke-width="10"/>
+    <rect x="40" y="40" width="820" height="140" rx="24" stroke="#4b250d" stroke-width="5"/>
+    <path d="M 36.0 106.1 L 864.0 105.4" stroke="#4b250d" stroke-width="3.0" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 108.2 59.1 C 291.6 54.0, 628.4 62.8, 790.9 61.8" stroke="#7a3b12" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.52"/><path d="M 97.9 84.0 C 328.5 82.0, 592.1 86.6, 790.3 86.6" stroke="#7a3b12" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.45"/><path d="M 67.4 113.7 C 303.0 113.0, 549.0 113.5, 821.9 118.2" stroke="#7a3b12" stroke-width="3.1" fill="none" stroke-linecap="round" opacity="0.51"/><path d="M 66.9 132.8 C 318.0 141.6, 552.8 129.5, 834.3 138.3" stroke="#7a3b12" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.50"/><path d="M 73.8 160.5 C 336.5 161.1, 576.3 170.6, 807.6 167.9" stroke="#7a3b12" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.50"/>
+    <ellipse cx="553.7" cy="115.2" rx="14.6" ry="4.6" fill="none" stroke="#7a3b12" stroke-width="2.6" opacity="0.34" transform="rotate(-0.8 553.7 115.2)"/><ellipse cx="314.3" cy="57.1" rx="14.6" ry="5.8" fill="none" stroke="#7a3b12" stroke-width="3.1" opacity="0.33" transform="rotate(2.2 314.3 57.1)"/><ellipse cx="306.8" cy="106.2" rx="15.5" ry="4.6" fill="none" stroke="#7a3b12" stroke-width="2.1" opacity="0.33" transform="rotate(5.9 306.8 106.2)"/>
+  </g>
+</svg>

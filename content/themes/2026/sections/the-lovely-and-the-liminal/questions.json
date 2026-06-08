@@ -1,0 +1,1443 @@
+{
+  "id": "questions.the-lovely-and-the-liminal",
+  "sectionId": "the-lovely-and-the-liminal",
+  "levels": {
+    "100": [
+      {
+        "id": "question.the-lovely-and-the-liminal.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the doorway effect?",
+        "correctAnswer": "Forgetting a goal after entering a new space",
+        "wrongAnswers": [
+          "Remembering better after opening a door",
+          "Feeling afraid of unfamiliar entrances",
+          "Confusing dreams with real rooms"
+        ],
+        "explanation": "Forgetting a goal after entering a new space.",
+        "visibleCorrectExplanation": "Forgetting a goal after entering a new space.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Remembering better after opening a door",
+            "explanation": "That answer changes the point: Forgetting a goal after entering a new space."
+          },
+          {
+            "label": "C",
+            "answer": "Feeling afraid of unfamiliar entrances",
+            "explanation": "That answer changes the point: Forgetting a goal after entering a new space."
+          },
+          {
+            "label": "D",
+            "answer": "Confusing dreams with real rooms",
+            "explanation": "That answer changes the point: Forgetting a goal after entering a new space."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_1_015",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_1_015",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.001"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What mood does The Backrooms mainly create?",
+        "correctAnswer": "Unease inside an empty in-between place",
+        "wrongAnswers": [
+          "Excitement during a fast rescue mission",
+          "Nostalgia for a familiar childhood home",
+          "Comfort inside a clearly guided journey"
+        ],
+        "explanation": "Unease inside an empty in-between place.",
+        "visibleCorrectExplanation": "Unease inside an empty in-between place.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Excitement during a fast rescue mission",
+            "explanation": "That answer changes the point: Unease inside an empty in-between place."
+          },
+          {
+            "label": "C",
+            "answer": "Nostalgia for a familiar childhood home",
+            "explanation": "That answer changes the point: Unease inside an empty in-between place."
+          },
+          {
+            "label": "D",
+            "answer": "Comfort inside a clearly guided journey",
+            "explanation": "That answer changes the point: Unease inside an empty in-between place."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_2_049",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_2_049",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.002"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What can a liminal setting add to a game?",
+        "correctAnswer": "Uncertainty while the player explores",
+        "wrongAnswers": [
+          "Speed without any atmosphere",
+          "Rules that never change at all",
+          "A map that removes all doubt"
+        ],
+        "explanation": "Uncertainty while the player explores.",
+        "visibleCorrectExplanation": "Uncertainty while the player explores.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Speed without any atmosphere",
+            "explanation": "That answer changes the point: Uncertainty while the player explores."
+          },
+          {
+            "label": "C",
+            "answer": "Rules that never change at all",
+            "explanation": "That answer changes the point: Uncertainty while the player explores."
+          },
+          {
+            "label": "D",
+            "answer": "A map that removes all doubt",
+            "explanation": "That answer changes the point: Uncertainty while the player explores."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_3_041",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_3_041",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.003"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does Kant’s idea suggest about beauty?",
+        "correctAnswer": "It can feel meaningful without being useful",
+        "wrongAnswers": [
+          "It must always serve a clear function",
+          "It depends mainly on famous artists",
+          "It works only inside museums"
+        ],
+        "explanation": "It can feel meaningful without being useful.",
+        "visibleCorrectExplanation": "It can feel meaningful without being useful.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It must always serve a clear function",
+            "explanation": "That answer changes the point: It can feel meaningful without being useful."
+          },
+          {
+            "label": "C",
+            "answer": "It depends mainly on famous artists",
+            "explanation": "That answer changes the point: It can feel meaningful without being useful."
+          },
+          {
+            "label": "D",
+            "answer": "It works only inside museums",
+            "explanation": "That answer changes the point: It can feel meaningful without being useful."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_4_050",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_4_050",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.004"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What makes a train station a liminal space?",
+        "correctAnswer": "It is built for waiting and passage",
+        "wrongAnswers": [
+          "It is designed as a permanent home",
+          "It removes the feeling of time",
+          "It functions mainly as a private room"
+        ],
+        "explanation": "It is built for waiting and passage.",
+        "visibleCorrectExplanation": "It is built for waiting and passage.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is designed as a permanent home",
+            "explanation": "That answer changes the point: It is built for waiting and passage."
+          },
+          {
+            "label": "C",
+            "answer": "It removes the feeling of time",
+            "explanation": "That answer changes the point: It is built for waiting and passage."
+          },
+          {
+            "label": "D",
+            "answer": "It functions mainly as a private room",
+            "explanation": "That answer changes the point: It is built for waiting and passage."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_5_051",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_5_051",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.005"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is one purpose of a waiting room?",
+        "correctAnswer": "To hold people before another event",
+        "wrongAnswers": [
+          "To replace the service people came for",
+          "To make movement unnecessary afterward",
+          "To become the main destination itself"
+        ],
+        "explanation": "To hold people before another event.",
+        "visibleCorrectExplanation": "To hold people before another event.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To replace the service people came for",
+            "explanation": "That answer changes the point: To hold people before another event."
+          },
+          {
+            "label": "C",
+            "answer": "To make movement unnecessary afterward",
+            "explanation": "That answer changes the point: To hold people before another event."
+          },
+          {
+            "label": "D",
+            "answer": "To become the main destination itself",
+            "explanation": "That answer changes the point: To hold people before another event."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_6_032",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_6_032",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.006"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does “liminal” usually suggest today?",
+        "correctAnswer": "Something in-between or unresolved",
+        "wrongAnswers": [
+          "Something useful and fully complete",
+          "Something old but easy to classify",
+          "Something private and domestic only"
+        ],
+        "explanation": "Something in-between or unresolved.",
+        "visibleCorrectExplanation": "Something in-between or unresolved.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Something useful and fully complete",
+            "explanation": "That answer changes the point: Something in-between or unresolved."
+          },
+          {
+            "label": "C",
+            "answer": "Something old but easy to classify",
+            "explanation": "That answer changes the point: Something in-between or unresolved."
+          },
+          {
+            "label": "D",
+            "answer": "Something private and domestic only",
+            "explanation": "That answer changes the point: Something in-between or unresolved."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_7_042",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_7_042",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.007"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What changes when liminality lasts too long?",
+        "correctAnswer": "The in-between becomes a condition",
+        "wrongAnswers": [
+          "The journey becomes easier to finish",
+          "The threshold loses all meaning",
+          "The destination becomes automatic"
+        ],
+        "explanation": "The in-between becomes a condition.",
+        "visibleCorrectExplanation": "The in-between becomes a condition.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The journey becomes easier to finish",
+            "explanation": "That answer changes the point: The in-between becomes a condition."
+          },
+          {
+            "label": "C",
+            "answer": "The threshold loses all meaning",
+            "explanation": "That answer changes the point: The in-between becomes a condition."
+          },
+          {
+            "label": "D",
+            "answer": "The destination becomes automatic",
+            "explanation": "That answer changes the point: The in-between becomes a condition."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_8_056",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_8_056",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.008"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.100.009",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is ambient music mainly designed to do?",
+        "correctAnswer": "Shape atmosphere without demanding focus",
+        "wrongAnswers": [
+          "Make lyrics the center of attention",
+          "Replace silence with constant speech",
+          "Turn every space into a concert"
+        ],
+        "explanation": "Shape atmosphere without demanding focus.",
+        "visibleCorrectExplanation": "Shape atmosphere without demanding focus.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Make lyrics the center of attention",
+            "explanation": "That answer changes the point: Shape atmosphere without demanding focus."
+          },
+          {
+            "label": "C",
+            "answer": "Replace silence with constant speech",
+            "explanation": "That answer changes the point: Shape atmosphere without demanding focus."
+          },
+          {
+            "label": "D",
+            "answer": "Turn every space into a concert",
+            "explanation": "That answer changes the point: Shape atmosphere without demanding focus."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_the-lovely-and-the-liminal_9_057",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_the-lovely-and-the-liminal_9_057",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.009"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.the-lovely-and-the-liminal.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can a doorway affect short-term memory?",
+        "correctAnswer": "It can mark a new mental context",
+        "wrongAnswers": [
+          "It removes visual information completely",
+          "It forces the brain to stop thinking",
+          "It makes every task more important"
+        ],
+        "explanation": "It can mark a new mental context.",
+        "visibleCorrectExplanation": "It can mark a new mental context.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes visual information completely",
+            "explanation": "That answer changes the point: It can mark a new mental context."
+          },
+          {
+            "label": "C",
+            "answer": "It forces the brain to stop thinking",
+            "explanation": "That answer changes the point: It can mark a new mental context."
+          },
+          {
+            "label": "D",
+            "answer": "It makes every task more important",
+            "explanation": "That answer changes the point: It can mark a new mental context."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_1_139",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_1_139",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.001"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does found footage suit liminal horror?",
+        "correctAnswer": "It makes the viewer feel physically placed there",
+        "wrongAnswers": [
+          "It gives every scene a clear narrator",
+          "It makes the setting more decorative",
+          "It removes uncertainty from the image"
+        ],
+        "explanation": "It makes the viewer feel physically placed there.",
+        "visibleCorrectExplanation": "It makes the viewer feel physically placed there.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It gives every scene a clear narrator",
+            "explanation": "That answer changes the point: It makes the viewer feel physically placed there."
+          },
+          {
+            "label": "C",
+            "answer": "It makes the setting more decorative",
+            "explanation": "That answer changes the point: It makes the viewer feel physically placed there."
+          },
+          {
+            "label": "D",
+            "answer": "It removes uncertainty from the image",
+            "explanation": "That answer changes the point: It makes the viewer feel physically placed there."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_2_140",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_2_140",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.002"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can POOLS feel tense without monsters?",
+        "correctAnswer": "Its empty spaces and sounds create pressure",
+        "wrongAnswers": [
+          "Its battles begin before the story starts",
+          "Its dialogue explains every hidden threat",
+          "Its music tells players where to run"
+        ],
+        "explanation": "Its empty spaces and sounds create pressure.",
+        "visibleCorrectExplanation": "Its empty spaces and sounds create pressure.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Its battles begin before the story starts",
+            "explanation": "That answer changes the point: Its empty spaces and sounds create pressure."
+          },
+          {
+            "label": "C",
+            "answer": "Its dialogue explains every hidden threat",
+            "explanation": "That answer changes the point: Its empty spaces and sounds create pressure."
+          },
+          {
+            "label": "D",
+            "answer": "Its music tells players where to run",
+            "explanation": "That answer changes the point: Its empty spaces and sounds create pressure."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_3_137",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_3_137",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.003"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "How can Kant help explain attractive liminal spaces?",
+        "correctAnswer": "They may feel purposeful without a clear goal",
+        "wrongAnswers": [
+          "They always have a hidden practical function",
+          "They become beautiful only when crowded",
+          "They are valuable only if they lead somewhere"
+        ],
+        "explanation": "They may feel purposeful without a clear goal.",
+        "visibleCorrectExplanation": "They may feel purposeful without a clear goal.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They always have a hidden practical function",
+            "explanation": "That answer changes the point: They may feel purposeful without a clear goal."
+          },
+          {
+            "label": "C",
+            "answer": "They become beautiful only when crowded",
+            "explanation": "That answer changes the point: They may feel purposeful without a clear goal."
+          },
+          {
+            "label": "D",
+            "answer": "They are valuable only if they lead somewhere",
+            "explanation": "That answer changes the point: They may feel purposeful without a clear goal."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_4_167",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_4_167",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.004"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do artists often use trains or stations?",
+        "correctAnswer": "They combine motion, waiting, and change",
+        "wrongAnswers": [
+          "They avoid social and historical meaning",
+          "They show spaces without human activity",
+          "They make travel feel fully settled"
+        ],
+        "explanation": "They combine motion, waiting, and change.",
+        "visibleCorrectExplanation": "They combine motion, waiting, and change.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They avoid social and historical meaning",
+            "explanation": "That answer changes the point: They combine motion, waiting, and change."
+          },
+          {
+            "label": "C",
+            "answer": "They show spaces without human activity",
+            "explanation": "That answer changes the point: They combine motion, waiting, and change."
+          },
+          {
+            "label": "D",
+            "answer": "They make travel feel fully settled",
+            "explanation": "That answer changes the point: They combine motion, waiting, and change."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_5_145",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_5_145",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.005"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which design choice can affect waiting-room anxiety?",
+        "correctAnswer": "Lighting, seating, sound, or spacing",
+        "wrongAnswers": [
+          "The number of books in the building",
+          "The age of the outside sidewalk",
+          "The height of the nearest roof"
+        ],
+        "explanation": "Lighting, seating, sound, or spacing.",
+        "visibleCorrectExplanation": "Lighting, seating, sound, or spacing.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The number of books in the building",
+            "explanation": "That answer changes the point: Lighting, seating, sound, or spacing."
+          },
+          {
+            "label": "C",
+            "answer": "The age of the outside sidewalk",
+            "explanation": "That answer changes the point: Lighting, seating, sound, or spacing."
+          },
+          {
+            "label": "D",
+            "answer": "The height of the nearest roof",
+            "explanation": "That answer changes the point: Lighting, seating, sound, or spacing."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_6_168",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_6_168",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.006"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can broad use of “liminal” be helpful?",
+        "correctAnswer": "It connects different works through shared moods",
+        "wrongAnswers": [
+          "It gives every artwork the same meaning",
+          "It removes the need for interpretation",
+          "It makes art categories fully objective"
+        ],
+        "explanation": "It connects different works through shared moods.",
+        "visibleCorrectExplanation": "It connects different works through shared moods.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It gives every artwork the same meaning",
+            "explanation": "That answer changes the point: It connects different works through shared moods."
+          },
+          {
+            "label": "C",
+            "answer": "It removes the need for interpretation",
+            "explanation": "That answer changes the point: It connects different works through shared moods."
+          },
+          {
+            "label": "D",
+            "answer": "It makes art categories fully objective",
+            "explanation": "That answer changes the point: It connects different works through shared moods."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_7_138",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_7_138",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.007"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is Waiting for Godot strongly linked to waiting?",
+        "correctAnswer": "Its characters remain suspended in delay",
+        "wrongAnswers": [
+          "Its plot follows a clear travel route",
+          "Its setting changes in every scene",
+          "Its ending explains every uncertainty"
+        ],
+        "explanation": "Its characters remain suspended in delay.",
+        "visibleCorrectExplanation": "Its characters remain suspended in delay.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Its plot follows a clear travel route",
+            "explanation": "That answer changes the point: Its characters remain suspended in delay."
+          },
+          {
+            "label": "C",
+            "answer": "Its setting changes in every scene",
+            "explanation": "That answer changes the point: Its characters remain suspended in delay."
+          },
+          {
+            "label": "D",
+            "answer": "Its ending explains every uncertainty",
+            "explanation": "That answer changes the point: Its characters remain suspended in delay."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_8_169",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_8_169",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.008"
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.200.009",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is an airport a strong setting for ambient music?",
+        "correctAnswer": "It combines waiting, stress, and transition",
+        "wrongAnswers": [
+          "It is usually silent and private",
+          "It removes the need for announcements",
+          "It has no connection to movement"
+        ],
+        "explanation": "It combines waiting, stress, and transition.",
+        "visibleCorrectExplanation": "It combines waiting, stress, and transition.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is usually silent and private",
+            "explanation": "That answer changes the point: It combines waiting, stress, and transition."
+          },
+          {
+            "label": "C",
+            "answer": "It removes the need for announcements",
+            "explanation": "That answer changes the point: It combines waiting, stress, and transition."
+          },
+          {
+            "label": "D",
+            "answer": "It has no connection to movement",
+            "explanation": "That answer changes the point: It combines waiting, stress, and transition."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_the-lovely-and-the-liminal_9_176",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_the-lovely-and-the-liminal_9_176",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.the-lovely-and-the-liminal.009"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.the-lovely-and-the-liminal.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: It is neither fully one thing nor another. Which idea gives the best comparison?",
+        "correctAnswer": "Liminal spaces in architecture",
+        "wrongAnswers": [
+          "The uncanny and familiar strangeness",
+          "Rites of passage",
+          "Liminal aesthetics online"
+        ],
+        "explanation": "Correct: Liminal spaces in architecture.",
+        "visibleCorrectExplanation": "Correct: Liminal spaces in architecture.",
+        "visibleConnection": "The question starts from a concrete detail in Liminality: It is neither fully one thing nor another. It is really asking which answer handles a similar pressure. Liminal spaces in architecture is the best connection because it makes transition physical: corridors, hotels, stations, and waiting rooms hold people without fully belonging to anyone. Both ideas ask alpacas to notice that In-between states are powerful because they remove the old label before the new one fully holds.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal__265",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal__265",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The uncanny and familiar strangeness",
+            "explanation": "That answer changes the point: Liminal spaces in architecture."
+          },
+          {
+            "label": "C",
+            "answer": "Rites of passage",
+            "explanation": "That answer changes the point: Liminal spaces in architecture."
+          },
+          {
+            "label": "D",
+            "answer": "Liminal aesthetics online",
+            "explanation": "That answer changes the point: Liminal spaces in architecture."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to The uncanny and familiar strangeness?",
+        "correctAnswer": "Rites of passage",
+        "wrongAnswers": [
+          "Liminal aesthetics online",
+          "Identity thresholds",
+          "Liminality"
+        ],
+        "explanation": "Correct: Rites of passage.",
+        "visibleCorrectExplanation": "Correct: Rites of passage.",
+        "visibleConnection": "The question starts from a concrete detail in The uncanny and familiar strangeness: The uncanny often emerges from spaces that are known but depopulated or slightly wrong. It is really asking which answer handles a similar pressure. Rites of passage is the best connection because it turns transition into ceremony so a community can recognize that someone has crossed a threshold. Both ideas ask alpacas to notice that The uncanny often begins when an ordinary place loses the people, purpose, or rhythm that usually makes it make sense.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal__266",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal__266",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Liminal aesthetics online",
+            "explanation": "That answer changes the point: Rites of passage."
+          },
+          {
+            "label": "C",
+            "answer": "Identity thresholds",
+            "explanation": "That answer changes the point: Rites of passage."
+          },
+          {
+            "label": "D",
+            "answer": "Liminality",
+            "explanation": "That answer changes the point: Rites of passage."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Liminal aesthetics online into a different form?",
+        "correctAnswer": "Identity thresholds",
+        "wrongAnswers": [
+          "Liminality",
+          "Liminal spaces in architecture",
+          "The uncanny and familiar strangeness"
+        ],
+        "explanation": "Correct: Identity thresholds.",
+        "visibleCorrectExplanation": "Correct: Identity thresholds.",
+        "visibleConnection": "The question starts from a concrete detail in Liminal aesthetics online: Images often feature empty, fluorescent, or transitional spaces. It is really asking which answer handles a similar pressure. Identity thresholds is the best connection because it marks the moment when a person is treated as becoming something else before they fully feel changed. Both ideas ask alpacas to notice that Online liminal images turn architectural emptiness into shared emotional shorthand.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal__267",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal__267",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Liminality",
+            "explanation": "That answer changes the point: Identity thresholds."
+          },
+          {
+            "label": "C",
+            "answer": "Liminal spaces in architecture",
+            "explanation": "That answer changes the point: Identity thresholds."
+          },
+          {
+            "label": "D",
+            "answer": "The uncanny and familiar strangeness",
+            "explanation": "That answer changes the point: Identity thresholds."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Rites of passage?",
+        "correctAnswer": "Liminal aesthetics online",
+        "wrongAnswers": [
+          "Identity thresholds",
+          "Liminality",
+          "Liminal spaces in architecture"
+        ],
+        "explanation": "Correct: Liminal aesthetics online.",
+        "visibleCorrectExplanation": "Correct: Liminal aesthetics online.",
+        "visibleConnection": "The question starts from a concrete detail in Rites of passage: A rite of passage often includes separation, liminality, and reintegration. It is really asking which answer handles a similar pressure. Liminal aesthetics online is the best connection because it turns in-between spaces into a mood, making emptiness, transition, and almost-belonging shareable. Both ideas ask alpacas to notice that Communities use ritual to make invisible identity changes publicly recognizable.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal__268",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal__268",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Identity thresholds",
+            "explanation": "That answer changes the point: Liminal aesthetics online."
+          },
+          {
+            "label": "C",
+            "answer": "Liminality",
+            "explanation": "That answer changes the point: Liminal aesthetics online."
+          },
+          {
+            "label": "D",
+            "answer": "Liminal spaces in architecture",
+            "explanation": "That answer changes the point: Liminal aesthetics online."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.014",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Liminal spaces in architecture?",
+        "correctAnswer": "Liminal aesthetics online",
+        "wrongAnswers": [
+          "Identity thresholds",
+          "Liminality",
+          "The uncanny and familiar strangeness"
+        ],
+        "explanation": "Correct: Liminal aesthetics online.",
+        "visibleCorrectExplanation": "Correct: Liminal aesthetics online.",
+        "visibleConnection": "The question starts from a concrete detail in Liminal spaces in architecture: Examples include corridors, escalators, terminals, stairwells, waiting rooms. It is really asking which answer handles a similar pressure. Liminal aesthetics online is the best connection because it turns in-between spaces into a mood, making emptiness, transition, and almost-belonging shareable. Both ideas ask alpacas to notice that Transit spaces feel strange because they are designed for passing through, not belonging.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal__269",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal__269",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Identity thresholds",
+            "explanation": "That answer changes the point: Liminal aesthetics online."
+          },
+          {
+            "label": "C",
+            "answer": "Liminality",
+            "explanation": "That answer changes the point: Liminal aesthetics online."
+          },
+          {
+            "label": "D",
+            "answer": "The uncanny and familiar strangeness",
+            "explanation": "That answer changes the point: Liminal aesthetics online."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What did the doorway-effect experiment compare?",
+        "correctAnswer": "Walking through a doorway vs. walking the same distance",
+        "wrongAnswers": [
+          "Walking quickly vs. walking without carrying objects",
+          "Remembering colors vs. remembering room numbers",
+          "Testing adults in buildings vs. children outdoors"
+        ],
+        "explanation": "Correct: Walking through a doorway vs. walking the same distance.",
+        "visibleCorrectExplanation": "Correct: Walking through a doorway vs. walking the same distance.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_1_359",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_1_359",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Walking quickly vs. walking without carrying objects",
+            "explanation": "That answer changes the point: Walking through a doorway vs. walking the same distance."
+          },
+          {
+            "label": "C",
+            "answer": "Remembering colors vs. remembering room numbers",
+            "explanation": "That answer changes the point: Walking through a doorway vs. walking the same distance."
+          },
+          {
+            "label": "D",
+            "answer": "Testing adults in buildings vs. children outdoors",
+            "explanation": "That answer changes the point: Walking through a doorway vs. walking the same distance."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which setting best fits Backrooms-style liminal horror?",
+        "correctAnswer": "A corridor that seems endless and purposeless",
+        "wrongAnswers": [
+          "A crowded plaza during a public festival",
+          "A marked trail with frequent signposts",
+          "A living room filled with family photos"
+        ],
+        "explanation": "Correct: A corridor that seems endless and purposeless.",
+        "visibleCorrectExplanation": "Correct: A corridor that seems endless and purposeless.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_2_360",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_2_360",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A crowded plaza during a public festival",
+            "explanation": "That answer changes the point: A corridor that seems endless and purposeless."
+          },
+          {
+            "label": "C",
+            "answer": "A marked trail with frequent signposts",
+            "explanation": "That answer changes the point: A corridor that seems endless and purposeless."
+          },
+          {
+            "label": "D",
+            "answer": "A living room filled with family photos",
+            "explanation": "That answer changes the point: A corridor that seems endless and purposeless."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What makes liminality stronger in games than in film?",
+        "correctAnswer": "Players must move through uncertainty themselves",
+        "wrongAnswers": [
+          "Players always control the story completely",
+          "Games avoid visual atmosphere by design",
+          "Games remove the feeling of physical space"
+        ],
+        "explanation": "Correct: Players must move through uncertainty themselves.",
+        "visibleCorrectExplanation": "Correct: Players must move through uncertainty themselves.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_3_361",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_3_361",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Players always control the story completely",
+            "explanation": "That answer changes the point: Players must move through uncertainty themselves."
+          },
+          {
+            "label": "C",
+            "answer": "Games avoid visual atmosphere by design",
+            "explanation": "That answer changes the point: Players must move through uncertainty themselves."
+          },
+          {
+            "label": "D",
+            "answer": "Games remove the feeling of physical space",
+            "explanation": "That answer changes the point: Players must move through uncertainty themselves."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which space best fits aesthetic liminality?",
+        "correctAnswer": "A quiet passage that feels charged but unused",
+        "wrongAnswers": [
+          "A tool designed for one obvious function",
+          "A room labeled with a single clear purpose",
+          "A crowded place with no sense of pause"
+        ],
+        "explanation": "Correct: A quiet passage that feels charged but unused.",
+        "visibleCorrectExplanation": "Correct: A quiet passage that feels charged but unused.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_4_362",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_4_362",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A tool designed for one obvious function",
+            "explanation": "That answer changes the point: A quiet passage that feels charged but unused."
+          },
+          {
+            "label": "C",
+            "answer": "A room labeled with a single clear purpose",
+            "explanation": "That answer changes the point: A quiet passage that feels charged but unused."
+          },
+          {
+            "label": "D",
+            "answer": "A crowded place with no sense of pause",
+            "explanation": "That answer changes the point: A quiet passage that feels charged but unused."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What do Turner and Monet both connect to railways?",
+        "correctAnswer": "Modern movement and atmospheric change",
+        "wrongAnswers": [
+          "Religious ritual and ancient ceremony",
+          "Private memory and domestic space",
+          "Rural stillness and slow tradition"
+        ],
+        "explanation": "Correct: Modern movement and atmospheric change.",
+        "visibleCorrectExplanation": "Correct: Modern movement and atmospheric change.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_5_363",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_5_363",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Religious ritual and ancient ceremony",
+            "explanation": "That answer changes the point: Modern movement and atmospheric change."
+          },
+          {
+            "label": "C",
+            "answer": "Private memory and domestic space",
+            "explanation": "That answer changes the point: Modern movement and atmospheric change."
+          },
+          {
+            "label": "D",
+            "answer": "Rural stillness and slow tradition",
+            "explanation": "That answer changes the point: Modern movement and atmospheric change."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is a waiting room liminal?",
+        "correctAnswer": "People are there between two stages",
+        "wrongAnswers": [
+          "People stay there as a final goal",
+          "The room has no social meaning",
+          "The room removes all uncertainty"
+        ],
+        "explanation": "Correct: People are there between two stages.",
+        "visibleCorrectExplanation": "Correct: People are there between two stages.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_6_364",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_6_364",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "People stay there as a final goal",
+            "explanation": "That answer changes the point: People are there between two stages."
+          },
+          {
+            "label": "C",
+            "answer": "The room has no social meaning",
+            "explanation": "That answer changes the point: People are there between two stages."
+          },
+          {
+            "label": "D",
+            "answer": "The room removes all uncertainty",
+            "explanation": "That answer changes the point: People are there between two stages."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is a risk of using “liminal” too loosely?",
+        "correctAnswer": "The term may become vague and less precise",
+        "wrongAnswers": [
+          "The artworks become impossible to discuss",
+          "The original meaning becomes more scientific",
+          "The category works only for old paintings"
+        ],
+        "explanation": "Correct: The term may become vague and less precise.",
+        "visibleCorrectExplanation": "Correct: The term may become vague and less precise.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_7_365",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_7_365",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The artworks become impossible to discuss",
+            "explanation": "That answer changes the point: The term may become vague and less precise."
+          },
+          {
+            "label": "C",
+            "answer": "The original meaning becomes more scientific",
+            "explanation": "That answer changes the point: The term may become vague and less precise."
+          },
+          {
+            "label": "D",
+            "answer": "The category works only for old paintings",
+            "explanation": "That answer changes the point: The term may become vague and less precise."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How does “Keeping Still” differ from hopeless waiting?",
+        "correctAnswer": "It treats pause as reflection and awareness",
+        "wrongAnswers": [
+          "It treats stillness as total defeat",
+          "It turns movement into a physical race",
+          "It removes choice from every person"
+        ],
+        "explanation": "Correct: It treats pause as reflection and awareness.",
+        "visibleCorrectExplanation": "Correct: It treats pause as reflection and awareness.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_8_366",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_8_366",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It treats stillness as total defeat",
+            "explanation": "That answer changes the point: It treats pause as reflection and awareness."
+          },
+          {
+            "label": "C",
+            "answer": "It turns movement into a physical race",
+            "explanation": "That answer changes the point: It treats pause as reflection and awareness."
+          },
+          {
+            "label": "D",
+            "answer": "It removes choice from every person",
+            "explanation": "That answer changes the point: It treats pause as reflection and awareness."
+          }
+        ]
+      },
+      {
+        "id": "question.the-lovely-and-the-liminal.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How does ambient music relate to liminality?",
+        "correctAnswer": "It supports spaces where people are unsettled or between states",
+        "wrongAnswers": [
+          "It gives every journey a fixed destination",
+          "It makes waiting feel faster every time",
+          "It turns background sound into a clear story"
+        ],
+        "explanation": "Correct: It supports spaces where people are unsettled or between states.",
+        "visibleCorrectExplanation": "Correct: It supports spaces where people are unsettled or between states.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_the-lovely-and-the-liminal_9_367",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "the-lovely-and-the-liminal",
+        "sectionIds": [
+          "the-lovely-and-the-liminal"
+        ],
+        "guidingSectionPrimary": "The Lovely and the Liminal",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_the-lovely-and-the-liminal_9_367",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It gives every journey a fixed destination",
+            "explanation": "That answer changes the point: It supports spaces where people are unsettled or between states."
+          },
+          {
+            "label": "C",
+            "answer": "It makes waiting feel faster every time",
+            "explanation": "That answer changes the point: It supports spaces where people are unsettled or between states."
+          },
+          {
+            "label": "D",
+            "answer": "It turns background sound into a clear story",
+            "explanation": "That answer changes the point: It supports spaces where people are unsettled or between states."
+          }
+        ]
+      }
+    ]
+  }
+}

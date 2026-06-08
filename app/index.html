@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WSC 2026 Study Routes | Are We There Yet?</title>
+    <meta
+      name="description"
+      content="Explore the 2026 World Scholar's Cup theme through routes, checkpoints, and challenges."
+    />
+    <meta name="theme-color" content="#8a6338" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="WSC Routes" />
+    <!-- Bump this one value on every deploy/push to force a clean PWA cache. -->
+    <script>
+      window.WSC_PWA_RESET_VERSION = "20260524coop2";
+    </script>
+    <link rel="manifest" href="./manifest.webmanifest?v=20260524coop2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./app-icons/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./app-icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./app-icons/apple-touch-icon-180.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260524coop2" />
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script>
+      if (!["localhost", "127.0.0.1", "::1"].includes(window.location.hostname)) {
+        const insightsScript = document.createElement("script");
+        insightsScript.defer = true;
+        insightsScript.src = "/_vercel/insights/script.js";
+        document.head.appendChild(insightsScript);
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <div id="appEntryGateMount"></div>
+    <div id="cooperationModalMount"></div>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-layout">
+          <div class="hero-links" aria-label="Quick links">
+            <button
+              class="hero-menu-trigger"
+              type="button"
+              data-toggle-hero-menu
+              aria-label="Open header menu"
+              aria-expanded="false"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <a
+              class="hero-discord-link"
+              href="https://discord.gg/5m6tCSBy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Join the Discord server"
+              title="Join the Discord server"
+            >
+              <img src="./assets/mascot/library/final-pack/Discordlogo.png?v=20260524coop2" alt="Discord server" />
+            </a>
+            <button
+              class="hero-link-icon"
+              type="button"
+              data-open-resources
+              aria-label="Open World Scholar's Cup route resources"
+              title="Route resources"
+            >
+              <img src="./assets/footer/link-icon.png?v=20260524coop2" alt="World Scholar's Cup link icon" />
+            </button>
+            <a
+              class="hero-link-icon"
+              href="mailto:frenchease.admin@gmail.com"
+              aria-label="Email Francois Moret"
+              title="Contact"
+            >
+              <img src="./assets/footer/contact-icon.png?v=20260524coop2" alt="Contact icon" />
+            </a>
+            <div id="sessionControls" class="session-controls"></div>
+          </div>
+          <div class="hero-copy">
+            <h1>Are We There Yet?</h1>
+            <div id="heroOnlineMount" class="hero-online-mount"></div>
+            <div class="hero-actions hidden" aria-label="App install controls">
+              <p id="installStatus" class="install-status">Checking app install support...</p>
+              <button id="installAppButton" class="button primary hidden" type="button">Install App</button>
+            </div>
+          </div>
+          <aside id="statsStrip" class="stats-strip hero-stats" aria-label="Progress trackers"></aside>
+        </div>
+        <div id="resourcesModalMount"></div>
+        <div id="authModalMount"></div>
+      </header>
+
+      <main class="layout">
+        <section id="routeBuilder" class="wizard card-panel">
+          <div class="section-heading">
+            <h2 id="routeBuilderTitle">Select your Guiding Section(s)</h2>
+            <div id="wizardRailMount" class="wizard-rail-mount"></div>
+          </div>
+
+          <div id="wizardSteps" class="wizard-steps"></div>
+        </section>
+
+        <section id="experiencePanel" class="experience-panel card-panel hidden"></section>
+      </main>
+    </div>
+
+    <script src="./generated/current-runtime/data.js?v=20260524coop2"></script>
+    <script src="./generated/current-runtime/knowledge-bank.js?v=20260524coop2"></script>
+    <script src="./generated/current-runtime/assets-config.js?v=20260524coop2"></script>
+    <script src="./generated/current-runtime/raw-content-bank.js?v=20260524coop2"></script>
+    <script src="./generated/current-runtime/alpaca-channel.js?v=20260524coop2"></script>
+    <script src="./generated/current-runtime/content/alpacards.js?v=20260524coop2"></script>
+    <script src="./content/debate/debate-lab-data.js?v=20260524coop2"></script>
+    <script src="./supabase-config.js?v=20260524coop2"></script>
+    <script src="./src/theme/section-ids.js?v=20260524coop2"></script>
+    <script src="./src/services/asset-service.js?v=20260524coop2"></script>
+    <script src="./src/services/storage-service.js?v=20260524coop2"></script>
+    <script src="./src/services/progress-service.js?v=20260524coop2"></script>
+    <script src="./src/services/video-service.js?v=20260524coop2"></script>
+    <script src="./src/services/game-question-service.js?v=20260524coop2"></script>
+    <script src="./src/services/scholars-bowl-service.js?v=20260524coop2"></script>
+    <script src="./src/services/auth-service.js?v=20260524coop2"></script>
+    <script src="./src/services/supabase-profile-service.js?v=20260524coop2"></script>
+    <script src="./src/services/alpacapardy-live-supabase-service.js?v=20260524coop2"></script>
+    <script src="./src/services/raw-content-service.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/alpacards/alpacards-mode.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/alpaca-channel/alpaca-channel-mode.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-entry-renderer.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-visual-assets.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-media-lightbox.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-quiz-renderer.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-transfer-table.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-mastery.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/raw-content/raw-content-mode.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/mindmap/mindmap-mode.js?v=20260524coop2"></script>
+    <script src="./src/modes/learn/regular-guide/regular-guide-mode.js?v=20260524coop2"></script>
+    <script src="./src/ui/auth-modal-renderer.js?v=20260524coop2"></script>
+    <script src="./src/ui/wizard-renderer.js?v=20260524coop2"></script>
+    <script src="./src/modes/play/alpaquiz/alpaquiz-engine.js?v=20260524coop2"></script>
+    <script src="./src/modes/play/alpaquiz/alpaquiz-renderer.js?v=20260524coop2"></script>
+    <script src="./src/modes/play/alpacapardy/alpacapardy-engine.js?v=20260524coop2"></script>
+    <script src="./src/modes/play/alpacapardy/alpacapardy-renderer.js?v=20260524coop2"></script>
+    <script src="./src/modes/play/alpacapardy/alpacapardy-live.js?v=20260524coop2"></script>
+    <script src="./src/modes/play/live-session-service.js?v=20260524coop2"></script>
+    <script src="./app.js?v=20260524coop2"></script>
+    <script src="./pwa.js?v=20260524coop2"></script>
+  </body>
+</html>

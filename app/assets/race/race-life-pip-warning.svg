@@ -1,0 +1,63 @@
+<svg
+  id="race-life-pip-warning"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+  fill="none"
+  role="img"
+  aria-label="Last chance icon"
+>
+  <defs>
+    <style>
+      .outer {
+        fill: #5a3726;
+      }
+      .body {
+        fill: #ead8b7;
+        stroke: #5a3726;
+        stroke-width: 2.5;
+        vector-effect: non-scaling-stroke;
+      }
+      .inner {
+        fill: #6d1f26;
+      }
+      .ring {
+        fill: none;
+        stroke: #fcd127;
+        stroke-width: 2.25;
+        opacity: 0.95;
+        vector-effect: non-scaling-stroke;
+      }
+      .core {
+        fill: #fcd127;
+      }
+    </style>
+  </defs>
+
+  <path
+    class="outer"
+    d="M32 8
+       C40 8 46 11 50 15
+       V32
+       C50 43 42 50 32 56
+       C22 50 14 43 14 32
+       V15
+       C18 11 24 8 32 8Z"
+  />
+
+  <path
+    class="body"
+    d="M32 12
+       C38.5 12 43.5 14.2 47 17.5
+       V31
+       C47 40.2 40.2 46.5 32 51
+       C23.8 46.5 17 40.2 17 31
+       V17.5
+       C20.5 14.2 25.5 12 32 12Z"
+  />
+
+  <circle class="inner" cx="32" cy="30" r="8.5"/>
+  <circle class="ring" cx="32" cy="30" r="7"/>
+  <circle class="core" cx="32" cy="30" r="2.75"/>
+</svg>

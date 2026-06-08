@@ -1,0 +1,1175 @@
+{
+  "id": "questions.where-the-sidewalk-starts",
+  "sectionId": "where-the-sidewalk-starts",
+  "levels": {
+    "100": [
+      {
+        "id": "question.where-the-sidewalk-starts.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the basic urban role of a sidewalk?",
+        "correctAnswer": "It gives pedestrians space beside streets and buildings",
+        "wrongAnswers": [
+          "It replaces the road for cars",
+          "It marks only private property lines",
+          "It exists mainly as decoration"
+        ],
+        "explanation": "It gives pedestrians space beside streets and buildings.",
+        "visibleCorrectExplanation": "It gives pedestrians space beside streets and buildings.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It replaces the road for cars",
+            "explanation": "That answer changes the point: It gives pedestrians space beside streets and buildings."
+          },
+          {
+            "label": "C",
+            "answer": "It marks only private property lines",
+            "explanation": "That answer changes the point: It gives pedestrians space beside streets and buildings."
+          },
+          {
+            "label": "D",
+            "answer": "It exists mainly as decoration",
+            "explanation": "That answer changes the point: It gives pedestrians space beside streets and buildings."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_1_052",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_1_052",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.001"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Where are moving sidewalks most commonly useful today?",
+        "correctAnswer": "Airports and other controlled high-traffic spaces",
+        "wrongAnswers": [
+          "Quiet residential streets",
+          "Small private gardens",
+          "Rural mountain roads"
+        ],
+        "explanation": "Airports and other controlled high-traffic spaces.",
+        "visibleCorrectExplanation": "Airports and other controlled high-traffic spaces.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Quiet residential streets",
+            "explanation": "That answer changes the point: Airports and other controlled high-traffic spaces."
+          },
+          {
+            "label": "C",
+            "answer": "Small private gardens",
+            "explanation": "That answer changes the point: Airports and other controlled high-traffic spaces."
+          },
+          {
+            "label": "D",
+            "answer": "Rural mountain roads",
+            "explanation": "That answer changes the point: Airports and other controlled high-traffic spaces."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_2_083",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_2_083",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.002"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does parking mainly store in an urban landscape?",
+        "correctAnswer": "Cars when they are not moving",
+        "wrongAnswers": [
+          "Public buses during routes",
+          "People waiting for trains",
+          "Road signs between intersections"
+        ],
+        "explanation": "Cars when they are not moving.",
+        "visibleCorrectExplanation": "Cars when they are not moving.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Public buses during routes",
+            "explanation": "That answer changes the point: Cars when they are not moving."
+          },
+          {
+            "label": "C",
+            "answer": "People waiting for trains",
+            "explanation": "That answer changes the point: Cars when they are not moving."
+          },
+          {
+            "label": "D",
+            "answer": "Road signs between intersections",
+            "explanation": "That answer changes the point: Cars when they are not moving."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_3_079",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_3_079",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.003"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What makes an architectural parking garage different from a basic parking structure?",
+        "correctAnswer": "Its design adds visual, civic, or cultural meaning to a functional space",
+        "wrongAnswers": [
+          "It no longer stores cars",
+          "It must become a museum",
+          "It removes all need for streets"
+        ],
+        "explanation": "Its design adds visual, civic, or cultural meaning to a functional space.",
+        "visibleCorrectExplanation": "Its design adds visual, civic, or cultural meaning to a functional space.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It no longer stores cars",
+            "explanation": "That answer changes the point: Its design adds visual, civic, or cultural meaning to a functional space."
+          },
+          {
+            "label": "C",
+            "answer": "It must become a museum",
+            "explanation": "That answer changes the point: Its design adds visual, civic, or cultural meaning to a functional space."
+          },
+          {
+            "label": "D",
+            "answer": "It removes all need for streets",
+            "explanation": "That answer changes the point: Its design adds visual, civic, or cultural meaning to a functional space."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_4_106",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_4_106",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.004"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a snout house?",
+        "correctAnswer": "A house whose garage projects prominently toward the street",
+        "wrongAnswers": [
+          "A house built only for car repair",
+          "The entrance is not the point; the garage dominates the front",
+          "The shape is about the projecting garage, not a tunnel form"
+        ],
+        "explanation": "A house whose garage projects prominently toward the street.",
+        "visibleCorrectExplanation": "A house whose garage projects prominently toward the street.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A house built only for car repair",
+            "explanation": "That answer changes the point: A house whose garage projects prominently toward the street."
+          },
+          {
+            "label": "C",
+            "answer": "The entrance is not the point; the garage dominates the front",
+            "explanation": "That answer changes the point: A house whose garage projects prominently toward the street."
+          },
+          {
+            "label": "D",
+            "answer": "The shape is about the projecting garage, not a tunnel form",
+            "explanation": "That answer changes the point: A house whose garage projects prominently toward the street."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_5_008",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_5_008",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.005"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Who designed Robie House?",
+        "correctAnswer": "Frank Lloyd Wright",
+        "wrongAnswers": [
+          "Paul Rudolph",
+          "Daniel Buren",
+          "Henry Grabar"
+        ],
+        "explanation": "Frank Lloyd Wright.",
+        "visibleCorrectExplanation": "Frank Lloyd Wright.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Paul Rudolph",
+            "explanation": "That answer changes the point: Frank Lloyd Wright."
+          },
+          {
+            "label": "C",
+            "answer": "Daniel Buren",
+            "explanation": "That answer changes the point: Frank Lloyd Wright."
+          },
+          {
+            "label": "D",
+            "answer": "Henry Grabar",
+            "explanation": "That answer changes the point: Frank Lloyd Wright."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_6_012",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_6_012",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.006"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the basic idea behind converting parking into public space?",
+        "correctAnswer": "Turning car-storage land into a place people can gather and use",
+        "wrongAnswers": [
+          "Making parking lots larger and more permanent",
+          "Replacing sidewalks with private garages",
+          "Moving all parks underground"
+        ],
+        "explanation": "Turning car-storage land into a place people can gather and use.",
+        "visibleCorrectExplanation": "Turning car-storage land into a place people can gather and use.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Making parking lots larger and more permanent",
+            "explanation": "That answer changes the point: Turning car-storage land into a place people can gather and use."
+          },
+          {
+            "label": "C",
+            "answer": "Replacing sidewalks with private garages",
+            "explanation": "That answer changes the point: Turning car-storage land into a place people can gather and use."
+          },
+          {
+            "label": "D",
+            "answer": "Moving all parks underground",
+            "explanation": "That answer changes the point: Turning car-storage land into a place people can gather and use."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-the-sidewalk-starts_7_100",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-the-sidewalk-starts_7_100",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.007"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.where-the-sidewalk-starts.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why are Pompeii’s raised pavements and stepping stones useful for understanding sidewalks?",
+        "correctAnswer": "They show early separation between pedestrians and street traffic",
+        "wrongAnswers": [
+          "They prove sidewalks began as luxury gardens",
+          "They show that carts were banned from ancient streets",
+          "They were built mainly for modern tourism"
+        ],
+        "explanation": "They show early separation between pedestrians and street traffic.",
+        "visibleCorrectExplanation": "They show early separation between pedestrians and street traffic.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They prove sidewalks began as luxury gardens",
+            "explanation": "That answer changes the point: They show early separation between pedestrians and street traffic."
+          },
+          {
+            "label": "C",
+            "answer": "They show that carts were banned from ancient streets",
+            "explanation": "That answer changes the point: They show early separation between pedestrians and street traffic."
+          },
+          {
+            "label": "D",
+            "answer": "They were built mainly for modern tourism",
+            "explanation": "That answer changes the point: They show early separation between pedestrians and street traffic."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_1_207",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_1_207",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.001"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What was important about the 1893 Chicago moving sidewalk?",
+        "correctAnswer": "It was an early real example of movable pedestrian infrastructure",
+        "wrongAnswers": [
+          "It was the first sidewalk ever built in a city",
+          "It replaced all walking at the exposition",
+          "A real infrastructure experiment, not a fictional device"
+        ],
+        "explanation": "It was an early real example of movable pedestrian infrastructure.",
+        "visibleCorrectExplanation": "It was an early real example of movable pedestrian infrastructure.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was the first sidewalk ever built in a city",
+            "explanation": "That answer changes the point: It was an early real example of movable pedestrian infrastructure."
+          },
+          {
+            "label": "C",
+            "answer": "It replaced all walking at the exposition",
+            "explanation": "That answer changes the point: It was an early real example of movable pedestrian infrastructure."
+          },
+          {
+            "label": "D",
+            "answer": "A real infrastructure experiment, not a fictional device",
+            "explanation": "That answer changes the point: It was an early real example of movable pedestrian infrastructure."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_2_191",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_2_191",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.002"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why did parking become such a large part of many modern cities?",
+        "correctAnswer": "Car-centered planning created demand for storage near daily destinations",
+        "wrongAnswers": [
+          "Sidewalks naturally turned into parking lots",
+          "Most cities were founded mainly for cars",
+          "Parking lots use no valuable land"
+        ],
+        "explanation": "Car-centered planning created demand for storage near daily destinations.",
+        "visibleCorrectExplanation": "Car-centered planning created demand for storage near daily destinations.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Sidewalks naturally turned into parking lots",
+            "explanation": "That answer changes the point: Car-centered planning created demand for storage near daily destinations."
+          },
+          {
+            "label": "C",
+            "answer": "Most cities were founded mainly for cars",
+            "explanation": "That answer changes the point: Car-centered planning created demand for storage near daily destinations."
+          },
+          {
+            "label": "D",
+            "answer": "Parking lots use no valuable land",
+            "explanation": "That answer changes the point: Car-centered planning created demand for storage near daily destinations."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_3_202",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_3_202",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.003"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is the Michigan Theater parking garage especially striking?",
+        "correctAnswer": "It combines a former movie palace with car storage",
+        "wrongAnswers": [
+          "It was designed only as a suburban mall garage",
+          "It is famous for having no historical memory",
+          "It hides all traces of its original purpose"
+        ],
+        "explanation": "It combines a former movie palace with car storage.",
+        "visibleCorrectExplanation": "It combines a former movie palace with car storage.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was designed only as a suburban mall garage",
+            "explanation": "That answer changes the point: It combines a former movie palace with car storage."
+          },
+          {
+            "label": "C",
+            "answer": "It is famous for having no historical memory",
+            "explanation": "That answer changes the point: It combines a former movie palace with car storage."
+          },
+          {
+            "label": "D",
+            "answer": "It hides all traces of its original purpose",
+            "explanation": "That answer changes the point: It combines a former movie palace with car storage."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_4_203",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_4_203",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.004"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do critics dislike snout houses?",
+        "correctAnswer": "They make the garage dominate the front and emphasize cars over people",
+        "wrongAnswers": [
+          "They cannot contain real garages",
+          "They are always unsafe to live in",
+          "They exist only in rural areas"
+        ],
+        "explanation": "They make the garage dominate the front and emphasize cars over people.",
+        "visibleCorrectExplanation": "They make the garage dominate the front and emphasize cars over people.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They cannot contain real garages",
+            "explanation": "That answer changes the point: They make the garage dominate the front and emphasize cars over people."
+          },
+          {
+            "label": "C",
+            "answer": "They are always unsafe to live in",
+            "explanation": "That answer changes the point: They make the garage dominate the front and emphasize cars over people."
+          },
+          {
+            "label": "D",
+            "answer": "They exist only in rural areas",
+            "explanation": "That answer changes the point: They make the garage dominate the front and emphasize cars over people."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_5_114",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_5_114",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.005"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What design idea is Robie House especially known for?",
+        "correctAnswer": "Connecting the house more closely to its site and surroundings",
+        "wrongAnswers": [
+          "Making the garage the only visible feature",
+          "Copying a traditional Victorian facade",
+          "Separating every room from natural light"
+        ],
+        "explanation": "Connecting the house more closely to its site and surroundings.",
+        "visibleCorrectExplanation": "Connecting the house more closely to its site and surroundings.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Making the garage the only visible feature",
+            "explanation": "That answer changes the point: Connecting the house more closely to its site and surroundings."
+          },
+          {
+            "label": "C",
+            "answer": "Copying a traditional Victorian facade",
+            "explanation": "That answer changes the point: Connecting the house more closely to its site and surroundings."
+          },
+          {
+            "label": "D",
+            "answer": "Separating every room from natural light",
+            "explanation": "That answer changes the point: Connecting the house more closely to its site and surroundings."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_6_177",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_6_177",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.006"
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is Grand Park a strong example of urban transformation?",
+        "correctAnswer": "It changed parking-dominated land into a civic gathering place",
+        "wrongAnswers": [
+          "It removed all public access from downtown Los Angeles",
+          "It turned a park into a private parking garage",
+          "It was designed only for drivers passing through"
+        ],
+        "explanation": "It changed parking-dominated land into a civic gathering place.",
+        "visibleCorrectExplanation": "It changed parking-dominated land into a civic gathering place.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removed all public access from downtown Los Angeles",
+            "explanation": "That answer changes the point: It changed parking-dominated land into a civic gathering place."
+          },
+          {
+            "label": "C",
+            "answer": "It turned a park into a private parking garage",
+            "explanation": "That answer changes the point: It changed parking-dominated land into a civic gathering place."
+          },
+          {
+            "label": "D",
+            "answer": "It was designed only for drivers passing through",
+            "explanation": "That answer changes the point: It changed parking-dominated land into a civic gathering place."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-the-sidewalk-starts_7_195",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-the-sidewalk-starts_7_195",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-the-sidewalk-starts.007"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.where-the-sidewalk-starts.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: They separate pedestrian movement from traffic. Which idea gives the best comparison?",
+        "correctAnswer": "Walkability",
+        "wrongAnswers": [
+          "Accessibility and universal design",
+          "Parking and car-centered policy",
+          "Navigation and wayfinding"
+        ],
+        "explanation": "Correct: Walkability.",
+        "visibleCorrectExplanation": "Correct: Walkability.",
+        "visibleConnection": "The question starts from a concrete detail in Sidewalks as urban infrastructure: They separate pedestrian movement from traffic. It is really asking which answer handles a similar pressure. Walkability is the best connection because it turns city design into daily freedom or daily friction; distance is not just measured in meters but in safety and comfort. Both ideas ask alpacas to notice that Sidewalks look ordinary because they are everywhere. That ordinariness hides how much access they quietly decide.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts__280",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts__280",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Accessibility and universal design",
+            "explanation": "That answer changes the point: Walkability."
+          },
+          {
+            "label": "C",
+            "answer": "Parking and car-centered policy",
+            "explanation": "That answer changes the point: Walkability."
+          },
+          {
+            "label": "D",
+            "answer": "Navigation and wayfinding",
+            "explanation": "That answer changes the point: Walkability."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Accessibility and universal design?",
+        "correctAnswer": "Parking and car-centered policy",
+        "wrongAnswers": [
+          "Navigation and wayfinding",
+          "Hostile architecture and exclusion",
+          "Sidewalks as urban infrastructure"
+        ],
+        "explanation": "Correct: Parking and car-centered policy.",
+        "visibleCorrectExplanation": "Correct: Parking and car-centered policy.",
+        "visibleConnection": "The question starts from a concrete detail in Accessibility and universal design: Curb cuts and ramps help wheelchair users, parents with strollers, and delivery workers. It is really asking which answer handles a similar pressure. Parking and car-centered policy is the best connection because it lets stationary cars organize moving people, giving storage for vehicles more power than sidewalks, shops, or homes. Both ideas ask alpacas to notice that Accessibility is not an add-on. It exposes whether the original design imagined enough kinds of people.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts__281",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts__281",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Navigation and wayfinding",
+            "explanation": "That answer changes the point: Parking and car-centered policy."
+          },
+          {
+            "label": "C",
+            "answer": "Hostile architecture and exclusion",
+            "explanation": "That answer changes the point: Parking and car-centered policy."
+          },
+          {
+            "label": "D",
+            "answer": "Sidewalks as urban infrastructure",
+            "explanation": "That answer changes the point: Parking and car-centered policy."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Navigation and wayfinding into a different form?",
+        "correctAnswer": "Hostile architecture and exclusion",
+        "wrongAnswers": [
+          "Sidewalks as urban infrastructure",
+          "Walkability",
+          "Accessibility and universal design"
+        ],
+        "explanation": "Correct: Hostile architecture and exclusion.",
+        "visibleCorrectExplanation": "Correct: Hostile architecture and exclusion.",
+        "visibleConnection": "The question starts from a concrete detail in Navigation and wayfinding: Wayfinding includes signs, maps, landmarks, and digital navigation. It is really asking which answer handles a similar pressure. Hostile architecture and exclusion is the best connection because it uses design to police behavior without saying so directly, making exclusion look like furniture or planning. Both ideas ask alpacas to notice that People move confidently when a place explains itself. Confusion is often a design failure, not a personal one.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts__282",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts__282",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Sidewalks as urban infrastructure",
+            "explanation": "That answer changes the point: Hostile architecture and exclusion."
+          },
+          {
+            "label": "C",
+            "answer": "Walkability",
+            "explanation": "That answer changes the point: Hostile architecture and exclusion."
+          },
+          {
+            "label": "D",
+            "answer": "Accessibility and universal design",
+            "explanation": "That answer changes the point: Hostile architecture and exclusion."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Parking and car-centered policy?",
+        "correctAnswer": "Navigation and wayfinding",
+        "wrongAnswers": [
+          "Hostile architecture and exclusion",
+          "Sidewalks as urban infrastructure",
+          "Walkability"
+        ],
+        "explanation": "Correct: Navigation and wayfinding.",
+        "visibleCorrectExplanation": "Correct: Navigation and wayfinding.",
+        "visibleConnection": "The question starts from a concrete detail in Parking and car-centered policy: Parking minimums influence city layout. It is really asking which answer handles a similar pressure. Navigation and wayfinding is the best connection because it turns space into instructions; signs and maps decide what feels obvious, permitted, or reachable. Both ideas ask alpacas to notice that Car-centered design pretends to solve movement while often sacrificing public space to storage.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts__283",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts__283",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Hostile architecture and exclusion",
+            "explanation": "That answer changes the point: Navigation and wayfinding."
+          },
+          {
+            "label": "C",
+            "answer": "Sidewalks as urban infrastructure",
+            "explanation": "That answer changes the point: Navigation and wayfinding."
+          },
+          {
+            "label": "D",
+            "answer": "Walkability",
+            "explanation": "That answer changes the point: Navigation and wayfinding."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Walkability?",
+        "correctAnswer": "Navigation and wayfinding",
+        "wrongAnswers": [
+          "Hostile architecture and exclusion",
+          "Sidewalks as urban infrastructure",
+          "Accessibility and universal design"
+        ],
+        "explanation": "Correct: Navigation and wayfinding.",
+        "visibleCorrectExplanation": "Correct: Navigation and wayfinding.",
+        "visibleConnection": "The question starts from a concrete detail in Walkability: Walkability depends on sidewalks, crossings, shade, distance, and safety. It is really asking which answer handles a similar pressure. Navigation and wayfinding is the best connection because it turns space into instructions; signs and maps decide what feels obvious, permitted, or reachable. Both ideas ask alpacas to notice that A walkable place gives people choices. A hostile one makes even short distances feel like permission denied.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts__284",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts__284",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Hostile architecture and exclusion",
+            "explanation": "That answer changes the point: Navigation and wayfinding."
+          },
+          {
+            "label": "C",
+            "answer": "Sidewalks as urban infrastructure",
+            "explanation": "That answer changes the point: Navigation and wayfinding."
+          },
+          {
+            "label": "D",
+            "answer": "Accessibility and universal design",
+            "explanation": "That answer changes the point: Navigation and wayfinding."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can sidewalks feel completely different from city to city?",
+        "correctAnswer": "Local design choices decide whether walking, commerce, and gathering are supported",
+        "wrongAnswers": [
+          "Sidewalks naturally form the same way everywhere",
+          "Only climate determines sidewalk use",
+          "Pedestrians use sidewalks identically in all cultures"
+        ],
+        "explanation": "Correct: Local design choices decide whether walking, commerce, and gathering are supported.",
+        "visibleCorrectExplanation": "Correct: Local design choices decide whether walking, commerce, and gathering are supported.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_1_379",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_1_379",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Sidewalks naturally form the same way everywhere",
+            "explanation": "That answer changes the point: Local design choices decide whether walking, commerce, and gathering are supported."
+          },
+          {
+            "label": "C",
+            "answer": "Only climate determines sidewalk use",
+            "explanation": "That answer changes the point: Local design choices decide whether walking, commerce, and gathering are supported."
+          },
+          {
+            "label": "D",
+            "answer": "Pedestrians use sidewalks identically in all cultures",
+            "explanation": "That answer changes the point: Local design choices decide whether walking, commerce, and gathering are supported."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why did moving sidewalks stay mostly niche rather than transform cities?",
+        "correctAnswer": "They work best only where passenger flow is predictable and maintenance is justified",
+        "wrongAnswers": [
+          "They are illegal in most public spaces",
+          "People always prefer escalators over walking",
+          "They cannot operate indoors"
+        ],
+        "explanation": "Correct: They work best only where passenger flow is predictable and maintenance is justified.",
+        "visibleCorrectExplanation": "Correct: They work best only where passenger flow is predictable and maintenance is justified.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_2_380",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_2_380",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They are illegal in most public spaces",
+            "explanation": "That answer changes the point: They work best only where passenger flow is predictable and maintenance is justified."
+          },
+          {
+            "label": "C",
+            "answer": "People always prefer escalators over walking",
+            "explanation": "That answer changes the point: They work best only where passenger flow is predictable and maintenance is justified."
+          },
+          {
+            "label": "D",
+            "answer": "They cannot operate indoors",
+            "explanation": "That answer changes the point: They work best only where passenger flow is predictable and maintenance is justified."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can “free parking” be misleading?",
+        "correctAnswer": "The cost is often hidden in land use, rents, prices, taxes, or lost alternatives",
+        "wrongAnswers": [
+          "It means nobody pays for the land at all",
+          "It exists only in public parks",
+          "It is always cheaper for society than paid parking"
+        ],
+        "explanation": "Correct: The cost is often hidden in land use, rents, prices, taxes, or lost alternatives.",
+        "visibleCorrectExplanation": "Correct: The cost is often hidden in land use, rents, prices, taxes, or lost alternatives.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_3_381",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_3_381",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It means nobody pays for the land at all",
+            "explanation": "That answer changes the point: The cost is often hidden in land use, rents, prices, taxes, or lost alternatives."
+          },
+          {
+            "label": "C",
+            "answer": "It exists only in public parks",
+            "explanation": "That answer changes the point: The cost is often hidden in land use, rents, prices, taxes, or lost alternatives."
+          },
+          {
+            "label": "D",
+            "answer": "It is always cheaper for society than paid parking",
+            "explanation": "That answer changes the point: The cost is often hidden in land use, rents, prices, taxes, or lost alternatives."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What do Temple Street Garage, Lego Parking House, and Parc des Celestins have in common?",
+        "correctAnswer": "They treat parking as a designed experience rather than invisible storage",
+        "wrongAnswers": [
+          "They were all built as ancient monuments",
+          "They are all examples of failed public parks",
+          "They all reject architecture completely"
+        ],
+        "explanation": "Correct: They treat parking as a designed experience rather than invisible storage.",
+        "visibleCorrectExplanation": "Correct: They treat parking as a designed experience rather than invisible storage.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_4_382",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_4_382",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They were all built as ancient monuments",
+            "explanation": "That answer changes the point: They treat parking as a designed experience rather than invisible storage."
+          },
+          {
+            "label": "C",
+            "answer": "They are all examples of failed public parks",
+            "explanation": "That answer changes the point: They treat parking as a designed experience rather than invisible storage."
+          },
+          {
+            "label": "D",
+            "answer": "They all reject architecture completely",
+            "explanation": "That answer changes the point: They treat parking as a designed experience rather than invisible storage."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What fair counterargument can be made in defense of snout houses?",
+        "correctAnswer": "They can be practical and space-efficient on small suburban lots",
+        "wrongAnswers": [
+          "They always create lively pedestrian streets",
+          "They eliminate car dependency by design",
+          "They are mostly symbolic and not useful"
+        ],
+        "explanation": "Correct: They can be practical and space-efficient on small suburban lots.",
+        "visibleCorrectExplanation": "Correct: They can be practical and space-efficient on small suburban lots.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_5_383",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_5_383",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They always create lively pedestrian streets",
+            "explanation": "That answer changes the point: They can be practical and space-efficient on small suburban lots."
+          },
+          {
+            "label": "C",
+            "answer": "They eliminate car dependency by design",
+            "explanation": "That answer changes the point: They can be practical and space-efficient on small suburban lots."
+          },
+          {
+            "label": "D",
+            "answer": "They are mostly symbolic and not useful",
+            "explanation": "That answer changes the point: They can be practical and space-efficient on small suburban lots."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How does Wright’s approach contrast with a snout house?",
+        "correctAnswer": "It tries to integrate car, house, street, and landscape rather than letting the garage dominate",
+        "wrongAnswers": [
+          "It removes all relationship between home and street",
+          "It treats the car as the only reason to design a house",
+          "It makes the building less connected to its surroundings"
+        ],
+        "explanation": "Correct: It tries to integrate car, house, street, and landscape rather than letting the garage dominate.",
+        "visibleCorrectExplanation": "Correct: It tries to integrate car, house, street, and landscape rather than letting the garage dominate.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_6_384",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_6_384",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes all relationship between home and street",
+            "explanation": "That answer changes the point: It tries to integrate car, house, street, and landscape rather than letting the garage dominate."
+          },
+          {
+            "label": "C",
+            "answer": "It treats the car as the only reason to design a house",
+            "explanation": "That answer changes the point: It tries to integrate car, house, street, and landscape rather than letting the garage dominate."
+          },
+          {
+            "label": "D",
+            "answer": "It makes the building less connected to its surroundings",
+            "explanation": "That answer changes the point: It tries to integrate car, house, street, and landscape rather than letting the garage dominate."
+          }
+        ]
+      },
+      {
+        "id": "question.where-the-sidewalk-starts.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What design features help Grand Park work as a public place?",
+        "correctAnswer": "Lawns, fountains, gardens, walking paths, play areas, and seating",
+        "wrongAnswers": [
+          "Only traffic lanes and parking meters",
+          "Closed fences and blank concrete walls",
+          "Private garages hidden below every sidewalk"
+        ],
+        "explanation": "Correct: Lawns, fountains, gardens, walking paths, play areas, and seating.",
+        "visibleCorrectExplanation": "Correct: Lawns, fountains, gardens, walking paths, play areas, and seating.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-the-sidewalk-starts_7_385",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-the-sidewalk-starts",
+        "sectionIds": [
+          "where-the-sidewalk-starts"
+        ],
+        "guidingSectionPrimary": "Where the Sidewalk Starts",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-the-sidewalk-starts_7_385",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Only traffic lanes and parking meters",
+            "explanation": "That answer changes the point: Lawns, fountains, gardens, walking paths, play areas, and seating."
+          },
+          {
+            "label": "C",
+            "answer": "Closed fences and blank concrete walls",
+            "explanation": "That answer changes the point: Lawns, fountains, gardens, walking paths, play areas, and seating."
+          },
+          {
+            "label": "D",
+            "answer": "Private garages hidden below every sidewalk",
+            "explanation": "That answer changes the point: Lawns, fountains, gardens, walking paths, play areas, and seating."
+          }
+        ]
+      }
+    ]
+  }
+}

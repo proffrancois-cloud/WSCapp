@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="260" viewBox="0 0 680 260" fill="none">
+  <defs>
+    <linearGradient id="woodGrad" x1="0" y1="0" x2="680" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0b24b"/>
+      <stop offset="0.45" stop-color="#d89532"/>
+      <stop offset="0.72" stop-color="#ffd277"/>
+      <stop offset="1" stop-color="#d89532"/>
+    </linearGradient>
+    <filter id="softShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="3.3" stdDeviation="3.8" flood-color="#2f1708" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <rect x="24" y="24" width="632" height="212" rx="34" fill="url(#woodGrad)" stroke="#2f1708" stroke-width="11"/>
+    <rect x="42" y="42" width="596" height="176" rx="26" stroke="#4b250d" stroke-width="6"/>
+    <path d="M 36.0 124.4 L 644.0 126.7" stroke="#4b250d" stroke-width="3.0" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 106.8 56.3 C 264.2 52.1, 421.4 55.1, 575.7 51.6" stroke="#7a3b12" stroke-width="3.4" fill="none" stroke-linecap="round" opacity="0.40"/><path d="M 102.6 81.2 C 231.5 81.6, 419.6 76.0, 601.0 92.4" stroke="#7a3b12" stroke-width="3.1" fill="none" stroke-linecap="round" opacity="0.42"/><path d="M 100.6 120.1 C 235.5 123.3, 478.6 121.7, 603.9 125.0" stroke="#7a3b12" stroke-width="2.3" fill="none" stroke-linecap="round" opacity="0.42"/><path d="M 75.4 148.0 C 215.2 142.7, 420.7 138.2, 576.7 141.9" stroke="#7a3b12" stroke-width="3.0" fill="none" stroke-linecap="round" opacity="0.44"/><path d="M 89.6 176.8 C 265.8 178.0, 409.6 176.7, 586.0 177.6" stroke="#7a3b12" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.50"/><path d="M 104.3 201.6 C 289.8 202.8, 430.2 204.6, 599.9 199.7" stroke="#7a3b12" stroke-width="2.3" fill="none" stroke-linecap="round" opacity="0.50"/>
+    <ellipse cx="186.9" cy="178.0" rx="12.7" ry="6.7" fill="none" stroke="#7a3b12" stroke-width="3.4" opacity="0.33" transform="rotate(-4.1 186.9 178.0)"/>
+  </g>
+</svg>

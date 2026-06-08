@@ -1,0 +1,31 @@
+{
+  "id": "alpacards.next-year-in-futurism",
+  "sectionId": "next-year-in-futurism",
+  "cards": [
+    {
+      "id": "alpacard.next-year-in-futurism.001",
+      "sectionId": "next-year-in-futurism",
+      "entryTitle": "Tesla’s Tower and the Meaning of “Soon”",
+      "sectionLevel": false,
+      "category": "Architecture / Building / Urban Design",
+      "subcategory": "Exact place or building",
+      "title": "Wardenclyffe Tower / Tesla’s Tower",
+      "creator": "Nikola Tesla / Stanford White",
+      "year": "1901–1917",
+      "locationMedium": "Shoreham, New York, USA",
+      "movementContext": "Experimental wireless transmission tower",
+      "notice": "Wardenclyffe was meant to be a prototype for worldwide wireless communication and possibly wireless power.",
+      "wscConnection": "Guiding section: Next Year in Futurism · Big ideas: Prediction / Planning & Projects · Subjects: History / Computer Science / Technology",
+      "imagePath": "assets/flashcards/alpacards/wardenclyffe-tower-teslas-tower.jpg",
+      "sourceUrl": "https://teslasciencecenter.org/history/tower/",
+      "sourceUsed": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Wardenclyffe_Tower_-_1904.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "imageInstruction": "/imagesearch exact image of Wardenclyffe Tower / Tesla’s Tower. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
+      "rightsNote": "Use real photo only for exact buildings/places.",
+      "exactRealImageRequired": true,
+      "needsReview": false,
+      "sourceId": "wardenclyffe-tower-teslas-tower",
+      "canonicalSectionId": "next-year-in-futurism",
+      "assetId": "asset.next-year-in-futurism.alpacard.wardenclyffe-tower-teslas-tower"
+    }
+  ]
+}

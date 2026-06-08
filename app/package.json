@@ -1,0 +1,90 @@
+{
+  "name": "wsc-alpaca-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "description": "World Scholar's Cup 2026 Study Routes as a web app and desktop app.",
+  "main": "desktop/electron/main.js",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "dev:3d": "vite --host 127.0.0.1",
+    "build:3d": "vite build",
+    "preview:3d": "vite preview --host 127.0.0.1",
+    "typecheck:3d": "tsc --noEmit -p tsconfig.json",
+    "theme:extract": "node ../tools/generators/extract-current-2026-theme.mjs",
+    "theme:build-question-bank": "node ../tools/generators/build-question-bank-from-theme.mjs ../content/themes/2026",
+    "theme:validate": "node ../tools/validators/validate-theme.mjs ../content/themes/2026",
+    "theme:build-runtime": "node ../tools/generators/build-current-runtime-from-theme.mjs ../content/themes/2026 generated/current-runtime",
+    "theme:compare": "node ../tools/validators/compare-runtime-compat.mjs . generated/current-runtime",
+    "theme:refresh": "npm run theme:extract && npm run theme:build-question-bank && npm run theme:validate && npm run theme:build-runtime && npm run theme:compare",
+    "test:theme": "npm run theme:validate && npm run theme:compare",
+    "test:smoke": "node ../tools/validators/smoke-test-app.mjs",
+    "desktop:dev": "electron .",
+    "desktop:pack": "electron-builder --dir",
+    "desktop:mac": "electron-builder --mac dmg zip",
+    "desktop:win": "electron-builder --win nsis portable"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14"
+  },
+  "build": {
+    "appId": "org.worldscholarscup.study.routes",
+    "productName": "WSC 2026 Study Routes",
+    "directories": {
+      "buildResources": "desktop/icons",
+      "output": "../builds/current"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "data.js",
+      "knowledge-bank.js",
+      "alpaca-channel.js",
+      "raw-content-bank.js",
+      "assets-config.js",
+      "supabase-config.js",
+      "manifest.webmanifest",
+      "service-worker.js",
+      "pwa.js",
+      "alpaca-campus-3d/**/*",
+      "src/**/*",
+      "generated/**/*",
+      "assets/**/*",
+      "content/**/*",
+      "app-icons/**/*",
+      "desktop/electron/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.education",
+      "icon": "desktop/icons/app.png",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "desktop/icons/app.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/rapier": "^2.2.0",
+    "lucide-react": "^1.16.0",
+    "phaser": "^4.1.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "three": "^0.184.0",
+    "zustand": "^5.0.13"
+  }
+}

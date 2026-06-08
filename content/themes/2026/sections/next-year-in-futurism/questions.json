@@ -1,0 +1,1577 @@
+{
+  "id": "questions.next-year-in-futurism",
+  "sectionId": "next-year-in-futurism",
+  "levels": {
+    "100": [
+      {
+        "id": "question.next-year-in-futurism.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Which technology is often used as a classic example of a future that always seems “almost here”?",
+        "correctAnswer": "Flying cars",
+        "wrongAnswers": [
+          "Fountain pens",
+          "Paper maps",
+          "Raincoats"
+        ],
+        "explanation": "Flying cars.",
+        "visibleCorrectExplanation": "Flying cars.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Fountain pens",
+            "explanation": "That answer changes the point: Flying cars."
+          },
+          {
+            "label": "C",
+            "answer": "Paper maps",
+            "explanation": "That answer changes the point: Flying cars."
+          },
+          {
+            "label": "D",
+            "answer": "Raincoats",
+            "explanation": "That answer changes the point: Flying cars."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_1_107",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_1_107",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.001"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What can an old forecast reveal even when it is wrong?",
+        "correctAnswer": "What people at the time expected, feared, or valued",
+        "wrongAnswers": [
+          "The exact date every invention will arrive",
+          "The final truth about social progress",
+          "A way to avoid uncertainty completely"
+        ],
+        "explanation": "What people at the time expected, feared, or valued.",
+        "visibleCorrectExplanation": "What people at the time expected, feared, or valued.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The exact date every invention will arrive",
+            "explanation": "That answer changes the point: What people at the time expected, feared, or valued."
+          },
+          {
+            "label": "C",
+            "answer": "The final truth about social progress",
+            "explanation": "That answer changes the point: What people at the time expected, feared, or valued."
+          },
+          {
+            "label": "D",
+            "answer": "A way to avoid uncertainty completely",
+            "explanation": "That answer changes the point: What people at the time expected, feared, or valued."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_2_081",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_2_081",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.002"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Who is most strongly associated with Wardenclyffe Tower?",
+        "correctAnswer": "Nikola Tesla",
+        "wrongAnswers": [
+          "Alan Turing",
+          "Neil Armstrong",
+          "Isaac Newton"
+        ],
+        "explanation": "Nikola Tesla.",
+        "visibleCorrectExplanation": "Nikola Tesla.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Alan Turing",
+            "explanation": "That answer changes the point: Nikola Tesla."
+          },
+          {
+            "label": "C",
+            "answer": "Neil Armstrong",
+            "explanation": "That answer changes the point: Nikola Tesla."
+          },
+          {
+            "label": "D",
+            "answer": "Isaac Newton",
+            "explanation": "That answer changes the point: Nikola Tesla."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_3_087",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_3_087",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.003"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why are phrases like “soon” tricky in predictions?",
+        "correctAnswer": "They can sound precise while hiding uncertainty",
+        "wrongAnswers": [
+          "They always mean the same length of time",
+          "They are used only in science fiction",
+          "They prove the speaker has evidence"
+        ],
+        "explanation": "They can sound precise while hiding uncertainty.",
+        "visibleCorrectExplanation": "They can sound precise while hiding uncertainty.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They always mean the same length of time",
+            "explanation": "That answer changes the point: They can sound precise while hiding uncertainty."
+          },
+          {
+            "label": "C",
+            "answer": "They are used only in science fiction",
+            "explanation": "That answer changes the point: They can sound precise while hiding uncertainty."
+          },
+          {
+            "label": "D",
+            "answer": "They prove the speaker has evidence",
+            "explanation": "That answer changes the point: They can sound precise while hiding uncertainty."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_4_072",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_4_072",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.004"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is one basic goal of life-extension research?",
+        "correctAnswer": "To increase healthy years or extend lifespan",
+        "wrongAnswers": [
+          "To make death disappear immediately",
+          "To replace all medicine with robots",
+          "To stop people from needing sleep"
+        ],
+        "explanation": "To increase healthy years or extend lifespan.",
+        "visibleCorrectExplanation": "To increase healthy years or extend lifespan.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To make death disappear immediately",
+            "explanation": "That answer changes the point: To increase healthy years or extend lifespan."
+          },
+          {
+            "label": "C",
+            "answer": "To replace all medicine with robots",
+            "explanation": "That answer changes the point: To increase healthy years or extend lifespan."
+          },
+          {
+            "label": "D",
+            "answer": "To stop people from needing sleep",
+            "explanation": "That answer changes the point: To increase healthy years or extend lifespan."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_5_073",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_5_073",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.005"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What can old future predictions teach besides accuracy?",
+        "correctAnswer": "What people in the past hoped for, feared, or valued",
+        "wrongAnswers": [
+          "How to know the future perfectly",
+          "Why old people lacked imagination",
+          "That progress always follows one path"
+        ],
+        "explanation": "What people in the past hoped for, feared, or valued.",
+        "visibleCorrectExplanation": "What people in the past hoped for, feared, or valued.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "How to know the future perfectly",
+            "explanation": "That answer changes the point: What people in the past hoped for, feared, or valued."
+          },
+          {
+            "label": "C",
+            "answer": "Why old people lacked imagination",
+            "explanation": "That answer changes the point: What people in the past hoped for, feared, or valued."
+          },
+          {
+            "label": "D",
+            "answer": "That progress always follows one path",
+            "explanation": "That answer changes the point: What people in the past hoped for, feared, or valued."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_6_085",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_6_085",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.006"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does “quantum supremacy” usually mean in tech news?",
+        "correctAnswer": "A quantum computer beat a classical computer on a specific task",
+        "wrongAnswers": [
+          "Quantum computers replaced all ordinary laptops",
+          "Quantum science became a law of government",
+          "Encryption stopped working everywhere"
+        ],
+        "explanation": "A quantum computer beat a classical computer on a specific task.",
+        "visibleCorrectExplanation": "A quantum computer beat a classical computer on a specific task.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Quantum computers replaced all ordinary laptops",
+            "explanation": "That answer changes the point: A quantum computer beat a classical computer on a specific task."
+          },
+          {
+            "label": "C",
+            "answer": "Quantum science became a law of government",
+            "explanation": "That answer changes the point: A quantum computer beat a classical computer on a specific task."
+          },
+          {
+            "label": "D",
+            "answer": "Encryption stopped working everywhere",
+            "explanation": "That answer changes the point: A quantum computer beat a classical computer on a specific task."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_7_088",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_7_088",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.007"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why does AI-generated writing matter beyond cheating?",
+        "correctAnswer": "It affects trust, authorship, and responsibility",
+        "wrongAnswers": [
+          "It makes spelling the only issue in writing",
+          "It proves readers no longer need judgment",
+          "It matters only to English teachers"
+        ],
+        "explanation": "It affects trust, authorship, and responsibility.",
+        "visibleCorrectExplanation": "It affects trust, authorship, and responsibility.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It makes spelling the only issue in writing",
+            "explanation": "That answer changes the point: It affects trust, authorship, and responsibility."
+          },
+          {
+            "label": "C",
+            "answer": "It proves readers no longer need judgment",
+            "explanation": "That answer changes the point: It affects trust, authorship, and responsibility."
+          },
+          {
+            "label": "D",
+            "answer": "It matters only to English teachers",
+            "explanation": "That answer changes the point: It affects trust, authorship, and responsibility."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_8_078",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_8_078",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.008"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.009",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What makes AGI different from narrow AI?",
+        "correctAnswer": "It would apply knowledge across many contexts",
+        "wrongAnswers": [
+          "It would only search the internet faster",
+          "It would be another name for grammar checking",
+          "It would simply store more documents"
+        ],
+        "explanation": "It would apply knowledge across many contexts.",
+        "visibleCorrectExplanation": "It would apply knowledge across many contexts.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It would only search the internet faster",
+            "explanation": "That answer changes the point: It would apply knowledge across many contexts."
+          },
+          {
+            "label": "C",
+            "answer": "It would be another name for grammar checking",
+            "explanation": "That answer changes the point: It would apply knowledge across many contexts."
+          },
+          {
+            "label": "D",
+            "answer": "It would simply store more documents",
+            "explanation": "That answer changes the point: It would apply knowledge across many contexts."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_9_037",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_9_037",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.009"
+      },
+      {
+        "id": "question.next-year-in-futurism.100.010",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What was the Kola Superdeep Borehole?",
+        "correctAnswer": "A Soviet project that drilled extremely deep into Earth’s crust",
+        "wrongAnswers": [
+          "A tunnel built for high-speed trains",
+          "A deep Earth drilling project, not a space base",
+          "A drilling project in the crust, not an orbiting instrument"
+        ],
+        "explanation": "A Soviet project that drilled extremely deep into Earth’s crust.",
+        "visibleCorrectExplanation": "A Soviet project that drilled extremely deep into Earth’s crust.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A tunnel built for high-speed trains",
+            "explanation": "That answer changes the point: A Soviet project that drilled extremely deep into Earth’s crust."
+          },
+          {
+            "label": "C",
+            "answer": "A deep Earth drilling project, not a space base",
+            "explanation": "That answer changes the point: A Soviet project that drilled extremely deep into Earth’s crust."
+          },
+          {
+            "label": "D",
+            "answer": "A drilling project in the crust, not an orbiting instrument",
+            "explanation": "That answer changes the point: A Soviet project that drilled extremely deep into Earth’s crust."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_next-year-in-futurism_10_029",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_next-year-in-futurism_10_029",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.010"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.next-year-in-futurism.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can a promising technology remain stuck in the near future?",
+        "correctAnswer": "It may face cost, safety, engineering, or adoption barriers",
+        "wrongAnswers": [
+          "It becomes impossible once people predict it",
+          "It is always blocked by schools and museums",
+          "It works only if nobody is interested in it"
+        ],
+        "explanation": "It may face cost, safety, engineering, or adoption barriers.",
+        "visibleCorrectExplanation": "It may face cost, safety, engineering, or adoption barriers.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It becomes impossible once people predict it",
+            "explanation": "That answer changes the point: It may face cost, safety, engineering, or adoption barriers."
+          },
+          {
+            "label": "C",
+            "answer": "It is always blocked by schools and museums",
+            "explanation": "That answer changes the point: It may face cost, safety, engineering, or adoption barriers."
+          },
+          {
+            "label": "D",
+            "answer": "It works only if nobody is interested in it",
+            "explanation": "That answer changes the point: It may face cost, safety, engineering, or adoption barriers."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_1_200",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_1_200",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.001"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is a 2018 prediction about 2028 useful to study now?",
+        "correctAnswer": "It lets people compare expectation, timing, and reality",
+        "wrongAnswers": [
+          "It proves all forecasts become true eventually",
+          "It shows technology stops changing after ten years",
+          "It makes recent history impossible to debate"
+        ],
+        "explanation": "It lets people compare expectation, timing, and reality.",
+        "visibleCorrectExplanation": "It lets people compare expectation, timing, and reality.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves all forecasts become true eventually",
+            "explanation": "That answer changes the point: It lets people compare expectation, timing, and reality."
+          },
+          {
+            "label": "C",
+            "answer": "It shows technology stops changing after ten years",
+            "explanation": "That answer changes the point: It lets people compare expectation, timing, and reality."
+          },
+          {
+            "label": "D",
+            "answer": "It makes recent history impossible to debate",
+            "explanation": "That answer changes the point: It lets people compare expectation, timing, and reality."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_2_186",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_2_186",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.002"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can a brilliant prediction still fail as a project?",
+        "correctAnswer": "It may lack funding, timing, infrastructure, or support",
+        "wrongAnswers": [
+          "It becomes false if it is described too early",
+          "It succeeds automatically if the inventor is famous",
+          "It needs no testing once the idea is clear"
+        ],
+        "explanation": "It may lack funding, timing, infrastructure, or support.",
+        "visibleCorrectExplanation": "It may lack funding, timing, infrastructure, or support.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It becomes false if it is described too early",
+            "explanation": "That answer changes the point: It may lack funding, timing, infrastructure, or support."
+          },
+          {
+            "label": "C",
+            "answer": "It succeeds automatically if the inventor is famous",
+            "explanation": "That answer changes the point: It may lack funding, timing, infrastructure, or support."
+          },
+          {
+            "label": "D",
+            "answer": "It needs no testing once the idea is clear",
+            "explanation": "That answer changes the point: It may lack funding, timing, infrastructure, or support."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_3_182",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_3_182",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.003"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is one fair way to judge an old forecast?",
+        "correctAnswer": "Check timing, form, adoption, and evidence",
+        "wrongAnswers": [
+          "Ask only whether it sounded exciting",
+          "Ignore what happened after publication",
+          "Assume late predictions were lies"
+        ],
+        "explanation": "Check timing, form, adoption, and evidence.",
+        "visibleCorrectExplanation": "Check timing, form, adoption, and evidence.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Ask only whether it sounded exciting",
+            "explanation": "That answer changes the point: Check timing, form, adoption, and evidence."
+          },
+          {
+            "label": "C",
+            "answer": "Ignore what happened after publication",
+            "explanation": "That answer changes the point: Check timing, form, adoption, and evidence."
+          },
+          {
+            "label": "D",
+            "answer": "Assume late predictions were lies",
+            "explanation": "That answer changes the point: Check timing, form, adoption, and evidence."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_4_150",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_4_150",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.004"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is organ replacement not a simple path to immortality?",
+        "correctAnswer": "The whole body and brain age, not just single organs",
+        "wrongAnswers": [
+          "Organs cannot be transplanted in modern medicine",
+          "Aging affects only the heart and lungs",
+          "Immortality is mostly a paperwork problem"
+        ],
+        "explanation": "The whole body and brain age, not just single organs.",
+        "visibleCorrectExplanation": "The whole body and brain age, not just single organs.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Organs cannot be transplanted in modern medicine",
+            "explanation": "That answer changes the point: The whole body and brain age, not just single organs."
+          },
+          {
+            "label": "C",
+            "answer": "Aging affects only the heart and lungs",
+            "explanation": "That answer changes the point: The whole body and brain age, not just single organs."
+          },
+          {
+            "label": "D",
+            "answer": "Immortality is mostly a paperwork problem",
+            "explanation": "That answer changes the point: The whole body and brain age, not just single organs."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_5_190",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_5_190",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.005"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do retrofuture images sometimes look strange today?",
+        "correctAnswer": "They mix future dreams with the assumptions of their own time",
+        "wrongAnswers": [
+          "They were designed only to be jokes",
+          "They avoided technology completely",
+          "They never influenced real design"
+        ],
+        "explanation": "They mix future dreams with the assumptions of their own time.",
+        "visibleCorrectExplanation": "They mix future dreams with the assumptions of their own time.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They were designed only to be jokes",
+            "explanation": "That answer changes the point: They mix future dreams with the assumptions of their own time."
+          },
+          {
+            "label": "C",
+            "answer": "They avoided technology completely",
+            "explanation": "That answer changes the point: They mix future dreams with the assumptions of their own time."
+          },
+          {
+            "label": "D",
+            "answer": "They never influenced real design",
+            "explanation": "That answer changes the point: They mix future dreams with the assumptions of their own time."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_6_183",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_6_183",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.006"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why are some people worried about Q-Day?",
+        "correctAnswer": "Quantum computers might someday break current encryption",
+        "wrongAnswers": [
+          "Quantum computers could erase gravity",
+          "All digital screens would immediately shut down",
+          "Mathematics would become illegal"
+        ],
+        "explanation": "Quantum computers might someday break current encryption.",
+        "visibleCorrectExplanation": "Quantum computers might someday break current encryption.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Quantum computers could erase gravity",
+            "explanation": "That answer changes the point: Quantum computers might someday break current encryption."
+          },
+          {
+            "label": "C",
+            "answer": "All digital screens would immediately shut down",
+            "explanation": "That answer changes the point: Quantum computers might someday break current encryption."
+          },
+          {
+            "label": "D",
+            "answer": "Mathematics would become illegal",
+            "explanation": "That answer changes the point: Quantum computers might someday break current encryption."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_7_130",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_7_130",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.007"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why may AI writing become harder to identify?",
+        "correctAnswer": "Models can imitate common human writing patterns well",
+        "wrongAnswers": [
+          "Computers now use real handwriting in notebooks",
+          "Humans are no longer allowed to write clearly",
+          "All AI text must announce itself publicly"
+        ],
+        "explanation": "Models can imitate common human writing patterns well.",
+        "visibleCorrectExplanation": "Models can imitate common human writing patterns well.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Computers now use real handwriting in notebooks",
+            "explanation": "That answer changes the point: Models can imitate common human writing patterns well."
+          },
+          {
+            "label": "C",
+            "answer": "Humans are no longer allowed to write clearly",
+            "explanation": "That answer changes the point: Models can imitate common human writing patterns well."
+          },
+          {
+            "label": "D",
+            "answer": "All AI text must announce itself publicly",
+            "explanation": "That answer changes the point: Models can imitate common human writing patterns well."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_8_149",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_8_149",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.008"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.009",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why do people debate AGI intensely?",
+        "correctAnswer": "It could affect work, power, knowledge, and decisions broadly",
+        "wrongAnswers": [
+          "It already controls every government system",
+          "It is mainly a visual design trend",
+          "It would matter only inside schools"
+        ],
+        "explanation": "It could affect work, power, knowledge, and decisions broadly.",
+        "visibleCorrectExplanation": "It could affect work, power, knowledge, and decisions broadly.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It already controls every government system",
+            "explanation": "That answer changes the point: It could affect work, power, knowledge, and decisions broadly."
+          },
+          {
+            "label": "C",
+            "answer": "It is mainly a visual design trend",
+            "explanation": "That answer changes the point: It could affect work, power, knowledge, and decisions broadly."
+          },
+          {
+            "label": "D",
+            "answer": "It would matter only inside schools",
+            "explanation": "That answer changes the point: It could affect work, power, knowledge, and decisions broadly."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_9_110",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_9_110",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.009"
+      },
+      {
+        "id": "question.next-year-in-futurism.200.010",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why was the deep-drilling race about more than science?",
+        "correctAnswer": "Prestige, rivalry, and national competition also shaped it",
+        "wrongAnswers": [
+          "Science played no role in the project",
+          "Only one country cared about geology",
+          "The goal was mainly road construction"
+        ],
+        "explanation": "Prestige, rivalry, and national competition also shaped it.",
+        "visibleCorrectExplanation": "Prestige, rivalry, and national competition also shaped it.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Science played no role in the project",
+            "explanation": "That answer changes the point: Prestige, rivalry, and national competition also shaped it."
+          },
+          {
+            "label": "C",
+            "answer": "Only one country cared about geology",
+            "explanation": "That answer changes the point: Prestige, rivalry, and national competition also shaped it."
+          },
+          {
+            "label": "D",
+            "answer": "The goal was mainly road construction",
+            "explanation": "That answer changes the point: Prestige, rivalry, and national competition also shaped it."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_next-year-in-futurism_10_184",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_next-year-in-futurism_10_184",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.next-year-in-futurism.010"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.next-year-in-futurism.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Futures thinking is partly analytical and partly imaginative. Which idea gives the best comparison?",
+        "correctAnswer": "Hype cycles",
+        "wrongAnswers": [
+          "False imminence",
+          "Retrofuturism",
+          "AI as future symbol"
+        ],
+        "explanation": "Correct: Hype cycles.",
+        "visibleCorrectExplanation": "Correct: Hype cycles.",
+        "visibleConnection": "The question starts from a concrete detail in What futurism does: Futures thinking is partly analytical and partly imaginative. It is really asking which answer handles a similar pressure. Hype cycles is the best connection because it converts early promise into waves of inflated expectation, disappointment, and sometimes useful adoption. Both ideas ask alpacas to notice that Futurism gives uncertainty a plot. That plot can motivate, distract, sell, or console.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism__250",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism__250",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "False imminence",
+            "explanation": "That answer changes the point: Hype cycles."
+          },
+          {
+            "label": "C",
+            "answer": "Retrofuturism",
+            "explanation": "That answer changes the point: Hype cycles."
+          },
+          {
+            "label": "D",
+            "answer": "AI as future symbol",
+            "explanation": "That answer changes the point: Hype cycles."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to False imminence?",
+        "correctAnswer": "Retrofuturism",
+        "wrongAnswers": [
+          "AI as future symbol",
+          "Prediction bias",
+          "What futurism does"
+        ],
+        "explanation": "Correct: Retrofuturism.",
+        "visibleCorrectExplanation": "Correct: Retrofuturism.",
+        "visibleConnection": "The question starts from a concrete detail in False imminence: 'Next year' language sells hope. It is really asking which answer handles a similar pressure. Retrofuturism is the best connection because it shows old futures aging into cultural evidence, revealing what past societies wanted or feared about progress. Both ideas ask alpacas to notice that “Soon” is powerful because it avoids both proof and surrender.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism__251",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism__251",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "AI as future symbol",
+            "explanation": "That answer changes the point: Retrofuturism."
+          },
+          {
+            "label": "C",
+            "answer": "Prediction bias",
+            "explanation": "That answer changes the point: Retrofuturism."
+          },
+          {
+            "label": "D",
+            "answer": "What futurism does",
+            "explanation": "That answer changes the point: Retrofuturism."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind AI as future symbol into a different form?",
+        "correctAnswer": "Prediction bias",
+        "wrongAnswers": [
+          "What futurism does",
+          "Hype cycles",
+          "False imminence"
+        ],
+        "explanation": "Correct: Prediction bias.",
+        "visibleCorrectExplanation": "Correct: Prediction bias.",
+        "visibleConnection": "The question starts from a concrete detail in AI as future symbol: AI is framed as inevitable, threatening, or liberating depending on the speaker. It is really asking which answer handles a similar pressure. Prediction bias is the best connection because it lets desire, fear, and available examples distort what people imagine as likely. Both ideas ask alpacas to notice that AI absorbs older hopes about automation and older fears about replacement. It is rarely just about software.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism__252",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism__252",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "What futurism does",
+            "explanation": "That answer changes the point: Prediction bias."
+          },
+          {
+            "label": "C",
+            "answer": "Hype cycles",
+            "explanation": "That answer changes the point: Prediction bias."
+          },
+          {
+            "label": "D",
+            "answer": "False imminence",
+            "explanation": "That answer changes the point: Prediction bias."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.014",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Retrofuturism?",
+        "correctAnswer": "AI as future symbol",
+        "wrongAnswers": [
+          "Prediction bias",
+          "What futurism does",
+          "Hype cycles"
+        ],
+        "explanation": "Correct: AI as future symbol.",
+        "visibleCorrectExplanation": "Correct: AI as future symbol.",
+        "visibleConnection": "The question starts from a concrete detail in Retrofuturism: Retrofuturism is about past futures. It is really asking which answer handles a similar pressure. AI as future symbol is the best connection because it makes one technology carry a whole civilization’s hopes and anxieties about intelligence, labor, creativity, and control. Both ideas ask alpacas to notice that Old futures are useful because they show the assumptions of the people who imagined them.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism__253",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism__253",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Prediction bias",
+            "explanation": "That answer changes the point: AI as future symbol."
+          },
+          {
+            "label": "C",
+            "answer": "What futurism does",
+            "explanation": "That answer changes the point: AI as future symbol."
+          },
+          {
+            "label": "D",
+            "answer": "Hype cycles",
+            "explanation": "That answer changes the point: AI as future symbol."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.015",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Hype cycles?",
+        "correctAnswer": "AI as future symbol",
+        "wrongAnswers": [
+          "Prediction bias",
+          "What futurism does",
+          "False imminence"
+        ],
+        "explanation": "Correct: AI as future symbol.",
+        "visibleCorrectExplanation": "Correct: AI as future symbol.",
+        "visibleConnection": "The question starts from a concrete detail in Hype cycles: Early publicity can exaggerate readiness. It is really asking which answer handles a similar pressure. AI as future symbol is the best connection because it makes one technology carry a whole civilization’s hopes and anxieties about intelligence, labor, creativity, and control. Both ideas ask alpacas to notice that Hype is not simply false. It is a social rhythm that turns attention into investment before evidence catches up.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism__254",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism__254",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Prediction bias",
+            "explanation": "That answer changes the point: AI as future symbol."
+          },
+          {
+            "label": "C",
+            "answer": "What futurism does",
+            "explanation": "That answer changes the point: AI as future symbol."
+          },
+          {
+            "label": "D",
+            "answer": "False imminence",
+            "explanation": "That answer changes the point: AI as future symbol."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is “a cure for cancer” a misleadingly simple phrase?",
+        "correctAnswer": "Cancer includes many diseases with different causes and treatments",
+        "wrongAnswers": [
+          "Cancer research stopped after early drug trials",
+          "Cancer can only be studied with computers",
+          "Cancer is mainly a problem of prediction"
+        ],
+        "explanation": "Correct: Cancer includes many diseases with different causes and treatments.",
+        "visibleCorrectExplanation": "Correct: Cancer includes many diseases with different causes and treatments.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_1_331",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_1_331",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Cancer research stopped after early drug trials",
+            "explanation": "That answer changes the point: Cancer includes many diseases with different causes and treatments."
+          },
+          {
+            "label": "C",
+            "answer": "Cancer can only be studied with computers",
+            "explanation": "That answer changes the point: Cancer includes many diseases with different causes and treatments."
+          },
+          {
+            "label": "D",
+            "answer": "Cancer is mainly a problem of prediction",
+            "explanation": "That answer changes the point: Cancer includes many diseases with different causes and treatments."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What makes a prediction “directionally right but too fast”?",
+        "correctAnswer": "It identifies a real trend but expects adoption too soon",
+        "wrongAnswers": [
+          "It names the wrong inventor but the right country",
+          "It uses numbers instead of stories",
+          "It avoids making any specific claims"
+        ],
+        "explanation": "Correct: It identifies a real trend but expects adoption too soon.",
+        "visibleCorrectExplanation": "Correct: It identifies a real trend but expects adoption too soon.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_2_332",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_2_332",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It names the wrong inventor but the right country",
+            "explanation": "That answer changes the point: It identifies a real trend but expects adoption too soon."
+          },
+          {
+            "label": "C",
+            "answer": "It uses numbers instead of stories",
+            "explanation": "That answer changes the point: It identifies a real trend but expects adoption too soon."
+          },
+          {
+            "label": "D",
+            "answer": "It avoids making any specific claims",
+            "explanation": "That answer changes the point: It identifies a real trend but expects adoption too soon."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is Wardenclyffe useful for studying futurism?",
+        "correctAnswer": "It shows the gap between visionary direction and practical delivery",
+        "wrongAnswers": [
+          "It proves wireless communication was impossible",
+          "It shows predictions matter only when funded",
+          "It explains why towers always fail"
+        ],
+        "explanation": "Correct: It shows the gap between visionary direction and practical delivery.",
+        "visibleCorrectExplanation": "Correct: It shows the gap between visionary direction and practical delivery.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_3_333",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_3_333",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves wireless communication was impossible",
+            "explanation": "That answer changes the point: It shows the gap between visionary direction and practical delivery."
+          },
+          {
+            "label": "C",
+            "answer": "It shows predictions matter only when funded",
+            "explanation": "That answer changes the point: It shows the gap between visionary direction and practical delivery."
+          },
+          {
+            "label": "D",
+            "answer": "It explains why towers always fail",
+            "explanation": "That answer changes the point: It shows the gap between visionary direction and practical delivery."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is the difference between invention and adoption?",
+        "correctAnswer": "An invention may exist before many people can use it",
+        "wrongAnswers": [
+          "Adoption always happens before invention",
+          "An invention is social, while adoption is physical",
+          "There is no meaningful difference"
+        ],
+        "explanation": "Correct: An invention may exist before many people can use it.",
+        "visibleCorrectExplanation": "Correct: An invention may exist before many people can use it.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_4_334",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_4_334",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Adoption always happens before invention",
+            "explanation": "That answer changes the point: An invention may exist before many people can use it."
+          },
+          {
+            "label": "C",
+            "answer": "An invention is social, while adoption is physical",
+            "explanation": "That answer changes the point: An invention may exist before many people can use it."
+          },
+          {
+            "label": "D",
+            "answer": "There is no meaningful difference",
+            "explanation": "That answer changes the point: An invention may exist before many people can use it."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does life extension raise fairness questions?",
+        "correctAnswer": "Powerful treatments may be expensive or limited in access",
+        "wrongAnswers": [
+          "Longer life would affect only private hobbies",
+          "All countries would receive the same treatment equally",
+          "Fairness matters only after technology is perfect"
+        ],
+        "explanation": "Correct: Powerful treatments may be expensive or limited in access.",
+        "visibleCorrectExplanation": "Correct: Powerful treatments may be expensive or limited in access.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_5_335",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_5_335",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Longer life would affect only private hobbies",
+            "explanation": "That answer changes the point: Powerful treatments may be expensive or limited in access."
+          },
+          {
+            "label": "C",
+            "answer": "All countries would receive the same treatment equally",
+            "explanation": "That answer changes the point: Powerful treatments may be expensive or limited in access."
+          },
+          {
+            "label": "D",
+            "answer": "Fairness matters only after technology is perfect",
+            "explanation": "That answer changes the point: Powerful treatments may be expensive or limited in access."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is retrofuturism mainly about?",
+        "correctAnswer": "Past ideas of what the future would look like",
+        "wrongAnswers": [
+          "Future people studying ancient ruins",
+          "Modern inventions that reject history",
+          "A style used only in science textbooks"
+        ],
+        "explanation": "Correct: Past ideas of what the future would look like.",
+        "visibleCorrectExplanation": "Correct: Past ideas of what the future would look like.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_6_336",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_6_336",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Future people studying ancient ruins",
+            "explanation": "That answer changes the point: Past ideas of what the future would look like."
+          },
+          {
+            "label": "C",
+            "answer": "Modern inventions that reject history",
+            "explanation": "That answer changes the point: Past ideas of what the future would look like."
+          },
+          {
+            "label": "D",
+            "answer": "A style used only in science textbooks",
+            "explanation": "That answer changes the point: Past ideas of what the future would look like."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is quantum computing not simply “the next laptop”?",
+        "correctAnswer": "It is suited to special problems, not all everyday tasks",
+        "wrongAnswers": [
+          "It is only a nickname for faster Wi-Fi",
+          "It works best without electricity",
+          "It cannot be studied scientifically"
+        ],
+        "explanation": "Correct: It is suited to special problems, not all everyday tasks.",
+        "visibleCorrectExplanation": "Correct: It is suited to special problems, not all everyday tasks.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_7_337",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_7_337",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is only a nickname for faster Wi-Fi",
+            "explanation": "That answer changes the point: It is suited to special problems, not all everyday tasks."
+          },
+          {
+            "label": "C",
+            "answer": "It works best without electricity",
+            "explanation": "That answer changes the point: It is suited to special problems, not all everyday tasks."
+          },
+          {
+            "label": "D",
+            "answer": "It cannot be studied scientifically",
+            "explanation": "That answer changes the point: It is suited to special problems, not all everyday tasks."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is relying on one “AI sign” risky?",
+        "correctAnswer": "Human and AI writing can share the same surface feature",
+        "wrongAnswers": [
+          "AI writing always contains secret code",
+          "Punctuation is unrelated to style",
+          "Teachers cannot read alpaca work anymore"
+        ],
+        "explanation": "Correct: Human and AI writing can share the same surface feature.",
+        "visibleCorrectExplanation": "Correct: Human and AI writing can share the same surface feature.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_8_338",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_8_338",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "AI writing always contains secret code",
+            "explanation": "That answer changes the point: Human and AI writing can share the same surface feature."
+          },
+          {
+            "label": "C",
+            "answer": "Punctuation is unrelated to style",
+            "explanation": "That answer changes the point: Human and AI writing can share the same surface feature."
+          },
+          {
+            "label": "D",
+            "answer": "Teachers cannot read alpaca work anymore",
+            "explanation": "That answer changes the point: Human and AI writing can share the same surface feature."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why do hallucinations matter in the AGI debate?",
+        "correctAnswer": "They show that fluent output is not the same as reliable understanding",
+        "wrongAnswers": [
+          "They prove computers have imagination like humans",
+          "They happen only when people use bad spelling",
+          "They make every AI answer useless"
+        ],
+        "explanation": "Correct: They show that fluent output is not the same as reliable understanding.",
+        "visibleCorrectExplanation": "Correct: They show that fluent output is not the same as reliable understanding.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_9_339",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_9_339",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They prove computers have imagination like humans",
+            "explanation": "That answer changes the point: They show that fluent output is not the same as reliable understanding."
+          },
+          {
+            "label": "C",
+            "answer": "They happen only when people use bad spelling",
+            "explanation": "That answer changes the point: They show that fluent output is not the same as reliable understanding."
+          },
+          {
+            "label": "D",
+            "answer": "They make every AI answer useless",
+            "explanation": "That answer changes the point: They show that fluent output is not the same as reliable understanding."
+          }
+        ]
+      },
+      {
+        "id": "question.next-year-in-futurism.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why did the Kola project become difficult near its limit?",
+        "correctAnswer": "Extreme heat and physical conditions made drilling harder",
+        "wrongAnswers": [
+          "The drill reached empty space under the crust",
+          "Scientists ran out of maps for Russia",
+          "The project switched to building submarines"
+        ],
+        "explanation": "Correct: Extreme heat and physical conditions made drilling harder.",
+        "visibleCorrectExplanation": "Correct: Extreme heat and physical conditions made drilling harder.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_next-year-in-futurism_10_340",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "next-year-in-futurism",
+        "sectionIds": [
+          "next-year-in-futurism"
+        ],
+        "guidingSectionPrimary": "Next Year in Futurism",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_next-year-in-futurism_10_340",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The drill reached empty space under the crust",
+            "explanation": "That answer changes the point: Extreme heat and physical conditions made drilling harder."
+          },
+          {
+            "label": "C",
+            "answer": "Scientists ran out of maps for Russia",
+            "explanation": "That answer changes the point: Extreme heat and physical conditions made drilling harder."
+          },
+          {
+            "label": "D",
+            "answer": "The project switched to building submarines",
+            "explanation": "That answer changes the point: Extreme heat and physical conditions made drilling harder."
+          }
+        ]
+      }
+    ]
+  }
+}

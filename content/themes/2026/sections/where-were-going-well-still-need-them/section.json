@@ -1,0 +1,46 @@
+{
+  "id": "where-were-going-well-still-need-them",
+  "title": "Where We're Going, We'll Still Need Them",
+  "shortTitle": "Where We're Going, We'll Still Need Them",
+  "originalTitle": "Where We're Going, We'll Still Need Them",
+  "order": 12,
+  "themeId": "wsc-2026",
+  "blurb": "Road networks, future infrastructure, routes, detours, and the road-trip imagination.",
+  "angle": "Even in the future, physical and symbolic roads shape how we move through the world.",
+  "subjectIds": [
+    "history",
+    "design-architecture-urbanism",
+    "geography-human-geography",
+    "language-and-literature",
+    "philosophy",
+    "sociology",
+    "media-film",
+    "visual-and-performing-arts"
+  ],
+  "bigIdeaIds": [
+    "infrastructure-shapes-behavior",
+    "movement-without-arrival",
+    "narrated-endings",
+    "performed-progress",
+    "managing-uncertainty",
+    "measuring-human-worth",
+    "thresholds-and-irreversibility",
+    "visible-vs-real",
+    "delayed-arrival"
+  ],
+  "legacyIds": [
+    "roads-and-futures"
+  ],
+  "assetIds": {
+    "cover": "asset.where-were-going-well-still-need-them.card.cover",
+    "icon": "asset.where-were-going-well-still-need-them.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.where-were-going-well-still-need-them",
+    "questions": "questions.where-were-going-well-still-need-them",
+    "guide": "guide.where-were-going-well-still-need-them",
+    "media": "media.where-were-going-well-still-need-them",
+    "alpacards": "alpacards.where-were-going-well-still-need-them",
+    "channelVideos": "channel.where-were-going-well-still-need-them"
+  }
+}

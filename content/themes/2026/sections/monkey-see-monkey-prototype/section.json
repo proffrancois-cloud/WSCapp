@@ -1,0 +1,40 @@
+{
+  "id": "monkey-see-monkey-prototype",
+  "title": "Monkey See, Monkey Prototype",
+  "shortTitle": "Monkey See, Monkey Prototype",
+  "originalTitle": "Monkey See, Monkey Prototype",
+  "order": 8,
+  "themeId": "wsc-2026",
+  "blurb": "Prototyping, testing, fidelity, wireframes, and biomimicry.",
+  "angle": "The future never arrives all at once. It is built through repeated experiments.",
+  "subjectIds": [
+    "computer-science-technology",
+    "design-architecture-urbanism",
+    "history",
+    "economics-and-trade",
+    "sociology"
+  ],
+  "bigIdeaIds": [
+    "visible-vs-real",
+    "incompletion-that-stays-active",
+    "performed-progress",
+    "infrastructure-shapes-behavior",
+    "managing-uncertainty",
+    "narrated-endings"
+  ],
+  "legacyIds": [
+    "monkey-see"
+  ],
+  "assetIds": {
+    "cover": "asset.monkey-see-monkey-prototype.card.cover",
+    "icon": "asset.monkey-see-monkey-prototype.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.monkey-see-monkey-prototype",
+    "questions": "questions.monkey-see-monkey-prototype",
+    "guide": "guide.monkey-see-monkey-prototype",
+    "media": "media.monkey-see-monkey-prototype",
+    "alpacards": "alpacards.monkey-see-monkey-prototype",
+    "channelVideos": "channel.monkey-see-monkey-prototype"
+  }
+}

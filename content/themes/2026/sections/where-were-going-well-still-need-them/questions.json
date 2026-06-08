@@ -1,0 +1,1711 @@
+{
+  "id": "questions.where-were-going-well-still-need-them",
+  "sectionId": "where-were-going-well-still-need-them",
+  "levels": {
+    "100": [
+      {
+        "id": "question.where-were-going-well-still-need-them.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a milestone on a road?",
+        "correctAnswer": "A marker that shows distance or progress along a route",
+        "wrongAnswers": [
+          "A shelter where travelers sleep during storms",
+          "A stone used mainly to repair broken bridges",
+          "A gate that closes a road after sunset"
+        ],
+        "explanation": "A marker that shows distance or progress along a route.",
+        "visibleCorrectExplanation": "A marker that shows distance or progress along a route.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A shelter where travelers sleep during storms",
+            "explanation": "That answer changes the point: A marker that shows distance or progress along a route."
+          },
+          {
+            "label": "C",
+            "answer": "A stone used mainly to repair broken bridges",
+            "explanation": "That answer changes the point: A marker that shows distance or progress along a route."
+          },
+          {
+            "label": "D",
+            "answer": "A gate that closes a road after sunset",
+            "explanation": "That answer changes the point: A marker that shows distance or progress along a route."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_1_021",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_1_021",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.001"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does self-healing asphalt try to reduce?",
+        "correctAnswer": "Cracks and damage that can grow into potholes",
+        "wrongAnswers": [
+          "The need for vehicles to use wheels",
+          "The total number of roads in a country",
+          "The visibility of every traffic sign"
+        ],
+        "explanation": "Cracks and damage that can grow into potholes.",
+        "visibleCorrectExplanation": "Cracks and damage that can grow into potholes.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The need for vehicles to use wheels",
+            "explanation": "That answer changes the point: Cracks and damage that can grow into potholes."
+          },
+          {
+            "label": "C",
+            "answer": "The total number of roads in a country",
+            "explanation": "That answer changes the point: Cracks and damage that can grow into potholes."
+          },
+          {
+            "label": "D",
+            "answer": "The visibility of every traffic sign",
+            "explanation": "That answer changes the point: Cracks and damage that can grow into potholes."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_2_061",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_2_061",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.002"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a desire path?",
+        "correctAnswer": "A trail formed when people repeatedly take a route that feels natural",
+        "wrongAnswers": [
+          "A road designed only for tourists visiting famous landmarks",
+          "A path used by animals but never by human walkers",
+          "A route that appears in GPS before it exists on the ground"
+        ],
+        "explanation": "A trail formed when people repeatedly take a route that feels natural.",
+        "visibleCorrectExplanation": "A trail formed when people repeatedly take a route that feels natural.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A road designed only for tourists visiting famous landmarks",
+            "explanation": "That answer changes the point: A trail formed when people repeatedly take a route that feels natural."
+          },
+          {
+            "label": "C",
+            "answer": "A path used by animals but never by human walkers",
+            "explanation": "That answer changes the point: A trail formed when people repeatedly take a route that feels natural."
+          },
+          {
+            "label": "D",
+            "answer": "A route that appears in GPS before it exists on the ground",
+            "explanation": "That answer changes the point: A trail formed when people repeatedly take a route that feels natural."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_3_009",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_3_009",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.003"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a stroad?",
+        "correctAnswer": "A place that tries to work as both a street and a road",
+        "wrongAnswers": [
+          "A road built only from stone blocks and gravel",
+          "A pedestrian path that crosses a public park",
+          "A street used only during nighttime deliveries"
+        ],
+        "explanation": "A place that tries to work as both a street and a road.",
+        "visibleCorrectExplanation": "A place that tries to work as both a street and a road.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A road built only from stone blocks and gravel",
+            "explanation": "That answer changes the point: A place that tries to work as both a street and a road."
+          },
+          {
+            "label": "C",
+            "answer": "A pedestrian path that crosses a public park",
+            "explanation": "That answer changes the point: A place that tries to work as both a street and a road."
+          },
+          {
+            "label": "D",
+            "answer": "A street used only during nighttime deliveries",
+            "explanation": "That answer changes the point: A place that tries to work as both a street and a road."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_4_002",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_4_002",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.004"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What can a road symbolize in literature?",
+        "correctAnswer": "Choice, uncertainty, freedom, danger, or change",
+        "wrongAnswers": [
+          "Only traffic laws and technical road rules",
+          "A guaranteed arrival without difficulty",
+          "A map that removes emotional meaning"
+        ],
+        "explanation": "Choice, uncertainty, freedom, danger, or change.",
+        "visibleCorrectExplanation": "Choice, uncertainty, freedom, danger, or change.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Only traffic laws and technical road rules",
+            "explanation": "That answer changes the point: Choice, uncertainty, freedom, danger, or change."
+          },
+          {
+            "label": "C",
+            "answer": "A guaranteed arrival without difficulty",
+            "explanation": "That answer changes the point: Choice, uncertainty, freedom, danger, or change."
+          },
+          {
+            "label": "D",
+            "answer": "A map that removes emotional meaning",
+            "explanation": "That answer changes the point: Choice, uncertainty, freedom, danger, or change."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_5_040",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_5_040",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.005"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why is Bertha Benz important in driving history?",
+        "correctAnswer": "She made a famous early long-distance car journey",
+        "wrongAnswers": [
+          "She built every early highway in Germany",
+          "She created the first American road map",
+          "She invented the modern motel system"
+        ],
+        "explanation": "She made a famous early long-distance car journey.",
+        "visibleCorrectExplanation": "She made a famous early long-distance car journey.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "She built every early highway in Germany",
+            "explanation": "That answer changes the point: She made a famous early long-distance car journey."
+          },
+          {
+            "label": "C",
+            "answer": "She created the first American road map",
+            "explanation": "That answer changes the point: She made a famous early long-distance car journey."
+          },
+          {
+            "label": "D",
+            "answer": "She invented the modern motel system",
+            "explanation": "That answer changes the point: She made a famous early long-distance car journey."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_6_071",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_6_071",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.006"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do routes like London to Calcutta and the Transoceánica share?",
+        "correctAnswer": "They are long overland journeys that challenge car-only ideas of road trips",
+        "wrongAnswers": [
+          "They are short daily commutes through single cities",
+          "They avoid roads and rely mainly on air travel",
+          "They exist only as fictional travel stories"
+        ],
+        "explanation": "They are long overland journeys that challenge car-only ideas of road trips.",
+        "visibleCorrectExplanation": "They are long overland journeys that challenge car-only ideas of road trips.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They are short daily commutes through single cities",
+            "explanation": "That answer changes the point: They are long overland journeys that challenge car-only ideas of road trips."
+          },
+          {
+            "label": "C",
+            "answer": "They avoid roads and rely mainly on air travel",
+            "explanation": "That answer changes the point: They are long overland journeys that challenge car-only ideas of road trips."
+          },
+          {
+            "label": "D",
+            "answer": "They exist only as fictional travel stories",
+            "explanation": "That answer changes the point: They are long overland journeys that challenge car-only ideas of road trips."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_7_101",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_7_101",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.007"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why is Route 66 often called the Mother Road?",
+        "correctAnswer": "It became a famous symbol of long-distance American travel",
+        "wrongAnswers": [
+          "It was the first road ever built by human beings",
+          "It circles the entire United States without stopping",
+          "It was used only by families traveling with children"
+        ],
+        "explanation": "It became a famous symbol of long-distance American travel.",
+        "visibleCorrectExplanation": "It became a famous symbol of long-distance American travel.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was the first road ever built by human beings",
+            "explanation": "That answer changes the point: It became a famous symbol of long-distance American travel."
+          },
+          {
+            "label": "C",
+            "answer": "It circles the entire United States without stopping",
+            "explanation": "That answer changes the point: It became a famous symbol of long-distance American travel."
+          },
+          {
+            "label": "D",
+            "answer": "It was used only by families traveling with children",
+            "explanation": "That answer changes the point: It became a famous symbol of long-distance American travel."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_8_062",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_8_062",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.008"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.009",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What problem did motels help solve?",
+        "correctAnswer": "They gave car travelers a convenient place to sleep during long trips",
+        "wrongAnswers": [
+          "They replaced all city hotels and every train station",
+          "They eliminated the need for roads and rest stops",
+          "They were built mainly for passengers on ocean liners"
+        ],
+        "explanation": "They gave car travelers a convenient place to sleep during long trips.",
+        "visibleCorrectExplanation": "They gave car travelers a convenient place to sleep during long trips.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They replaced all city hotels and every train station",
+            "explanation": "That answer changes the point: They gave car travelers a convenient place to sleep during long trips."
+          },
+          {
+            "label": "C",
+            "answer": "They eliminated the need for roads and rest stops",
+            "explanation": "That answer changes the point: They gave car travelers a convenient place to sleep during long trips."
+          },
+          {
+            "label": "D",
+            "answer": "They were built mainly for passengers on ocean liners",
+            "explanation": "That answer changes the point: They gave car travelers a convenient place to sleep during long trips."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_9_026",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_9_026",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.009"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.010",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do many road songs and road artworks do?",
+        "correctAnswer": "They turn travel into an emotional experience",
+        "wrongAnswers": [
+          "They describe only traffic rules and road surfaces",
+          "They avoid feelings, memory, and atmosphere",
+          "They all criticize car travel in the same way"
+        ],
+        "explanation": "They turn travel into an emotional experience.",
+        "visibleCorrectExplanation": "They turn travel into an emotional experience.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They describe only traffic rules and road surfaces",
+            "explanation": "That answer changes the point: They turn travel into an emotional experience."
+          },
+          {
+            "label": "C",
+            "answer": "They avoid feelings, memory, and atmosphere",
+            "explanation": "That answer changes the point: They turn travel into an emotional experience."
+          },
+          {
+            "label": "D",
+            "answer": "They all criticize car travel in the same way",
+            "explanation": "That answer changes the point: They turn travel into an emotional experience."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_10_063",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_10_063",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.010"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.100.011",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What big question does Blue Highways raise about travel?",
+        "correctAnswer": "Whether a journey’s value comes only from arrival or also from the route",
+        "wrongAnswers": [
+          "Whether all roads should be circular instead of direct",
+          "Whether maps are unnecessary for serious travelers",
+          "Whether cars are more meaningful than buses"
+        ],
+        "explanation": "Whether a journey’s value comes only from arrival or also from the route.",
+        "visibleCorrectExplanation": "Whether a journey’s value comes only from arrival or also from the route.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Whether all roads should be circular instead of direct",
+            "explanation": "That answer changes the point: Whether a journey’s value comes only from arrival or also from the route."
+          },
+          {
+            "label": "C",
+            "answer": "Whether maps are unnecessary for serious travelers",
+            "explanation": "That answer changes the point: Whether a journey’s value comes only from arrival or also from the route."
+          },
+          {
+            "label": "D",
+            "answer": "Whether cars are more meaningful than buses",
+            "explanation": "That answer changes the point: Whether a journey’s value comes only from arrival or also from the route."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_where-were-going-well-still-need-them_11_089",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_where-were-going-well-still-need-them_11_089",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.011"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.where-were-going-well-still-need-them.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What makes a corduroy road distinctive?",
+        "correctAnswer": "Logs are laid across soft ground to make travel possible",
+        "wrongAnswers": [
+          "Stone blocks are polished into a ceremonial route",
+          "Asphalt is heated until the surface becomes smooth",
+          "Metal rails are added to guide carts and wagons"
+        ],
+        "explanation": "Logs are laid across soft ground to make travel possible.",
+        "visibleCorrectExplanation": "Logs are laid across soft ground to make travel possible.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Stone blocks are polished into a ceremonial route",
+            "explanation": "That answer changes the point: Logs are laid across soft ground to make travel possible."
+          },
+          {
+            "label": "C",
+            "answer": "Asphalt is heated until the surface becomes smooth",
+            "explanation": "That answer changes the point: Logs are laid across soft ground to make travel possible."
+          },
+          {
+            "label": "D",
+            "answer": "Metal rails are added to guide carts and wagons",
+            "explanation": "That answer changes the point: Logs are laid across soft ground to make travel possible."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_1_126",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_1_126",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.001"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is one goal of permeable pavement?",
+        "correctAnswer": "Letting water pass through to reduce runoff problems",
+        "wrongAnswers": [
+          "Making road surfaces completely waterproof forever",
+          "Stopping all plants from growing near roads",
+          "Increasing traffic speed without changing design"
+        ],
+        "explanation": "Letting water pass through to reduce runoff problems.",
+        "visibleCorrectExplanation": "Letting water pass through to reduce runoff problems.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Making road surfaces completely waterproof forever",
+            "explanation": "That answer changes the point: Letting water pass through to reduce runoff problems."
+          },
+          {
+            "label": "C",
+            "answer": "Stopping all plants from growing near roads",
+            "explanation": "That answer changes the point: Letting water pass through to reduce runoff problems."
+          },
+          {
+            "label": "D",
+            "answer": "Increasing traffic speed without changing design",
+            "explanation": "That answer changes the point: Letting water pass through to reduce runoff problems."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_2_127",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_2_127",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.002"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is the shortest route not always the best route?",
+        "correctAnswer": "Safety, effort, comfort, uncertainty, or purpose may also matter",
+        "wrongAnswers": [
+          "Straight paths are illegal in most planned cities",
+          "Longer routes are automatically more meaningful",
+          "Navigation works only when a route is scenic"
+        ],
+        "explanation": "Safety, effort, comfort, uncertainty, or purpose may also matter.",
+        "visibleCorrectExplanation": "Safety, effort, comfort, uncertainty, or purpose may also matter.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Straight paths are illegal in most planned cities",
+            "explanation": "That answer changes the point: Safety, effort, comfort, uncertainty, or purpose may also matter."
+          },
+          {
+            "label": "C",
+            "answer": "Longer routes are automatically more meaningful",
+            "explanation": "That answer changes the point: Safety, effort, comfort, uncertainty, or purpose may also matter."
+          },
+          {
+            "label": "D",
+            "answer": "Navigation works only when a route is scenic",
+            "explanation": "That answer changes the point: Safety, effort, comfort, uncertainty, or purpose may also matter."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_3_170",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_3_170",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.003"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is the basic difference between a road and a street?",
+        "correctAnswer": "A road mainly moves traffic; a street supports local access and activity",
+        "wrongAnswers": [
+          "A road is always urban; a street is always rural",
+          "A street is for vehicles; a road is only for walkers",
+          "A road is temporary; a street is always permanent"
+        ],
+        "explanation": "A road mainly moves traffic; a street supports local access and activity.",
+        "visibleCorrectExplanation": "A road mainly moves traffic; a street supports local access and activity.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A road is always urban; a street is always rural",
+            "explanation": "That answer changes the point: A road mainly moves traffic; a street supports local access and activity."
+          },
+          {
+            "label": "C",
+            "answer": "A street is for vehicles; a road is only for walkers",
+            "explanation": "That answer changes the point: A road mainly moves traffic; a street supports local access and activity."
+          },
+          {
+            "label": "D",
+            "answer": "A road is temporary; a street is always permanent",
+            "explanation": "That answer changes the point: A road mainly moves traffic; a street supports local access and activity."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_4_188",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_4_188",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.004"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is one difference between chosen travel and forced travel?",
+        "correctAnswer": "Chosen travel has more control; forced travel often involves pressure or loss",
+        "wrongAnswers": [
+          "Chosen travel is always easy; forced travel is always impossible",
+          "Chosen travel is private; forced travel can only be political",
+          "Chosen travel has no meaning; forced travel has no route"
+        ],
+        "explanation": "Chosen travel has more control; forced travel often involves pressure or loss.",
+        "visibleCorrectExplanation": "Chosen travel has more control; forced travel often involves pressure or loss.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Chosen travel is always easy; forced travel is always impossible",
+            "explanation": "That answer changes the point: Chosen travel has more control; forced travel often involves pressure or loss."
+          },
+          {
+            "label": "C",
+            "answer": "Chosen travel is private; forced travel can only be political",
+            "explanation": "That answer changes the point: Chosen travel has more control; forced travel often involves pressure or loss."
+          },
+          {
+            "label": "D",
+            "answer": "Chosen travel has no meaning; forced travel has no route",
+            "explanation": "That answer changes the point: Chosen travel has more control; forced travel often involves pressure or loss."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_5_204",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_5_204",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.005"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why is the road trip strongly linked to the United States?",
+        "correctAnswer": "It became tied to cars, space, freedom, highways, and self-directed travel",
+        "wrongAnswers": [
+          "Americans invented every form of long-distance road travel",
+          "No other country has buses, trains, or large road systems",
+          "The United States banned all non-car forms of travel"
+        ],
+        "explanation": "It became tied to cars, space, freedom, highways, and self-directed travel.",
+        "visibleCorrectExplanation": "It became tied to cars, space, freedom, highways, and self-directed travel.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Americans invented every form of long-distance road travel",
+            "explanation": "That answer changes the point: It became tied to cars, space, freedom, highways, and self-directed travel."
+          },
+          {
+            "label": "C",
+            "answer": "No other country has buses, trains, or large road systems",
+            "explanation": "That answer changes the point: It became tied to cars, space, freedom, highways, and self-directed travel."
+          },
+          {
+            "label": "D",
+            "answer": "The United States banned all non-car forms of travel",
+            "explanation": "That answer changes the point: It became tied to cars, space, freedom, highways, and self-directed travel."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_6_192",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_6_192",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.006"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why might a bus journey feel different from a private-car road trip?",
+        "correctAnswer": "Passengers usually control fewer stops, timings, and route choices",
+        "wrongAnswers": [
+          "Buses cannot travel across countries or continents",
+          "Private cars are the only vehicles that create memories",
+          "Bus travel has no connection to landscape or distance"
+        ],
+        "explanation": "Passengers usually control fewer stops, timings, and route choices.",
+        "visibleCorrectExplanation": "Passengers usually control fewer stops, timings, and route choices.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Buses cannot travel across countries or continents",
+            "explanation": "That answer changes the point: Passengers usually control fewer stops, timings, and route choices."
+          },
+          {
+            "label": "C",
+            "answer": "Private cars are the only vehicles that create memories",
+            "explanation": "That answer changes the point: Passengers usually control fewer stops, timings, and route choices."
+          },
+          {
+            "label": "D",
+            "answer": "Bus travel has no connection to landscape or distance",
+            "explanation": "That answer changes the point: Passengers usually control fewer stops, timings, and route choices."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_7_205",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_7_205",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.007"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can a road stay famous after losing practical importance?",
+        "correctAnswer": "Memory, culture, tourism, and symbolism can keep it alive",
+        "wrongAnswers": [
+          "Roads never change function once people name them",
+          "People refuse to build new routes near old ones",
+          "Every old road automatically becomes legendary"
+        ],
+        "explanation": "Memory, culture, tourism, and symbolism can keep it alive.",
+        "visibleCorrectExplanation": "Memory, culture, tourism, and symbolism can keep it alive.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Roads never change function once people name them",
+            "explanation": "That answer changes the point: Memory, culture, tourism, and symbolism can keep it alive."
+          },
+          {
+            "label": "C",
+            "answer": "People refuse to build new routes near old ones",
+            "explanation": "That answer changes the point: Memory, culture, tourism, and symbolism can keep it alive."
+          },
+          {
+            "label": "D",
+            "answer": "Every old road automatically becomes legendary",
+            "explanation": "That answer changes the point: Memory, culture, tourism, and symbolism can keep it alive."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_8_197",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_8_197",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.008"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.009",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What makes a motel different from many older hotels?",
+        "correctAnswer": "It was designed especially for motorists and roadside access",
+        "wrongAnswers": [
+          "It is always larger and more expensive than a hotel",
+          "It never allows short stays or overnight travelers",
+          "It was created only for people without vehicles"
+        ],
+        "explanation": "It was designed especially for motorists and roadside access.",
+        "visibleCorrectExplanation": "It was designed especially for motorists and roadside access.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is always larger and more expensive than a hotel",
+            "explanation": "That answer changes the point: It was designed especially for motorists and roadside access."
+          },
+          {
+            "label": "C",
+            "answer": "It never allows short stays or overnight travelers",
+            "explanation": "That answer changes the point: It was designed especially for motorists and roadside access."
+          },
+          {
+            "label": "D",
+            "answer": "It was created only for people without vehicles",
+            "explanation": "That answer changes the point: It was designed especially for motorists and roadside access."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_9_171",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_9_171",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.009"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.010",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What can Hopper’s Western Motel add to road imagery?",
+        "correctAnswer": "A feeling of stillness, loneliness, or temporary pause",
+        "wrongAnswers": [
+          "A technical lesson about engine repair and fuel use",
+          "A map showing the fastest route across America",
+          "A celebration of crowds and constant movement"
+        ],
+        "explanation": "A feeling of stillness, loneliness, or temporary pause.",
+        "visibleCorrectExplanation": "A feeling of stillness, loneliness, or temporary pause.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A technical lesson about engine repair and fuel use",
+            "explanation": "That answer changes the point: A feeling of stillness, loneliness, or temporary pause."
+          },
+          {
+            "label": "C",
+            "answer": "A map showing the fastest route across America",
+            "explanation": "That answer changes the point: A feeling of stillness, loneliness, or temporary pause."
+          },
+          {
+            "label": "D",
+            "answer": "A celebration of crowds and constant movement",
+            "explanation": "That answer changes the point: A feeling of stillness, loneliness, or temporary pause."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_10_172",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_10_172",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.010"
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.200.011",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why might a slower road change a journey?",
+        "correctAnswer": "It can create more attention, observation, and unexpected discovery",
+        "wrongAnswers": [
+          "It guarantees that every traveler reaches the destination sooner",
+          "It removes all uncertainty from movement and planning",
+          "It makes the endpoint less important in every situation"
+        ],
+        "explanation": "It can create more attention, observation, and unexpected discovery.",
+        "visibleCorrectExplanation": "It can create more attention, observation, and unexpected discovery.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It guarantees that every traveler reaches the destination sooner",
+            "explanation": "That answer changes the point: It can create more attention, observation, and unexpected discovery."
+          },
+          {
+            "label": "C",
+            "answer": "It removes all uncertainty from movement and planning",
+            "explanation": "That answer changes the point: It can create more attention, observation, and unexpected discovery."
+          },
+          {
+            "label": "D",
+            "answer": "It makes the endpoint less important in every situation",
+            "explanation": "That answer changes the point: It can create more attention, observation, and unexpected discovery."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_where-were-going-well-still-need-them_11_134",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_where-were-going-well-still-need-them_11_134",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.where-were-going-well-still-need-them.011"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.where-were-going-well-still-need-them.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Roads connect cities, goods, services, and daily routines. Which idea gives the best comparison?",
+        "correctAnswer": "Materials and construction",
+        "wrongAnswers": [
+          "Maintenance vs innovation",
+          "Retrofit logic",
+          "Smart roads and charging roads"
+        ],
+        "explanation": "Correct: Materials and construction.",
+        "visibleCorrectExplanation": "Correct: Materials and construction.",
+        "visibleConnection": "The question starts from a concrete detail in Roads as hidden foundation: Roads connect cities, goods, services, and daily routines. It is really asking which answer handles a similar pressure. Materials and construction is the best connection because it makes infrastructure material, not magical: roads are built from substances that carry costs, labor, and limits. Both ideas ask alpacas to notice that Future fantasies often erase the ground they still need. Roads are the old system beneath the new promise.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them__285",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them__285",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Maintenance vs innovation",
+            "explanation": "That answer changes the point: Materials and construction."
+          },
+          {
+            "label": "C",
+            "answer": "Retrofit logic",
+            "explanation": "That answer changes the point: Materials and construction."
+          },
+          {
+            "label": "D",
+            "answer": "Smart roads and charging roads",
+            "explanation": "That answer changes the point: Materials and construction."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Maintenance vs innovation?",
+        "correctAnswer": "Retrofit logic",
+        "wrongAnswers": [
+          "Smart roads and charging roads",
+          "Infrastructure resilience",
+          "Roads as hidden foundation"
+        ],
+        "explanation": "Correct: Retrofit logic.",
+        "visibleCorrectExplanation": "Correct: Retrofit logic.",
+        "visibleConnection": "The question starts from a concrete detail in Maintenance vs innovation: Maintenance prevents regress. It is really asking which answer handles a similar pressure. Retrofit logic is the best connection because it fits new futures into old structures, proving that progress often arrives as adaptation rather than replacement. Both ideas ask alpacas to notice that A society that only funds novelty eventually lives inside broken promises.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them__286",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them__286",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Smart roads and charging roads",
+            "explanation": "That answer changes the point: Retrofit logic."
+          },
+          {
+            "label": "C",
+            "answer": "Infrastructure resilience",
+            "explanation": "That answer changes the point: Retrofit logic."
+          },
+          {
+            "label": "D",
+            "answer": "Roads as hidden foundation",
+            "explanation": "That answer changes the point: Retrofit logic."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.014",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Smart roads and charging roads into a different form?",
+        "correctAnswer": "Infrastructure resilience",
+        "wrongAnswers": [
+          "Roads as hidden foundation",
+          "Materials and construction",
+          "Maintenance vs innovation"
+        ],
+        "explanation": "Correct: Infrastructure resilience.",
+        "visibleCorrectExplanation": "Correct: Infrastructure resilience.",
+        "visibleConnection": "The question starts from a concrete detail in Smart roads and charging roads: Inductive charging roads aim to charge vehicles while moving. It is really asking which answer handles a similar pressure. Infrastructure resilience is the best connection because it measures progress by what keeps working during stress, not by what looks advanced on launch day. Both ideas ask alpacas to notice that Making infrastructure smart can make it more useful, but also more fragile, expensive, and surveilled.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them__287",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them__287",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Roads as hidden foundation",
+            "explanation": "That answer changes the point: Infrastructure resilience."
+          },
+          {
+            "label": "C",
+            "answer": "Materials and construction",
+            "explanation": "That answer changes the point: Infrastructure resilience."
+          },
+          {
+            "label": "D",
+            "answer": "Maintenance vs innovation",
+            "explanation": "That answer changes the point: Infrastructure resilience."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.015",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Retrofit logic?",
+        "correctAnswer": "Smart roads and charging roads",
+        "wrongAnswers": [
+          "Infrastructure resilience",
+          "Roads as hidden foundation",
+          "Materials and construction"
+        ],
+        "explanation": "Correct: Smart roads and charging roads.",
+        "visibleCorrectExplanation": "Correct: Smart roads and charging roads.",
+        "visibleConnection": "The question starts from a concrete detail in Retrofit logic: Retrofitting saves cost and time. It is really asking which answer handles a similar pressure. Smart roads and charging roads is the best connection because it turns infrastructure into a data and energy system, but also multiplies what can break, exclude, or be surveilled. Both ideas ask alpacas to notice that Most futures do not arrive on empty land. They have to squeeze themselves into what already exists.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them__288",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them__288",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Infrastructure resilience",
+            "explanation": "That answer changes the point: Smart roads and charging roads."
+          },
+          {
+            "label": "C",
+            "answer": "Roads as hidden foundation",
+            "explanation": "That answer changes the point: Smart roads and charging roads."
+          },
+          {
+            "label": "D",
+            "answer": "Materials and construction",
+            "explanation": "That answer changes the point: Smart roads and charging roads."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.016",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Materials and construction?",
+        "correctAnswer": "Smart roads and charging roads",
+        "wrongAnswers": [
+          "Infrastructure resilience",
+          "Roads as hidden foundation",
+          "Maintenance vs innovation"
+        ],
+        "explanation": "Correct: Smart roads and charging roads.",
+        "visibleCorrectExplanation": "Correct: Smart roads and charging roads.",
+        "visibleConnection": "The question starts from a concrete detail in Materials and construction: Common materials include asphalt and concrete. It is really asking which answer handles a similar pressure. Smart roads and charging roads is the best connection because it turns infrastructure into a data and energy system, but also multiplies what can break, exclude, or be surveilled. Both ideas ask alpacas to notice that Infrastructure has a body. It is made of materials that age, cost, crack, and come from somewhere.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them__289",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them__289",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Infrastructure resilience",
+            "explanation": "That answer changes the point: Smart roads and charging roads."
+          },
+          {
+            "label": "C",
+            "answer": "Roads as hidden foundation",
+            "explanation": "That answer changes the point: Smart roads and charging roads."
+          },
+          {
+            "label": "D",
+            "answer": "Maintenance vs innovation",
+            "explanation": "That answer changes the point: Smart roads and charging roads."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why are Roman roads still historically famous?",
+        "correctAnswer": "They connected a large empire through durable route systems",
+        "wrongAnswers": [
+          "They were the first paths ever used by human beings",
+          "They replaced every local track across the ancient world",
+          "They were designed only for tourists and pilgrims"
+        ],
+        "explanation": "Correct: They connected a large empire through durable route systems.",
+        "visibleCorrectExplanation": "Correct: They connected a large empire through durable route systems.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_1_386",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_1_386",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They were the first paths ever used by human beings",
+            "explanation": "That answer changes the point: They connected a large empire through durable route systems."
+          },
+          {
+            "label": "C",
+            "answer": "They replaced every local track across the ancient world",
+            "explanation": "That answer changes the point: They connected a large empire through durable route systems."
+          },
+          {
+            "label": "D",
+            "answer": "They were designed only for tourists and pilgrims",
+            "explanation": "That answer changes the point: They connected a large empire through durable route systems."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why might inductive charging roads be attractive?",
+        "correctAnswer": "They could reduce charging downtime for some electric vehicles",
+        "wrongAnswers": [
+          "They would remove the need for electricity everywhere",
+          "They would work with every vehicle without changes",
+          "They would make road maintenance unnecessary"
+        ],
+        "explanation": "Correct: They could reduce charging downtime for some electric vehicles.",
+        "visibleCorrectExplanation": "Correct: They could reduce charging downtime for some electric vehicles.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_2_387",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_2_387",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They would remove the need for electricity everywhere",
+            "explanation": "That answer changes the point: They could reduce charging downtime for some electric vehicles."
+          },
+          {
+            "label": "C",
+            "answer": "They would work with every vehicle without changes",
+            "explanation": "That answer changes the point: They could reduce charging downtime for some electric vehicles."
+          },
+          {
+            "label": "D",
+            "answer": "They would make road maintenance unnecessary",
+            "explanation": "That answer changes the point: They could reduce charging downtime for some electric vehicles."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does the explore-exploit problem describe?",
+        "correctAnswer": "Choosing between trying new options and using what already works",
+        "wrongAnswers": [
+          "Deciding whether a road should be paved or unpaved",
+          "Measuring how fast a traveler walks across a field",
+          "Choosing between private cars and public buses only"
+        ],
+        "explanation": "Correct: Choosing between trying new options and using what already works.",
+        "visibleCorrectExplanation": "Correct: Choosing between trying new options and using what already works.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_3_388",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_3_388",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Deciding whether a road should be paved or unpaved",
+            "explanation": "That answer changes the point: Choosing between trying new options and using what already works."
+          },
+          {
+            "label": "C",
+            "answer": "Measuring how fast a traveler walks across a field",
+            "explanation": "That answer changes the point: Choosing between trying new options and using what already works."
+          },
+          {
+            "label": "D",
+            "answer": "Choosing between private cars and public buses only",
+            "explanation": "That answer changes the point: Choosing between trying new options and using what already works."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why do critics say stroads can be dangerous?",
+        "correctAnswer": "They combine fast movement with complex local access",
+        "wrongAnswers": [
+          "They are usually too narrow for any kind of travel",
+          "They prevent cars from entering commercial areas",
+          "They are built only where no pedestrians exist"
+        ],
+        "explanation": "Correct: They combine fast movement with complex local access.",
+        "visibleCorrectExplanation": "Correct: They combine fast movement with complex local access.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_4_389",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_4_389",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They are usually too narrow for any kind of travel",
+            "explanation": "That answer changes the point: They combine fast movement with complex local access."
+          },
+          {
+            "label": "C",
+            "answer": "They prevent cars from entering commercial areas",
+            "explanation": "That answer changes the point: They combine fast movement with complex local access."
+          },
+          {
+            "label": "D",
+            "answer": "They are built only where no pedestrians exist",
+            "explanation": "That answer changes the point: They combine fast movement with complex local access."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does a threshold matter in road literature?",
+        "correctAnswer": "Crossing out of a familiar place begins contact with the unknown",
+        "wrongAnswers": [
+          "It proves the journey has already safely ended",
+          "It makes the road less symbolic and more technical",
+          "It removes the traveler’s responsibility for choices"
+        ],
+        "explanation": "Correct: Crossing out of a familiar place begins contact with the unknown.",
+        "visibleCorrectExplanation": "Correct: Crossing out of a familiar place begins contact with the unknown.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_5_390",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_5_390",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves the journey has already safely ended",
+            "explanation": "That answer changes the point: Crossing out of a familiar place begins contact with the unknown."
+          },
+          {
+            "label": "C",
+            "answer": "It makes the road less symbolic and more technical",
+            "explanation": "That answer changes the point: Crossing out of a familiar place begins contact with the unknown."
+          },
+          {
+            "label": "D",
+            "answer": "It removes the traveler’s responsibility for choices",
+            "explanation": "That answer changes the point: Crossing out of a familiar place begins contact with the unknown."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What did Bertha Benz’s journey demonstrate?",
+        "correctAnswer": "A car could be useful beyond short tests and controlled demonstrations",
+        "wrongAnswers": [
+          "A car could travel anywhere without fuel, repairs, or planning",
+          "Long-distance travel was already simple before roads improved",
+          "Driving mattered only when the journey stayed secret"
+        ],
+        "explanation": "Correct: A car could be useful beyond short tests and controlled demonstrations.",
+        "visibleCorrectExplanation": "Correct: A car could be useful beyond short tests and controlled demonstrations.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_6_391",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_6_391",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A car could travel anywhere without fuel, repairs, or planning",
+            "explanation": "That answer changes the point: A car could be useful beyond short tests and controlled demonstrations."
+          },
+          {
+            "label": "C",
+            "answer": "Long-distance travel was already simple before roads improved",
+            "explanation": "That answer changes the point: A car could be useful beyond short tests and controlled demonstrations."
+          },
+          {
+            "label": "D",
+            "answer": "Driving mattered only when the journey stayed secret",
+            "explanation": "That answer changes the point: A car could be useful beyond short tests and controlled demonstrations."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What question do these long bus routes raise?",
+        "correctAnswer": "Whether agency matters more than the vehicle itself",
+        "wrongAnswers": [
+          "Whether buses are faster than private cars everywhere",
+          "Whether roads should be used only for tourism",
+          "Whether overland travel is always the same experience"
+        ],
+        "explanation": "Correct: Whether agency matters more than the vehicle itself.",
+        "visibleCorrectExplanation": "Correct: Whether agency matters more than the vehicle itself.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_7_392",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_7_392",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Whether buses are faster than private cars everywhere",
+            "explanation": "That answer changes the point: Whether agency matters more than the vehicle itself."
+          },
+          {
+            "label": "C",
+            "answer": "Whether roads should be used only for tourism",
+            "explanation": "That answer changes the point: Whether agency matters more than the vehicle itself."
+          },
+          {
+            "label": "D",
+            "answer": "Whether overland travel is always the same experience",
+            "explanation": "That answer changes the point: Whether agency matters more than the vehicle itself."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What kinds of places helped create Route 66 culture?",
+        "correctAnswer": "Gas stations, diners, motels, signs, and small towns",
+        "wrongAnswers": [
+          "Palaces, airports, castles, and subway platforms",
+          "Only government offices and military bases",
+          "Shopping malls that avoided highways completely"
+        ],
+        "explanation": "Correct: Gas stations, diners, motels, signs, and small towns.",
+        "visibleCorrectExplanation": "Correct: Gas stations, diners, motels, signs, and small towns.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_8_393",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_8_393",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Palaces, airports, castles, and subway platforms",
+            "explanation": "That answer changes the point: Gas stations, diners, motels, signs, and small towns."
+          },
+          {
+            "label": "C",
+            "answer": "Only government offices and military bases",
+            "explanation": "That answer changes the point: Gas stations, diners, motels, signs, and small towns."
+          },
+          {
+            "label": "D",
+            "answer": "Shopping malls that avoided highways completely",
+            "explanation": "That answer changes the point: Gas stations, diners, motels, signs, and small towns."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is motel architecture tied to car culture?",
+        "correctAnswer": "Its layout often connects rooms, parking, and road access directly",
+        "wrongAnswers": [
+          "It was designed to keep cars far away from guests",
+          "It follows the same structure as medieval monasteries",
+          "It depends mainly on railway timetables and stations"
+        ],
+        "explanation": "Correct: Its layout often connects rooms, parking, and road access directly.",
+        "visibleCorrectExplanation": "Correct: Its layout often connects rooms, parking, and road access directly.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_9_394",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_9_394",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was designed to keep cars far away from guests",
+            "explanation": "That answer changes the point: Its layout often connects rooms, parking, and road access directly."
+          },
+          {
+            "label": "C",
+            "answer": "It follows the same structure as medieval monasteries",
+            "explanation": "That answer changes the point: Its layout often connects rooms, parking, and road access directly."
+          },
+          {
+            "label": "D",
+            "answer": "It depends mainly on railway timetables and stations",
+            "explanation": "That answer changes the point: Its layout often connects rooms, parking, and road access directly."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can a gas station become meaningful in road art?",
+        "correctAnswer": "It can symbolize roadside culture, mobility, commerce, and repetition",
+        "wrongAnswers": [
+          "It is always more important than the journey itself",
+          "It removes all nostalgia from highway imagery",
+          "It matters only if the artist shows real gasoline prices"
+        ],
+        "explanation": "Correct: It can symbolize roadside culture, mobility, commerce, and repetition.",
+        "visibleCorrectExplanation": "Correct: It can symbolize roadside culture, mobility, commerce, and repetition.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_10_395",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_10_395",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It is always more important than the journey itself",
+            "explanation": "That answer changes the point: It can symbolize roadside culture, mobility, commerce, and repetition."
+          },
+          {
+            "label": "C",
+            "answer": "It removes all nostalgia from highway imagery",
+            "explanation": "That answer changes the point: It can symbolize roadside culture, mobility, commerce, and repetition."
+          },
+          {
+            "label": "D",
+            "answer": "It matters only if the artist shows real gasoline prices",
+            "explanation": "That answer changes the point: It can symbolize roadside culture, mobility, commerce, and repetition."
+          }
+        ]
+      },
+      {
+        "id": "question.where-were-going-well-still-need-them.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why might a circular journey feel meaningful?",
+        "correctAnswer": "It can make return, reflection, and detour part of the purpose",
+        "wrongAnswers": [
+          "It proves direct routes are never useful or practical",
+          "It makes travel faster by avoiding all destinations",
+          "It removes the need for thought during movement"
+        ],
+        "explanation": "Correct: It can make return, reflection, and detour part of the purpose.",
+        "visibleCorrectExplanation": "Correct: It can make return, reflection, and detour part of the purpose.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_where-were-going-well-still-need-them_11_396",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "where-were-going-well-still-need-them",
+        "sectionIds": [
+          "where-were-going-well-still-need-them"
+        ],
+        "guidingSectionPrimary": "Where We're Going, We'll Still Need Them",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_where-were-going-well-still-need-them_11_396",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves direct routes are never useful or practical",
+            "explanation": "That answer changes the point: It can make return, reflection, and detour part of the purpose."
+          },
+          {
+            "label": "C",
+            "answer": "It makes travel faster by avoiding all destinations",
+            "explanation": "That answer changes the point: It can make return, reflection, and detour part of the purpose."
+          },
+          {
+            "label": "D",
+            "answer": "It removes the need for thought during movement",
+            "explanation": "That answer changes the point: It can make return, reflection, and detour part of the purpose."
+          }
+        ]
+      }
+    ]
+  }
+}

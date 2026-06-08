@@ -1,0 +1,891 @@
+{
+  "id": "assets.wsc-2026",
+  "themeId": "wsc-2026",
+  "assets": [
+    {
+      "id": "asset.config.boards.alpacapardycategoryheader",
+      "role": "boards.alpacapardyCategoryHeader",
+      "path": "assets/boards/jeopardy/alpacapardy-category-header.svg"
+    },
+    {
+      "id": "asset.config.boards.alpacapardytileopen",
+      "role": "boards.alpacapardyTileOpen",
+      "path": "assets/boards/jeopardy/alpacapardy-value-tile-skin.svg"
+    },
+    {
+      "id": "asset.config.boards.alpacapardytileplayed",
+      "role": "boards.alpacapardyTilePlayed",
+      "path": "assets/boards/jeopardy/alpacapardy-tile-used.svg"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.launch.buildcase",
+      "role": "contexts.gameplay.launch.buildcase",
+      "path": "assets/mascot/library/final-pack/DebateLab.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.launch.jeopardy",
+      "role": "contexts.gameplay.launch.jeopardy",
+      "path": "assets/mascot/library/final-pack/Jongleur.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.launch.jump",
+      "role": "contexts.gameplay.launch.jump",
+      "path": "assets/Alpacajump/alpacarunner.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.launch.race",
+      "role": "contexts.gameplay.launch.race",
+      "path": "assets/mascot/library/final-pack/Sport_Effort.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.launch.relay",
+      "role": "contexts.gameplay.launch.relay",
+      "path": "assets/mascot/library/final-pack/Buzz.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.launch.run",
+      "role": "contexts.gameplay.launch.run",
+      "path": "assets/mascot/library/final-pack/Bikeride.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.question.buildcase",
+      "role": "contexts.gameplay.question.buildcase",
+      "path": "assets/mascot/library/final-pack/DebateLab.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.question.jeopardy",
+      "role": "contexts.gameplay.question.jeopardy",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.question.jump",
+      "role": "contexts.gameplay.question.jump",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.question.race",
+      "role": "contexts.gameplay.question.race",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.question.relay",
+      "role": "contexts.gameplay.question.relay",
+      "path": "assets/mascot/library/final-pack/Buzz.png"
+    },
+    {
+      "id": "asset.config.contexts.gameplay.question.run",
+      "role": "contexts.gameplay.question.run",
+      "path": "assets/mascot/library/final-pack/Bikeride.png"
+    },
+    {
+      "id": "asset.config.contexts.lenses.bigidea",
+      "role": "contexts.lenses.bigidea",
+      "path": "assets/mascot/library/final-pack/Big Ideas.png"
+    },
+    {
+      "id": "asset.config.contexts.lenses.section",
+      "role": "contexts.lenses.section",
+      "path": "assets/mascot/library/final-pack/Philosopher.png"
+    },
+    {
+      "id": "asset.config.contexts.lenses.subject",
+      "role": "contexts.lenses.subject",
+      "path": "assets/mascot/library/final-pack/BySubject.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.alpacard",
+      "role": "contexts.modes.alpacard",
+      "path": "assets/mascot/library/final-pack/Flashcards.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.buildcase",
+      "role": "contexts.modes.buildcase",
+      "path": "assets/mascot/library/final-pack/DebateLab.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.channel",
+      "role": "contexts.modes.channel",
+      "path": "assets/mascot/library/final-pack/alpacachannel.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.jeopardy",
+      "role": "contexts.modes.jeopardy",
+      "path": "assets/mascot/library/final-pack/Jongleur.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.jump",
+      "role": "contexts.modes.jump",
+      "path": "assets/Alpacajump/gameicone.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.mindmap",
+      "role": "contexts.modes.mindmap",
+      "path": "assets/mascot/library/final-pack/Builder architecte.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.quiz",
+      "role": "contexts.modes.quiz",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.race",
+      "role": "contexts.modes.race",
+      "path": "assets/mascot/library/final-pack/Courir.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.rawcontent",
+      "role": "contexts.modes.rawcontent",
+      "path": "assets/mascot/library/final-pack/marcher_sidewalk.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.regularguide",
+      "role": "contexts.modes.regularguide",
+      "path": "assets/mascot/library/final-pack/Guide.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.relay",
+      "role": "contexts.modes.relay",
+      "path": "assets/mascot/library/final-pack/Buzz.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.run",
+      "role": "contexts.modes.run",
+      "path": "assets/mascot/library/final-pack/card-crops/AlpacaRun.png"
+    },
+    {
+      "id": "asset.config.contexts.modes.slideshow",
+      "role": "contexts.modes.slideshow",
+      "path": "assets/mascot/library/final-pack/drawing.png"
+    },
+    {
+      "id": "asset.config.contexts.paths.learn",
+      "role": "contexts.paths.learn",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.contexts.paths.play",
+      "role": "contexts.paths.play",
+      "path": "assets/mascot/library/final-pack/Playing.png"
+    },
+    {
+      "id": "asset.config.contexts.results.buildcase.fail",
+      "role": "contexts.results.buildcase.fail",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.contexts.results.buildcase.success",
+      "role": "contexts.results.buildcase.success",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.contexts.results.jeopardy.success",
+      "role": "contexts.results.jeopardy.success",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.contexts.results.jump.fail",
+      "role": "contexts.results.jump.fail",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.contexts.results.jump.success",
+      "role": "contexts.results.jump.success",
+      "path": "assets/mascot/library/final-pack/Complete_Finish.png"
+    },
+    {
+      "id": "asset.config.contexts.results.race.fail",
+      "role": "contexts.results.race.fail",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.contexts.results.race.success",
+      "role": "contexts.results.race.success",
+      "path": "assets/mascot/library/final-pack/Complete_Finish.png"
+    },
+    {
+      "id": "asset.config.contexts.results.relay.success",
+      "role": "contexts.results.relay.success",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.contexts.results.run.fail",
+      "role": "contexts.results.run.fail",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.contexts.results.run.success",
+      "role": "contexts.results.run.success",
+      "path": "assets/mascot/library/final-pack/Complete_Finish.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.all",
+      "role": "contexts.targets.all",
+      "path": "assets/mascot/library/final-pack/Alpacagroupe.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.adulthood",
+      "role": "contexts.targets.bigidea.adulthood",
+      "path": "assets/mascot/library/final-pack/Adulthood.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.arrival",
+      "role": "contexts.targets.bigidea.arrival",
+      "path": "assets/mascot/library/final-pack/Destination.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.bright-and-dark-future",
+      "role": "contexts.targets.bigidea.bright-and-dark-future",
+      "path": "assets/mascot/library/final-pack/Futuristic.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.collapse-and-apocalypse",
+      "role": "contexts.targets.bigidea.collapse-and-apocalypse",
+      "path": "assets/mascot/library/final-pack/Collapse & Apocalypse.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.delay",
+      "role": "contexts.targets.bigidea.delay",
+      "path": "assets/mascot/library/final-pack/Delay.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.destinations",
+      "role": "contexts.targets.bigidea.destinations",
+      "path": "assets/mascot/library/final-pack/Destination.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.drafts-and-prototypes",
+      "role": "contexts.targets.bigidea.drafts-and-prototypes",
+      "path": "assets/mascot/library/final-pack/Ingenieur.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.endings",
+      "role": "contexts.targets.bigidea.endings",
+      "path": "assets/mascot/library/final-pack/Complete_Finish.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.home-and-wandering",
+      "role": "contexts.targets.bigidea.home-and-wandering",
+      "path": "assets/mascot/library/final-pack/Chilling_at_home.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.journeys",
+      "role": "contexts.targets.bigidea.journeys",
+      "path": "assets/mascot/library/final-pack/Journeys.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.liminality",
+      "role": "contexts.targets.bigidea.liminality",
+      "path": "assets/mascot/library/final-pack/Liminality.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.migration",
+      "role": "contexts.targets.bigidea.migration",
+      "path": "assets/mascot/library/final-pack/Migration.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.navigation",
+      "role": "contexts.targets.bigidea.navigation",
+      "path": "assets/mascot/library/final-pack/Geograph.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.patience",
+      "role": "contexts.targets.bigidea.patience",
+      "path": "assets/mascot/library/final-pack/Patience.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.planning-and-projects",
+      "role": "contexts.targets.bigidea.planning-and-projects",
+      "path": "assets/mascot/library/final-pack/Todolist.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.prediction",
+      "role": "contexts.targets.bigidea.prediction",
+      "path": "assets/mascot/library/final-pack/Prediction.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.progress",
+      "role": "contexts.targets.bigidea.progress",
+      "path": "assets/mascot/library/final-pack/Progress.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.routes-and-roads",
+      "role": "contexts.targets.bigidea.routes-and-roads",
+      "path": "assets/mascot/library/final-pack/Driver_moving.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.routes-roads-and-navigation",
+      "role": "contexts.targets.bigidea.routes-roads-and-navigation",
+      "path": "assets/mascot/library/final-pack/Driver_moving.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.the-future",
+      "role": "contexts.targets.bigidea.the-future",
+      "path": "assets/mascot/library/final-pack/Futuristic.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.thresholds",
+      "role": "contexts.targets.bigidea.thresholds",
+      "path": "assets/mascot/library/final-pack/Threshold.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.tourism",
+      "role": "contexts.targets.bigidea.tourism",
+      "path": "assets/mascot/library/final-pack/Tourism.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.transition",
+      "role": "contexts.targets.bigidea.transition",
+      "path": "assets/mascot/library/final-pack/Transition.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.bigidea.waiting",
+      "role": "contexts.targets.bigidea.waiting",
+      "path": "assets/mascot/library/final-pack/waiting.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.call-of-duty-free",
+      "role": "contexts.targets.section.call-of-duty-free",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Relax_Sleeping.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.concluding-questions",
+      "role": "contexts.targets.section.concluding-questions",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Complete_Finish.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.going-pains",
+      "role": "contexts.targets.section.going-pains",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Sport_Effort.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.home-and-wandering",
+      "role": "contexts.targets.section.home-and-wandering",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Chilling_at_home.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.introductory-questions",
+      "role": "contexts.targets.section.introductory-questions",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Philosopher.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.monkey-see",
+      "role": "contexts.targets.section.monkey-see",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Scientist.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.more-to-do",
+      "role": "contexts.targets.section.more-to-do",
+      "path": "assets/mascot/library/final-pack/section-card-crops/thinking.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.next-year-in-futurism",
+      "role": "contexts.targets.section.next-year-in-futurism",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Futuristic.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.progress-not-regress",
+      "role": "contexts.targets.section.progress-not-regress",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Bikeride.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.roads-and-futures",
+      "role": "contexts.targets.section.roads-and-futures",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Driver_moving.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.the-end-is-nearish",
+      "role": "contexts.targets.section.the-end-is-nearish",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.the-lovely-and-the-liminal",
+      "role": "contexts.targets.section.the-lovely-and-the-liminal",
+      "path": "assets/mascot/library/final-pack/section-card-crops/BetweenDoors.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.theres-a-draft",
+      "role": "contexts.targets.section.theres-a-draft",
+      "path": "assets/mascot/library/final-pack/section-card-crops/drawing.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.were-all-in-this",
+      "role": "contexts.targets.section.were-all-in-this",
+      "path": "assets/mascot/library/final-pack/section-card-crops/Family.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.section.where-the-sidewalk-starts",
+      "role": "contexts.targets.section.where-the-sidewalk-starts",
+      "path": "assets/mascot/library/final-pack/section-card-crops/marcher_sidewalk.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.art-music",
+      "role": "contexts.targets.subject.art-music",
+      "path": "assets/mascot/library/final-pack/Artist.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.biology-human-development",
+      "role": "contexts.targets.subject.biology-human-development",
+      "path": "assets/mascot/library/final-pack/Sport_Effort.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.computer-science-technology",
+      "role": "contexts.targets.subject.computer-science-technology",
+      "path": "assets/mascot/library/final-pack/Robot.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.design-architecture-urbanism",
+      "role": "contexts.targets.subject.design-architecture-urbanism",
+      "path": "assets/mascot/library/final-pack/Builder architecte.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.economics-trade",
+      "role": "contexts.targets.subject.economics-trade",
+      "path": "assets/mascot/library/final-pack/Worker.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.environmental-science",
+      "role": "contexts.targets.subject.environmental-science",
+      "path": "assets/mascot/library/final-pack/chercheur_Curieux.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.geography-human-geography",
+      "role": "contexts.targets.subject.geography-human-geography",
+      "path": "assets/mascot/library/final-pack/Geograph.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.history",
+      "role": "contexts.targets.subject.history",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.language-literature",
+      "role": "contexts.targets.subject.language-literature",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.literature-media",
+      "role": "contexts.targets.subject.literature-media",
+      "path": "assets/mascot/library/final-pack/Movie record.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.media-film",
+      "role": "contexts.targets.subject.media-film",
+      "path": "assets/mascot/library/final-pack/Movie record.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.migration-tourism",
+      "role": "contexts.targets.subject.migration-tourism",
+      "path": "assets/mascot/library/final-pack/Bikeride.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.music",
+      "role": "contexts.targets.subject.music",
+      "path": "assets/mascot/library/final-pack/Singing.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.philosophy",
+      "role": "contexts.targets.subject.philosophy",
+      "path": "assets/mascot/library/final-pack/Philosopher.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.physics",
+      "role": "contexts.targets.subject.physics",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.politics-government-global-politics",
+      "role": "contexts.targets.subject.politics-government-global-politics",
+      "path": "assets/mascot/library/final-pack/Politics_Business.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.psychology",
+      "role": "contexts.targets.subject.psychology",
+      "path": "assets/mascot/library/final-pack/Philosopher.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.science-technology",
+      "role": "contexts.targets.subject.science-technology",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.sciences",
+      "role": "contexts.targets.subject.sciences",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.social-studies",
+      "role": "contexts.targets.subject.social-studies",
+      "path": "assets/mascot/library/final-pack/Politics_Business.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.sociology",
+      "role": "contexts.targets.subject.sociology",
+      "path": "assets/mascot/library/final-pack/Family.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.special-area",
+      "role": "contexts.targets.subject.special-area",
+      "path": "assets/mascot/library/final-pack/Philosopher.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.theatre",
+      "role": "contexts.targets.subject.theatre",
+      "path": "assets/mascot/library/final-pack/Jongleur.png"
+    },
+    {
+      "id": "asset.config.contexts.targets.subject.visual-arts",
+      "role": "contexts.targets.subject.visual-arts",
+      "path": "assets/mascot/library/final-pack/Artist.png"
+    },
+    {
+      "id": "asset.config.debate.con",
+      "role": "debate.con",
+      "path": "assets/mascot/library/final-pack/Debate_con.png"
+    },
+    {
+      "id": "asset.config.debate.lab",
+      "role": "debate.lab",
+      "path": "assets/mascot/library/final-pack/DebateLab.png"
+    },
+    {
+      "id": "asset.config.debate.pro",
+      "role": "debate.pro",
+      "path": "assets/mascot/library/final-pack/Debate_pro.png"
+    },
+    {
+      "id": "asset.config.icons.ui.backtotop",
+      "role": "icons.ui.backToTop",
+      "path": "assets/mascot/library/final-pack/Backtotop.png"
+    },
+    {
+      "id": "asset.config.icons.ui.routeback",
+      "role": "icons.ui.routeBack",
+      "path": "assets/icons/ui/route-return-button.svg"
+    },
+    {
+      "id": "asset.config.jump.background",
+      "role": "jump.background",
+      "path": "assets/Alpacajump/Background.png"
+    },
+    {
+      "id": "asset.config.jump.ducking",
+      "role": "jump.ducking",
+      "path": "assets/Alpacajump/alpacaducking.png"
+    },
+    {
+      "id": "asset.config.jump.hurting",
+      "role": "jump.hurting",
+      "path": "assets/Alpacajump/alpacahurting.png"
+    },
+    {
+      "id": "asset.config.jump.jumping",
+      "role": "jump.jumping",
+      "path": "assets/Alpacajump/alpacajumping.png"
+    },
+    {
+      "id": "asset.config.jump.monstertoduck",
+      "role": "jump.monsterToDuck",
+      "path": "assets/Alpacajump/monstertoduck.png"
+    },
+    {
+      "id": "asset.config.jump.monstertojump",
+      "role": "jump.monsterToJump",
+      "path": "assets/Alpacajump/monstertojump.png"
+    },
+    {
+      "id": "asset.config.jump.questiongenie",
+      "role": "jump.questionGenie",
+      "path": "assets/Alpacajump/questiongenie.png"
+    },
+    {
+      "id": "asset.config.jump.runner",
+      "role": "jump.runner",
+      "path": "assets/Alpacajump/alpacarunner.png"
+    },
+    {
+      "id": "asset.config.mascot.states.determined.default",
+      "role": "mascot.states.determined.default",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.mascot.states.determined.large",
+      "role": "mascot.states.determined.large",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.mascot.states.determined.medium",
+      "role": "mascot.states.determined.medium",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.mascot.states.determined.small",
+      "role": "mascot.states.determined.small",
+      "path": "assets/mascot/library/final-pack/Scientist.png"
+    },
+    {
+      "id": "asset.config.mascot.states.excited.default",
+      "role": "mascot.states.excited.default",
+      "path": "assets/mascot/library/final-pack/Alpaca Excited.png"
+    },
+    {
+      "id": "asset.config.mascot.states.excited.large",
+      "role": "mascot.states.excited.large",
+      "path": "assets/mascot/library/final-pack/Alpaca Excited.png"
+    },
+    {
+      "id": "asset.config.mascot.states.excited.medium",
+      "role": "mascot.states.excited.medium",
+      "path": "assets/mascot/library/final-pack/Alpaca Excited.png"
+    },
+    {
+      "id": "asset.config.mascot.states.excited.small",
+      "role": "mascot.states.excited.small",
+      "path": "assets/mascot/library/final-pack/Alpaca Excited.png"
+    },
+    {
+      "id": "asset.config.mascot.states.happy.default",
+      "role": "mascot.states.happy.default",
+      "path": "assets/mascot/library/final-pack/Happy.png"
+    },
+    {
+      "id": "asset.config.mascot.states.happy.large",
+      "role": "mascot.states.happy.large",
+      "path": "assets/mascot/library/final-pack/Happy.png"
+    },
+    {
+      "id": "asset.config.mascot.states.happy.medium",
+      "role": "mascot.states.happy.medium",
+      "path": "assets/mascot/library/final-pack/Happy.png"
+    },
+    {
+      "id": "asset.config.mascot.states.happy.small",
+      "role": "mascot.states.happy.small",
+      "path": "assets/mascot/library/final-pack/Happy.png"
+    },
+    {
+      "id": "asset.config.mascot.states.neutral.default",
+      "role": "mascot.states.neutral.default",
+      "path": "assets/mascot/library/final-pack/Patient.png"
+    },
+    {
+      "id": "asset.config.mascot.states.neutral.large",
+      "role": "mascot.states.neutral.large",
+      "path": "assets/mascot/library/final-pack/Patient.png"
+    },
+    {
+      "id": "asset.config.mascot.states.neutral.medium",
+      "role": "mascot.states.neutral.medium",
+      "path": "assets/mascot/library/final-pack/Patient.png"
+    },
+    {
+      "id": "asset.config.mascot.states.neutral.small",
+      "role": "mascot.states.neutral.small",
+      "path": "assets/mascot/library/final-pack/Patient.png"
+    },
+    {
+      "id": "asset.config.mascot.states.retry.default",
+      "role": "mascot.states.retry.default",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.mascot.states.retry.large",
+      "role": "mascot.states.retry.large",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.mascot.states.retry.medium",
+      "role": "mascot.states.retry.medium",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.mascot.states.retry.small",
+      "role": "mascot.states.retry.small",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.mascot.states.sad.default",
+      "role": "mascot.states.sad.default",
+      "path": "assets/mascot/library/final-pack/Sad.png"
+    },
+    {
+      "id": "asset.config.mascot.states.sad.large",
+      "role": "mascot.states.sad.large",
+      "path": "assets/mascot/library/final-pack/Sad.png"
+    },
+    {
+      "id": "asset.config.mascot.states.sad.medium",
+      "role": "mascot.states.sad.medium",
+      "path": "assets/mascot/library/final-pack/Sad.png"
+    },
+    {
+      "id": "asset.config.mascot.states.sad.small",
+      "role": "mascot.states.sad.small",
+      "path": "assets/mascot/library/final-pack/Sad.png"
+    },
+    {
+      "id": "asset.config.mascot.states.thinking.default",
+      "role": "mascot.states.thinking.default",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.mascot.states.thinking.large",
+      "role": "mascot.states.thinking.large",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.mascot.states.thinking.medium",
+      "role": "mascot.states.thinking.medium",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.mascot.states.thinking.small",
+      "role": "mascot.states.thinking.small",
+      "path": "assets/mascot/library/final-pack/thinking.png"
+    },
+    {
+      "id": "asset.config.mascot.states.victory.default",
+      "role": "mascot.states.victory.default",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.victory.hero",
+      "role": "mascot.states.victory.hero",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.victory.large",
+      "role": "mascot.states.victory.large",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.victory.medium",
+      "role": "mascot.states.victory.medium",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.victory.small",
+      "role": "mascot.states.victory.small",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.wise.default",
+      "role": "mascot.states.wise.default",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.wise.large",
+      "role": "mascot.states.wise.large",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.wise.medium",
+      "role": "mascot.states.wise.medium",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.mascot.states.wise.small",
+      "role": "mascot.states.wise.small",
+      "path": "assets/mascot/library/final-pack/reading studious.png"
+    },
+    {
+      "id": "asset.config.multiplayer.buzzsound",
+      "role": "multiplayer.buzzSound",
+      "path": "assets/audio/relay/relay-buzz.wav"
+    },
+    {
+      "id": "asset.config.multiplayer.buzzwinner",
+      "role": "multiplayer.buzzWinner",
+      "path": "assets/multiplayer/relay/multiplayer-buzz-winner-highlight.svg"
+    },
+    {
+      "id": "asset.config.multiplayer.keycaps.f",
+      "role": "multiplayer.keycaps.f",
+      "path": "assets/multiplayer/relay/multiplayer-keycap-f.svg"
+    },
+    {
+      "id": "asset.config.multiplayer.keycaps.h",
+      "role": "multiplayer.keycaps.h",
+      "path": "assets/multiplayer/relay/multiplayer-keycap-h.svg"
+    },
+    {
+      "id": "asset.config.multiplayer.keycaps.l",
+      "role": "multiplayer.keycaps.l",
+      "path": "assets/multiplayer/relay/multiplayer-keycap-l.svg"
+    },
+    {
+      "id": "asset.config.multiplayer.keycaps.s",
+      "role": "multiplayer.keycaps.s",
+      "path": "assets/multiplayer/relay/multiplayer-keycap-s.svg"
+    },
+    {
+      "id": "asset.config.multiplayer.teamcardskin",
+      "role": "multiplayer.teamCardSkin",
+      "path": "assets/multiplayer/relay/multiplayer-team-card-skin.svg"
+    },
+    {
+      "id": "asset.config.race.failstate",
+      "role": "race.failState",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.race.livesicon.empty",
+      "role": "race.livesIcon.empty",
+      "path": "assets/race/race-life-pip-spent.svg"
+    },
+    {
+      "id": "asset.config.race.livesicon.full",
+      "role": "race.livesIcon.full",
+      "path": "assets/race/race-life-pip-active.svg"
+    },
+    {
+      "id": "asset.config.race.livesicon.warning",
+      "role": "race.livesIcon.warning",
+      "path": "assets/race/race-life-pip-warning.svg"
+    },
+    {
+      "id": "asset.config.race.timerwidget",
+      "role": "race.timerWidget",
+      "path": "assets/race/race-timer-widget.svg"
+    },
+    {
+      "id": "asset.config.run.mapbackground",
+      "role": "run.mapBackground",
+      "path": "assets/run/alpaca-run-world-map.png"
+    },
+    {
+      "id": "asset.config.run.markers.final",
+      "role": "run.markers.final",
+      "path": "assets/run/alpaca-run-yale-destination.svg"
+    },
+    {
+      "id": "asset.config.run.markers.global",
+      "role": "run.markers.global",
+      "path": "assets/run/global-round-marker.svg"
+    },
+    {
+      "id": "asset.config.run.markers.regional",
+      "role": "run.markers.regional",
+      "path": "assets/run/regional-stop-marker-stateful.svg"
+    },
+    {
+      "id": "asset.config.run.travelmarker",
+      "role": "run.travelMarker",
+      "path": "assets/run/alpaca-run-cursor.png"
+    },
+    {
+      "id": "asset.config.screens.checkpoints.fail",
+      "role": "screens.checkpoints.fail",
+      "path": "assets/mascot/library/final-pack/Exhausted_Tired.png"
+    },
+    {
+      "id": "asset.config.screens.checkpoints.success",
+      "role": "screens.checkpoints.success",
+      "path": "assets/mascot/library/final-pack/Alpaca Excited.png"
+    },
+    {
+      "id": "asset.config.screens.hero.main",
+      "role": "screens.hero.main",
+      "path": "assets/mascot/library/final-pack/Alpaca Victorious.png"
+    }
+  ]
+}

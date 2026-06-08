@@ -1,0 +1,67 @@
+<svg
+  id="regional-stop-marker-stateful"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 96 96"
+  width="96"
+  height="96"
+  fill="none"
+  data-state="default"
+>
+  <defs>
+    <style>
+      .bg { fill: #fefaf2; }
+      .navy { fill: #00356b; stroke: #00356b; }
+      .burgundy { fill: #802922; stroke: #802922; }
+      .gold-stroke { stroke: #fcd127; }
+      .cream { fill: #fefaf2; }
+
+      .outer {
+        fill: #fefaf2;
+        stroke: #00356b;
+        stroke-width: 4;
+      }
+
+      .mid {
+        fill: #802922;
+      }
+
+      .inner {
+        fill: #fefaf2;
+        stroke: #00356b;
+        stroke-width: 2.5;
+      }
+
+      .core {
+        fill: #00356b;
+      }
+
+      .state-ring {
+        fill: none;
+        stroke: transparent;
+        stroke-width: 3;
+      }
+
+      svg[data-state="current"] .state-ring {
+        stroke: #fcd127;
+      }
+
+      svg[data-state="current"] .outer {
+        stroke-width: 5;
+      }
+
+      svg[data-state="reached"] {
+        opacity: 0.88;
+      }
+
+      svg[data-state="reached"] .core {
+        fill: #802922;
+      }
+    </style>
+  </defs>
+
+  <circle class="state-ring" cx="48" cy="48" r="34"/>
+  <circle class="outer" cx="48" cy="48" r="28"/>
+  <circle class="mid" cx="48" cy="48" r="19"/>
+  <circle class="inner" cx="48" cy="48" r="11"/>
+  <circle class="core" cx="48" cy="48" r="4.5"/>
+</svg>

@@ -1,0 +1,358 @@
+{
+  "id": "media.next-year-in-futurism",
+  "sectionId": "next-year-in-futurism",
+  "assets": [
+    {
+      "id": "asset.next-year-in-futurism.alpacard.wardenclyffe-tower-teslas-tower",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/wardenclyffe-tower-teslas-tower.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.a-forecast-as-a-time-capsule",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/a-forecast-as-a-time-capsule.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.artificial-general-intelligence",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/artificial-general-intelligence.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.assessment-after-ai",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/assessment-after-ai.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.authorship-and-responsibility",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/authorship-and-responsibility.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.autonomous-miles",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/autonomous-miles.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.because-its-there",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/because-its-there.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.bioprinting",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/bioprinting.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.cashless-payments",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/cashless-payments.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.cellular-reprogramming",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/cellular-reprogramming.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.choosing-the-next-frontier",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/choosing-the-next-frontier.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.cryonics",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/cryonics.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.cure-for-cancer",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/cure-for-cancer.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.detection-limits",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/detection-limits.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.digital-immortality",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/digital-immortality.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.flying-cars-advanced-air-mobility",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/flying-cars-advanced-air-mobility.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.food-pills",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/food-pills.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.forecast-audit-checklist",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/forecast-audit-checklist.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.graphene",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/graphene.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.hallucinations",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/hallucinations.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.health-and-aging-telomere-extension",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/health-and-aging-telomere-extension.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.heat-pressure-and-limits",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/heat-pressure-and-limits.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.hype-cycle",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/hype-cycle.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.invention-vs-adoption",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/invention-vs-adoption.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.nanotechnology",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/nanotechnology.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.narrow-ai-vs-agi",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/narrow-ai-vs-agi.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.new-mobile-form-factor",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/new-mobile-form-factor.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.organ-transplants-and-power",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/organ-transplants-and-power.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.organoids",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/organoids.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.outlier-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/outlier-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.post-quantum-readiness",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/post-quantum-readiness.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.q-day",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/q-day.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.quantum-supremacy",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/quantum-supremacy.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.rivalry-vs-cooperation",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/rivalry-vs-cooperation.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.scaling-laws-and-the-ai-bubble",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/scaling-laws-and-the-ai-bubble.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.senotherapeutics",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/senotherapeutics.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.should-we-want-agi",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/should-we-want-agi.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.signs-of-ai-writing",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/signs-of-ai-writing.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.space-elevator",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/space-elevator.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.still-not-everyday-computing",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/still-not-everyday-computing.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.the-word-soon",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/the-word-soon.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.virtual-reality",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/virtual-reality.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.vr-addiction",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/vr-addiction.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.next-year-in-futurism.raw.work-becomes-freelance",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/next-year-in-futurism/work-becomes-freelance.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

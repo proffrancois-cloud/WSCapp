@@ -1,0 +1,907 @@
+{
+  "id": "questions.call-of-duty-free",
+  "sectionId": "call-of-duty-free",
+  "levels": {
+    "100": [
+      {
+        "id": "question.call-of-duty-free.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What mainly made a post house different from a modern hotel?",
+        "correctAnswer": "A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers",
+        "wrongAnswers": [
+          "A post house was always more luxurious than a hotel",
+          "A hotel mainly handled horse relays instead of guest stays",
+          "A post house mainly served long leisure stays rather than relay travel"
+        ],
+        "explanation": "A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers.",
+        "visibleCorrectExplanation": "A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A post house was always more luxurious than a hotel",
+            "explanation": "That answer changes the point: A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers."
+          },
+          {
+            "label": "C",
+            "answer": "A hotel mainly handled horse relays instead of guest stays",
+            "explanation": "That answer changes the point: A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers."
+          },
+          {
+            "label": "D",
+            "answer": "A post house mainly served long leisure stays rather than relay travel",
+            "explanation": "That answer changes the point: A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_call-of-duty-free_1_092",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_call-of-duty-free_1_092",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.001"
+      },
+      {
+        "id": "question.call-of-duty-free.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What was the Grand Tour mainly meant to do for wealthy young aristocrats?",
+        "correctAnswer": "Turn travel into a rite of passage that made them more cultured and socially polished",
+        "wrongAnswers": [
+          "Train them to become professional sailors across Europe",
+          "Send them abroad without art, language, or social training",
+          "Give them travel without elite education or cultural polish"
+        ],
+        "explanation": "Turn travel into a rite of passage that made them more cultured and socially polished.",
+        "visibleCorrectExplanation": "Turn travel into a rite of passage that made them more cultured and socially polished.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Train them to become professional sailors across Europe",
+            "explanation": "That answer changes the point: Turn travel into a rite of passage that made them more cultured and socially polished."
+          },
+          {
+            "label": "C",
+            "answer": "Send them abroad without art, language, or social training",
+            "explanation": "That answer changes the point: Turn travel into a rite of passage that made them more cultured and socially polished."
+          },
+          {
+            "label": "D",
+            "answer": "Give them travel without elite education or cultural polish",
+            "explanation": "That answer changes the point: Turn travel into a rite of passage that made them more cultured and socially polished."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_call-of-duty-free_2_105",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_call-of-duty-free_2_105",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.002"
+      },
+      {
+        "id": "question.call-of-duty-free.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the “Golden Age of Travel” usually imagined as?",
+        "correctAnswer": "A past era of elegant, comfortable, and well-mannered travel",
+        "wrongAnswers": [
+          "A period when nobody used planes or ships",
+          "A period remembered for business travel rather than leisure glamour",
+          "A century when travel became free for everyone"
+        ],
+        "explanation": "A past era of elegant, comfortable, and well-mannered travel.",
+        "visibleCorrectExplanation": "A past era of elegant, comfortable, and well-mannered travel.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A period when nobody used planes or ships",
+            "explanation": "That answer changes the point: A past era of elegant, comfortable, and well-mannered travel."
+          },
+          {
+            "label": "C",
+            "answer": "A period remembered for business travel rather than leisure glamour",
+            "explanation": "That answer changes the point: A past era of elegant, comfortable, and well-mannered travel."
+          },
+          {
+            "label": "D",
+            "answer": "A century when travel became free for everyone",
+            "explanation": "That answer changes the point: A past era of elegant, comfortable, and well-mannered travel."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_call-of-duty-free_3_084",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_call-of-duty-free_3_084",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.003"
+      },
+      {
+        "id": "question.call-of-duty-free.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Why do some travelers avoid classic tourist routes?",
+        "correctAnswer": "They want more original or meaningful experiences than crowded tourist hotspots",
+        "wrongAnswers": [
+          "They no longer want to visit new places at all",
+          "They reject famous routes even when those places still have value",
+          "They want every trip to avoid all local culture"
+        ],
+        "explanation": "They want more original or meaningful experiences than crowded tourist hotspots.",
+        "visibleCorrectExplanation": "They want more original or meaningful experiences than crowded tourist hotspots.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They no longer want to visit new places at all",
+            "explanation": "That answer changes the point: They want more original or meaningful experiences than crowded tourist hotspots."
+          },
+          {
+            "label": "C",
+            "answer": "They reject famous routes even when those places still have value",
+            "explanation": "That answer changes the point: They want more original or meaningful experiences than crowded tourist hotspots."
+          },
+          {
+            "label": "D",
+            "answer": "They want every trip to avoid all local culture",
+            "explanation": "That answer changes the point: They want more original or meaningful experiences than crowded tourist hotspots."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_call-of-duty-free_4_074",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_call-of-duty-free_4_074",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.004"
+      },
+      {
+        "id": "question.call-of-duty-free.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is an entrepôt?",
+        "correctAnswer": "A place where goods are imported, stored, and traded again before moving on",
+        "wrongAnswers": [
+          "A tourist hotel used only by merchants",
+          "A border payment charged to passengers rather than traded goods",
+          "A portable container for travelers rather than a trade storage point"
+        ],
+        "explanation": "A place where goods are imported, stored, and traded again before moving on.",
+        "visibleCorrectExplanation": "A place where goods are imported, stored, and traded again before moving on.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A tourist hotel used only by merchants",
+            "explanation": "That answer changes the point: A place where goods are imported, stored, and traded again before moving on."
+          },
+          {
+            "label": "C",
+            "answer": "A border payment charged to passengers rather than traded goods",
+            "explanation": "That answer changes the point: A place where goods are imported, stored, and traded again before moving on."
+          },
+          {
+            "label": "D",
+            "answer": "A portable container for travelers rather than a trade storage point",
+            "explanation": "That answer changes the point: A place where goods are imported, stored, and traded again before moving on."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_call-of-duty-free_5_004",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_call-of-duty-free_5_004",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.005"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.call-of-duty-free.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why were caravanserais important on long trade routes?",
+        "correctAnswer": "They gave traders, goods, and animals a protected place to rest before continuing",
+        "wrongAnswers": [
+          "They were final tourist resorts at the end of every route",
+          "They existed mainly to stop trade from spreading",
+          "They were private homes for wealthy city families"
+        ],
+        "explanation": "They gave traders, goods, and animals a protected place to rest before continuing.",
+        "visibleCorrectExplanation": "They gave traders, goods, and animals a protected place to rest before continuing.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They were final tourist resorts at the end of every route",
+            "explanation": "That answer changes the point: They gave traders, goods, and animals a protected place to rest before continuing."
+          },
+          {
+            "label": "C",
+            "answer": "They existed mainly to stop trade from spreading",
+            "explanation": "That answer changes the point: They gave traders, goods, and animals a protected place to rest before continuing."
+          },
+          {
+            "label": "D",
+            "answer": "They were private homes for wealthy city families",
+            "explanation": "That answer changes the point: They gave traders, goods, and animals a protected place to rest before continuing."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_call-of-duty-free_1_178",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_call-of-duty-free_1_178",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.001"
+      },
+      {
+        "id": "question.call-of-duty-free.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why was Italy especially important on many Grand Tours?",
+        "correctAnswer": "It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples",
+        "wrongAnswers": [
+          "It was the only country where travelers could learn French",
+          "It offered travel comfort without requiring art or classical learning",
+          "It served as a quick route rather than a cultural destination"
+        ],
+        "explanation": "It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples.",
+        "visibleCorrectExplanation": "It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was the only country where travelers could learn French",
+            "explanation": "That answer changes the point: It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples."
+          },
+          {
+            "label": "C",
+            "answer": "It offered travel comfort without requiring art or classical learning",
+            "explanation": "That answer changes the point: It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples."
+          },
+          {
+            "label": "D",
+            "answer": "It served as a quick route rather than a cultural destination",
+            "explanation": "That answer changes the point: It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_call-of-duty-free_2_181",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_call-of-duty-free_2_181",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.002"
+      },
+      {
+        "id": "question.call-of-duty-free.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can nostalgia make older travel look better than it was?",
+        "correctAnswer": "It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort",
+        "wrongAnswers": [
+          "It proves every older journey was more comfortable",
+          "It treats old travel as comfortable without asking who was excluded",
+          "It trusts the glamorous image without checking the missing discomforts"
+        ],
+        "explanation": "It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort.",
+        "visibleCorrectExplanation": "It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves every older journey was more comfortable",
+            "explanation": "That answer changes the point: It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort."
+          },
+          {
+            "label": "C",
+            "answer": "It treats old travel as comfortable without asking who was excluded",
+            "explanation": "That answer changes the point: It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort."
+          },
+          {
+            "label": "D",
+            "answer": "It trusts the glamorous image without checking the missing discomforts",
+            "explanation": "That answer changes the point: It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_call-of-duty-free_3_196",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_call-of-duty-free_3_196",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.003"
+      },
+      {
+        "id": "question.call-of-duty-free.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "How can social media change tourism?",
+        "correctAnswer": "It can make hidden places popular by spreading them quickly to many travelers",
+        "wrongAnswers": [
+          "It stops people from visiting places because trends disappear",
+          "It assumes popularity automatically creates deeper cultural contact",
+          "It turns most tourism into virtual travel only"
+        ],
+        "explanation": "It can make hidden places popular by spreading them quickly to many travelers.",
+        "visibleCorrectExplanation": "It can make hidden places popular by spreading them quickly to many travelers.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It stops people from visiting places because trends disappear",
+            "explanation": "That answer changes the point: It can make hidden places popular by spreading them quickly to many travelers."
+          },
+          {
+            "label": "C",
+            "answer": "It assumes popularity automatically creates deeper cultural contact",
+            "explanation": "That answer changes the point: It can make hidden places popular by spreading them quickly to many travelers."
+          },
+          {
+            "label": "D",
+            "answer": "It turns most tourism into virtual travel only",
+            "explanation": "That answer changes the point: It can make hidden places popular by spreading them quickly to many travelers."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_call-of-duty-free_4_112",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_call-of-duty-free_4_112",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.004"
+      },
+      {
+        "id": "question.call-of-duty-free.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What makes a free-trade zone different from an ordinary customs area?",
+        "correctAnswer": "Goods can be stored or reexported there without normal duties applying immediately",
+        "wrongAnswers": [
+          "Only local products are allowed inside it",
+          "Goods move there with fewer duties, but not without trade rules",
+          "Trade happens there, but only after every local tax is paid"
+        ],
+        "explanation": "Goods can be stored or reexported there without normal duties applying immediately.",
+        "visibleCorrectExplanation": "Goods can be stored or reexported there without normal duties applying immediately.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Only local products are allowed inside it",
+            "explanation": "That answer changes the point: Goods can be stored or reexported there without normal duties applying immediately."
+          },
+          {
+            "label": "C",
+            "answer": "Goods move there with fewer duties, but not without trade rules",
+            "explanation": "That answer changes the point: Goods can be stored or reexported there without normal duties applying immediately."
+          },
+          {
+            "label": "D",
+            "answer": "Trade happens there, but only after every local tax is paid",
+            "explanation": "That answer changes the point: Goods can be stored or reexported there without normal duties applying immediately."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_call-of-duty-free_5_206",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_call-of-duty-free_5_206",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.call-of-duty-free.005"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.call-of-duty-free.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Duty-free refers to goods sold without certain local taxes in transit zones. Which idea gives the best comparison?",
+        "correctAnswer": "From inns to hotels",
+        "wrongAnswers": [
+          "Travel as status",
+          "Tourism types",
+          "Airport life as limbo"
+        ],
+        "explanation": "Correct: From inns to hotels.",
+        "visibleCorrectExplanation": "Correct: From inns to hotels.",
+        "visibleConnection": "The question starts from a concrete detail in Duty-free culture: Duty-free refers to goods sold without certain local taxes in transit zones. It is really asking which answer handles a similar pressure. From inns to hotels is the best connection because it turns rest for travelers into an institution, showing how temporary shelter becomes part of mobility systems. Both ideas ask alpacas to notice that Duty-free shopping makes borders feel pleasant, but it depends on tax rules, security systems, and controlled movement.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__215",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free__215",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Travel as status",
+            "explanation": "That answer changes the point: From inns to hotels."
+          },
+          {
+            "label": "C",
+            "answer": "Tourism types",
+            "explanation": "That answer changes the point: From inns to hotels."
+          },
+          {
+            "label": "D",
+            "answer": "Airport life as limbo",
+            "explanation": "That answer changes the point: From inns to hotels."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Travel as status?",
+        "correctAnswer": "Tourism types",
+        "wrongAnswers": [
+          "Airport life as limbo",
+          "Overtourism and local cost",
+          "Duty-free culture"
+        ],
+        "explanation": "Correct: Tourism types.",
+        "visibleCorrectExplanation": "Correct: Tourism types.",
+        "visibleConnection": "The question starts from a concrete detail in Travel as status: Not everyone can travel equally. It is really asking which answer handles a similar pressure. Tourism types is the best connection because it sorts travelers by motive, revealing that the same place can be consumed as leisure, heritage, danger, or self-improvement. Both ideas ask alpacas to notice that Travel can become proof that someone has access to time, money, passports, and cultural confidence.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__216",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free__216",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Airport life as limbo",
+            "explanation": "That answer changes the point: Tourism types."
+          },
+          {
+            "label": "C",
+            "answer": "Overtourism and local cost",
+            "explanation": "That answer changes the point: Tourism types."
+          },
+          {
+            "label": "D",
+            "answer": "Duty-free culture",
+            "explanation": "That answer changes the point: Tourism types."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Airport life as limbo into a different form?",
+        "correctAnswer": "Overtourism and local cost",
+        "wrongAnswers": [
+          "Duty-free culture",
+          "From inns to hotels",
+          "Travel as status"
+        ],
+        "explanation": "Correct: Overtourism and local cost.",
+        "visibleCorrectExplanation": "Correct: Overtourism and local cost.",
+        "visibleConnection": "The question starts from a concrete detail in Airport life as limbo: Airports are transitional spaces, not final destinations. It is really asking which answer handles a similar pressure. Overtourism and local cost is the best connection because it shows smooth arrival for visitors creating friction for residents who cannot simply leave the destination behind. Both ideas ask alpacas to notice that Airports compress freedom and control into the same space: people are moving, waiting, watched, and sold to at once.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__217",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free__217",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Duty-free culture",
+            "explanation": "That answer changes the point: Overtourism and local cost."
+          },
+          {
+            "label": "C",
+            "answer": "From inns to hotels",
+            "explanation": "That answer changes the point: Overtourism and local cost."
+          },
+          {
+            "label": "D",
+            "answer": "Travel as status",
+            "explanation": "That answer changes the point: Overtourism and local cost."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Tourism types?",
+        "correctAnswer": "Airport life as limbo",
+        "wrongAnswers": [
+          "Overtourism and local cost",
+          "Duty-free culture",
+          "From inns to hotels"
+        ],
+        "explanation": "Correct: Airport life as limbo.",
+        "visibleCorrectExplanation": "Correct: Airport life as limbo.",
+        "visibleConnection": "The question starts from a concrete detail in Tourism types: Examples include eco-tourism, dark tourism, wellness tourism, cultural tourism, and resort tourism. It is really asking which answer handles a similar pressure. Airport life as limbo is the best connection because it holds people between jurisdictions and destinations, making the airport a place of waiting that pretends to be only transit. Both ideas ask alpacas to notice that Tourism changes shape depending on what the traveler wants to consume: comfort, danger, authenticity, memory, or transformation.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__218",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free__218",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Overtourism and local cost",
+            "explanation": "That answer changes the point: Airport life as limbo."
+          },
+          {
+            "label": "C",
+            "answer": "Duty-free culture",
+            "explanation": "That answer changes the point: Airport life as limbo."
+          },
+          {
+            "label": "D",
+            "answer": "From inns to hotels",
+            "explanation": "That answer changes the point: Airport life as limbo."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as From inns to hotels?",
+        "correctAnswer": "Airport life as limbo",
+        "wrongAnswers": [
+          "Overtourism and local cost",
+          "Duty-free culture",
+          "Travel as status"
+        ],
+        "explanation": "Correct: Airport life as limbo.",
+        "visibleCorrectExplanation": "Correct: Airport life as limbo.",
+        "visibleConnection": "The question starts from a concrete detail in From inns to hotels: Early lodging supported merchants and travelers in motion. It is really asking which answer handles a similar pressure. Airport life as limbo is the best connection because it holds people between jurisdictions and destinations, making the airport a place of waiting that pretends to be only transit. Both ideas ask alpacas to notice that Travel creates institutions around temporary belonging: places designed for people who are between places.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__219",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free__219",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Overtourism and local cost",
+            "explanation": "That answer changes the point: Airport life as limbo."
+          },
+          {
+            "label": "C",
+            "answer": "Duty-free culture",
+            "explanation": "That answer changes the point: Airport life as limbo."
+          },
+          {
+            "label": "D",
+            "answer": "Travel as status",
+            "explanation": "That answer changes the point: Airport life as limbo."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "How did hotels become more than simple stopover spaces?",
+        "correctAnswer": "They developed comfort, service, privacy, and sometimes became destinations themselves",
+        "wrongAnswers": [
+          "They stopped travelers from using roads and ships",
+          "They became less connected to tourism over time",
+          "They replaced every earlier form of accommodation immediately"
+        ],
+        "explanation": "Correct: They developed comfort, service, privacy, and sometimes became destinations themselves.",
+        "visibleCorrectExplanation": "Correct: They developed comfort, service, privacy, and sometimes became destinations themselves.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free_1_290",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free_1_290",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They stopped travelers from using roads and ships",
+            "explanation": "That answer changes the point: They developed comfort, service, privacy, and sometimes became destinations themselves."
+          },
+          {
+            "label": "C",
+            "answer": "They became less connected to tourism over time",
+            "explanation": "That answer changes the point: They developed comfort, service, privacy, and sometimes became destinations themselves."
+          },
+          {
+            "label": "D",
+            "answer": "They replaced every earlier form of accommodation immediately",
+            "explanation": "That answer changes the point: They developed comfort, service, privacy, and sometimes became destinations themselves."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can the Grand Tour be seen as an early form of modern tourism?",
+        "correctAnswer": "It treated travel as leisure, culture, learning, and identity formation, not only as necessity",
+        "wrongAnswers": [
+          "It was created mostly to move goods across Europe",
+          "It replaced all school education in Britain",
+          "It required every young European to visit Venice"
+        ],
+        "explanation": "Correct: It treated travel as leisure, culture, learning, and identity formation, not only as necessity.",
+        "visibleCorrectExplanation": "Correct: It treated travel as leisure, culture, learning, and identity formation, not only as necessity.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free_2_291",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free_2_291",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was created mostly to move goods across Europe",
+            "explanation": "That answer changes the point: It treated travel as leisure, culture, learning, and identity formation, not only as necessity."
+          },
+          {
+            "label": "C",
+            "answer": "It replaced all school education in Britain",
+            "explanation": "That answer changes the point: It treated travel as leisure, culture, learning, and identity formation, not only as necessity."
+          },
+          {
+            "label": "D",
+            "answer": "It required every young European to visit Venice",
+            "explanation": "That answer changes the point: It treated travel as leisure, culture, learning, and identity formation, not only as necessity."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why do some historians doubt that a true golden age of air travel existed?",
+        "correctAnswer": "Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe",
+        "wrongAnswers": [
+          "Airplanes were only invented in the 21st century",
+          "Passengers in the past never disagreed about travel",
+          "All flights used to be free and equal for everyone"
+        ],
+        "explanation": "Correct: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe.",
+        "visibleCorrectExplanation": "Correct: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free_3_292",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free_3_292",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Airplanes were only invented in the 21st century",
+            "explanation": "That answer changes the point: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe."
+          },
+          {
+            "label": "C",
+            "answer": "Passengers in the past never disagreed about travel",
+            "explanation": "That answer changes the point: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe."
+          },
+          {
+            "label": "D",
+            "answer": "All flights used to be free and equal for everyone",
+            "explanation": "That answer changes the point: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is the paradox of “authentic” tourism?",
+        "correctAnswer": "Travelers seek unique places, but online attention can turn those places into new hotspots",
+        "wrongAnswers": [
+          "Authentic tourism means meeting only local people",
+          "The more tourists arrive, the more private a place becomes",
+          "Authentic tourism is just another name for luxury travel"
+        ],
+        "explanation": "Correct: Travelers seek unique places, but online attention can turn those places into new hotspots.",
+        "visibleCorrectExplanation": "Correct: Travelers seek unique places, but online attention can turn those places into new hotspots.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free_4_293",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free_4_293",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Authentic tourism means meeting only local people",
+            "explanation": "That answer changes the point: Travelers seek unique places, but online attention can turn those places into new hotspots."
+          },
+          {
+            "label": "C",
+            "answer": "The more tourists arrive, the more private a place becomes",
+            "explanation": "That answer changes the point: Travelers seek unique places, but online attention can turn those places into new hotspots."
+          },
+          {
+            "label": "D",
+            "answer": "Authentic tourism is just another name for luxury travel",
+            "explanation": "That answer changes the point: Travelers seek unique places, but online attention can turn those places into new hotspots."
+          }
+        ]
+      },
+      {
+        "id": "question.call-of-duty-free.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why were caravanserais important on long-distance routes?",
+        "correctAnswer": "They gave caravans a protected stop for rest, shelter, animals, and goods",
+        "wrongAnswers": [
+          "They were final luxury destinations for ancient tourists",
+          "They replaced all port cities on the Silk Road",
+          "They existed mainly to prevent exchange between cultures"
+        ],
+        "explanation": "Correct: They gave caravans a protected stop for rest, shelter, animals, and goods.",
+        "visibleCorrectExplanation": "Correct: They gave caravans a protected stop for rest, shelter, animals, and goods.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free_5_294",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_call-of-duty-free_5_294",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They were final luxury destinations for ancient tourists",
+            "explanation": "That answer changes the point: They gave caravans a protected stop for rest, shelter, animals, and goods."
+          },
+          {
+            "label": "C",
+            "answer": "They replaced all port cities on the Silk Road",
+            "explanation": "That answer changes the point: They gave caravans a protected stop for rest, shelter, animals, and goods."
+          },
+          {
+            "label": "D",
+            "answer": "They existed mainly to prevent exchange between cultures",
+            "explanation": "That answer changes the point: They gave caravans a protected stop for rest, shelter, animals, and goods."
+          }
+        ]
+      }
+    ]
+  }
+}

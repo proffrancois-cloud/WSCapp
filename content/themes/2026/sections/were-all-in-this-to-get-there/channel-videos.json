@@ -1,0 +1,100 @@
+{
+  "id": "channel.were-all-in-this-to-get-there",
+  "sectionId": "were-all-in-this-to-get-there",
+  "videos": [
+    {
+      "id": "video.were-all-in-this-to-get-there.001",
+      "title": "The Phoenix Project || Book Summary || DevOps",
+      "url": "https://www.youtube.com/watch?v=Cc5wPrMvdao",
+      "description": "Manual Alpaca Channel placement for Rigid Maps, Fast Pivots, and the New Logic of Work.",
+      "sectionIds": [
+        "were-all-in-this-to-get-there"
+      ],
+      "sectionTitles": [
+        "We're All in This to Get There"
+      ],
+      "entryTitles": [
+        "Rigid Maps, Fast Pivots, and the New Logic of Work"
+      ],
+      "bigIdeaLabels": [
+        "Managing Uncertainty",
+        "Infrastructure Shapes Behavior",
+        "Measuring Human Worth",
+        "Incompletion That Stays Active"
+      ],
+      "bigIdeaIds": [
+        "managing-uncertainty",
+        "infrastructure-shapes-behavior",
+        "measuring-human-worth",
+        "incompletion-that-stays-active"
+      ],
+      "subjectLabels": [
+        "Computer Science / Technology",
+        "Economics & Trade"
+      ],
+      "subjectIds": [
+        "computer-science-technology",
+        "economics-trade"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "were-all-in-this-to-get-there",
+          "sectionTitle": "We're All in This to Get There",
+          "entryTitle": "Rigid Maps, Fast Pivots, and the New Logic of Work",
+          "why": "User-confirmed placement under Rigid Maps, Fast Pivots, and the New Logic of Work."
+        }
+      ],
+      "sourceId": "manual-we-re-all-in-this-to-get-there-rigid-maps-fast-pivots-and-the-new-logic-of-work-Cc5wPrMvdao",
+      "canonicalSectionId": "were-all-in-this-to-get-there",
+      "assetId": null
+    },
+    {
+      "id": "video.were-all-in-this-to-get-there.002",
+      "title": "Total Quality Management Principles: A Comprehensive Overview",
+      "url": "https://www.youtube.com/watch?v=OSz7MvkPhFI",
+      "description": "Manual Alpaca Channel placement for The Stopwatch Era - Then and Now.",
+      "sectionIds": [
+        "were-all-in-this-to-get-there"
+      ],
+      "sectionTitles": [
+        "We're All in This to Get There"
+      ],
+      "entryTitles": [
+        "The Stopwatch Era - Then and Now"
+      ],
+      "bigIdeaLabels": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Performed Progress",
+        "Measuring Human Worth"
+      ],
+      "bigIdeaIds": [
+        "infrastructure-shapes-behavior",
+        "narrated-endings",
+        "performed-progress",
+        "measuring-human-worth"
+      ],
+      "subjectLabels": [
+        "Economics & Trade",
+        "Philosophy"
+      ],
+      "subjectIds": [
+        "economics-trade",
+        "philosophy"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "were-all-in-this-to-get-there",
+          "sectionTitle": "We're All in This to Get There",
+          "entryTitle": "The Stopwatch Era - Then and Now",
+          "why": "User-confirmed placement under The Stopwatch Era - Then and Now."
+        }
+      ],
+      "sourceId": "manual-we-re-all-in-this-to-get-there-the-stopwatch-era-then-and-now-OSz7MvkPhFI",
+      "canonicalSectionId": "were-all-in-this-to-get-there",
+      "assetId": null
+    }
+  ]
+}

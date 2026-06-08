@@ -1,0 +1,1309 @@
+{
+  "id": "questions.progress-not-regress",
+  "sectionId": "progress-not-regress",
+  "levels": {
+    "100": [
+      {
+        "id": "question.progress-not-regress.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What problem did early progress indicators help computer users solve?",
+        "correctAnswer": "They showed that a process was still active",
+        "wrongAnswers": [
+          "They made slow programs work without delay",
+          "They prevented computers from ever freezing",
+          "They replaced the need for saving files"
+        ],
+        "explanation": "They showed that a process was still active.",
+        "visibleCorrectExplanation": "They showed that a process was still active.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They made slow programs work without delay",
+            "explanation": "That answer changes the point: They showed that a process was still active."
+          },
+          {
+            "label": "C",
+            "answer": "They prevented computers from ever freezing",
+            "explanation": "That answer changes the point: They showed that a process was still active."
+          },
+          {
+            "label": "D",
+            "answer": "They replaced the need for saving files",
+            "explanation": "That answer changes the point: They showed that a process was still active."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_1_103",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_1_103",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.001"
+      },
+      {
+        "id": "question.progress-not-regress.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a percent-done progress indicator designed to show?",
+        "correctAnswer": "How much of a process appears complete",
+        "wrongAnswers": [
+          "That a page has no structure yet",
+          "A decorative logo before an app opens",
+          "A command line with only error messages"
+        ],
+        "explanation": "How much of a process appears complete.",
+        "visibleCorrectExplanation": "How much of a process appears complete.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "That a page has no structure yet",
+            "explanation": "That answer changes the point: How much of a process appears complete."
+          },
+          {
+            "label": "C",
+            "answer": "A decorative logo before an app opens",
+            "explanation": "That answer changes the point: How much of a process appears complete."
+          },
+          {
+            "label": "D",
+            "answer": "A command line with only error messages",
+            "explanation": "That answer changes the point: How much of a process appears complete."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_2_091",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_2_091",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.002"
+      },
+      {
+        "id": "question.progress-not-regress.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is a placebo button?",
+        "correctAnswer": "A control that feels active but may not change the system",
+        "wrongAnswers": [
+          "A button that always speeds up a machine",
+          "A broken control that no one is meant to press",
+          "A safety switch used only in emergencies"
+        ],
+        "explanation": "A control that feels active but may not change the system.",
+        "visibleCorrectExplanation": "A control that feels active but may not change the system.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A button that always speeds up a machine",
+            "explanation": "That answer changes the point: A control that feels active but may not change the system."
+          },
+          {
+            "label": "C",
+            "answer": "A broken control that no one is meant to press",
+            "explanation": "That answer changes the point: A control that feels active but may not change the system."
+          },
+          {
+            "label": "D",
+            "answer": "A safety switch used only in emergencies",
+            "explanation": "That answer changes the point: A control that feels active but may not change the system."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_3_011",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_3_011",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.003"
+      },
+      {
+        "id": "question.progress-not-regress.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What change helped Houston airport reduce baggage-claim complaints?",
+        "correctAnswer": "Passengers walked longer before waiting at the carousel",
+        "wrongAnswers": [
+          "Passengers received meals during long layovers",
+          "Passengers were given gifts after landing",
+          "Passengers waited in seats beside the aircraft"
+        ],
+        "explanation": "Passengers walked longer before waiting at the carousel.",
+        "visibleCorrectExplanation": "Passengers walked longer before waiting at the carousel.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Passengers received meals during long layovers",
+            "explanation": "That answer changes the point: Passengers walked longer before waiting at the carousel."
+          },
+          {
+            "label": "C",
+            "answer": "Passengers were given gifts after landing",
+            "explanation": "That answer changes the point: Passengers walked longer before waiting at the carousel."
+          },
+          {
+            "label": "D",
+            "answer": "Passengers waited in seats beside the aircraft",
+            "explanation": "That answer changes the point: Passengers walked longer before waiting at the carousel."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_4_099",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_4_099",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.004"
+      },
+      {
+        "id": "question.progress-not-regress.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is one basic purpose of a progress indicator in a task?",
+        "correctAnswer": "To show movement toward completion",
+        "wrongAnswers": [
+          "To hide how the task is structured",
+          "To make users restart from zero",
+          "To remove the goal from view"
+        ],
+        "explanation": "To show movement toward completion.",
+        "visibleCorrectExplanation": "To show movement toward completion.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To hide how the task is structured",
+            "explanation": "That answer changes the point: To show movement toward completion."
+          },
+          {
+            "label": "C",
+            "answer": "To make users restart from zero",
+            "explanation": "That answer changes the point: To show movement toward completion."
+          },
+          {
+            "label": "D",
+            "answer": "To remove the goal from view",
+            "explanation": "That answer changes the point: To show movement toward completion."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_5_094",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_5_094",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.005"
+      },
+      {
+        "id": "question.progress-not-regress.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What game appears in Google Chrome when a device goes offline?",
+        "correctAnswer": "The Dinosaur game",
+        "wrongAnswers": [
+          "Galaxian",
+          "Tetris",
+          "Ridge Racer"
+        ],
+        "explanation": "The Dinosaur game.",
+        "visibleCorrectExplanation": "The Dinosaur game.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Galaxian",
+            "explanation": "That answer changes the point: The Dinosaur game."
+          },
+          {
+            "label": "C",
+            "answer": "Tetris",
+            "explanation": "That answer changes the point: The Dinosaur game."
+          },
+          {
+            "label": "D",
+            "answer": "Ridge Racer",
+            "explanation": "That answer changes the point: The Dinosaur game."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_6_097",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_6_097",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.006"
+      },
+      {
+        "id": "question.progress-not-regress.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does GDP mainly measure?",
+        "correctAnswer": "Economic production within a country",
+        "wrongAnswers": [
+          "Average personal happiness",
+          "Passport travel freedom",
+          "Income inequality inside households"
+        ],
+        "explanation": "Economic production within a country.",
+        "visibleCorrectExplanation": "Economic production within a country.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Average personal happiness",
+            "explanation": "That answer changes the point: Economic production within a country."
+          },
+          {
+            "label": "C",
+            "answer": "Passport travel freedom",
+            "explanation": "That answer changes the point: Economic production within a country."
+          },
+          {
+            "label": "D",
+            "answer": "Income inequality inside households",
+            "explanation": "That answer changes the point: Economic production within a country."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_7_018",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_7_018",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.007"
+      },
+      {
+        "id": "question.progress-not-regress.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does the Second Law of Thermodynamics suggest about closed systems?",
+        "correctAnswer": "They tend toward greater disorder over time",
+        "wrongAnswers": [
+          "They naturally become cleaner and more organized",
+          "They improve morally when left alone",
+          "They always produce social justice"
+        ],
+        "explanation": "They tend toward greater disorder over time.",
+        "visibleCorrectExplanation": "They tend toward greater disorder over time.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They naturally become cleaner and more organized",
+            "explanation": "That answer changes the point: They tend toward greater disorder over time."
+          },
+          {
+            "label": "C",
+            "answer": "They improve morally when left alone",
+            "explanation": "That answer changes the point: They tend toward greater disorder over time."
+          },
+          {
+            "label": "D",
+            "answer": "They always produce social justice",
+            "explanation": "That answer changes the point: They tend toward greater disorder over time."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_progress-not-regress_8_104",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_progress-not-regress_8_104",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.008"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.progress-not-regress.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can an imperfect progress bar still feel helpful?",
+        "correctAnswer": "It reduces uncertainty while users are waiting",
+        "wrongAnswers": [
+          "It proves the estimate is always exact",
+          "It removes the need for user patience",
+          "It makes the computer finish instantly"
+        ],
+        "explanation": "It reduces uncertainty while users are waiting.",
+        "visibleCorrectExplanation": "It reduces uncertainty while users are waiting.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves the estimate is always exact",
+            "explanation": "That answer changes the point: It reduces uncertainty while users are waiting."
+          },
+          {
+            "label": "C",
+            "answer": "It removes the need for user patience",
+            "explanation": "That answer changes the point: It reduces uncertainty while users are waiting."
+          },
+          {
+            "label": "D",
+            "answer": "It makes the computer finish instantly",
+            "explanation": "That answer changes the point: It reduces uncertainty while users are waiting."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_1_173",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_1_173",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.001"
+      },
+      {
+        "id": "question.progress-not-regress.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is an indeterminate progress bar most useful for?",
+        "correctAnswer": "Showing activity when exact progress is unknown",
+        "wrongAnswers": [
+          "Showing the exact number of seconds remaining",
+          "Replacing all feedback with a fixed percentage",
+          "Proving the task has already finished"
+        ],
+        "explanation": "Showing activity when exact progress is unknown.",
+        "visibleCorrectExplanation": "Showing activity when exact progress is unknown.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Showing the exact number of seconds remaining",
+            "explanation": "That answer changes the point: Showing activity when exact progress is unknown."
+          },
+          {
+            "label": "C",
+            "answer": "Replacing all feedback with a fixed percentage",
+            "explanation": "That answer changes the point: Showing activity when exact progress is unknown."
+          },
+          {
+            "label": "D",
+            "answer": "Proving the task has already finished",
+            "explanation": "That answer changes the point: Showing activity when exact progress is unknown."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_2_180",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_2_180",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.002"
+      },
+      {
+        "id": "question.progress-not-regress.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which example is often discussed as a possible placebo button?",
+        "correctAnswer": "An elevator close-door button with little effect",
+        "wrongAnswers": [
+          "A phone volume button changing sound level",
+          "A school alarm button triggering evacuation",
+          "A television power button turning it off"
+        ],
+        "explanation": "An elevator close-door button with little effect.",
+        "visibleCorrectExplanation": "An elevator close-door button with little effect.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A phone volume button changing sound level",
+            "explanation": "That answer changes the point: An elevator close-door button with little effect."
+          },
+          {
+            "label": "C",
+            "answer": "A school alarm button triggering evacuation",
+            "explanation": "That answer changes the point: An elevator close-door button with little effect."
+          },
+          {
+            "label": "D",
+            "answer": "A television power button turning it off",
+            "explanation": "That answer changes the point: An elevator close-door button with little effect."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_3_198",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_3_198",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.003"
+      },
+      {
+        "id": "question.progress-not-regress.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why did the longer walk make travelers complain less?",
+        "correctAnswer": "Walking made more of the wait feel occupied",
+        "wrongAnswers": [
+          "Walking made bags arrive in half the time",
+          "Walking made travelers forget their luggage",
+          "Walking removed the need for baggage claim"
+        ],
+        "explanation": "Walking made more of the wait feel occupied.",
+        "visibleCorrectExplanation": "Walking made more of the wait feel occupied.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Walking made bags arrive in half the time",
+            "explanation": "That answer changes the point: Walking made more of the wait feel occupied."
+          },
+          {
+            "label": "C",
+            "answer": "Walking made travelers forget their luggage",
+            "explanation": "That answer changes the point: Walking made more of the wait feel occupied."
+          },
+          {
+            "label": "D",
+            "answer": "Walking removed the need for baggage claim",
+            "explanation": "That answer changes the point: Walking made more of the wait feel occupied."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_4_174",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_4_174",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.004"
+      },
+      {
+        "id": "question.progress-not-regress.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can small easy first steps increase task completion?",
+        "correctAnswer": "They make people feel they have already begun",
+        "wrongAnswers": [
+          "They make the task harder to understand",
+          "They remove the need for motivation",
+          "They prove the final result is guaranteed"
+        ],
+        "explanation": "They make people feel they have already begun.",
+        "visibleCorrectExplanation": "They make people feel they have already begun.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They make the task harder to understand",
+            "explanation": "That answer changes the point: They make people feel they have already begun."
+          },
+          {
+            "label": "C",
+            "answer": "They remove the need for motivation",
+            "explanation": "That answer changes the point: They make people feel they have already begun."
+          },
+          {
+            "label": "D",
+            "answer": "They prove the final result is guaranteed",
+            "explanation": "That answer changes the point: They make people feel they have already begun."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_5_187",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_5_187",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.005"
+      },
+      {
+        "id": "question.progress-not-regress.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What did Ridge Racer famously include during loading?",
+        "correctAnswer": "A playable Galaxian-style waiting game",
+        "wrongAnswers": [
+          "A full driving tutorial before every race",
+          "A restaurant payment game with a fee",
+          "A blank screen with no user feedback"
+        ],
+        "explanation": "A playable Galaxian-style waiting game.",
+        "visibleCorrectExplanation": "A playable Galaxian-style waiting game.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A full driving tutorial before every race",
+            "explanation": "That answer changes the point: A playable Galaxian-style waiting game."
+          },
+          {
+            "label": "C",
+            "answer": "A restaurant payment game with a fee",
+            "explanation": "That answer changes the point: A playable Galaxian-style waiting game."
+          },
+          {
+            "label": "D",
+            "answer": "A blank screen with no user feedback",
+            "explanation": "That answer changes the point: A playable Galaxian-style waiting game."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_6_175",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_6_175",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.006"
+      },
+      {
+        "id": "question.progress-not-regress.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does the Gini coefficient help measure?",
+        "correctAnswer": "How income or wealth is distributed",
+        "wrongAnswers": [
+          "How many goods a country produces",
+          "How powerful a passport is abroad",
+          "How expensive burgers are worldwide"
+        ],
+        "explanation": "How income or wealth is distributed.",
+        "visibleCorrectExplanation": "How income or wealth is distributed.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "How many goods a country produces",
+            "explanation": "That answer changes the point: How income or wealth is distributed."
+          },
+          {
+            "label": "C",
+            "answer": "How powerful a passport is abroad",
+            "explanation": "That answer changes the point: How income or wealth is distributed."
+          },
+          {
+            "label": "D",
+            "answer": "How expensive burgers are worldwide",
+            "explanation": "That answer changes the point: How income or wealth is distributed."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_7_143",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_7_143",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.007"
+      },
+      {
+        "id": "question.progress-not-regress.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does the phrase 'the arc of the moral universe is long, but it bends toward justice' express?",
+        "correctAnswer": "A belief that moral progress can happen over time",
+        "wrongAnswers": [
+          "A law that history improves automatically",
+          "A claim that science replaces all politics",
+          "A warning that justice is impossible to reach"
+        ],
+        "explanation": "A belief that moral progress can happen over time.",
+        "visibleCorrectExplanation": "A belief that moral progress can happen over time.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A law that history improves automatically",
+            "explanation": "That answer changes the point: A belief that moral progress can happen over time."
+          },
+          {
+            "label": "C",
+            "answer": "A claim that science replaces all politics",
+            "explanation": "That answer changes the point: A belief that moral progress can happen over time."
+          },
+          {
+            "label": "D",
+            "answer": "A warning that justice is impossible to reach",
+            "explanation": "That answer changes the point: A belief that moral progress can happen over time."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_progress-not-regress_8_208",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_progress-not-regress_8_208",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.progress-not-regress.008"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.progress-not-regress.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Progress bars reduce uncertainty. Which idea gives the best comparison?",
+        "correctAnswer": "Determinate vs indeterminate indicators",
+        "wrongAnswers": [
+          "Skeleton screens and placebo progress",
+          "Progress as measurement problem",
+          "Moral and social progress"
+        ],
+        "explanation": "Correct: Determinate vs indeterminate indicators.",
+        "visibleCorrectExplanation": "Correct: Determinate vs indeterminate indicators.",
+        "visibleConnection": "The question starts from a concrete detail in Progress bars: Progress bars reduce uncertainty. It is really asking which answer handles a similar pressure. Determinate vs indeterminate indicators is the best connection because it separates measurable progress from mere activity, forcing users to decide whether they are seeing information or reassurance. Both ideas ask alpacas to notice that People are calmer when waiting has shape. The danger is that shape can feel like evidence even when the system is guessing or stalling.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress__255",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress__255",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Skeleton screens and placebo progress",
+            "explanation": "That answer changes the point: Determinate vs indeterminate indicators."
+          },
+          {
+            "label": "C",
+            "answer": "Progress as measurement problem",
+            "explanation": "That answer changes the point: Determinate vs indeterminate indicators."
+          },
+          {
+            "label": "D",
+            "answer": "Moral and social progress",
+            "explanation": "That answer changes the point: Determinate vs indeterminate indicators."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Skeleton screens and placebo progress?",
+        "correctAnswer": "Progress as measurement problem",
+        "wrongAnswers": [
+          "Moral and social progress",
+          "Entropy, maintenance, and regress",
+          "Personal progress is non-linear"
+        ],
+        "explanation": "Correct: Progress as measurement problem.",
+        "visibleCorrectExplanation": "Correct: Progress as measurement problem.",
+        "visibleConnection": "The question starts from a concrete detail in Skeleton screens and placebo progress: Skeleton screens preview layout before content arrives. It is really asking which answer handles a similar pressure. Progress as measurement problem is the best connection because it turns progress into a choice about value: the metric does not just report the goal, it quietly defines it. Both ideas ask alpacas to notice that People tolerate uncertainty better when a system gives them something to look at or press. The ethical line appears when comfort becomes staged control.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress__256",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress__256",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Moral and social progress",
+            "explanation": "That answer changes the point: Progress as measurement problem."
+          },
+          {
+            "label": "C",
+            "answer": "Entropy, maintenance, and regress",
+            "explanation": "That answer changes the point: Progress as measurement problem."
+          },
+          {
+            "label": "D",
+            "answer": "Personal progress is non-linear",
+            "explanation": "That answer changes the point: Progress as measurement problem."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Moral and social progress into a different form?",
+        "correctAnswer": "Entropy, maintenance, and regress",
+        "wrongAnswers": [
+          "Personal progress is non-linear",
+          "Progress bars",
+          "Determinate vs indeterminate indicators"
+        ],
+        "explanation": "Correct: Entropy, maintenance, and regress.",
+        "visibleCorrectExplanation": "Correct: Entropy, maintenance, and regress.",
+        "visibleConnection": "The question starts from a concrete detail in Moral and social progress: Rights can expand over time. It is really asking which answer handles a similar pressure. Entropy, maintenance, and regress is the best connection because it makes maintenance the hidden condition of progress; without upkeep, systems slide backward without needing a dramatic collapse. Both ideas ask alpacas to notice that Progress stories can inspire action, but they can also hide who is still excluded after victory has been announced.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress__257",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress__257",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Personal progress is non-linear",
+            "explanation": "That answer changes the point: Entropy, maintenance, and regress."
+          },
+          {
+            "label": "C",
+            "answer": "Progress bars",
+            "explanation": "That answer changes the point: Entropy, maintenance, and regress."
+          },
+          {
+            "label": "D",
+            "answer": "Determinate vs indeterminate indicators",
+            "explanation": "That answer changes the point: Entropy, maintenance, and regress."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Personal progress is non-linear?",
+        "correctAnswer": "Progress bars",
+        "wrongAnswers": [
+          "Determinate vs indeterminate indicators",
+          "Skeleton screens and placebo progress",
+          "Progress as measurement problem"
+        ],
+        "explanation": "Correct: Progress bars.",
+        "visibleCorrectExplanation": "Correct: Progress bars.",
+        "visibleConnection": "The question starts from a concrete detail in Personal progress is non-linear: Plateaus are not failure. It is really asking which answer handles a similar pressure. Progress bars is the best connection because it turns invisible processing into a visible promise that completion is approaching, even when the user cannot verify real progress. Both ideas ask alpacas to notice that Visible improvement is easy to reward. Invisible consolidation, recovery, and plateau are harder to see but often more real.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress__258",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress__258",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Determinate vs indeterminate indicators",
+            "explanation": "That answer changes the point: Progress bars."
+          },
+          {
+            "label": "C",
+            "answer": "Skeleton screens and placebo progress",
+            "explanation": "That answer changes the point: Progress bars."
+          },
+          {
+            "label": "D",
+            "answer": "Progress as measurement problem",
+            "explanation": "That answer changes the point: Progress bars."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Determinate vs indeterminate indicators?",
+        "correctAnswer": "Moral and social progress",
+        "wrongAnswers": [
+          "Entropy, maintenance, and regress",
+          "Personal progress is non-linear",
+          "Progress bars"
+        ],
+        "explanation": "Correct: Moral and social progress.",
+        "visibleCorrectExplanation": "Correct: Moral and social progress.",
+        "visibleConnection": "The question starts from a concrete detail in Determinate vs indeterminate indicators: Determinate indicators have a visible percentage or fixed path. It is really asking which answer handles a similar pressure. Moral and social progress is the best connection because it tests the belief that history improves by revealing backlash, uneven benefit, and progress that can be declared too early. Both ideas ask alpacas to notice that Users want honesty and comfort at the same time. Interface design often has to choose which kind of trust it is building.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress__259",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress__259",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Entropy, maintenance, and regress",
+            "explanation": "That answer changes the point: Moral and social progress."
+          },
+          {
+            "label": "C",
+            "answer": "Personal progress is non-linear",
+            "explanation": "That answer changes the point: Moral and social progress."
+          },
+          {
+            "label": "D",
+            "answer": "Progress bars",
+            "explanation": "That answer changes the point: Moral and social progress."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What did Brad A. Myers's research suggest about visible progress feedback?",
+        "correctAnswer": "Users often prefer feedback to a blank wait",
+        "wrongAnswers": [
+          "Users prefer silence during every delay",
+          "Users ignore all interface information",
+          "Users reject progress if timing shifts"
+        ],
+        "explanation": "Correct: Users often prefer feedback to a blank wait.",
+        "visibleCorrectExplanation": "Correct: Users often prefer feedback to a blank wait.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_1_341",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_1_341",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Users prefer silence during every delay",
+            "explanation": "That answer changes the point: Users often prefer feedback to a blank wait."
+          },
+          {
+            "label": "C",
+            "answer": "Users ignore all interface information",
+            "explanation": "That answer changes the point: Users often prefer feedback to a blank wait."
+          },
+          {
+            "label": "D",
+            "answer": "Users reject progress if timing shifts",
+            "explanation": "That answer changes the point: Users often prefer feedback to a blank wait."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does a skeleton screen usually communicate to users?",
+        "correctAnswer": "The page structure is loading before content appears",
+        "wrongAnswers": [
+          "The computer is restarting in the background",
+          "The task has failed and needs a retry",
+          "The final image has been removed from storage"
+        ],
+        "explanation": "Correct: The page structure is loading before content appears.",
+        "visibleCorrectExplanation": "Correct: The page structure is loading before content appears.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_2_342",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_2_342",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The computer is restarting in the background",
+            "explanation": "That answer changes the point: The page structure is loading before content appears."
+          },
+          {
+            "label": "C",
+            "answer": "The task has failed and needs a retry",
+            "explanation": "That answer changes the point: The page structure is loading before content appears."
+          },
+          {
+            "label": "D",
+            "answer": "The final image has been removed from storage",
+            "explanation": "That answer changes the point: The page structure is loading before content appears."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can placebo buttons make waiting feel easier?",
+        "correctAnswer": "They give people a sense of agency during delay",
+        "wrongAnswers": [
+          "They secretly reduce the total waiting time",
+          "They guarantee the system is working correctly",
+          "They make people forget the task completely"
+        ],
+        "explanation": "Correct: They give people a sense of agency during delay.",
+        "visibleCorrectExplanation": "Correct: They give people a sense of agency during delay.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_3_343",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_3_343",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They secretly reduce the total waiting time",
+            "explanation": "That answer changes the point: They give people a sense of agency during delay."
+          },
+          {
+            "label": "C",
+            "answer": "They guarantee the system is working correctly",
+            "explanation": "That answer changes the point: They give people a sense of agency during delay."
+          },
+          {
+            "label": "D",
+            "answer": "They make people forget the task completely",
+            "explanation": "That answer changes the point: They give people a sense of agency during delay."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does the airport example show about perceived waiting?",
+        "correctAnswer": "Occupied time often feels easier than idle time",
+        "wrongAnswers": [
+          "All waiting feels the same if the clock is unchanged",
+          "People always prefer standing still to walking",
+          "Only the final wait time shapes complaints"
+        ],
+        "explanation": "Correct: Occupied time often feels easier than idle time.",
+        "visibleCorrectExplanation": "Correct: Occupied time often feels easier than idle time.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_4_344",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_4_344",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "All waiting feels the same if the clock is unchanged",
+            "explanation": "That answer changes the point: Occupied time often feels easier than idle time."
+          },
+          {
+            "label": "C",
+            "answer": "People always prefer standing still to walking",
+            "explanation": "That answer changes the point: Occupied time often feels easier than idle time."
+          },
+          {
+            "label": "D",
+            "answer": "Only the final wait time shapes complaints",
+            "explanation": "That answer changes the point: Occupied time often feels easier than idle time."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is the endowed progress effect?",
+        "correctAnswer": "People persist more when they feel partly advanced toward a goal",
+        "wrongAnswers": [
+          "People quit faster when rewards feel close",
+          "People ignore tasks once progress becomes visible",
+          "People prefer goals that never show advancement"
+        ],
+        "explanation": "Correct: People persist more when they feel partly advanced toward a goal.",
+        "visibleCorrectExplanation": "Correct: People persist more when they feel partly advanced toward a goal.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_5_345",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_5_345",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "People quit faster when rewards feel close",
+            "explanation": "That answer changes the point: People persist more when they feel partly advanced toward a goal."
+          },
+          {
+            "label": "C",
+            "answer": "People ignore tasks once progress becomes visible",
+            "explanation": "That answer changes the point: People persist more when they feel partly advanced toward a goal."
+          },
+          {
+            "label": "D",
+            "answer": "People prefer goals that never show advancement",
+            "explanation": "That answer changes the point: People persist more when they feel partly advanced toward a goal."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What is an auxiliary game in this context?",
+        "correctAnswer": "A small game that supports another waiting process",
+        "wrongAnswers": [
+          "A second game played for tournament ranking",
+          "A route-planning game for travelers only",
+          "A multiplayer game that replaces the main app"
+        ],
+        "explanation": "Correct: A small game that supports another waiting process.",
+        "visibleCorrectExplanation": "Correct: A small game that supports another waiting process.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_6_346",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_6_346",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A second game played for tournament ranking",
+            "explanation": "That answer changes the point: A small game that supports another waiting process."
+          },
+          {
+            "label": "C",
+            "answer": "A route-planning game for travelers only",
+            "explanation": "That answer changes the point: A small game that supports another waiting process."
+          },
+          {
+            "label": "D",
+            "answer": "A multiplayer game that replaces the main app",
+            "explanation": "That answer changes the point: A small game that supports another waiting process."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is the Big Mac Index useful but limited?",
+        "correctAnswer": "It compares prices simply, but cannot define whole social progress",
+        "wrongAnswers": [
+          "It measures national happiness better than surveys",
+          "It replaces all serious economic indicators",
+          "It proves fast food quality determines development"
+        ],
+        "explanation": "Correct: It compares prices simply, but cannot define whole social progress.",
+        "visibleCorrectExplanation": "Correct: It compares prices simply, but cannot define whole social progress.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_7_347",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_7_347",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It measures national happiness better than surveys",
+            "explanation": "That answer changes the point: It compares prices simply, but cannot define whole social progress."
+          },
+          {
+            "label": "C",
+            "answer": "It replaces all serious economic indicators",
+            "explanation": "That answer changes the point: It compares prices simply, but cannot define whole social progress."
+          },
+          {
+            "label": "D",
+            "answer": "It proves fast food quality determines development",
+            "explanation": "That answer changes the point: It compares prices simply, but cannot define whole social progress."
+          }
+        ]
+      },
+      {
+        "id": "question.progress-not-regress.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is the modern idea of historical progress important to question?",
+        "correctAnswer": "Many societies did not always assume humans could improve the future",
+        "wrongAnswers": [
+          "Ancient people measured progress with the Big Mac Index",
+          "Everyone has always believed history moves upward",
+          "The future can be predicted from physics alone"
+        ],
+        "explanation": "Correct: Many societies did not always assume humans could improve the future.",
+        "visibleCorrectExplanation": "Correct: Many societies did not always assume humans could improve the future.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_progress-not-regress_8_348",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "progress-not-regress",
+        "sectionIds": [
+          "progress-not-regress"
+        ],
+        "guidingSectionPrimary": "Progress, Not Regress",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_progress-not-regress_8_348",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Ancient people measured progress with the Big Mac Index",
+            "explanation": "That answer changes the point: Many societies did not always assume humans could improve the future."
+          },
+          {
+            "label": "C",
+            "answer": "Everyone has always believed history moves upward",
+            "explanation": "That answer changes the point: Many societies did not always assume humans could improve the future."
+          },
+          {
+            "label": "D",
+            "answer": "The future can be predicted from physics alone",
+            "explanation": "That answer changes the point: Many societies did not always assume humans could improve the future."
+          }
+        ]
+      }
+    ]
+  }
+}

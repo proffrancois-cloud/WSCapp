@@ -1,0 +1,158 @@
+{
+  "id": "media.monkey-see-monkey-prototype",
+  "sectionId": "monkey-see-monkey-prototype",
+  "assets": [
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.beginner-access",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/beginner-access.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.ethical-boundary",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/ethical-boundary.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.low-vs-high-fidelity",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/low-vs-high-fidelity.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.maintenance-and-support",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/maintenance-and-support.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.makerspaces",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/makerspaces.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.minimum-marketable-feature",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/minimum-marketable-feature.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.minimum-viable-product",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/minimum-viable-product.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.mockup",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/mockup.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.natural-language-coding",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/natural-language-coding.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.paper-prototypes",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/paper-prototypes.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.proof-of-concept",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/proof-of-concept.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.readiness-vs-performance",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/readiness-vs-performance.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.responsible-access",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/responsible-access.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.sketches",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/sketches.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.staged-tech-demos",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/staged-tech-demos.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.storyboarding",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/storyboarding.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.uncertain-quality",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/uncertain-quality.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.user-testing",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/user-testing.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.monkey-see-monkey-prototype.raw.wizard-of-oz-testing",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/monkey-see-monkey-prototype/wizard-of-oz-testing.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

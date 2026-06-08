@@ -1,0 +1,13 @@
+.DS_Store
+**/.DS_Store
+
+.vercel/
+node_modules/
+dist-3d/
+public/
+.playwright-cli/
+artifacts/
+desktop/
+assets-source/
+coverage/
+test-results/

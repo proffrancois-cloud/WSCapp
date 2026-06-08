@@ -1,0 +1,679 @@
+{
+  "id": "raw.more-to-do-than-can-ever-be-listed",
+  "sectionId": "more-to-do-than-can-ever-be-listed",
+  "entries": [
+    {
+      "id": "raw.more-to-do-than-can-ever-be-listed.001",
+      "order": 1,
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "mediaIds": [
+        "asset.more-to-do-than-can-ever-be-listed.raw.1-2-3-method",
+        "asset.more-to-do-than-can-ever-be-listed.raw.4-d-method",
+        "asset.more-to-do-than-can-ever-be-listed.raw.bullet-journal",
+        "asset.more-to-do-than-can-ever-be-listed.raw.eat-that-frog",
+        "asset.more-to-do-than-can-ever-be-listed.raw.eisenhower-method",
+        "asset.more-to-do-than-can-ever-be-listed.raw.history-of-the-to-do-list",
+        "asset.more-to-do-than-can-ever-be-listed.raw.ivy-lee-method",
+        "asset.more-to-do-than-can-ever-be-listed.raw.must-do-moscow-method"
+      ],
+      "questionIds": [
+        "question.more-to-do-than-can-ever-be-listed.100.001",
+        "question.more-to-do-than-can-ever-be-listed.200.001"
+      ],
+      "title": "A Brief on To-Do Lists",
+      "guidingSection": "More To Do Than Can Ever Be Listed",
+      "rawOfficialText": "Things to do today include exploring the history of the to-do list (alternate link). You will find that they were famously used by Benjamin Franklin and Leonardo da Vinci, among other high achievers of history. Below are some more modern approaches to to-do lists to explore - or even try. Which format seems best to you?\nEisenhower Method | 1-2-3 Method | Ivy Lee Method | 4-D Method | Eat that Frog | Must-Do | Bullet Journal",
+      "links": [
+        {
+          "label": "History of the to-do list - The Atlantic",
+          "url": "https://www.theatlantic.com/health/archive/2012/02/a-brief-history-of-the-to-do-list-and-the-psychology-of-its-success/252826/"
+        },
+        {
+          "label": "History of the to-do list - archived alternate link",
+          "url": "https://web.archive.org/web/20120215211320/https://www.theatlantic.com/health/archive/2012/02/a-brief-history-of-the-to-do-list-and-the-psychology-of-its-success/252826/"
+        },
+        {
+          "label": "The Marginalian - A Brief History of the To-Do List and the Psychology of Its Success",
+          "url": "https://www.themarginalian.org/2012/02/09/willpower-to-do-list/"
+        }
+      ],
+      "studentExplanation": "The main idea is not simply \"make a list.\" A list can turn a big, confusing goal into smaller, clearer steps, but only if it helps you decide what matters most. The history link shows that people have long used lists to manage unfinished work, from famous historical figures to modern productivity systems. The Eisenhower Method sorts tasks by urgency and importance; the 1-2-3 Method limits the day to one big task, two medium tasks, and three smaller tasks; Ivy Lee reduces the next day to a short ranked list; the 4-D Method forces a choice between doing, delaying, delegating, or deleting; Eat That Frog says to start with the hardest important task; Must-Do / MoSCoW separates essential tasks from optional ones; and Bullet Journal turns lists into a flexible personal tracking system. Together, these systems show that planning is not about doing everything. It is about choosing a route through too much to do.\n\nAdd the practical methods as contrasting designs: Eisenhower sorts urgency and importance, Ivy Lee limits the day to six tasks, 1-2-3 balances big and small work, 4-D separates do/delay/delegate/delete, Eat That Frog attacks the hard task first, and Bullet Journal uses rapid logging to lower friction. Use this to distinguish planning from completion: what the list records, where attention gets stuck, how a method changes behavior, and why unfinished work keeps returning to the mind.",
+      "whyItMatters": "At the entry level, this helps students understand that a to-do list is a way of transforming mental clutter into visible steps. At the section level, it opens More To Do Than Can Ever Be Listed by showing that progress often begins with deciding what not to do. At the year-theme level, it connects to planning and progress because a list is a small map of a journey: it does not guarantee arrival, but it makes movement easier to see.",
+      "takeaway": "It makes progress visible while forcing choices",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Incompletion That Stays Active",
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "examples": [
+        "Things to do today include exploring the history of the to-do list (alternate link)",
+        "Below are some more modern approaches to to-do lists to explore - or even try",
+        "Which format seems best to you",
+        "History of the to-do list",
+        "Eisenhower Method",
+        "1-2-3 Method",
+        "Ivy Lee Method",
+        "4-D Method",
+        "Eat That Frog",
+        "Must-Do / MoSCoW Method",
+        "Bullet Journal"
+      ],
+      "debateRelevance": "Useful when debating whether productivity systems genuinely help people move forward or simply create a feeling of control.",
+      "counterargument": "A to-do list can become another source of clutter if it records everything without forcing priorities.",
+      "visualSections": [
+        {
+          "title": "A Brief on To-Do Lists",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "History of the to-do list",
+              "note": "List-making is old, cultural, and psychological - not just a modern app habit.",
+              "imageGuidance": "Use /imagesearch to look for a realistic image of a historical to-do list, notebook, Franklin virtue chart, or Leonardo-style notebook page. If /imagesearch cannot find a clean historical image, use /imagecreator or /imagegen to create a realistic WSC app-style desk scene with an old notebook, handwritten checklist, and modern checklist overlay. The image must be realistic, not anime, and inspired by the beige/brown/maroon WSC app UI; WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, explaining the history or psychology of to-do lists. If no strong short video exists, use the article as a LINK button only.",
+              "links": [
+                {
+                  "label": "History of the to-do list - The Atlantic",
+                  "url": "https://www.theatlantic.com/health/archive/2012/02/a-brief-history-of-the-to-do-list-and-the-psychology-of-its-success/252826/"
+                },
+                {
+                  "label": "Stop Making Lost To-Do Lists Now!",
+                  "url": "https://www.youtube.com/watch?v=fhKSgFQXM_c",
+                  "sourceTitle": "Stop Making Lost To-Do Lists Now!",
+                  "searchQuery": "History to-do list"
+                },
+                {
+                  "label": "TO-DO LIST FORMULA by Damon Zahariades | Core Message",
+                  "url": "https://www.youtube.com/watch?v=ECvbLbtJRUI",
+                  "sourceTitle": "TO-DO LIST FORMULA by Damon Zahariades | Core Message",
+                  "searchQuery": "History to-do list"
+                }
+              ],
+              "url": "https://www.theatlantic.com/health/archive/2012/02/a-brief-history-of-the-to-do-list-and-the-psychology-of-its-success/252826/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/history-of-the-to-do-list.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Eisenhower Method",
+              "note": "How tasks can be sorted by urgency and importance instead of treated is presented as equal.",
+              "imageGuidance": "Create a realistic WSC app-style 2x2 priority matrix labeled urgent / not urgent and important / not important. Use the existing app image as reference, but recreate it cleanly with /imagecreator. If needed, use /imagesearch for Eisenhower Matrix examples first. Final image must be realistic, not anime, and WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining the Eisenhower Method for students/beginners.",
+              "links": [
+                {
+                  "label": "Beginner’s Guide to the Eisenhower Matrix",
+                  "url": "https://www.youtube.com/watch?v=tLLyi50M5KM",
+                  "sourceTitle": "Beginner’s Guide to the Eisenhower Matrix",
+                  "searchQuery": "Eisenhower Method"
+                },
+                {
+                  "label": "The Eisenhower Matrix (aka Urgent Important Matrix / Time Management Matrix) - RATED!!!",
+                  "url": "https://www.youtube.com/watch?v=MH7gWNOzDvc",
+                  "sourceTitle": "The Eisenhower Matrix (aka Urgent Important Matrix / Time Management Matrix) - RATED!!!",
+                  "searchQuery": "Eisenhower Method"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/eisenhower-method.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "1-2-3 Method",
+              "note": "A simple priority method is presented: one big task, two medium tasks, and three smaller tasks.",
+              "imageGuidance": "Use /imagecreator to make a realistic WSC app-style planner card showing one major task, two supporting tasks, and three quick tasks. If /imagesearch finds a strong educational diagram, use it only as reference. Final image must be realistic, not anime, and WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining the 1-2-3 Method for students/beginners. If no concise video exists, keep the slide as an image/explanation card only.",
+              "links": [
+                {
+                  "label": "The ‘1 2 3 Method’ To Reset A Chaotic Day — Greg McKeown",
+                  "url": "https://www.youtube.com/watch?v=RmfPl_OP9jI",
+                  "sourceTitle": "The ‘1 2 3 Method’ To Reset A Chaotic Day — Greg McKeown",
+                  "searchQuery": "1-2-3 Method"
+                },
+                {
+                  "label": "Memorize Anything So Fast It's Almost Unfair",
+                  "url": "https://www.youtube.com/watch?v=nbxi7_I09fI",
+                  "sourceTitle": "Memorize Anything So Fast It's Almost Unfair",
+                  "searchQuery": "1-2-3 Method"
+                },
+                {
+                  "label": "The 3-2-1 Speaking Trick That Forces You To Stop Rambling!",
+                  "url": "https://www.youtube.com/watch?v=5m-C5mwpmxU",
+                  "sourceTitle": "The 3-2-1 Speaking Trick That Forces You To Stop Rambling!",
+                  "searchQuery": "1-2-3 Method"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/1-2-3-method.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Ivy Lee Method",
+              "note": "Limiting the next day to six prioritized tasks can reduce overload.",
+              "imageGuidance": "Use /imagecreator to recreate a realistic WSC app-style daily checklist with six ranked lines, based on the current app image but cleaner. It must be realistic, not anime, with beige/brown/maroon WSC UI. Use /imagesearch only for reference if necessary.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining the Ivy Lee Method for students/beginners.",
+              "links": [
+                {
+                  "label": "The Ivy Lee Method: A 100-year old Routine for Stress-Free Productivity",
+                  "url": "https://www.youtube.com/watch?v=H9xZvAmEQIY",
+                  "sourceTitle": "The Ivy Lee Method: A 100-year old Routine for Stress-Free Productivity",
+                  "searchQuery": "Ivy Lee Method"
+                },
+                {
+                  "label": "Happy Hour Live: How to Prioritize Your Day with the Ivy Lee Method",
+                  "url": "https://www.youtube.com/watch?v=zbxOcdVObsU",
+                  "sourceTitle": "Happy Hour Live: How to Prioritize Your Day with the Ivy Lee Method",
+                  "searchQuery": "Ivy Lee Method"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/ivy-lee-method.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "4-D Method",
+              "note": "That not every task should be done by you now is presented: some should be done, delayed, delegated, or deleted.",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style 4-part decision board labeled Do, Defer, Delegate, Delete. It should look like a clean productivity card, not clipart. Final image must be realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining the 4-D Method for students/beginners.",
+              "links": [
+                {
+                  "label": "4D Appreciative Inquiry Model",
+                  "url": "https://www.youtube.com/watch?v=et55Kc_G-1o",
+                  "sourceTitle": "4D Appreciative Inquiry Model",
+                  "searchQuery": "4-D Method"
+                },
+                {
+                  "label": "How to Use the 4 D's to Manage Your To-Do-List",
+                  "url": "https://www.youtube.com/watch?v=FXLz9FKWvMI",
+                  "sourceTitle": "How to Use the 4 D's to Manage Your To-Do-List",
+                  "searchQuery": "4-D Method"
+                },
+                {
+                  "label": "Visualizing 4D Pt.1",
+                  "url": "https://www.youtube.com/watch?v=SwGbHsBAcZ0",
+                  "sourceTitle": "Visualizing 4D Pt.1",
+                  "searchQuery": "4-D Method"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/4-d-method.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Eat That Frog",
+              "note": "The metaphor is presented: start with the difficult important task instead of postponing it.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a realistic, friendly WSC app-style image of a student planner with the hardest task highlighted first and a subtle frog symbol. Do not make it anime or cartoonish. If /imagesearch finds a strong public-domain frog/productivity visual, use only as reference. WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining Eat That Frog for students/beginners.",
+              "links": [
+                {
+                  "label": "Eat That Frog by Brian Tracy: Animated Book Summary",
+                  "url": "https://www.youtube.com/watch?v=1CCzq0JD0L0",
+                  "sourceTitle": "Eat That Frog by Brian Tracy: Animated Book Summary",
+                  "searchQuery": "Eat Frog"
+                },
+                {
+                  "label": "Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time Audiobook",
+                  "url": "https://www.youtube.com/watch?v=Ypah0hnNa8Y",
+                  "sourceTitle": "Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time Audiobook",
+                  "searchQuery": "Eat Frog"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/eat-that-frog.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Must-Do / MoSCoW Method",
+              "note": "Tasks can be separated into must, should, could, and will not / won't.",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style four-column MoSCoW board. Keep the current app image as reference but make it cleaner, accessible, and app-themed. Must be realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining the Must-Do / MoSCoW Method for students/beginners.",
+              "links": [
+                {
+                  "label": "The MoSCoW Prioritization Method ...",
+                  "url": "https://www.youtube.com/watch?v=NJ2JM_PKXjk",
+                  "sourceTitle": "The MoSCoW Prioritization Method - Explanation and Best Practices",
+                  "searchQuery": "Must-Do MoSCoW Method"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/must-do-moscow-method.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Bullet Journal",
+              "note": "Bullet journaling combines lists, calendars, notes, and reflection into one flexible tracking system.",
+              "imageGuidance": "Use /imagesearch first to find a realistic bullet journal spread that is clean and educational. If no perfect reusable image is found, use /imagecreator or /imagegen to create a realistic WSC app-style open notebook with bullets, mini calendar, and progress marks. Must be realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes, or shorter, explaining Bullet Journal for students/beginners.",
+              "links": [
+                {
+                  "label": "The Perfect To-Do List",
+                  "url": "https://www.youtube.com/watch?v=dc6ZfELvPcI",
+                  "sourceTitle": "The Perfect To-Do List",
+                  "searchQuery": "Bullet Journal"
+                },
+                {
+                  "label": "Write Your Feelings Down. It Will Change Your Life",
+                  "url": "https://www.youtube.com/watch?v=hrGEFqIE13k",
+                  "sourceTitle": "Write Your Feelings Down. It Will Change Your Life",
+                  "searchQuery": "Bullet Journal"
+                }
+              ],
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/bullet-journal.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "The MoSCoW Prioritization Method - Explanation and Best Practices",
+          "url": "https://www.youtube.com/watch?v=NJ2JM_PKXjk"
+        },
+        {
+          "title": "5 Smarter Ways to Organize Your To-Do List",
+          "url": "https://www.youtube.com/watch?v=ibGnjSKLqTc"
+        },
+        {
+          "title": "How to Bullet Journal",
+          "url": "https://www.youtube.com/watch?v=fm15cmYU0IM"
+        },
+        {
+          "title": "The Eisenhower matrix: How to manage your tasks with EISENHOWER",
+          "url": "https://www.youtube.com/watch?v=tT89OZ7TNwc"
+        },
+        {
+          "title": "Eat the Frog",
+          "url": "https://www.youtube.com/watch?v=MWJcRt_DoxY"
+        },
+        {
+          "title": "Ivy Lee Method | A 100-Year Old Productivity System for Stress Free Prioritization",
+          "url": "https://www.youtube.com/watch?v=NYsYD1c_HVA"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Planning & Projects",
+        "Progress"
+      ],
+      "primaryBigIdea": "Incompletion That Stays Active",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Incompletion That Stays Active",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Movement Without Arrival",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "More To Do Than Can Ever Be Listed"
+    },
+    {
+      "id": "raw.more-to-do-than-can-ever-be-listed.002",
+      "order": 2,
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "mediaIds": [
+        "asset.more-to-do-than-can-ever-be-listed.raw.closing-the-mental-loop-with-a-plan",
+        "asset.more-to-do-than-can-ever-be-listed.raw.done-list",
+        "asset.more-to-do-than-can-ever-be-listed.raw.zeigarnik-effect"
+      ],
+      "questionIds": [
+        "question.more-to-do-than-can-ever-be-listed.100.002",
+        "question.more-to-do-than-can-ever-be-listed.200.002"
+      ],
+      "title": "The Zeigarnik Effect and the Done List",
+      "guidingSection": "More To Do Than Can Ever Be Listed",
+      "rawOfficialText": "It is easier to remember things we did not finish than those we did. That is why a song that got interrupted might nag at you until you hear the end of it, ooh na na - or why you might be unable to keep an overdue assignment out of your head even when you are taking a break. Psychologists term this the Zeigarnik Effect. Discuss with your team: how can we use the Zeigarnik Effect to our advantage in tasks like preparing for the World Scholar’s Cup? Would we be healthier if we spent more time remembering the things we got done - keeping a done list - than the things we did not?",
+      "links": [
+        {
+          "label": "Zeigarnik Effect - Psychology Today",
+          "url": "https://www.psychologytoday.com/us/basics/zeigarnik-effect"
+        },
+        {
+          "label": "Done list - Oliver Burkeman",
+          "url": "https://www.oliverburkeman.com/donelist"
+        },
+        {
+          "label": "Supplementary Zeigarnik explanation - Psych Central",
+          "url": "https://psychcentral.com/health/zeigarnik-effect"
+        }
+      ],
+      "studentExplanation": "The Zeigarnik Effect explains why unfinished tasks can keep returning to your mind. An incomplete assignment, an interrupted song, or a half-finished WSC study plan can feel mentally open, so your brain keeps checking it. This can be useful because it pushes you back toward unfinished work, but it can also become stressful when too many open tasks compete for attention. The Psychology Today link adds a very practical idea: you do not always have to finish the task immediately to calm the mind; making a specific plan can help close the mental loop. The done-list link then flips the focus. Instead of only tracking what remains unfinished, a done list records what has already been completed, which can fight the feeling that you are always behind.\n\nThe source notes sharpen the mechanism: unfinished tasks stay mentally active because the mind keeps checking the open loop. A done list works differently from a to-do list because it records movement already made, which can reduce the feeling of productivity debt and help students see progress instead of only lack. Use this to distinguish planning from completion: what the list records, where attention gets stuck, how a method changes behavior, and why unfinished work keeps returning to the mind.",
+      "whyItMatters": "At the entry level, this explains why incompletion feels psychologically powerful. At the section level, it shows that planning is not only about external lists, but also about memory, anxiety, and attention. At the year-theme level, it connects to delay and progress because unfinished journeys can motivate us, exhaust us, or become easier to handle when we give them structure.",
+      "takeaway": "Unfinished work needs structure, not obsession",
+      "subjects": [
+        "Psychology"
+      ],
+      "bigIdeas": [
+        "Incompletion That Stays Active",
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "It is easier to remember things we did not finish than those we did",
+        "Psychologists term this the Zeigarnik Effect",
+        "Zeigarnik Effect",
+        "Closing the mental loop with a plan",
+        "Done list"
+      ],
+      "debateRelevance": "Useful when debating whether unfinished work should be used as motivation or balanced with healthier ways to recognize completed progress.",
+      "counterargument": "The tension of unfinished work can motivate action, but it can also increase anxiety when too many loops stay open.",
+      "visualSections": [
+        {
+          "title": "The Zeigarnik Effect and the Done List",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Zeigarnik Effect",
+              "note": "Unfinished tasks can stay mentally active and easier to remember than completed tasks.",
+              "imageGuidance": "Use /imagesearch first to find a clear realistic educational diagram or psychology visual about the Zeigarnik Effect. If no perfect image exists, use /imagecreator or /imagegen to create a realistic WSC app-style visual: a student studying while several unfinished tasks hover as sticky notes or open loops around the desk. It must be realistic, not anime, and inspired by the WSC app UI; WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video of maximum 5-7 minutes, or shorter, explaining the Zeigarnik Effect and unfinished tasks. Prefer a psychology/learning channel suitable for young teenagers.",
+              "links": [
+                {
+                  "label": "Zeigarnik Effect - Psychology Today",
+                  "url": "https://www.psychologytoday.com/us/basics/zeigarnik-effect"
+                },
+                {
+                  "label": "The Zeigarnik Effect: The Hidden Reason Your Mind Feels Cluttered",
+                  "url": "https://www.youtube.com/watch?v=dzdDbBxLXHk",
+                  "sourceTitle": "The Zeigarnik Effect: The Hidden Reason Your Mind Feels Cluttered",
+                  "searchQuery": "Zeigarnik Effect"
+                },
+                {
+                  "label": "The Zeigarnik Effect: Why You Can't Focus (And How to Fix It)",
+                  "url": "https://www.youtube.com/watch?v=3gkes0CMTFg",
+                  "sourceTitle": "The Zeigarnik Effect: Why You Can't Focus (And How to Fix It)",
+                  "searchQuery": "Zeigarnik Effect"
+                }
+              ],
+              "url": "https://www.psychologytoday.com/us/basics/zeigarnik-effect",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/zeigarnik-effect.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Closing the mental loop with a plan",
+              "note": "A specific plan can reduce the burden of unfinished tasks even before the work is finished.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a realistic WSC app-style before/after visual: on the left, vague unfinished tasks causing mental clutter; on the right, the same tasks organized into a specific plan with dates or next actions. If /imagesearch finds a perfect educational visual on implementation intentions or planning unfinished goals, use it as reference. Final image must be realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes about planning, procrastination, or implementation intentions. It should explain why writing a next action helps reduce mental pressure.",
+              "links": [
+                {
+                  "label": "Supplementary Zeigarnik explanation - Psych Central",
+                  "url": "https://psychcentral.com/health/zeigarnik-effect"
+                },
+                {
+                  "label": "Break Free from Repetitive Thought Loops (How to Stop Overthinking and Find Calm)",
+                  "url": "https://www.youtube.com/watch?v=eRKWZYIT2AQ",
+                  "sourceTitle": "Break Free from Repetitive Thought Loops (How to Stop Overthinking and Find Calm)",
+                  "searchQuery": "Closing mental loop plan"
+                },
+                {
+                  "label": "Close The Loop | Mindset Monday",
+                  "url": "https://www.youtube.com/watch?v=IRYpOZdF3aI",
+                  "sourceTitle": "Close The Loop | Mindset Monday",
+                  "searchQuery": "Closing mental loop plan"
+                }
+              ],
+              "url": "https://psychcentral.com/health/zeigarnik-effect",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/closing-the-mental-loop-with-a-plan.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Done list",
+              "note": "Done list is presented as a way to notice progress instead of only seeing unfinished work.",
+              "imageGuidance": "Use /imagecreator to create a realistic WSC app-style notebook or app card with two columns: To Do and Done, where the Done column visibly grows. The mood should be calmer and reassuring, not motivational-poster style. Use /imagesearch only if a clear existing done-list image can be found. Must be realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes about done lists, productivity guilt, or balancing to-do lists with completed work. If no good video exists, keep the Oliver Burkeman link as a LINK button only.",
+              "links": [
+                {
+                  "label": "Done list - Oliver Burkeman",
+                  "url": "https://www.oliverburkeman.com/donelist"
+                },
+                {
+                  "label": "The ‘Done List’ Hack That Saved My Sanity",
+                  "url": "https://www.youtube.com/watch?v=8HASEjXCPKg",
+                  "sourceTitle": "The ‘Done List’ Hack That Saved My Sanity",
+                  "searchQuery": "Done list"
+                },
+                {
+                  "label": "Productivity & Self Worth | You Need a Done List",
+                  "url": "https://www.youtube.com/watch?v=jd6fRnB7Rng",
+                  "sourceTitle": "Productivity & Self Worth | You Need a Done List",
+                  "searchQuery": "Done list"
+                },
+                {
+                  "label": "I Threw Away My To Do List & Do This Instead...",
+                  "url": "https://www.youtube.com/watch?v=95Ui2MTtw8c",
+                  "sourceTitle": "I Threw Away My To Do List & Do This Instead...",
+                  "searchQuery": "Done list"
+                }
+              ],
+              "url": "https://www.oliverburkeman.com/donelist",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/done-list.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Zeigarnik Effect Explained",
+          "url": "https://www.youtube.com/watch?v=tckBMMHy90A"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Delay",
+        "Planning & Projects"
+      ],
+      "primaryBigIdea": "Incompletion That Stays Active",
+      "secondaryBigIdeas": [
+        "Managing Uncertainty",
+        "Delayed Arrival",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Incompletion That Stays Active",
+        "secondaryBigIdeas": [
+          "Managing Uncertainty",
+          "Delayed Arrival",
+          "Infrastructure Shapes Behavior"
+        ]
+      },
+      "sectionTitle": "More To Do Than Can Ever Be Listed"
+    },
+    {
+      "id": "raw.more-to-do-than-can-ever-be-listed.003",
+      "order": 3,
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "mediaIds": [
+        "asset.more-to-do-than-can-ever-be-listed.raw.lists-as-order-and-control",
+        "asset.more-to-do-than-can-ever-be-listed.raw.poetic-lists",
+        "asset.more-to-do-than-can-ever-be-listed.raw.practical-lists",
+        "asset.more-to-do-than-can-ever-be-listed.raw.what-kind-of-list-is-a-to-do-list"
+      ],
+      "questionIds": [
+        "question.more-to-do-than-can-ever-be-listed.100.003",
+        "question.more-to-do-than-can-ever-be-listed.200.003"
+      ],
+      "title": "Umberto Eco, the To-Do List Specialist",
+      "guidingSection": "More To Do Than Can Ever Be Listed",
+      "rawOfficialText": "“The list is the origin of culture,” the writer Umberto Eco once said. He held an exhibit of lists at the Louvre (which should have improved security on its own to-do list); he compiled a book on the topic, too. Learn about Eco’s distinction between practical and poetic lists and consider - what kind of list is a to-do list? Then discuss with your team: are we more drawn to lists than we should be?",
+      "links": [
+        {
+          "label": "Umberto Eco and lists - The Guardian",
+          "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review"
+        }
+      ],
+      "studentExplanation": "Umberto Eco’s idea is that lists do more than organize chores. In The Infinity of Lists, he distinguishes between practical lists and poetic lists. Practical lists are useful and limited: shopping lists, schedules, inventories, guest lists, and to-do lists help people organize real life. Poetic lists are more imaginative: they can suggest abundance, wonder, excess, or something too large to fully contain. A to-do list is mostly practical, but it can also become strangely poetic when it grows endlessly and starts to represent a whole life of unfinished goals. Eco’s point helps students see that lists are not only productivity tools; they are one way humans try to make order inside infinity.\n\nEco’s point is bigger than errands. Lists can organize culture, imagination, collecting, knowledge, and infinity; they let people handle things too large to hold in memory. Students should compare practical lists, poetic lists, museum-like lists, and impossible lists that reveal desire more than completion. Use this to distinguish planning from completion: what the list records, where attention gets stuck, how a method changes behavior, and why unfinished work keeps returning to the mind.",
+      "whyItMatters": "At the entry level, this helps students understand that list-making belongs to culture, literature, and philosophy as much as to productivity. At the section level, it completes More To Do Than Can Ever Be Listed by showing the double nature of lists: they can help us act, but they can also reveal that there is always more to do. At the year-theme level, it connects to progress and planning because lists are small attempts to answer “Are we there yet?” in a world where the answer is often “not yet, and maybe never completely.”",
+      "takeaway": "Lists help humans order abundance and imagine infinity",
+      "subjects": [
+        "Language and Literature",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Incompletion That Stays Active",
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "“The list is the origin of culture,” the writer Umberto Eco once said",
+        "he compiled a book on the topic, too",
+        "Then discuss with your team: are we more drawn to lists than we should be",
+        "Practical lists",
+        "Poetic lists",
+        "Lists as order and control",
+        "What kind of list is a to-do list?"
+      ],
+      "debateRelevance": "Useful when debating whether lists are practical tools, cultural obsessions, or ways humans try to order abundance and uncertainty.",
+      "counterargument": "Most everyday lists are still ordinary practical tools; reading too much philosophy into them can overstate their importance.",
+      "visualSections": [
+        {
+          "title": "Umberto Eco, the To-Do List Specialist",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Practical lists",
+              "note": "Practical lists are useful, finite, and connected to real-world tasks.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a realistic WSC app-style image showing several practical lists on a desk: shopping list, schedule, class assignment list, and inventory. It must be realistic, not anime, and inspired by the WSC app UI; WSC app mandatory. Use /imagesearch only if a clean museum/archive image of historical lists is found.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes explaining practical lists, productivity, or list-making. If no strong video exists, no video is required.",
+              "links": [
+                {
+                  "label": "Umberto Eco and lists - The Guardian",
+                  "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review"
+                }
+              ],
+              "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/practical-lists.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Poetic lists",
+              "note": "Poetic lists suggest abundance, excess, imagination, or infinity rather than just a task to complete.",
+              "imageGuidance": "Use /imagesearch first to find a visual related to Umberto Eco’s The Infinity of Lists, his Louvre exhibition, or a relevant book-cover/exhibition image. If using a known book cover or exhibition image, use the exact source visual. If no usable image is found, use /imagecreator or /imagegen to make a realistic WSC app-style image of an open book spilling into a long, beautiful list of words and objects. Must be realistic, not anime, WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes about Umberto Eco, The Infinity of Lists, or why humans like lists. If no appropriate short educational video exists, use the Guardian link as the main LINK button.",
+              "links": [
+                {
+                  "label": "Umberto Eco and lists - The Guardian",
+                  "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review"
+                }
+              ],
+              "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/poetic-lists.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Lists as order and control",
+              "note": "Lists can organize the world but can also control, exclude, or overwhelm.",
+              "imageGuidance": "Use /imagecreator or /imagegen to create a realistic WSC app-style split image: one side shows a helpful organized checklist; the other shows an overwhelming endless list spilling off the page. Use /imagesearch only if a strong educational image about information overload or lists appears. The image must be realistic, not anime, and WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a clear educational video of maximum 5-7 minutes about information overload, choice overload, or why lists can both help and overwhelm people.",
+              "links": [
+                {
+                  "label": "Umberto Eco and lists - The Guardian",
+                  "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review"
+                }
+              ],
+              "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/lists-as-order-and-control.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "What kind of list is a to-do list?",
+              "note": "Eco's distinction is applied to the to-do list: practical at first, symbolic when it represents an endless future of unfinished life.",
+              "imageGuidance": "Use /imagecreator to make a realistic WSC app-style visual of a to-do list that begins as a neat practical checklist and gradually turns into a long winding path. This should connect list-making to the WSC journey theme. It must be realistic, not anime, and WSC app mandatory.",
+              "videoGuidance": "Use /youtubesearch to find a short educational video of maximum 5-7 minutes on to-do lists, productivity, and why lists can become overwhelming. If no high-quality video is found, no video is required.",
+              "links": [
+                {
+                  "label": "Umberto Eco and lists - The Guardian",
+                  "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review"
+                },
+                {
+                  "label": "Overwhelmed by Your To-Do List? Here's Your Solution! ✍️",
+                  "url": "https://www.youtube.com/watch?v=7zG1b49aCGI",
+                  "sourceTitle": "Overwhelmed by Your To-Do List? Here's Your Solution! ✍️",
+                  "searchQuery": "kind list to-do list"
+                }
+              ],
+              "url": "https://www.theguardian.com/books/2009/dec/12/umberto-eco-lists-book-review",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/more-to-do-than-can-ever-be-listed/what-kind-of-list-is-a-to-do-list.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Progress",
+        "Planning & Projects"
+      ],
+      "primaryBigIdea": "Incompletion That Stays Active",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Infrastructure Shapes Behavior",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Incompletion That Stays Active",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Infrastructure Shapes Behavior",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "More To Do Than Can Ever Be Listed"
+    }
+  ]
+}

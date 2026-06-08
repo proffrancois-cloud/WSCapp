@@ -1,0 +1,1041 @@
+{
+  "id": "questions.introductory-questions",
+  "sectionId": "introductory-questions",
+  "levels": {
+    "100": [
+      {
+        "id": "question.introductory-questions.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the main job of the opening questions?",
+        "correctAnswer": "They frame the big question through arrival, progress, and endings",
+        "wrongAnswers": [
+          "They replace the detailed examples in later later examples",
+          "They reduce the opening to facts instead of asking what arrival means",
+          "They settle the answer too early instead of opening the problem"
+        ],
+        "explanation": "They frame the big question through arrival, progress, and endings.",
+        "visibleCorrectExplanation": "They frame the big question through arrival, progress, and endings.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They replace the detailed examples in later later examples",
+            "explanation": "That answer changes the point: They frame the big question through arrival, progress, and endings."
+          },
+          {
+            "label": "C",
+            "answer": "They reduce the opening to facts instead of asking what arrival means",
+            "explanation": "That answer changes the point: They frame the big question through arrival, progress, and endings."
+          },
+          {
+            "label": "D",
+            "answer": "They settle the answer too early instead of opening the problem",
+            "explanation": "That answer changes the point: They frame the big question through arrival, progress, and endings."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_introductory-questions_1_067",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_introductory-questions_1_067",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.001"
+      },
+      {
+        "id": "question.introductory-questions.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does “My Way” mainly turn the end into?",
+        "correctAnswer": "A moment for looking back at a life path",
+        "wrongAnswers": [
+          "A joke about avoiding every consequence",
+          "A song about planning another vacation",
+          "A final judgment on travel rather than a life looking backward"
+        ],
+        "explanation": "A moment for looking back at a life path.",
+        "visibleCorrectExplanation": "A moment for looking back at a life path.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A joke about avoiding every consequence",
+            "explanation": "That answer changes the point: A moment for looking back at a life path."
+          },
+          {
+            "label": "C",
+            "answer": "A song about planning another vacation",
+            "explanation": "That answer changes the point: A moment for looking back at a life path."
+          },
+          {
+            "label": "D",
+            "answer": "A final judgment on travel rather than a life looking backward",
+            "explanation": "That answer changes the point: A moment for looking back at a life path."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_introductory-questions_2_054",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_introductory-questions_2_054",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.002"
+      },
+      {
+        "id": "question.introductory-questions.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What changed when viewers watched long films at home?",
+        "correctAnswer": "They could check the time remaining more easily",
+        "wrongAnswers": [
+          "They could rewrite the ending while watching",
+          "Watching at home adds control without changing the filmed ending",
+          "Checking time changes expectation, not the work itself"
+        ],
+        "explanation": "They could check the time remaining more easily.",
+        "visibleCorrectExplanation": "They could check the time remaining more easily.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They could rewrite the ending while watching",
+            "explanation": "That answer changes the point: They could check the time remaining more easily."
+          },
+          {
+            "label": "C",
+            "answer": "Watching at home adds control without changing the filmed ending",
+            "explanation": "That answer changes the point: They could check the time remaining more easily."
+          },
+          {
+            "label": "D",
+            "answer": "Checking time changes expectation, not the work itself",
+            "explanation": "That answer changes the point: They could check the time remaining more easily."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_introductory-questions_3_077",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_introductory-questions_3_077",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.003"
+      },
+      {
+        "id": "question.introductory-questions.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does Simba want before he is ready?",
+        "correctAnswer": "The freedom and status of being king",
+        "wrongAnswers": [
+          "A map showing every possible route",
+          "A wish for freedom without admitting the burden of rule",
+          "A wish to arrive at power before being ready for it"
+        ],
+        "explanation": "The freedom and status of being king.",
+        "visibleCorrectExplanation": "The freedom and status of being king.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A map showing every possible route",
+            "explanation": "That answer changes the point: The freedom and status of being king."
+          },
+          {
+            "label": "C",
+            "answer": "A wish for freedom without admitting the burden of rule",
+            "explanation": "That answer changes the point: The freedom and status of being king."
+          },
+          {
+            "label": "D",
+            "answer": "A wish to arrive at power before being ready for it",
+            "explanation": "That answer changes the point: The freedom and status of being king."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_introductory-questions_4_035",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_introductory-questions_4_035",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.004"
+      },
+      {
+        "id": "question.introductory-questions.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do nuclear cars, food pills, and 3D TVs share?",
+        "correctAnswer": "They promised futures that did not become normal",
+        "wrongAnswers": [
+          "They all became required parts of daily life",
+          "They were imagined strongly but never became ordinary life",
+          "They show that prediction can fail even when it sounds close"
+        ],
+        "explanation": "They promised futures that did not become normal.",
+        "visibleCorrectExplanation": "They promised futures that did not become normal.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They all became required parts of daily life",
+            "explanation": "That answer changes the point: They promised futures that did not become normal."
+          },
+          {
+            "label": "C",
+            "answer": "They were imagined strongly but never became ordinary life",
+            "explanation": "That answer changes the point: They promised futures that did not become normal."
+          },
+          {
+            "label": "D",
+            "answer": "They show that prediction can fail even when it sounds close",
+            "explanation": "That answer changes the point: They promised futures that did not become normal."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_introductory-questions_5_075",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_introductory-questions_5_075",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.005"
+      },
+      {
+        "id": "question.introductory-questions.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What do unfinished games and unfinished degrees both show?",
+        "correctAnswer": "Starting and completing are different challenges",
+        "wrongAnswers": [
+          "Digital goals are always harder than school goals",
+          "People often stop even when the goal remains possible",
+          "Every unfinished route is a personal failure"
+        ],
+        "explanation": "Starting and completing are different challenges.",
+        "visibleCorrectExplanation": "Starting and completing are different challenges.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Digital goals are always harder than school goals",
+            "explanation": "That answer changes the point: Starting and completing are different challenges."
+          },
+          {
+            "label": "C",
+            "answer": "People often stop even when the goal remains possible",
+            "explanation": "That answer changes the point: Starting and completing are different challenges."
+          },
+          {
+            "label": "D",
+            "answer": "Every unfinished route is a personal failure",
+            "explanation": "That answer changes the point: Starting and completing are different challenges."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_introductory-questions_6_090",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_introductory-questions_6_090",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.006"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.introductory-questions.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does “Are we there yet?” work as a big question?",
+        "correctAnswer": "It can be literal, emotional, academic, and philosophical",
+        "wrongAnswers": [
+          "It applies only to children sitting in cars on trips",
+          "It proves destinations matter more than journeys",
+          "It turns a question into a fixed answer instead of a lens"
+        ],
+        "explanation": "It can be literal, emotional, academic, and philosophical.",
+        "visibleCorrectExplanation": "It can be literal, emotional, academic, and philosophical.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It applies only to children sitting in cars on trips",
+            "explanation": "That answer changes the point: It can be literal, emotional, academic, and philosophical."
+          },
+          {
+            "label": "C",
+            "answer": "It proves destinations matter more than journeys",
+            "explanation": "That answer changes the point: It can be literal, emotional, academic, and philosophical."
+          },
+          {
+            "label": "D",
+            "answer": "It turns a question into a fixed answer instead of a lens",
+            "explanation": "That answer changes the point: It can be literal, emotional, academic, and philosophical."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_introductory-questions_1_179",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_introductory-questions_1_179",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.001"
+      },
+      {
+        "id": "question.introductory-questions.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What more specific detail from \"Frank Sinatra, My Way\" should a alpaca remember after the obvious fact?",
+        "correctAnswer": "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
+        "wrongAnswers": [
+          "It gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists.",
+          "It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change.",
+          "It turns arrival into a contested reward: institutions can recognize the endpoint even when the route did more of the real changing."
+        ],
+        "explanation": "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
+        "visibleCorrectExplanation": "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists.",
+            "explanation": "That answer changes the point: It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility."
+          },
+          {
+            "label": "C",
+            "answer": "It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change.",
+            "explanation": "That answer changes the point: It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility."
+          },
+          {
+            "label": "D",
+            "answer": "It turns arrival into a contested reward: institutions can recognize the endpoint even when the route did more of the real changing.",
+            "explanation": "That answer changes the point: It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_introductory-questions_2_212",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_introductory-questions_2_212",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.002"
+      },
+      {
+        "id": "question.introductory-questions.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does False endings and near-endings matter to \"Are we there yet?\"",
+        "correctAnswer": "It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done.",
+        "wrongAnswers": [
+          "It interrupts the direct route and tests whether the destination still matters after the path has changed.",
+          "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
+          "It gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists."
+        ],
+        "explanation": "It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done.",
+        "visibleCorrectExplanation": "It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It interrupts the direct route and tests whether the destination still matters after the path has changed.",
+            "explanation": "That answer changes the point: It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done."
+          },
+          {
+            "label": "C",
+            "answer": "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
+            "explanation": "That answer changes the point: It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done."
+          },
+          {
+            "label": "D",
+            "answer": "It gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists.",
+            "explanation": "That answer changes the point: It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_introductory-questions_3_211",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_introductory-questions_3_211",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.003"
+      },
+      {
+        "id": "question.introductory-questions.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why does Ordinary life as journey matter to \"Are we there yet?\"",
+        "correctAnswer": "It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change.",
+        "wrongAnswers": [
+          "It turns arrival into a contested reward: institutions can recognize the endpoint even when the route did more of the real changing.",
+          "It exposes ending as a decision point, not a natural fact; a rule, audience, institution, or feeling can each declare the finish at a different time.",
+          "It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done."
+        ],
+        "explanation": "It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change.",
+        "visibleCorrectExplanation": "It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It turns arrival into a contested reward: institutions can recognize the endpoint even when the route did more of the real changing.",
+            "explanation": "That answer changes the point: It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change."
+          },
+          {
+            "label": "C",
+            "answer": "It exposes ending as a decision point, not a natural fact; a rule, audience, institution, or feeling can each declare the finish at a different time.",
+            "explanation": "That answer changes the point: It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change."
+          },
+          {
+            "label": "D",
+            "answer": "It makes almost-finished status unstable: the audience feels closure before the system, story, or conflict is actually done.",
+            "explanation": "That answer changes the point: It moves journey language from travel into identity, work, recovery, and growth, where distance is harder to measure than change."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_introductory-questions_4_210",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_introductory-questions_4_210",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.004"
+      },
+      {
+        "id": "question.introductory-questions.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What more specific detail from \"Technologies That Seemed Close but Never Arrived\" should a alpaca remember after the obvious fact?",
+        "correctAnswer": "At the entry level, this teaches students to question predictions instead of simply believing them. At the section level, it gives the introduction a bridge into futurism. Key examples to keep available: Nuclear-Powered Cars; Food Pills; 3D Television; Why Some Futures Stay “Almost There”.",
+        "wrongAnswers": [
+          "The entry mainly proves that every predicted technology eventually succeeds if people wait long enough.",
+          "The key lesson is that nuclear cars, food pills, and 3D television failed only because they were never imagined clearly.",
+          "Students should remember that technical possibility alone guarantees adoption once a prototype exists."
+        ],
+        "explanation": "The entry uses nuclear-powered cars, food pills, and 3D television to show that prediction needs reality checks about use, risk, cost, comfort, and adoption.",
+        "visibleCorrectExplanation": "The entry uses nuclear-powered cars, food pills, and 3D television to show that prediction needs reality checks about use, risk, cost, comfort, and adoption.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The entry mainly proves that every predicted technology eventually succeeds if people wait long enough.",
+            "explanation": "That reverses the point: some futures stay almost there because real-world adoption never catches up to the prediction."
+          },
+          {
+            "label": "C",
+            "answer": "The key lesson is that nuclear cars, food pills, and 3D television failed only because they were never imagined clearly.",
+            "explanation": "The problem was not only imagination; the entry stresses practical limits such as safety, cost, usefulness, comfort, and adoption."
+          },
+          {
+            "label": "D",
+            "answer": "Students should remember that technical possibility alone guarantees adoption once a prototype exists.",
+            "explanation": "The entry says the opposite: a technology can be technically possible and still fail if it is inconvenient, risky, costly, or not useful enough."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_introductory-questions_5_214",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_introductory-questions_5_214",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.005"
+      },
+      {
+        "id": "question.introductory-questions.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What more specific detail from \"Things We Commit To but Do Not Finish\" should a alpaca remember after the obvious fact?",
+        "correctAnswer": "At the entry level, this helps students separate starting from finishing. At the section level, it gives the introduction a realistic counterpoint: some routes do not end in arrival. Key examples to keep available: The truth is that sometimes we’ll never get there at all; Most videogames are left unfinished; nearly half of those who start university don’t get a degree; Unfinished Video Games.",
+        "wrongAnswers": [
+          "The entry says unfinished games and degrees mostly prove that people should never begin difficult routes.",
+          "The key detail is that modern technology always makes completion easier by removing distraction.",
+          "Students should remember that non-completion is always irrational failure rather than sometimes a changed cost-benefit decision."
+        ],
+        "explanation": "The entry uses unfinished games, university degrees, and unfinished goals to show that starting and finishing are different problems shaped by time, support, pressure, distraction, and changing value.",
+        "visibleCorrectExplanation": "The entry uses unfinished games, university degrees, and unfinished goals to show that starting and finishing are different problems shaped by time, support, pressure, distraction, and changing value.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The entry says unfinished games and degrees mostly prove that people should never begin difficult routes.",
+            "explanation": "That overcorrects: the entry asks why commitments are not completed, not whether difficult routes should be avoided."
+          },
+          {
+            "label": "C",
+            "answer": "The key detail is that modern technology always makes completion easier by removing distraction.",
+            "explanation": "The entry is more balanced: technology can help organize work, but it can also create new exits and distractions."
+          },
+          {
+            "label": "D",
+            "answer": "Students should remember that non-completion is always irrational failure rather than sometimes a changed cost-benefit decision.",
+            "explanation": "The entry says not finishing can be failure, but it can also be a rational decision when the destination no longer justifies the cost."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_introductory-questions_6_213",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_introductory-questions_6_213",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.introductory-questions.006"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.introductory-questions.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Some goals are destination-centered (finish line, graduation, arrival city). Which idea gives the best comparison?",
+        "correctAnswer": "What counts as an ending",
+        "wrongAnswers": [
+          "False endings and near-endings",
+          "Detours",
+          "Point of no return"
+        ],
+        "explanation": "Correct: What counts as an ending.",
+        "visibleCorrectExplanation": "Correct: What counts as an ending.",
+        "visibleConnection": "The question starts from a concrete detail in Destination vs journey: Some goals are destination-centered (finish line, graduation, arrival city). It is really asking which answer handles a similar pressure. What counts as an ending is the best connection because it exposes ending as a decision point, not a natural fact; a rule, audience, institution, or feeling can each declare the finish at a different time. Both ideas ask alpacas to notice that People love process talk, but schools, jobs, contests, and governments still reward visible endpoints. That tension drives the whole theme.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions__235",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions__235",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "False endings and near-endings",
+            "explanation": "That answer changes the point: What counts as an ending."
+          },
+          {
+            "label": "C",
+            "answer": "Detours",
+            "explanation": "That answer changes the point: What counts as an ending."
+          },
+          {
+            "label": "D",
+            "answer": "Point of no return",
+            "explanation": "That answer changes the point: What counts as an ending."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to False endings and near-endings?",
+        "correctAnswer": "Detours",
+        "wrongAnswers": [
+          "Point of no return",
+          "Waiting and anticipation",
+          "Ordinary life as journey"
+        ],
+        "explanation": "Correct: Detours.",
+        "visibleCorrectExplanation": "Correct: Detours.",
+        "visibleConnection": "The question starts from a concrete detail in False endings and near-endings: Beta products may look finished but are still drafts. It is really asking which answer handles a similar pressure. Detours is the best connection because it interrupts the direct route and tests whether the destination still matters after the path has changed. Both ideas ask alpacas to notice that Near-completion is psychologically loud. It can comfort people, trick them, or make the final stretch feel strangely longer.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions__236",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions__236",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Point of no return",
+            "explanation": "That answer changes the point: Detours."
+          },
+          {
+            "label": "C",
+            "answer": "Waiting and anticipation",
+            "explanation": "That answer changes the point: Detours."
+          },
+          {
+            "label": "D",
+            "answer": "Ordinary life as journey",
+            "explanation": "That answer changes the point: Detours."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Point of no return into a different form?",
+        "correctAnswer": "Waiting and anticipation",
+        "wrongAnswers": [
+          "Ordinary life as journey",
+          "Destination vs journey",
+          "What counts as an ending"
+        ],
+        "explanation": "Correct: Waiting and anticipation.",
+        "visibleCorrectExplanation": "Correct: Waiting and anticipation.",
+        "visibleConnection": "The question starts from a concrete detail in Point of no return: Used in travel, stories, aviation, war, ethics, climate, and medicine. It is really asking which answer handles a similar pressure. Waiting and anticipation is the best connection because it gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists. Both ideas ask alpacas to notice that Thresholds matter because people rarely recognize them with perfect timing. The judgment often comes after reversibility has already disappeared.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions__237",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions__237",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Ordinary life as journey",
+            "explanation": "That answer changes the point: Waiting and anticipation."
+          },
+          {
+            "label": "C",
+            "answer": "Destination vs journey",
+            "explanation": "That answer changes the point: Waiting and anticipation."
+          },
+          {
+            "label": "D",
+            "answer": "What counts as an ending",
+            "explanation": "That answer changes the point: Waiting and anticipation."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Ordinary life as journey?",
+        "correctAnswer": "Destination vs journey",
+        "wrongAnswers": [
+          "What counts as an ending",
+          "False endings and near-endings",
+          "Detours"
+        ],
+        "explanation": "Correct: Destination vs journey.",
+        "visibleCorrectExplanation": "Correct: Destination vs journey.",
+        "visibleConnection": "The question starts from a concrete detail in Ordinary life as journey: Life journeys are often nonlinear. It is really asking which answer handles a similar pressure. Destination vs journey is the best connection because it turns arrival into a contested reward: institutions can recognize the endpoint even when the route did more of the real changing. Both ideas ask alpacas to notice that Journey language helps people explain growth, but it can also hide the fact that life rarely offers a single finish line.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions__238",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions__238",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "What counts as an ending",
+            "explanation": "That answer changes the point: Destination vs journey."
+          },
+          {
+            "label": "C",
+            "answer": "False endings and near-endings",
+            "explanation": "That answer changes the point: Destination vs journey."
+          },
+          {
+            "label": "D",
+            "answer": "Detours",
+            "explanation": "That answer changes the point: Destination vs journey."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as What counts as an ending?",
+        "correctAnswer": "Point of no return",
+        "wrongAnswers": [
+          "Waiting and anticipation",
+          "Ordinary life as journey",
+          "Destination vs journey"
+        ],
+        "explanation": "Correct: Point of no return.",
+        "visibleCorrectExplanation": "Correct: Point of no return.",
+        "visibleConnection": "The question starts from a concrete detail in What counts as an ending: A story ending is not the same as a historical ending. It is really asking which answer handles a similar pressure. Point of no return is the best connection because it turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility. Both ideas ask alpacas to notice that Endings are often declared by systems before people feel them, or felt by people before systems admit them.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions__239",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions__239",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Waiting and anticipation",
+            "explanation": "That answer changes the point: Point of no return."
+          },
+          {
+            "label": "C",
+            "answer": "Ordinary life as journey",
+            "explanation": "That answer changes the point: Point of no return."
+          },
+          {
+            "label": "D",
+            "answer": "Destination vs journey",
+            "explanation": "That answer changes the point: Point of no return."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does the introduction mention products, projects, and everyday life?",
+        "correctAnswer": "To show that progress questions reach beyond physical travel",
+        "wrongAnswers": [
+          "To prove that business questions are more important than art",
+          "To make the big question only about productivity and planning",
+          "To avoid the harder questions about endings and meaning"
+        ],
+        "explanation": "Correct: To show that progress questions reach beyond physical travel.",
+        "visibleCorrectExplanation": "Correct: To show that progress questions reach beyond physical travel.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions_1_316",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions_1_316",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "To prove that business questions are more important than art",
+            "explanation": "That answer changes the point: To show that progress questions reach beyond physical travel."
+          },
+          {
+            "label": "C",
+            "answer": "To make the big question only about productivity and planning",
+            "explanation": "That answer changes the point: To show that progress questions reach beyond physical travel."
+          },
+          {
+            "label": "D",
+            "answer": "To avoid the harder questions about endings and meaning",
+            "explanation": "That answer changes the point: To show that progress questions reach beyond physical travel."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does “My Way” fit the idea of a point of no return?",
+        "correctAnswer": "The speaker reviews choices that cannot simply be replayed",
+        "wrongAnswers": [
+          "The song says every ending can be easily reversed",
+          "The speaker avoids responsibility for the route taken",
+          "The song treats the future as completely open"
+        ],
+        "explanation": "Correct: The speaker reviews choices that cannot simply be replayed.",
+        "visibleCorrectExplanation": "Correct: The speaker reviews choices that cannot simply be replayed.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions_2_317",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions_2_317",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The song says every ending can be easily reversed",
+            "explanation": "That answer changes the point: The speaker reviews choices that cannot simply be replayed."
+          },
+          {
+            "label": "C",
+            "answer": "The speaker avoids responsibility for the route taken",
+            "explanation": "That answer changes the point: The speaker reviews choices that cannot simply be replayed."
+          },
+          {
+            "label": "D",
+            "answer": "The song treats the future as completely open",
+            "explanation": "That answer changes the point: The speaker reviews choices that cannot simply be replayed."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can repeated endings affect an audience?",
+        "correctAnswer": "They reset expectations of closure several times",
+        "wrongAnswers": [
+          "They make every story easier to understand",
+          "They prove the final scene has no importance",
+          "They remove the emotional weight of farewell"
+        ],
+        "explanation": "Correct: They reset expectations of closure several times.",
+        "visibleCorrectExplanation": "Correct: They reset expectations of closure several times.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions_3_318",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions_3_318",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They make every story easier to understand",
+            "explanation": "That answer changes the point: They reset expectations of closure several times."
+          },
+          {
+            "label": "C",
+            "answer": "They prove the final scene has no importance",
+            "explanation": "That answer changes the point: They reset expectations of closure several times."
+          },
+          {
+            "label": "D",
+            "answer": "They remove the emotional weight of farewell",
+            "explanation": "That answer changes the point: They reset expectations of closure several times."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does Simba fit the idea of liminality?",
+        "correctAnswer": "He is between childhood and expected responsibility",
+        "wrongAnswers": [
+          "He has already completed every adult duty",
+          "He has no connection to growth or change",
+          "He rejects the idea of becoming older"
+        ],
+        "explanation": "Correct: He is between childhood and expected responsibility.",
+        "visibleCorrectExplanation": "Correct: He is between childhood and expected responsibility.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions_4_319",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions_4_319",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "He has already completed every adult duty",
+            "explanation": "That answer changes the point: He is between childhood and expected responsibility."
+          },
+          {
+            "label": "C",
+            "answer": "He has no connection to growth or change",
+            "explanation": "That answer changes the point: He is between childhood and expected responsibility."
+          },
+          {
+            "label": "D",
+            "answer": "He rejects the idea of becoming older",
+            "explanation": "That answer changes the point: He is between childhood and expected responsibility."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why do exciting technologies sometimes fail to arrive?",
+        "correctAnswer": "Safety, cost, usefulness, timing, or demand can block them",
+        "wrongAnswers": [
+          "People always reject new inventions for no reason",
+          "Science stops working after the prototype stage",
+          "The most exciting idea is always the most practical"
+        ],
+        "explanation": "Correct: Safety, cost, usefulness, timing, or demand can block them.",
+        "visibleCorrectExplanation": "Correct: Safety, cost, usefulness, timing, or demand can block them.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions_5_320",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions_5_320",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "People always reject new inventions for no reason",
+            "explanation": "That answer changes the point: Safety, cost, usefulness, timing, or demand can block them."
+          },
+          {
+            "label": "C",
+            "answer": "Science stops working after the prototype stage",
+            "explanation": "That answer changes the point: Safety, cost, usefulness, timing, or demand can block them."
+          },
+          {
+            "label": "D",
+            "answer": "The most exciting idea is always the most practical",
+            "explanation": "That answer changes the point: Safety, cost, usefulness, timing, or demand can block them."
+          }
+        ]
+      },
+      {
+        "id": "question.introductory-questions.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can modern technology make finishing harder?",
+        "correctAnswer": "It can create distractions and endless alternative options",
+        "wrongAnswers": [
+          "It always removes the need for self-control",
+          "It makes every long project simpler to complete",
+          "It prevents people from tracking progress"
+        ],
+        "explanation": "Correct: It can create distractions and endless alternative options.",
+        "visibleCorrectExplanation": "Correct: It can create distractions and endless alternative options.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_introductory-questions_6_321",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "introductory-questions",
+        "sectionIds": [
+          "introductory-questions"
+        ],
+        "guidingSectionPrimary": "Introductory Questions",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_introductory-questions_6_321",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It always removes the need for self-control",
+            "explanation": "That answer changes the point: It can create distractions and endless alternative options."
+          },
+          {
+            "label": "C",
+            "answer": "It makes every long project simpler to complete",
+            "explanation": "That answer changes the point: It can create distractions and endless alternative options."
+          },
+          {
+            "label": "D",
+            "answer": "It prevents people from tracking progress",
+            "explanation": "That answer changes the point: It can create distractions and endless alternative options."
+          }
+        ]
+      }
+    ]
+  }
+}

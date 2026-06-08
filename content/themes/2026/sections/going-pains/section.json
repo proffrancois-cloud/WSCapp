@@ -1,0 +1,41 @@
+{
+  "id": "going-pains",
+  "title": "Going Pains",
+  "shortTitle": "Going Pains",
+  "originalTitle": "Going Pains",
+  "order": 10,
+  "themeId": "wsc-2026",
+  "blurb": "Adolescence, rites of passage, the developing brain, and in-between identities.",
+  "angle": "Human growth is a near-perfect example of being not there yet.",
+  "subjectIds": [
+    "sciences",
+    "psychology",
+    "language-and-literature",
+    "sociology",
+    "visual-and-performing-arts"
+  ],
+  "bigIdeaIds": [
+    "thresholds-and-irreversibility",
+    "narrated-endings",
+    "measuring-human-worth",
+    "managing-uncertainty",
+    "infrastructure-shapes-behavior",
+    "incompletion-that-stays-active",
+    "visible-vs-real",
+    "delayed-arrival",
+    "movement-without-arrival"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.going-pains.card.cover",
+    "icon": "asset.going-pains.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.going-pains",
+    "questions": "questions.going-pains",
+    "guide": "guide.going-pains",
+    "media": "media.going-pains",
+    "alpacards": "alpacards.going-pains",
+    "channelVideos": "channel.going-pains"
+  }
+}

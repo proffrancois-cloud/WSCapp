@@ -1,0 +1,1955 @@
+{
+  "id": "raw.where-were-going-well-still-need-them",
+  "sectionId": "where-were-going-well-still-need-them",
+  "entries": [
+    {
+      "id": "raw.where-were-going-well-still-need-them.001",
+      "order": 1,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.asphalt",
+        "asset.where-were-going-well-still-need-them.raw.corduroy-road",
+        "asset.where-were-going-well-still-need-them.raw.gallery-road",
+        "asset.where-were-going-well-still-need-them.raw.holloway",
+        "asset.where-were-going-well-still-need-them.raw.macadam",
+        "asset.where-were-going-well-still-need-them.raw.milestones",
+        "asset.where-were-going-well-still-need-them.raw.pavement",
+        "asset.where-were-going-well-still-need-them.raw.ridgeway",
+        "asset.where-were-going-well-still-need-them.raw.trackway"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.001",
+        "question.where-were-going-well-still-need-them.200.001"
+      ],
+      "title": "Roads Before Roads Became Obvious",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "“All roads lead to Rome,” insisted one medieval European proverb. (In other parts of the world, roads led elsewhere.) While Roman roads may be the most famous for their longevity and scale, they were far from the first road network. Explore the history of roads and the related terms below. Then, consider some of the most famous roads in the world both today and in ancient times.\n\nmacadam | pavement | asphalt | corduroy road | gallery road\nholloway | ridgeway | milestones | trackway",
+      "links": [
+        {
+          "label": "Roman roads history",
+          "url": "https://www.history.com/articles/ancient-roman-roads-network"
+        },
+        {
+          "label": "Famous roads list",
+          "url": "https://affinitymag.co.uk/most-famous-roads-in-the-world/"
+        },
+        {
+          "label": "Legendary roads list",
+          "url": "https://medium.com/@anmol.v1/where-history-walked-the-worlds-most-legendary-roads-9226002af3d1"
+        },
+        {
+          "label": "Britannica Roman road system",
+          "url": "https://www.britannica.com/technology/Roman-road-system"
+        }
+      ],
+      "studentExplanation": "Roads did not begin with Rome, but Roman roads became famous because they made movement durable, repeatable, and politically useful across huge distances. This entry asks students to see roads as more than pavement: a road can be engineered from stone, formed from logs, worn into a hillside, marked by milestones, or remembered as a legendary route. Roads are technologies of movement, but also technologies of power, trade, memory, and control.\n\nThe added road history shows that roads are many technologies: Roman stone routes, Persian courier roads, Inca mountain networks, corduroy logs, gallery roads, holloways, ridgeways, macadam, asphalt, milestones, and trackways all solve different terrain, speed, and power problems. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students understand that roads are many different solutions to the same problem: how to make movement possible again and again. At the section level, it opens Where We’re Going, We’ll Still Need Them by showing why future movement still depends on old physical routes. At the year-theme level, it connects to routes, journeys, and progress because getting “there” usually requires an infrastructure someone built, maintained, inherited, or wore into the landscape.",
+      "takeaway": "They organize power, trade, memory, and movement across space",
+      "subjects": [
+        "History",
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Narrated Endings",
+        "Performed Progress"
+      ],
+      "examples": [
+        "macadam",
+        "pavement",
+        "asphalt",
+        "corduroy road",
+        "gallery road",
+        "holloway",
+        "ridgeway",
+        "milestones",
+        "trackway"
+      ],
+      "debateRelevance": "Useful when debating whether infrastructure is just practical support or also a form of historical power, memory, and control.",
+      "counterargument": "Roman roads deserve attention, but road history is broader than one empire and includes routes that emerged through local use, terrain, and need.",
+      "visualSections": [
+        {
+          "title": "Roads Before Roads Became Obvious - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Macadam",
+              "note": "A road-building method using compacted layers of broken stone, important before modern asphalt became dominant.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic historical road-construction image or diagram showing macadam layers or broken-stone road surfacing. Avoid generic asphalt-road photos.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for “macadam road construction explained” or “John Loudon McAdam road history”.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/macadam.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Pavement",
+              "note": "A prepared hard surface that makes repeated movement easier and more reliable than bare ground.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic cross-section or historical image showing paved road surfaces, ideally stone, concrete, or asphalt construction layers.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a beginner-friendly video explaining how pavement or road surfaces are built.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/pavement.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Asphalt",
+              "note": "A modern road material that made smooth, large-scale motor travel possible, but also needs maintenance and can be damaged by heat and traffic.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic close-up or construction image of asphalt being laid by a road crew. Avoid cartoon road icons.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for an educational video on how asphalt roads are made.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/asphalt.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Corduroy road",
+              "note": "A road made by laying logs across soft or swampy ground so people and vehicles can cross unstable terrain.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic historical or reconstructed corduroy road image with logs clearly visible across muddy ground. If no clean source exists, use /imagegen or /imagecreator to create a realistic reconstruction in the WSC app style.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video explaining corduroy roads or early road building in wetlands.",
+              "links": [
+                {
+                  "label": "Roman roads history",
+                  "url": "https://www.history.com/articles/ancient-roman-roads-network"
+                }
+              ],
+              "url": "https://www.history.com/articles/ancient-roman-roads-network",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/corduroy-road.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Gallery road",
+              "note": "A road or protected passage built into or along difficult terrain, often showing how roads adapt to mountains or cliffs.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic image of a mountain gallery road, avalanche gallery, or cliffside protected road. Use a real geographic example if possible.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about mountain roads, avalanche galleries, or roads built into cliffs.",
+              "links": [
+                {
+                  "label": "Roman roads history",
+                  "url": "https://www.history.com/articles/ancient-roman-roads-network"
+                }
+              ],
+              "url": "https://www.history.com/articles/ancient-roman-roads-network",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/gallery-road.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Roads Before Roads Became Obvious - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Holloway",
+              "note": "A sunken path worn down by centuries of feet, hooves, wheels, and weather.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic photograph of a holloway or sunken lane, especially in Britain or Europe, where the path is visibly below the surrounding ground.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about holloways, sunken lanes, or ancient footpaths.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/holloway.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Ridgeway",
+              "note": "A high route along a ridge, often used because elevated ground can be easier to follow, drier, and more visible.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic image of The Ridgeway or a ridge-top ancient track with landscape context. Use an exact known route if possible.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about The Ridgeway or ridge routes in ancient travel.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/ridgeway.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Milestones",
+              "note": "Distance markers turned travel into something measurable, helping people know how far they had gone and how far remained.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic Roman milestone or historic milestone image; if possible, use a museum/heritage source. This is a real object type, so do not generate unless no specific usable image is available.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about Roman milestones or distance markers.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/milestones.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Trackway",
+              "note": "A route made visible through repeated movement, showing that roads can emerge before they are formally designed.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic ancient trackway, prehistoric wooden trackway, or landscape path formed by repeated movement.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about ancient trackways or how paths become roads.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/trackway.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "History of Roads in America | The Henry Ford's Innovation Nation",
+          "url": "https://www.youtube.com/watch?v=clFoGSdFPlo"
+        },
+        {
+          "title": "How were Roman roads made? English audio.",
+          "url": "https://www.youtube.com/watch?v=QMtw1I_ro84"
+        },
+        {
+          "title": "Incan Road System",
+          "url": "https://www.youtube.com/watch?v=3fAN6dU0TBs"
+        },
+        {
+          "title": "The Genius of Roman Roads",
+          "url": "https://www.youtube.com/watch?v=2l4PLRUqAig"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Progress"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Narrated Endings",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Narrated Endings",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.002",
+      "order": 2,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.dsrc",
+        "asset.where-were-going-well-still-need-them.raw.inductive-charging",
+        "asset.where-were-going-well-still-need-them.raw.modular-pavement",
+        "asset.where-were-going-well-still-need-them.raw.permeable-pavement",
+        "asset.where-were-going-well-still-need-them.raw.piezoelectric-materials",
+        "asset.where-were-going-well-still-need-them.raw.self-healing-asphalt",
+        "asset.where-were-going-well-still-need-them.raw.solar-roadways"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.002",
+        "question.where-were-going-well-still-need-them.200.002"
+      ],
+      "title": "Roads That Think, Charge, Heal, and Drain",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "Modern engineering is moving towards roads that do more than just sit on the ground—they participate actively in transport. As you explore the innovations below, consider: what problems are they trying to solve, and what new ethical or environmental problems might they create? Ultimately, is the future of the road paved at all, or does something more radical await over the horizon?\n\nsolar roadways | piezoelectric materials | inductive charging\nDSRC | self-healing asphalt | modular pavement | permeable pavement",
+      "links": [
+        {
+          "label": "EPA permeable pavement",
+          "url": "https://www.epa.gov/soakuptherain/soak-rain-permeable-pavement"
+        },
+        {
+          "label": "ScienceDirect self-healing asphalt via induction",
+          "url": "https://www.sciencedirect.com/science/article/pii/S095006181933079X"
+        },
+        {
+          "label": "TRB induction healing of porous asphalt",
+          "url": "https://journals.sagepub.com/doi/10.3141/2305-10"
+        },
+        {
+          "label": "DSRC overview",
+          "url": "https://legalclarity.org/what-is-dsrc-dedicated-short-range-communications/"
+        },
+        {
+          "label": "Dynamic wireless EV charging example",
+          "url": "https://time.com/7094804/inductev-wireless-charging-network/"
+        }
+      ],
+      "studentExplanation": "Future roads may not simply carry vehicles; they may generate energy, charge vehicles, communicate safety data, repair early cracks, or absorb stormwater. But a smarter road is not automatically a better road. Each innovation asks a trade-off question: does it actually solve a real problem at scale, or does it create new costs, surveillance concerns, repair burdens, and environmental risks?\n\nSmart-road ideas should be judged by maintenance and scale, not just novelty. Piezoelectric roads, inductive charging, DSRC, self-healing asphalt, modular pavement, solar surfaces, and permeable pavement each solve one problem while creating cost, durability, surveillance, or repair questions. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students understand roads as active technologies rather than passive surfaces. At the section level, it moves the guiding section from road history to future infrastructure. At the year-theme level, it connects to progress because it asks whether the road to the future should be more technological, more resilient, or simply better maintained.",
+      "takeaway": "Whether active infrastructure improves mobility enough to justify its trade-offs",
+      "subjects": [
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Managing Uncertainty",
+        "Performed Progress"
+      ],
+      "examples": [
+        "solar roadways",
+        "piezoelectric materials",
+        "inductive charging",
+        "DSRC",
+        "self-healing asphalt",
+        "modular pavement",
+        "permeable pavement"
+      ],
+      "debateRelevance": "Useful when debating whether futuristic roads truly improve mobility or simply shift cost, repair, surveillance, and environmental burdens elsewhere.",
+      "counterargument": "Some smart-road ideas may stay niche because they are too expensive, fragile, complex, or difficult to maintain outside special settings.",
+      "visualSections": [
+        {
+          "title": "Roads That Think, Charge, Heal, and Drain - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Solar roadways",
+              "note": "A road surface that would collect solar energy while still functioning as a road.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic image of an actual solar roadway test installation or prototype, not a futuristic glowing highway illustration. If no perfect real image exists, use /imagegen or /imagecreator only as a realistic WSC-style concept card.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a balanced educational video about solar roads, including benefits and criticisms.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/solar-roadways.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Piezoelectric materials",
+              "note": "Materials that can generate small amounts of electricity when pressure or vibration is applied.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic diagram or lab image showing piezoelectric road-energy harvesting, vehicle pressure, or embedded road sensors.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining piezoelectricity and how it could be used in roads.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/piezoelectric-materials.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Inductive charging",
+              "note": "Wireless charging could let electric buses, cars, or trucks charge from plates or coils embedded in roads or stops.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a real image of wireless EV charging plates in roads, bus stops, depots, or test tracks. Prefer real pilot projects over concept art.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a clear video on dynamic wireless EV charging or inductive road charging.",
+              "links": [
+                {
+                  "label": "Dynamic wireless EV charging example",
+                  "url": "https://time.com/7094804/inductev-wireless-charging-network/"
+                }
+              ],
+              "url": "https://time.com/7094804/inductev-wireless-charging-network/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/inductive-charging.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "DSRC",
+              "note": "Dedicated short-range communication lets vehicles and infrastructure exchange fast local safety and traffic information.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic diagram showing vehicle-to-vehicle and vehicle-to-infrastructure communication using roadside units and cars. If no perfect diagram exists, create a realistic WSC-style data-flow visual with /imagegen or /imagecreator.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a beginner-friendly video explaining connected vehicles, DSRC, or V2X communication.",
+              "links": [
+                {
+                  "label": "DSRC overview",
+                  "url": "https://legalclarity.org/what-is-dsrc-dedicated-short-range-communications/"
+                }
+              ],
+              "url": "https://legalclarity.org/what-is-dsrc-dedicated-short-range-communications/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/dsrc.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Roads That Think, Charge, Heal, and Drain - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Self-healing asphalt",
+              "note": "Some asphalt research tries to close cracks before they become potholes, often using heat, special fibers, or new binders.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic lab or road image showing self-healing asphalt, induction heating, or crack repair in asphalt. Avoid fantasy “liquid road” images.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video on self-healing roads, pothole prevention, or asphalt crack repair technology.",
+              "links": [
+                {
+                  "label": "ScienceDirect self-healing asphalt via induction",
+                  "url": "https://www.sciencedirect.com/science/article/pii/S095006181933079X"
+                }
+              ],
+              "url": "https://www.sciencedirect.com/science/article/pii/S095006181933079X",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/self-healing-asphalt.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Modular pavement",
+              "note": "Road sections built as replaceable modules could make repairs faster and reduce long closures.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic modular road slab, prefabricated pavement panel, or construction photo showing replaceable road sections. If necessary, create a realistic WSC-style modular road concept with /imagegen or /imagecreator.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about prefabricated pavement or modular road repair.",
+              "links": [
+                {
+                  "label": "EPA permeable pavement",
+                  "url": "https://www.epa.gov/soakuptherain/soak-rain-permeable-pavement"
+                }
+              ],
+              "url": "https://www.epa.gov/soakuptherain/soak-rain-permeable-pavement",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/modular-pavement.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Permeable pavement",
+              "note": "A surface designed to let water soak through, reducing runoff and helping manage storms.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic image or cross-section of permeable pavement showing water passing through porous asphalt, pavers, or gravel layers. EPA or municipal sources are ideal.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining permeable pavement and stormwater management.",
+              "links": [
+                {
+                  "label": "EPA permeable pavement",
+                  "url": "https://www.epa.gov/soakuptherain/soak-rain-permeable-pavement"
+                }
+              ],
+              "url": "https://www.epa.gov/soakuptherain/soak-rain-permeable-pavement",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/permeable-pavement.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Netherlands rolls out 'solar road'",
+          "url": "https://www.youtube.com/watch?v=2xw72Wb-FXU"
+        },
+        {
+          "title": "These Smart Roads Could Change the Future of Driving",
+          "url": "https://www.youtube.com/watch?v=p3SFUZfZuPs"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Progress",
+        "Routes, Roads & Navigation"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Managing Uncertainty",
+        "Performed Progress"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Managing Uncertainty",
+          "Performed Progress"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.003",
+      "order": 3,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.braesss-paradox",
+        "asset.where-were-going-well-still-need-them.raw.dead-reckoning",
+        "asset.where-were-going-well-still-need-them.raw.desire-paths",
+        "asset.where-were-going-well-still-need-them.raw.explore-exploit-problem",
+        "asset.where-were-going-well-still-need-them.raw.route-elasticity",
+        "asset.where-were-going-well-still-need-them.raw.steiner-tree-problem",
+        "asset.where-were-going-well-still-need-them.raw.traveling-salesman-problem",
+        "asset.where-were-going-well-still-need-them.raw.vector-based-navigation"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.003",
+        "question.where-were-going-well-still-need-them.200.003"
+      ],
+      "title": "Shortcuts, Scenic Routes, and the Logic of the Best Path",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "Urban designers know the frustration of watching unofficial trails sprout on perfectly manicured lawns. These are desire paths: the physical evidence of the shortest distance between two points. But, while a straight line is efficient, it isn’t always optimal. The “best” route is a shifting balance of speed, energy, and the unknown. With your team, consider the logic of the shortcut and the science of the scenic route. How do humans, animals, and even slime molds decide what way to go? Should we always follow the path of least resistance?\n\nTraveling salesman problem | vector-based navigation | explore-exploit problem\nRoute elasticity | Braess’s Paradox | dead reckoning | the Steiner Tree Problem",
+      "links": [
+        {
+          "label": "Desire paths article",
+          "url": "https://www.theguardian.com/cities/2018/oct/05/desire-paths-the-illicit-trails-that-defy-the-urban-planners"
+        }
+      ],
+      "studentExplanation": "A desire path appears when people repeatedly choose the route that feels most natural, even if planners expected them to walk somewhere else. This makes shortcuts a kind of evidence: they show what people actually do, not just what designs told them to do. But the shortest route is not always the best one. Real route choices can balance speed, safety, energy, uncertainty, learning, crowding, and purpose.\n\nThis entry should compare optimization with human preference. The shortest path, scenic route, desire path, traveling-salesman logic, explore-exploit trade-off, Braess’s paradox, and dead reckoning all show that the “best” route depends on what a traveler values. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students question the idea that efficiency always means straightness. At the section level, it shifts from roads as objects to routes as choices. At the year-theme level, it connects to journeys because getting there depends not only on the destination, but also on how people decide which path is worth taking.",
+      "takeaway": "The best path is often a balance of speed, effort, knowledge, risk, and purpose",
+      "subjects": [
+        "Geography / Human Geography",
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Managing Uncertainty",
+        "Measuring Human Worth"
+      ],
+      "examples": [
+        "Traveling salesman problem",
+        "vector-based navigation",
+        "explore-exploit problem",
+        "Route elasticity",
+        "Braess’s Paradox",
+        "dead reckoning",
+        "the Steiner Tree Problem",
+        "Desire paths",
+        "Steiner Tree Problem"
+      ],
+      "debateRelevance": "Useful when debating whether the best route is always the shortest route, or whether route choice should include risk, discovery, memory, and energy.",
+      "counterargument": "Efficiency still matters in many journeys, so detours and scenic routes are not automatically wiser than direct routes.",
+      "visualSections": [
+        {
+          "title": "Shortcuts, Scenic Routes, and the Logic of the Best Path - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Desire paths",
+              "note": "Unofficial trails show where people actually want to move, sometimes correcting or resisting formal design.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic photo of a desire path across grass, a campus, a park, or an urban lawn. The path should be visibly worn by repeated walking.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining desire paths or urban planning “desire lines”.",
+              "links": [
+                {
+                  "label": "Desire paths article",
+                  "url": "https://www.theguardian.com/cities/2018/oct/05/desire-paths-the-illicit-trails-that-defy-the-urban-planners"
+                }
+              ],
+              "url": "https://www.theguardian.com/cities/2018/oct/05/desire-paths-the-illicit-trails-that-defy-the-urban-planners",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/desire-paths.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Traveling salesman problem",
+              "note": "A classic optimization problem: finding the shortest route that visits several points and returns to the start.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a clean visual diagram of the Traveling Salesman Problem with nodes and routes. If none is visually simple enough, use /imagegen or /imagecreator to make a realistic WSC-style route-map diagram.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a simple video explaining the Traveling Salesman Problem for beginners.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/traveling-salesman-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Vector-based navigation",
+              "note": "A way of moving by combining direction and distance, useful for understanding how animals or systems track position.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic educational diagram showing vectors, direction arrows, and movement across space. If no perfect image exists, use /imagegen or /imagecreator for a clear WSC-style navigation diagram.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video explaining vector navigation, path integration, or direction-plus-distance movement.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/vector-based-navigation.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Explore-exploit problem",
+              "note": "The tension between trying new routes and using a route that already works.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic decision-tree or route-choice diagram showing “explore” vs “exploit.” If no perfect image exists, use /imagegen or /imagecreator to create a WSC-style split-path visual.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for an educational video explaining explore-exploit tradeoff in simple terms.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/explore-exploit-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        },
+        {
+          "title": "Shortcuts, Scenic Routes, and the Logic of the Best Path - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Route elasticity",
+              "note": "Routes change when people respond to time, cost, crowding, comfort, and available alternatives.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic traffic or transit map showing route-choice flexibility, congestion response, or alternative routes. If not found, create a realistic WSC-style map with elastic route options using /imagegen or /imagecreator.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video about route choice, traffic demand, or induced demand.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/route-elasticity.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Braess’s Paradox",
+              "note": "Adding a road can sometimes make traffic worse because everyone changes routes in a way that hurts the whole system.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a clear Braess’s Paradox network diagram. This is an abstract concept, so if no perfect diagram exists, use /imagegen or /imagecreator to create a simple realistic WSC-style network visual.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining Braess’s Paradox with traffic.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/braesss-paradox.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Dead reckoning",
+              "note": "Estimating position by tracking direction, speed, and time from a known starting point.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic navigation diagram of dead reckoning, ideally with a ship, plane, or desert route and arrows showing estimated movement.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining dead reckoning navigation.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/dead-reckoning.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Steiner Tree Problem",
+              "note": "A network problem about connecting points efficiently, sometimes by adding useful intermediate junctions.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a clean Steiner Tree Problem diagram comparing direct connections and optimized junctions. Use /imagegen or /imagecreator if a clearer WSC-style diagram is needed.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a beginner-friendly video explaining the Steiner Tree Problem.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/steiner-tree-problem.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "How Closing Roads Could Speed Up Traffic - The Braess Paradox",
+          "url": "https://www.youtube.com/watch?v=8mlH9bnvWVE"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Journeys"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Managing Uncertainty",
+        "Measuring Human Worth"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Managing Uncertainty",
+          "Measuring Human Worth"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.004",
+      "order": 4,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.how-a-stroad-can-be-repaired",
+        "asset.where-were-going-well-still-need-them.raw.road-vs-street-vs-stroad",
+        "asset.where-were-going-well-still-need-them.raw.why-stroads-become-dangerous"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.004",
+        "question.where-were-going-well-still-need-them.200.004"
+      ],
+      "title": "Why Stroads Fail",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "If the chicken crossed the stroad, it would probably get run over. Explore what makes stroads different from—and, according to critics, more dangerous than—traditional streets and roads, then discuss with your team: are there any in your community, and are there times when they might be the best choice?",
+      "links": [
+        {
+          "label": "Stroad article",
+          "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485"
+        },
+        {
+          "label": "Strong Towns stroad background",
+          "url": "https://www.strongtowns.org/journal/2017/10/30/the-stroad"
+        }
+      ],
+      "studentExplanation": "A stroad is a hybrid that tries to be a fast road and a local street at the same time. That sounds efficient, but critics argue it often fails at both: cars move too fast for a place full of driveways, shops, and pedestrians, while the space feels too dangerous and unpleasant to work as a real street. A stroad is a design problem because it mixes purposes that pull against each other.\n\nA stroad fails because it tries to be a fast road and a productive street at the same time. The result is often dangerous speed, many driveways, weak walking conditions, expensive infrastructure, and places that are neither pleasant destinations nor efficient movement corridors. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students understand why some ordinary-looking roads feel stressful or unsafe. At the section level, it adds a real urban-design failure to the discussion of routes and infrastructure. At the year-theme level, it connects to thresholds and navigation because badly designed movement spaces can make everyday journeys harder instead of easier.",
+      "takeaway": "It shows how compromise can fail when goals are not truly compatible",
+      "subjects": [
+        "Design / Architecture / Urbanism"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "Road vs street vs stroad",
+        "Why stroads become dangerous",
+        "How a stroad can be repaired"
+      ],
+      "debateRelevance": "Useful when debating whether car-oriented roads can be repaired into places that serve drivers, pedestrians, businesses, and communities at the same time.",
+      "counterargument": "Some stroads exist because communities need both movement and access, even if the design often handles both poorly.",
+      "visualSections": [
+        {
+          "title": "Why Stroads Fail",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Road vs street vs stroad",
+              "note": "Roads are for movement between places; streets are for local access and public life; stroads confuse the two.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic comparison image or diagram showing a road, a street, and a stroad. If no perfect diagram exists, use /imagegen or /imagecreator to create a realistic WSC-style comparison, not anime.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining stroads, preferably by urban planning or transportation educators.",
+              "links": [
+                {
+                  "label": "Stroad article",
+                  "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485"
+                }
+              ],
+              "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/road-vs-street-vs-stroad.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Why stroads become dangerous",
+              "note": "High speeds, many turning points, driveways, pedestrians, and unclear priorities can combine into a risky space.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic image of a suburban stroad with wide lanes, driveways, parking lots, fast traffic, and pedestrian conflict. Avoid dramatic crash imagery.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video on why stroads are dangerous or how road design affects safety.",
+              "links": [
+                {
+                  "label": "Stroad article",
+                  "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485"
+                }
+              ],
+              "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/why-stroads-become-dangerous.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "How a stroad can be repaired",
+              "note": "Possible fixes include slowing traffic, adding safe crossings, narrowing lanes, improving sidewalks, or deciding whether the space should become more road-like or street-like.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Search for a realistic before/after urban street redesign or stroad retrofit showing safer crossings, trees, sidewalks, or traffic calming. If no perfect source exists, use /imagegen or /imagecreator to create a realistic WSC-style before/after design.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about stroad repair, traffic calming, or street redesign.",
+              "links": [
+                {
+                  "label": "Stroad article",
+                  "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485"
+                }
+              ],
+              "url": "https://theconversation.com/not-quite-a-street-not-quite-a-road-why-stroads-are-disasters-of-urban-planning-and-how-to-fix-them-232485",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/how-a-stroad-can-be-repaired.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "Stroads are Ugly, Expensive, and Dangerous (and they're everywhere) [ST05]",
+          "url": "https://www.youtube.com/watch?v=ORzNZUeUHAM"
+        },
+        {
+          "title": "What is a STROAD?",
+          "url": "https://www.youtube.com/watch?v=OZ1HhLq-Huo"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Routes, Roads & Navigation",
+        "Thresholds"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Managing Uncertainty",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Managing Uncertainty",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.005",
+      "order": 5,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.005",
+        "question.where-were-going-well-still-need-them.200.005"
+      ],
+      "title": "The Road as a State of Mind",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "“It’s a dangerous business, Frodo, going out your door,” says Bilbo to his nephew in The Fellowship of the Ring, and he doesn’t even have stroads to worry about. Stepping over your threshold means signing a contract with the unknown, even if you have a destination in mind. In the works below, the road is not just a strip of dirt or asphalt: it is a psychological landscape. As you read them, consider: what is the difference between traveling by choice and by necessity? And is it ever better to just stay home?\n\nDu Fu | “Travelling Again” (761 CE)\nWilliam Shakespeare | “Sonnet 50” (1609)\nJohn Masefield | “Sea Fever” (1902)\nCarl Sandburg | “Window” (1914)\nRobert Frost | “The Road Not Taken” (1915)\nWilliam Butler Yeats | “Sailing to Byzantium” (1927)\nRustu Onur | “The Journey” (c. early 20th century)\nCzeslaw Milosz | “This Only” (1988)\nRichard Russo | “Just Drive” (1992)\nRita Dove | “Vacation” (1994)",
+      "links": [
+        {
+          "label": "Du Fu - Travelling Again",
+          "url": "http://www.chinese-poems.com/d21t.html"
+        },
+        {
+          "label": "Shakespeare - Sonnet 50",
+          "url": "https://poets.org/poem/how-heavy-do-i-journey-way-sonnet-50"
+        },
+        {
+          "label": "Sea Fever",
+          "url": "https://www.poetryfoundation.org/poems/54932/sea-fever-56d235e0d871e"
+        },
+        {
+          "label": "Window",
+          "url": "https://poets.org/poem/window-0"
+        },
+        {
+          "label": "The Road Not Taken",
+          "url": "https://www.poetryfoundation.org/poems/44272/the-road-not-taken"
+        },
+        {
+          "label": "Sailing to Byzantium",
+          "url": "https://www.poetryfoundation.org/poems/43291/sailing-to-byzantium"
+        },
+        {
+          "label": "The Journey",
+          "url": "https://www.poetryfoundation.org/poetrymagazine/poems/1614984/the-journey"
+        },
+        {
+          "label": "This Only",
+          "url": "https://nexusonline.org/this-only-czeslaw-milosz/"
+        },
+        {
+          "label": "Just Drive",
+          "url": "https://www.infinityplus.co.uk/stories/justdrive.htm"
+        },
+        {
+          "label": "Vacation",
+          "url": "https://poets.org/poem/vacation"
+        }
+      ],
+      "studentExplanation": "In these works, the road is not just a surface under someone’s feet. It becomes longing, tiredness, freedom, exile, duty, temptation, memory, or fear. Some speakers choose movement; others are pushed by loss, duty, age, or restlessness. The road can promise adventure, but it can also reveal loneliness and the cost of leaving home.\n\nThe poems make the road psychological. Du Fu, Shakespeare, Masefield, Frost, and other road texts turn movement into longing, fatigue, choice, exile, duty, temptation, or memory, so students should ask what state of mind each road creates. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students read roads as emotional symbols. At the section level, it shifts the guiding section from engineering to inner life. At the year-theme level, it connects to home, wandering, and thresholds because leaving the doorstep always means entering uncertainty.",
+      "takeaway": "A road can be both a physical path and a psychological landscape",
+      "subjects": [
+        "Language and Literature",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Du Fu",
+        "“Travelling Again” (761 CE)",
+        "William Shakespeare",
+        "“Sonnet 50” (1609)",
+        "John Masefield",
+        "“Sea Fever” (1902)",
+        "Carl Sandburg",
+        "“Window” (1914)",
+        "Robert Frost",
+        "“The Road Not Taken” (1915)",
+        "William Butler Yeats",
+        "“Sailing to Byzantium” (1927)",
+        "Rustu Onur",
+        "“The Journey” (c. early 20th century)",
+        "Czeslaw Milosz",
+        "“This Only” (1988)",
+        "Richard Russo",
+        "“Just Drive” (1992)",
+        "Rita Dove",
+        "“Vacation” (1994)",
+        "Du Fu - Travelling Again",
+        "Shakespeare - Sonnet 50",
+        "John Masefield - Sea Fever",
+        "Carl Sandburg - Window",
+        "Robert Frost - The Road Not Taken",
+        "W. B. Yeats - Sailing to Byzantium",
+        "Rustu Onur - The Journey",
+        "Czeslaw Milosz - This Only",
+        "Richard Russo - Just Drive",
+        "Rita Dove - Vacation"
+      ],
+      "debateRelevance": "Useful when debating whether road literature treats movement as escape, burden, transformation, or a test of the self.",
+      "counterargument": "Poetry can make travel feel profound, but it can also turn hardship, loneliness, and uncertainty into something easier to romanticize.",
+      "visualSections": [
+        {
+          "title": "The Road as a State of Mind - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Du Fu - Travelling Again",
+              "note": "Exile, fatigue, and repeated movement make travel feel like burden rather than freedom.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Du Fu - Travelling Again",
+                  "url": "http://www.chinese-poems.com/d21t.html"
+                }
+              ],
+              "url": "http://www.chinese-poems.com/d21t.html",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named literary work; preserve source/search links instead of fabricating a poem image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Shakespeare - Sonnet 50",
+              "note": "The journey becomes heavy because distance from the beloved changes the emotional weight of travel.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Shakespeare - Sonnet 50",
+                  "url": "https://poets.org/poem/how-heavy-do-i-journey-way-sonnet-50"
+                },
+                {
+                  "label": "Shakespeare Chandos portrait - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:William_Shakespeare_Chandos.jpg",
+                  "license": "Public domain portrait reproduction"
+                }
+              ],
+              "url": "https://poets.org/poem/how-heavy-do-i-journey-way-sonnet-50",
+              "previewLabel": "Open source",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/William_Shakespeare_Chandos.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain portrait reproduction"
+            },
+            {
+              "kind": "text-slide",
+              "title": "John Masefield - Sea Fever",
+              "note": "The speaker longs for movement, showing travel as desire and inner compulsion.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Sea Fever",
+                  "url": "https://www.poetryfoundation.org/poems/54932/sea-fever-56d235e0d871e"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/54932/sea-fever-56d235e0d871e",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem; preserve source/search links instead of generating a substitute artwork."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Carl Sandburg - Window",
+              "note": "Looking out becomes a threshold between stillness and movement, inside and outside.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Window",
+                  "url": "https://poets.org/poem/window-0"
+                }
+              ],
+              "url": "https://poets.org/poem/window-0",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem; preserve source/search links instead of generating a substitute artwork."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Robert Frost - The Road Not Taken",
+              "note": "A road becomes a story of choice, memory, and how people explain their lives afterward.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "The Road Not Taken",
+                  "url": "https://www.poetryfoundation.org/poems/44272/the-road-not-taken"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/44272/the-road-not-taken",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem; preserve source/search links instead of using a generic forked-road image."
+            }
+          ]
+        },
+        {
+          "title": "The Road as a State of Mind - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "W. B. Yeats - Sailing to Byzantium",
+              "note": "Travel becomes a symbolic journey away from aging toward art, spirit, and permanence.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Sailing to Byzantium",
+                  "url": "https://www.poetryfoundation.org/poems/43291/sailing-to-byzantium"
+                }
+              ],
+              "url": "https://www.poetryfoundation.org/poems/43291/sailing-to-byzantium",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem; preserve source/search links instead of generating a substitute artwork."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Rustu Onur - The Journey",
+              "note": "Movement is treated as emotional passage rather than simple transportation.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Shakespeare - Sonnet 50",
+                  "url": "https://poets.org/poem/how-heavy-do-i-journey-way-sonnet-50"
+                }
+              ],
+              "url": "https://poets.org/poem/how-heavy-do-i-journey-way-sonnet-50",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem/poet; preserve source/search links instead of fabricating an image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Czeslaw Milosz - This Only",
+              "note": "The road becomes memory and attention: what remains meaningful after movement through time.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "This Only",
+                  "url": "https://nexusonline.org/this-only-czeslaw-milosz/"
+                }
+              ],
+              "url": "https://nexusonline.org/this-only-czeslaw-milosz/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem/poet; preserve source/search links instead of fabricating an image."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Richard Russo - Just Drive",
+              "note": "Driving becomes a way to think, avoid, delay, or move through uncertainty.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Just Drive",
+                  "url": "https://www.infinityplus.co.uk/stories/justdrive.htm"
+                }
+              ],
+              "url": "https://www.infinityplus.co.uk/stories/justdrive.htm",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named essay/source; preserve source/search links instead of generating a substitute."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Rita Dove - Vacation",
+              "note": "Travel becomes temporary escape, observation, and a pause from ordinary life.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic author portrait, manuscript/page image, or historically appropriate road/travel photograph connected to the work. If the source text itself is the best support, use a LINK button and avoid forcing a weak image. For copyrighted modern works, do not reproduce long text; use only brief preview text and the link.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a reading, short analysis, or educational explanation of this specific work. If no good 5-7 minute video exists, use the source link only.",
+              "links": [
+                {
+                  "label": "Vacation",
+                  "url": "https://poets.org/poem/vacation"
+                }
+              ],
+              "url": "https://poets.org/poem/vacation",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Named poem/source; preserve source/search links instead of generating a substitute."
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "\"The Road Not Taken\" by Robert Frost",
+          "url": "https://www.youtube.com/watch?v=yGB_K_xlHdI"
+        },
+        {
+          "title": "The Road Not Taken  - Written  by Robert Frost, Read by Tom Hiddleston",
+          "url": "https://www.youtube.com/watch?v=7csKA7vJHgk"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Home & Wandering",
+        "Journeys"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Thresholds & Irreversibility",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Thresholds & Irreversibility",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.006",
+      "order": 6,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.america-turns-driving-into-mythology",
+        "asset.where-were-going-well-still-need-them.raw.not-just-because-of-missing-trains"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.006",
+        "question.where-were-going-well-still-need-them.200.006"
+      ],
+      "title": "Why the Road Trip Became American",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "While the first long-distance car journey took place in Germany, it was in America that the concept of the road trip took hold. Read more about its history then discuss with your team: why is the idea of the road trip so associated with America even when other places also have expansive road systems? Is it because the country lacks trains and buses?",
+      "links": [
+        {
+          "label": "Bertha Benz journey",
+          "url": "https://www.hagerty.co.uk/articles/136-years-ago-bertha-benz-did-more-than-just-take-a-drive/"
+        },
+        {
+          "label": "Great American road trip history",
+          "url": "https://www.openculture.com/2019/09/a-brief-history-of-the-great-american-road-trip.html"
+        },
+        {
+          "label": "NPS Route 66 overview",
+          "url": "https://www.nps.gov/articles/route-66-overview.htm"
+        }
+      ],
+      "studentExplanation": "Bertha Benz’s 1888 journey in Germany helped prove that the automobile could be useful beyond short demonstrations. But the road trip became especially powerful in the United States because roads, cars, distance, tourism, migration, and ideas of freedom all came together. The American road trip is not just a drive; it became a national story about space, independence, discovery, and self-direction.\n\nBertha Benz proves long car travel before the American myth, but the United States made the road trip culturally central through distance, highways, motels, cars, migration, music, and ideas of freedom. The road trip is infrastructure plus story. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students separate the first long-distance car journey from the later road-trip myth. At the section level, it shows how infrastructure becomes culture. At the year-theme level, it connects to journeys and destinations because some routes matter not only for where they lead, but for the identity they create.",
+      "takeaway": "It became more than transport: a story about movement, choice, and identity",
+      "subjects": [
+        "History",
+        "Geography / Human Geography"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Bertha Benz and the first long car journey",
+        "America turns driving into mythology",
+        "Not just because of missing trains"
+      ],
+      "debateRelevance": "Useful when debating why some travel myths become attached to particular countries, technologies, and landscapes.",
+      "counterargument": "The United States mythologized the road trip, but it did not invent long-distance automobile travel or meaningful overland journeys.",
+      "visualSections": [
+        {
+          "title": "Why the Road Trip Became American",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Bertha Benz and the first long car journey",
+              "note": "Bertha Benz used a difficult long-distance drive to show that the automobile could work in the real world.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for an exact historical image of Bertha Benz, the Benz Patent-Motorwagen, or the Bertha Benz Memorial Route. This is a named historical case, so do not use generic vintage cars or generated images unless no source image is usable.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about Bertha Benz and the first long-distance car trip.",
+              "links": [
+                {
+                  "label": "Bertha Benz journey",
+                  "url": "https://www.hagerty.co.uk/articles/136-years-ago-bertha-benz-did-more-than-just-take-a-drive/"
+                }
+              ],
+              "url": "https://www.hagerty.co.uk/articles/136-years-ago-bertha-benz-did-more-than-just-take-a-drive/",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific historical case; preserve the Bertha Benz source link rather than inventing a vintage scene."
+            },
+            {
+              "kind": "text-slide",
+              "title": "America turns driving into mythology",
+              "note": "The United States turned car travel into a story of freedom, space, independence, and self-invention.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic historical road-trip image from the United States, preferably archival family car travel, early highways, or Route 66 roadside culture. If no clean archive image works, use /imagegen or /imagecreator for a realistic WSC-style American highway scene, not anime.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video on the history of the American road trip.",
+              "links": [
+                {
+                  "label": "Great American road trip history",
+                  "url": "https://www.openculture.com/2019/09/a-brief-history-of-the-great-american-road-trip.html"
+                }
+              ],
+              "url": "https://www.openculture.com/2019/09/a-brief-history-of-the-great-american-road-trip.html",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/america-turns-driving-into-mythology.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Not just because of missing trains",
+              "note": "The American road trip is shaped by infrastructure, geography, advertising, culture, cars, and national imagination, not by one single cause.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic comparison image showing cars/highways and trains/buses in American travel history. If no perfect image exists, create a realistic WSC-style comparison card with /imagegen or /imagecreator.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video explaining car culture, highway expansion, or the rise of road trips in the United States.",
+              "links": [
+                {
+                  "label": "Bertha Benz journey",
+                  "url": "https://www.hagerty.co.uk/articles/136-years-ago-bertha-benz-did-more-than-just-take-a-drive/"
+                }
+              ],
+              "url": "https://www.hagerty.co.uk/articles/136-years-ago-bertha-benz-did-more-than-just-take-a-drive/",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/not-just-because-of-missing-trains.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [
+        {
+          "title": "A brief history of the American Road Trip",
+          "url": "https://www.youtube.com/watch?v=1TbLe5qta4Q"
+        }
+      ],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Home & Wandering"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.007",
+      "order": 7,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.007",
+        "question.where-were-going-well-still-need-them.200.007"
+      ],
+      "title": "Can a Bus Journey Be a Road Trip?",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "Be sure to look into other long distance overland journeys, including the once-legendary London to Calcutta bus service and the still operational Transoceánica from Brazil to Peru. Can they be called road trips even if they don’t take place in cars? Or is it only a road trip if you can choose when and where to stop along the way?",
+      "links": [
+        {
+          "label": "London to Calcutta bus service",
+          "url": "https://secretldn.com/longest-bus-route-in-the-world-london-to-calcutta/"
+        },
+        {
+          "label": "Transoceánica route",
+          "url": "https://www.riotimesonline.com/brazil-news/rio-travel/the-worlds-longest-bus-route-leaves-brazil-and-lasts-5-days-its-surreal/"
+        }
+      ],
+      "studentExplanation": "Long overland bus journeys show that road travel does not belong only to private cars. A bus from London to Calcutta or a route across South America can be epic, exhausting, and transformative. But they also raise a question: is a road trip about distance and landscape, or about the freedom to choose when to stop, where to turn, and how to shape the journey?\n\nLong bus journeys test whether a road trip requires private control. London-to-Calcutta style routes or South American overland buses create distance, landscape, discomfort, and shared experience, but less freedom to stop or detour, so agency becomes the key variable. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students test the limits of a familiar term. At the section level, it complicates the road-trip myth by adding collective, scheduled, and non-car overland travel. At the year-theme level, it connects to journeys because freedom, not distance alone, may shape how travel feels.",
+      "takeaway": "A road trip may depend on agency and experience as much as on distance or vehicle",
+      "subjects": [
+        "Geography / Human Geography",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "London to Calcutta bus service",
+        "The Transoceánica",
+        "Agency vs distance"
+      ],
+      "debateRelevance": "Useful when debating whether a road trip is defined by road, distance, vehicle, freedom, or the traveler's control over the journey.",
+      "counterargument": "A long bus journey can be transformative, but passengers usually control less of the route, stops, and timing than private-car travelers.",
+      "visualSections": [
+        {
+          "title": "Can a Bus Journey Be a Road Trip?",
+          "items": []
+        }
+      ],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Routes, Roads & Navigation"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Visible vs Real",
+          "Managing Uncertainty"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "'World's Longest Bus Route' From Kolkata To London: Real or Fake?",
+          "url": "https://www.youtube.com/watch?v=6YGz6yVBkVI"
+        },
+        {
+          "title": "World's Most Dangerous Bus Route In Peru 😱 | The Travel Edit",
+          "url": "https://www.youtube.com/watch?v=uU_VOhP8z2w"
+        },
+        {
+          "title": "From Rio to Lima – Transoceânica, the world's longest bus journey (5/5) | DW Documentary",
+          "url": "https://www.youtube.com/watch?v=7sVazu3D5hY"
+        }
+      ],
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.008",
+      "order": 8,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.a-road-after-its-main-function",
+        "asset.where-were-going-well-still-need-them.raw.roadside-culture"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.008",
+        "question.where-were-going-well-still-need-them.200.008"
+      ],
+      "title": "Why Route 66 Still Matters",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "The Federal Highway Administration of the United States calls it “the Mother Road”: others refer to it as the Main Street of America. Though no longer a major thoroughfare, Route 66 is still widely revered and remembered. Read about its history, or check out this video, then consider: what is the most famous road in your own country? Why do you think Route 66 still tugs at the imagination of travelers today?",
+      "links": [
+        {
+          "label": "Route 66 video",
+          "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs"
+        },
+        {
+          "label": "NPS Route 66",
+          "url": "https://www.nps.gov/subjects/travelroute66/"
+        },
+        {
+          "label": "FHWA Route 66 Mother Road",
+          "url": "https://highways.dot.gov/highway-history/general-highway-history/back-time/route-66-mother-road"
+        }
+      ],
+      "studentExplanation": "Route 66 is not famous today because it is the fastest way across the United States. It matters because it became a cultural route: a symbol of migration, car travel, diners, gas stations, motels, small towns, music, and an older dream of America on the move. It shows how a road can stop being essential infrastructure and still remain powerful in memory.\n\nRoute 66 matters after usefulness because it became a memory route. Diners, motels, gas stations, small towns, migration, music, postcards, and “Mother Road” mythology let a road remain culturally alive even after faster highways replace its practical job. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students see how roads become symbols. At the section level, it shifts from road function to road mythology. At the year-theme level, it connects to journeys and destinations because some places matter as stories even after they stop being the most practical route.",
+      "takeaway": "A road can survive as cultural myth long after its transport role declines",
+      "subjects": [
+        "History",
+        "Media / Film"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "The Mother Road",
+        "Roadside culture",
+        "A road after its main function"
+      ],
+      "debateRelevance": "Useful when debating whether a road matters more as functioning infrastructure or as a cultural story people keep preserving.",
+      "counterargument": "Cultural memory can exaggerate Route 66's centrality compared with its current everyday transport role.",
+      "visualSections": [
+        {
+          "title": "Why Route 66 Still Matters",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The Mother Road",
+              "note": "Route 66 became known as the Mother Road because it carried migration, travel, business, and cultural memory westward.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a real Route 66 sign, historic road alignment, or NPS/FHWA image. This is a known road and symbol, so use an exact realistic image, not a generated sign.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video on the history of Route 66.",
+              "links": [
+                {
+                  "label": "FHWA Route 66 Mother Road",
+                  "url": "https://highways.dot.gov/highway-history/general-highway-history/back-time/route-66-mother-road"
+                },
+                {
+                  "label": "Route 66: Why Is the World Still Obsessed With It",
+                  "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs"
+                },
+                {
+                  "label": "Route 66 sign image - Wikimedia Commons",
+                  "url": "https://commons.wikimedia.org/wiki/File:Route66_sign.jpg",
+                  "license": "Public domain / U.S. Department of Transportation source image"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=ngSgEAbQWGs",
+              "videoLabel": "Route 66 video",
+              "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Route66_sign.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "source-image",
+              "imageLicense": "Public domain / U.S. Department of Transportation source image"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Roadside culture",
+              "note": "Gas stations, diners, motels, signs, and small businesses helped turn Route 66 into an experience, not just a road.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for realistic Route 66 roadside culture: vintage gas station, motel sign, diner, or historic streetscape. Prefer public-domain or official heritage sources.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video about Route 66 roadside culture and preservation.",
+              "links": [
+                {
+                  "label": "Route 66: Why Is the World Still Obsessed With It",
+                  "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs"
+                }
+              ],
+              "videoUrl": "https://www.youtube.com/watch?v=ngSgEAbQWGs",
+              "videoLabel": "Route 66 video",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/roadside-culture.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset",
+              "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs",
+              "previewLabel": "Play video"
+            },
+            {
+              "kind": "text-slide",
+              "title": "A road after its main function",
+              "note": "Route 66 remains famous even after being bypassed because memory and tourism can preserve a route’s emotional power.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic image of an abandoned, preserved, or historic Route 66 segment that shows nostalgia and decline.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video explaining why Route 66 is still culturally important.",
+              "links": [
+                {
+                  "label": "FHWA Route 66 Mother Road",
+                  "url": "https://highways.dot.gov/highway-history/general-highway-history/back-time/route-66-mother-road"
+                },
+                {
+                  "label": "Route 66: Why Is the World Still Obsessed With It",
+                  "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=ngSgEAbQWGs",
+              "videoLabel": "Route 66 video",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/a-road-after-its-main-function.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Destinations"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Visible vs Real"
+        ]
+      },
+      "channelVideos": [
+        {
+          "title": "Route 66: Why Is the World Still Obsessed With It",
+          "url": "https://www.youtube.com/watch?v=ngSgEAbQWGs"
+        },
+        {
+          "title": "All the Route 66 Places that Inspired Pixar \"Cars\"",
+          "url": "https://www.youtube.com/watch?v=nP1f1TUsX70"
+        },
+        {
+          "title": "Route 66: America's Lost Highway Turns 90",
+          "url": "https://www.youtube.com/watch?v=qy_EFQfylw8"
+        }
+      ],
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.009",
+      "order": 9,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.motor-hotel-architecture",
+        "asset.where-were-going-well-still-need-them.raw.pause-without-arrival"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.009",
+        "question.where-were-going-well-still-need-them.200.009"
+      ],
+      "title": "Motels: Sleeping on the Road",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "People on road trips needed a place to sleep at night. Early on, many simply pulled off the road and camped beside their cars; over time, a new kind of car-friendly hotel emerged to serve them. Read about the world’s first motel and the history of motels since, then consider: are there equivalents in your country—and have you ever stayed at one?",
+      "links": [
+        {
+          "label": "First motel history",
+          "url": "https://www.pbssocal.org/shows/artbound/swimming-pools-and-movie-stars-a-history-of-the-worlds-first-motel"
+        },
+        {
+          "label": "Motel history",
+          "url": "https://sah-archipedia.org/essays/CA-01-ART-01"
+        },
+        {
+          "label": "Britannica motel overview",
+          "url": "https://www.britannica.com/technology/motel"
+        }
+      ],
+      "studentExplanation": "When cars made long-distance road travel more common, travelers needed places to sleep without leaving the road world behind. The motel emerged as a motor hotel: a car-friendly form of lodging designed for easy access, parking, short stays, and continued movement. It is not simply a smaller hotel; it is architecture shaped by road culture.\n\nThe motel is architecture shaped by the car: parking near the room, easy highway access, short stays, and a promise that sleep is only a pause before more movement. It is not just a cheap hotel; it is lodging designed around road rhythm. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this shows how movement creates new building types. At the section level, it extends road culture from driving to stopping. At the year-theme level, it connects to home and wandering because motels are classic in-between spaces: places to pause without fully arriving.",
+      "takeaway": "New movement patterns create new architecture for people between home and destination",
+      "subjects": [
+        "Design / Architecture / Urbanism",
+        "History"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Thresholds & Irreversibility"
+      ],
+      "examples": [
+        "The world’s first motel",
+        "Motor hotel architecture",
+        "Pause without arrival"
+      ],
+      "debateRelevance": "Useful when debating how transportation systems create new building types and new in-between social spaces.",
+      "counterargument": "Motels can seem ordinary now, but that ordinariness still reveals how movement reshaped hospitality and architecture.",
+      "visualSections": [
+        {
+          "title": "Motels: Sleeping on the Road",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "The world’s first motel",
+              "note": "The Milestone Mo-Tel in San Luis Obispo showed how lodging could be designed specifically for motorists.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a real historical photo of the Milestone Mo-Tel / Motel Inn in San Luis Obispo. This is a specific building, so do not generate a fake motel image unless no usable source exists.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about the first motel or early motel history.",
+              "links": [
+                {
+                  "label": "First motel history",
+                  "url": "https://www.pbssocal.org/shows/artbound/swimming-pools-and-movie-stars-a-history-of-the-worlds-first-motel"
+                }
+              ],
+              "url": "https://www.pbssocal.org/shows/artbound/swimming-pools-and-movie-stars-a-history-of-the-worlds-first-motel",
+              "previewLabel": "Open source",
+              "imageMode": "source-link-only",
+              "imageLicense": "Specific first-motel history; preserve the PBS/source link instead of using a fake exact building."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Motor hotel architecture",
+              "note": "Motels were built around cars: parking, roadside access, individual rooms, and quick overnight stops.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic historic motel image showing cars parked near rooms, roadside layout, or motor-court design.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video explaining motel architecture or motor courts.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/motor-hotel-architecture.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Pause without arrival",
+              "note": "A motel is a temporary home for people in motion, which makes it a perfect liminal road space.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic empty motel room, roadside motel at night, or traveler arriving with car. If no perfect image exists, use /imagegen or /imagecreator for a realistic WSC-style motel liminality scene, not anime.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about motels as part of road culture or American travel.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/pause-without-arrival.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Home & Wandering",
+        "Liminality"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Delayed Arrival",
+        "Thresholds & Irreversibility"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Delayed Arrival",
+          "Thresholds & Irreversibility"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.010",
+      "order": 10,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.010",
+        "question.where-were-going-well-still-need-them.200.010"
+      ],
+      "title": "Songs, Paintings, and the Feeling of the Highway",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "Consider the art and music selections below: what aspects of being on the road do they reflect? Do they over-idealize the experience of traveling by car—or critique it unfairly?\n\nNat Cole | “Get Your Kicks on Route 66” (1946)\nEdward Hopper | Western Motel (1957)\nEdward Ruscha | Standard Station (1966)\nWillie Nelson | “On the Road Again Song” (1980)\nDavid Hockney | Pearblossom Highway (1985)\nTom Cochrane | “Life is a Highway” (1991)\nBic Runga | “Drive” (1996)\nNorah Jones | “Come Away with Me” (2002)",
+      "links": [
+        {
+          "label": "Edward Hopper",
+          "url": "https://www.edwardhopper.net/western-motel.jsp"
+        },
+        {
+          "label": "Edward Ruscha",
+          "url": "https://www.moma.org/collection/works/76637"
+        },
+        {
+          "label": "Willie Nelson",
+          "url": "https://www.youtube.com/watch?v=dBN86y30Ufc"
+        },
+        {
+          "label": "David Hockney",
+          "url": "https://davidhockneyexhibition.weebly.com/artwork-critiques.html"
+        },
+        {
+          "label": "Tom Cochrane",
+          "url": "https://www.youtube.com/watch?v=U3sMjm9Eloo"
+        },
+        {
+          "label": "Bic Runga",
+          "url": "https://www.youtube.com/watch?v=xHGUh30U4tQ"
+        },
+        {
+          "label": "Norah Jones",
+          "url": "https://www.youtube.com/watch?v=lbjZPFBD6JU"
+        }
+      ],
+      "studentExplanation": "Road songs and road images can make travel feel exciting, lonely, glamorous, repetitive, free, fake, or intimate. Some works celebrate the highway, while others quietly reveal its stillness, sameness, or artificial charm. This entry asks whether road culture is being romanticized, criticized, or both at once.\n\nThe cultural works make highways emotional objects. Route 66 songs sell freedom and rhythm, Hopper makes roadside stillness lonely, Ruscha turns gas stations into clean icons, and road images can celebrate mobility while also showing sameness or isolation. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students compare how music and visual art translate travel into mood. At the section level, it adds emotional depth to the road-trip cluster. At the year-theme level, it connects to home and wandering because being on the road can feel like escape, performance, loneliness, or desire all at once.",
+      "takeaway": "Art can both celebrate and question the road as freedom, routine, loneliness, or fantasy",
+      "subjects": [
+        "Visual and Performing Arts",
+        "Media / Film"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Delayed Arrival"
+      ],
+      "examples": [
+        "Nat Cole",
+        "“Get Your Kicks on Route 66” (1946)",
+        "Edward Hopper",
+        "Western Motel (1957)",
+        "Edward Ruscha",
+        "Standard Station (1966)",
+        "Willie Nelson",
+        "“On the Road Again Song” (1980)",
+        "David Hockney",
+        "Pearblossom Highway (1985)",
+        "Tom Cochrane",
+        "“Life is a Highway” (1991)",
+        "Bic Runga",
+        "“Drive” (1996)",
+        "Norah Jones",
+        "“Come Away with Me” (2002)",
+        "Nat Cole - Get Your Kicks on Route 66",
+        "Edward Hopper - Western Motel",
+        "Edward Ruscha - Standard Station",
+        "Willie Nelson - On the Road Again",
+        "David Hockney - Pearblossom Highway",
+        "Tom Cochrane - Life Is a Highway",
+        "Bic Runga - Drive",
+        "Norah Jones - Come Away With Me"
+      ],
+      "debateRelevance": "Useful when debating whether road culture in art and music is honest, exaggerated, nostalgic, critical, or all of these at once.",
+      "counterargument": "Some road songs and images romanticize car travel, but others reveal its loneliness, sameness, cost, and staged quality.",
+      "visualSections": [
+        {
+          "title": "Songs, Paintings, and the Feeling of the Highway - Group 1",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Willie Nelson - On the Road Again",
+              "note": "Movement becomes joy, performance, and the life of a traveler-musician.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. This is a specific named song or artwork. Use the exact work, official video/still, museum page, or reliable source image when available. Do not generate a substitute for an exact artwork or known media item. Use /imagesearch for the exact artwork, official still, museum image, or official artist/source visual. For songs, if there is no meaningful still image, use the official video link as the main support instead of forcing a weak image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for the official video/audio or a short educational/context video about this exact work. For songs, prioritize official audio/video; for artworks, search for short museum or art-education explainers.",
+              "links": [
+                {
+                  "label": "Willie Nelson",
+                  "url": "https://www.youtube.com/watch?v=dBN86y30Ufc"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=dBN86y30Ufc",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=dBN86y30Ufc",
+              "videoLabel": "Willie Nelson",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact song; use the YouTube/source link rather than generated music imagery."
+            }
+          ]
+        },
+        {
+          "title": "Songs, Paintings, and the Feeling of the Highway - Group 2",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Tom Cochrane - Life Is a Highway",
+              "note": "The highway becomes a metaphor for energy, endurance, and forward motion.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. This is a specific named song or artwork. Use the exact work, official video/still, museum page, or reliable source image when available. Do not generate a substitute for an exact artwork or known media item. Use /imagesearch for the exact artwork, official still, museum image, or official artist/source visual. For songs, if there is no meaningful still image, use the official video link as the main support instead of forcing a weak image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for the official video/audio or a short educational/context video about this exact work. For songs, prioritize official audio/video; for artworks, search for short museum or art-education explainers.",
+              "links": [
+                {
+                  "label": "Tom Cochrane",
+                  "url": "https://www.youtube.com/watch?v=U3sMjm9Eloo"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=U3sMjm9Eloo",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=U3sMjm9Eloo",
+              "videoLabel": "Tom Cochrane",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact song; use the YouTube/source link rather than generated music imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Bic Runga - Drive",
+              "note": "Driving becomes intimate, emotional, and uncertain.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. This is a specific named song or artwork. Use the exact work, official video/still, museum page, or reliable source image when available. Do not generate a substitute for an exact artwork or known media item. Use /imagesearch for the exact artwork, official still, museum image, or official artist/source visual. For songs, if there is no meaningful still image, use the official video link as the main support instead of forcing a weak image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for the official video/audio or a short educational/context video about this exact work. For songs, prioritize official audio/video; for artworks, search for short museum or art-education explainers.",
+              "links": [
+                {
+                  "label": "Bic Runga",
+                  "url": "https://www.youtube.com/watch?v=xHGUh30U4tQ"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=xHGUh30U4tQ",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=xHGUh30U4tQ",
+              "videoLabel": "Bic Runga",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact song; use the YouTube/source link rather than generated music imagery."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Norah Jones - Come Away With Me",
+              "note": "Travel is softened into escape, intimacy, and dreamlike departure.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. This is a specific named song or artwork. Use the exact work, official video/still, museum page, or reliable source image when available. Do not generate a substitute for an exact artwork or known media item. Use /imagesearch for the exact artwork, official still, museum image, or official artist/source visual. For songs, if there is no meaningful still image, use the official video link as the main support instead of forcing a weak image.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for the official video/audio or a short educational/context video about this exact work. For songs, prioritize official audio/video; for artworks, search for short museum or art-education explainers.",
+              "links": [
+                {
+                  "label": "Norah Jones",
+                  "url": "https://www.youtube.com/watch?v=lbjZPFBD6JU"
+                }
+              ],
+              "url": "https://www.youtube.com/watch?v=lbjZPFBD6JU",
+              "previewLabel": "Play video",
+              "videoUrl": "https://www.youtube.com/watch?v=lbjZPFBD6JU",
+              "videoLabel": "Norah Jones",
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact song; use the YouTube/source link rather than generated music imagery."
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Home & Wandering",
+        "Journeys"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Visible vs Real",
+        "Delayed Arrival"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Visible vs Real",
+          "Delayed Arrival"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them",
+      "channelVideos": [
+        {
+          "title": "Nat King Cole Trio  \"(Get Your Kicks on) Route 66\"",
+          "url": "https://www.youtube.com/watch?v=9nuDE1SJlPo"
+        }
+      ]
+    },
+    {
+      "id": "raw.where-were-going-well-still-need-them.011",
+      "order": 11,
+      "sectionId": "where-were-going-well-still-need-them",
+      "mediaIds": [
+        "asset.where-were-going-well-still-need-them.raw.blue-highways-vs-main-roads",
+        "asset.where-were-going-well-still-need-them.raw.circle-vs-straight-line"
+      ],
+      "questionIds": [
+        "question.where-were-going-well-still-need-them.100.011",
+        "question.where-were-going-well-still-need-them.200.011"
+      ],
+      "title": "Circles, Detours, and Why a Journey Matters",
+      "guidingSection": "Where We're Going, We'll Still Need Them",
+      "rawOfficialText": "“Beware thoughts that come in the night,” writes William Least-Heat Moon, in the introduction to his 1982 road trip travelogue masterpiece, Blue Highways. Read the book’s first page here, then discuss with your team: do you agree with him that traveling in a circle has more purpose than traveling in a straight line? If you were given a car, unlimited gas (or endless EV charging), and all the time in the world, where would you want to drive it?",
+      "links": [
+        {
+          "label": "Blue Highways first page",
+          "url": "https://www.scribd.com/document/119462191/Blue-Highways"
+        }
+      ],
+      "studentExplanation": "Blue Highways suggests that a journey does not gain all its meaning from taking the shortest route. A circle, detour, or slower road can reveal more than a straight line from A to B. This entry turns the road into a philosophical question: is travel mainly about reaching a point, or about what happens to the traveler while moving through space and time?\n\nBlue highways and circular journeys challenge the idea that the best route is straight. Detours can reveal people, places, and thoughts that speed hides, so this entry asks whether travel should be measured by arrival or by what the route changes in the traveler. Use this to treat roads as systems, not background: what the route is built to do, where it channels people or goods, how it changes choices, and why routes remain cultural even after their practical role changes.",
+      "whyItMatters": "At the entry level, this helps students think about whether the value of a journey lies in arrival or experience. At the section level, it provides a reflective ending to the road-travel cluster. At the year-theme level, it connects to journeys, destinations, and liminality because it asks whether movement itself can carry meaning beyond the endpoint.",
+      "takeaway": "A journey can matter because it changes the traveler through time, motion, and attention",
+      "subjects": [
+        "Geography / Human Geography",
+        "Philosophy"
+      ],
+      "bigIdeas": [
+        "Movement Without Arrival",
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Managing Uncertainty"
+      ],
+      "examples": [
+        "Beware thoughts that come in the night",
+        "Blue highways vs main roads",
+        "Circle vs straight line"
+      ],
+      "debateRelevance": "Useful when debating whether travel is justified by destination, route, attention, or personal transformation along the way.",
+      "counterargument": "Detours can be meaningful, but not every circular route is purposeful and sometimes the destination really does matter most.",
+      "visualSections": [
+        {
+          "title": "Circles, Detours, and Why a Journey Matters",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Beware thoughts that come in the night",
+              "note": "The opening mood of Blue Highways links travel to restlessness, uncertainty, and the desire to move when ordinary life feels unstable.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic image of Blue Highways book cover or William Least Heat-Moon if available. This is a named book/source, so do not create a fake cover. If no usable image can be embedded, use a LINK button only.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video or author interview about Blue Highways or William Least Heat-Moon.",
+              "links": [],
+              "imageMode": "source-link-only",
+              "imageLicense": "Exact Blue Highways opening/source; preserve the linked source rather than fabricating a book cover."
+            },
+            {
+              "kind": "text-slide",
+              "title": "Blue highways vs main roads",
+              "note": "The title points toward smaller roads, slower travel, and a different way of seeing a country.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic paper road atlas, old-style highway map, or smaller backroad route image. If no perfect image exists, use /imagegen or /imagecreator for a realistic WSC-style map of small blue roads, not anime.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short video explaining Blue Highways, backroads travel, or American road travel literature.",
+              "links": [
+                {
+                  "label": "Blue Highways first page",
+                  "url": "https://www.scribd.com/document/119462191/Blue-Highways"
+                }
+              ],
+              "url": "https://www.scribd.com/document/119462191/Blue-Highways",
+              "previewLabel": "Open source",
+              "src": "assets/raw-content/where-were-going-well-still-need-them/blue-highways-vs-main-roads.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Circle vs straight line",
+              "note": "A circular journey can value attention, return, reflection, and transformation more than efficient arrival.",
+              "imageGuidance": "The agent must use /imagesearch first. The image must be very realistic, not anime, and the final card must remain inspired by the WSC app UI; WSC app mandatory, using the beige/brown/maroon visual identity. If /imagesearch cannot find a perfect image and the slide is not about an exact artwork, known historical photo, named building, patent, object, poster, or named visual source, the agent may use /imagegen or /imagecreator to create a realistic concept image that illustrates the idea clearly. Use /imagesearch for a realistic route map comparing a straight-line trip and a circular road journey. If no perfect image exists, use /imagegen or /imagecreator to create a realistic WSC-style map card with one direct route and one loop route.",
+              "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5-7 minutes maximum or shorter, suitable for young teenagers. The video must explain the concept or case study, not just decorate the card. Search for a short educational video about journeys versus destinations, road travel writing, or circular travel narratives.",
+              "links": [],
+              "src": "assets/raw-content/where-were-going-well-still-need-them/circle-vs-straight-line.jpg",
+              "preserveOriginalColor": true,
+              "imageMode": "generated-photorealistic",
+              "imageLicense": "Generated original project asset"
+            }
+          ]
+        }
+      ],
+      "channelVideos": [],
+      "legacyBigIdeas": [
+        "Journeys",
+        "Destinations"
+      ],
+      "primaryBigIdea": "Movement Without Arrival",
+      "secondaryBigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Narrated Endings",
+        "Managing Uncertainty"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Movement Without Arrival",
+        "secondaryBigIdeas": [
+          "Infrastructure Shapes Behavior",
+          "Narrated Endings",
+          "Managing Uncertainty"
+        ]
+      },
+      "sectionTitle": "Where We're Going, We'll Still Need Them"
+    }
+  ]
+}

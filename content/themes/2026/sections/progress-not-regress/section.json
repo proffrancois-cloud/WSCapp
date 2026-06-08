@@ -1,0 +1,42 @@
+{
+  "id": "progress-not-regress",
+  "title": "Progress, Not Regress",
+  "shortTitle": "Progress, Not Regress",
+  "originalTitle": "Progress, Not Regress",
+  "order": 2,
+  "themeId": "wsc-2026",
+  "blurb": "Progress bars, time perception, and the management of waiting.",
+  "angle": "WSC asks how we measure progress and how we survive periods that feel motionless.",
+  "subjectIds": [
+    "computer-science-technology",
+    "psychology",
+    "design-architecture-urbanism",
+    "economics-and-trade",
+    "sociology",
+    "philosophy",
+    "history"
+  ],
+  "bigIdeaIds": [
+    "performed-progress",
+    "delayed-arrival",
+    "visible-vs-real",
+    "managing-uncertainty",
+    "infrastructure-shapes-behavior",
+    "movement-without-arrival",
+    "measuring-human-worth",
+    "narrated-endings"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.progress-not-regress.card.cover",
+    "icon": "asset.progress-not-regress.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.progress-not-regress",
+    "questions": "questions.progress-not-regress",
+    "guide": "guide.progress-not-regress",
+    "media": "media.progress-not-regress",
+    "alpacards": "alpacards.progress-not-regress",
+    "channelVideos": "channel.progress-not-regress"
+  }
+}

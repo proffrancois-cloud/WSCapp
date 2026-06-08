@@ -1,0 +1,40 @@
+{
+  "id": "call-of-duty-free",
+  "title": "Call of Duty-Free",
+  "shortTitle": "Call of Duty-Free",
+  "originalTitle": "Call of Duty-Free",
+  "order": 13,
+  "themeId": "wsc-2026",
+  "blurb": "Hotels, the Grand Tour, mass tourism, entrepots, and the movement of goods.",
+  "angle": "Travel is also about sleeping, trading, consuming, and leaving traces behind.",
+  "subjectIds": [
+    "history",
+    "psychology",
+    "sociology",
+    "media-film",
+    "economics-and-trade",
+    "geography-human-geography"
+  ],
+  "bigIdeaIds": [
+    "movement-without-arrival",
+    "infrastructure-shapes-behavior",
+    "narrated-endings",
+    "thresholds-and-irreversibility",
+    "performed-progress",
+    "visible-vs-real",
+    "incompletion-that-stays-active"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.call-of-duty-free.card.cover",
+    "icon": "asset.call-of-duty-free.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.call-of-duty-free",
+    "questions": "questions.call-of-duty-free",
+    "guide": "guide.call-of-duty-free",
+    "media": "media.call-of-duty-free",
+    "alpacards": "alpacards.call-of-duty-free",
+    "channelVideos": "channel.call-of-duty-free"
+  }
+}

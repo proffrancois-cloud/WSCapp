@@ -1,0 +1,1309 @@
+{
+  "id": "questions.were-all-in-this-to-get-there",
+  "sectionId": "were-all-in-this-to-get-there",
+  "levels": {
+    "100": [
+      {
+        "id": "question.were-all-in-this-to-get-there.100.001",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Which project is a famous long-running basilica in Barcelona?",
+        "correctAnswer": "La Sagrada Familia",
+        "wrongAnswers": [
+          "Berlin Brandenburg Airport",
+          "Ryugyong Hotel",
+          "Crazy Horse Memorial"
+        ],
+        "explanation": "La Sagrada Familia.",
+        "visibleCorrectExplanation": "La Sagrada Familia.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Berlin Brandenburg Airport",
+            "explanation": "That answer changes the point: La Sagrada Familia."
+          },
+          {
+            "label": "C",
+            "answer": "Ryugyong Hotel",
+            "explanation": "That answer changes the point: La Sagrada Familia."
+          },
+          {
+            "label": "D",
+            "answer": "Crazy Horse Memorial",
+            "explanation": "That answer changes the point: La Sagrada Familia."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_1_096",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_1_096",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.001"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.002",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is the simplest purpose of project management?",
+        "correctAnswer": "Coordinating work so a goal can be completed",
+        "wrongAnswers": [
+          "Replacing workers with charts and software",
+          "Making every project larger than necessary",
+          "Avoiding schedules until the end"
+        ],
+        "explanation": "Coordinating work so a goal can be completed.",
+        "visibleCorrectExplanation": "Coordinating work so a goal can be completed.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Replacing workers with charts and software",
+            "explanation": "That answer changes the point: Coordinating work so a goal can be completed."
+          },
+          {
+            "label": "C",
+            "answer": "Making every project larger than necessary",
+            "explanation": "That answer changes the point: Coordinating work so a goal can be completed."
+          },
+          {
+            "label": "D",
+            "answer": "Avoiding schedules until the end",
+            "explanation": "That answer changes the point: Coordinating work so a goal can be completed."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_2_076",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_2_076",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.002"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.003",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does a Gantt chart mainly show?",
+        "correctAnswer": "Tasks arranged across time",
+        "wrongAnswers": [
+          "Only the final budget",
+          "A team popularity ranking",
+          "A schedule view, not a feeling chart"
+        ],
+        "explanation": "Tasks arranged across time.",
+        "visibleCorrectExplanation": "Tasks arranged across time.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Only the final budget",
+            "explanation": "That answer changes the point: Tasks arranged across time."
+          },
+          {
+            "label": "C",
+            "answer": "A team popularity ranking",
+            "explanation": "That answer changes the point: Tasks arranged across time."
+          },
+          {
+            "label": "D",
+            "answer": "A schedule view, not a feeling chart",
+            "explanation": "That answer changes the point: Tasks arranged across time."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_3_027",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_3_027",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.003"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What three parts does the Iron Triangle connect?",
+        "correctAnswer": "Scope, time, and cost",
+        "wrongAnswers": [
+          "Speed, fame, and creativity",
+          "People, profit, and mood",
+          "Budget, weather, and luck"
+        ],
+        "explanation": "Scope, time, and cost.",
+        "visibleCorrectExplanation": "Scope, time, and cost.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Speed, fame, and creativity",
+            "explanation": "That answer changes the point: Scope, time, and cost."
+          },
+          {
+            "label": "C",
+            "answer": "People, profit, and mood",
+            "explanation": "That answer changes the point: Scope, time, and cost."
+          },
+          {
+            "label": "D",
+            "answer": "Budget, weather, and luck",
+            "explanation": "That answer changes the point: Scope, time, and cost."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_4_070",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_4_070",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.004"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.005",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is one major difference between waterfall and agile approaches?",
+        "correctAnswer": "Waterfall follows a sequence, while agile expects change",
+        "wrongAnswers": [
+          "Agile rejects teamwork, while waterfall requires it",
+          "Waterfall is always faster than every agile method",
+          "Agile is used only outside technology"
+        ],
+        "explanation": "Waterfall follows a sequence, while agile expects change.",
+        "visibleCorrectExplanation": "Waterfall follows a sequence, while agile expects change.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Agile rejects teamwork, while waterfall requires it",
+            "explanation": "That answer changes the point: Waterfall follows a sequence, while agile expects change."
+          },
+          {
+            "label": "C",
+            "answer": "Waterfall is always faster than every agile method",
+            "explanation": "That answer changes the point: Waterfall follows a sequence, while agile expects change."
+          },
+          {
+            "label": "D",
+            "answer": "Agile is used only outside technology",
+            "explanation": "That answer changes the point: Waterfall follows a sequence, while agile expects change."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_5_102",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_5_102",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.005"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What was Taylorism trying to find?",
+        "correctAnswer": "The one best way to perform a task efficiently",
+        "wrongAnswers": [
+          "The most creative way to avoid routine",
+          "The slowest safe method for factories",
+          "The fairest possible leisure schedule"
+        ],
+        "explanation": "The one best way to perform a task efficiently.",
+        "visibleCorrectExplanation": "The one best way to perform a task efficiently.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The most creative way to avoid routine",
+            "explanation": "That answer changes the point: The one best way to perform a task efficiently."
+          },
+          {
+            "label": "C",
+            "answer": "The slowest safe method for factories",
+            "explanation": "That answer changes the point: The one best way to perform a task efficiently."
+          },
+          {
+            "label": "D",
+            "answer": "The fairest possible leisure schedule",
+            "explanation": "That answer changes the point: The one best way to perform a task efficiently."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_6_023",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_6_023",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.006"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.007",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does the Hawthorne Effect suggest?",
+        "correctAnswer": "People may change behavior when observed",
+        "wrongAnswers": [
+          "Workers always become slower in teams",
+          "Deadlines make every project simple",
+          "All management problems come from laziness"
+        ],
+        "explanation": "People may change behavior when observed.",
+        "visibleCorrectExplanation": "People may change behavior when observed.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Workers always become slower in teams",
+            "explanation": "That answer changes the point: People may change behavior when observed."
+          },
+          {
+            "label": "C",
+            "answer": "Deadlines make every project simple",
+            "explanation": "That answer changes the point: People may change behavior when observed."
+          },
+          {
+            "label": "D",
+            "answer": "All management problems come from laziness",
+            "explanation": "That answer changes the point: People may change behavior when observed."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_7_034",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_7_034",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.007"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.100.008",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What does the Pareto principle usually claim?",
+        "correctAnswer": "A small share of causes can produce many outcomes",
+        "wrongAnswers": [
+          "All work produces equal results",
+          "The last task always matters most",
+          "Hard work never changes results"
+        ],
+        "explanation": "A small share of causes can produce many outcomes.",
+        "visibleCorrectExplanation": "A small share of causes can produce many outcomes.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "All work produces equal results",
+            "explanation": "That answer changes the point: A small share of causes can produce many outcomes."
+          },
+          {
+            "label": "C",
+            "answer": "The last task always matters most",
+            "explanation": "That answer changes the point: A small share of causes can produce many outcomes."
+          },
+          {
+            "label": "D",
+            "answer": "Hard work never changes results",
+            "explanation": "That answer changes the point: A small share of causes can produce many outcomes."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L100_were-all-in-this-to-get-there_8_060",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L100_were-all-in-this-to-get-there_8_060",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.008"
+      }
+    ],
+    "200": [
+      {
+        "id": "question.were-all-in-this-to-get-there.200.001",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What do delayed megaprojects often have in common?",
+        "correctAnswer": "They face layers of technical, political, financial, or symbolic pressure",
+        "wrongAnswers": [
+          "They are delayed only because workers refuse to finish them",
+          "They all fail because architecture is impossible to manage",
+          "They are always cheaper when the schedule stretches"
+        ],
+        "explanation": "They face layers of technical, political, financial, or symbolic pressure.",
+        "visibleCorrectExplanation": "They face layers of technical, political, financial, or symbolic pressure.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They are delayed only because workers refuse to finish them",
+            "explanation": "That answer changes the point: They face layers of technical, political, financial, or symbolic pressure."
+          },
+          {
+            "label": "C",
+            "answer": "They all fail because architecture is impossible to manage",
+            "explanation": "That answer changes the point: They face layers of technical, political, financial, or symbolic pressure."
+          },
+          {
+            "label": "D",
+            "answer": "They are always cheaper when the schedule stretches",
+            "explanation": "That answer changes the point: They face layers of technical, political, financial, or symbolic pressure."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_1_162",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_1_162",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.001"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.002",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can ancient monuments count as project-management examples?",
+        "correctAnswer": "They required labor, resources, timing, authority, and logistics",
+        "wrongAnswers": [
+          "They were built using modern project software",
+          "They avoided planning by using only tradition",
+          "They were small enough for one person to manage"
+        ],
+        "explanation": "They required labor, resources, timing, authority, and logistics.",
+        "visibleCorrectExplanation": "They required labor, resources, timing, authority, and logistics.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They were built using modern project software",
+            "explanation": "That answer changes the point: They required labor, resources, timing, authority, and logistics."
+          },
+          {
+            "label": "C",
+            "answer": "They avoided planning by using only tradition",
+            "explanation": "That answer changes the point: They required labor, resources, timing, authority, and logistics."
+          },
+          {
+            "label": "D",
+            "answer": "They were small enough for one person to manage",
+            "explanation": "That answer changes the point: They required labor, resources, timing, authority, and logistics."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_2_201",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_2_201",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.002"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.003",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is one useful feature of a Gantt chart?",
+        "correctAnswer": "It shows tasks that overlap or depend on earlier work",
+        "wrongAnswers": [
+          "It removes all uncertainty from construction",
+          "It proves which worker is most valuable",
+          "It replaces the need for communication"
+        ],
+        "explanation": "It shows tasks that overlap or depend on earlier work.",
+        "visibleCorrectExplanation": "It shows tasks that overlap or depend on earlier work.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It removes all uncertainty from construction",
+            "explanation": "That answer changes the point: It shows tasks that overlap or depend on earlier work."
+          },
+          {
+            "label": "C",
+            "answer": "It proves which worker is most valuable",
+            "explanation": "That answer changes the point: It shows tasks that overlap or depend on earlier work."
+          },
+          {
+            "label": "D",
+            "answer": "It replaces the need for communication",
+            "explanation": "That answer changes the point: It shows tasks that overlap or depend on earlier work."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_3_146",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_3_146",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.003"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is a dependency in a project?",
+        "correctAnswer": "A task that must wait for another task",
+        "wrongAnswers": [
+          "A risk that has already happened",
+          "A worker who refuses to cooperate",
+          "A budget item with no deadline"
+        ],
+        "explanation": "A task that must wait for another task.",
+        "visibleCorrectExplanation": "A task that must wait for another task.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A risk that has already happened",
+            "explanation": "That answer changes the point: A task that must wait for another task."
+          },
+          {
+            "label": "C",
+            "answer": "A worker who refuses to cooperate",
+            "explanation": "That answer changes the point: A task that must wait for another task."
+          },
+          {
+            "label": "D",
+            "answer": "A budget item with no deadline",
+            "explanation": "That answer changes the point: A task that must wait for another task."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_4_109",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_4_109",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.004"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why can a company pivot be a strength?",
+        "correctAnswer": "It can respond to evidence that the first plan is not working",
+        "wrongAnswers": [
+          "It proves the original team had no useful idea",
+          "It removes all risk from the business model",
+          "It means planning never matters again"
+        ],
+        "explanation": "It can respond to evidence that the first plan is not working.",
+        "visibleCorrectExplanation": "It can respond to evidence that the first plan is not working.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves the original team had no useful idea",
+            "explanation": "That answer changes the point: It can respond to evidence that the first plan is not working."
+          },
+          {
+            "label": "C",
+            "answer": "It removes all risk from the business model",
+            "explanation": "That answer changes the point: It can respond to evidence that the first plan is not working."
+          },
+          {
+            "label": "D",
+            "answer": "It means planning never matters again",
+            "explanation": "That answer changes the point: It can respond to evidence that the first plan is not working."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_5_119",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_5_119",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.005"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What does an assembly line mainly do?",
+        "correctAnswer": "It divides production into repeated stages",
+        "wrongAnswers": [
+          "It lets every worker design a whole product alone",
+          "It removes all need for timing and sequence",
+          "It turns a factory into a voting system"
+        ],
+        "explanation": "It divides production into repeated stages.",
+        "visibleCorrectExplanation": "It divides production into repeated stages.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It lets every worker design a whole product alone",
+            "explanation": "That answer changes the point: It divides production into repeated stages."
+          },
+          {
+            "label": "C",
+            "answer": "It removes all need for timing and sequence",
+            "explanation": "That answer changes the point: It divides production into repeated stages."
+          },
+          {
+            "label": "D",
+            "answer": "It turns a factory into a voting system",
+            "explanation": "That answer changes the point: It divides production into repeated stages."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_6_116",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_6_116",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.006"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.007",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "What is the warning in Hofstadter’s Law?",
+        "correctAnswer": "Tasks often take longer than expected",
+        "wrongAnswers": [
+          "Estimates become perfect with practice",
+          "Every project speeds up near the end",
+          "Delays happen only without managers"
+        ],
+        "explanation": "Tasks often take longer than expected.",
+        "visibleCorrectExplanation": "Tasks often take longer than expected.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Estimates become perfect with practice",
+            "explanation": "That answer changes the point: Tasks often take longer than expected."
+          },
+          {
+            "label": "C",
+            "answer": "Every project speeds up near the end",
+            "explanation": "That answer changes the point: Tasks often take longer than expected."
+          },
+          {
+            "label": "D",
+            "answer": "Delays happen only without managers",
+            "explanation": "That answer changes the point: Tasks often take longer than expected."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_7_131",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_7_131",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.007"
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.200.008",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "How can 80/20 thinking help a project team?",
+        "correctAnswer": "It can focus attention on the work with the highest impact",
+        "wrongAnswers": [
+          "It proves most preparation can be skipped safely",
+          "It makes every low-value task disappear by itself",
+          "It replaces practice with a simple percentage rule"
+        ],
+        "explanation": "It can focus attention on the work with the highest impact.",
+        "visibleCorrectExplanation": "It can focus attention on the work with the highest impact.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It proves most preparation can be skipped safely",
+            "explanation": "That answer changes the point: It can focus attention on the work with the highest impact."
+          },
+          {
+            "label": "C",
+            "answer": "It makes every low-value task disappear by itself",
+            "explanation": "That answer changes the point: It can focus attention on the work with the highest impact."
+          },
+          {
+            "label": "D",
+            "answer": "It replaces practice with a simple percentage rule",
+            "explanation": "That answer changes the point: It can focus attention on the work with the highest impact."
+          }
+        ],
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "L200_were-all-in-this-to-get-there_8_141",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L200_were-all-in-this-to-get-there_8_141",
+        "sourceType": "entry.quizQuestions",
+        "entryId": "raw.were-all-in-this-to-get-there.008"
+      }
+    ],
+    "300": [
+      {
+        "id": "question.were-all-in-this-to-get-there.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Start with this detail: Individual incentives may not align with group goals. Which idea gives the best comparison?",
+        "correctAnswer": "Project dependencies",
+        "wrongAnswers": [
+          "Shared destinations and unequal benefits",
+          "Leadership and coordination",
+          "Morale and visible progress"
+        ],
+        "explanation": "Correct: Project dependencies.",
+        "visibleCorrectExplanation": "Correct: Project dependencies.",
+        "visibleConnection": "The question starts from a concrete detail in Collective action: Individual incentives may not align with group goals. It is really asking which answer handles a similar pressure. Project dependencies is the best connection because it shows that one person’s progress can be another person’s bottleneck; the route is chained, not individual. Both ideas ask alpacas to notice that Groups say “we” easily. The hard part is whether the work, benefit, and risk are actually shared.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there__275",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there__275",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Shared destinations and unequal benefits",
+            "explanation": "That answer changes the point: Project dependencies."
+          },
+          {
+            "label": "C",
+            "answer": "Leadership and coordination",
+            "explanation": "That answer changes the point: Project dependencies."
+          },
+          {
+            "label": "D",
+            "answer": "Morale and visible progress",
+            "explanation": "That answer changes the point: Project dependencies."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison to Shared destinations and unequal benefits?",
+        "correctAnswer": "Leadership and coordination",
+        "wrongAnswers": [
+          "Morale and visible progress",
+          "Consensus vs speed",
+          "Collective action"
+        ],
+        "explanation": "Correct: Leadership and coordination.",
+        "visibleCorrectExplanation": "Correct: Leadership and coordination.",
+        "visibleConnection": "The question starts from a concrete detail in Shared destinations and unequal benefits: The same destination may not mean the same thing to everyone. It is really asking which answer handles a similar pressure. Leadership and coordination is the best connection because it converts group movement into a design problem: someone must set direction without pretending direction equals consent. Both ideas ask alpacas to notice that A shared destination can be a slogan. The serious question is who arrives safer, richer, or more recognized.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there__276",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there__276",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Morale and visible progress",
+            "explanation": "That answer changes the point: Leadership and coordination."
+          },
+          {
+            "label": "C",
+            "answer": "Consensus vs speed",
+            "explanation": "That answer changes the point: Leadership and coordination."
+          },
+          {
+            "label": "D",
+            "answer": "Collective action",
+            "explanation": "That answer changes the point: Leadership and coordination."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea turns the same pressure behind Morale and visible progress into a different form?",
+        "correctAnswer": "Consensus vs speed",
+        "wrongAnswers": [
+          "Collective action",
+          "Project dependencies",
+          "Shared destinations and unequal benefits"
+        ],
+        "explanation": "Correct: Consensus vs speed.",
+        "visibleCorrectExplanation": "Correct: Consensus vs speed.",
+        "visibleConnection": "The question starts from a concrete detail in Morale and visible progress: Morale can collapse when effort feels invisible. It is really asking which answer handles a similar pressure. Consensus vs speed is the best connection because it turns group arrival into a trade-off between fast movement and legitimate movement. Both ideas ask alpacas to notice that Teams often need visible signs of movement before the work itself becomes rewarding.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there__277",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there__277",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Collective action",
+            "explanation": "That answer changes the point: Consensus vs speed."
+          },
+          {
+            "label": "C",
+            "answer": "Project dependencies",
+            "explanation": "That answer changes the point: Consensus vs speed."
+          },
+          {
+            "label": "D",
+            "answer": "Shared destinations and unequal benefits",
+            "explanation": "That answer changes the point: Consensus vs speed."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea gives the clearest comparison for Leadership and coordination?",
+        "correctAnswer": "Morale and visible progress",
+        "wrongAnswers": [
+          "Consensus vs speed",
+          "Collective action",
+          "Project dependencies"
+        ],
+        "explanation": "Correct: Morale and visible progress.",
+        "visibleCorrectExplanation": "Correct: Morale and visible progress.",
+        "visibleConnection": "The question starts from a concrete detail in Leadership and coordination: Leadership is not the same as control. It is really asking which answer handles a similar pressure. Morale and visible progress is the best connection because it uses signs of advancement to keep people moving when the real finish is distant or uncertain. Both ideas ask alpacas to notice that Leadership is not just choosing direction. It is making movement legible enough that others can trust the route.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there__278",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there__278",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Consensus vs speed",
+            "explanation": "That answer changes the point: Morale and visible progress."
+          },
+          {
+            "label": "C",
+            "answer": "Collective action",
+            "explanation": "That answer changes the point: Morale and visible progress."
+          },
+          {
+            "label": "D",
+            "answer": "Project dependencies",
+            "explanation": "That answer changes the point: Morale and visible progress."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.013",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which idea carries the same logic as Project dependencies?",
+        "correctAnswer": "Morale and visible progress",
+        "wrongAnswers": [
+          "Consensus vs speed",
+          "Collective action",
+          "Shared destinations and unequal benefits"
+        ],
+        "explanation": "Correct: Morale and visible progress.",
+        "visibleCorrectExplanation": "Correct: Morale and visible progress.",
+        "visibleConnection": "The question starts from a concrete detail in Project dependencies: A late dependency can delay the whole project. It is really asking which answer handles a similar pressure. Morale and visible progress is the best connection because it uses signs of advancement to keep people moving when the real finish is distant or uncertain. Both ideas ask alpacas to notice that Modern work often fails at the handoff, not the individual task. Dependency is where hidden delays live.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there__279",
+        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there__279",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Consensus vs speed",
+            "explanation": "That answer changes the point: Morale and visible progress."
+          },
+          {
+            "label": "C",
+            "answer": "Collective action",
+            "explanation": "That answer changes the point: Morale and visible progress."
+          },
+          {
+            "label": "D",
+            "answer": "Shared destinations and unequal benefits",
+            "explanation": "That answer changes the point: Morale and visible progress."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.001",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is Nusantara a strong example of project delay?",
+        "correctAnswer": "It links construction timelines to politics, budgets, and national priorities",
+        "wrongAnswers": [
+          "It was a private hotel that ran out of guests before opening",
+          "It was a medieval cathedral rebuilt after a civil war",
+          "It shows how one amusement park became a finished capital city"
+        ],
+        "explanation": "Correct: It links construction timelines to politics, budgets, and national priorities.",
+        "visibleCorrectExplanation": "Correct: It links construction timelines to politics, budgets, and national priorities.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_1_371",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_1_371",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was a private hotel that ran out of guests before opening",
+            "explanation": "That answer changes the point: It links construction timelines to politics, budgets, and national priorities."
+          },
+          {
+            "label": "C",
+            "answer": "It was a medieval cathedral rebuilt after a civil war",
+            "explanation": "That answer changes the point: It links construction timelines to politics, budgets, and national priorities."
+          },
+          {
+            "label": "D",
+            "answer": "It shows how one amusement park became a finished capital city",
+            "explanation": "That answer changes the point: It links construction timelines to politics, budgets, and national priorities."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.002",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What changed most from ancient coordination to modern project management?",
+        "correctAnswer": "The tools became more formal, measurable, and specialized",
+        "wrongAnswers": [
+          "The need for coordination disappeared completely",
+          "Human projects became simple and risk-free",
+          "Ancient builders had no methods for organization"
+        ],
+        "explanation": "Correct: The tools became more formal, measurable, and specialized.",
+        "visibleCorrectExplanation": "Correct: The tools became more formal, measurable, and specialized.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_2_372",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_2_372",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The need for coordination disappeared completely",
+            "explanation": "That answer changes the point: The tools became more formal, measurable, and specialized."
+          },
+          {
+            "label": "C",
+            "answer": "Human projects became simple and risk-free",
+            "explanation": "That answer changes the point: The tools became more formal, measurable, and specialized."
+          },
+          {
+            "label": "D",
+            "answer": "Ancient builders had no methods for organization",
+            "explanation": "That answer changes the point: The tools became more formal, measurable, and specialized."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.003",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is Hoover Dam useful in the creative process?",
+        "correctAnswer": "It connects scheduling tools to a real large construction project",
+        "wrongAnswers": [
+          "It shows that charts matter only in software design",
+          "It proves ancient builders used modern scheduling apps",
+          "It replaces the need to understand Gantt charts"
+        ],
+        "explanation": "Correct: It connects scheduling tools to a real large construction project.",
+        "visibleCorrectExplanation": "Correct: It connects scheduling tools to a real large construction project.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_3_373",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_3_373",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It shows that charts matter only in software design",
+            "explanation": "That answer changes the point: It connects scheduling tools to a real large construction project."
+          },
+          {
+            "label": "C",
+            "answer": "It proves ancient builders used modern scheduling apps",
+            "explanation": "That answer changes the point: It connects scheduling tools to a real large construction project."
+          },
+          {
+            "label": "D",
+            "answer": "It replaces the need to understand Gantt charts",
+            "explanation": "That answer changes the point: It connects scheduling tools to a real large construction project."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.004",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why is a risk register useful?",
+        "correctAnswer": "It records possible problems before they become crises",
+        "wrongAnswers": [
+          "It guarantees that no risk can happen",
+          "It replaces scheduling and communication",
+          "It is only a list of finished tasks"
+        ],
+        "explanation": "Correct: It records possible problems before they become crises.",
+        "visibleCorrectExplanation": "Correct: It records possible problems before they become crises.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_4_374",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_4_374",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It guarantees that no risk can happen",
+            "explanation": "That answer changes the point: It records possible problems before they become crises."
+          },
+          {
+            "label": "C",
+            "answer": "It replaces scheduling and communication",
+            "explanation": "That answer changes the point: It records possible problems before they become crises."
+          },
+          {
+            "label": "D",
+            "answer": "It is only a list of finished tasks",
+            "explanation": "That answer changes the point: It records possible problems before they become crises."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.005",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What do YouTube, Netflix, Amazon, and Slack show in the creative process?",
+        "correctAnswer": "A project can become valuable after changing direction",
+        "wrongAnswers": [
+          "Every successful company begins as a video game feature",
+          "A business should always abandon its first product",
+          "Pivots work only when companies sell books online"
+        ],
+        "explanation": "Correct: A project can become valuable after changing direction.",
+        "visibleCorrectExplanation": "Correct: A project can become valuable after changing direction.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_5_375",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_5_375",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Every successful company begins as a video game feature",
+            "explanation": "That answer changes the point: A project can become valuable after changing direction."
+          },
+          {
+            "label": "C",
+            "answer": "A business should always abandon its first product",
+            "explanation": "That answer changes the point: A project can become valuable after changing direction."
+          },
+          {
+            "label": "D",
+            "answer": "Pivots work only when companies sell books online",
+            "explanation": "That answer changes the point: A project can become valuable after changing direction."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can bureaucracy be useful in large organizations?",
+        "correctAnswer": "It creates predictable rules, roles, and authority",
+        "wrongAnswers": [
+          "It makes every decision personal and improvised",
+          "It removes the need for records or hierarchy",
+          "It guarantees workers always feel free"
+        ],
+        "explanation": "Correct: It creates predictable rules, roles, and authority.",
+        "visibleCorrectExplanation": "Correct: It creates predictable rules, roles, and authority.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_6_376",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_6_376",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It makes every decision personal and improvised",
+            "explanation": "That answer changes the point: It creates predictable rules, roles, and authority."
+          },
+          {
+            "label": "C",
+            "answer": "It removes the need for records or hierarchy",
+            "explanation": "That answer changes the point: It creates predictable rules, roles, and authority."
+          },
+          {
+            "label": "D",
+            "answer": "It guarantees workers always feel free",
+            "explanation": "That answer changes the point: It creates predictable rules, roles, and authority."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "What does Brooks’ Law warn about?",
+        "correctAnswer": "Adding people to a late project can make it later",
+        "wrongAnswers": [
+          "A larger team always finishes faster",
+          "Understaffing is the only reason for delay",
+          "More communication always removes complexity"
+        ],
+        "explanation": "Correct: Adding people to a late project can make it later.",
+        "visibleCorrectExplanation": "Correct: Adding people to a late project can make it later.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_7_377",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_7_377",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A larger team always finishes faster",
+            "explanation": "That answer changes the point: Adding people to a late project can make it later."
+          },
+          {
+            "label": "C",
+            "answer": "Understaffing is the only reason for delay",
+            "explanation": "That answer changes the point: Adding people to a late project can make it later."
+          },
+          {
+            "label": "D",
+            "answer": "More communication always removes complexity",
+            "explanation": "That answer changes the point: Adding people to a late project can make it later."
+          }
+        ]
+      },
+      {
+        "id": "question.were-all-in-this-to-get-there.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why can the Pareto principle be misleading?",
+        "correctAnswer": "People may guess the important 20% without evidence",
+        "wrongAnswers": [
+          "It has no connection to work or studying",
+          "It always forces people to overwork",
+          "It applies only to factories and never to learning"
+        ],
+        "explanation": "Correct: People may guess the important 20% without evidence.",
+        "visibleCorrectExplanation": "Correct: People may guess the important 20% without evidence.",
+        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_were-all-in-this-to-get-there_8_378",
+        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
+        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sectionId": "were-all-in-this-to-get-there",
+        "sectionIds": [
+          "were-all-in-this-to-get-there"
+        ],
+        "guidingSectionPrimary": "We're All in This to Get There",
+        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sourceId": "L300_were-all-in-this-to-get-there_8_378",
+        "sourceType": "section.guideQuestions",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It has no connection to work or studying",
+            "explanation": "That answer changes the point: People may guess the important 20% without evidence."
+          },
+          {
+            "label": "C",
+            "answer": "It always forces people to overwork",
+            "explanation": "That answer changes the point: People may guess the important 20% without evidence."
+          },
+          {
+            "label": "D",
+            "answer": "It applies only to factories and never to learning",
+            "explanation": "That answer changes the point: People may guess the important 20% without evidence."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "guide.home-and-wandering",
+  "sectionId": "home-and-wandering",
+  "title": "Home and Wandering",
+  "href": "content/regular-guides/pdf/home-and-wandering.pdf",
+  "pdfHref": "content/regular-guides/pdf/home-and-wandering.pdf",
+  "docxHref": "content/regular-guides/docx/home-and-wandering.docx",
+  "hasInlineHtml": true,
+  "htmlPath": "./guide.html"
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Two homes split screen stimulus</title>
+  <desc id="desc">A split screen contrasts a packed suitcase at one doorway with a distant map pin, making home feel divided across places.</desc>
+  <rect width="1280" height="720" fill="#f6efe3"/>
+  <rect width="640" height="720" fill="#f2d7bd"/>
+  <rect x="640" width="640" height="720" fill="#d8e7ec"/>
+  <line x1="640" y1="0" x2="640" y2="720" stroke="#6b4e16" stroke-width="8"/>
+  <g transform="translate(96 94)">
+    <rect x="270" y="0" width="190" height="500" rx="4" fill="#8c5b3b"/>
+    <rect x="306" y="54" width="118" height="392" fill="#f7ead6"/>
+    <circle cx="410" cy="254" r="9" fill="#6b4e16"/>
+    <rect x="64" y="386" width="250" height="144" rx="18" fill="#344e68"/>
+    <rect x="105" y="344" width="168" height="70" rx="32" fill="none" stroke="#344e68" stroke-width="18"/>
+    <rect x="92" y="418" width="194" height="18" rx="9" fill="#f7c56a"/>
+    <text x="250" y="590" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="#422818">leaving</text>
+  </g>
+  <g transform="translate(744 88)">
+    <rect x="0" y="0" width="420" height="522" rx="22" fill="#ffffff" stroke="#6e8790" stroke-width="6"/>
+    <path d="M60 118c78 34 108-56 184-22 78 34 100-4 132-48" fill="none" stroke="#8bb8a2" stroke-width="24" stroke-linecap="round"/>
+    <path d="M44 320c96-80 130 36 228-18 64-36 92-20 112 28" fill="none" stroke="#9fc3d2" stroke-width="22" stroke-linecap="round"/>
+    <path d="M212 154c-54 0-98 44-98 98 0 74 98 172 98 172s98-98 98-172c0-54-44-98-98-98z" fill="#b3272d"/>
+    <circle cx="212" cy="252" r="38" fill="#fff1e0"/>
+    <g stroke="#b3272d" stroke-width="5" fill="none" opacity=".55">
+      <circle cx="212" cy="252" r="78"/>
+      <circle cx="212" cy="252" r="122"/>
+    </g>
+    <text x="210" y="594" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="#233f49">still here?</text>
+  </g>
+</svg>

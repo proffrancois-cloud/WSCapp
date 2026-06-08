@@ -1,0 +1,123 @@
+{
+  "id": "channel.introductory-questions",
+  "sectionId": "introductory-questions",
+  "videos": [
+    {
+      "id": "video.introductory-questions.001",
+      "playlistIndex": 18,
+      "title": "I Just Can't Wait to be King   Lyrics",
+      "channel": "Lucy Disney",
+      "url": "https://www.youtube.com/watch?v=x8EYP14lLyY",
+      "duration": "2:55",
+      "uploadDate": "2013-08-31T17:19:04-07:00",
+      "viewCount": 254616,
+      "contentType": "music/song",
+      "formatStyle": "audio/music video",
+      "score": 6.3,
+      "verdict": "Useful WSC support, especially with teacher framing.",
+      "description": "Walt Disney Pictures Dedicated to DisneySongsLover WSC link: Concluding Questions / Perseverance and quitting.",
+      "keyTerms": [
+        "disney",
+        "king",
+        "lyrics",
+        "can't",
+        "wait",
+        "lucy",
+        "walt",
+        "pictures",
+        "dedicated",
+        "disneysongslover",
+        "lion",
+        "film"
+      ],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "sectionTitles": [
+        "Introductory Questions"
+      ],
+      "entryTitles": [
+        "Simba, Teenagers, and Life in the In-Between"
+      ],
+      "bigIdeaLabels": [
+        "Endings",
+        "Progress",
+        "Thresholds",
+        "Perseverance and quitting",
+        "Apocalyptic aesthetics",
+        "Waiting"
+      ],
+      "bigIdeaIds": [
+        "endings",
+        "progress",
+        "thresholds",
+        "perseverance-and-quitting",
+        "apocalyptic-aesthetics",
+        "waiting"
+      ],
+      "subjectLabels": [
+        "Media / Film",
+        "Psychology"
+      ],
+      "subjectIds": [
+        "media-film",
+        "psychology"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "introductory-questions",
+          "sectionTitle": "Introductory Questions",
+          "entryTitle": "Simba, Teenagers, and Life in the In-Between",
+          "why": "Approved review placement under Simba, Teenagers, and Life in the In-Between."
+        }
+      ],
+      "sourceId": "playlist-018-x8EYP14lLyY",
+      "canonicalSectionId": "introductory-questions",
+      "assetId": null
+    },
+    {
+      "id": "video.introductory-questions.002",
+      "title": "Frank Sinatra - My Way (Lyrics)",
+      "url": "https://www.youtube.com/watch?v=6pcwq2usV7Y",
+      "channel": "YouTube",
+      "duration": "Unknown",
+      "uploadDate": "Unknown",
+      "contentType": "video",
+      "formatStyle": "video",
+      "score": 10,
+      "verdict": "Manual placement requested by user.",
+      "description": "Manual Alpaca Channel placement for Frank Sinatra, My Way.",
+      "keyTerms": [],
+      "transcriptAvailable": false,
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "sectionTitles": [
+        "Introductory Questions"
+      ],
+      "entryTitles": [
+        "Frank Sinatra, My Way"
+      ],
+      "connections": [
+        {
+          "kind": "entry",
+          "sectionId": "introductory-questions",
+          "sectionTitle": "Introductory Questions",
+          "entryTitle": "Frank Sinatra, My Way",
+          "why": "Manually placed under Frank Sinatra, My Way."
+        }
+      ],
+      "subjectLabels": [
+        "Visual and Performing Arts"
+      ],
+      "subjectIds": [
+        "visual-and-performing-arts"
+      ],
+      "sourceId": "manual-6pcwq2usV7Y",
+      "canonicalSectionId": "introductory-questions",
+      "assetId": null
+    }
+  ]
+}

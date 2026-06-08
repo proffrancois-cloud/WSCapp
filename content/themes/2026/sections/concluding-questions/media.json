@@ -1,0 +1,110 @@
+{
+  "id": "media.concluding-questions",
+  "sectionId": "concluding-questions",
+  "assets": [
+    {
+      "id": "asset.concluding-questions.raw.achilles-and-the-tortoise",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/achilles-and-the-tortoise.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.arrival-as-a-new-beginning",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/arrival-as-a-new-beginning.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.can-history-have-a-final-destination",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/can-history-have-a-final-destination.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.future-costs-vs-past-costs",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/future-costs-vs-past-costs.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.infinite-steps-finite-arrival",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/infinite-steps-finite-arrival.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.the-arrow-paradox",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/the-arrow-paradox.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.the-dichotomy-paradox",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/the-dichotomy-paradox.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.what-now",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/what-now.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.when-past-effort-becomes-a-trap",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/when-past-effort-becomes-a-trap.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.when-patience-becomes-a-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/when-patience-becomes-a-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.when-timing-helps",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/when-timing-helps.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.when-timing-hurts",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/when-timing-hurts.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.concluding-questions.raw.why-some-people-can-wait",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/concluding-questions/why-some-people-can-wait.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}

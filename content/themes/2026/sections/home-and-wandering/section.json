@@ -1,0 +1,45 @@
+{
+  "id": "home-and-wandering",
+  "title": "Home and Wandering",
+  "shortTitle": "Home and Wandering",
+  "originalTitle": "Home and Wandering",
+  "order": 11,
+  "themeId": "wsc-2026",
+  "blurb": "Navigation, migration, compasses, maps, and the pull of home.",
+  "angle": "To arrive anywhere, you first need some way to know where you are going.",
+  "subjectIds": [
+    "history",
+    "geography-human-geography",
+    "sciences",
+    "psychology",
+    "computer-science-technology",
+    "philosophy",
+    "politics-and-government-global-politics",
+    "language-and-literature",
+    "visual-and-performing-arts"
+  ],
+  "bigIdeaIds": [
+    "movement-without-arrival",
+    "infrastructure-shapes-behavior",
+    "narrated-endings",
+    "performed-progress",
+    "visible-vs-real",
+    "incompletion-that-stays-active",
+    "thresholds-and-irreversibility",
+    "managing-uncertainty",
+    "delayed-arrival"
+  ],
+  "legacyIds": [],
+  "assetIds": {
+    "cover": "asset.home-and-wandering.card.cover",
+    "icon": "asset.home-and-wandering.icon"
+  },
+  "contentRefs": {
+    "rawContent": "raw.home-and-wandering",
+    "questions": "questions.home-and-wandering",
+    "guide": "guide.home-and-wandering",
+    "media": "media.home-and-wandering",
+    "alpacards": "alpacards.home-and-wandering",
+    "channelVideos": "channel.home-and-wandering"
+  }
+}

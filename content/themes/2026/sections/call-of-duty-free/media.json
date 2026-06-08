@@ -1,0 +1,382 @@
+{
+  "id": "media.call-of-duty-free",
+  "sectionId": "call-of-duty-free",
+  "assets": [
+    {
+      "id": "asset.call-of-duty-free.alpacard.caravanserais",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/caravanserais.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.alpacard.inns-and-taverns",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/inns-and-taverns.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.alpacard.medieval-monasteries-as-lodging",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/medieval-monasteries-as-lodging.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.alpacard.nishiyama-onsen-keiunkan",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/nishiyama-onsen-keiunkan.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.alpacard.post-houses",
+      "type": "image",
+      "role": "alpacard",
+      "path": "assets/flashcards/alpacards/post-houses.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.deep-exchange-tourism",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/deep-exchange-tourism.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.golden-age-flying-boat-cabin-16x9",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/golden-age-flying-boat-cabin-16x9.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.goods-transfer-network",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/goods-transfer-network.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image10",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image10.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image11",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image11.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image12",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image12.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image13",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image13.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image14",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image14.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image16",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image16.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image17",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image17.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image18",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image18.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image19",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image19.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image20",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image20.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image21",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image21.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image22",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image22.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image23",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image23.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image24",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image24.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image25",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image25.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image26",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image26.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image27",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image27.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image28",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image28.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image29",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image29.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image30",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image30.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image31",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image31.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image32",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image32.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image33",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image33.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image34",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image34.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image35",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image35.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image36",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image36.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image37",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image37.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image38",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image38.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image39",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image39.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image4",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image4.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image40",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image40.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image5",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image5.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image6",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image6.png",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image7",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image7.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image8",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image8.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.image9",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/image9.jpeg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.nishiyama-onsen-keiunkan",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/nishiyama-onsen-keiunkan.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.ordinary-travel-problem",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/ordinary-travel-problem.jpg",
+      "alt": "",
+      "credit": ""
+    },
+    {
+      "id": "asset.call-of-duty-free.raw.tourist-misbehavior-social-distance",
+      "type": "image",
+      "role": "raw",
+      "path": "assets/raw-content/call-of-duty-free/tourist-misbehavior-social-distance.jpg",
+      "alt": "",
+      "credit": ""
+    }
+  ]
+}
