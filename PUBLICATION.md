@@ -1,8 +1,11 @@
 # Publication
 
-The active online app is published on Vercel from the `app/` folder.
+The active production app is published on Vercel from the `app/` folder.
 
-This repository also includes a GitHub Pages workflow for sharing a public 3D app demo without touching Vercel.
+This repository also includes a GitHub Pages workflow for sharing the full app
+from GitHub without touching Vercel. The GitHub Pages build serves the same
+static app root and overlays the built 3D campus so `Alpaca Online` can open
+the campus from the main app.
 
 ## Published Target
 
@@ -10,16 +13,30 @@ This repository also includes a GitHub Pages workflow for sharing a public 3D ap
 - Vercel config: `vercel.json`
 - Published folder: `app/`
 
-## GitHub Pages Demo
+## GitHub Pages
 
 - Workflow: `.github/workflows/pages.yml`
 - Build command: `cd app && npm run build:pages`
 - Pages artifact: `app/dist-pages/`
 - App entry: `/`
 - 3D campus entry: `/alpaca-campus-3d/`
-- Expected URL after Pages is enabled: `https://proffrancois-cloud.github.io/WSCapp/`
+- Published URL: `https://proffrancois-cloud.github.io/WSCapp/`
 
 The workflow sets `VITE_BASE` to `/${{ github.event.repository.name }}/`, builds the Vite 3D campus, copies the Vercel-style app root into the Pages artifact, and overlays the built 3D campus so the main app can launch it from Alpaca Online.
+
+Current GitHub Pages behavior:
+
+- `/` opens the main WSC app.
+- `Join online` / `Alpaca Online` opens `./alpaca-campus-3d/?mode=multiplayer`.
+- the campus auto-selects multiplayer mode from the query string.
+- public 3D assets are resolved with a base path that works under `/WSCapp/`.
+
+Current Vercel behavior:
+
+- Vercel still publishes the static `app/` folder directly.
+- The GitHub Pages workflow does not update Vercel.
+- Publish the 3D campus to Vercel only after an explicit Vercel build plan is
+  approved.
 
 ## What Gets Published
 
