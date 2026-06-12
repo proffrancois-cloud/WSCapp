@@ -12,6 +12,7 @@ const appAuthService = window.WSC_AUTH_SERVICE || null;
 const appEntryService = window.WSC_APP_ENTRY_SERVICE;
 const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
 const appStateService = window.WSC_APP_STATE_SERVICE;
+const appDomService = window.WSC_APP_DOM_SERVICE;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2333,23 +2334,7 @@ const state = appStateService.createInitialState({
   rawMastery: loadRawMastery()
 });
 
-const refs = {
-  heroMascot: document.getElementById("heroMascot"),
-  statsStrip: document.getElementById("statsStrip"),
-  sessionControls: document.getElementById("sessionControls"),
-  heroOnlineMount: document.getElementById("heroOnlineMount"),
-  appEntryGateMount: document.getElementById("appEntryGateMount"),
-  cooperationModalMount: document.getElementById("cooperationModalMount"),
-  insightGrid: document.getElementById("insightGrid"),
-  routeBuilder: document.getElementById("routeBuilder"),
-  routeBuilderTitle: document.getElementById("routeBuilderTitle"),
-  choiceSummary: document.getElementById("choiceSummary"),
-  wizardRailMount: document.getElementById("wizardRailMount"),
-  wizardSteps: document.getElementById("wizardSteps"),
-  experiencePanel: document.getElementById("experiencePanel"),
-  resourcesModalMount: document.getElementById("resourcesModalMount"),
-  authModalMount: document.getElementById("authModalMount")
-};
+const refs = appDomService.getAppRefs(document);
 
 const RESOURCE_LINKS = [
   {
@@ -2511,7 +2496,7 @@ function init() {
     setupSupabaseAuth,
     () => {
       if (refs.heroMascot) {
-        refs.heroMascot.innerHTML = renderHeroVisual();
+        appDomService.setHtml(refs.heroMascot, renderHeroVisual());
       }
     },
     renderInsights,
@@ -4102,16 +4087,19 @@ function renderInsights() {
   if (!refs.insightGrid) {
     return;
   }
-  refs.insightGrid.innerHTML = data.insights
-    .map(
-      (insight) => `
+  appDomService.setHtml(
+    refs.insightGrid,
+    data.insights
+      .map(
+        (insight) => `
         <article class="insight-card">
           <strong>${escapeHtml(insight.title)}</strong>
           <span>${escapeHtml(insight.body)}</span>
         </article>
       `
-    )
-    .join("");
+      )
+      .join("")
+  );
 }
 
 function renderStats() {
@@ -4120,7 +4108,7 @@ function renderStats() {
   }
 
   if (appStateService.isOnlineMode(state)) {
-    refs.statsStrip.innerHTML = renderOnlineScoreStrip();
+    appDomService.setHtml(refs.statsStrip, renderOnlineScoreStrip());
     return;
   }
 
@@ -4131,7 +4119,7 @@ function renderStats() {
   const mastered = getMasteredRawEntryCount();
   const masteredPercent = totalMasterable ? Math.round((mastered / totalMasterable) * 100) : 0;
 
-  refs.statsStrip.innerHTML = `
+  appDomService.setHtml(refs.statsStrip, `
     <div class="hero-progress-circles" aria-label="Progress circles">
       ${renderProgressCircleStatCard(
         "Questions answered",
@@ -4147,7 +4135,7 @@ function renderStats() {
       )}
     </div>
     ${renderBestScoreStrip()}
-  `;
+  `);
 }
 
 function renderSessionControls() {
@@ -4175,12 +4163,12 @@ function renderSessionControls() {
     </button>
   `;
   if (refs.heroOnlineMount) {
-    refs.heroOnlineMount.innerHTML = modeButton;
+    appDomService.setHtml(refs.heroOnlineMount, modeButton);
   }
 
   if (!isSignedIn()) {
     refs.sessionControls.classList.remove("hidden");
-    refs.sessionControls.innerHTML = `
+    appDomService.setHtml(refs.sessionControls, `
       <div class="session-control-stack">
         <button
           class="hero-link-icon session-signout-button"
@@ -4192,12 +4180,12 @@ function renderSessionControls() {
           <img src="./assets/icons/ui/signin.png?v=20260509t" alt="Alpaccount icon" />
         </button>
       </div>
-    `;
+    `);
     return;
   }
 
   refs.sessionControls.classList.remove("hidden");
-  refs.sessionControls.innerHTML = `
+  appDomService.setHtml(refs.sessionControls, `
     <div class="session-control-stack">
       <button
         class="hero-link-icon session-signout-button"
@@ -4209,7 +4197,7 @@ function renderSessionControls() {
         <img src="./assets/footer/logout-icon.png?v=20260429b" alt="Log out icon" />
       </button>
     </div>
-  `;
+  `);
 }
 
 function renderAppEntryGate() {
@@ -4218,13 +4206,13 @@ function renderAppEntryGate() {
   }
 
   if (!state.ui.appEntryGateOpen) {
-    refs.appEntryGateMount.innerHTML = "";
+    appDomService.clearHtml(refs.appEntryGateMount);
     return;
   }
 
   const onlineAllowed = canAccessMultiplayer();
 
-  refs.appEntryGateMount.innerHTML = `
+  appDomService.setHtml(refs.appEntryGateMount, `
     <div class="app-entry-gate-overlay" role="dialog" aria-modal="true" aria-label="App mode">
       <article class="app-entry-gate-window">
         ${renderAppEntryAuthPanel()}
@@ -4253,7 +4241,7 @@ function renderAppEntryGate() {
         </div>
       </article>
     </div>
-  `;
+  `);
 }
 
 function renderAppEntryAuthPanel() {
@@ -4481,7 +4469,7 @@ function renderSummary() {
   }
 
   if (state.ui.appShellMode === "online") {
-    refs.choiceSummary.innerHTML = "";
+    appDomService.clearHtml(refs.choiceSummary);
     refs.choiceSummary.classList.add("hidden");
     return;
   }
@@ -4500,7 +4488,7 @@ function renderSummary() {
     chips.push(renderSummaryChip("Next Stop", getModeOption(mode).title));
   }
 
-  refs.choiceSummary.innerHTML = chips.join("");
+  appDomService.setHtml(refs.choiceSummary, chips.join(""));
   refs.choiceSummary.classList.toggle("hidden", chips.length === 0);
 }
 
@@ -4519,9 +4507,9 @@ function renderWizard() {
       refs.routeBuilderTitle.textContent = "";
     }
     if (refs.wizardRailMount) {
-      refs.wizardRailMount.innerHTML = "";
+      appDomService.clearHtml(refs.wizardRailMount);
     }
-    refs.wizardSteps.innerHTML = renderAlpacaOnlineHub();
+    appDomService.setHtml(refs.wizardSteps, renderAlpacaOnlineHub());
     return;
   }
 
@@ -4532,10 +4520,10 @@ function renderWizard() {
   }
 
   if (refs.wizardRailMount) {
-    refs.wizardRailMount.innerHTML = renderedWizard.railHtml;
+    appDomService.setHtml(refs.wizardRailMount, renderedWizard.railHtml);
   }
 
-  refs.wizardSteps.innerHTML = renderedWizard.stepsHtml;
+  appDomService.setHtml(refs.wizardSteps, renderedWizard.stepsHtml);
 }
 
 function renderAlpacaOnlineHub() {
@@ -4572,13 +4560,7 @@ function getLiveOverlayRenderContext() {
 }
 
 function getLiveOverlayMount() {
-  let mount = document.getElementById("liveOverlayMount");
-  if (!mount) {
-    mount = document.createElement("div");
-    mount.id = "liveOverlayMount";
-    document.body.appendChild(mount);
-  }
-  return mount;
+  return appDomService.ensureBodyMount({ documentRef: document, id: "liveOverlayMount" });
 }
 
 function renderLiveOverlayMount() {
@@ -4588,15 +4570,13 @@ function renderLiveOverlayMount() {
     : "";
 
   if (!html) {
-    mount.innerHTML = "";
+    appDomService.clearHtml(mount);
     return;
   }
 
-  const template = document.createElement("template");
-  template.innerHTML = html.trim();
-  const nextOverlay = template.content.firstElementChild;
+  const nextOverlay = appDomService.parseFirstElement(html, document);
   if (!nextOverlay) {
-    mount.innerHTML = "";
+    appDomService.clearHtml(mount);
     return;
   }
 
@@ -4606,7 +4586,7 @@ function renderLiveOverlayMount() {
     return;
   }
 
-  mount.replaceChildren(nextOverlay);
+  appDomService.replaceChildren(mount, nextOverlay);
 }
 
 function canPatchLiveWaitingOverlay(currentOverlay, nextOverlay) {
@@ -5983,7 +5963,7 @@ function renderExperience() {
     state.ui.rawMediaSwipeStartX = null;
     refs.experiencePanel.classList.add("hidden");
     refs.experiencePanel.classList.remove("experience-panel--mindmap");
-    refs.experiencePanel.innerHTML = "";
+    appDomService.clearHtml(refs.experiencePanel);
     stopMindMapOrbitAnimation();
     syncPopupScrollLock();
     return;
@@ -5994,7 +5974,7 @@ function renderExperience() {
     state.ui.rawMediaSwipeStartX = null;
     refs.experiencePanel.classList.add("hidden");
     refs.experiencePanel.classList.remove("experience-panel--mindmap");
-    refs.experiencePanel.innerHTML = "";
+    appDomService.clearHtml(refs.experiencePanel);
     stopMindMapOrbitAnimation();
     syncPopupScrollLock();
     return;
@@ -6009,37 +5989,37 @@ function renderExperience() {
   }
 
   if (state.experience.type === "slideshow") {
-    refs.experiencePanel.innerHTML = renderSlideshowExperience();
+    appDomService.setHtml(refs.experiencePanel, renderSlideshowExperience());
   } else if (state.experience.type === "mindmap") {
-    refs.experiencePanel.innerHTML = renderMindMapExperience();
+    appDomService.setHtml(refs.experiencePanel, renderMindMapExperience());
   } else if (state.experience.type === "rawcontent") {
-    refs.experiencePanel.innerHTML = renderRawContentExperience();
+    appDomService.setHtml(refs.experiencePanel, renderRawContentExperience());
   } else if (state.experience.type === "regularguide") {
-    refs.experiencePanel.innerHTML = renderRegularGuideExperience();
+    appDomService.setHtml(refs.experiencePanel, renderRegularGuideExperience());
   } else if (state.experience.type === "channel") {
-    refs.experiencePanel.innerHTML = renderAlpacaChannelExperience();
+    appDomService.setHtml(refs.experiencePanel, renderAlpacaChannelExperience());
   } else if (state.experience.type === "alpacard") {
-    refs.experiencePanel.innerHTML = renderAlpacardExperience();
+    appDomService.setHtml(refs.experiencePanel, renderAlpacardExperience());
   } else if (state.experience.type === "writing") {
-    refs.experiencePanel.innerHTML = renderWritingExperience();
+    appDomService.setHtml(refs.experiencePanel, renderWritingExperience());
   } else if (state.experience.type === "quiz") {
-    refs.experiencePanel.innerHTML = renderQuizExperience();
+    appDomService.setHtml(refs.experiencePanel, renderQuizExperience());
   } else if (state.experience.type === "bowl") {
-    refs.experiencePanel.innerHTML = renderBowlExperience();
+    appDomService.setHtml(refs.experiencePanel, renderBowlExperience());
   } else if (state.experience.type === "race") {
-    refs.experiencePanel.innerHTML = renderRaceExperience();
+    appDomService.setHtml(refs.experiencePanel, renderRaceExperience());
   } else if (state.experience.type === "jump") {
-    refs.experiencePanel.innerHTML = renderJumpExperience();
+    appDomService.setHtml(refs.experiencePanel, renderJumpExperience());
   } else if (state.experience.type === "jeopardy") {
-    refs.experiencePanel.innerHTML = renderJeopardyExperience();
+    appDomService.setHtml(refs.experiencePanel, renderJeopardyExperience());
   } else if (state.experience.type === "run") {
-    refs.experiencePanel.innerHTML = renderRunExperience();
+    appDomService.setHtml(refs.experiencePanel, renderRunExperience());
   } else if (state.experience.type === "relay") {
-    refs.experiencePanel.innerHTML = renderRelayExperience();
+    appDomService.setHtml(refs.experiencePanel, renderRelayExperience());
   } else if (state.experience.type === "buildcase") {
-    refs.experiencePanel.innerHTML = renderBuildCaseExperience();
+    appDomService.setHtml(refs.experiencePanel, renderBuildCaseExperience());
   } else if (state.experience.type === "unavailable") {
-    refs.experiencePanel.innerHTML = renderUnavailableModeExperience();
+    appDomService.setHtml(refs.experiencePanel, renderUnavailableModeExperience());
   }
 
   syncExperienceTimers();
@@ -6575,19 +6555,7 @@ function handleMindMapGalleryWheel(event) {
 }
 
 function replaceMarkup(target, markup) {
-  if (!target) {
-    return null;
-  }
-
-  const template = document.createElement("template");
-  template.innerHTML = markup.trim();
-  const nextNode = template.content.firstElementChild;
-  if (!nextNode) {
-    return null;
-  }
-
-  target.replaceWith(nextNode);
-  return nextNode;
+  return appDomService.replaceWithMarkup(target, markup, document);
 }
 
 function refreshRunTimerDisplay(experience) {
@@ -7138,7 +7106,7 @@ function renderAuthModal() {
     return;
   }
 
-  refs.authModalMount.innerHTML = authModalRenderer.renderModal(getAuthRenderContext(), { escapeHtml });
+  appDomService.setHtml(refs.authModalMount, authModalRenderer.renderModal(getAuthRenderContext(), { escapeHtml }));
 }
 
 function renderAuthGate() {
@@ -7225,7 +7193,7 @@ function renderResourcesModal() {
     return;
   }
 
-  refs.resourcesModalMount.innerHTML = state.ui.resourcesOpen ? `
+  appDomService.setHtml(refs.resourcesModalMount, state.ui.resourcesOpen ? `
     <div class="auth-modal-overlay" data-close-resources role="dialog" aria-modal="true" aria-label="Route resources">
       <div class="auth-modal-window resources-modal-window" data-resources-window>
         <button class="popup-close-button" type="button" data-close-resources aria-label="Close route resources">
@@ -7249,7 +7217,7 @@ function renderResourcesModal() {
         </div>
       </div>
     </div>
-  ` : "";
+  ` : "");
 }
 
 function renderCooperationModal() {
@@ -7257,7 +7225,7 @@ function renderCooperationModal() {
     return;
   }
 
-  refs.cooperationModalMount.innerHTML = state.ui.cooperationOpen ? `
+  appDomService.setHtml(refs.cooperationModalMount, state.ui.cooperationOpen ? `
     <div class="auth-modal-overlay cooperation-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cooperationModalTitle">
       <div class="auth-modal-window cooperation-modal-window">
         <button class="popup-close-button" type="button" data-close-cooperation aria-label="Close call to cooperation">
@@ -7323,7 +7291,7 @@ function renderCooperationModal() {
         </div>
       </div>
     </div>
-  ` : "";
+  ` : "");
 }
 
 function buildSlideshowExperience() {

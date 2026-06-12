@@ -94,6 +94,9 @@ Current progress:
   signaling, and global listener registration mechanics.
 - `src/app/app-state-service.js` now owns initial state factories and small
   selectors while `app.js` still owns the live mutable state object.
+- `src/app/app-dom-service.js` now owns app DOM ref lookup, safe HTML mount
+  helpers, template parsing, and dynamic body mount creation while `app.js`
+  still owns what each renderer displays.
 
 Acceptance per extraction:
 

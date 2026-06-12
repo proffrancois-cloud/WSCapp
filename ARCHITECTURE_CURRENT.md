@@ -68,7 +68,7 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 `app/app.js` is the main orchestrator and remains the highest-risk file. It owns
 or coordinates:
 
-- global app state and DOM refs;
+- global app state and DOM ref consumers;
 - app entry gate and local/online mode selection;
 - central event delegation for click, input, submit, keydown, wheel, and touch;
 - wizard navigation and route selection;
@@ -92,7 +92,8 @@ Important groups:
 
 - `src/app/`: app-shell helpers extracted from `app.js`, currently including
   the app entry, online campus launcher, bootstrap/listener registration,
-  initial state factories, and selectors.
+  initial state factories, selectors, DOM ref lookup, safe HTML mounts,
+  template parsing, and dynamic overlay mount creation.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -167,7 +168,9 @@ GitHub Pages:
 - `app.js` and `styles.css` are large god files.
 - `index.html` relies on strict script order and global variables.
 - Main app modules are not true imports, so dependency boundaries are weak.
-- HTML string rendering increases XSS risk if user-generated content expands.
+- HTML string rendering is now partially centralized through
+  `app-dom-service.js`, but it still increases XSS risk if user-generated
+  content expands.
 - Vercel and GitHub Pages currently use different publication paths.
 - Asset base paths differ between Vercel root deploys and GitHub project Pages.
 - Supabase access must be reviewed at the RLS/policy level.
