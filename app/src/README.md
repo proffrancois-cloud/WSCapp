@@ -8,6 +8,10 @@ The app still boots through `app/index.html` and `app/app.js`, but new engine pi
 
 ```text
 src/
+  app/
+    app-entry-service.js # Owns app entry labels, online campus URL, and mode switch button metadata.
+    app-bootstrap-service.js # Owns startup task execution, app-ready signaling, and global listener registration mechanics.
+    app-state-service.js # Owns initial state factories and small selectors while app.js keeps state ownership.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/

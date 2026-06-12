@@ -92,6 +92,8 @@ Current progress:
   URL, and the button metadata used by the app-shell entry points.
 - `src/app/app-bootstrap-service.js` now owns startup task execution, app-ready
   signaling, and global listener registration mechanics.
+- `src/app/app-state-service.js` now owns initial state factories and small
+  selectors while `app.js` still owns the live mutable state object.
 
 Acceptance per extraction:
 

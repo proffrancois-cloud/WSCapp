@@ -11,6 +11,7 @@ const ASSET_CACHE_VERSION = "20260524coop2";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const appEntryService = window.WSC_APP_ENTRY_SERVICE;
 const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
+const appStateService = window.WSC_APP_STATE_SERVICE;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2324,68 +2325,13 @@ const rawContentService = window.WSC_CREATE_RAW_CONTENT_SERVICE
     })
   : null;
 
-const state = {
-  selection: {
-    path: null,
-    lens: DEFAULT_LENS_ID,
-    targetIds: [],
-    targetId: null,
-    mode: null
-  },
-  ui: {
-    wizardTransition: "forward",
-    appEntryGateOpen: true,
-    appShellMode: null,
-    cooperationOpen: false,
-    authOpen: false,
-    authMode: "login",
-    resourcesOpen: false,
-    rawAssetSelections: {},
-    rawQuizSelections: {},
-    rawQuizPages: {},
-    openModeChoicePath: null,
-    rawMediaLightbox: null,
-    rawMediaSwipeStartX: null
-  },
-  auth: {
-    client: null,
-    session: null,
-    profile: null,
-    status: "checking",
-    message: "",
-    error: ""
-  },
-  live: {
-    openSessions: [],
-    currentSession: null,
-    currentPlayer: null,
-    players: [],
-    revision: 0,
-    status: "idle",
-    message: "",
-    error: "",
-    selectedGameType: "alpacapardy",
-    onlineView: "hub",
-    arcadeState: null,
-    lobbyChannel: null,
-    sessionChannel: null,
-    heartbeatId: null,
-    syncId: null,
-    syncBusy: false,
-    joinCodeDraft: "",
-    autoStartBusy: false,
-    launchCountdownText: "",
-    launchCountdownSessionId: null,
-    waitingVideoSessionId: null,
-    waitingVideos: [],
-    waitingVideoIndex: 0,
-    pendingRunColor: LIVE_ALPACA_COLORS[0]?.id || "cream",
-    guestName: loadGuestAlpacaName()
-  },
-  experience: null,
+const state = appStateService.createInitialState({
+  defaultLensId: DEFAULT_LENS_ID,
+  pendingRunColor: LIVE_ALPACA_COLORS[0]?.id || "cream",
+  guestName: loadGuestAlpacaName(),
   stats: loadStats(),
   rawMastery: loadRawMastery()
-};
+});
 
 const refs = {
   heroMascot: document.getElementById("heroMascot"),
@@ -4137,8 +4083,8 @@ function openSectionChannel(sectionId) {
 }
 
 function render() {
-  document.body.classList.toggle("is-online-mode", state.ui.appShellMode === "online");
-  document.body.classList.toggle("is-local-mode", state.ui.appShellMode === "local");
+  document.body.classList.toggle("is-online-mode", appStateService.isOnlineMode(state));
+  document.body.classList.toggle("is-local-mode", appStateService.isLocalMode(state));
   renderStats();
   renderSessionControls();
   renderAppEntryGate();
@@ -4173,7 +4119,7 @@ function renderStats() {
     return;
   }
 
-  if (state.ui.appShellMode === "online") {
+  if (appStateService.isOnlineMode(state)) {
     refs.statsStrip.innerHTML = renderOnlineScoreStrip();
     return;
   }
@@ -4209,9 +4155,9 @@ function renderSessionControls() {
     return;
   }
 
-  const isOnline = state.ui.appShellMode === "online";
+  const isOnline = appStateService.isOnlineMode(state);
   const shellLabel = isOnline ? "Stay solo" : "Join online";
-  const shellIcon = state.ui.appShellMode === "online"
+  const shellIcon = isOnline
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
   const modeSwitchAction = appEntryService.getModeSwitchAction(isOnline);
@@ -5677,7 +5623,7 @@ function normalizeLiveGameType(gameType) {
 }
 
 function getCurrentLiveGameType() {
-  return normalizeLiveGameType(state.live.currentSession?.game_type || state.live.selectedGameType || "alpacapardy");
+  return normalizeLiveGameType(appStateService.getSelectedLiveGameType(state, "alpacapardy"));
 }
 
 function getLiveGameLabel(gameType = getCurrentLiveGameType()) {
@@ -5823,7 +5769,7 @@ function getWizardRenderHelpers() {
 }
 
 function getAppModeSwitchIcon() {
-  return state.ui.appShellMode === "online"
+  return appStateService.isOnlineMode(state)
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
 }
@@ -6730,18 +6676,9 @@ function hasActiveQuestionPopup() {
 }
 
 function syncPopupScrollLock() {
-  const blockingOverlayOpen = Boolean(
-    state.ui.appEntryGateOpen ||
-    state.ui.resourcesOpen ||
-    state.ui.cooperationOpen ||
-    state.ui.authOpen ||
-    state.ui.rawMediaLightbox ||
-    state.live.launchCountdownText ||
-    (state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
-  );
-  const shouldLock = state.ui.appShellMode === "online"
-    ? blockingOverlayOpen
-    : hasActiveQuestionPopup();
+  const shouldLock = appStateService.isPopupBlocking(state, {
+    hasActiveQuestionPopup: hasActiveQuestionPopup()
+  });
   document.body.classList.toggle("with-popup", shouldLock);
 }
 
@@ -18263,22 +18200,7 @@ function getTargetLabel() {
 }
 
 function getDefaultStats() {
-  return appProgressService?.getDefaultStats
-    ? appProgressService.getDefaultStats()
-    : {
-        sessions: 0,
-        totalAnswered: 0,
-        totalCorrect: 0,
-        bestAccuracy: 0,
-        bestStreak: 0,
-        bestAlpacapardyScore: 0,
-        bestRunStage: -1,
-        bestJumpScore: 0,
-        bestJumpDistance: 0,
-        bestRelayScore: 0,
-        bestRaceScore: 0,
-        liveRecords: {}
-      };
+  return appStateService.createDefaultStats(appProgressService);
 }
 
 function normalizeStats(value) {
