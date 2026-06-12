@@ -45,6 +45,7 @@
     "files": [
       "index.html",
       "styles.css",
+      "styles-*.css",
       "app.js",
       "data.js",
       "knowledge-bank.js",

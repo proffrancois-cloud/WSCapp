@@ -31,7 +31,8 @@ WSC/
 app/
   index.html                        # browser entry point; loads generated runtime + extracted modules + app.js
   app.js                            # current orchestration/event wiring; still large, but reduced
-  styles.css                        # current global UI/game styles
+  styles.css                        # ordered stylesheet import index
+  styles-*.css                      # split app shell, route, learn/play/live/raw, and late override chunks
   pwa.js                            # PWA install/service-worker registration behavior
   service-worker.js                 # offline/cache layer
   manifest.webmanifest              # PWA manifest

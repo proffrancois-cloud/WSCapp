@@ -83,6 +83,34 @@ or coordinates:
 `app.js` is functional, but it is a god file. Future work should extract small
 behavioral seams while keeping compatibility wrappers.
 
+## Stylesheets
+
+The main app still loads `app/styles.css` from `app/index.html`, but that file
+is now an ordered import index rather than a 19k-line stylesheet. The imported
+chunks live beside it in `app/` so existing `url("./assets/...")` references
+still resolve in the static app, GitHub Pages, Vercel, and the desktop package:
+
+- `styles-app-shell.css`: app shell, entry gate, auth, shared base, and early
+  responsive shell styles.
+- `styles-route-builder.css`: initial route-builder, wizard, panel, and
+  choice-card styles.
+- `styles-experience-shared.css`: shared experience panels and early learn-mode
+  selector groups.
+- `styles-play-live-modes.css`: play, live-room, online hub, relay, race, jump,
+  and run selector groups.
+- `styles-raw-content.css`: Raw Content and regular guide reader styles.
+- `styles-late-shell-overrides.css`: late shell/header/raw visual/online/live
+  waiting overrides kept in cascade order.
+- `styles-route-builder-overrides.css`: late route-builder, header compaction,
+  section dock, and staged path-card overrides.
+- `styles-learn-mode-overrides.css`: Mind Map orbit gallery, app font, and
+  Raw/Guide question gallery overrides.
+- `styles-online-overrides.css`: final online setup and lobby cleanup overrides.
+
+This is a risk-reduction split, not a final design-system extraction. Several
+late override chunks still contain mixed responsibilities because preserving
+the current cascade is safer than semantically reordering old selector passes.
+
 ## `app/src` Bridge
 
 `app/src/` is a transition layer. It already separates some mechanics from
@@ -176,7 +204,9 @@ GitHub Pages:
 
 ## Current Risks
 
-- `app.js` and `styles.css` are large god files.
+- `app.js` is still a large god file.
+- CSS is split into ordered chunks, but late override files still carry mixed
+  responsibilities and need a later semantic cleanup pass.
 - `index.html` relies on strict script order and global variables.
 - Main app modules are not true imports, so dependency boundaries are weak.
 - Route-builder state transitions are partially centralized in

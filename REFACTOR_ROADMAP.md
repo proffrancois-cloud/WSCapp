@@ -128,17 +128,28 @@ Acceptance per extraction:
 
 ## Pass 5: Reduce CSS Risk
 
-After functional modules are separated, split `styles.css` by feature or move
-to a bundler-supported style structure.
+Status: started. `app/styles.css` is now an ordered import index and the former
+single stylesheet has been split into root-level `styles-*.css` chunks so
+existing asset URLs remain stable across static hosting, GitHub Pages, Vercel,
+and the desktop package.
 
-Recommended first cuts:
+Completed first cuts:
 
 - app shell and entry gate;
 - route builder/wizard;
-- learn modes;
-- play modes;
-- auth/resources modals;
+- shared experience and learn-mode selectors;
+- play, live, and online mode selectors;
+- Raw Content and regular guide;
+- late shell/header/route-builder/learn/online overrides kept in original
+  cascade order;
 - 3D campus styles are already separate and should stay separate.
+
+Next CSS cleanup work:
+
+- reduce mixed responsibilities in late override chunks only after screenshot
+  coverage is strong;
+- move toward a clearer token/base/component/feature structure;
+- keep class names stable unless a renderer migration proves a rename safe.
 
 Acceptance:
 
