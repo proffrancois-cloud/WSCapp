@@ -13,7 +13,12 @@ This is the active World Scholar's Cup 2026 app workspace.
 
 Vercel publishes `app/` via `vercel.json`. The browser loads `app/generated/current-runtime/`, extracted modules in `app/src/`, then the remaining orchestrator in `app/app.js`.
 
-Use [CURRENT_ARCHITECTURE.md](/Users/francoismo/Documents/Playground/WSC/CURRENT_ARCHITECTURE.md) for the exact current folder map and [ARCHITECTURE_TARGET.md](/Users/francoismo/Documents/Playground/WSC/ARCHITECTURE_TARGET.md) for the long-term target.
+Use [CURRENT_ARCHITECTURE.md](CURRENT_ARCHITECTURE.md) for the exact current
+folder map and [ARCHITECTURE_TARGET.md](ARCHITECTURE_TARGET.md) for the
+long-term target.
+
+Use [REVIEW_GUIDE.md](REVIEW_GUIDE.md) when sharing the GitHub codebase with a
+developer or specialist reviewer.
 
 ## Validation
 
