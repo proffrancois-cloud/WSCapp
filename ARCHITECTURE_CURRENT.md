@@ -90,6 +90,8 @@ module imports in the main app.
 
 Important groups:
 
+- `src/app/`: app-shell helpers extracted from `app.js`, currently including
+  the app entry and online campus launcher service.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.

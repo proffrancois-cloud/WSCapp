@@ -9,10 +9,9 @@ const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabas
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
 const ASSET_CACHE_VERSION = "20260524coop2";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
+const appEntryService = window.WSC_APP_ENTRY_SERVICE;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
-const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
-const ALPACA_ONLINE_CAMPUS_URL = "./alpaca-campus-3d/?mode=multiplayer";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
   writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
@@ -4202,12 +4201,13 @@ function renderSessionControls() {
   const shellIcon = state.ui.appShellMode === "online"
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
-  const soonLabel = isOnline ? "Switch mode" : "Open Alpaca Campus 3D";
+  const modeSwitchAction = appEntryService.getModeSwitchAction(isOnline);
+  const soonLabel = appEntryService.getModeSwitchTitle(isOnline);
   const modeButton = `
     <button
       class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
       type="button"
-      ${isOnline ? "data-open-app-entry-gate" : "data-open-alpaca-online-campus"}
+      ${modeSwitchAction}
       aria-label="${escapeHtml(shellLabel)}. Open Local or Online menu"
       title="${escapeHtml(soonLabel)}"
     >
@@ -4289,7 +4289,7 @@ function renderAppEntryGate() {
               aria-hidden="true"
             />
             <strong>Join online</strong>
-            ${onlineAllowed ? `<small>${escapeHtml(DEFAULT_ONLINE_ALPACA_NAME)}</small>` : "<small>Available soon</small>"}
+            ${onlineAllowed ? `<small>${escapeHtml(appEntryService.getOnlineAlpacaName())}</small>` : "<small>Available soon</small>"}
           </button>
         </div>
       </article>
@@ -4346,7 +4346,7 @@ function chooseAppEntryMode(mode) {
 
 function openAlpacaOnlineCampus() {
   state.ui.appEntryGateOpen = false;
-  window.location.href = ALPACA_ONLINE_CAMPUS_URL;
+  appEntryService.openOnlineCampus();
 }
 
 function switchToLocalMode() {
@@ -18354,7 +18354,7 @@ function loadRawMastery() {
 
 function loadGuestAlpacaName() {
   const key = "wsc-live-guest-name";
-  const fallback = DEFAULT_ONLINE_ALPACA_NAME;
+  const fallback = appEntryService.getOnlineAlpacaName();
   try {
     const current = localStorage.getItem(key);
     const normalizedCurrent = String(current || "").trim();

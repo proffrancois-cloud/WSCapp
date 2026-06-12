@@ -86,6 +86,11 @@ Recommended order:
 Each module should own mechanics, while `app.js` temporarily owns policy and
 coordination.
 
+Current progress:
+
+- `src/app/app-entry-service.js` now owns the online alpaca name, the campus 3D
+  URL, and the button metadata used by the app-shell entry points.
+
 Acceptance per extraction:
 
 - small diff;
