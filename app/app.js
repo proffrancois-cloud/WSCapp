@@ -10,6 +10,7 @@ const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
 const ASSET_CACHE_VERSION = "20260524coop2";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const appEntryService = window.WSC_APP_ENTRY_SERVICE;
+const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2558,24 +2559,36 @@ function resetAlpacapardyLiveState({ keepGuestName = true } = {}) {
 }
 
 function init() {
-  hydrateKnowledgeBank();
-  preloadExperienceAudio();
-  setupSupabaseAuth();
-  if (refs.heroMascot) {
-    refs.heroMascot.innerHTML = renderHeroVisual();
-  }
-  renderInsights();
-  render();
-  window.WSC_APP_READY = true;
-  window.dispatchEvent(new Event("wsc:app-ready"));
-  document.addEventListener("click", handleClick);
-  document.addEventListener("input", handleInput);
-  document.addEventListener("submit", handleSubmit);
-  document.addEventListener("keydown", handleKeyDown);
-  document.addEventListener("wheel", handleMindMapGalleryWheel, { passive: false });
-  document.addEventListener("touchstart", handleTouchStart, { passive: true });
-  document.addEventListener("touchend", handleTouchEnd, { passive: true });
-  window.addEventListener("resize", syncRadialMindMapScroll);
+  const startupTasks = [
+    hydrateKnowledgeBank,
+    preloadExperienceAudio,
+    setupSupabaseAuth,
+    () => {
+      if (refs.heroMascot) {
+        refs.heroMascot.innerHTML = renderHeroVisual();
+      }
+    },
+    renderInsights,
+    render
+  ];
+  const eventBindings = [
+    { target: document, type: "click", handler: handleClick },
+    { target: document, type: "input", handler: handleInput },
+    { target: document, type: "submit", handler: handleSubmit },
+    { target: document, type: "keydown", handler: handleKeyDown },
+    { target: document, type: "wheel", handler: handleMindMapGalleryWheel, options: { passive: false } },
+    { target: document, type: "touchstart", handler: handleTouchStart, options: { passive: true } },
+    { target: document, type: "touchend", handler: handleTouchEnd, options: { passive: true } },
+    { target: window, type: "resize", handler: syncRadialMindMapScroll }
+  ];
+
+  appBootstrapService.runStartupTasks(startupTasks);
+  appBootstrapService.markAppReady({
+    windowTarget: window,
+    flagName: "WSC_APP_READY",
+    eventName: "wsc:app-ready"
+  });
+  appBootstrapService.registerEventListeners(eventBindings);
 }
 
 function handleClick(event) {

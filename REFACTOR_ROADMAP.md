@@ -90,6 +90,8 @@ Current progress:
 
 - `src/app/app-entry-service.js` now owns the online alpaca name, the campus 3D
   URL, and the button metadata used by the app-shell entry points.
+- `src/app/app-bootstrap-service.js` now owns startup task execution, app-ready
+  signaling, and global listener registration mechanics.
 
 Acceptance per extraction:
 
