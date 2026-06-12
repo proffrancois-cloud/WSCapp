@@ -96,7 +96,8 @@ Important groups:
   initial state factories, selectors, DOM ref lookup, safe HTML mounts,
   template parsing, dynamic overlay mount creation, and route-builder selection
   state transitions, Alpaccount auth/session orchestration, and local
-  progress-storage orchestration, and selected-mode launch/close mechanics.
+  progress-storage orchestration, selected-mode launch/close mechanics, and
+  the public online-mode boundary.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -133,6 +134,12 @@ Key pieces:
 
 The campus can launch in local or multiplayer mode. GitHub's main app opens it
 with `./alpaca-campus-3d/?mode=multiplayer`, which auto-selects multiplayer.
+That public path is named `3D campus multiplayer` in
+`ONLINE_MODE_BOUNDARIES.md` and `online-mode-controller.js`.
+
+The older main-app Alpaca Online/live room screens are separate legacy/future
+live game room mechanics. They still live mostly in `app.js` and the
+Alpacapardy live services. They are not the public `Join online` destination.
 
 ## Supabase And Realtime
 
@@ -184,6 +191,9 @@ GitHub Pages:
   ordinary close cleanup are centralized in `game-launch-controller.js`, while
   `app.js` still owns the mode factory registry, render calls, scrolling, and
   game-specific start/reset flows.
+- The public online path is now named separately in `online-mode-controller.js`;
+  legacy live game room mechanics still need their own controller before any
+  deeper MMO/live-room work.
 - The 3D campus intentionally keeps separate avatar local storage in
   `campus-store.ts` until campus state has a broader persistence design.
 - HTML string rendering is now partially centralized through

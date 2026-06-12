@@ -114,6 +114,9 @@ Current progress:
   unavailable-mode launch, route-attempt reset, and ordinary close cleanup
   mechanics while `app.js` keeps the mode factory registry, rendering,
   scrolling, and game-specific start/reset flows.
+- `src/app/online-mode-controller.js` and `ONLINE_MODE_BOUNDARIES.md` now name
+  the public `3D campus multiplayer` launcher separately from legacy/future
+  main-app live game room mechanics.
 
 Acceptance per extraction:
 

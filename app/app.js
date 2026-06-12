@@ -10,6 +10,7 @@ const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
 const ASSET_CACHE_VERSION = "20260524coop2";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const appEntryService = window.WSC_APP_ENTRY_SERVICE;
+const createOnlineModeController = window.WSC_CREATE_ONLINE_MODE_CONTROLLER;
 const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
 const appStateService = window.WSC_APP_STATE_SERVICE;
 const appDomService = window.WSC_APP_DOM_SERVICE;
@@ -2330,6 +2331,10 @@ const rawContentService = window.WSC_CREATE_RAW_CONTENT_SERVICE
     })
   : null;
 
+const onlineModeController = createOnlineModeController({
+  entryService: appEntryService
+});
+
 const progressStorageController = createProgressStorageController({
   storageService: appStorageService,
   progressService: appProgressService,
@@ -4178,7 +4183,7 @@ function renderAppEntryGate() {
               aria-hidden="true"
             />
             <strong>Join online</strong>
-            ${onlineAllowed ? `<small>${escapeHtml(appEntryService.getOnlineAlpacaName())}</small>` : "<small>Available soon</small>"}
+            ${onlineAllowed ? `<small>${escapeHtml(onlineModeController.getDefaultCampusAlpacaName())}</small>` : "<small>Available soon</small>"}
           </button>
         </div>
       </article>
@@ -4235,7 +4240,7 @@ function chooseAppEntryMode(mode) {
 
 function openAlpacaOnlineCampus() {
   state.ui.appEntryGateOpen = false;
-  appEntryService.openOnlineCampus();
+  onlineModeController.openCampusMultiplayer();
 }
 
 function switchToLocalMode() {
