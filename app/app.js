@@ -15,6 +15,7 @@ const appStateService = window.WSC_APP_STATE_SERVICE;
 const appDomService = window.WSC_APP_DOM_SERVICE;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
+const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2328,12 +2329,19 @@ const rawContentService = window.WSC_CREATE_RAW_CONTENT_SERVICE
     })
   : null;
 
+const progressStorageController = createProgressStorageController({
+  storageService: appStorageService,
+  progressService: appProgressService,
+  entryService: appEntryService,
+  localStorageTarget: window.localStorage
+});
+
 const state = appStateService.createInitialState({
   defaultLensId: DEFAULT_LENS_ID,
   pendingRunColor: LIVE_ALPACA_COLORS[0]?.id || "cream",
-  guestName: loadGuestAlpacaName(),
-  stats: loadStats(),
-  rawMastery: loadRawMastery()
+  guestName: progressStorageController.loadGuestAlpacaName(),
+  stats: progressStorageController.loadStats(),
+  rawMastery: progressStorageController.loadRawMastery()
 });
 
 const refs = appDomService.getAppRefs(document);
@@ -17734,107 +17742,27 @@ function getTargetLabel() {
 }
 
 function getDefaultStats() {
-  return appStateService.createDefaultStats(appProgressService);
+  return progressStorageController.getDefaultStats();
 }
 
 function normalizeStats(value) {
-  if (appProgressService?.normalizeStats) {
-    return appProgressService.normalizeStats(value);
-  }
-
-  const defaults = getDefaultStats();
-  if (!value || typeof value !== "object") {
-    return defaults;
-  }
-
-  const normalized = {
-    ...defaults,
-    ...Object.fromEntries(
-      Object.entries(value)
-        .filter(([key]) => key !== "liveRecords")
-        .map(([key, entryValue]) => [key, Number(entryValue) || 0])
-    ),
-    liveRecords: normalizeLiveRecords(value.liveRecords || defaults.liveRecords)
-  };
-  return normalized;
-}
-
-function normalizeLiveRecords(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(Object.entries(value).map(([gameType, record]) => {
-    const normalized = normalizeLiveGameType(gameType);
-    const safeRecord = record && typeof record === "object" ? record : {};
-    return [normalized, {
-      games: Math.max(0, Number(safeRecord.games) || 0),
-      wins: Math.max(0, Number(safeRecord.wins) || 0),
-      bestName: String(safeRecord.bestName || "").slice(0, 64),
-      bestGames: Math.max(0, Number(safeRecord.bestGames) || 0),
-      bestWins: Math.max(0, Number(safeRecord.bestWins) || 0)
-    }];
-  }));
+  return progressStorageController.normalizeStats(value);
 }
 
 function normalizeRawMastery(value) {
-  if (appProgressService?.normalizeRawMastery) {
-    return appProgressService.normalizeRawMastery(value);
-  }
-
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    Object.entries(value)
-      .filter(([key, entryValue]) => key && entryValue === true)
-      .map(([key]) => [key, true])
-  );
+  return progressStorageController.normalizeRawMastery(value);
 }
 
 function loadStats() {
-  const defaults = getDefaultStats();
-  if (appStorageService?.getJson) {
-    const parsed = appStorageService.getJson("wsc-alpaca-stats", null);
-    return parsed ? normalizeStats(parsed) : defaults;
-  }
-
-  try {
-    const raw = localStorage.getItem("wsc-alpaca-stats");
-    return raw ? normalizeStats(JSON.parse(raw)) : defaults;
-  } catch (_error) {
-    return defaults;
-  }
+  return progressStorageController.loadStats();
 }
 
 function loadRawMastery() {
-  if (appStorageService?.getJson) {
-    return normalizeRawMastery(appStorageService.getJson("wsc-alpaca-raw-mastery", {}));
-  }
-
-  try {
-    const raw = localStorage.getItem("wsc-alpaca-raw-mastery");
-    return normalizeRawMastery(raw ? JSON.parse(raw) : {});
-  } catch (_error) {
-    return {};
-  }
+  return progressStorageController.loadRawMastery();
 }
 
 function loadGuestAlpacaName() {
-  const key = "wsc-live-guest-name";
-  const fallback = appEntryService.getOnlineAlpacaName();
-  try {
-    const current = localStorage.getItem(key);
-    const normalizedCurrent = String(current || "").trim();
-    if (normalizedCurrent.length >= 2 && !/^Guest\s+\d{4}$/i.test(normalizedCurrent)) {
-      return normalizedCurrent;
-    }
-    localStorage.setItem(key, fallback);
-  } catch (_error) {
-    return fallback;
-  }
-  return fallback;
+  return progressStorageController.loadGuestAlpacaName();
 }
 
 function saveStats() {
@@ -17848,14 +17776,7 @@ function saveRawMastery() {
 }
 
 function saveProgressLocally() {
-  if (appStorageService?.setJson) {
-    appStorageService.setJson("wsc-alpaca-stats", state.stats);
-    appStorageService.setJson("wsc-alpaca-raw-mastery", state.rawMastery);
-    return;
-  }
-
-  localStorage.setItem("wsc-alpaca-stats", JSON.stringify(state.stats));
-  localStorage.setItem("wsc-alpaca-raw-mastery", JSON.stringify(state.rawMastery));
+  progressStorageController.saveLocalProgress(state);
 }
 
 async function saveAlpacaProgress() {

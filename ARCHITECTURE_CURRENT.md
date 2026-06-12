@@ -74,7 +74,8 @@ or coordinates:
 - wizard navigation and route selection;
 - mode and experience orchestration;
 - auth and Alpaccount UI flow through the extracted auth controller;
-- progress, stats, and local storage integration;
+- progress, stats, and local storage integration through the extracted
+  progress-storage controller;
 - learn/play/train mode bridges;
 - live Alpacapardy room orchestration;
 - timers and cleanup for games and overlays.
@@ -94,7 +95,8 @@ Important groups:
   the app entry, online campus launcher, bootstrap/listener registration,
   initial state factories, selectors, DOM ref lookup, safe HTML mounts,
   template parsing, dynamic overlay mount creation, and route-builder selection
-  state transitions, and Alpaccount auth/session orchestration.
+  state transitions, Alpaccount auth/session orchestration, and local
+  progress-storage orchestration.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -174,8 +176,12 @@ GitHub Pages:
   `route-builder-controller.js`, but `app.js` still owns rendering, scrolling,
   timers, and launch policy.
 - Auth/session mechanics are partially centralized in `auth-controller.js`, but
-  `app.js` still owns UI rendering callbacks, progress save wrappers, and live
-  game callers.
+  `app.js` still owns UI rendering callbacks and live game callers.
+- Local progress, raw mastery, and guest-name persistence are centralized in
+  `progress-storage-controller.js`, while `app.js` still decides when progress
+  is saved.
+- The 3D campus intentionally keeps separate avatar local storage in
+  `campus-store.ts` until campus state has a broader persistence design.
 - HTML string rendering is now partially centralized through
   `app-dom-service.js`, but it still increases XSS risk if user-generated
   content expands.

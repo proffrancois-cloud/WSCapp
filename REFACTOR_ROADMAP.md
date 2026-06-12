@@ -107,6 +107,9 @@ Current progress:
   and UI rendering callbacks.
 - `SECURITY_NOTES.md` now documents the public Supabase config posture, RLS
   responsibility, secret-handling rules, and review checklist.
+- `src/app/progress-storage-controller.js` now owns local stats, raw mastery,
+  and guest-name persistence plus progress normalization wrappers while
+  `app.js` keeps the policy decision of when local progress should be saved.
 
 Acceptance per extraction:
 

@@ -15,11 +15,12 @@ src/
     app-dom-service.js # Owns app DOM refs, safe HTML mounts, template parsing, and dynamic body mounts.
     route-builder-controller.js # Owns route-builder selection mutations while app.js keeps timers/render/launch policy.
     auth-controller.js # Owns Alpaccount session, profile/progress loading, auth form actions, and sign-out orchestration.
+    progress-storage-controller.js # Owns local stats/raw mastery/guest-name persistence and normalization bridge.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/
     asset-service.js     # Resolves configured image/audio asset paths for UI, modes, games, and results.
-    storage-service.js   # Wraps localStorage JSON reads/writes for progress and future local state.
+    storage-service.js   # Wraps localStorage JSON/text reads and writes for progress and future local state.
     progress-service.js  # Owns default stat shape and progress/raw-mastery normalization.
     video-service.js     # Owns YouTube embed/preview URLs, video URL normalization, and channel video extraction.
     game-question-service.js # Owns shared game-question pools, required levels, reusable question patterns, and unavailable-route wording.
