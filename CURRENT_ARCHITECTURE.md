@@ -273,6 +273,8 @@ npm run theme:build-question-bank
 npm run theme:validate
 npm run theme:build-runtime
 npm run theme:compare
+npm run theme:compare:strict
+npm run theme:compare:legacy-audit
 npm run theme:refresh
 npm run test:theme
 npm run test:smoke

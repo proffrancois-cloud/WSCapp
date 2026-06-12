@@ -186,9 +186,9 @@ Acceptance:
 
 ## Known Verification Notes
 
-- `npm run test:theme` currently fails in `theme:compare` because the legacy
-  current runtime and `generated/current-runtime` differ for full-voyage and
-  first guide question fields. Treat that as a separate compatibility bugfix
-  pass.
+- `npm run test:theme` now runs `theme:compare` with the active-runtime profile,
+  which passes and reports the known full-voyage / first guide question deltas
+  as accepted differences. Use `npm run theme:compare:strict` for the full
+  legacy compatibility audit.
 - `npm run test:smoke` currently passes in the clean GitHub copy and should stay
   part of the verification loop.

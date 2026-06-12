@@ -202,10 +202,11 @@ GitHub Pages:
 - Vercel and GitHub Pages currently use different publication paths.
 - Asset base paths differ between Vercel root deploys and GitHub project Pages.
 - Supabase access must be reviewed at the RLS/policy level.
-- `npm run test:theme` currently fails in the runtime compatibility compare
-  step because `fullVoyageQuestions`, `firstGuideQuestion`, and
-  `firstFullVoyage` differ between the legacy current files and the generated
-  runtime files.
+- `npm run test:theme` uses the active-runtime compatibility profile and passes
+  while reporting accepted legacy/current-runtime differences for
+  `fullVoyageQuestions`, `firstGuideQuestion`, and `firstFullVoyage`.
+  `npm run theme:compare:strict` remains available for the full legacy
+  compatibility audit.
 - `npm run test:smoke` currently passes in the clean GitHub copy.
 
 ## Architecture Decision

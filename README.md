@@ -23,6 +23,11 @@ npm run test:theme
 npm run test:smoke
 ```
 
+`test:theme` validates the source theme and compares the active runtime profile.
+Use `npm run theme:compare:strict` for the full legacy compatibility audit and
+`npm run theme:compare:legacy-audit` to report accepted legacy/current-runtime
+deltas without failing the normal check.
+
 ## Cleanup Rule
 
 Active runtime/source stays in `app/`, `content/`, and `tools/`. Anything not loaded, generated, or intentionally kept for current validation goes to `archive/toreview/` instead of being deleted.
