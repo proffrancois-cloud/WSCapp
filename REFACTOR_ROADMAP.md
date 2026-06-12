@@ -97,6 +97,10 @@ Current progress:
 - `src/app/app-dom-service.js` now owns app DOM ref lookup, safe HTML mount
   helpers, template parsing, and dynamic body mount creation while `app.js`
   still owns what each renderer displays.
+- `src/app/route-builder-controller.js` now owns route-builder selection
+  mutations for paths, lenses, target sections, modes, clear/change actions,
+  and route deep-links while `app.js` keeps timers, render calls, scrolling,
+  unavailable-mode handling, and experience launch policy.
 
 Acceptance per extraction:
 

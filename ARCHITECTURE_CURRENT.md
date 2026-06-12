@@ -93,7 +93,8 @@ Important groups:
 - `src/app/`: app-shell helpers extracted from `app.js`, currently including
   the app entry, online campus launcher, bootstrap/listener registration,
   initial state factories, selectors, DOM ref lookup, safe HTML mounts,
-  template parsing, and dynamic overlay mount creation.
+  template parsing, dynamic overlay mount creation, and route-builder selection
+  state transitions.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -168,6 +169,9 @@ GitHub Pages:
 - `app.js` and `styles.css` are large god files.
 - `index.html` relies on strict script order and global variables.
 - Main app modules are not true imports, so dependency boundaries are weak.
+- Route-builder state transitions are partially centralized in
+  `route-builder-controller.js`, but `app.js` still owns rendering, scrolling,
+  timers, and launch policy.
 - HTML string rendering is now partially centralized through
   `app-dom-service.js`, but it still increases XSS risk if user-generated
   content expands.

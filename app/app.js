@@ -13,6 +13,7 @@ const appEntryService = window.WSC_APP_ENTRY_SERVICE;
 const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
 const appStateService = window.WSC_APP_STATE_SERVICE;
 const appDomService = window.WSC_APP_DOM_SERVICE;
+const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -3542,80 +3543,44 @@ function handleTouchEnd(event) {
 function choosePath(pathId) {
   clearJeopardyTimer();
   clearDebateSpinTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = pathId;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.choosePath(state, pathId, { defaultLensId: DEFAULT_LENS_ID });
   render();
   keepRouteBuilderInView();
 }
 
 function chooseLens(lensId) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.lens = lensId;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.chooseLens(state, lensId);
   render();
   keepRouteBuilderInView();
 }
 
 function chooseTarget(targetId) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "neutral";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  const current = new Set(getSelectedSectionIds());
-  if (current.has(targetId)) {
-    current.delete(targetId);
-  } else {
-    current.add(targetId);
-  }
-  state.selection.targetIds = getOrderedSectionIds().filter((id) => current.has(id));
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.chooseTarget(state, targetId, {
+    getSelectedSectionIds,
+    getOrderedSectionIds
+  });
   render();
   keepRouteBuilderInView();
 }
 
 function toggleModeChoiceSection(targetId) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "neutral";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  const visibleOpenPath = state.ui.openModeChoicePath
+  routeBuilderController.toggleModeChoiceSection(state, targetId, {
+    visibleOpenPath: getVisibleModeChoicePath(),
+    getSelectedSectionIds,
+    getOrderedSectionIds
+  });
+  render();
+  keepRouteBuilderInView();
+}
+
+function getVisibleModeChoicePath() {
+  return state.ui.openModeChoicePath
     || document.querySelector(".mode-choice-board")?.dataset.activePath
     || document.querySelector(".mode-choice-column.is-open")?.dataset.modeChoicePath
     || null;
-  const preservedOpenPath = ["learn", "play", "train"].includes(visibleOpenPath)
-    ? visibleOpenPath
-    : null;
-
-  const current = new Set(getSelectedSectionIds());
-  if (current.has(targetId)) {
-    current.delete(targetId);
-  } else {
-    current.add(targetId);
-  }
-
-  const selectedIds = getOrderedSectionIds().filter((id) => current.has(id));
-  state.selection.targetIds = selectedIds;
-  state.selection.targetId = selectedIds[0] || null;
-  state.selection.mode = null;
-  state.experience = null;
-  state.ui.openModeChoicePath = selectedIds.length ? preservedOpenPath : null;
-  render();
-  keepRouteBuilderInView();
 }
 
 function toggleHeroMenu(button) {
@@ -3904,14 +3869,10 @@ function continueTargetSelection() {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = selectedIds;
-  state.selection.targetId = selectedIds[0];
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.continueTargetSelection(state, {
+    defaultLensId: DEFAULT_LENS_ID,
+    selectedIds
+  });
   render();
   keepRouteBuilderInView();
 }
@@ -3919,27 +3880,20 @@ function continueTargetSelection() {
 function chooseMode(modeId, pathId = null) {
   clearJeopardyTimer();
   closeHeroMenu();
-  if (!getSelectedSectionIds().length) {
-    state.selection.mode = null;
-    state.experience = null;
+  const result = routeBuilderController.chooseMode(state, modeId, {
+    pathId,
+    defaultLensId: DEFAULT_LENS_ID,
+    selectedIds: getSelectedSectionIds(),
+    getModePath,
+    isModeUnavailable
+  });
+  if (!result.selected) {
     render();
     keepRouteBuilderInView();
     return;
   }
 
-  state.ui.wizardTransition = "forward";
-  if (modeId !== "rawcontent") {
-    state.ui.rawQuizSelections = {};
-    state.ui.rawQuizPages = {};
-  }
-  if (!state.selection.targetId && getSelectedSectionIds().length) {
-    state.selection.targetId = getSelectedSectionIds()[0];
-  }
-  state.selection.path = pathId || getModePath(modeId) || state.selection.path || "learn";
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.mode = modeId;
-  state.experience = null;
-  if (isModeUnavailable(modeId)) {
+  if (result.unavailable) {
     state.experience = buildUnavailableModeExperience(modeId);
     render();
     refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -3950,15 +3904,7 @@ function chooseMode(modeId, pathId = null) {
 
 function changeGuidingSections() {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "backward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = null;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.changeGuidingSections(state, { defaultLensId: DEFAULT_LENS_ID });
   document.body.classList.remove("with-popup");
   render();
   keepRouteBuilderInView();
@@ -3966,16 +3912,11 @@ function changeGuidingSections() {
 
 function changeModeSelection() {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "backward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
   const selectedIds = getSelectedSectionIds();
-  state.selection.path = null;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = selectedIds;
-  state.selection.targetId = selectedIds[0] || state.selection.targetId;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.changeModeSelection(state, {
+    defaultLensId: DEFAULT_LENS_ID,
+    selectedIds
+  });
   document.body.classList.remove("with-popup");
   render();
   keepRouteBuilderInView();
@@ -3983,32 +3924,7 @@ function changeModeSelection() {
 
 function clearFrom(step) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "backward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  if (step === "path") {
-    state.selection.path = null;
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.targetIds = [];
-    state.selection.targetId = null;
-    state.selection.mode = null;
-  } else if (step === "lens") {
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.targetIds = [];
-    state.selection.targetId = null;
-    state.selection.mode = null;
-  } else if (step === "target") {
-    state.selection.path = null;
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.targetIds = [];
-    state.selection.targetId = null;
-    state.selection.mode = null;
-  } else if (step === "mode") {
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.mode = null;
-  }
-
-  state.experience = null;
+  routeBuilderController.clearFrom(state, step, { defaultLensId: DEFAULT_LENS_ID });
   render();
   keepRouteBuilderInView();
 }
@@ -4019,15 +3935,7 @@ function openRawConnection(lensId, targetId) {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = "learn";
-  state.selection.lens = lensId;
-  state.selection.targetIds = targetId && targetId !== "all" ? [targetId] : [];
-  state.selection.targetId = targetId;
-  state.selection.mode = "rawcontent";
-  state.experience = null;
+  routeBuilderController.openRawConnection(state, lensId, targetId);
   launchExperience();
 }
 
@@ -4037,15 +3945,7 @@ function openGuideSection(sectionId) {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = "learn";
-  state.selection.lens = "section";
-  state.selection.targetIds = [sectionId];
-  state.selection.targetId = sectionId;
-  state.selection.mode = "regularguide";
-  state.experience = null;
+  routeBuilderController.openGuideSection(state, sectionId);
   launchExperience();
 }
 
@@ -4055,15 +3955,7 @@ function openSectionChannel(sectionId) {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = "learn";
-  state.selection.lens = "section";
-  state.selection.targetId = normalizeSectionId(sectionId);
-  state.selection.targetIds = [state.selection.targetId].filter(Boolean);
-  state.selection.mode = "channel";
-  state.experience = null;
+  routeBuilderController.openSectionChannel(state, sectionId, { normalizeSectionId });
   launchExperience();
 }
 
