@@ -96,7 +96,7 @@ Important groups:
   initial state factories, selectors, DOM ref lookup, safe HTML mounts,
   template parsing, dynamic overlay mount creation, and route-builder selection
   state transitions, Alpaccount auth/session orchestration, and local
-  progress-storage orchestration.
+  progress-storage orchestration, and selected-mode launch/close mechanics.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -180,6 +180,10 @@ GitHub Pages:
 - Local progress, raw mastery, and guest-name persistence are centralized in
   `progress-storage-controller.js`, while `app.js` still decides when progress
   is saved.
+- Selected-mode launch, unavailable-mode launch, route-attempt reset, and
+  ordinary close cleanup are centralized in `game-launch-controller.js`, while
+  `app.js` still owns the mode factory registry, render calls, scrolling, and
+  game-specific start/reset flows.
 - The 3D campus intentionally keeps separate avatar local storage in
   `campus-store.ts` until campus state has a broader persistence design.
 - HTML string rendering is now partially centralized through

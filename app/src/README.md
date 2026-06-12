@@ -16,6 +16,7 @@ src/
     route-builder-controller.js # Owns route-builder selection mutations while app.js keeps timers/render/launch policy.
     auth-controller.js # Owns Alpaccount session, profile/progress loading, auth form actions, and sign-out orchestration.
     progress-storage-controller.js # Owns local stats/raw mastery/guest-name persistence and normalization bridge.
+    game-launch-controller.js # Owns selected-mode launch, unavailable-mode launch, route-attempt reset, and close cleanup mechanics.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/

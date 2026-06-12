@@ -16,6 +16,7 @@ const appDomService = window.WSC_APP_DOM_SERVICE;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
 const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
+const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2365,6 +2366,35 @@ const authController = createAuthController({
   }
 });
 
+const experienceFactories = Object.freeze({
+  slideshow: buildSlideshowExperience,
+  mindmap: buildMindMapExperience,
+  rawcontent: buildRawContentExperience,
+  regularguide: buildRegularGuideExperience,
+  channel: buildAlpacaChannelExperience,
+  alpacard: buildAlpacardExperience,
+  writing: buildWritingExperience,
+  quiz: buildQuizExperience,
+  bowl: buildBowlExperience,
+  race: buildRaceExperience,
+  jump: buildJumpExperience,
+  jeopardy: buildJeopardyExperience,
+  run: buildRunExperience,
+  relay: buildRelayExperience,
+  buildcase: buildBuildCaseExperience
+});
+
+const gameLaunchController = createGameLaunchController({
+  appState: state,
+  experienceFactories,
+  unavailableFactory: buildUnavailableModeExperience,
+  cleanupCallbacks: [
+    clearJeopardyTimer,
+    clearDebateSpinTimer,
+    clearDebateRevealTimer
+  ]
+});
+
 const RESOURCE_LINKS = [
   {
     label: "Official website",
@@ -3365,15 +3395,7 @@ function handleClick(event) {
 
   const closeExperience = event.target.closest("[data-close-experience]");
   if (closeExperience) {
-    if (isAlpacapardyLiveActive()) {
-      leaveAlpacapardyLiveRoom();
-      return;
-    }
-    clearJeopardyTimer();
-    clearDebateSpinTimer();
-    clearDebateRevealTimer();
-    state.experience = null;
-    render();
+    closeCurrentExperience();
     return;
   }
 }
@@ -3922,7 +3944,7 @@ function chooseMode(modeId, pathId = null) {
   }
 
   if (result.unavailable) {
-    state.experience = buildUnavailableModeExperience(modeId);
+    gameLaunchController.openUnavailableExperience(modeId);
     render();
     refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
@@ -5824,57 +5846,28 @@ function getTargetOptions() {
 }
 
 function resetCurrentRouteAttempts() {
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.ui.rawMediaLightbox = null;
-  state.ui.rawMediaSwipeStartX = null;
+  gameLaunchController.resetCurrentRouteAttempts();
 }
 
 function launchExperience() {
-  const { mode } = state.selection;
-
-  if (!mode) {
+  const result = gameLaunchController.launchSelectedExperience();
+  if (!result.launched) {
     return;
-  }
-
-  clearJeopardyTimer();
-  clearDebateSpinTimer();
-  clearDebateRevealTimer();
-
-  if (mode === "slideshow") {
-    state.experience = buildSlideshowExperience();
-  } else if (mode === "mindmap") {
-    state.experience = buildMindMapExperience();
-  } else if (mode === "rawcontent") {
-    state.experience = buildRawContentExperience();
-  } else if (mode === "regularguide") {
-    state.experience = buildRegularGuideExperience();
-  } else if (mode === "channel") {
-    state.experience = buildAlpacaChannelExperience();
-  } else if (mode === "alpacard") {
-    state.experience = buildAlpacardExperience();
-  } else if (mode === "writing") {
-    state.experience = buildWritingExperience();
-  } else if (mode === "quiz") {
-    state.experience = buildQuizExperience();
-  } else if (mode === "bowl") {
-    state.experience = buildBowlExperience();
-  } else if (mode === "race") {
-    state.experience = buildRaceExperience();
-  } else if (mode === "jump") {
-    state.experience = buildJumpExperience();
-  } else if (mode === "jeopardy") {
-    state.experience = buildJeopardyExperience();
-  } else if (mode === "run") {
-    state.experience = buildRunExperience();
-  } else if (mode === "relay") {
-    state.experience = buildRelayExperience();
-  } else if (mode === "buildcase") {
-    state.experience = buildBuildCaseExperience();
   }
 
   render();
   refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeCurrentExperience() {
+  if (isAlpacapardyLiveActive()) {
+    leaveAlpacapardyLiveRoom();
+    return false;
+  }
+
+  gameLaunchController.closeExperience();
+  render();
+  return true;
 }
 
 function renderExperience() {

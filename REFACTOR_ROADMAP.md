@@ -110,6 +110,10 @@ Current progress:
 - `src/app/progress-storage-controller.js` now owns local stats, raw mastery,
   and guest-name persistence plus progress normalization wrappers while
   `app.js` keeps the policy decision of when local progress should be saved.
+- `src/app/game-launch-controller.js` now owns selected-mode launch,
+  unavailable-mode launch, route-attempt reset, and ordinary close cleanup
+  mechanics while `app.js` keeps the mode factory registry, rendering,
+  scrolling, and game-specific start/reset flows.
 
 Acceptance per extraction:
 
