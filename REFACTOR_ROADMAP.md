@@ -101,6 +101,12 @@ Current progress:
   mutations for paths, lenses, target sections, modes, clear/change actions,
   and route deep-links while `app.js` keeps timers, render calls, scrolling,
   unavailable-mode handling, and experience launch policy.
+- `src/app/auth-controller.js` now owns Alpaccount client/session setup,
+  profile/progress loading, signup/login/forgot/reset form actions, sign-out,
+  and anonymous live-session auth while `app.js` keeps compatibility wrappers
+  and UI rendering callbacks.
+- `SECURITY_NOTES.md` now documents the public Supabase config posture, RLS
+  responsibility, secret-handling rules, and review checklist.
 
 Acceptance per extraction:
 

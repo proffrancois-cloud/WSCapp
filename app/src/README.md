@@ -14,6 +14,7 @@ src/
     app-state-service.js # Owns initial state factories and small selectors while app.js keeps state ownership.
     app-dom-service.js # Owns app DOM refs, safe HTML mounts, template parsing, and dynamic body mounts.
     route-builder-controller.js # Owns route-builder selection mutations while app.js keeps timers/render/launch policy.
+    auth-controller.js # Owns Alpaccount session, profile/progress loading, auth form actions, and sign-out orchestration.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/

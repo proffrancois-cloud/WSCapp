@@ -14,6 +14,7 @@ const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
 const appStateService = window.WSC_APP_STATE_SERVICE;
 const appDomService = window.WSC_APP_DOM_SERVICE;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
+const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2336,6 +2337,25 @@ const state = appStateService.createInitialState({
 });
 
 const refs = appDomService.getAppRefs(document);
+const authController = createAuthController({
+  appState: state,
+  config: { url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY },
+  authService: appAuthService,
+  profileService: supabaseProfileService,
+  supabaseGlobal: window.supabase,
+  alpacaNamePattern: ALPACA_NAME_PATTERN,
+  locationObject: window.location,
+  callbacks: {
+    syncAuthChrome,
+    normalizeStats,
+    normalizeRawMastery,
+    saveProgressLocally,
+    saveRemoteProgress: saveAlpacaProgress,
+    renderStats,
+    renderExperience,
+    resetLiveState: resetAlpacapardyLiveState
+  }
+});
 
 const RESOURCE_LINKS = [
   {
@@ -6543,25 +6563,23 @@ function syncPopupScrollLock() {
 }
 
 function hasSupabaseConfig() {
-  return appAuthService?.hasConfig
-    ? appAuthService.hasConfig({ url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY })
-    : Boolean(SUPABASE_URL && SUPABASE_PUBLISHABLE_KEY);
+  return authController.hasSupabaseConfig();
 }
 
 function isSignedIn() {
-  return Boolean(state.auth.session && state.auth.session.user && !isAnonymousUser(state.auth.session.user));
+  return authController.isSignedIn();
 }
 
 function hasAuthSession() {
-  return Boolean(state.auth.session && state.auth.session.user);
+  return authController.hasAuthSession();
 }
 
-function isAnonymousUser(user = state.auth.session?.user) {
-  return Boolean(user?.is_anonymous || user?.app_metadata?.provider === "anonymous");
+function isAnonymousUser(user) {
+  return authController.isAnonymousUser(user);
 }
 
 function getCurrentUserEmail() {
-  return String(state.auth.session?.user?.email || state.auth.profile?.email || "").trim().toLowerCase();
+  return authController.getCurrentUserEmail();
 }
 
 function canAccessMultiplayer() {
@@ -6569,7 +6587,7 @@ function canAccessMultiplayer() {
 }
 
 function canDismissAuthModal() {
-  return state.ui.authMode !== "reset";
+  return authController.canDismissAuthModal();
 }
 
 function syncAuthChrome() {
@@ -6583,407 +6601,63 @@ function syncAuthChrome() {
 }
 
 function clearAuthNotice() {
-  state.auth.error = "";
-  state.auth.message = "";
+  authController.clearNotice();
 }
 
 function normalizeAlpacaName(value) {
-  return appAuthService?.normalizeAlpacaName
-    ? appAuthService.normalizeAlpacaName(value)
-    : String(value || "").trim().toLowerCase();
+  return authController.normalizeAlpacaName(value);
 }
 
 function getCurrentRedirectUrl() {
-  return appAuthService?.getCurrentRedirectUrl
-    ? appAuthService.getCurrentRedirectUrl(window.location)
-    : window.location.href.split("#")[0].split("?")[0];
+  return authController.getCurrentRedirectUrl();
 }
 
 function getSupabaseClient() {
-  if (state.auth.client) {
-    return state.auth.client;
-  }
-
-  if (!hasSupabaseConfig()) {
-    return null;
-  }
-
-  state.auth.client = appAuthService?.createClient
-    ? appAuthService.createClient({ url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY }, window.supabase)
-    : (
-        window.supabase && typeof window.supabase.createClient === "function"
-          ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-              auth: {
-                autoRefreshToken: true,
-                detectSessionInUrl: true,
-                persistSession: true
-              }
-            })
-          : null
-      );
-
-  return state.auth.client;
+  return authController.getSupabaseClient();
 }
 
 function setupSupabaseAuth() {
-  if (!hasSupabaseConfig()) {
-    state.auth.status = "missing-config";
-    state.ui.authOpen = false;
-    return;
-  }
-
-  const client = getSupabaseClient();
-  if (!client) {
-    state.auth.status = "missing-client";
-    state.ui.authOpen = false;
-    return;
-  }
-
-  client.auth.onAuthStateChange((eventName, session) => {
-    state.auth.session = session || null;
-    state.auth.status = "ready";
-
-    if (eventName === "PASSWORD_RECOVERY") {
-      state.ui.authMode = "reset";
-      state.ui.authOpen = true;
-      state.auth.message = "Choose a new password for your Alpaccount.";
-    } else if (session && !isAnonymousUser(session.user)) {
-      state.ui.authOpen = false;
-      loadAlpacaProfile();
-      loadAlpacaProgress();
-    } else {
-      state.auth.profile = null;
-    }
-
-    syncAuthChrome();
-  });
-
-  client.auth.getSession().then(({ data: sessionData, error }) => {
-    if (error) {
-      state.auth.error = error.message;
-    }
-
-    state.auth.session = sessionData && sessionData.session ? sessionData.session : null;
-    state.auth.status = "ready";
-    state.ui.authOpen = false;
-
-    if (state.auth.session && !isAnonymousUser(state.auth.session.user)) {
-      loadAlpacaProfile();
-      loadAlpacaProgress();
-    }
-
-    syncAuthChrome();
-  });
+  authController.setupSupabaseAuth();
 }
 
 async function loadAlpacaProfile() {
-  const client = getSupabaseClient();
-  const user = state.auth.session && state.auth.session.user;
-  if (!client || !user || isAnonymousUser(user)) {
-    return;
-  }
-
-  const { data: profile, error } = supabaseProfileService?.fetchProfile
-    ? await supabaseProfileService.fetchProfile(client, user.id)
-    : await client
-        .from("alpaca_profiles")
-        .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round")
-        .eq("id", user.id)
-        .maybeSingle();
-
-  if (error) {
-    state.auth.error = error.message;
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.profile = profile || null;
-  syncAuthChrome();
+  await authController.loadProfile();
 }
 
 async function loadAlpacaProgress() {
-  const client = getSupabaseClient();
-  const user = state.auth.session && state.auth.session.user;
-  if (!client || !user || isAnonymousUser(user)) {
-    return;
-  }
-
-  let data;
-  let error;
-  try {
-    const response = supabaseProfileService?.fetchProgress
-      ? await supabaseProfileService.fetchProgress(client, user.id)
-      : await client
-          .from("alpaca_progress")
-          .select("game_stats,raw_mastered_entries")
-          .eq("user_id", user.id)
-          .maybeSingle();
-    data = response.data;
-    error = response.error;
-  } catch (_error) {
-    saveProgressLocally();
-    return;
-  }
-
-  if (error) {
-    saveProgressLocally();
-    return;
-  }
-
-  if (data) {
-    state.stats = normalizeStats(data.game_stats);
-    state.rawMastery = normalizeRawMastery(data.raw_mastered_entries);
-    saveProgressLocally();
-    renderStats();
-    if (state.experience?.type === "rawcontent") {
-      renderExperience();
-    }
-    return;
-  }
-
-  saveAlpacaProgress();
+  await authController.loadProgress();
 }
 
 async function submitAuthForm(form) {
-  const action = form.dataset.authForm;
-  const client = getSupabaseClient();
-
-  clearAuthNotice();
-
-  if (!client) {
-    state.auth.error = "Supabase is not configured yet. Add the publishable key in supabase-config.js.";
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.status = "submitting";
-  syncAuthChrome();
-
-  try {
-    if (action === "signup") {
-      await createAlpaccount(new FormData(form), client);
-    } else if (action === "forgot") {
-      await sendPasswordReset(new FormData(form), client);
-    } else if (action === "reset") {
-      await updateRecoveredPassword(new FormData(form), client);
-    } else {
-      await connectToAlpaccount(new FormData(form), client);
-    }
-  } catch (error) {
-    state.auth.error = error.message || "Something went wrong. Please try again.";
-  } finally {
-    if (state.auth.status === "submitting") {
-      state.auth.status = "ready";
-    }
-    syncAuthChrome();
-  }
+  await authController.submitForm(form);
 }
 
 async function createAlpaccount(formData, client) {
-  const email = String(formData.get("email") || "").trim().toLowerCase();
-  const alpacaName = normalizeAlpacaName(formData.get("alpaca_name"));
-  const password = String(formData.get("password") || "");
-  const country = String(formData.get("country") || "").trim();
-  const schoolName = String(formData.get("school_name") || "").trim();
-  const wscEventCount = Number(formData.get("wsc_event_count") || 0);
-  const highestWscRound = String(formData.get("highest_wsc_round") || "").trim();
-
-  if (!email || !alpacaName || !password || !country || !schoolName || !highestWscRound) {
-    throw new Error("Please fill in every field to create your Alpaccount.");
-  }
-
-  if (!ALPACA_NAME_PATTERN.test(alpacaName)) {
-    throw new Error("Your alpaca name needs 3-32 characters: letters, numbers, underscores, or hyphens.");
-  }
-
-  if (!Number.isInteger(wscEventCount) || wscEventCount < 0 || wscEventCount > 99) {
-    throw new Error("Please enter a valid number of WSC events.");
-  }
-
-  const availability = supabaseProfileService?.checkAlpacaNameAvailability
-    ? await supabaseProfileService.checkAlpacaNameAvailability(client, alpacaName)
-    : await client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
-  if (availability.error) {
-    throw availability.error;
-  }
-
-  if (availability.data === false) {
-    throw new Error("That alpaca name is already taken. Try another one.");
-  }
-
-  const { data: signUpData, error } = await client.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: getCurrentRedirectUrl(),
-      data: {
-        alpaca_name: alpacaName,
-        country,
-        school_name: schoolName,
-        wsc_event_count: wscEventCount,
-        highest_wsc_round: highestWscRound
-      }
-    }
-  });
-
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = signUpData.session || state.auth.session;
-  state.auth.message = signUpData.session
-    ? "Alpaccount created. Welcome aboard."
-    : "Alpaccount created. Please confirm your email, then come back to connect.";
-  state.ui.authMode = "login";
-  state.ui.authOpen = !signUpData.session;
-
-  if (signUpData.session) {
-    await loadAlpacaProfile();
-  }
+  await authController.createAccount(formData, client);
 }
 
 async function resolveLoginIdentifier(identifier, client) {
-  const value = String(identifier || "").trim().toLowerCase();
-  if (!value) {
-    throw new Error("Enter your alpaca name or email address.");
-  }
-
-  if (value.includes("@")) {
-    return value;
-  }
-
-  const { data: email, error } = supabaseProfileService?.resolveAlpacaLogin
-    ? await supabaseProfileService.resolveAlpacaLogin(client, normalizeAlpacaName(value))
-    : await client.rpc("resolve_alpaca_login", {
-        p_alpaca_name: normalizeAlpacaName(value)
-      });
-
-  if (error) {
-    throw error;
-  }
-
-  if (!email) {
-    throw new Error("No Alpaccount found for that alpaca name.");
-  }
-
-  return email;
+  return authController.resolveLoginIdentifier(identifier, client);
 }
 
 async function connectToAlpaccount(formData, client) {
-  const email = await resolveLoginIdentifier(formData.get("identifier"), client);
-  const password = String(formData.get("password") || "");
-
-  if (!password) {
-    throw new Error("Enter your password.");
-  }
-
-  const { data: signInData, error } = await client.auth.signInWithPassword({ email, password });
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = signInData.session;
-  state.ui.authOpen = false;
-  state.auth.message = "";
-  await loadAlpacaProfile();
+  await authController.connect(formData, client);
 }
 
 async function sendPasswordReset(formData, client) {
-  const email = await resolveLoginIdentifier(formData.get("identifier"), client);
-  const { error } = await client.auth.resetPasswordForEmail(email, {
-    redirectTo: getCurrentRedirectUrl()
-  });
-
-  if (error) {
-    throw error;
-  }
-
-  state.auth.message = "Password reset email sent. Check your inbox.";
-  state.ui.authMode = "login";
+  await authController.sendPasswordReset(formData, client);
 }
 
 async function updateRecoveredPassword(formData, client) {
-  const password = String(formData.get("password") || "");
-  const confirmPassword = String(formData.get("confirm_password") || "");
-
-  if (!password || password.length < 6) {
-    throw new Error("Choose a password with at least 6 characters.");
-  }
-
-  if (password !== confirmPassword) {
-    throw new Error("The two passwords do not match.");
-  }
-
-  const { error } = await client.auth.updateUser({ password });
-  if (error) {
-    throw error;
-  }
-
-  state.auth.message = "Password updated. You are connected to your Alpaccount.";
-  state.ui.authOpen = false;
-  await loadAlpacaProfile();
+  await authController.updateRecoveredPassword(formData, client);
 }
 
 async function signOutOfAlpaccount() {
-  const client = getSupabaseClient();
-  if (!client) {
-    return;
-  }
-
-  clearAuthNotice();
-  state.auth.status = "submitting";
-  syncAuthChrome();
-
-  const { error } = await client.auth.signOut();
-  state.auth.status = "ready";
-
-  if (error) {
-    state.auth.error = error.message;
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.session = null;
-  state.auth.profile = null;
-  resetAlpacapardyLiveState({ keepGuestName: true });
-  if (state.ui.appShellMode === "online") {
-    state.ui.appShellMode = null;
-    state.ui.appEntryGateOpen = true;
-    state.experience = null;
-  }
-  state.ui.authMode = "login";
-  state.ui.authOpen = false;
-  syncAuthChrome();
+  await authController.signOut();
 }
 
 async function ensureLiveAuthSession() {
-  const client = getSupabaseClient();
-  if (!client) {
-    throw new Error("Supabase is not configured yet, so live multiplayer cannot start.");
-  }
-
-  if (state.auth.session?.user) {
-    return state.auth.session;
-  }
-
-  if (!client.auth?.signInAnonymously) {
-    throw new Error("Anonymous guest sign-in is not available in this Supabase client.");
-  }
-
-  state.live.status = "joining";
-  state.live.message = "Connecting as guest...";
-  state.live.error = "";
-  renderExperience();
-
-  const { data: authData, error } = await client.auth.signInAnonymously();
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = authData.session || state.auth.session;
-  state.auth.profile = null;
-  syncAuthChrome();
-  return state.auth.session;
+  return authController.ensureLiveAuthSession();
 }
 
 function getLiveDisplayName() {
