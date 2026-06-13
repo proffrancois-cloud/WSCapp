@@ -73,14 +73,15 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 ## `app.js`
 
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
-the legacy live-room renderer extraction it is about 18.3k lines, down from the
-roughly 19.2k-line state described in the architecture analysis DOCX, but it is
-still above the high-risk threshold for a single browser script. It owns or
-coordinates:
+the legacy live-room renderer and app event-router extractions it is about
+17.5k lines, down from the roughly 19.2k-line state described in the
+architecture analysis DOCX, but it is still above the high-risk threshold for a
+single browser script. It owns or coordinates:
 
 - global app state and DOM ref consumers;
 - app entry gate and local/online mode selection;
-- central event delegation for click, input, submit, keydown, wheel, and touch;
+- central event listener binding, with click/input/submit/keydown/wheel/touch
+  dispatch now routed through `app-event-router.js`;
 - wizard navigation and route selection;
 - mode and experience orchestration;
 - auth and Alpaccount UI flow through the extracted auth controller;
@@ -141,7 +142,8 @@ Important groups:
   auth/session orchestration, and local progress-storage orchestration,
   selected-mode launch/close mechanics, experience-panel render dispatch, and
   the public online-mode boundary, plus legacy/live room rendering through
-  `legacy-live-room-renderer.js`.
+  `legacy-live-room-renderer.js` and DOM event dispatch through
+  `app-event-router.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -261,9 +263,12 @@ tests without deploying anything.
 - The public online path is now named separately in `online-mode-controller.js`;
   legacy live game room rendering is now isolated in
   `legacy-live-room-renderer.js`, but live state mutation, Supabase room
-  orchestration, and event handling remain in `app.js`. Legacy live rooms stay
-  disabled publicly until RPC/RLS, persistence, and moderation are reviewed in
-  the active Supabase project.
+  orchestration, and live-room policy remain in `app.js`. Legacy live rooms
+  stay disabled publicly until RPC/RLS, persistence, and moderation are
+  reviewed in the active Supabase project.
+- DOM event dispatch is now centralized in `app-event-router.js`; `app.js`
+  still supplies the action callbacks and keeps compatibility wrappers for the
+  listener registration path.
 - Browser storage writes go through safe helpers. Main-app progress uses
   `storage-service.js` and `progress-storage-controller.js`; the 3D campus
   avatar uses `browser-storage.ts`.

@@ -181,6 +181,8 @@ Recent extractions reduce `app.js` without changing behavior:
   rooms.
 - `legacy-live-room-renderer.js`: legacy/live room rendering, waiting overlays,
   room cards, and live arcade display templates.
+- `app-event-router.js`: document-level click/input/submit/keydown/wheel/touch
+  dispatch mapped to explicit action callbacks.
 
 `app.js` still owns too much policy and rendering coordination. The current
 cleanup pattern is: extract mechanics into `app/src`, keep compatibility

@@ -124,7 +124,10 @@ Current progress:
 - `src/app/legacy-live-room-renderer.js` now owns legacy/live room HTML
   rendering, live waiting overlays, room cards, and arcade live-game display
   templates while `app.js` keeps live state ownership, Supabase orchestration,
-  event handlers, and public availability flags.
+  action callbacks, and public availability flags.
+- `src/app/app-event-router.js` now owns document-level click, input, submit,
+  keydown, wheel, touchstart, and touchend dispatch mechanics while `app.js`
+  keeps the action implementations and compatibility handler wrappers.
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
