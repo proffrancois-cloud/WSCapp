@@ -12,7 +12,7 @@ two runtime layers:
 - the main study app in `app/`, currently a vanilla JavaScript browser app with
   gradually extracted helper modules under `app/src/`;
 - the 3D campus in `app/alpaca-campus-3d/`, a separate React/TypeScript/Vite app
-  launched by `Join online`.
+  launched by `3D Campus Preview / Explore preview`.
 
 The app is intentionally in an incremental cleanup phase. The current goal is a
 reviewable, stable architecture without a full rewrite or global React
@@ -28,7 +28,7 @@ Read these files in this order:
    files are treated as archive candidates.
 4. `REFACTOR_ROADMAP.md`: cleanup passes and what is intentionally deferred.
 5. `SECURITY_NOTES.md`: Supabase/public-key/RLS posture.
-6. `ONLINE_MODE_BOUNDARIES.md`: distinction between 3D campus multiplayer and
+6. `ONLINE_MODE_BOUNDARIES.md`: distinction between 3D campus preview and
    legacy live game-room mechanics.
 
 ## Run Locally
@@ -81,7 +81,7 @@ Vercel and GitHub Pages are deliberately separate right now.
 The public online path is:
 
 ```text
-Join online -> ./alpaca-campus-3d/?mode=multiplayer
+Explore preview -> ./alpaca-campus-3d/?mode=multiplayer
 ```
 
 On GitHub Pages this resolves as:
@@ -273,4 +273,3 @@ Current higher-risk areas:
 4. Review Supabase RLS and realtime policy before expanding real multiplayer.
 5. Move the main app toward true module imports once enough boundaries are
    stable.
-

@@ -4091,7 +4091,9 @@ function renderSessionControls() {
   }
 
   const isOnline = appStateService.isOnlineMode(state);
-  const shellLabel = isOnline ? "Stay solo" : "Join online";
+  const shellLabel = isOnline
+    ? appEntryService.getLocalStudyActionLabel()
+    : appEntryService.getCampusPreviewActionLabel();
   const shellIcon = isOnline
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
@@ -4102,7 +4104,7 @@ function renderSessionControls() {
       class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
       type="button"
       ${modeSwitchAction}
-      aria-label="${escapeHtml(shellLabel)}. Open Local or Online menu"
+      aria-label="${escapeHtml(shellLabel)}. Open Local or 3D Campus Preview menu"
       title="${escapeHtml(soonLabel)}"
     >
       <img src="${shellIcon}" alt="" aria-hidden="true" />
@@ -4158,10 +4160,19 @@ function renderAppEntryGate() {
   }
 
   const onlineAllowed = canAccessMultiplayer();
+  const productSummary = appEntryService.getAppEntryProductSummary();
+  const localActionLabel = appEntryService.getLocalStudyActionLabel();
+  const campusPreviewLabel = onlineModeController.getCampusMultiplayerLabel();
+  const campusPreviewActionLabel = onlineModeController.getCampusPreviewActionLabel();
+  const campusPreviewStatus = onlineModeController.getCampusPreviewStatus();
+  const defaultCampusAlpacaName = onlineModeController.getDefaultCampusAlpacaName();
 
   appDomService.setHtml(refs.appEntryGateMount, `
     <div class="app-entry-gate-overlay" role="dialog" aria-modal="true" aria-label="App mode">
       <article class="app-entry-gate-window">
+        <section class="app-entry-intro">
+          <p>${escapeHtml(productSummary)}</p>
+        </section>
         ${renderAppEntryAuthPanel()}
         <div class="app-entry-choice-grid">
           <button class="app-entry-choice-card primary-choice" type="button" data-app-entry-choice="local">
@@ -4172,18 +4183,20 @@ function renderAppEntryGate() {
               alt=""
               aria-hidden="true"
             />
-            <strong>Stay solo</strong>
+            <strong>${escapeHtml(localActionLabel)}</strong>
           </button>
           <button class="app-entry-choice-card online-choice" type="button" data-app-entry-choice="online" ${onlineAllowed ? "" : "disabled"}>
-            <span>ALPACA ONLINE</span>
+            <span>${escapeHtml(campusPreviewLabel)}</span>
             <img
               class="app-entry-choice-logo"
               src="./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train"
               alt=""
               aria-hidden="true"
             />
-            <strong>Join online</strong>
-            ${onlineAllowed ? `<small>${escapeHtml(onlineModeController.getDefaultCampusAlpacaName())}</small>` : "<small>Available soon</small>"}
+            <strong>${escapeHtml(campusPreviewActionLabel)}</strong>
+            ${onlineAllowed
+              ? `<small>${escapeHtml(campusPreviewStatus)} Default alpaca: ${escapeHtml(defaultCampusAlpacaName)}.</small>`
+              : "<small>Preview unavailable</small>"}
           </button>
         </div>
       </article>
@@ -4202,7 +4215,7 @@ function renderAppEntryAuthPanel() {
         ? "Recover Alpaccount"
         : mode === "reset"
           ? "New password"
-          : "Sign in";
+          : "Connect Alpaccount";
 
   if (context.signedIn) {
     const profile = context.profile || {};

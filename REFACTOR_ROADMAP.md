@@ -65,7 +65,7 @@ Acceptance:
 
 - `npm run typecheck:3d` passes;
 - `VITE_BASE=/WSCapp/ npm run build:pages` passes;
-- targeted browser smoke still opens Alpaca Online into the 3D campus.
+- targeted browser smoke still opens 3D Campus Preview into the 3D campus.
 
 ## Pass 4: Extract `app.js` Gradually
 
@@ -115,7 +115,7 @@ Current progress:
   mechanics while `app.js` keeps the mode factory registry, rendering,
   scrolling, and game-specific start/reset flows.
 - `src/app/online-mode-controller.js` and `ONLINE_MODE_BOUNDARIES.md` now name
-  the public `3D campus multiplayer` launcher separately from legacy/future
+  the public `3D Campus Preview` launcher separately from legacy/future
   main-app live game room mechanics.
 
 Acceptance per extraction:

@@ -1,5 +1,6 @@
 (function () {
   const ONLINE_SURFACES = Object.freeze({
+    campus3dPreview: "3d-campus-preview",
     campus3dMultiplayer: "3d-campus-multiplayer",
     legacyLiveGameRooms: "legacy-live-game-rooms"
   });
@@ -8,7 +9,21 @@
     entryService = window.WSC_APP_ENTRY_SERVICE
   } = {}) {
     function getCampusMultiplayerLabel() {
-      return "3D campus multiplayer";
+      return entryService?.getCampusPreviewLabel
+        ? entryService.getCampusPreviewLabel()
+        : "3D Campus Preview";
+    }
+
+    function getCampusPreviewActionLabel() {
+      return entryService?.getCampusPreviewActionLabel
+        ? entryService.getCampusPreviewActionLabel()
+        : "Explore preview";
+    }
+
+    function getCampusPreviewStatus() {
+      return entryService?.getCampusPreviewStatus
+        ? entryService.getCampusPreviewStatus()
+        : "Preview: not a persisted MMO yet; chat and presence may be experimental.";
     }
 
     function getLegacyLiveGameRoomsLabel() {
@@ -41,6 +56,8 @@
     return Object.freeze({
       ONLINE_SURFACES,
       getCampusMultiplayerLabel,
+      getCampusPreviewActionLabel,
+      getCampusPreviewStatus,
       getLegacyLiveGameRoomsLabel,
       getDefaultCampusAlpacaName,
       getCampusMultiplayerUrl,

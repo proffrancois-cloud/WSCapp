@@ -256,7 +256,7 @@
 
   function renderHubModeSwitch(context, helpers) {
     const switchTarget = context.ui.appShellMode === "online" ? "local" : "online";
-    const label = switchTarget === "online" ? "Join online" : "Stay solo";
+    const label = switchTarget === "online" ? "Explore preview" : "Study solo";
     const icon = helpers.getAppModeSwitchIcon
       ? helpers.getAppModeSwitchIcon()
       : helpers.getAssetValue(["contexts", "paths", "play"]);

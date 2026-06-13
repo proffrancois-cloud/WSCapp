@@ -162,12 +162,14 @@ Key pieces:
 
 The campus can launch in local or multiplayer mode. GitHub's main app opens it
 with `./alpaca-campus-3d/?mode=multiplayer`, which auto-selects multiplayer.
-That public path is named `3D campus multiplayer` in
-`ONLINE_MODE_BOUNDARIES.md` and `online-mode-controller.js`.
+That public path is named `3D Campus Preview` in
+`ONLINE_MODE_BOUNDARIES.md` and `online-mode-controller.js` because it is not
+yet a persisted MMO experience.
 
 The older main-app Alpaca Online/live room screens are separate legacy/future
 live game room mechanics. They still live mostly in `app.js` and the
-Alpacapardy live services. They are not the public `Join online` destination.
+Alpacapardy live services. They are not the public `Explore preview`
+destination.
 
 ## Supabase And Realtime
 

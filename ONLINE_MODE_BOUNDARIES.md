@@ -3,24 +3,25 @@
 WSCapp currently has two different online concepts. They should not be treated
 as the same system during refactors.
 
-## Public Path: 3D Campus Multiplayer
+## Public Path: 3D Campus Preview
 
-This is the user-facing `ALPACA ONLINE / Join online` path.
+This is the user-facing `3D Campus Preview / Explore preview` path.
 
 - Entry point: `app/src/app/online-mode-controller.js`
 - Backward-compatible URL source: `app/src/app/app-entry-service.js`
 - Runtime URL: `./alpaca-campus-3d/?mode=multiplayer`
 - Default visible alpaca name: `Devalpacca`
 - Login requirement: none
-- Current realtime model: 3D campus presence/broadcast through Supabase
-  Realtime channels
+- Product status: public preview, not a persisted MMO world
+- Current realtime model: experimental 3D campus presence, movement, seat
+  events, and chat through Supabase Realtime channels
 
 This path must keep working on GitHub Pages under `/WSCapp/`.
 
 ## Legacy/Future Path: Live Game Room Mechanics
 
 This is the older main-app live room system for Alpacapardy and arcade-style
-live games. It is not the public `Join online` destination.
+live games. It is not the public `Explore preview` destination.
 
 - Main orchestration still lives in `app/app.js`.
 - Supabase table helpers live in
@@ -38,4 +39,4 @@ clear live-room controller and backed by reviewed Supabase RLS/persistence.
 Do not add login gating, room-table assumptions, or legacy Alpacapardy live-room
 state to the 3D campus launcher. If live game rooms are revived, wire them
 through a separately named live-room controller and keep the public campus entry
-as `3D campus multiplayer`.
+as `3D Campus Preview`.

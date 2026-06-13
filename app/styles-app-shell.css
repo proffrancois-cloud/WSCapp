@@ -736,6 +736,18 @@ body.is-online-mode .hero-best-strip {
   box-shadow: 0 34px 70px rgba(54, 35, 22, 0.28);
 }
 
+.app-entry-intro {
+  padding: 0 4px;
+}
+
+.app-entry-intro p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 850;
+  line-height: 1.35;
+}
+
 .app-entry-auth-panel {
   display: grid;
   gap: 12px;
@@ -1610,4 +1622,3 @@ body.is-online-mode .hero-best-strip {
   align-items: center;
   gap: 18px;
 }
-
