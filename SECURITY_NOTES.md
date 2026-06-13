@@ -44,6 +44,12 @@ messages, not persisted authoritative MMO state.
 The main app allows local mode without signing in. Alpaccount sign-in is
 optional for progress sync.
 
+Alpaccount sign-in and password reset are email-only. The browser client no
+longer resolves alpaca names to email addresses, and the SQL setup drops
+`resolve_alpaca_login(text)`. The signup form also avoids an anonymous
+preflight name-availability response; duplicate or invalid account data is
+reported with generic wording.
+
 The 3D campus multiplayer entry does not force Alpaccount login. The visible
 default online alpaca identity remains `Devalpacca` in the main app entry card.
 
@@ -57,6 +63,8 @@ separate from the public 3D campus launcher.
 - Confirm policies have been applied in the active Supabase project, not only
   stored in SQL files.
 - Confirm Realtime channels do not expose private profile or progress data.
+- Confirm `resolve_alpaca_login(text)` is absent in the active Supabase project.
+- Confirm anonymous users cannot call name-availability/account-lookup RPCs.
 - Confirm anonymous sign-in is intentionally enabled or disabled for the live
   features that use it.
 - Confirm no service-role or deployment secrets appear in source, generated

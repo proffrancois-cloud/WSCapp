@@ -27,7 +27,7 @@ src/
     video-service.js     # Owns YouTube embed/preview URLs, video URL normalization, and channel video extraction.
     game-question-service.js # Owns shared game-question pools, required levels, reusable question patterns, and unavailable-route wording.
     auth-service.js      # Owns low-level Alpaccount helpers: name normalization, redirect URL, config checks, Supabase client creation.
-    supabase-profile-service.js # Owns Alpaccount table/RPC names for profile, progress, name availability, and login lookup.
+    supabase-profile-service.js # Owns Alpaccount profile/progress table calls.
     alpacapardy-live-supabase-service.js # Owns future Supabase table calls for Alpacapardy live rooms, players, events, and snapshots.
     raw-content-service.js # Owns raw-content section lookup, route filtering, entry mapping, payloads, and mastery key counts.
   ui/

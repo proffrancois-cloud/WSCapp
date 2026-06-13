@@ -185,6 +185,10 @@ SQL files:
 - `app/supabase/alpacapardy_live.sql`: future live game rooms, players, events,
   snapshots, RLS, and realtime publication setup.
 
+Alpaccount sign-in and password reset are email-only. The client no longer
+performs alpaca-name-to-email lookup, and `alpaccounts.sql` drops the old
+`resolve_alpaca_login(text)` RPC.
+
 The 3D campus currently uses Supabase Realtime presence/broadcast channels for
 room state, movement, seat events, and chat. That is not yet a persisted MMO
 world model.

@@ -1039,6 +1039,13 @@ body.is-online-mode .hero-best-strip {
   line-height: 1.45;
 }
 
+.auth-trust-copy {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 252, 242, 0.64);
+}
+
 .auth-notice {
   margin: 0;
   padding: 12px 14px;

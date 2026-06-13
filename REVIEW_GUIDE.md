@@ -189,6 +189,11 @@ The publishable key is not treated as a secret. Real protection must come from:
 - avoiding service-role keys in browser code;
 - reviewing any user-generated text before rendering it as HTML.
 
+Alpaccount login and password reset are email-only. The client does not resolve
+alpaca names to email addresses, and `app/supabase/alpaccounts.sql` drops the
+old `resolve_alpaca_login(text)` RPC. Signup duplicate-name failures are shown
+with generic wording instead of public account-existence language.
+
 Current higher-risk areas:
 
 - HTML strings remain common in renderers and `app.js`;

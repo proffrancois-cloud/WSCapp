@@ -278,17 +278,6 @@
         throw new Error("Please enter a valid number of WSC events.");
       }
 
-      const availability = profileService?.checkAlpacaNameAvailability
-        ? await profileService.checkAlpacaNameAvailability(client, alpacaName)
-        : await client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
-      if (availability.error) {
-        throw availability.error;
-      }
-
-      if (availability.data === false) {
-        throw new Error("That alpaca name is already taken. Try another one.");
-      }
-
       const { data: signUpData, error } = await client.auth.signUp({
         email,
         password,
@@ -305,7 +294,7 @@
       });
 
       if (error) {
-        throw error;
+        throw new Error("That Alpaccount could not be created. Check the email and alpaca name, then try again.");
       }
 
       appState.auth.session = signUpData.session || appState.auth.session;
@@ -320,35 +309,21 @@
       }
     }
 
-    async function resolveLoginIdentifier(identifier, client) {
+    async function resolveLoginIdentifier(identifier) {
       const value = String(identifier || "").trim().toLowerCase();
       if (!value) {
-        throw new Error("Enter your alpaca name or email address.");
+        throw new Error("Enter your email address.");
       }
 
-      if (value.includes("@")) {
-        return value;
+      if (!value.includes("@")) {
+        throw new Error("Use the email address for your Alpaccount. Alpaca-name lookup is disabled for privacy.");
       }
 
-      const { data: email, error } = profileService?.resolveAlpacaLogin
-        ? await profileService.resolveAlpacaLogin(client, normalizeAlpacaName(value))
-        : await client.rpc("resolve_alpaca_login", {
-            p_alpaca_name: normalizeAlpacaName(value)
-          });
-
-      if (error) {
-        throw error;
-      }
-
-      if (!email) {
-        throw new Error("No Alpaccount found for that alpaca name.");
-      }
-
-      return email;
+      return value;
     }
 
     async function connect(formData, client) {
-      const email = await resolveLoginIdentifier(formData.get("identifier"), client);
+      const email = await resolveLoginIdentifier(formData.get("email") || formData.get("identifier"));
       const password = String(formData.get("password") || "");
 
       if (!password) {
@@ -367,7 +342,7 @@
     }
 
     async function sendPasswordReset(formData, client) {
-      const email = await resolveLoginIdentifier(formData.get("identifier"), client);
+      const email = await resolveLoginIdentifier(formData.get("email") || formData.get("identifier"));
       const { error } = await client.auth.resetPasswordForEmail(email, {
         redirectTo: getCurrentRedirectUrl()
       });
