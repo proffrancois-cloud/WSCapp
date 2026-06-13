@@ -72,8 +72,11 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 
 ## `app.js`
 
-`app/app.js` is the main orchestrator and remains the highest-risk file. It owns
-or coordinates:
+`app/app.js` is the main orchestrator and remains the highest-risk file. After
+the legacy live-room renderer extraction it is about 18.3k lines, down from the
+roughly 19.2k-line state described in the architecture analysis DOCX, but it is
+still above the high-risk threshold for a single browser script. It owns or
+coordinates:
 
 - global app state and DOM ref consumers;
 - app entry gate and local/online mode selection;
@@ -87,8 +90,12 @@ or coordinates:
 - live Alpacapardy room orchestration;
 - timers and cleanup for games and overlays.
 
-`app.js` is functional, but it is a god file. Future work should extract small
-behavioral seams while keeping compatibility wrappers.
+`app.js` is functional, but it is still a god file. Future work should extract
+small behavioral seams while keeping compatibility wrappers. The next risk
+target is to move it below 10k lines with passing smoke/build/typecheck gates;
+true low risk requires explicit imports, typed contracts, focused unit tests,
+browser journey coverage, and much less dependence on `window.WSC_*` script
+order.
 
 ## Stylesheets
 
@@ -133,7 +140,8 @@ Important groups:
   creation, and route-builder selection state transitions, Alpaccount
   auth/session orchestration, and local progress-storage orchestration,
   selected-mode launch/close mechanics, experience-panel render dispatch, and
-  the public online-mode boundary.
+  the public online-mode boundary, plus legacy/live room rendering through
+  `legacy-live-room-renderer.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -251,8 +259,11 @@ tests without deploying anything.
   centralized in `mode-runtime-controller.js`, while `app.js` still owns the
   renderer implementations and the mode registry passed into that controller.
 - The public online path is now named separately in `online-mode-controller.js`;
-  legacy live game room mechanics are disabled publicly and still need their
-  own controller before any deeper MMO/live-room work.
+  legacy live game room rendering is now isolated in
+  `legacy-live-room-renderer.js`, but live state mutation, Supabase room
+  orchestration, and event handling remain in `app.js`. Legacy live rooms stay
+  disabled publicly until RPC/RLS, persistence, and moderation are reviewed in
+  the active Supabase project.
 - Browser storage writes go through safe helpers. Main-app progress uses
   `storage-service.js` and `progress-storage-controller.js`; the 3D campus
   avatar uses `browser-storage.ts`.
@@ -280,6 +291,21 @@ tests without deploying anything.
   `npm run theme:compare:strict` remains available for the full legacy
   compatibility audit.
 - `npm run test:smoke` currently passes in the clean GitHub copy.
+
+## Risk Targets
+
+The current target is not "perfect architecture"; it is lower severity and
+lower likelihood for the failures a specialist team would reasonably expect
+from a large script-driven app.
+
+| Area | Current risk | Near-term target | Work required |
+| --- | --- | --- | --- |
+| `app/app.js` above 15k lines | High | Medium below 10k lines | Continue responsibility-based extraction with wrappers and tests. |
+| `app/app.js` below 5k lines | Low-Medium | True Low | Move to explicit imports, typed contracts, focused unit tests, and browser journeys. |
+| Script-order globals | Medium-High | Medium | Add a dependency map, then migrate stable modules toward ES modules. |
+| HTML string rendering | Medium | Medium-Low | Keep all sinks behind `app-dom-service`; escape or text-render user values. |
+| CSS late overrides | Medium | Medium-Low | Add screenshot coverage before semantic selector cleanup. |
+| Supabase live/MMO claims | High if reopened | Low only after review | Validate active-project RLS/RPC policies, moderation, and durable state design. |
 
 ## Architecture Decision
 

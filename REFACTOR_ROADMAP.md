@@ -121,6 +121,10 @@ Current progress:
 - `src/app/online-mode-controller.js` and `ONLINE_MODE_BOUNDARIES.md` now name
   the public `3D Campus Preview` launcher separately from legacy/future
   main-app live game room mechanics.
+- `src/app/legacy-live-room-renderer.js` now owns legacy/live room HTML
+  rendering, live waiting overlays, room cards, and arcade live-game display
+  templates while `app.js` keeps live state ownership, Supabase orchestration,
+  event handlers, and public availability flags.
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
@@ -141,6 +145,32 @@ Acceptance per extraction:
 - existing browser script load path still works;
 - tests/typechecks run;
 - rollback is easy.
+
+### `app.js` Risk Targets
+
+The architecture analysis DOCX identifies `app/app.js` as the top severity and
+likelihood risk until it is small enough to review by responsibility instead of
+by scrolling through one giant file. The targets below are review gates, not
+automatic safety guarantees.
+
+| `app.js` state | Target risk | Meaning |
+| --- | --- | --- |
+| Above 15k lines | High | Still a god file. Reviewers should assume hidden coupling, fragile globals, and high regression likelihood. |
+| Below 10k lines with passing smoke/build/typecheck gates | Medium | Responsibilities are visible enough for targeted review, but script-order and untyped contracts still matter. |
+| Below 5k lines with modules, typed contracts, and focused tests | Low-Medium | `app.js` becomes orchestration/bootstrap rather than business/rendering logic. |
+| True Low | Low | Requires explicit imports, typed public contracts, focused unit tests, browser journey coverage, and much less dependence on `window.WSC_*` script order. |
+
+Highest-value next extractions from the architecture analysis:
+
+- event routing and handler dispatch, starting with click/input/submit routing;
+- route render orchestration and timer lifecycle;
+- mode-specific renderers that can move behind feature modules;
+- game-specific start/reset flows after current smoke coverage is broadened;
+- a classic-script dependency map before any ES module or bundler migration.
+
+Non-goals remain important: do not rewrite the whole main app in React now, do
+not move all UI into TypeScript at once, and do not reopen legacy live rooms
+without active Supabase RLS/RPC review.
 
 ## Pass 5: Reduce CSS Risk
 

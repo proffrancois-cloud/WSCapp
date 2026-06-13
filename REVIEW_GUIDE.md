@@ -179,6 +179,8 @@ Recent extractions reduce `app.js` without changing behavior:
   post-render lifecycle sync.
 - `online-mode-controller.js`: public 3D campus path separated from legacy live
   rooms.
+- `legacy-live-room-renderer.js`: legacy/live room rendering, waiting overlays,
+  room cards, and live arcade display templates.
 
 `app.js` still owns too much policy and rendering coordination. The current
 cleanup pattern is: extract mechanics into `app/src`, keep compatibility
@@ -259,6 +261,27 @@ Current higher-risk areas:
   legacy live rooms are reopened.
 - Tests are useful smoke gates, but they are not yet enough for deep UI, auth,
   realtime, or game-rule coverage.
+
+## Risk Reduction Targets
+
+The architecture analysis DOCX frames `app/app.js` as the highest severity and
+likelihood risk. Use these thresholds when reviewing future cleanup PRs:
+
+| State | Review risk | What a reviewer should expect |
+| --- | --- | --- |
+| `app.js` above 15k lines | High | Hidden coupling, fragile event flow, and difficult regression review. |
+| `app.js` below 10k lines with passing gates | Medium | Reviewable responsibilities, but globals and untyped contracts remain. |
+| `app.js` below 5k lines with modules/types/tests | Low-Medium | Mostly orchestration/bootstrap; remaining risks are explicit. |
+| True Low | Low | Explicit imports, typed contracts, focused unit tests, browser journeys, and reduced script-order dependence. |
+
+Most important roadmap recommendations from the DOCX:
+
+- Do not do a full React rewrite now.
+- Move toward TypeScript and ES modules after behavioral boundaries are clearer.
+- Keep approved HTML sinks behind `app-dom-service`.
+- Add screenshot coverage before deeper CSS cleanup.
+- Review Supabase RLS/RPC policies in the active project before any MMO or
+  legacy live-room claim.
 
 ## Specialist Checklists
 
