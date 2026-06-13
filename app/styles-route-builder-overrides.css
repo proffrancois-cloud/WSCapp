@@ -4203,6 +4203,37 @@ button:disabled,
   }
 }
 
+@media (max-width: 480px) {
+  #routeBuilder.wizard.card-panel {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    margin-inline: auto !important;
+    padding-inline: 8px !important;
+    overflow: hidden !important;
+  }
+
+  #routeBuilder .wizard-steps,
+  #routeBuilder .mode-choice-shell,
+  #routeBuilder .mode-choice-picker-row,
+  #routeBuilder .mode-choice-board,
+  #routeBuilder .selected-section-chip-strip {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #routeBuilder .mode-choice-shell,
+  #routeBuilder .mode-choice-board {
+    margin-inline: 0 !important;
+  }
+
+  #routeBuilder .selected-section-chip-strip {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 /* May 23 final compact shell: small header, rolling stage, icon-only guiding-section dock. */
 html,
 body {

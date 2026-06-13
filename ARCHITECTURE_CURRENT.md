@@ -246,6 +246,11 @@ tests without deploying anything.
 - Browser storage writes go through safe helpers. Main-app progress uses
   `storage-service.js` and `progress-storage-controller.js`; the 3D campus
   avatar uses `browser-storage.ts`.
+- 3D campus realtime now applies network guardrails through
+  `campus-network-guardrails.ts` and `room-channel.js`: movement frames omit
+  avatar/display-name blobs, small deltas are throttled, idle heartbeat is
+  explicit, payload byte limits are checked, and rendered remote players are
+  capped.
 - HTML string rendering is now routed through `app-dom-service.js`. Direct
   `innerHTML`/`outerHTML`/`insertAdjacentHTML`/React `dangerouslySetInnerHTML`
   use outside that service is blocked by `npm run test:html-sinks`.
@@ -257,7 +262,8 @@ tests without deploying anything.
 - Vercel and GitHub Pages currently use different publication paths. Vercel has
   a non-deploying artifact path plus baseline security headers in `vercel.json`.
 - Asset base paths differ between Vercel root deploys and GitHub project Pages.
-- Supabase access must be reviewed at the RLS/policy level.
+- Supabase access must still be reviewed at the RLS/policy level before any
+  claim of durable MMO readiness.
 - `npm run test:theme` uses the active-runtime compatibility profile and passes
   while reporting accepted legacy/current-runtime differences for
   `fullVoyageQuestions`, `firstGuideQuestion`, and `firstFullVoyage`.

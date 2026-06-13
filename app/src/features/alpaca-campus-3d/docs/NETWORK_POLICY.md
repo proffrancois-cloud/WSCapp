@@ -52,6 +52,10 @@ Presence payload shape:
 - Send only when the player moved at least 3 world pixels, changed target/facing/locomotion, or hit the idle heartbeat.
 - Round `x`, `y`, `targetX`, and `targetY` to one decimal place.
 - Movement payload target: 384 bytes or less. Do not include display names, large avatar objects, room metadata, or content data in movement frames.
+- Current runtime enforcement lives in `campus-network-guardrails.ts`,
+  `use-campus-realtime.ts`, and `campus-shared/realtime/room-channel.js`.
+  `npm run test:campus-network` checks movement delta/heartbeat decisions,
+  oversized-payload rejection, and the 24-player render cap.
 
 Movement payload shape:
 
@@ -110,6 +114,8 @@ Durable event envelope:
 - Publish `interest.mode`, `zoneIds`, `viewport`, `focusObjectId`, `seatId`, and `activityId` in presence so clients can prioritize rendering nearby or relevant players.
 - Join an activity channel only while a player has the activity open, is seated in it, or is hosting it.
 - Render at most 24 remote players by default, prioritizing same activity, same zone, then nearest viewport distance.
+- Current preview enforcement caps remote players before rendering; deeper
+  priority sorting by activity/zone/viewport remains future MMO work.
 
 ## Local Fallback
 

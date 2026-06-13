@@ -126,6 +126,9 @@ Current progress:
 - `src/app/app-dom-service.js` now owns the trusted HTML boundary, HTML-to-text
   conversion, and escaping helper; `npm run test:html-sinks` blocks direct HTML
   sinks outside that approved service.
+- `src/features/alpaca-campus-3d/campus-network-guardrails.ts` now owns
+  movement delta/heartbeat decisions, payload-size helpers, network value
+  sanitization, and remote-player caps for the 3D campus preview.
 
 Acceptance per extraction:
 

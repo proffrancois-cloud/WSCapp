@@ -34,6 +34,9 @@ src/
   ui/
     auth-modal-renderer.js # Owns Alpaccount modal HTML while app.js keeps submit/click orchestration.
     wizard-renderer.js # Owns route-builder wizard HTML while app.js keeps selection actions.
+  features/
+    alpaca-campus-3d/
+      campus-network-guardrails.ts # Owns movement delta/heartbeat decisions, payload byte helpers, network field sanitization, and remote-player caps.
   modes/
     learn/
       mindmap/

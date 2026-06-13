@@ -57,6 +57,8 @@ npm run test:storage-failure
 npm run test:headers
 npm run test:html-boundary
 npm run test:html-sinks
+npm run test:campus-network
+npm run test:campus-assets
 npm run test:a11y-smoke
 npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
@@ -105,6 +107,10 @@ Vercel and GitHub Pages are deliberately separate right now.
   helper in `app-dom-service.js`.
 - `npm run test:html-sinks` blocks direct HTML sinks outside
   `app-dom-service.js`.
+- `npm run test:campus-network` validates movement payload size, idle heartbeat
+  decisions, remote-player caps, and room-channel oversized-payload rejection.
+- `npm run test:campus-assets` verifies 3D runtime asset references against the
+  bundled `app/assets` tree and Vite-copied `app/public` assets.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:
