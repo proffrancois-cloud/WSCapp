@@ -22,6 +22,7 @@ app/artifacts/
 app/assets-source/
 app/coverage/
 app/test-results/
+app/playwright-report/
 
 # Local reference and archived lock material; the live app source is in app/
 references/

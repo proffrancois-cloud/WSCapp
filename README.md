@@ -32,6 +32,7 @@ npm run test:theme
 npm run test:smoke
 VITE_BASE=/WSCapp/ npm run build:pages
 npm run audit:pages
+npm run verify
 ```
 
 `test:theme` validates the source theme and compares the active runtime profile.

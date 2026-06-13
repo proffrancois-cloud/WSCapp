@@ -202,11 +202,17 @@ Vercel:
 GitHub Pages:
 
 - `.github/workflows/pages.yml` runs `npm ci` and `npm run build:pages`.
+- The Pages build job has read-only repository permissions; only the deploy job
+  gets `pages: write` and `id-token: write`.
 - `VITE_BASE=/${repository}/` ensures Vite output works under `/WSCapp/`.
 - `prepare-github-pages.mjs` copies only allowlisted runtime files, overlays
   the built 3D campus, and prunes unused heavy custom 3D props.
 - `audit-public-artifact.mjs` checks artifacts for forbidden source/config/SQL
   files before they are treated as publishable.
+
+Pull requests and `codex/**` branches run `.github/workflows/verify.yml`, which
+installs dependencies, installs Playwright Chromium for future browser tests,
+and runs `npm run verify`.
 
 ## Current Risks
 

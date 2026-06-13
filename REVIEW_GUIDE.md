@@ -54,6 +54,8 @@ From `app/`:
 npm run typecheck:3d
 npm run test:smoke
 VITE_BASE=/WSCapp/ npm run build:pages
+npm run audit:pages
+npm run verify
 ```
 
 Optional content checks:
@@ -80,6 +82,9 @@ Vercel and GitHub Pages are deliberately separate right now.
 - `npm run audit:pages` and `npm run audit:vercel` verify that public artifacts
   do not include package metadata, SQL, source-only TS/TSX, docs, desktop code,
   local artifacts, or test/build debris.
+- `.github/workflows/verify.yml` runs the PR/branch verification gate and
+  installs Playwright Chromium so browser smoke tests can be added without
+  changing CI setup again.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:

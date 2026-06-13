@@ -8,6 +8,7 @@ app/dist-pages/
 app/dist-vercel/
 app/.playwright-cli/
 app/artifacts/
+app/playwright-report/
 builds/
 dist/
 exports/

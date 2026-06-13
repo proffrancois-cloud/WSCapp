@@ -13,3 +13,4 @@ desktop/
 assets-source/
 coverage/
 test-results/
+playwright-report/
