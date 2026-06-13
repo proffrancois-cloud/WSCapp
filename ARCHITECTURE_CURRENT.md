@@ -8,6 +8,12 @@ This document describes the current GitHub state of WSCapp at commit
 WSCapp is currently a static web app with a modern React/TypeScript 3D campus
 mounted beside an older vanilla JavaScript main app.
 
+The repo-controlled build/runtime policy is Node.js `24.x`. The root `.nvmrc`,
+`.node-version`, root package metadata, app package metadata, GitHub workflows,
+and `npm run test:node-version` all enforce or document that policy. Third-party
+dependency ranges inside `app/package-lock.json` can mention older Node majors
+as compatibility ranges; they are not the app runtime target.
+
 ```text
 WSCapp/
   app/                         active static web app root

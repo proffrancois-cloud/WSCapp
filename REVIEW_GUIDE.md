@@ -36,11 +36,19 @@ Read these files in this order:
 From the app folder:
 
 ```zsh
+nvm use
 cd app
+npm ci
+npm run test:node-version
 npm run serve
 ```
 
 Then open `http://127.0.0.1:4173/`.
+
+Node.js `24.x` is the only supported repo runtime. If `test:node-version` fails,
+switch Node before installing dependencies or running validation. Lockfile
+entries from dependencies may mention Node 20 compatibility, but WSCapp itself
+does not support Node 20 as its build/runtime environment.
 
 The local static server serves the vanilla app directly. The 3D campus source is
 also present, but the production Pages artifact is the best way to test the
@@ -51,6 +59,7 @@ GitHub `/WSCapp/` base path.
 From `app/`:
 
 ```zsh
+npm run test:node-version
 npm run typecheck:3d
 npm run test:smoke
 npm run test:storage-failure

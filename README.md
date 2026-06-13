@@ -11,6 +11,11 @@ This is the active World Scholar's Cup 2026 app workspace.
 
 ## Current Runtime
 
+Node.js `24.x` is the only supported project runtime. Use the root `.nvmrc` or
+`.node-version` before installing dependencies or running build/test commands.
+`app/package-lock.json` may include third-party dependency compatibility ranges
+that mention Node 20; those ranges are not the WSCapp runtime policy.
+
 GitHub Pages publishes `app/dist-pages/` after `npm run build:pages`. Future
 Vercel builds are configured to publish `app/dist-vercel/` after
 `npm run build:vercel`; pushing this repo does not deploy Vercel by itself.
@@ -28,6 +33,7 @@ developer or specialist reviewer.
 
 ```zsh
 cd /Users/francoismo/Documents/Playground/WSC/app
+npm run test:node-version
 npm run test:theme
 npm run test:smoke
 npm run test:storage-failure
