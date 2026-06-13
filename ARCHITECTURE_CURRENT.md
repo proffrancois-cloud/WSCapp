@@ -73,8 +73,8 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 ## `app.js`
 
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
-the legacy live-room renderer and app event-router extractions it is about
-17.5k lines, down from the roughly 19.2k-line state described in the
+the legacy live-room renderer, app event-router, and raw-content controller
+extractions it is about 16.5k lines, down from the roughly 19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
 
@@ -142,8 +142,9 @@ Important groups:
   auth/session orchestration, and local progress-storage orchestration,
   selected-mode launch/close mechanics, experience-panel render dispatch, and
   the public online-mode boundary, plus legacy/live room rendering through
-  `legacy-live-room-renderer.js` and DOM event dispatch through
-  `app-event-router.js`.
+  `legacy-live-room-renderer.js`, DOM event dispatch through
+  `app-event-router.js`, and Raw Content/media-lightbox orchestration through
+  `raw-content-controller.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -269,6 +270,11 @@ tests without deploying anything.
 - DOM event dispatch is now centralized in `app-event-router.js`; `app.js`
   still supplies the action callbacks and keeps compatibility wrappers for the
   listener registration path.
+- Raw Content route filtering, entry rendering glue, mastery toggles, quiz
+  pager state, visual asset selection, and media-lightbox state are now
+  centralized in `raw-content-controller.js`; `app.js` still keeps compatibility
+  wrappers and still passes shared helpers/renderers through classic browser
+  globals.
 - Browser storage writes go through safe helpers. Main-app progress uses
   `storage-service.js` and `progress-storage-controller.js`; the 3D campus
   avatar uses `browser-storage.ts`.

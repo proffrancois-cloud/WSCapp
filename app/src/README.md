@@ -20,6 +20,7 @@ src/
     progress-storage-controller.js # Owns local stats/raw mastery/guest-name persistence, normalization, and save-failure reporting.
     game-launch-controller.js # Owns selected-mode launch, unavailable-mode launch, route-attempt reset, and close cleanup mechanics.
     mode-runtime-controller.js # Owns experience-panel render dispatch and shared render lifecycle mechanics.
+    raw-content-controller.js # Owns Raw Content payloads, quiz/mastery state, visual asset selection, and media-lightbox orchestration.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/

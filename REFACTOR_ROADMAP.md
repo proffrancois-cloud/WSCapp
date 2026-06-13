@@ -128,6 +128,11 @@ Current progress:
 - `src/app/app-event-router.js` now owns document-level click, input, submit,
   keydown, wheel, touchstart, and touchend dispatch mechanics while `app.js`
   keeps the action implementations and compatibility handler wrappers.
+- `src/app/raw-content-controller.js` now owns Raw Content route payloads,
+  entry-card orchestration, mastery toggles, quiz pager state, visual asset
+  selection, media-lightbox state, and raw-content display helpers while
+  `app.js` keeps compatibility wrappers for existing callers in Regular Guide,
+  Mind Map, game setup, and event actions.
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
@@ -154,7 +159,9 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees.
+automatic safety guarantees. After the Raw Content controller extraction,
+`app.js` is about 16.5k lines, so it is improved but still in the High-risk
+band.
 
 | `app.js` state | Target risk | Meaning |
 | --- | --- | --- |
@@ -165,7 +172,6 @@ automatic safety guarantees.
 
 Highest-value next extractions from the architecture analysis:
 
-- event routing and handler dispatch, starting with click/input/submit routing;
 - route render orchestration and timer lifecycle;
 - mode-specific renderers that can move behind feature modules;
 - game-specific start/reset flows after current smoke coverage is broadened;

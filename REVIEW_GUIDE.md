@@ -183,6 +183,9 @@ Recent extractions reduce `app.js` without changing behavior:
   room cards, and live arcade display templates.
 - `app-event-router.js`: document-level click/input/submit/keydown/wheel/touch
   dispatch mapped to explicit action callbacks.
+- `raw-content-controller.js`: Raw Content payloads, entry-card orchestration,
+  mastery toggles, quiz pager state, visual asset selection, and media-lightbox
+  state.
 
 `app.js` still owns too much policy and rendering coordination. The current
 cleanup pattern is: extract mechanics into `app/src`, keep compatibility
@@ -252,6 +255,9 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
+- As of the Raw Content controller extraction, `app/app.js` is about 16.5k
+  lines. That is smaller than the pre-refactor file, but still above the
+  High-risk threshold.
 - `index.html` depends on strict script order and browser globals.
 - Main app modules are not true ES imports yet.
 - Route rendering and route policy remain partly mixed.
