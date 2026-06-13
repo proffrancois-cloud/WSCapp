@@ -10,10 +10,18 @@ export default defineConfig({
     ? [["list"], ["html", { outputFolder: "playwright-report", open: "never" }]]
     : "list",
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:4173",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:4174/WSCapp/",
     screenshot: "only-on-failure",
     trace: "retain-on-failure"
   },
+  webServer: process.env.PLAYWRIGHT_BASE_URL
+    ? undefined
+    : {
+        command: "node ../tools/servers/serve-public-artifact.mjs dist-pages --base=/WSCapp/ --port=4174",
+        url: "http://127.0.0.1:4174/WSCapp/",
+        reuseExistingServer: !process.env.CI,
+        timeout: 10_000
+      },
   projects: [
     {
       name: "chromium",

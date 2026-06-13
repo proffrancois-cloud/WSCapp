@@ -217,7 +217,9 @@ GitHub Pages:
 
 Pull requests and `codex/**` branches run `.github/workflows/verify.yml`, which
 installs dependencies, installs Playwright Chromium for future browser tests,
-and runs `npm run verify`.
+and runs `npm run verify`. `tools/servers/serve-public-artifact.mjs` serves
+`app/dist-pages/` under `/WSCapp/` for Playwright campus smoke tests without
+deploying anything.
 
 ## Current Risks
 

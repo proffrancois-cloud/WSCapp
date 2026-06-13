@@ -53,6 +53,7 @@ From `app/`:
 ```zsh
 npm run typecheck:3d
 npm run test:smoke
+npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
 npm run audit:pages
 npm run verify
@@ -85,6 +86,9 @@ Vercel and GitHub Pages are deliberately separate right now.
 - `.github/workflows/verify.yml` runs the PR/branch verification gate and
   installs Playwright Chromium so browser smoke tests can be added without
   changing CI setup again.
+- `npm run test:campus-smoke` serves the built Pages artifact under `/WSCapp/`
+  and checks the 3D campus route, canvas screenshot pixels, and local JS/CSS/
+  GLB/texture responses with Playwright.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:
