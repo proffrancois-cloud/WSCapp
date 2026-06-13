@@ -4,6 +4,8 @@
 .vercel/
 node_modules/
 dist-3d/
+dist-pages/
+dist-vercel/
 public/
 .playwright-cli/
 artifacts/

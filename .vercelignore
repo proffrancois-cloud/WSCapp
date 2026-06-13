@@ -4,6 +4,8 @@
 app/node_modules/
 app/dist-3d/
 app/public/
+app/dist-pages/
+app/dist-vercel/
 app/.playwright-cli/
 app/artifacts/
 builds/

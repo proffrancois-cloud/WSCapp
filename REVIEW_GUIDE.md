@@ -71,11 +71,15 @@ is intentionally stricter and may report known legacy/current-runtime deltas.
 
 Vercel and GitHub Pages are deliberately separate right now.
 
-- Vercel publishes `app/` directly through `vercel.json`.
+- Future Vercel builds publish `app/dist-vercel/` through `vercel.json` after
+  running `npm run build:vercel`.
 - GitHub Pages runs `.github/workflows/pages.yml`, executes
   `npm run build:pages`, and publishes `app/dist-pages/`.
-- `build:pages` builds the 3D campus with Vite, copies the static app, overlays
-  the built campus, and preserves the `/WSCapp/` base path.
+- `build:pages` and `build:vercel` build the 3D campus with Vite, copy only
+  allowlisted runtime files, and overlay the built campus.
+- `npm run audit:pages` and `npm run audit:vercel` verify that public artifacts
+  do not include package metadata, SQL, source-only TS/TSX, docs, desktop code,
+  local artifacts, or test/build debris.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:

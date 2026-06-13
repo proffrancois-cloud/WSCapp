@@ -14,12 +14,13 @@ WSCapp/
   content/themes/2026/         source-of-truth content pack
   tools/                       generators, validators, deployment helpers
   .github/workflows/pages.yml  GitHub Pages deployment
-  vercel.json                  Vercel config, outputDirectory: app
+  vercel.json                  Vercel config, outputDirectory: app/dist-vercel
 ```
 
-Vercel serves `app/` directly. GitHub Pages runs a Vite build for the 3D campus,
-then creates `app/dist-pages/` by copying the static app root and overlaying the
-built 3D campus.
+GitHub Pages runs a Vite build for the 3D campus, then creates
+`app/dist-pages/` from an explicit runtime allowlist and overlays the built 3D
+campus. Future Vercel builds use the same artifact path pattern through
+`app/dist-vercel/`; this repo change does not deploy Vercel by itself.
 
 ## Content Flow
 
@@ -192,17 +193,20 @@ world model.
 
 Vercel:
 
-- `vercel.json` publishes `app/`.
-- `.vercelignore` excludes `app/public/`, `app/dist-3d/`, local artifacts, and
-  archived material.
+- `vercel.json` runs `cd app && npm ci && npm run build:vercel`.
+- `vercel.json` publishes `app/dist-vercel/`.
+- `.vercelignore` excludes local artifacts and generated output directories
+  from source uploads.
 - The Vercel app is not automatically updated by GitHub Pages work.
 
 GitHub Pages:
 
 - `.github/workflows/pages.yml` runs `npm ci` and `npm run build:pages`.
 - `VITE_BASE=/${repository}/` ensures Vite output works under `/WSCapp/`.
-- `prepare-github-pages.mjs` copies the static app, overlays the built 3D
-  campus, and prunes unused heavy custom 3D props.
+- `prepare-github-pages.mjs` copies only allowlisted runtime files, overlays
+  the built 3D campus, and prunes unused heavy custom 3D props.
+- `audit-public-artifact.mjs` checks artifacts for forbidden source/config/SQL
+  files before they are treated as publishable.
 
 ## Current Risks
 

@@ -4,14 +4,18 @@ This is the active World Scholar's Cup 2026 app workspace.
 
 ## Main Folders
 
-- `app/`: current Vercel-published static app root.
+- `app/`: current static app source and artifact build workspace.
 - `content/themes/2026/`: normalized source-of-truth content for the 2026 theme.
 - `tools/`: generators and validators that rebuild/check the app runtime.
 - `archive/toreview/`: quarantine for old builds, generated artifacts, one-off scripts, and unused assets.
 
 ## Current Runtime
 
-Vercel publishes `app/` via `vercel.json`. The browser loads `app/generated/current-runtime/`, extracted modules in `app/src/`, then the remaining orchestrator in `app/app.js`.
+GitHub Pages publishes `app/dist-pages/` after `npm run build:pages`. Future
+Vercel builds are configured to publish `app/dist-vercel/` after
+`npm run build:vercel`; pushing this repo does not deploy Vercel by itself.
+The browser loads `app/generated/current-runtime/`, extracted modules in
+`app/src/`, then the remaining orchestrator in `app/app.js`.
 
 Use [CURRENT_ARCHITECTURE.md](CURRENT_ARCHITECTURE.md) for the exact current
 folder map and [ARCHITECTURE_TARGET.md](ARCHITECTURE_TARGET.md) for the
@@ -26,6 +30,8 @@ developer or specialist reviewer.
 cd /Users/francoismo/Documents/Playground/WSC/app
 npm run test:theme
 npm run test:smoke
+VITE_BASE=/WSCapp/ npm run build:pages
+npm run audit:pages
 ```
 
 `test:theme` validates the source theme and compares the active runtime profile.

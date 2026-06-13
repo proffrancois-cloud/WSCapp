@@ -10,6 +10,7 @@ builds/
 dist/
 app/dist-3d/
 app/dist-pages/
+app/dist-vercel/
 exports/
 output/
 outputs/
