@@ -2340,8 +2340,7 @@ const onlineModeController = createOnlineModeController({
 const progressStorageController = createProgressStorageController({
   storageService: appStorageService,
   progressService: appProgressService,
-  entryService: appEntryService,
-  localStorageTarget: window.localStorage
+  entryService: appEntryService
 });
 
 const state = appStateService.createInitialState({
@@ -4245,6 +4244,7 @@ function renderAppEntryAuthPanel() {
         <p class="challenge-label">Alpaccount</p>
         <h3>${escapeHtml(title)}</h3>
       </div>
+      ${state.ui.localProgressSaveError ? `<p class="auth-notice error">${escapeHtml(state.ui.localProgressSaveError)}</p>` : ""}
       ${authModalRenderer.renderNotice(context, { escapeHtml })}
       ${authModalRenderer.renderBody(context, { escapeHtml })}
     </section>
@@ -17859,7 +17859,11 @@ function saveRawMastery() {
 }
 
 function saveProgressLocally() {
-  progressStorageController.saveLocalProgress(state);
+  const result = progressStorageController.saveLocalProgress(state);
+  state.ui.localProgressSaveError = result?.ok
+    ? ""
+    : "Local progress could not be saved in this browser. You can keep using WSCapp, but progress may reset after reload.";
+  return result;
 }
 
 async function saveAlpacaProgress() {

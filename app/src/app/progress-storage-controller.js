@@ -8,9 +8,12 @@
   function createProgressStorageController({
     storageService = window.WSC_STORAGE_SERVICE,
     progressService = window.WSC_PROGRESS_SERVICE,
-    entryService = window.WSC_APP_ENTRY_SERVICE,
-    localStorageTarget = window.localStorage
+    entryService = window.WSC_APP_ENTRY_SERVICE
   } = {}) {
+    function createResult(ok, key, error = "") {
+      return { ok, key, error: error ? String(error.message || error) : "" };
+    }
+
     function getDefaultStats() {
       return progressService?.getDefaultStats
         ? progressService.getDefaultStats()
@@ -59,21 +62,15 @@
         return storageService.getJson(key, fallback);
       }
 
-      try {
-        const raw = localStorageTarget.getItem(key);
-        return raw ? JSON.parse(raw) : fallback;
-      } catch (_error) {
-        return fallback;
-      }
+      return fallback;
     }
 
     function setJson(key, value) {
       if (storageService?.setJson) {
-        storageService.setJson(key, value);
-        return;
+        return storageService.setJson(key, value);
       }
 
-      localStorageTarget.setItem(key, JSON.stringify(value));
+      return createResult(false, key, "Storage service is unavailable.");
     }
 
     function getText(key, fallback = "") {
@@ -81,21 +78,15 @@
         return storageService.getText(key, fallback);
       }
 
-      try {
-        const raw = localStorageTarget.getItem(key);
-        return raw === null ? fallback : raw;
-      } catch (_error) {
-        return fallback;
-      }
+      return fallback;
     }
 
     function setText(key, value) {
       if (storageService?.setText) {
-        storageService.setText(key, value);
-        return;
+        return storageService.setText(key, value);
       }
 
-      localStorageTarget.setItem(key, String(value));
+      return createResult(false, key, "Storage service is unavailable.");
     }
 
     function loadStats() {
@@ -125,8 +116,15 @@
     }
 
     function saveLocalProgress(appState) {
-      setJson(STORAGE_KEYS.stats, appState.stats);
-      setJson(STORAGE_KEYS.rawMastery, appState.rawMastery);
+      const results = [
+        setJson(STORAGE_KEYS.stats, appState.stats),
+        setJson(STORAGE_KEYS.rawMastery, appState.rawMastery)
+      ];
+      return {
+        ok: results.every((result) => result?.ok),
+        results,
+        failedKeys: results.filter((result) => !result?.ok).map((result) => result?.key).filter(Boolean)
+      };
     }
 
     return Object.freeze({

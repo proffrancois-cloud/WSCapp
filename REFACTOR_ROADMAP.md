@@ -120,6 +120,9 @@ Current progress:
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
+- `src/services/storage-service.js` and `src/app/progress-storage-controller.js`
+  now report non-fatal browser storage failures; `vercel.json` carries baseline
+  static security headers for future Vercel artifacts.
 
 Acceptance per extraction:
 

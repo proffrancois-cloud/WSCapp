@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { readJsonFromBrowserStorage, writeJsonToBrowserStorage } from "./browser-storage";
 import {
   type CampusItem,
   type CampusPanel,
@@ -187,14 +188,10 @@ const DEFAULT_VIEW_SETTINGS: CampusViewSettings = {
 };
 
 function readSavedAvatar(): AlpacaAvatar {
-  try {
-    const saved = window.localStorage.getItem(LOCAL_AVATAR_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved) as AlpacaAvatar;
-      return avatarOptions.find((avatar) => avatar.id === parsed.id) || avatarOptions[0];
-    }
-  } catch (_error) {}
-
+  const saved = readJsonFromBrowserStorage<Partial<AlpacaAvatar> | null>(LOCAL_AVATAR_KEY, null);
+  if (saved?.id) {
+    return avatarOptions.find((avatar) => avatar.id === saved.id) || avatarOptions[0];
+  }
   return avatarOptions[0];
 }
 
@@ -774,7 +771,7 @@ export const useCampusStore = create<CampusState>((set, get) => ({
   },
 
   chooseAvatar(avatar) {
-    window.localStorage.setItem(LOCAL_AVATAR_KEY, JSON.stringify(avatar));
+    writeJsonToBrowserStorage(LOCAL_AVATAR_KEY, avatar);
     set((state) => ({
       localPlayer: {
         ...state.localPlayer,

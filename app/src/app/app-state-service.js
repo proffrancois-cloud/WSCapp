@@ -44,7 +44,8 @@
       rawQuizPages: {},
       openModeChoicePath: null,
       rawMediaLightbox: null,
-      rawMediaSwipeStartX: null
+      rawMediaSwipeStartX: null,
+      localProgressSaveError: ""
     };
   }
 

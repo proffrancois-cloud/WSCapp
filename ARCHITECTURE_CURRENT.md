@@ -243,14 +243,16 @@ tests without deploying anything.
 - The public online path is now named separately in `online-mode-controller.js`;
   legacy live game room mechanics are disabled publicly and still need their
   own controller before any deeper MMO/live-room work.
-- The 3D campus intentionally keeps separate avatar local storage in
-  `campus-store.ts` until campus state has a broader persistence design.
+- Browser storage writes go through safe helpers. Main-app progress uses
+  `storage-service.js` and `progress-storage-controller.js`; the 3D campus
+  avatar uses `browser-storage.ts`.
 - HTML string rendering is now partially centralized through
   `app-dom-service.js`, but it still increases XSS risk if user-generated
   content expands.
 - Modal focus is now centralized in `src/app/modal-focus-service.js`, but modal
   open/close policy still lives in `app.js`.
-- Vercel and GitHub Pages currently use different publication paths.
+- Vercel and GitHub Pages currently use different publication paths. Vercel has
+  a non-deploying artifact path plus baseline security headers in `vercel.json`.
 - Asset base paths differ between Vercel root deploys and GitHub project Pages.
 - Supabase access must be reviewed at the RLS/policy level.
 - `npm run test:theme` uses the active-runtime compatibility profile and passes

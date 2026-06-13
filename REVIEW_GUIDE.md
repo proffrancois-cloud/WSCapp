@@ -53,6 +53,8 @@ From `app/`:
 ```zsh
 npm run typecheck:3d
 npm run test:smoke
+npm run test:storage-failure
+npm run test:headers
 npm run test:a11y-smoke
 npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
@@ -93,6 +95,10 @@ Vercel and GitHub Pages are deliberately separate right now.
 - `npm run test:a11y-smoke` serves the same Pages artifact and checks modal
   focus trapping, Escape close behavior, and 390px horizontal overflow on the
   entry gate and route builder.
+- `npm run test:storage-failure` verifies blocked browser storage is reported
+  as non-fatal instead of throwing.
+- `npm run test:headers` validates the future Vercel artifact path and baseline
+  security headers in `vercel.json`.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:
@@ -210,8 +216,8 @@ Current higher-risk areas:
 - legacy live rooms are disabled publicly and need policy review before public
   MMO use;
 - campus realtime flows still need policy review before expanded MMO use;
-- localStorage is now more centralized, but campus avatar storage is still
-  intentionally separate;
+- browser storage writes now go through safe helpers, including campus avatar
+  persistence, but storage UX is still intentionally minimal;
 - Vercel and GitHub Pages have different base-path behavior.
 
 ## Known Technical Debt

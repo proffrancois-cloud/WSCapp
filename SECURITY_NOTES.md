@@ -9,6 +9,10 @@ deployed to Vercel or GitHub Pages.
 browser key. This key is not treated as a secret. It identifies the Supabase
 project to the browser client.
 
+The classic browser shell still loads Supabase from jsDelivr, pinned to
+`@supabase/supabase-js@2.108.1`. Bundling Supabase through npm is deferred until
+the non-bundled classic shell is migrated or wrapped by a build step.
+
 Security must come from Supabase configuration:
 
 - Row Level Security must be enabled on every public table that the browser can
@@ -58,6 +62,15 @@ Legacy live Alpacapardy room features are disabled in the public app through
 public 3D campus launcher and should stay closed until their RPC/RLS,
 persistence, and moderation design is reviewed.
 
+Browser storage writes are non-fatal. If local progress cannot be saved, the
+app keeps running and can show a local-progress warning on the entry surface.
+The 3D campus avatar preference uses the same safe browser-storage boundary.
+
+Future Vercel artifacts are configured with baseline static headers in
+`vercel.json`: CSP, `X-Content-Type-Options`, `Referrer-Policy`,
+`Permissions-Policy`, and `X-Frame-Options`. This repo change does not deploy
+Vercel.
+
 ## Review Checklist
 
 - Confirm RLS is enabled for every table reachable from browser code.
@@ -68,5 +81,7 @@ persistence, and moderation design is reviewed.
 - Confirm anonymous users cannot call name-availability/account-lookup RPCs.
 - Confirm anonymous sign-in is intentionally enabled or disabled for the live
   features that use it.
+- Confirm the pinned Supabase browser dependency is reviewed before updating.
+- Confirm Vercel headers are still compatible before publishing a Vercel build.
 - Confirm no service-role or deployment secrets appear in source, generated
   files, build artifacts, screenshots, docs, or browser-visible config.
