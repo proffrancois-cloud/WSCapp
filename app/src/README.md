@@ -19,6 +19,7 @@ src/
     auth-controller.js # Owns Alpaccount session, profile/progress loading, auth form actions, and sign-out orchestration.
     progress-storage-controller.js # Owns local stats/raw mastery/guest-name persistence, normalization, and save-failure reporting.
     game-launch-controller.js # Owns selected-mode launch, unavailable-mode launch, route-attempt reset, and close cleanup mechanics.
+    mode-runtime-controller.js # Owns experience-panel render dispatch and shared render lifecycle mechanics.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/

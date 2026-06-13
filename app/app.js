@@ -19,6 +19,7 @@ const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
 const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
 const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
+const createModeRuntimeController = window.WSC_CREATE_MODE_RUNTIME_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const CAMPUS_PREVIEW_PUBLIC_ENABLED = true;
@@ -2399,6 +2400,39 @@ const gameLaunchController = createGameLaunchController({
     clearDebateSpinTimer,
     clearDebateRevealTimer
   ]
+});
+
+const modeRuntimeController = createModeRuntimeController({
+  appState: state,
+  refs,
+  domService: appDomService,
+  renderers: {
+    slideshow: renderSlideshowExperience,
+    mindmap: renderMindMapExperience,
+    rawcontent: renderRawContentExperience,
+    regularguide: renderRegularGuideExperience,
+    channel: renderAlpacaChannelExperience,
+    alpacard: renderAlpacardExperience,
+    writing: renderWritingExperience,
+    quiz: renderQuizExperience,
+    bowl: renderBowlExperience,
+    race: renderRaceExperience,
+    jump: renderJumpExperience,
+    jeopardy: renderJeopardyExperience,
+    run: renderRunExperience,
+    relay: renderRelayExperience,
+    buildcase: renderBuildCaseExperience,
+    unavailable: renderUnavailableModeExperience
+  },
+  callbacks: {
+    stopMindMapOrbitAnimation,
+    syncExperienceTimers,
+    syncPopupScrollLock,
+    syncRadialMindMapScroll,
+    syncMindMapOrbitAnimation,
+    syncRawQuestionGalleries,
+    syncActiveModalFocus
+  }
 });
 
 const RESOURCE_LINKS = [
@@ -5936,78 +5970,7 @@ function closeCurrentExperience() {
 }
 
 function renderExperience() {
-  if (state.ui.appShellMode === "online") {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
-    refs.experiencePanel.classList.add("hidden");
-    refs.experiencePanel.classList.remove("experience-panel--mindmap");
-    appDomService.clearHtml(refs.experiencePanel);
-    stopMindMapOrbitAnimation();
-    syncPopupScrollLock();
-    syncActiveModalFocus();
-    return;
-  }
-
-  if (!state.experience) {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
-    refs.experiencePanel.classList.add("hidden");
-    refs.experiencePanel.classList.remove("experience-panel--mindmap");
-    appDomService.clearHtml(refs.experiencePanel);
-    stopMindMapOrbitAnimation();
-    syncPopupScrollLock();
-    syncActiveModalFocus();
-    return;
-  }
-
-  refs.experiencePanel.classList.remove("hidden");
-  refs.experiencePanel.classList.toggle("experience-panel--mindmap", state.experience.type === "mindmap");
-
-  if (!["rawcontent", "mindmap"].includes(state.experience.type) && state.ui.rawMediaLightbox) {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
-  }
-
-  if (state.experience.type === "slideshow") {
-    appDomService.setHtml(refs.experiencePanel, renderSlideshowExperience());
-  } else if (state.experience.type === "mindmap") {
-    appDomService.setHtml(refs.experiencePanel, renderMindMapExperience());
-  } else if (state.experience.type === "rawcontent") {
-    appDomService.setHtml(refs.experiencePanel, renderRawContentExperience());
-  } else if (state.experience.type === "regularguide") {
-    appDomService.setHtml(refs.experiencePanel, renderRegularGuideExperience());
-  } else if (state.experience.type === "channel") {
-    appDomService.setHtml(refs.experiencePanel, renderAlpacaChannelExperience());
-  } else if (state.experience.type === "alpacard") {
-    appDomService.setHtml(refs.experiencePanel, renderAlpacardExperience());
-  } else if (state.experience.type === "writing") {
-    appDomService.setHtml(refs.experiencePanel, renderWritingExperience());
-  } else if (state.experience.type === "quiz") {
-    appDomService.setHtml(refs.experiencePanel, renderQuizExperience());
-  } else if (state.experience.type === "bowl") {
-    appDomService.setHtml(refs.experiencePanel, renderBowlExperience());
-  } else if (state.experience.type === "race") {
-    appDomService.setHtml(refs.experiencePanel, renderRaceExperience());
-  } else if (state.experience.type === "jump") {
-    appDomService.setHtml(refs.experiencePanel, renderJumpExperience());
-  } else if (state.experience.type === "jeopardy") {
-    appDomService.setHtml(refs.experiencePanel, renderJeopardyExperience());
-  } else if (state.experience.type === "run") {
-    appDomService.setHtml(refs.experiencePanel, renderRunExperience());
-  } else if (state.experience.type === "relay") {
-    appDomService.setHtml(refs.experiencePanel, renderRelayExperience());
-  } else if (state.experience.type === "buildcase") {
-    appDomService.setHtml(refs.experiencePanel, renderBuildCaseExperience());
-  } else if (state.experience.type === "unavailable") {
-    appDomService.setHtml(refs.experiencePanel, renderUnavailableModeExperience());
-  }
-
-  syncExperienceTimers();
-  syncPopupScrollLock();
-  syncRadialMindMapScroll();
-  syncMindMapOrbitAnimation();
-  syncRawQuestionGalleries();
-  syncActiveModalFocus();
+  modeRuntimeController.renderCurrentExperience();
 }
 
 function renderExperiencePreservingScroll() {

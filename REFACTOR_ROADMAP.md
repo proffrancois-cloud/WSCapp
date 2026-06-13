@@ -114,6 +114,10 @@ Current progress:
   unavailable-mode launch, route-attempt reset, and ordinary close cleanup
   mechanics while `app.js` keeps the mode factory registry, rendering,
   scrolling, and game-specific start/reset flows.
+- `src/app/mode-runtime-controller.js` now owns experience-panel render
+  dispatch, empty-panel cleanup, popup/lightbox reset mechanics, and shared
+  post-render sync calls while `app.js` keeps the renderer implementations and
+  mode registry wiring.
 - `src/app/online-mode-controller.js` and `ONLINE_MODE_BOUNDARIES.md` now name
   the public `3D Campus Preview` launcher separately from legacy/future
   main-app live game room mechanics.

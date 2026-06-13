@@ -166,6 +166,8 @@ Recent extractions reduce `app.js` without changing behavior:
 - `progress-storage-controller.js`: local stats, mastery, and guest-name
   persistence.
 - `game-launch-controller.js`: launch/close/reset mechanics.
+- `mode-runtime-controller.js`: experience-panel render dispatch and shared
+  post-render lifecycle sync.
 - `online-mode-controller.js`: public 3D campus path separated from legacy live
   rooms.
 

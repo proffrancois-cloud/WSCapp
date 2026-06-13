@@ -126,7 +126,8 @@ Important groups:
   boundaries, text escaping helpers, template parsing, dynamic overlay mount
   creation, and route-builder selection state transitions, Alpaccount
   auth/session orchestration, and local progress-storage orchestration,
-  selected-mode launch/close mechanics, and the public online-mode boundary.
+  selected-mode launch/close mechanics, experience-panel render dispatch, and
+  the public online-mode boundary.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -240,6 +241,9 @@ tests without deploying anything.
   ordinary close cleanup are centralized in `game-launch-controller.js`, while
   `app.js` still owns the mode factory registry, render calls, scrolling, and
   game-specific start/reset flows.
+- Experience-panel render dispatch and shared render lifecycle sync are now
+  centralized in `mode-runtime-controller.js`, while `app.js` still owns the
+  renderer implementations and the mode registry passed into that controller.
 - The public online path is now named separately in `online-mode-controller.js`;
   legacy live game room mechanics are disabled publicly and still need their
   own controller before any deeper MMO/live-room work.
