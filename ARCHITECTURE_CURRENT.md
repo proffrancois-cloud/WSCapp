@@ -73,8 +73,9 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 ## `app.js`
 
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
-the legacy live-room renderer, app event-router, raw-content controller, and
-study-game controller extractions it is about 16.3k lines, down from the roughly 19.2k-line state described in the
+the legacy live-room renderer, app event-router, raw-content controller,
+study-game controller, and arcade-game controller extractions it is about 15.8k
+lines, down from the roughly 19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
 
@@ -144,8 +145,9 @@ Important groups:
   the public online-mode boundary, plus legacy/live room rendering through
   `legacy-live-room-renderer.js`, DOM event dispatch through
   `app-event-router.js`, Raw Content/media-lightbox orchestration through
-  `raw-content-controller.js`, and local Writing/Bowl/Alpaquiz action mechanics
-  through `study-game-controller.js`.
+  `raw-content-controller.js`, local Writing/Bowl/Alpaquiz action mechanics
+  through `study-game-controller.js`, and local Race/Run/Relay/Jump action
+  mechanics through `arcade-game-controller.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -280,6 +282,9 @@ tests without deploying anything.
   Scholar's Challenge are now centralized in `study-game-controller.js`;
   `app.js` still owns their builders/renderers and provides compatibility
   wrappers to the event router.
+- Local arcade/route-game actions for Race, Alpaca Run, Relay, and Jump are now
+  centralized in `arcade-game-controller.js`; `app.js` still owns their
+  builders, renderers, timers, DOM patch helpers, and compatibility wrappers.
 - Browser storage writes go through safe helpers. Main-app progress uses
   `storage-service.js` and `progress-storage-controller.js`; the 3D campus
   avatar uses `browser-storage.ts`.

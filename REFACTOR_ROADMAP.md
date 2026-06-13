@@ -136,6 +136,9 @@ Current progress:
 - `src/app/study-game-controller.js` now owns local Collaborative Writing,
   Scholar's Bowl, and Scholar's Challenge action mechanics while `app.js` keeps
   their builders, renderers, and compatibility wrappers.
+- `src/app/arcade-game-controller.js` now owns local Race, Alpaca Run, Relay,
+  and Jump action mechanics while `app.js` keeps their builders, renderers,
+  timers, DOM patch helpers, and compatibility wrappers.
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
@@ -162,8 +165,8 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the study-game controller extraction,
-`app.js` is about 16.3k lines, so it is improved but still in the High-risk
+automatic safety guarantees. After the arcade-game controller extraction,
+`app.js` is about 15.8k lines, so it is improved but still in the High-risk
 band.
 
 | `app.js` state | Target risk | Meaning |

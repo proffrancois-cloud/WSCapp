@@ -188,6 +188,8 @@ Recent extractions reduce `app.js` without changing behavior:
   state.
 - `study-game-controller.js`: local Collaborative Writing, Scholar's Bowl, and
   Scholar's Challenge action mechanics.
+- `arcade-game-controller.js`: local Race, Alpaca Run, Relay, and Jump action
+  mechanics.
 
 `app.js` still owns too much policy and rendering coordination. The current
 cleanup pattern is: extract mechanics into `app/src`, keep compatibility
@@ -257,7 +259,7 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the study-game controller extraction, `app/app.js` is about 16.3k
+- As of the arcade-game controller extraction, `app/app.js` is about 15.8k
   lines. That is smaller than the pre-refactor file, but still above the
   High-risk threshold.
 - `index.html` depends on strict script order and browser globals.
