@@ -123,8 +123,12 @@ Current progress:
   main-app live game room mechanics.
 - `src/app/legacy-live-room-renderer.js` now owns legacy/live room HTML
   rendering, live waiting overlays, room cards, and arcade live-game display
-  templates while `app.js` keeps live state ownership, Supabase orchestration,
-  action callbacks, and public availability flags.
+  templates.
+- `src/app/legacy-live-room-controller.js` now owns legacy/live room access,
+  lobby/session sync, heartbeat/subscription cleanup, live event reducers,
+  chat, start/join/leave actions, and arcade-live action mechanics while
+  `app.js` keeps compatibility wrappers, public availability flags, and
+  remaining Jeopardy-local game calls.
 - `src/app/app-event-router.js` now owns document-level click, input, submit,
   keydown, wheel, touchstart, and touchend dispatch mechanics while `app.js`
   keeps the action implementations and compatibility handler wrappers.
@@ -165,13 +169,13 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the arcade-game controller extraction,
-`app.js` is about 15.8k lines, so it is improved but still in the High-risk
-band.
+automatic safety guarantees. After the legacy live-room controller extraction,
+`app.js` is about 14.5k lines, so it is improved but still above the target
+for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |
 | --- | --- | --- |
-| Above 15k lines | High | Still a god file. Reviewers should assume hidden coupling, fragile globals, and high regression likelihood. |
+| Above 10k lines | High | Still a god file. Reviewers should assume hidden coupling, fragile globals, and high regression likelihood. |
 | Below 10k lines with passing smoke/build/typecheck gates | Medium | Responsibilities are visible enough for targeted review, but script-order and untyped contracts still matter. |
 | Below 5k lines with modules, typed contracts, and focused tests | Low-Medium | `app.js` becomes orchestration/bootstrap rather than business/rendering logic. |
 | True Low | Low | Requires explicit imports, typed public contracts, focused unit tests, browser journey coverage, and much less dependence on `window.WSC_*` script order. |
@@ -180,7 +184,8 @@ Highest-value next extractions from the architecture analysis:
 
 - route render orchestration and timer lifecycle;
 - mode-specific renderers that can move behind feature modules;
-- game-specific start/reset flows after current smoke coverage is broadened;
+- remaining Jeopardy-specific local start/reset/tile/focus flows after current
+  smoke coverage is broadened;
 - a classic-script dependency map before any ES module or bundler migration.
 
 Non-goals remain important: do not rewrite the whole main app in React now, do

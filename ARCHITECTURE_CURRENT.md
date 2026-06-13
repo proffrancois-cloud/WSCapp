@@ -73,9 +73,9 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 ## `app.js`
 
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
-the legacy live-room renderer, app event-router, raw-content controller,
-study-game controller, and arcade-game controller extractions it is about 15.8k
-lines, down from the roughly 19.2k-line state described in the
+the legacy live-room renderer/controller, app event-router, raw-content
+controller, study-game controller, and arcade-game controller extractions it is
+about 14.5k lines, down from the roughly 19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
 
@@ -89,7 +89,7 @@ single browser script. It owns or coordinates:
 - progress, stats, and local storage integration through the extracted
   progress-storage controller;
 - learn/play/train mode bridges;
-- live Alpacapardy room orchestration;
+- live Alpacapardy room wrappers and game-specific compatibility calls;
 - timers and cleanup for games and overlays.
 
 `app.js` is functional, but it is still a god file. Future work should extract
@@ -147,7 +147,9 @@ Important groups:
   `app-event-router.js`, Raw Content/media-lightbox orchestration through
   `raw-content-controller.js`, local Writing/Bowl/Alpaquiz action mechanics
   through `study-game-controller.js`, and local Race/Run/Relay/Jump action
-  mechanics through `arcade-game-controller.js`.
+  mechanics through `arcade-game-controller.js`, plus legacy/live room access,
+  lobby/session sync, event reducers, chat, and start/join/leave actions
+  through `legacy-live-room-controller.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -189,10 +191,13 @@ That public path is named `3D Campus Preview` in
 yet a persisted MMO experience.
 
 The older main-app Alpaca Online/live room screens are separate legacy/future
-live game room mechanics. They still live mostly in `app.js` and the
-Alpacapardy live services. They are not the public `Explore preview`
-destination, and `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED` keeps them disabled in
-public builds.
+live game room mechanics. Their rendering now lives in
+`legacy-live-room-renderer.js`, and their access, lobby/session sync, live
+event reducers, chat, and start/join/leave actions now live in
+`legacy-live-room-controller.js`. `app.js` keeps compatibility wrappers and
+some Jeopardy-specific local game calls. These screens are not the public
+`Explore preview` destination, and `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED` keeps
+them disabled in public builds.
 
 ## Supabase And Realtime
 
@@ -266,10 +271,11 @@ tests without deploying anything.
   renderer implementations and the mode registry passed into that controller.
 - The public online path is now named separately in `online-mode-controller.js`;
   legacy live game room rendering is now isolated in
-  `legacy-live-room-renderer.js`, but live state mutation, Supabase room
-  orchestration, and live-room policy remain in `app.js`. Legacy live rooms
-  stay disabled publicly until RPC/RLS, persistence, and moderation are
-  reviewed in the active Supabase project.
+  `legacy-live-room-renderer.js`, and legacy room access, session/lobby sync,
+  live event reducers, chat, start/join/leave actions, and arcade-live actions
+  are centralized in `legacy-live-room-controller.js`. Legacy live rooms stay
+  disabled publicly until RPC/RLS, persistence, and moderation are reviewed in
+  the active Supabase project.
 - DOM event dispatch is now centralized in `app-event-router.js`; `app.js`
   still supplies the action callbacks and keeps compatibility wrappers for the
   listener registration path.
@@ -321,7 +327,7 @@ from a large script-driven app.
 
 | Area | Current risk | Near-term target | Work required |
 | --- | --- | --- | --- |
-| `app/app.js` above 15k lines | High | Medium below 10k lines | Continue responsibility-based extraction with wrappers and tests. |
+| `app/app.js` above 10k lines | High | Medium below 10k lines | Continue responsibility-based extraction with wrappers and tests. |
 | `app/app.js` below 5k lines | Low-Medium | True Low | Move to explicit imports, typed contracts, focused unit tests, and browser journeys. |
 | Script-order globals | Medium-High | Medium | Add a dependency map, then migrate stable modules toward ES modules. |
 | HTML string rendering | Medium | Medium-Low | Keep all sinks behind `app-dom-service`; escape or text-render user values. |

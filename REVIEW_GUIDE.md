@@ -181,6 +181,9 @@ Recent extractions reduce `app.js` without changing behavior:
   rooms.
 - `legacy-live-room-renderer.js`: legacy/live room rendering, waiting overlays,
   room cards, and live arcade display templates.
+- `legacy-live-room-controller.js`: legacy/live room access, lobby/session sync,
+  heartbeat/subscription cleanup, live event reducers, chat, start/join/leave
+  actions, and arcade-live actions.
 - `app-event-router.js`: document-level click/input/submit/keydown/wheel/touch
   dispatch mapped to explicit action callbacks.
 - `raw-content-controller.js`: Raw Content payloads, entry-card orchestration,
@@ -259,9 +262,9 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the arcade-game controller extraction, `app/app.js` is about 15.8k
+- As of the legacy live-room controller extraction, `app/app.js` is about 14.5k
   lines. That is smaller than the pre-refactor file, but still above the
-  High-risk threshold.
+  target for the Medium-risk threshold.
 - `index.html` depends on strict script order and browser globals.
 - Main app modules are not true ES imports yet.
 - Route rendering and route policy remain partly mixed.
@@ -281,7 +284,7 @@ likelihood risk. Use these thresholds when reviewing future cleanup PRs:
 
 | State | Review risk | What a reviewer should expect |
 | --- | --- | --- |
-| `app.js` above 15k lines | High | Hidden coupling, fragile event flow, and difficult regression review. |
+| `app.js` above 10k lines | High | Hidden coupling, fragile event flow, and difficult regression review. |
 | `app.js` below 10k lines with passing gates | Medium | Reviewable responsibilities, but globals and untyped contracts remain. |
 | `app.js` below 5k lines with modules/types/tests | Low-Medium | Mostly orchestration/bootstrap; remaining risks are explicit. |
 | True Low | Low | Explicit imports, typed contracts, focused unit tests, browser journeys, and reduced script-order dependence. |
@@ -361,7 +364,7 @@ Most important roadmap recommendations from the DOCX:
 
 1. Continue shrinking `app.js` by extracting route render orchestration.
 2. Add screenshot-based UI coverage before semantic CSS cleanup.
-3. Create a live/online controller for legacy main-app live rooms.
+3. Extract remaining Jeopardy local tile/focus/start mechanics.
 4. Review Supabase RLS and realtime policy before expanding real multiplayer.
 5. Move the main app toward true module imports once enough boundaries are
    stable.
