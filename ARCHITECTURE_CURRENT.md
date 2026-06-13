@@ -170,7 +170,8 @@ yet a persisted MMO experience.
 The older main-app Alpaca Online/live room screens are separate legacy/future
 live game room mechanics. They still live mostly in `app.js` and the
 Alpacapardy live services. They are not the public `Explore preview`
-destination.
+destination, and `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED` keeps them disabled in
+public builds.
 
 ## Supabase And Realtime
 
@@ -238,8 +239,8 @@ and runs `npm run verify`.
   `app.js` still owns the mode factory registry, render calls, scrolling, and
   game-specific start/reset flows.
 - The public online path is now named separately in `online-mode-controller.js`;
-  legacy live game room mechanics still need their own controller before any
-  deeper MMO/live-room work.
+  legacy live game room mechanics are disabled publicly and still need their
+  own controller before any deeper MMO/live-room work.
 - The 3D campus intentionally keeps separate avatar local storage in
   `campus-store.ts` until campus state has a broader persistence design.
 - HTML string rendering is now partially centralized through

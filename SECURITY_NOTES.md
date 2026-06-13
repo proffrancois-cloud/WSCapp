@@ -53,9 +53,10 @@ reported with generic wording.
 The 3D campus multiplayer entry does not force Alpaccount login. The visible
 default online alpaca identity remains `Devalpacca` in the main app entry card.
 
-Legacy live Alpacapardy room features may request an authenticated or anonymous
-Supabase session when the user tries to create or join a live room. That path is
-separate from the public 3D campus launcher.
+Legacy live Alpacapardy room features are disabled in the public app through
+`LEGACY_LIVE_ROOMS_PUBLIC_ENABLED = false`. They remain separate from the
+public 3D campus launcher and should stay closed until their RPC/RLS,
+persistence, and moderation design is reviewed.
 
 ## Review Checklist
 

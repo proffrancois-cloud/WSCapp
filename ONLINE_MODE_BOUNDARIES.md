@@ -22,6 +22,7 @@ This path must keep working on GitHub Pages under `/WSCapp/`.
 
 This is the older main-app live room system for Alpacapardy and arcade-style
 live games. It is not the public `Explore preview` destination.
+It is disabled in public builds until the Supabase RPC/RLS path is reviewed.
 
 - Main orchestration still lives in `app/app.js`.
 - Supabase table helpers live in
@@ -30,6 +31,7 @@ live games. It is not the public `Explore preview` destination.
 - SQL setup lives in `app/supabase/alpacapardy_live.sql`.
 - This path may require authenticated or anonymous Supabase sessions when a
   user creates or joins a live room.
+- Public flag: `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED = false`
 
 Treat this as legacy/future MMO game-room work until it is extracted behind a
 clear live-room controller and backed by reviewed Supabase RLS/persistence.

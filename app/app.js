@@ -20,7 +20,8 @@ const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTR
 const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
-const MULTIPLAYER_PUBLIC_ENABLED = true;
+const CAMPUS_PREVIEW_PUBLIC_ENABLED = true;
+const LEGACY_LIVE_ROOMS_PUBLIC_ENABLED = false;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
   writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
   buildcase: "Debate Lab is available soon. We are keeping it closed for this public build.",
@@ -4159,7 +4160,7 @@ function renderAppEntryGate() {
     return;
   }
 
-  const onlineAllowed = canAccessMultiplayer();
+  const onlineAllowed = canAccessCampusPreview();
   const productSummary = appEntryService.getAppEntryProductSummary();
   const localActionLabel = appEntryService.getLocalStudyActionLabel();
   const campusPreviewLabel = onlineModeController.getCampusMultiplayerLabel();
@@ -4272,6 +4273,13 @@ function switchToLocalMode() {
 }
 
 function openAlpacaOnlineHub() {
+  if (!canAccessLegacyLiveRooms()) {
+    state.ui.appEntryGateOpen = true;
+    state.live.error = getLegacyLiveRoomsDisabledMessage();
+    render();
+    return;
+  }
+
   state.ui.appEntryGateOpen = false;
   state.ui.appShellMode = "online";
   state.ui.cooperationOpen = false;
@@ -4487,6 +4495,10 @@ function renderWizard() {
 }
 
 function renderAlpacaOnlineHub() {
+  if (!canAccessLegacyLiveRooms()) {
+    return renderLegacyLiveRoomsDisabled();
+  }
+
   const busy = ["loading", "joining", "creating", "starting"].includes(state.live.status);
   const currentSession = state.live.currentSession;
   const roster = getAlpacaOnlineRoster();
@@ -4505,6 +4517,29 @@ function renderAlpacaOnlineHub() {
         ${onGamePage
           ? renderOnlineCreateGamePanel({ currentSession, roomPlayers, isHost, canStart, busy })
           : renderOnlineHomeGameGrid()}
+      </main>
+    </section>
+  `;
+}
+
+function renderLegacyLiveRoomsDisabled() {
+  return `
+    <section class="online-hub-shell online-hub-shell-home">
+      <main class="online-hub-main online-hub-main-wide">
+        <article class="online-hub-card online-feature-card online-create-game-panel">
+          <div class="online-create-heading">
+            <div class="online-create-title-copy">
+              <p class="challenge-label">Legacy live game rooms</p>
+              <h2>Disabled for public review</h2>
+            </div>
+          </div>
+          <p class="setup-helper">${escapeHtml(getLegacyLiveRoomsDisabledMessage())}</p>
+          <p class="setup-helper">Use 3D Campus Preview for the public online path. Live rooms need separate RPC, RLS, persistence, and moderation review before they are reopened.</p>
+          <div class="panel-actions">
+            <button class="button primary" type="button" data-open-alpaca-online-campus>${escapeHtml(onlineModeController.getCampusPreviewActionLabel())}</button>
+            <button class="button secondary" type="button" data-online-back-local>Study solo</button>
+          </div>
+        </article>
       </main>
     </section>
   `;
@@ -6601,8 +6636,28 @@ function getCurrentUserEmail() {
   return authController.getCurrentUserEmail();
 }
 
+function canAccessCampusPreview() {
+  return Boolean(CAMPUS_PREVIEW_PUBLIC_ENABLED);
+}
+
+function canAccessLegacyLiveRooms() {
+  if (!LEGACY_LIVE_ROOMS_PUBLIC_ENABLED) {
+    return false;
+  }
+
+  const email = getCurrentUserEmail();
+  const domain = email.includes("@") ? email.split("@").pop() : "";
+  return Boolean(MULTIPLAYER_ALLOWED_EMAILS.has(email) || MULTIPLAYER_ALLOWED_EMAIL_DOMAINS.has(domain));
+}
+
+function getLegacyLiveRoomsDisabledMessage() {
+  return LEGACY_LIVE_ROOMS_PUBLIC_ENABLED
+    ? "Legacy live game rooms are limited to approved internal test accounts."
+    : "Legacy live game rooms are disabled in this public build until the Supabase RPC/RLS path is reviewed.";
+}
+
 function canAccessMultiplayer() {
-  return Boolean(MULTIPLAYER_PUBLIC_ENABLED);
+  return canAccessLegacyLiveRooms();
 }
 
 function canDismissAuthModal() {
@@ -12400,6 +12455,7 @@ function getAlpacapardyLiveRenderContext() {
     status: state.live.status,
     message: state.live.message,
     error: state.live.error,
+    disabledReason: getLegacyLiveRoomsDisabledMessage(),
     userId: user?.id || null,
     isHost,
     isGuest: Boolean(user && isAnonymousUser(user)),
@@ -12424,9 +12480,7 @@ function guardMultiplayerAccess() {
   if (canAccessMultiplayer()) {
     return true;
   }
-  state.live.error = isSignedIn()
-    ? "Available soon. Multiplayer is currently limited to approved school domains."
-    : "Available soon. Connect with an approved Alpaccount to test multiplayer.";
+  state.live.error = getLegacyLiveRoomsDisabledMessage();
   renderLiveSurfaces();
   return false;
 }

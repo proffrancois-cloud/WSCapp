@@ -412,7 +412,7 @@
     async function ensureLiveAuthSession() {
       const client = getSupabaseClient();
       if (!client) {
-        throw new Error("Supabase is not configured yet, so live multiplayer cannot start.");
+        throw new Error("Supabase is not configured yet, so legacy live rooms cannot start.");
       }
 
       if (appState.auth.session?.user) {

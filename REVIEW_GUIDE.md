@@ -197,7 +197,9 @@ with generic wording instead of public account-existence language.
 Current higher-risk areas:
 
 - HTML strings remain common in renderers and `app.js`;
-- live room and campus realtime flows need policy review before public MMO use;
+- legacy live rooms are disabled publicly and need policy review before public
+  MMO use;
+- campus realtime flows still need policy review before expanded MMO use;
 - localStorage is now more centralized, but campus avatar storage is still
   intentionally separate;
 - Vercel and GitHub Pages have different base-path behavior.
@@ -213,7 +215,7 @@ Current higher-risk areas:
   route-builder/header elements rendered behind the entry state; this was not
   introduced by the CSS split.
 - Supabase live-room SQL and realtime use need a full policy review before
-  opening a real multi-user MMO.
+  legacy live rooms are reopened.
 - Tests are useful smoke gates, but they are not yet enough for deep UI, auth,
   realtime, or game-rule coverage.
 
