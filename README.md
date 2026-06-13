@@ -30,6 +30,7 @@ developer or specialist reviewer.
 cd /Users/francoismo/Documents/Playground/WSC/app
 npm run test:theme
 npm run test:smoke
+npm run test:a11y-smoke
 npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
 npm run audit:pages

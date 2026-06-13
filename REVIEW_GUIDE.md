@@ -53,6 +53,7 @@ From `app/`:
 ```zsh
 npm run typecheck:3d
 npm run test:smoke
+npm run test:a11y-smoke
 npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
 npm run audit:pages
@@ -89,6 +90,9 @@ Vercel and GitHub Pages are deliberately separate right now.
 - `npm run test:campus-smoke` serves the built Pages artifact under `/WSCapp/`
   and checks the 3D campus route, canvas screenshot pixels, and local JS/CSS/
   GLB/texture responses with Playwright.
+- `npm run test:a11y-smoke` serves the same Pages artifact and checks modal
+  focus trapping, Escape close behavior, and 390px horizontal overflow on the
+  entry gate and route builder.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:
@@ -136,6 +140,8 @@ Recent extractions reduce `app.js` without changing behavior:
 - `app-bootstrap-service.js`: startup task execution and global listeners.
 - `app-state-service.js`: default state factories and selectors.
 - `app-dom-service.js`: DOM refs and safe mount helpers.
+- `modal-focus-service.js`: active dialog focus trapping, inert background
+  siblings, and focus restoration for HTML-rendered modals.
 - `route-builder-controller.js`: route-builder state transitions.
 - `auth-controller.js`: Alpaccount/session form orchestration.
 - `progress-storage-controller.js`: local stats, mastery, and guest-name

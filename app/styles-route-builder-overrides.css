@@ -7213,3 +7213,50 @@ body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .
   line-height: 1 !important;
 }
 
+@media (max-width: 480px) {
+  body.is-local-mode .layout {
+    overflow-x: clip !important;
+    padding-inline: 0 !important;
+  }
+
+  body.is-local-mode #routeBuilder.wizard.card-panel {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    margin-inline: auto !important;
+    padding-inline: 8px !important;
+    transform: none !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-local-mode #routeBuilder.wizard.card-panel:hover,
+  body.is-local-mode #routeBuilder.wizard.card-panel:focus-within {
+    transform: none !important;
+  }
+
+  body.is-local-mode .wizard-steps,
+  body.is-local-mode .step-page-shell,
+  body.is-local-mode .step-panel,
+  body.is-local-mode .step-grid,
+  body.is-local-mode .mode-choice-shell,
+  body.is-local-mode .mode-choice-picker-row,
+  body.is-local-mode .mode-choice-board {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-local-mode .step-panel {
+    padding-inline: 0 !important;
+  }
+
+  body.is-local-mode .selected-section-chip-strip,
+  body.is-local-mode .selected-section-selected-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding-inline: 4px !important;
+  }
+}

@@ -117,6 +117,9 @@ Current progress:
 - `src/app/online-mode-controller.js` and `ONLINE_MODE_BOUNDARIES.md` now name
   the public `3D Campus Preview` launcher separately from legacy/future
   main-app live game room mechanics.
+- `src/app/modal-focus-service.js` now owns active dialog focus trapping,
+  background inerting, and focus restoration while `app.js` keeps modal
+  open/close policy.
 
 Acceptance per extraction:
 

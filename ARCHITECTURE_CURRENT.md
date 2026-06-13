@@ -218,8 +218,8 @@ GitHub Pages:
 Pull requests and `codex/**` branches run `.github/workflows/verify.yml`, which
 installs dependencies, installs Playwright Chromium for future browser tests,
 and runs `npm run verify`. `tools/servers/serve-public-artifact.mjs` serves
-`app/dist-pages/` under `/WSCapp/` for Playwright campus smoke tests without
-deploying anything.
+`app/dist-pages/` under `/WSCapp/` for Playwright a11y/mobile and campus smoke
+tests without deploying anything.
 
 ## Current Risks
 
@@ -248,6 +248,8 @@ deploying anything.
 - HTML string rendering is now partially centralized through
   `app-dom-service.js`, but it still increases XSS risk if user-generated
   content expands.
+- Modal focus is now centralized in `src/app/modal-focus-service.js`, but modal
+  open/close policy still lives in `app.js`.
 - Vercel and GitHub Pages currently use different publication paths.
 - Asset base paths differ between Vercel root deploys and GitHub project Pages.
 - Supabase access must be reviewed at the RLS/policy level.

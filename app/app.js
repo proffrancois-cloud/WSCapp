@@ -14,6 +14,7 @@ const createOnlineModeController = window.WSC_CREATE_ONLINE_MODE_CONTROLLER;
 const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
 const appStateService = window.WSC_APP_STATE_SERVICE;
 const appDomService = window.WSC_APP_DOM_SERVICE;
+const modalFocusService = window.WSC_MODAL_FOCUS_SERVICE || null;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
 const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
@@ -4029,6 +4030,11 @@ function render() {
   renderResourcesModal();
   renderAuthModal();
   syncPopupScrollLock();
+  syncActiveModalFocus();
+}
+
+function syncActiveModalFocus() {
+  modalFocusService?.syncActiveDialog({ documentRef: document });
 }
 
 function renderInsights() {
@@ -4157,6 +4163,7 @@ function renderAppEntryGate() {
 
   if (!state.ui.appEntryGateOpen) {
     appDomService.clearHtml(refs.appEntryGateMount);
+    syncActiveModalFocus();
     return;
   }
 
@@ -4203,6 +4210,7 @@ function renderAppEntryGate() {
       </article>
     </div>
   `);
+  syncActiveModalFocus();
 }
 
 function renderAppEntryAuthPanel() {
@@ -4566,22 +4574,26 @@ function renderLiveOverlayMount() {
 
   if (!html) {
     appDomService.clearHtml(mount);
+    syncActiveModalFocus();
     return;
   }
 
   const nextOverlay = appDomService.parseFirstElement(html, document);
   if (!nextOverlay) {
     appDomService.clearHtml(mount);
+    syncActiveModalFocus();
     return;
   }
 
   const currentOverlay = mount.firstElementChild;
   if (canPatchLiveWaitingOverlay(currentOverlay, nextOverlay)) {
     patchLiveWaitingOverlay(currentOverlay, nextOverlay);
+    syncActiveModalFocus();
     return;
   }
 
   appDomService.replaceChildren(mount, nextOverlay);
+  syncActiveModalFocus();
 }
 
 function canPatchLiveWaitingOverlay(currentOverlay, nextOverlay) {
@@ -5932,6 +5944,7 @@ function renderExperience() {
     appDomService.clearHtml(refs.experiencePanel);
     stopMindMapOrbitAnimation();
     syncPopupScrollLock();
+    syncActiveModalFocus();
     return;
   }
 
@@ -5943,6 +5956,7 @@ function renderExperience() {
     appDomService.clearHtml(refs.experiencePanel);
     stopMindMapOrbitAnimation();
     syncPopupScrollLock();
+    syncActiveModalFocus();
     return;
   }
 
@@ -5993,6 +6007,7 @@ function renderExperience() {
   syncRadialMindMapScroll();
   syncMindMapOrbitAnimation();
   syncRawQuestionGalleries();
+  syncActiveModalFocus();
 }
 
 function renderExperiencePreservingScroll() {
@@ -6747,6 +6762,7 @@ function renderAuthModal() {
   }
 
   appDomService.setHtml(refs.authModalMount, authModalRenderer.renderModal(getAuthRenderContext(), { escapeHtml }));
+  syncActiveModalFocus();
 }
 
 function renderAuthGate() {
@@ -6858,6 +6874,7 @@ function renderResourcesModal() {
       </div>
     </div>
   ` : "");
+  syncActiveModalFocus();
 }
 
 function renderCooperationModal() {
@@ -6932,6 +6949,7 @@ function renderCooperationModal() {
       </div>
     </div>
   ` : "");
+  syncActiveModalFocus();
 }
 
 function buildSlideshowExperience() {
