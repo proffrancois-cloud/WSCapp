@@ -32,6 +32,8 @@ npm run test:theme
 npm run test:smoke
 npm run test:storage-failure
 npm run test:headers
+npm run test:html-boundary
+npm run test:html-sinks
 npm run test:a11y-smoke
 npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages

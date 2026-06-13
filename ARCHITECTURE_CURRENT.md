@@ -122,11 +122,11 @@ Important groups:
 
 - `src/app/`: app-shell helpers extracted from `app.js`, currently including
   the app entry, online campus launcher, bootstrap/listener registration,
-  initial state factories, selectors, DOM ref lookup, safe HTML mounts,
-  template parsing, dynamic overlay mount creation, and route-builder selection
-  state transitions, Alpaccount auth/session orchestration, and local
-  progress-storage orchestration, selected-mode launch/close mechanics, and
-  the public online-mode boundary.
+  initial state factories, selectors, DOM ref lookup, trusted HTML mount
+  boundaries, text escaping helpers, template parsing, dynamic overlay mount
+  creation, and route-builder selection state transitions, Alpaccount
+  auth/session orchestration, and local progress-storage orchestration,
+  selected-mode launch/close mechanics, and the public online-mode boundary.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.
@@ -246,9 +246,12 @@ tests without deploying anything.
 - Browser storage writes go through safe helpers. Main-app progress uses
   `storage-service.js` and `progress-storage-controller.js`; the 3D campus
   avatar uses `browser-storage.ts`.
-- HTML string rendering is now partially centralized through
-  `app-dom-service.js`, but it still increases XSS risk if user-generated
-  content expands.
+- HTML string rendering is now routed through `app-dom-service.js`. Direct
+  `innerHTML`/`outerHTML`/`insertAdjacentHTML`/React `dangerouslySetInnerHTML`
+  use outside that service is blocked by `npm run test:html-sinks`.
+  Generated guide/content HTML is treated as trusted build-time content; future
+  user-generated text must be escaped or rendered with `textContent`, not sent
+  to `trustedHtml`.
 - Modal focus is now centralized in `src/app/modal-focus-service.js`, but modal
   open/close policy still lives in `app.js`.
 - Vercel and GitHub Pages currently use different publication paths. Vercel has

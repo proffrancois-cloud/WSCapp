@@ -61,30 +61,41 @@ async function expectFocusInside(page: Page, dialogCss: string) {
 }
 
 async function getHorizontalOverflow(page: Page, selectors: string[]) {
-  return page.evaluate((checkedSelectors) => {
-    const scrollingElement = document.scrollingElement || document.documentElement;
-    const viewportWidth = document.documentElement.clientWidth;
-    const documentOverflow = Math.max(0, scrollingElement.scrollWidth - viewportWidth);
-    const offenders = checkedSelectors.flatMap((selector) =>
-      Array.from(document.querySelectorAll(selector)).flatMap((element) => {
-        const rect = element.getBoundingClientRect();
-        const leftOverflow = Math.max(0, -rect.left);
-        const rightOverflow = Math.max(0, rect.right - viewportWidth);
-        const elementOverflow = Math.max(leftOverflow, rightOverflow);
-        return elementOverflow > 1
-          ? [{
-              selector,
-              className: (element as HTMLElement).className,
-              left: Math.round(rect.left),
-              right: Math.round(rect.right),
-              overflow: Math.round(elementOverflow)
-            }]
-          : [];
-      })
-    );
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      return await page.evaluate((checkedSelectors) => {
+        const scrollingElement = document.scrollingElement || document.documentElement;
+        const viewportWidth = document.documentElement.clientWidth;
+        const documentOverflow = Math.max(0, scrollingElement.scrollWidth - viewportWidth);
+        const offenders = checkedSelectors.flatMap((selector) =>
+          Array.from(document.querySelectorAll(selector)).flatMap((element) => {
+            const rect = element.getBoundingClientRect();
+            const leftOverflow = Math.max(0, -rect.left);
+            const rightOverflow = Math.max(0, rect.right - viewportWidth);
+            const elementOverflow = Math.max(leftOverflow, rightOverflow);
+            return elementOverflow > 1
+              ? [{
+                  selector,
+                  className: (element as HTMLElement).className,
+                  left: Math.round(rect.left),
+                  right: Math.round(rect.right),
+                  overflow: Math.round(elementOverflow)
+                }]
+              : [];
+          })
+        );
 
-    return { viewportWidth, documentOverflow, offenders };
-  }, selectors);
+        return { viewportWidth, documentOverflow, offenders };
+      }, selectors);
+    } catch (error) {
+      if (!String(error).includes("Execution context was destroyed") || attempt === 2) {
+        throw error;
+      }
+      await page.waitForLoadState("domcontentloaded").catch(() => {});
+    }
+  }
+
+  throw new Error("Horizontal overflow check did not complete.");
 }
 
 test("modal focus stays trapped and Escape closes dismissible dialogs", async ({ page }) => {
@@ -128,6 +139,7 @@ test("entry gate and route builder avoid horizontal overflow at 390px", async ({
   });
 
   await page.locator('[data-app-entry-choice="local"]').click();
+  await expect(page.locator(".app-entry-gate-overlay")).toHaveCount(0);
   await page.keyboard.press("Escape");
   await expect(page.locator(".cooperation-modal-overlay")).toHaveCount(0);
   await expect(page.locator("#routeBuilder")).toBeVisible();

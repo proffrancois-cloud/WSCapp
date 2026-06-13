@@ -1,4 +1,6 @@
 (function () {
+  const TRUSTED_HTML_BRAND = Symbol("WSC_TRUSTED_HTML");
+
   const APP_REF_IDS = Object.freeze({
     heroMascot: "heroMascot",
     statsStrip: "statsStrip",
@@ -23,23 +25,68 @@
     );
   }
 
-  function setHtml(target, html = "") {
+  // Provenance label for renderer-owned markup; this does not sanitize input.
+  function trustedHtml(markup = "", source = "runtime") {
+    return Object.freeze({
+      [TRUSTED_HTML_BRAND]: true,
+      markup: String(markup || ""),
+      source: String(source || "runtime")
+    });
+  }
+
+  function isTrustedHtml(value) {
+    return Boolean(value && value[TRUSTED_HTML_BRAND] === true);
+  }
+
+  function unwrapTrustedHtml(value) {
+    return isTrustedHtml(value) ? value.markup : String(value || "");
+  }
+
+  function escapeHtml(value = "") {
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function setTrustedHtml(target, html = trustedHtml("")) {
     if (!target) {
       return false;
     }
 
-    target.innerHTML = html;
+    target.innerHTML = unwrapTrustedHtml(html);
     return true;
   }
 
+  function setHtml(target, html = "") {
+    return setTrustedHtml(target, trustedHtml(html, "legacy-set-html"));
+  }
+
   function clearHtml(target) {
-    return setHtml(target, "");
+    return setTrustedHtml(target, trustedHtml("", "clear-html"));
+  }
+
+  function parseTrustedFirstElement(markup, documentRef = document) {
+    const template = documentRef.createElement("template");
+    template.innerHTML = unwrapTrustedHtml(markup).trim();
+    return template.content.firstElementChild;
   }
 
   function parseFirstElement(markup, documentRef = document) {
+    return parseTrustedFirstElement(trustedHtml(markup, "legacy-parse-first-element"), documentRef);
+  }
+
+  function htmlToText(markup, documentRef = document) {
+    const raw = unwrapTrustedHtml(markup);
+    if (!raw) {
+      return "";
+    }
+
     const template = documentRef.createElement("template");
-    template.innerHTML = String(markup || "").trim();
-    return template.content.firstElementChild;
+    template.innerHTML = raw;
+    return template.content.textContent.replace(/\s+/g, " ").trim();
   }
 
   function replaceWithMarkup(target, markup, documentRef = document) {
@@ -99,9 +146,15 @@
   window.WSC_APP_DOM_SERVICE = Object.freeze({
     APP_REF_IDS,
     getAppRefs,
+    trustedHtml,
+    isTrustedHtml,
+    escapeHtml,
+    setTrustedHtml,
     setHtml,
     clearHtml,
+    parseTrustedFirstElement,
     parseFirstElement,
+    htmlToText,
     replaceWithMarkup,
     replaceChildrenWithMarkup,
     replaceChildren,

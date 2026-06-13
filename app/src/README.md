@@ -13,7 +13,7 @@ src/
     online-mode-controller.js # Names the public 3D campus preview path separately from legacy live game rooms.
     app-bootstrap-service.js # Owns startup task execution, app-ready signaling, and global listener registration mechanics.
     app-state-service.js # Owns initial state factories and small selectors while app.js keeps state ownership.
-    app-dom-service.js # Owns app DOM refs, safe HTML mounts, template parsing, and dynamic body mounts.
+    app-dom-service.js # Owns app DOM refs, trusted HTML boundaries, escaping, template parsing, and dynamic body mounts.
     modal-focus-service.js # Owns active dialog focus trapping, inert background siblings, and focus restoration.
     route-builder-controller.js # Owns route-builder selection mutations while app.js keeps timers/render/launch policy.
     auth-controller.js # Owns Alpaccount session, profile/progress loading, auth form actions, and sign-out orchestration.

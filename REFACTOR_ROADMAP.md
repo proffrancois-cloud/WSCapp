@@ -123,6 +123,9 @@ Current progress:
 - `src/services/storage-service.js` and `src/app/progress-storage-controller.js`
   now report non-fatal browser storage failures; `vercel.json` carries baseline
   static security headers for future Vercel artifacts.
+- `src/app/app-dom-service.js` now owns the trusted HTML boundary, HTML-to-text
+  conversion, and escaping helper; `npm run test:html-sinks` blocks direct HTML
+  sinks outside that approved service.
 
 Acceptance per extraction:
 

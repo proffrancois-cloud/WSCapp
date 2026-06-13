@@ -55,6 +55,8 @@ npm run typecheck:3d
 npm run test:smoke
 npm run test:storage-failure
 npm run test:headers
+npm run test:html-boundary
+npm run test:html-sinks
 npm run test:a11y-smoke
 npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
@@ -99,6 +101,10 @@ Vercel and GitHub Pages are deliberately separate right now.
   as non-fatal instead of throwing.
 - `npm run test:headers` validates the future Vercel artifact path and baseline
   security headers in `vercel.json`.
+- `npm run test:html-boundary` validates the trusted HTML wrapper and escaping
+  helper in `app-dom-service.js`.
+- `npm run test:html-sinks` blocks direct HTML sinks outside
+  `app-dom-service.js`.
 - Do not assume pushing a branch updates Vercel.
 
 The public online path is:
@@ -145,7 +151,8 @@ Recent extractions reduce `app.js` without changing behavior:
 - `app-entry-service.js`: app entry labels and campus launcher metadata.
 - `app-bootstrap-service.js`: startup task execution and global listeners.
 - `app-state-service.js`: default state factories and selectors.
-- `app-dom-service.js`: DOM refs and safe mount helpers.
+- `app-dom-service.js`: DOM refs, trusted HTML boundaries, escaping, text
+  extraction, and safe mount helpers.
 - `modal-focus-service.js`: active dialog focus trapping, inert background
   siblings, and focus restoration for HTML-rendered modals.
 - `route-builder-controller.js`: route-builder state transitions.
@@ -212,7 +219,8 @@ with generic wording instead of public account-existence language.
 
 Current higher-risk areas:
 
-- HTML strings remain common in renderers and `app.js`;
+- HTML strings remain common in renderers and `app.js`, but direct sinks are
+  guarded so new HTML rendering must pass through `app-dom-service.js`;
 - legacy live rooms are disabled publicly and need policy review before public
   MMO use;
 - campus realtime flows still need policy review before expanded MMO use;

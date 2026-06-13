@@ -16120,7 +16120,10 @@ function updateJumpDom(experience) {
     const runnerState = getJumpRunnerState(experience);
     if (runner.dataset.jumpRunnerState !== runnerState) {
       runner.dataset.jumpRunnerState = runnerState;
-      runner.innerHTML = renderJumpRunner(experience);
+      appDomService.setTrustedHtml(
+        runner,
+        appDomService.trustedHtml(renderJumpRunner(experience), "jump-runner")
+      );
     }
     runner.style.transform = `translateY(-${Math.max(0, experience.runnerY)}px)`;
     runner.classList.toggle("state-ducking", runnerState === "ducking");
@@ -16134,7 +16137,10 @@ function updateJumpDom(experience) {
     const obstacleKind = experience.obstacle.kind;
     if (obstacle.dataset.jumpObstacleKind !== obstacleKind) {
       obstacle.dataset.jumpObstacleKind = obstacleKind;
-      obstacle.innerHTML = renderJumpObstacle(experience.obstacle);
+      appDomService.setTrustedHtml(
+        obstacle,
+        appDomService.trustedHtml(renderJumpObstacle(experience.obstacle), "jump-obstacle")
+      );
     }
     obstacle.style.left = `${experience.obstacle.x}%`;
     obstacle.classList.toggle("ground", obstacleKind === "ground");
@@ -16149,7 +16155,10 @@ function updateJumpDom(experience) {
 
   const lives = refs.experiencePanel.querySelector("[data-jump-lives]");
   if (lives) {
-    lives.innerHTML = renderJumpLives(experience.lives);
+    appDomService.setTrustedHtml(
+      lives,
+      appDomService.trustedHtml(renderJumpLives(experience.lives), "jump-lives")
+    );
   }
 }
 

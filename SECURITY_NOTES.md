@@ -71,6 +71,23 @@ Future Vercel artifacts are configured with baseline static headers in
 `Permissions-Policy`, and `X-Frame-Options`. This repo change does not deploy
 Vercel.
 
+## Safe HTML Boundary
+
+The classic app still uses HTML-string renderers, so the current containment
+strategy is an explicit boundary rather than a full renderer rewrite.
+
+`app/src/app/app-dom-service.js` is the only approved source file allowed to
+write `innerHTML` or parse trusted markup. It exposes `trustedHtml`,
+`setTrustedHtml`, `setHtml`, `htmlToText`, and `escapeHtml`.
+
+Generated guide/content HTML is treated as trusted build-time content. Future
+user-generated values must use `textContent`, `escapeHtml`, or equivalent
+escaping before display. Do not pass user-generated text to `trustedHtml`.
+
+`npm run test:html-boundary` verifies the boundary helpers and an XSS-looking
+fixture. `npm run test:html-sinks` scans source files and fails if direct HTML
+sinks appear outside `app-dom-service.js`.
+
 ## Review Checklist
 
 - Confirm RLS is enabled for every table reachable from browser code.
@@ -83,5 +100,7 @@ Vercel.
   features that use it.
 - Confirm the pinned Supabase browser dependency is reviewed before updating.
 - Confirm Vercel headers are still compatible before publishing a Vercel build.
+- Confirm new user-generated text is escaped or rendered as text, not trusted
+  HTML.
 - Confirm no service-role or deployment secrets appear in source, generated
   files, build artifacts, screenshots, docs, or browser-visible config.
