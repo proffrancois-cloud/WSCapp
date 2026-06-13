@@ -22,6 +22,7 @@ const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
 const createModeRuntimeController = window.WSC_CREATE_MODE_RUNTIME_CONTROLLER;
 const createLegacyLiveRoomRenderer = window.WSC_CREATE_LEGACY_LIVE_ROOM_RENDERER;
 const createRawContentController = window.WSC_CREATE_RAW_CONTENT_CONTROLLER;
+const createStudyGameController = window.WSC_CREATE_STUDY_GAME_CONTROLLER;
 const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -2458,6 +2459,30 @@ const rawContentController = createRawContentController({
     renderStats,
     saveRawMastery,
     syncPopupScrollLock
+  }
+});
+
+const studyGameController = createStudyGameController({
+  appState: state,
+  appData: {
+    data
+  },
+  alpaquizEngine,
+  constants: {
+    GAME_CONFIG,
+    WRITING_PHASES
+  },
+  callbacks: {
+    buildBowlExperience,
+    buildQuizExperience,
+    buildQuizQuestionPlan,
+    finalizeSessionStats,
+    getBestStreakFromAnswers,
+    getCurrentBowlQuestion,
+    getUnavailableRawGameReason,
+    normalizeQuizDifficultySelection,
+    renderExperience,
+    renderExperiencePreservingScroll
   }
 });
 
@@ -6268,22 +6293,12 @@ function getCurrentWritingPrompt(experience = state.experience) {
   return experience.prompts[experience.promptIndex % experience.prompts.length];
 }
 
-function nextWritingPrompt() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "writing" || !experience.prompts.length) {
-    return;
-  }
-  experience.promptIndex = (experience.promptIndex + 1) % experience.prompts.length;
-  renderExperiencePreservingScroll();
+function nextWritingPrompt(...args) {
+  return studyGameController.nextWritingPrompt(...args);
 }
 
-function setWritingPhase(phaseId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "writing" || !WRITING_PHASES.some((phase) => phase.id === phaseId)) {
-    return;
-  }
-  experience.phase = phaseId;
-  renderExperiencePreservingScroll();
+function setWritingPhase(...args) {
+  return studyGameController.setWritingPhase(...args);
 }
 
 function buildBowlExperience() {
@@ -6335,66 +6350,20 @@ function getCurrentBowlQuestion(experience = state.experience) {
   return experience.questions[Math.min(experience.index, experience.questions.length - 1)];
 }
 
-function startBowlPractice() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "bowl" || experience.unavailableReason) {
-    return;
-  }
-  experience.started = true;
-  experience.tipDismissed = true;
-  renderExperience();
+function startBowlPractice(...args) {
+  return studyGameController.startBowlPractice(...args);
 }
 
-function answerBowlQuestion(optionIndex) {
-  const experience = state.experience;
-  const question = getCurrentBowlQuestion(experience);
-  if (!experience || experience.type !== "bowl" || !experience.started || experience.revealed || !question) {
-    return;
-  }
-
-  const isCorrect = optionIndex === question.answerIndex;
-  const points = isCorrect ? 1 : 0;
-  experience.selectedIndex = optionIndex;
-  experience.revealed = true;
-  experience.score += points;
-  experience.streak = isCorrect ? experience.streak + 1 : 0;
-  experience.bestStreak = Math.max(experience.bestStreak, experience.streak);
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds || [],
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect
-  });
-  renderExperience();
+function answerBowlQuestion(...args) {
+  return studyGameController.answerBowlQuestion(...args);
 }
 
-function advanceBowlQuestion() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "bowl" || !experience.revealed) {
-    return;
-  }
-
-  if (experience.index >= experience.questions.length - 1) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, experience.bestStreak, {
-      type: "bowl",
-      score: experience.score
-    });
-  } else {
-    experience.index += 1;
-    experience.selectedIndex = null;
-    experience.revealed = false;
-  }
-  renderExperience();
+function advanceBowlQuestion(...args) {
+  return studyGameController.advanceBowlQuestion(...args);
 }
 
-function resetBowlPractice() {
-  const nextExperience = buildBowlExperience();
-  nextExperience.tipDismissed = true;
-  nextExperience.started = !nextExperience.unavailableReason;
-  state.experience = nextExperience;
-  renderExperience();
+function resetBowlPractice(...args) {
+  return studyGameController.resetBowlPractice(...args);
 }
 
 function syncExperienceTimers() {
@@ -9756,132 +9725,36 @@ function renderQuizQuestionFeedback(question, selectedIndex, isCorrect) {
   return alpaquizRenderer.renderQuestionFeedback(question, selectedIndex, isCorrect, getAlpaquizRenderHelpers());
 }
 
-function toggleQuizSection(sectionId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started) {
-    return;
-  }
-
-  const current = new Set(experience.selectedSectionIds);
-  if (current.has(sectionId)) {
-    current.delete(sectionId);
-  } else {
-    current.add(sectionId);
-  }
-  experience.selectedSectionIds = data.sections
-    .map((section) => section.id)
-    .filter((id) => current.has(id));
-  experience.unavailableReason = null;
-  renderExperience();
+function toggleQuizSection(...args) {
+  return studyGameController.toggleQuizSection(...args);
 }
 
-function selectAllQuizSections() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started) {
-    return;
-  }
-
-  experience.selectedSectionIds = data.sections.map((section) => section.id);
-  experience.unavailableReason = null;
-  renderExperience();
+function selectAllQuizSections(...args) {
+  return studyGameController.selectAllQuizSections(...args);
 }
 
-function toggleQuizDifficulty(level) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started || ![1, 2, 3, 4, 5].includes(level)) {
-    return;
-  }
-
-  experience.selectedDifficulties = alpaquizEngine.toggleDifficulty(experience.selectedDifficulties, level);
-  experience.unavailableReason = null;
-  renderExperience();
+function toggleQuizDifficulty(...args) {
+  return studyGameController.toggleQuizDifficulty(...args);
 }
 
-function setQuizQuestionCount(count) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started || ![10, 15, 20].includes(count)) {
-    return;
-  }
-
-  experience.setupQuestionCount = alpaquizEngine.setQuestionCount(experience.setupQuestionCount, count);
-  renderExperience();
+function setQuizQuestionCount(...args) {
+  return studyGameController.setQuizQuestionCount(...args);
 }
 
-function startQuizRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started) {
-    return;
-  }
-
-  if (experience.selectedSectionIds.length < GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  if (!normalizeQuizDifficultySelection(experience.selectedDifficulties).length) {
-    experience.unavailableReason = "Choose at least one difficulty.";
-    renderExperience();
-    return;
-  }
-
-  const plan = buildQuizQuestionPlan(
-    experience.selectedSectionIds,
-    experience.setupQuestionCount,
-    experience.selectedDifficulties
-  );
-  if (plan.unavailableReason || plan.questions.length !== experience.setupQuestionCount) {
-    experience.unavailableReason = plan.unavailableReason || getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-
-  experience.questions = plan.questions;
-  experience.selectedAnswers = {};
-  experience.answers = [];
-  experience.score = 0;
-  experience.started = true;
-  experience.submitted = false;
-  renderExperience();
+function startQuizRoute(...args) {
+  return studyGameController.startQuizRoute(...args);
 }
 
-function answerQuizQuestion(questionIndex, optionIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.submitted || !experience.questions[questionIndex]) {
-    return;
-  }
-
-  experience.selectedAnswers = alpaquizEngine.answerQuestion(experience, questionIndex, optionIndex);
-  renderExperiencePreservingScroll();
+function answerQuizQuestion(...args) {
+  return studyGameController.answerQuizQuestion(...args);
 }
 
-function submitQuizRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.submitted) {
-    return;
-  }
-
-  if (Object.keys(experience.selectedAnswers).length !== experience.questions.length) {
-    return;
-  }
-
-  const result = alpaquizEngine.buildSubmittedAnswers(experience);
-  experience.answers = result.answers;
-  experience.score = result.score;
-  experience.submitted = true;
-  finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers), {
-    type: "quiz",
-    score: experience.score
-  });
-  renderExperience();
+function submitQuizRoute(...args) {
+  return studyGameController.submitQuizRoute(...args);
 }
 
-function resetQuizRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz") {
-    return;
-  }
-
-  state.experience = buildQuizExperience();
-  renderExperience();
+function resetQuizRoute(...args) {
+  return studyGameController.resetQuizRoute(...args);
 }
 
 function renderRaceExperience() {

@@ -186,6 +186,8 @@ Recent extractions reduce `app.js` without changing behavior:
 - `raw-content-controller.js`: Raw Content payloads, entry-card orchestration,
   mastery toggles, quiz pager state, visual asset selection, and media-lightbox
   state.
+- `study-game-controller.js`: local Collaborative Writing, Scholar's Bowl, and
+  Scholar's Challenge action mechanics.
 
 `app.js` still owns too much policy and rendering coordination. The current
 cleanup pattern is: extract mechanics into `app/src`, keep compatibility
@@ -255,7 +257,7 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the Raw Content controller extraction, `app/app.js` is about 16.5k
+- As of the study-game controller extraction, `app/app.js` is about 16.3k
   lines. That is smaller than the pre-refactor file, but still above the
   High-risk threshold.
 - `index.html` depends on strict script order and browser globals.

@@ -21,6 +21,7 @@ src/
     game-launch-controller.js # Owns selected-mode launch, unavailable-mode launch, route-attempt reset, and close cleanup mechanics.
     mode-runtime-controller.js # Owns experience-panel render dispatch and shared render lifecycle mechanics.
     raw-content-controller.js # Owns Raw Content payloads, quiz/mastery state, visual asset selection, and media-lightbox orchestration.
+    study-game-controller.js # Owns local Writing, Bowl, and Alpaquiz action/state mechanics.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/
