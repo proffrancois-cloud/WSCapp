@@ -73,9 +73,10 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 ## `app.js`
 
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
-the legacy live-room renderer/controller, app event-router, raw-content
-controller, study-game controller, and arcade-game controller extractions it is
-about 14.5k lines, down from the roughly 19.2k-line state described in the
+the legacy live-room renderer/controller, content-normalization helper, app
+event-router, raw-content controller, study-game controller, and arcade-game
+controller extractions it is about 13.8k lines, down from the roughly
+19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
 
@@ -85,6 +86,7 @@ single browser script. It owns or coordinates:
   dispatch now routed through `app-event-router.js`;
 - wizard navigation and route selection;
 - mode and experience orchestration;
+- raw-content override data and content-normalization startup wiring;
 - auth and Alpaccount UI flow through the extracted auth controller;
 - progress, stats, and local storage integration through the extracted
   progress-storage controller;
@@ -149,7 +151,10 @@ Important groups:
   through `study-game-controller.js`, and local Race/Run/Relay/Jump action
   mechanics through `arcade-game-controller.js`, plus legacy/live room access,
   lobby/session sync, event reducers, chat, and start/join/leave actions
-  through `legacy-live-room-controller.js`.
+  through `legacy-live-room-controller.js`, and raw-content import
+  normalization, title cleanup, support-field cleanup, subject/big-idea alias
+  mapping, and French-text fallback generation through
+  `content-normalization-helpers.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
   Alpacapardy live table calls.

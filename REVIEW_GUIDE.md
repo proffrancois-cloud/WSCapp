@@ -184,6 +184,9 @@ Recent extractions reduce `app.js` without changing behavior:
 - `legacy-live-room-controller.js`: legacy/live room access, lobby/session sync,
   heartbeat/subscription cleanup, live event reducers, chat, start/join/leave
   actions, and arcade-live actions.
+- `content-normalization-helpers.js`: raw-content section/entry normalization,
+  support-field cleanup, subject and big-idea alias mapping, wrong-answer
+  cleanup, and French-text fallback generation.
 - `app-event-router.js`: document-level click/input/submit/keydown/wheel/touch
   dispatch mapped to explicit action callbacks.
 - `raw-content-controller.js`: Raw Content payloads, entry-card orchestration,
@@ -262,7 +265,7 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the legacy live-room controller extraction, `app/app.js` is about 14.5k
+- As of the content-normalization helper extraction, `app/app.js` is about 13.8k
   lines. That is smaller than the pre-refactor file, but still above the
   target for the Medium-risk threshold.
 - `index.html` depends on strict script order and browser globals.

@@ -129,6 +129,10 @@ Current progress:
   chat, start/join/leave actions, and arcade-live action mechanics while
   `app.js` keeps compatibility wrappers, public availability flags, and
   remaining Jeopardy-local game calls.
+- `src/app/content-normalization-helpers.js` now owns raw-content section/entry
+  normalization, support-field cleanup, subject and big-idea alias mapping,
+  wrong-answer cleanup, and French-text fallback generation while `app.js`
+  keeps raw override data and startup wiring.
 - `src/app/app-event-router.js` now owns document-level click, input, submit,
   keydown, wheel, touchstart, and touchend dispatch mechanics while `app.js`
   keeps the action implementations and compatibility handler wrappers.
@@ -169,8 +173,8 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the legacy live-room controller extraction,
-`app.js` is about 14.5k lines, so it is improved but still above the target
+automatic safety guarantees. After the content-normalization helper extraction,
+`app.js` is about 13.8k lines, so it is improved but still above the target
 for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |
