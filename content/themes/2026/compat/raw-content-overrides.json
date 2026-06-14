@@ -1,0 +1,2109 @@
+{
+  "description": "Editorial raw-content overrides applied during current-runtime generation. rawOfficialTextSource points back to raw-content-bank entries so source text is not duplicated here.",
+  "entryOverrides": {
+    "home-and-wandering::navigation at sea measuring the unknown": {
+      "title": "Finding the Sea: Tools That Made the Ocean Measurable",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What did the magnetic compass make easier for sailors?",
+          "correctAnswer": "Finding direction at sea",
+          "wrongAnswers": [
+            "Predicting every storm perfectly",
+            "Repairing damaged ships",
+            "Avoiding all danger forever"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What was one major benefit of latitude and longitude?",
+          "correctAnswer": "They helped sailors describe position more precisely on Earth",
+          "wrongAnswers": [
+            "They replaced the need for ships",
+            "They made oceans smaller",
+            "They worked only near Europe"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why were tools like the astrolabe, sextant, and chronometer so important for long voyages?",
+          "correctAnswer": "They helped sailors estimate position and navigate more accurately over long distances",
+          "wrongAnswers": [
+            "They replaced maps completely",
+            "They made ships move faster than wind",
+            "They were mainly decorative objects for captains"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "How did navigation tools help change the relationship between humans and the ocean?",
+          "correctAnswer": "They turned open water from something frightening and uncertain into something measurable and trackable",
+          "wrongAnswers": [
+            "They made the ocean completely safe",
+            "They removed the need for skilled sailors",
+            "They proved that all voyages were successful"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "Why do navigation tools matter historically beyond sailing itself?",
+          "correctAnswer": "Because they helped turn unknown space into something humans could control, which also supported exploration, trade, and empire",
+          "wrongAnswers": [
+            "Because they mattered only to scientists",
+            "Because they ended all conflict at sea",
+            "Because they were invented only for maps"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::how animals find their way": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What is magnetoreception?",
+          "correctAnswer": "The ability to sense Earth's magnetic field",
+          "wrongAnswers": [
+            "The ability to see only at night",
+            "A way of measuring wind speed",
+            "A machine humans put inside animals"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What does olfactory navigation use?",
+          "correctAnswer": "Smell",
+          "wrongAnswers": [
+            "Only sight",
+            "Heat from the ground",
+            "Human-made maps"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why do scientists study both instinct and navigation in animals?",
+          "correctAnswer": "Because animal movement may be automatic in some ways and still involve complex orientation skills",
+          "wrongAnswers": [
+            "Because only humans can really navigate",
+            "Because migration is mostly random",
+            "Because instinct and navigation can never overlap"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "Why might human activity make migration harder for animals?",
+          "correctAnswer": "It can disrupt the natural signals they use, such as light, sound, smell, landmarks, or magnetic cues",
+          "wrongAnswers": [
+            "It teaches animals to stop moving forever",
+            "It makes every route shorter",
+            "It gives animals too many options"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the most important idea behind animal navigation?",
+          "correctAnswer": "Many animals do far more than simply wander, using complex systems to move through the world and sometimes return with astonishing accuracy",
+          "wrongAnswers": [
+            "Animal migration is mostly accidental",
+            "Navigation becomes real only when humans use technology",
+            "Animals follow paths only because people trained them"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::navigating without instruments": {
+      "title": "Wayfinding Without Screens",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What is one main idea behind traditional wayfinding?",
+          "correctAnswer": "People can navigate by reading the world around them, not only by using instruments",
+          "wrongAnswers": [
+            "Maps are useless in every case",
+            "Only sailors can learn directions",
+            "Traditional navigation is mostly imaginary"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What did Polynesian navigators use to help find their way?",
+          "correctAnswer": "Stars, ocean swells, winds, and observations of the natural world",
+          "wrongAnswers": [
+            "Satellites and radar",
+            "Highways and road signs",
+            "Only written maps"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "What makes Polynesian wayfinding especially impressive?",
+          "correctAnswer": "It used careful observation and memory instead of modern instruments",
+          "wrongAnswers": [
+            "It worked only in calm weather",
+            "It depended on airplane routes",
+            "It was mainly a ceremonial performance"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "How is traditional navigation different from relying on GPS?",
+          "correctAnswer": "It depends more on memory, attention, and reading the environment directly",
+          "wrongAnswers": [
+            "It removes all uncertainty",
+            "It works only in the past",
+            "It is always faster than digital tools"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind non-instrument navigation?",
+          "correctAnswer": "A map does not always need to exist on paper or a screen; it can live in memory, skill, and close attention to the world",
+          "wrongAnswers": [
+            "Phones make all older knowledge worthless",
+            "Traditional knowledge matters only as legend",
+            "Without GPS, people cannot really know where they are"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::what if the world stayed foggy": {
+      "title": "Should Some Parts of the World Stay Foggy?",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What does Fog of World try to recreate?",
+          "correctAnswer": "The feeling of discovering places gradually instead of seeing everything at once",
+          "wrongAnswers": [
+            "A weather forecast system",
+            "A driving test simulator",
+            "A social media map of restaurants"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What is one possible benefit of not knowing everything before a journey?",
+          "correctAnswer": "Surprise and discovery may feel more real",
+          "wrongAnswers": [
+            "It guarantees safety",
+            "It removes all need for planning",
+            "It makes every trip shorter"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why might some people enjoy keeping parts of the world 'foggy'?",
+          "correctAnswer": "Because uncertainty and discovery can make travel feel more meaningful",
+          "wrongAnswers": [
+            "Because getting lost is always safe",
+            "Because maps are bad for the brain",
+            "Because people should never prepare"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "What bigger question does an app like Fog of World raise?",
+          "correctAnswer": "Whether too much easy access to information can reduce the feeling of exploration",
+          "wrongAnswers": [
+            "Whether maps should be banned",
+            "Whether travel is better without destinations",
+            "Whether games are more important than geography"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind the appeal of keeping some places 'foggy'?",
+          "correctAnswer": "Sometimes having less immediate knowledge can make exploration feel deeper, more active, and more memorable",
+          "wrongAnswers": [
+            "All information should be hidden from travelers",
+            "Technology always ruins experience",
+            "The best journeys are always unplanned"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::airport limbo": {
+      "title": "Stuck in Transit",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "Why is the airport in The Terminal such a powerful setting?",
+          "correctAnswer": "Because it is a place built for movement that becomes a place of suspension",
+          "wrongAnswers": [
+            "Because airports are always homes",
+            "Because airports have no laws",
+            "Because the movie is mostly about tourism"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What made Mehran Karimi Nasser's case so unusual?",
+          "correctAnswer": "He became stuck in an airport transit zone with no clear way to enter or return home",
+          "wrongAnswers": [
+            "He chose to live at the airport for fun",
+            "He was the first person ever to miss a flight",
+            "He owned the airport where he stayed"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "What makes someone in airport limbo especially vulnerable?",
+          "correctAnswer": "They may be stuck between legal systems, with unclear status and nowhere they are fully allowed to go",
+          "wrongAnswers": [
+            "They automatically become citizens of the airport",
+            "They are safe because airports solve political problems",
+            "They can simply choose any country"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "Why can an airport become a liminal space in a political sense?",
+          "correctAnswer": "Because it can trap someone between departure and arrival, legality and illegality, entry and refusal",
+          "wrongAnswers": [
+            "Because airports exist outside geography",
+            "Because planes erase national borders",
+            "Because customs officers are optional"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest overall idea shown by cases like The Terminal, Nasseri, and Snowden?",
+          "correctAnswer": "A transit space can become a place where identity, belonging, and movement all break down at once",
+          "wrongAnswers": [
+            "Airports are the best place to live long-term",
+            "Governments should always follow movie plots",
+            "The main problem with airports is boredom"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::reaching the border and being refused": {
+      "title": "Reaching the Border Is Not the Same as Being Accepted",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What does the case of the St. Louis show?",
+          "correctAnswer": "Reaching a destination does not always mean being allowed to enter",
+          "wrongAnswers": [
+            "Ships always find safe harbor",
+            "Refugees were welcomed everywhere in 1939",
+            "Borders are only symbolic"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "Why is the St. Louis remembered as such a tragic case?",
+          "correctAnswer": "Because many of the refugees who were denied entry later died in the Holocaust",
+          "wrongAnswers": [
+            "Because the ship got lost at sea forever",
+            "Because the passengers refused rescue",
+            "Because no country knew the ship existed"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "What makes border policy morally difficult in refugee situations?",
+          "correctAnswer": "Governments weigh security, law, resources, and human need at the same time",
+          "wrongAnswers": [
+            "Borders have no effect on human lives",
+            "Refugee decisions are always simple",
+            "Every country has the same obligations and the same capacity"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "What is one major difference between a map border and a real border?",
+          "correctAnswer": "A map border is just a line, but a real border involves political choices with human consequences",
+          "wrongAnswers": [
+            "A real border exists only at airports",
+            "A map border is always more powerful",
+            "There is no real difference"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind refugee refusal cases like the St. Louis?",
+          "correctAnswer": "A border is not just a place of arrival; it is a moral and political test of who is allowed through and why",
+          "wrongAnswers": [
+            "Countries should never make migration policy",
+            "Destinations matter more than human lives",
+            "A closed border is always the fairest border"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::poems of the immigrant experience": {
+      "title": "Poems of Migration and In-Between Lives",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What do these migration poems mainly explore?",
+          "correctAnswer": "The emotional experience of migration, belonging, and living between places",
+          "wrongAnswers": [
+            "How to fill out immigration forms",
+            "The history of ships only",
+            "Tourism marketing"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What is one reason poetry works well for migration?",
+          "correctAnswer": "It can express feelings like hope, fear, memory, and loss in a concentrated way",
+          "wrongAnswers": [
+            "It avoids all emotion",
+            "It gives exact policy answers",
+            "It makes migration simpler than it is"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why does poetry work especially well for the immigrant experience?",
+          "correctAnswer": "Because it can hold uncertainty, identity, longing, and contradiction all at once",
+          "wrongAnswers": [
+            "Because poems are always easier than history",
+            "Because poetry avoids politics completely",
+            "Because migration is mainly a literary invention"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "What does a poem like 'The New Colossus' show about migration?",
+          "correctAnswer": "That a poem can shape the symbolic meaning of a nation's welcome to newcomers",
+          "wrongAnswers": [
+            "That poems matter only in classrooms",
+            "That migration is only an economic issue",
+            "That all immigrants are seen the same way"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest overall idea behind migration poetry?",
+          "correctAnswer": "The immigrant experience can be tied to one place and still speak to broader human feelings of exile, hope, and becoming",
+          "wrongAnswers": [
+            "Migration poems matter only in the United States",
+            "Poetry gives exact border solutions",
+            "All immigrants experience movement in exactly the same way"
+          ]
+        }
+      ]
+    },
+    "home-and-wandering::artists of the in between": {
+      "title": "Art, Music, and the Migrant In-Between",
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What do these works mainly share?",
+          "correctAnswer": "They explore what it feels like to live between homes, places, or identities",
+          "wrongAnswers": [
+            "They are all travel advertisements",
+            "They are all about tourism success",
+            "They all avoid the idea of migration"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "Why can music and visual art be powerful for representing migration?",
+          "correctAnswer": "They can show feelings of distance, displacement, longing, and identity in ways that facts alone cannot",
+          "wrongAnswers": [
+            "They are more objective than history",
+            "They remove politics from the topic",
+            "They matter only if they are realistic"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why is Jacob Lawrence's Migration series especially relevant to this topic?",
+          "correctAnswer": "Because it turns movement and displacement into a visual story about collective experience",
+          "wrongAnswers": [
+            "Because it is a road map",
+            "Because it explains customs law",
+            "Because it shows tourists on holiday"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "What makes a song like 'Somos Mas Americanos' or 'Immigrant Song' different from a policy debate on migration?",
+          "correctAnswer": "It expresses identity, emotion, tension, or protest through voice, rhythm, and performance rather than through law or statistics",
+          "wrongAnswers": [
+            "It gives more exact legal definitions",
+            "It avoids all meaning beyond entertainment",
+            "It proves migration is only a musical topic"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest overall idea behind artistic works about migration?",
+          "correctAnswer": "Art can make the migrant's in-between condition visible in ways that facts, borders, and policies alone cannot",
+          "wrongAnswers": [
+            "Music and painting are less useful than history",
+            "Migration is mainly a legal issue, not a human one",
+            "The only migrant story worth telling is a successful one"
+          ]
+        }
+      ]
+    },
+    "going-pains::adolescence is old teenagers are new": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What is the main difference between adolescence and the idea of a teenager?",
+          "correctAnswer": "Adolescence is a developmental stage, while 'teenager' is a more recent social category",
+          "wrongAnswers": [
+            "Adolescence exists only in humans, while teenagers exist in many animals",
+            "Teenagers are biological, but adolescence was invented by schools",
+            "There is no real difference between the two"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What does the prefrontal cortex help with?",
+          "correctAnswer": "Planning, self-control, and thinking ahead",
+          "wrongAnswers": [
+            "Digestion and breathing only",
+            "Remembering every dream perfectly",
+            "Choosing eye color"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why is the modern idea of the teenager considered relatively new?",
+          "correctAnswer": "Because modern schooling, youth culture, spending money, and greater independence made young people more visible as a separate group",
+          "wrongAnswers": [
+            "Because no one under 20 existed before the 1900s",
+            "Because hormones were discovered only recently",
+            "Because earlier societies forgot to count ages properly"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "Why is the sentence 'the brain fully develops at 25' too simple?",
+          "correctAnswer": "Because brain development is gradual and does not suddenly stop at one exact age",
+          "wrongAnswers": [
+            "Because the brain is fully finished by 13",
+            "Because only memory changes after childhood",
+            "Because the frontal lobes are not part of the brain"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind the history of teenagers?",
+          "correctAnswer": "Humans have always gone through adolescence, but modern societies turned that stage into a distinct social identity called the teenager",
+          "wrongAnswers": [
+            "Teenagers are a purely biological invention of the 20th century",
+            "Adolescence only became possible once schools were built",
+            "Teen culture matters only because of pop music"
+          ]
+        }
+      ]
+    },
+    "going-pains::growing up has different names": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What idea is built into the word 'adolescent'?",
+          "correctAnswer": "Growing toward adulthood",
+          "wrongAnswers": [
+            "Being exactly the same as an adult",
+            "Refusing all responsibility forever",
+            "Turning into a number"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "Why is the word 'teenager' especially tied to English?",
+          "correctAnswer": "Because it depends on the English number pattern from thir-teen to nine-teen",
+          "wrongAnswers": [
+            "Because only English-speaking countries have young people",
+            "Because Latin created the word 'teenager'",
+            "Because English invented adolescence itself"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "What is one important difference between the words 'adolescent' and 'teenager'?",
+          "correctAnswer": "'Adolescent' sounds more developmental, while 'teenager' sounds more social and cultural",
+          "wrongAnswers": [
+            "One is true and the other is false",
+            "One describes children and the other describes old people",
+            "They always mean exactly the same thing in every language"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What does comparing these words across languages help show?",
+          "correctAnswer": "That life stages are shaped not only by biology, but also by language and culture",
+          "wrongAnswers": [
+            "That all languages divide the teenage years in exactly the same way",
+            "That translation makes adolescence disappear",
+            "That age categories are purely random"
+          ]
+        }
+      ]
+    },
+    "going-pains::rites rules and the moment you become an adult": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What is the main purpose of a rite of passage?",
+          "correctAnswer": "To mark an important change in status or stage of life",
+          "wrongAnswers": [
+            "To make birthdays last longer",
+            "To replace all school exams",
+            "To prove that adults enjoy formal clothing"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "What is one key difference between a cultural rite and a secular rite?",
+          "correctAnswer": "A cultural rite usually carries tradition or shared identity, while a secular rite is often tied to modern institutions or everyday life",
+          "wrongAnswers": [
+            "Cultural rites are serious, but secular rites are fake",
+            "Secular rites only exist in one country",
+            "Cultural rites always happen before age 10"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why can a driver's license or a first paycheck feel like a rite of passage even without a formal ceremony?",
+          "correctAnswer": "Because they signal new independence, rights, or responsibilities",
+          "wrongAnswers": [
+            "Because they are older than religion",
+            "Because they automatically make someone wise",
+            "Because paperwork is the purest form of adulthood"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "Why do many societies create special ceremonies for growing up?",
+          "correctAnswer": "Because they turn a slow and messy change into a clear public moment people can recognize",
+          "wrongAnswers": [
+            "Because adulthood happens instantly everywhere",
+            "Because teenagers cannot understand change without costumes",
+            "Because every culture uses the same ritual system"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind rites of passage?",
+          "correctAnswer": "They help communities give a visible shape to a transition that is often gradual and uncertain in real life",
+          "wrongAnswers": [
+            "They create adulthood instantly and completely",
+            "They prove that all cultures define adulthood in exactly the same way",
+            "They matter only if expensive gifts are involved"
+          ]
+        }
+      ]
+    },
+    "going-pains::growing up is messy": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What do many works about adolescence have in common?",
+          "correctAnswer": "They show growing up as confusing, uneven, and emotionally complicated",
+          "wrongAnswers": [
+            "They all celebrate adulthood as easy and complete",
+            "They are all about school grades only",
+            "They all prove that growing up is a bad idea"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "Why can poetry, stories, and songs be especially powerful for showing adolescence?",
+          "correctAnswer": "Because they can express mixed feelings and identity struggles more vividly than a simple definition can",
+          "wrongAnswers": [
+            "Because art is always more factual than science",
+            "Because music removes emotion from a topic",
+            "Because adulthood can only be explained by artists"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "What does a phrase like 'not a girl, not yet a woman' suggest about adolescence?",
+          "correctAnswer": "It is an in-between state where someone is no longer a child but not fully settled into adulthood",
+          "wrongAnswers": [
+            "It is a stage where nothing changes",
+            "It means adulthood starts the moment someone turns 13",
+            "It proves identity is always clear during youth"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "Why do so many artistic works focus on the middle years instead of a clean 'before' and 'after'?",
+          "correctAnswer": "Because growing up often happens through uncertainty, conflict, and partial change rather than one neat transformation",
+          "wrongAnswers": [
+            "Because artists dislike endings",
+            "Because adolescence has no emotional intensity",
+            "Because adulthood is too simple to write about"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind artistic works about growing up?",
+          "correctAnswer": "Adulthood often feels less like reaching a destination and more like trying on roles, making mistakes, and slowly changing",
+          "wrongAnswers": [
+            "Becoming an adult happens in one exact moment for everyone",
+            "Teenagers grow only when adults force them to",
+            "The best way to grow up is to avoid all confusion"
+          ]
+        }
+      ]
+    },
+    "going-pains::adulting acting like a grown up": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What does the word 'adulting' usually mean?",
+          "correctAnswer": "Doing everyday grown-up tasks in a way that often feels effortful or awkward",
+          "wrongAnswers": [
+            "Becoming old overnight",
+            "Refusing all responsibility",
+            "Turning school into a full-time job"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "Which of these is a typical example of 'adulting'?",
+          "correctAnswer": "Scheduling a dentist appointment or paying bills",
+          "wrongAnswers": [
+            "Playing hide-and-seek",
+            "Forgetting all your homework forever",
+            "Sleeping through every obligation"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "Why do people often use the word 'adulting' jokingly?",
+          "correctAnswer": "Because it lets them talk about adult responsibilities while showing they still feel a bit unsure or distant from 'real adulthood'",
+          "wrongAnswers": [
+            "Because adult life is always easy and funny",
+            "Because only children are allowed to make jokes",
+            "Because rent and paperwork are naturally hilarious"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "What does the popularity of the word 'adulting' suggest about adulthood today?",
+          "correctAnswer": "Many people experience adulthood less as a fixed identity and more as a set of tasks they are learning to manage",
+          "wrongAnswers": [
+            "No one wants responsibility anymore",
+            "Adulthood has disappeared completely",
+            "Only millennials ever felt uncertain"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest idea behind the word 'adulting'?",
+          "correctAnswer": "Adulthood may feel less like a sudden identity and more like a collection of habits, duties, and repeated performances",
+          "wrongAnswers": [
+            "A person becomes an adult only when they say they are",
+            "Adulting means the same thing in every culture and generation",
+            "Being an adult is mostly about buying appliances"
+          ]
+        }
+      ]
+    },
+    "going-pains::the last threshold": {
+      "quizQuestions": [
+        {
+          "level": 1,
+          "prompt": "What do the works in this part mainly have in common?",
+          "correctAnswer": "They explore ways of thinking about death as a final threshold or transition",
+          "wrongAnswers": [
+            "They all say death should be ignored",
+            "They are all written from the exact same religious point of view",
+            "They all describe airports and ships literally"
+          ]
+        },
+        {
+          "level": 2,
+          "prompt": "Which poem turns death into a calm carriage ride?",
+          "correctAnswer": "Emily Dickinson's 'Because I could not stop for Death'",
+          "wrongAnswers": [
+            "'Ulysses'",
+            "'In the End'",
+            "'We Real Cool'"
+          ]
+        },
+        {
+          "level": 3,
+          "prompt": "What does it mean to describe death as a threshold?",
+          "correctAnswer": "It suggests death can be seen as a crossing or transition, not only as a stopping point",
+          "wrongAnswers": [
+            "It means death is not serious",
+            "It proves every writer agrees about the afterlife",
+            "It turns death into a scientific experiment"
+          ]
+        },
+        {
+          "level": 4,
+          "prompt": "Why do artists return so often to the subject of death?",
+          "correctAnswer": "Because art helps people imagine, question, and emotionally face what is hardest to explain directly",
+          "wrongAnswers": [
+            "Because death is easier to understand than everyday life",
+            "Because all art must be tragic",
+            "Because audiences dislike hopeful themes"
+          ]
+        },
+        {
+          "level": 5,
+          "prompt": "What is the strongest overall idea behind works about the approach of death?",
+          "correctAnswer": "Human beings use art to imagine death not only as an ending, but also as a passage, transformation, or final form of meaning",
+          "wrongAnswers": [
+            "All great art agrees completely about what death is",
+            "Death matters only when it is dramatic or violent",
+            "The best response to death is always silence"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionOverrides": {
+    "the-end-is-nearish": {
+      "title": "The End is Nearish",
+      "guidingSection": "The End is Nearish",
+      "sourceFile": "The_End_Is_Nearish_Complete_Working_Draft.docx",
+      "entries": [
+        {
+          "title": "When Power Is Supposed to Be Temporary",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Caretaker government - Australian Parliamentary Education Office",
+              "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period"
+            }
+          ],
+          "studentExplanation": "A caretaker government runs a country during an election period or another temporary transition, but it is supposed to keep the system stable rather than launch major new changes. This entry helps students understand what these governments usually do, who staffs them, and why they are meant to stay limited, neutral, and temporary.",
+          "whyItMatters": "At the entry level, this explains a political system designed for the in-between period before a new government takes full control. At the section level, it introduces The End Is Nearish by showing that even before the end of a government, power can already become transitional. At the year-theme level, it connects strongly to thresholds, endings, and transition because caretaker governments exist between one stable administration and the next.",
+          "takeaway": "A political system may need an officially limited form of power to guide the country safely through an in-between moment.",
+          "subjects": [
+            "Politics & Government / Global Politics",
+            "History",
+            "Sociology"
+          ],
+          "bigIdeas": [
+            "Transition",
+            "Thresholds",
+            "Endings"
+          ],
+          "examples": [
+            "caretaker government",
+            "election period",
+            "temporary transition",
+            "neutral management"
+          ],
+          "debateRelevance": "Useful when debating whether short-term neutral governments can reduce mistrust during elections and fragile transfers of power.",
+          "counterargument": "Someone could argue that caretaker governments may still become political actors themselves and are not automatically neutral just because they are temporary.",
+          "visualSections": [
+            {
+              "title": "Caretaker government",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Keeping the state stable during a transition",
+                  "note": "A caretaker government manages the country during an election period or another temporary transfer of power. Its job is usually to keep the system running smoothly while avoiding major new decisions that should belong to the next fully empowered administration.",
+                  "links": [
+                    {
+                      "label": "Parliamentary explainer",
+                      "url": "https://peo.gov.au/understand-our-parliament/your-questions-on-notice/questions/do-the-prime-minister-and-ministers-keep-their-positions-during-an-election-period"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is the main job of a caretaker government?",
+              "correctAnswer": "To keep government running during a temporary transition without making major new decisions",
+              "wrongAnswers": [
+                "To rewrite the constitution before the election",
+                "To replace parliament permanently",
+                "To cancel elections"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why are caretaker governments usually expected to avoid big new policies?",
+              "correctAnswer": "Because they are meant to preserve stability until a fully empowered government takes office",
+              "wrongAnswers": [
+                "Because they are always unelected monarchies",
+                "Because they have no ministers at all",
+                "Because they exist only during war"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "What makes a caretaker government different from an ordinary long-term government?",
+              "correctAnswer": "It is temporary and is expected to act with restraint during a political transition",
+              "wrongAnswers": [
+                "It has unlimited power for a short time",
+                "It rules without laws",
+                "It exists only in presidential systems"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "Why might some countries choose to use caretaker governments more often?",
+              "correctAnswer": "Because temporary neutral management can reduce mistrust during elections or fragile transfers of power",
+              "wrongAnswers": [
+                "Because voters dislike all permanent governments",
+                "Because short governments are always more efficient",
+                "Because elections work best without rules"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind caretaker governments?",
+              "correctAnswer": "A political system may need an officially limited form of power to guide the country safely through an in-between moment",
+              "wrongAnswers": [
+                "The best government is one that never changes",
+                "Temporary governments should always stay forever",
+                "Transitions matter less than stability"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 0
+          }
+        },
+        {
+          "title": "Lame Ducks and Fading Power",
+          "guidingSection": "The End is Nearish",
+          "links": [],
+          "studentExplanation": "A lame duck leader is still officially in charge but is already losing influence because everyone knows the end is coming. This often happens when a term limit is near, when a successor is expected, or when allies start planning for the future without that leader. This entry asks whether term limits weaken leadership too early - or whether the real danger is letting leaders stay forever.",
+          "whyItMatters": "At the entry level, this helps students understand how power can shrink before it formally ends. At the section level, it expands the idea of political endings from caretaker systems to leaders whose authority fades in public view. At the year-theme level, it connects to endings and transition because it shows that decline often begins before the official finish line.",
+          "takeaway": "The end of formal power and the end of real influence are often not the same thing.",
+          "subjects": [
+            "Politics & Government / Global Politics",
+            "Sociology",
+            "Philosophy"
+          ],
+          "bigIdeas": [
+            "Endings",
+            "Transition",
+            "Thresholds"
+          ],
+          "examples": [
+            "lame duck",
+            "term limits",
+            "fading influence",
+            "visible succession"
+          ],
+          "debateRelevance": "Useful when debating whether term limits protect democracy enough to justify the weaker authority that often appears near the end of a leader's last term.",
+          "counterargument": "Someone could argue that a weaker ending phase is still better than allowing leaders to accumulate too much long-term power.",
+          "visualSections": [
+            {
+              "title": "Fading authority",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Why power can weaken before office officially ends",
+                  "note": "A lame duck leader is still in office, but public attention has already started moving toward the future. When succession becomes visible, allies, rivals, and institutions may begin adjusting long before the formal ending arrives."
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is a lame duck leader?",
+              "correctAnswer": "A leader who is still in office but is losing power because the end of their term is near",
+              "wrongAnswers": [
+                "A leader who cannot pass any laws at all",
+                "A leader chosen by the military",
+                "A leader who governs only during emergencies"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why do lame duck periods often happen near the end of a final term?",
+              "correctAnswer": "Because attention shifts toward the next possible leader",
+              "wrongAnswers": [
+                "Because the constitution stops working",
+                "Because voters are not allowed to care anymore",
+                "Because leaders lose their title immediately"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "What is one argument in favor of term limits even if they create lame ducks?",
+              "correctAnswer": "They can reduce the risk of one person holding power for too long",
+              "wrongAnswers": [
+                "They guarantee perfect successors",
+                "They make politics less competitive",
+                "They remove all corruption"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "What is one argument against removing term limits just to avoid lame ducks?",
+              "correctAnswer": "A stronger ending phase may not be worth the long-term risk of power becoming too permanent",
+              "wrongAnswers": [
+                "Every long-serving leader becomes better automatically",
+                "Democracy works best when one person stays forever",
+                "Succession plans are unnecessary"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind the lame duck problem?",
+              "correctAnswer": "The end of formal power and the end of real influence are often not the same thing",
+              "wrongAnswers": [
+                "Term limits always destroy democracy",
+                "Leaders should never know when they will leave",
+                "Political systems cannot survive transitions"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 1
+          }
+        },
+        {
+          "title": "If No One Knew Who Was Next",
+          "guidingSection": "The End is Nearish",
+          "links": [],
+          "studentExplanation": "Elizabeth I delayed naming a successor because she feared that once people focused on the next ruler, loyalty to the current one would weaken. This entry asks a smart political question: does naming the next leader too early stabilize a system - or start the transfer of power before the old leader is gone? It is really about when a transition begins: at departure, or much earlier in people's minds.",
+          "whyItMatters": "At the entry level, this explores the political risk of succession becoming visible too soon. At the section level, it continues the section's interest in what happens when endings are expected before they happen. At the year-theme level, it connects to thresholds and transition because succession creates an in-between moment where the future leader may already shape the present.",
+          "takeaway": "Knowing who comes next can both stabilize a system and quietly weaken the person still in charge.",
+          "subjects": [
+            "History",
+            "Politics & Government / Global Politics",
+            "Philosophy"
+          ],
+          "bigIdeas": [
+            "Transition",
+            "Thresholds",
+            "Endings"
+          ],
+          "examples": [
+            "Elizabeth I",
+            "delayed succession",
+            "loyalty",
+            "visible transition"
+          ],
+          "debateRelevance": "Useful when debating whether clear succession plans strengthen stability or start moving loyalty away from the current leader too early.",
+          "counterargument": "Someone could argue that keeping succession unclear may preserve authority in the short term but increase instability once the real transition finally arrives.",
+          "visualSections": [
+            {
+              "title": "Succession and attention",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Why delaying a successor can preserve authority",
+                  "note": "Elizabeth I's logic was simple: once the next ruler becomes visible, the present ruler may begin to fade in importance. This card helps students think about whether succession begins officially - or psychologically."
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "Why might a leader delay naming a successor?",
+              "correctAnswer": "Because public attention might shift away from the current leader too early",
+              "wrongAnswers": [
+                "Because succession never matters in politics",
+                "Because people dislike continuity",
+                "Because it makes laws disappear"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "What is one possible advantage of keeping the next leader unknown for longer?",
+              "correctAnswer": "It may preserve the authority of the current leader while they remain in office",
+              "wrongAnswers": [
+                "It guarantees a better successor",
+                "It ends all power struggles",
+                "It removes the need for succession rules"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "What is one possible downside of hiding succession too long?",
+              "correctAnswer": "It can create uncertainty and competition when the transition finally arrives",
+              "wrongAnswers": [
+                "It makes politics too calm",
+                "It ensures the public feels safer",
+                "It prevents all rivalries"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "What political idea sits underneath this problem?",
+              "correctAnswer": "Power may begin transferring in people's minds before it transfers officially",
+              "wrongAnswers": [
+                "A leader's authority never depends on public attention",
+                "Succession matters only in monarchies",
+                "Future leaders should always campaign secretly"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind delayed succession?",
+              "correctAnswer": "Knowing who comes next can both stabilize a system and quietly weaken the person still in charge",
+              "wrongAnswers": [
+                "The best system is one with no succession at all",
+                "Mystery always improves leadership",
+                "Transitions should never be discussed"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 2
+          }
+        },
+        {
+          "title": "The Clock That Measures Doom",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Why the Doomsday Clock matters - Business Insider",
+              "url": "https://www.businessinsider.com/why-the-doomsday-clock-is-3-minutes-to-midnight-2016-1"
+            }
+          ],
+          "studentExplanation": "The Doomsday Clock is not a scientific machine that predicts the exact end of the world. It is a symbolic warning device created to show how close humanity may be to catastrophic danger, especially through war, nuclear risk, and other global threats. This entry asks whether a dramatic symbol can still be useful even when it is not literally precise. The section's word 'nearish' also matters: it jokes with the old phrase 'the end is nigh' while admitting that modern danger often feels close, disputed, and hard to time exactly. This is an end-zone: a period when people behave differently because the ending feels close even though it has not fully arrived.",
+          "whyItMatters": "At the entry level, this helps students distinguish between a symbolic warning and a real predictive instrument. At the section level, it introduces global apocalypse as something people try to imagine, measure, and communicate. At the year-theme level, it connects to prediction, endings, and thresholds because the clock dramatizes the idea of being near a point of no return. The clock is powerful because it turns a vague threshold into a public image, even while reminding students that symbolic nearness is not the same as a forecast.",
+          "takeaway": "An ending often begins before it happens, when people start acting as if the end is already in the room.",
+          "subjects": [
+            "Politics & Government / Global Politics",
+            "History",
+            "Philosophy",
+            "Media / Film"
+          ],
+          "bigIdeas": [
+            "Prediction",
+            "Endings",
+            "Thresholds"
+          ],
+          "examples": [
+            "Doomsday Clock",
+            "symbolic warning",
+            "catastrophic risk",
+            "point of no return",
+            "the end is nigh",
+            "nearish as uncertain warning"
+          ],
+          "debateRelevance": "Useful in debates about political transitions, climate warnings, apocalypse culture, and who controls the story of an ending.",
+          "counterargument": "Some endings really are simple and final; the useful distinction is between the final moment and the approach to that moment.",
+          "visualSections": [
+            {
+              "title": "Symbolic warning",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "The Doomsday Clock",
+                  "note": "The Doomsday Clock is best understood as a dramatic warning symbol, not a literal scientific countdown. Its power comes from making catastrophic risk feel urgent and discussable.",
+                  "links": [
+                    {
+                      "label": "Business Insider explainer",
+                      "url": "https://www.businessinsider.com/why-the-doomsday-clock-is-3-minutes-to-midnight-2016-1"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            },
+            {
+              "title": "Nearish endings",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "The end-zone",
+                  "note": "The section is interested in the period when an ending is visible but not yet complete: a leader leaving office, a clock near midnight, a school year closing, a disaster predicted but not arrived."
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is the Doomsday Clock mainly meant to do?",
+              "correctAnswer": "Warn people symbolically about global danger",
+              "wrongAnswers": [
+                "Predict the exact date of the end of the world",
+                "Track earthquakes in real time",
+                "Measure only nuclear explosions"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why is the Doomsday Clock called symbolic rather than literal?",
+              "correctAnswer": "Because it represents danger dramatically instead of measuring exact scientific countdowns",
+              "wrongAnswers": [
+                "Because it has no connection to real concerns",
+                "Because it changes every hour",
+                "Because it was built as a museum toy"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "Why might a symbol like the Doomsday Clock still be useful?",
+              "correctAnswer": "Because a powerful image can focus public attention on threats people might otherwise ignore",
+              "wrongAnswers": [
+                "Because symbols are more accurate than science",
+                "Because fear always solves political problems",
+                "Because every warning needs a deadline"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "What is one weakness of the Doomsday Clock?",
+              "correctAnswer": "It can seem more exact than it really is, even though it is only a symbolic judgment",
+              "wrongAnswers": [
+                "It never changes over time",
+                "It deals only with weather",
+                "It is understood in exactly the same way by everyone"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind the Doomsday Clock?",
+              "correctAnswer": "A dramatic symbol can be helpful if it makes people think seriously about catastrophic risks without pretending to be a literal forecast",
+              "wrongAnswers": [
+                "The best warning is always the most precise clock",
+                "Symbolic tools are useless in politics",
+                "Humanity should ignore imagined thresholds"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 3
+          }
+        },
+        {
+          "title": "Why People Keep Predicting the End",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Londoners in 1666 - Wellcome Collection",
+              "url": "https://wellcomecollection.org/stories/devilry-and-doom-in-1666"
+            },
+            {
+              "label": "List of predicted apocalyptic dates - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/List_of_dates_predicted_for_apocalyptic_events"
+            },
+            {
+              "label": "10 failed doomsday predictions - Britannica",
+              "url": "https://www.britannica.com/list/10-failed-doomsday-predictions"
+            },
+            {
+              "label": "Ten notable apocalypses that didn't happen - Smithsonian",
+              "url": "https://www.smithsonianmag.com/history/ten-notable-apocalypses-that-obviously-didnt-happen-9126331/"
+            },
+            {
+              "label": "Street-corner prophecy clip - YouTube",
+              "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8"
+            }
+          ],
+          "studentExplanation": "People have predicted the end of the world again and again: through religion, astronomy, technology, calendars, and rumors. Most of these predictions fail, but they often spread quickly because they give people a simple explanation for fear, uncertainty, or rapid change. This entry is about the emotional, social, and media patterns behind doomsday belief - not just the dates themselves. The pattern is not only fear of destruction; it is also the comfort of plot. A dated apocalypse gives history a shape, even when the prediction itself collapses.",
+          "whyItMatters": "At the entry level, this helps students compare different failed apocalypses and see what they have in common. At the section level, it broadens the section from official warnings to mass belief and viral fear. At the year-theme level, it connects to prediction and endings because humans are strongly drawn to stories that place them near the final threshold.",
+          "takeaway": "People are drawn not only to the fear of the end, but also to stories that make chaos feel meaningful and understandable.",
+          "subjects": [
+            "History",
+            "Sociology",
+            "Psychology",
+            "Media / Film"
+          ],
+          "bigIdeas": [
+            "Prediction",
+            "Endings",
+            "Bright and Dark Future"
+          ],
+          "examples": [
+            "Millerites",
+            "Y2K",
+            "Mayan Apocalypse",
+            "viral fear"
+          ],
+          "debateRelevance": "Useful when debating why apocalyptic stories spread so easily and whether the deepest driver is fear, meaning-making, media amplification, or all three at once.",
+          "counterargument": "Someone could argue that repeated failed prophecies should not make people dismiss every warning, because some future dangers may still be evidence-based and real.",
+          "visualSections": [
+            {
+              "title": "Historical and religious apocalyptic movements",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "The Millerites and Hon-Ming Chen",
+                  "note": "This group shows how prophecy, charismatic belief, and social anxiety can turn uncertainty into a dateable ending. The pattern matters as much as the failed prediction itself.",
+                  "links": [
+                    {
+                      "label": "1666 panic",
+                      "url": "https://wellcomecollection.org/stories/devilry-and-doom-in-1666"
+                    },
+                    {
+                      "label": "Predicted dates list",
+                      "url": "https://en.wikipedia.org/wiki/List_of_dates_predicted_for_apocalyptic_events"
+                    },
+                    {
+                      "label": "Britannica overview",
+                      "url": "https://www.britannica.com/list/10-failed-doomsday-predictions"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            },
+            {
+              "title": "Scientific and technological panic events",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "From Halley's Comet to Y2K and the Mayan Apocalypse",
+                  "note": "These cases show that modern fear does not need religion to become apocalyptic. Astronomy, computing, and media rumor can all create the same powerful feeling that humanity is nearing a final threshold.",
+                  "links": [
+                    {
+                      "label": "Smithsonian overview",
+                      "url": "https://www.smithsonianmag.com/history/ten-notable-apocalypses-that-obviously-didnt-happen-9126331/"
+                    },
+                    {
+                      "label": "Street-corner prophecy clip",
+                      "url": "https://www.youtube.com/watch?v=FcaHsbfkHA8"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What do many failed doomsday predictions have in common?",
+              "correctAnswer": "They often grow during times of fear, uncertainty, or rapid change",
+              "wrongAnswers": [
+                "They are always based on one religion only",
+                "They succeed when repeated often enough",
+                "They depend only on science"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why do apocalyptic predictions spread so easily?",
+              "correctAnswer": "Because dramatic stories about danger are emotionally powerful and easy to share",
+              "wrongAnswers": [
+                "Because people always verify them carefully first",
+                "Because the future is easy to know",
+                "Because all frightening claims are true"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "Why can both religious movements and technological scares produce doomsday beliefs?",
+              "correctAnswer": "Because very different causes can trigger the same human need to explain danger and uncertainty",
+              "wrongAnswers": [
+                "Because science and religion are exactly the same",
+                "Because technology always proves prophecy right",
+                "Because fear exists only in modern societies"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "What does the Y2K panic show about modern apocalyptic fear?",
+              "correctAnswer": "A technological problem can become a culture-wide symbol of collapse",
+              "wrongAnswers": [
+                "Computers always cause civilizational endings",
+                "The internet invented doomsday thinking",
+                "Digital fears are less emotional than older ones"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind recurring doomsday predictions?",
+              "correctAnswer": "People are drawn not only to the fear of the end, but also to stories that make chaos feel meaningful and understandable",
+              "wrongAnswers": [
+                "The end of the world is usually predicted correctly on the second try",
+                "Social media created apocalyptic thinking from nothing",
+                "Every false prophecy makes future prophecies impossible"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 4
+          }
+        },
+        {
+          "title": "Renaissance Visions of the End",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Apocalypse art context - Hyperallergic",
+              "url": "https://hyperallergic.com/apocalypse-art-has-never-been-more-relevant-bibliotheque-nationale-de-france/"
+            },
+            {
+              "label": "The Four Horsemen of the Apocalypse - Met Museum",
+              "url": "https://www.metmuseum.org/art/collection/search/336215"
+            },
+            {
+              "label": "The Mystical Nativity - National Gallery",
+              "url": "https://www.nationalgallery.org.uk/paintings/sandro-botticelli-mystic-nativity"
+            },
+            {
+              "label": "The Last Judgment - Vatican Museums",
+              "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/giudizio-universale.html"
+            },
+            {
+              "label": "The Triumph of Death - AF Prado Museum",
+              "url": "https://www.afpradomuseum.org/the-triumph-of-death-brueghel-the-elder"
+            }
+          ],
+          "studentExplanation": "For Renaissance artists, the apocalypse was often religious, moral, and full of judgment. These images separate the saved from the damned, but they do not all feel the same: some are full of terror, while others contain order, symbolism, or even a kind of strange calm. This entry asks students to compare how artists make doom visible and how they imagine what lies beyond the final division.",
+          "whyItMatters": "At the entry level, this helps students read apocalypse not just as destruction, but as visual storytelling about justice, fear, and destiny. At the section level, it adds an art-history dimension to the section's idea of endings. At the year-theme level, it connects to thresholds and endings because apocalyptic art often shows the most extreme threshold of all: final separation.",
+          "takeaway": "The end of the world is shown not only as catastrophe, but as a final threshold where moral order is revealed.",
+          "subjects": [
+            "Visual and Performing Arts",
+            "History",
+            "Philosophy",
+            "Language and Literature"
+          ],
+          "bigIdeas": [
+            "Endings",
+            "Thresholds",
+            "Liminality"
+          ],
+          "examples": [
+            "Book of Revelation",
+            "Durer",
+            "Botticelli",
+            "Michelangelo",
+            "Bruegel"
+          ],
+          "debateRelevance": "Useful when debating whether apocalyptic art mainly frightens viewers or whether it also offers moral structure, symbolism, and a larger idea of justice.",
+          "counterargument": "Someone could argue that these works are rooted in a specific religious tradition and may not represent a universal way of imagining endings.",
+          "visualSections": [
+            {
+              "title": "Renaissance works slideshow",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Albrecht Durer - The Four Horsemen of the Apocalypse (1498)",
+                  "note": "Durer turns Revelation into compressed visual force, making the apocalypse feel immediate, crowded, and unstoppable.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.metmuseum.org/art/collection/search/336215"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Sandro Botticelli - The Mystical Nativity (1500)",
+                  "note": "Botticelli mixes fear, hope, and symbolic order, reminding students that apocalypse can also point toward spiritual meaning beyond destruction.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.nationalgallery.org.uk/paintings/sandro-botticelli-mystic-nativity"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Michelangelo - The Last Judgment (1536-1541)",
+                  "note": "Michelangelo imagines the final division of souls as a moment of overwhelming movement, power, and moral reckoning.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/giudizio-universale.html"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Pieter Bruegel the Elder - The Triumph of Death (c. 1562)",
+                  "note": "Bruegel turns apocalypse into a landscape-scale social collapse where death moves through ordinary human life with chilling inevitability.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.afpradomuseum.org/the-triumph-of-death-brueghel-the-elder"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Extra context",
+                  "note": "This overview gives broader historical context for why apocalypse imagery remained so compelling across European visual culture.",
+                  "links": [
+                    {
+                      "label": "Hyperallergic article",
+                      "url": "https://hyperallergic.com/apocalypse-art-has-never-been-more-relevant-bibliotheque-nationale-de-france/"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is one common feature of many Renaissance apocalypse images?",
+              "correctAnswer": "They divide people sharply between salvation and doom",
+              "wrongAnswers": [
+                "They avoid religious ideas completely",
+                "They focus only on peaceful landscapes",
+                "They reject symbolism"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "What makes apocalyptic art from this period more than just a picture of destruction?",
+              "correctAnswer": "It also imagines judgment, morality, and the fate of souls",
+              "wrongAnswers": [
+                "It functions only as decoration",
+                "It ignores human emotion",
+                "It rejects all stories about the future"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "Why might two artists depict the apocalypse with very different tones?",
+              "correctAnswer": "Because the end can be imagined as terror, warning, order, justice, or even acceptance",
+              "wrongAnswers": [
+                "Because Renaissance artists were not allowed to choose style",
+                "Because all religious art had one exact mood",
+                "Because tone matters only in music"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "What does a work like The Last Judgment encourage viewers to think about?",
+              "correctAnswer": "What kind of moral order lies behind the final separation of the saved and the damned",
+              "wrongAnswers": [
+                "Whether painting is more realistic than sculpture",
+                "How to predict next year's politics",
+                "Whether all endings are beautiful"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind Renaissance apocalypse art?",
+              "correctAnswer": "The end of the world is shown not only as catastrophe, but as a final threshold where moral order is revealed",
+              "wrongAnswers": [
+                "Apocalypse art is only about fear",
+                "Renaissance painters cared more about crowds than meaning",
+                "The end matters only if it is violent"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 5
+          }
+        },
+        {
+          "title": "Modern Apocalypses and New Fears",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "The Course of Empire: Destruction - Google Arts & Culture",
+              "url": "https://artsandculture.google.com/asset/the-course-of-empire-destruction-thomas-cole/tQFLZqWBxVAINQ?hl=en"
+            },
+            {
+              "label": "The Great Day of His Wrath - Tate",
+              "url": "https://www.tate.org.uk/art/artworks/martin-the-great-day-of-his-wrath-n05613"
+            },
+            {
+              "label": "World War I prints - The Guardian",
+              "url": "https://www.theguardian.com/artanddesign/gallery/2014/may/14/art-apocalypse-otto-dix-first-world-war-der-krieg-in-pictures"
+            },
+            {
+              "label": "Apocalypse '42 - Smithsonian American Art Museum",
+              "url": "https://americanart.si.edu/artwork/apocalypse-42-21944"
+            },
+            {
+              "label": "Four Horsemen of the Apocalypse - Nelson-Atkins",
+              "url": "https://art.nelson-atkins.org/objects/19638/four-horsemen-of-the-apocalypse"
+            },
+            {
+              "label": "The Last of Us: Season 1 Concept Art",
+              "url": "https://www.menyhei.com/projects/WB6O42?album_id=14910"
+            },
+            {
+              "label": "Where Are We Going? - YouTube",
+              "url": "https://www.youtube.com/watch?v=SR6_J1IVvlg"
+            }
+          ],
+          "studentExplanation": "More recent apocalyptic art often shifts away from pure religious judgment and toward industrial collapse, war, disease, technology, ruined cities, and human-made disaster. These works ask what modern people fear most: mechanized destruction, total war, social breakdown, environmental collapse, digital dread, or the feeling that civilization may destroy itself. Keep the work links directly in the display area so students can move between painting, print, concept art, and music-video style storytelling without invented visuals.",
+          "whyItMatters": "At the entry level, this helps students compare how apocalyptic imagery evolves as history changes. At the section level, it extends the guiding section from classical and religious endings to modern fears shaped by industry, war, media, and digital anxiety. At the year-theme level, it connects to endings, prediction, and the future by showing that every era imagines doom in the image of its own deepest worries.",
+          "takeaway": "The end of the world increasingly appears as something tied to human systems, choices, and fears rather than only divine fate.",
+          "subjects": [
+            "Visual and Performing Arts",
+            "History",
+            "Politics & Government / Global Politics",
+            "Media / Film"
+          ],
+          "bigIdeas": [
+            "Endings",
+            "Bright and Dark Future",
+            "Prediction"
+          ],
+          "examples": [
+            "Thomas Cole",
+            "John Martin",
+            "Otto Dix",
+            "The Last of Us",
+            "industrial anxiety"
+          ],
+          "debateRelevance": "Useful when debating whether modern apocalyptic art mostly reflects public fear - or actively shapes how societies imagine collapse and the future.",
+          "counterargument": "Someone could argue that even modern apocalypse art still reuses older fears of judgment, destruction, and chaos rather than inventing an entirely new language of endings.",
+          "visualSections": [
+            {
+              "title": "Modern apocalypse works slideshow",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Thomas Cole - The Course of Empire: Destruction (1836)",
+                  "note": "Cole turns imperial grandeur into self-destruction, suggesting that civilizations can build the very forces that undo them.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://artsandculture.google.com/asset/the-course-of-empire-destruction-thomas-cole/tQFLZqWBxVAINQ?hl=en"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "John Martin - The Great Day of His Wrath (1851-1853)",
+                  "note": "Martin keeps the cosmic scale of apocalypse but makes catastrophe feel overwhelming, theatrical, and physically unavoidable.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.tate.org.uk/art/artworks/martin-the-great-day-of-his-wrath-n05613"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Otto Dix - World War I prints (1924)",
+                  "note": "Dix makes modern war itself look apocalyptic, where industrial violence turns real history into a vision of ruin.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.theguardian.com/artanddesign/gallery/2014/may/14/art-apocalypse-otto-dix-first-world-war-der-krieg-in-pictures"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Viktor Schreckengost - Apocalypse '42 (1942)",
+                  "note": "This wartime work translates twentieth-century conflict into a direct visual language of anxiety, destruction, and mass fear.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://americanart.si.edu/artwork/apocalypse-42-21944"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Harry Louis Freund - Four Horsemen of the Apocalypse (1946)",
+                  "note": "Freund reimagines a classical apocalyptic motif after global war, showing how older symbols survive inside modern dread.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://art.nelson-atkins.org/objects/19638/four-horsemen-of-the-apocalypse"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Saby Menyhei - The Last of Us: Season 1 Concept Art (2025)",
+                  "note": "The work turns post-collapse atmosphere into contemporary visual media, where fear is shaped by survival, emptiness, and damaged systems.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.menyhei.com/projects/WB6O42?album_id=14910"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Kevin Sherwood & James McCawley - Where Are We Going? (2013)",
+                  "note": "This piece extends apocalyptic mood into game-linked sound and atmosphere, showing that doom can also be built through media form and tone.",
+                  "links": [
+                    {
+                      "label": "Work link",
+                      "url": "https://www.youtube.com/watch?v=SR6_J1IVvlg"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is one major difference between many modern apocalyptic works and older religious ones?",
+              "correctAnswer": "Modern works often focus more on war, industry, technology, or human-made collapse",
+              "wrongAnswers": [
+                "Modern works avoid fear completely",
+                "Older works were never symbolic",
+                "Modern works are always hopeful"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why does industrial or digital anxiety fit modern apocalypse so well?",
+              "correctAnswer": "Because people increasingly fear systems they built but may no longer fully control",
+              "wrongAnswers": [
+                "Because technology removed all uncertainty",
+                "Because only ancient societies imagined endings",
+                "Because modern art cannot show nature"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "What can war imagery add to apocalyptic art?",
+              "correctAnswer": "It makes the end feel historically real and human-caused instead of distant and mythical",
+              "wrongAnswers": [
+                "It turns apocalypse into comedy",
+                "It removes all moral meaning",
+                "It guarantees political agreement"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "Why might a work like The Last of Us concept art still count as apocalyptic imagery?",
+              "correctAnswer": "Because it imagines social breakdown, fear, and survival in a damaged world",
+              "wrongAnswers": [
+                "Because anything recent is automatically apocalyptic",
+                "Because concept art is more factual than painting",
+                "Because apocalypse requires zombies"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind modern apocalypse art?",
+              "correctAnswer": "The end of the world increasingly appears as something tied to human systems, choices, and fears rather than only divine fate",
+              "wrongAnswers": [
+                "Modern society no longer believes in endings",
+                "Technology makes apocalyptic thinking obsolete",
+                "All modern apocalypse art is just entertainment"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 6
+          }
+        },
+        {
+          "title": "A Soundtrack for the End",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Abyss of the Birds - YouTube",
+              "url": "https://www.youtube.com/watch?v=-tPqTqpLG5M"
+            },
+            {
+              "label": "Electric Funeral - YouTube",
+              "url": "https://www.youtube.com/watch?v=4aJT2p2_pDk"
+            },
+            {
+              "label": "It's the End of the World as We Know It - YouTube",
+              "url": "https://www.youtube.com/watch?v=Z0GFRcFm-aY"
+            }
+          ],
+          "studentExplanation": "Apocalypse is not only something artists paint; it is also something composers and musicians can make us hear. These works turn endings into sound in very different ways: Messiaen uses stillness, space, and spiritual intensity; Black Sabbath turns doom into heavy, crushing power; and R.E.M. makes catastrophe feel frantic, crowded, and strangely catchy. This entry helps students notice that mood, instrumentation, tempo, repetition, and silence can all shape what an ending feels like.",
+          "whyItMatters": "At the entry level, this helps students understand how music creates apocalyptic atmosphere. At the section level, it broadens the guiding section beyond visual art and prophecy into sound and emotional tone. At the year-theme level, it connects to endings and the future by showing that fear of collapse can be expressed not just through images and stories, but through rhythm, texture, and musical form.",
+          "takeaway": "The end of the world can be heard through very different musical strategies, each shaping a different emotional version of catastrophe.",
+          "subjects": [
+            "Visual and Performing Arts",
+            "History",
+            "Language and Literature"
+          ],
+          "bigIdeas": [
+            "Endings",
+            "Bright and Dark Future",
+            "Liminality"
+          ],
+          "examples": [
+            "Messiaen",
+            "Black Sabbath",
+            "R.E.M.",
+            "tempo",
+            "silence"
+          ],
+          "debateRelevance": "Useful when debating whether music communicates crisis more effectively through mood and texture than essays or images can do alone.",
+          "counterargument": "Someone could argue that apocalyptic music is too subjective without historical context, because listeners may hear very different meanings in the same sounds.",
+          "visualSections": [
+            {
+              "title": "Music display",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Olivier Messiaen - Abyss of the Birds (1940)",
+                  "note": "Messiaen uses stillness, suspended time, and spiritual intensity to make catastrophe feel quiet, vast, and almost outside ordinary history.",
+                  "links": [
+                    {
+                      "label": "Track link",
+                      "url": "https://www.youtube.com/watch?v=-tPqTqpLG5M"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Black Sabbath - Electric Funeral (1970)",
+                  "note": "Heavy riffs, slow drive, and dark tone make apocalypse sound industrial, crushing, and physically oppressive.",
+                  "links": [
+                    {
+                      "label": "Track link",
+                      "url": "https://www.youtube.com/watch?v=4aJT2p2_pDk"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "R.E.M. - It's the End of the World as We Know It (1987)",
+                  "note": "Speed, overload, and catchiness turn collapse into breathless cultural anxiety rather than solemn doom.",
+                  "links": [
+                    {
+                      "label": "Track link",
+                      "url": "https://www.youtube.com/watch?v=Z0GFRcFm-aY"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What can music add to apocalyptic storytelling?",
+              "correctAnswer": "A strong emotional atmosphere created through sound, rhythm, silence, and texture",
+              "wrongAnswers": [
+                "A precise scientific forecast",
+                "A visual map of destruction",
+                "A guarantee that the message will be optimistic"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why might very different kinds of music all fit an apocalyptic theme?",
+              "correctAnswer": "Because endings can feel spiritual, terrifying, chaotic, heavy, or strangely calm",
+              "wrongAnswers": [
+                "Because all apocalypse music sounds the same",
+                "Because only sad music can discuss disaster",
+                "Because lyrics matter but sound never does"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "What makes a piece like Abyss of the Birds especially unsettling?",
+              "correctAnswer": "Its slowness, space, and suspended feeling can make time itself feel fragile",
+              "wrongAnswers": [
+                "It uses only loud percussion",
+                "It sounds like dance music",
+                "It avoids mood completely"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "Why can a song like It's the End of the World as We Know It sound energetic and anxious at the same time?",
+              "correctAnswer": "Because speed and overload can make collapse feel breathless rather than solemn",
+              "wrongAnswers": [
+                "Because fast songs cannot express fear",
+                "Because catchy music removes serious meaning",
+                "Because apocalypse works only in classical music"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind apocalyptic music?",
+              "correctAnswer": "The end of the world can be heard through very different musical strategies, each shaping a different emotional version of catastrophe",
+              "wrongAnswers": [
+                "Only lyrics determine apocalyptic meaning",
+                "Music is less powerful than visual art for endings",
+                "Apocalyptic music must always be slow and dark"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 7
+          }
+        },
+        {
+          "title": "The Point of No Return",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Predicting ecosystem collapse - Cary Institute",
+              "url": "https://www.caryinstitute.org/news-insights/feature/predicting-environmental-collapse"
+            },
+            {
+              "label": "Climate volatility research - Nature",
+              "url": "https://www.nature.com/articles/s41558-025-02486-9"
+            },
+            {
+              "label": "Turbulence and climate connection - BBC",
+              "url": "https://www.bbc.com/news/articles/ckgy7jx082ro"
+            },
+            {
+              "label": "Point of no return debate - The Ecologist",
+              "url": "https://theecologist.org/2025/oct/13/point-no-return-climate"
+            }
+          ],
+          "studentExplanation": "Researchers studying ecosystems have found that collapse is often preceded by instability: instead of staying steady, systems start swinging more wildly. Climate change may be producing similar warning signs, from more extreme weather to rougher flights and deeper environmental stress. This entry asks what people should do when a danger no longer feels far away. The hardest question is not only whether a point of no return exists, but how humans should respond if they think they are approaching it.",
+          "whyItMatters": "At the entry level, this helps students connect environmental science to the idea of collapse. At the section level, it turns apocalyptic thinking away from fantasy and toward measurable real-world danger. At the year-theme level, it connects to endings, prediction, and the future by asking what responsibility looks like when a system may already be close to irreversible change.",
+          "takeaway": "Even when full prevention seems uncertain, warning signs of instability matter because they shape how urgently people should act.",
+          "subjects": [
+            "Sciences",
+            "Politics & Government / Global Politics",
+            "Economics & Trade",
+            "Philosophy"
+          ],
+          "bigIdeas": [
+            "Endings",
+            "Prediction",
+            "Bright and Dark Future"
+          ],
+          "examples": [
+            "ecosystem collapse",
+            "volatility",
+            "climate threshold",
+            "point of no return"
+          ],
+          "debateRelevance": "Useful when debating whether societies should keep acting aggressively even when some damage may already be irreversible.",
+          "counterargument": "Someone could argue that calling a situation a point of no return too early can become an excuse for surrender when meaningful reduction of harm is still possible.",
+          "visualSections": [
+            {
+              "title": "Evidence display",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "Predicting ecosystem collapse",
+                  "note": "Researchers study volatility and instability because systems often become more erratic before they break down.",
+                  "links": [
+                    {
+                      "label": "Source",
+                      "url": "https://www.caryinstitute.org/news-insights/feature/predicting-environmental-collapse"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Climate volatility research",
+                  "note": "Climate change can look chaotic before it looks final, with stronger swings and more unstable patterns across systems.",
+                  "links": [
+                    {
+                      "label": "Source",
+                      "url": "https://www.nature.com/articles/s41558-025-02486-9"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Turbulence and climate connection",
+                  "note": "Even everyday experiences like flying can become reminders that environmental instability is already affecting human systems.",
+                  "links": [
+                    {
+                      "label": "Source",
+                      "url": "https://www.bbc.com/news/articles/ckgy7jx082ro"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                },
+                {
+                  "kind": "text-slide",
+                  "title": "Point of no return debate",
+                  "note": "The moral question is not only whether a threshold exists, but what people owe one another if they believe they are nearing it.",
+                  "links": [
+                    {
+                      "label": "Source",
+                      "url": "https://theecologist.org/2025/oct/13/point-no-return-climate"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is one warning sign that an ecosystem may be close to collapse?",
+              "correctAnswer": "Its behavior can become more volatile and unstable",
+              "wrongAnswers": [
+                "It always becomes perfectly calm first",
+                "It stops changing completely",
+                "It becomes easier to control"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why does the phrase point of no return sound so powerful in climate discussions?",
+              "correctAnswer": "Because it suggests there may be a threshold after which damage becomes much harder or impossible to undo",
+              "wrongAnswers": [
+                "Because it proves the future is already fixed",
+                "Because science has ended",
+                "Because it applies only to lakes"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "Why might climate change be described as chaotic before catastrophic?",
+              "correctAnswer": "Because systems often become more unstable and extreme before they fully break down",
+              "wrongAnswers": [
+                "Because catastrophe always arrives without warning",
+                "Because chaos and climate are unrelated",
+                "Because only politics creates instability"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "What ethical question appears if people believe the climate fight may already be partly lost?",
+              "correctAnswer": "Whether reducing damage still matters even if total prevention may no longer be possible",
+              "wrongAnswers": [
+                "Whether science should stop measuring change",
+                "Whether weather should be left alone",
+                "Whether only rich countries should respond"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind this climate-collapse entry?",
+              "correctAnswer": "Even when full prevention seems uncertain, warning signs of instability matter because they shape how urgently people should act",
+              "wrongAnswers": [
+                "A point of no return means action becomes meaningless",
+                "Environmental collapse is only symbolic",
+                "Climate anxiety matters more than evidence"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 8
+          }
+        },
+        {
+          "title": "Profiting from Disaster",
+          "guidingSection": "The End is Nearish",
+          "links": [
+            {
+              "label": "Betting on climate failure - Politico",
+              "url": "https://www.politico.com/news/2025/12/26/betting-on-climate-failure-investors-could-earn-billions-00677281"
+            }
+          ],
+          "studentExplanation": "Some people do not only fear climate breakdown - they look for ways to profit from it. That raises a difficult question: when does preparing for crisis become benefiting from crisis? This entry is not just about investment. It is about ethics, incentives, and what happens when money begins to reward the expectation of harm. A company or government does not need to say 'we want disaster' to create a system that quietly benefits when disaster grows worse.",
+          "whyItMatters": "At the entry level, this helps students think about the moral problem of profit during crisis. At the section level, it gives the guiding section a sharp contemporary ending by showing how apocalypse can become an economic opportunity. At the year-theme level, it connects to endings and the future by asking whether some systems may become invested in decline instead of prevention.",
+          "takeaway": "If disaster becomes profitable, society risks creating incentives that normalize or even deepen the very dangers it should resist.",
+          "subjects": [
+            "Economics & Trade",
+            "Politics & Government / Global Politics",
+            "Philosophy",
+            "Sociology"
+          ],
+          "bigIdeas": [
+            "Endings",
+            "Bright and Dark Future",
+            "Prediction"
+          ],
+          "examples": [
+            "climate profit",
+            "investment",
+            "incentives",
+            "disaster capitalism"
+          ],
+          "debateRelevance": "Useful when debating where the line sits between responsible preparation for crisis and a system that starts rewarding the expectation of harm.",
+          "counterargument": "Someone could argue that some investment during crisis can still be ethical if it reduces damage, improves resilience, or funds adaptation rather than exploiting suffering.",
+          "visualSections": [
+            {
+              "title": "Ethics and investment",
+              "items": [
+                {
+                  "kind": "text-slide",
+                  "title": "When crisis becomes profitable",
+                  "note": "This entry asks whether preparing for disaster can slide into quietly benefiting from disaster. The ethical pressure comes from incentives: once harm becomes profitable, prevention may no longer be everyone's goal.",
+                  "links": [
+                    {
+                      "label": "Politico article",
+                      "url": "https://www.politico.com/news/2025/12/26/betting-on-climate-failure-investors-could-earn-billions-00677281"
+                    }
+                  ],
+                  "previewLabel": "LINK"
+                }
+              ]
+            }
+          ],
+          "quizQuestions": [
+            {
+              "level": 1,
+              "prompt": "What is the core ethical problem in profiting from climate failure?",
+              "correctAnswer": "Someone may gain financially from worsening conditions that harm others",
+              "wrongAnswers": [
+                "Profit is always unethical",
+                "Climate change has no economic side",
+                "All investors cause disasters directly"
+              ]
+            },
+            {
+              "level": 2,
+              "prompt": "Why is there a difference between preparing for disaster and profiting from it?",
+              "correctAnswer": "Preparation can reduce harm, while profit-seeking may create incentives to accept or exploit harm",
+              "wrongAnswers": [
+                "There is no difference at all",
+                "Preparation matters only for governments",
+                "Profit automatically solves crisis"
+              ]
+            },
+            {
+              "level": 3,
+              "prompt": "What makes climate-profit opportunities politically troubling?",
+              "correctAnswer": "They may reward people for adapting to collapse instead of preventing it",
+              "wrongAnswers": [
+                "They always lower temperatures",
+                "They remove all inequality",
+                "They make long-term planning unnecessary"
+              ]
+            },
+            {
+              "level": 4,
+              "prompt": "Why might a government or company be tempted to benefit from crisis rather than stop it?",
+              "correctAnswer": "Because systems can be shaped by incentives that reward short-term gain over long-term safety",
+              "wrongAnswers": [
+                "Because disasters are easier to predict than profits",
+                "Because ethics plays no role in policy",
+                "Because prevention is always impossible"
+              ]
+            },
+            {
+              "level": 5,
+              "prompt": "What is the strongest idea behind this final entry?",
+              "correctAnswer": "If disaster becomes profitable, society risks creating incentives that normalize or even deepen the very dangers it should resist",
+              "wrongAnswers": [
+                "All economic activity during crisis is exploitation",
+                "Markets cannot respond ethically to danger",
+                "Climate change matters only when investors notice it"
+              ]
+            }
+          ],
+          "rawOfficialTextSource": {
+            "sectionId": "the-end-is-nearish",
+            "entryIndex": 9
+          }
+        }
+      ]
+    }
+  }
+}

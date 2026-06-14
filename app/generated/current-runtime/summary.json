@@ -5,6 +5,9 @@
   "guideQuestions": 182,
   "gameOnlyQuestions": 0,
   "fullVoyageQuestions": 0,
+  "rawEntryOverrides": 14,
+  "rawSectionOverrides": 1,
+  "rawSectionOverrideEntries": 10,
   "videos": 143,
   "alpacards": 85
 }

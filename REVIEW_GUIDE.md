@@ -205,6 +205,10 @@ Recent extractions reduce `app.js` without changing behavior:
 - `content-normalization-helpers.js`: raw-content section/entry normalization,
   support-field cleanup, subject and big-idea alias mapping, wrong-answer
   cleanup, and French-text fallback generation.
+- `content/themes/2026/compat/raw-content-overrides.json`: editorial
+  raw-content overrides. The runtime generator publishes these as
+  `generated/current-runtime/content/raw-content-overrides.js`, and
+  `theme:check-runtime` fails if the committed runtime drifts from source.
 - `app-event-router.js`: document-level click/input/submit/keydown/wheel/touch
   dispatch mapped to explicit action callbacks.
 - `raw-content-controller.js`: Raw Content payloads, entry-card orchestration,
@@ -283,9 +287,9 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the Debate Lab / Build Case extraction, `app/app.js` is about 11.0k
-  lines. That is smaller than the pre-refactor file, but still above the
-  target for the Medium-risk threshold.
+- As of the raw-content override extraction, `app/app.js` is about 10.1k lines.
+  That is smaller than the pre-refactor file, but still just above the target
+  for the Medium-risk threshold.
 - `index.html` depends on strict script order and browser globals.
 - Main app modules are not true ES imports yet.
 - Route rendering and route policy remain partly mixed.

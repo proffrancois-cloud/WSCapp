@@ -24,6 +24,7 @@ const generatedRuntimeFiles = [
   "generated/current-runtime/assets-config.js",
   "generated/current-runtime/raw-content-bank.js",
   "generated/current-runtime/alpaca-channel.js",
+  "generated/current-runtime/content/raw-content-overrides.js",
   "generated/current-runtime/content/alpacards.js"
 ];
 

@@ -81,6 +81,7 @@ function validate() {
   let questionBankCount = 0;
   let questionBankPlacementCount = 0;
   let questionBankSourceKeys = new Set();
+  const rawEntryCountsBySectionId = new Map();
 
   const manifestQuestionBankPath = manifest.questionBank ? resolveThemePath(manifest.questionBank) : null;
   if (manifestQuestionBankPath) {
@@ -172,6 +173,7 @@ function validate() {
         errors.push(`Raw entry ${entry.id} still contains embedded question arrays`);
       }
     }
+    rawEntryCountsBySectionId.set(section.id, (rawContent?.entries || []).length);
 
     for (const asset of media?.assets || []) {
       mediaAssetCount += 1;
@@ -237,6 +239,61 @@ function validate() {
     }
   }
 
+  const rawContentOverridesPath = path.join(THEME_DIR, "compat/raw-content-overrides.json");
+  let rawEntryOverrideCount = 0;
+  let rawSectionOverrideCount = 0;
+  let rawSectionOverrideEntryCount = 0;
+  if (fs.existsSync(rawContentOverridesPath)) {
+    const rawContentOverrides = readJson(rawContentOverridesPath);
+    const entryOverrides = rawContentOverrides?.entryOverrides || {};
+    const sectionOverrides = rawContentOverrides?.sectionOverrides || {};
+    rawEntryOverrideCount = Object.keys(entryOverrides).length;
+    rawSectionOverrideCount = Object.keys(sectionOverrides).length;
+
+    for (const [key, override] of Object.entries(entryOverrides)) {
+      const [sectionId, titleKey, extra] = key.split("::");
+      if (!sectionId || !titleKey || extra !== undefined) {
+        errors.push(`Raw entry override key must be "<section-id>::<normalized title>": ${key}`);
+      }
+      if (sectionId && !sectionIds.has(sectionId)) {
+        errors.push(`Raw entry override references unknown section: ${key}`);
+      }
+      for (const question of override.quizQuestions || []) {
+        if (!question.prompt || !question.correctAnswer) {
+          errors.push(`Raw entry override question missing prompt/correct answer: ${key}`);
+        }
+        if (!Array.isArray(question.wrongAnswers) || question.wrongAnswers.length < 3) {
+          errors.push(`Raw entry override question has fewer than 3 wrong answers: ${key}`);
+        }
+      }
+    }
+
+    for (const [sectionId, override] of Object.entries(sectionOverrides)) {
+      if (!sectionIds.has(sectionId)) {
+        errors.push(`Raw section override references unknown section: ${sectionId}`);
+      }
+      const entries = override.entries || [];
+      rawSectionOverrideEntryCount += entries.length;
+      entries.forEach((entry, index) => {
+        const source = entry.rawOfficialTextSource;
+        if (source) {
+          const sourceCount = rawEntryCountsBySectionId.get(source.sectionId);
+          if (!Number.isInteger(source.entryIndex) || source.entryIndex < 0 || source.entryIndex >= (sourceCount ?? -1)) {
+            errors.push(`Raw section override ${sectionId}[${index}] has invalid rawOfficialTextSource`);
+          }
+        }
+        for (const question of entry.quizQuestions || []) {
+          if (!question.prompt || !question.correctAnswer) {
+            errors.push(`Raw section override question missing prompt/correct answer: ${sectionId}[${index}]`);
+          }
+          if (!Array.isArray(question.wrongAnswers) || question.wrongAnswers.length < 3) {
+            errors.push(`Raw section override question has fewer than 3 wrong answers: ${sectionId}[${index}]`);
+          }
+        }
+      });
+    }
+  }
+
   const assets = readJson(path.join(THEME_DIR, "assets.json"));
   for (const asset of assets?.assets || []) {
     if (!asset.id || !asset.path) {
@@ -257,6 +314,9 @@ function validate() {
     mediaAssets: mediaAssetCount,
     alpacards: alpacardIds.size,
     sectionChannelVideoPlacements: videoIds.size,
+    rawEntryOverrides: rawEntryOverrideCount,
+    rawSectionOverrides: rawSectionOverrideCount,
+    rawSectionOverrideEntries: rawSectionOverrideEntryCount,
     generatedIndexes: generatedIndexCounts,
     errors: errors.length,
     warnings: warnings.length

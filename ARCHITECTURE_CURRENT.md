@@ -46,11 +46,15 @@ Generator scripts in `tools/generators/` build browser-ready runtime files in
 - `knowledge-bank.js`
 - `assets-config.js`
 - `raw-content-bank.js`
+- `content/raw-content-overrides.js`
 - `alpaca-channel.js`
 - `content/alpacards.js`
 
 Those generated files assign globals such as `window.WSC_DATA` and
-`window.WSC_RAW_CONTENT_BANK`.
+`window.WSC_RAW_CONTENT_BANK`. Editorial raw-content corrections live in
+`content/themes/2026/compat/raw-content-overrides.json`; the generator hydrates
+them into `window.WSC_RAW_CONTENT_OVERRIDES` so `app.js` no longer carries large
+editorial override tables.
 
 `app/generated/current-runtime/` is committed because GitHub Pages serves a
 static artifact, but it is not edited by hand. `npm run theme:check-runtime`
@@ -86,7 +90,7 @@ event-router, raw-content controller, study-game controller, arcade-game
 controller, Alpacards controller/renderer bridge, Alpaca Channel/video
 controller, and Debate Lab/Build Case controller extractions, plus the
 route-builder view controller and app-shell renderer extractions, it is about
-11.0k lines, down from the roughly
+10.1k lines, down from the roughly
 19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
@@ -97,7 +101,7 @@ single browser script. It owns or coordinates:
   dispatch now routed through `app-event-router.js`;
 - wizard navigation and route selection;
 - mode and experience orchestration;
-- raw-content override data and content-normalization startup wiring;
+- raw-content normalization startup wiring;
 - auth and Alpaccount UI flow through the extracted auth controller;
 - progress, stats, and local storage integration through the extracted
   progress-storage controller;
