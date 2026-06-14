@@ -96,8 +96,9 @@ Vercel and GitHub Pages are deliberately separate right now.
 
 - Future Vercel builds publish `app/dist-vercel/` through `vercel.json` after
   running `npm run build:vercel`.
-- GitHub Pages runs `.github/workflows/pages.yml`, executes
-  `npm run build:pages`, and publishes `app/dist-pages/`.
+- GitHub Pages runs `.github/workflows/pages.yml` only after `Verify`
+  succeeds on `main` or after manual dispatch, executes `npm run build:pages`,
+  and publishes `app/dist-pages/`.
 - `build:pages` and `build:vercel` build the 3D campus with Vite, copy only
   allowlisted runtime files, and overlay the built campus.
 - `npm run audit:pages` and `npm run audit:vercel` verify that public artifacts
@@ -105,9 +106,9 @@ Vercel and GitHub Pages are deliberately separate right now.
   local artifacts, or test/build debris.
 - `npm run verify:vercel` builds and audits `app/dist-vercel/` without
   deploying Vercel.
-- `.github/workflows/verify.yml` runs the PR/branch verification gate and
-  installs Playwright Chromium so browser smoke tests can be added without
-  changing CI setup again.
+- `.github/workflows/verify.yml` runs the PR, `codex/**`, and `main`
+  verification gate and installs Playwright Chromium so browser smoke tests can
+  be added without changing CI setup again.
 - `npm run test:campus-smoke` serves the built Pages artifact under `/WSCapp/`
   and checks the 3D campus route, canvas screenshot pixels, and local JS/CSS/
   GLB/texture responses with Playwright.

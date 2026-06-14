@@ -20,13 +20,14 @@ campus so `3D Campus Preview` can open the campus from the main app.
 ## GitHub Pages
 
 - Workflow: `.github/workflows/pages.yml`
+- Trigger: successful `Verify` workflow on `main`, or manual `workflow_dispatch`
 - Build command: `cd app && npm run build:pages`
 - Pages artifact: `app/dist-pages/`
 - App entry: `/`
 - 3D campus entry: `/alpaca-campus-3d/`
 - Published URL: `https://proffrancois-cloud.github.io/WSCapp/`
 
-The workflow sets `VITE_BASE` to `/${{ github.event.repository.name }}/`, builds the Vite 3D campus, copies the allowlisted app runtime into the Pages artifact, and overlays the built 3D campus so the main app can launch it from 3D Campus Preview.
+The workflow runs only after the full `Verify` workflow succeeds on `main` or after a manual dispatch. It sets `VITE_BASE` to `/${{ github.event.repository.name }}/`, builds the Vite 3D campus, copies the allowlisted app runtime into the Pages artifact, and overlays the built 3D campus so the main app can launch it from 3D Campus Preview.
 
 Current GitHub Pages behavior:
 
