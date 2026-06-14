@@ -164,6 +164,8 @@ flows.
 Recent extractions reduce `app.js` without changing behavior:
 
 - `app-entry-service.js`: app entry labels and campus launcher metadata.
+- `app-shell-renderer.js`: stats, session controls, app-entry/auth shell,
+  summary chips, resources, cooperation modal, and insight-card rendering.
 - `app-bootstrap-service.js`: startup task execution and global listeners.
 - `app-state-service.js`: default state factories and selectors.
 - `app-dom-service.js`: DOM refs, trusted HTML boundaries, escaping, text
@@ -267,7 +269,7 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the route-builder view controller extraction, `app/app.js` is about 13.6k
+- As of the app-shell renderer extraction, `app/app.js` is about 13.2k
   lines. That is smaller than the pre-refactor file, but still above the
   target for the Medium-risk threshold.
 - `index.html` depends on strict script order and browser globals.

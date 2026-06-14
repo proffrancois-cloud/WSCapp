@@ -68,6 +68,13 @@ import {
   type EnvironmentAssetPlacement
 } from "./map-source";
 
+declare global {
+  interface Window {
+    WSC_CAMPUS_3D_FRAME_COUNT?: number;
+    WSC_CAMPUS_3D_READY?: boolean;
+  }
+}
+
 const WORLD_SCALE = 0.012;
 const DESIGN_COORDINATE_SCALE = 1.65;
 const PLAYER_HEIGHT = 0.78;
@@ -525,6 +532,7 @@ export function CampusScene(): ReactElement {
   return (
     <div className="campus3d-canvas">
       <Canvas shadows={{ type: PCFShadowMap }} camera={{ position: [7, 7, 10], fov: 45, near: 0.1, far: 100 }}>
+        <CampusReadyMarker />
         <RendererClippingSettings />
         <color attach="background" args={["#e8ece4"]} />
         <ambientLight intensity={0.72 * light} />
@@ -540,6 +548,34 @@ export function CampusScene(): ReactElement {
       </Canvas>
     </div>
   );
+}
+
+function CampusReadyMarker(): null {
+  const frameCountRef = useRef(0);
+
+  useEffect(() => {
+    frameCountRef.current = 0;
+    window.WSC_CAMPUS_3D_FRAME_COUNT = 0;
+    window.WSC_CAMPUS_3D_READY = false;
+    document.getElementById("alpaca-campus-3d-root")?.removeAttribute("data-campus-ready");
+
+    return () => {
+      window.WSC_CAMPUS_3D_READY = false;
+      document.getElementById("alpaca-campus-3d-root")?.removeAttribute("data-campus-ready");
+    };
+  }, []);
+
+  useFrame(() => {
+    frameCountRef.current += 1;
+    window.WSC_CAMPUS_3D_FRAME_COUNT = frameCountRef.current;
+
+    if (frameCountRef.current === 3) {
+      window.WSC_CAMPUS_3D_READY = true;
+      document.getElementById("alpaca-campus-3d-root")?.setAttribute("data-campus-ready", "true");
+    }
+  });
+
+  return null;
 }
 
 function RendererClippingSettings(): null {

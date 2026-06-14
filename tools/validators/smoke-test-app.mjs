@@ -81,24 +81,7 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   await chooseLocalRoute(page);
   await page.waitForFunction(() => window.WSC_APP_READY === true && document.querySelector(".mode-choice-board"));
 
-  await page.evaluate((targetSectionName) => {
-    const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
-      .find((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName));
-    if (!sectionButton) {
-      throw new Error(`Could not find section chip for "${targetSectionName}".`);
-    }
-    if (sectionButton.getAttribute("aria-pressed") !== "true") {
-      sectionButton.click();
-    }
-  }, sectionName);
-
-  await page.waitForFunction((targetSectionName) => {
-    return [...document.querySelectorAll("[data-toggle-mode-section]")]
-      .some((button) => (
-        (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName)
-        && button.getAttribute("aria-pressed") === "true"
-      )) && document.querySelector(".mode-choice-board.has-section-selection");
-  }, sectionName);
+  await ensureSectionAndModeReady(page, sectionName, modeId);
 
   const modePath = await page.evaluate((targetModeId) => {
     const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]`);
@@ -118,15 +101,7 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   await page.waitForFunction((targetModePath) => {
     return document.querySelector(`[data-mode-choice-path="${targetModePath}"]`)?.classList.contains("is-open");
   }, modePath);
-  await page.waitForTimeout(1300);
-
-  await page.evaluate((targetModeId) => {
-    const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]:not([disabled])`);
-    if (!modeButton) {
-      throw new Error(`Could not find enabled mode card for "${targetModeId}".`);
-    }
-    modeButton.click();
-  }, modeId);
+  await clickEnabledModeCard(page, sectionName, modeId);
   await page.waitForFunction(() => !document.querySelector("#experiencePanel")?.classList.contains("hidden"), null, { timeout: 8000 }).catch(() => {});
 
   return page.evaluate((text) => {
@@ -142,6 +117,96 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       jeopardyControls: document.querySelectorAll("[data-jeopardy-start], [data-jeopardy-open], [data-jeopardy-toggle-category]").length
     };
   }, expectedText);
+}
+
+async function clickEnabledModeCard(page, sectionName, modeId) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    await ensureSectionAndModeReady(page, sectionName, modeId);
+    const clicked = await page.evaluate((targetModeId) => {
+      const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]:not([disabled])`);
+      if (!modeButton) {
+        return false;
+      }
+      modeButton.click();
+      return true;
+    }, modeId);
+
+    if (clicked) {
+      return;
+    }
+
+    await page.waitForTimeout(350);
+  }
+
+  const diagnostics = await page.evaluate((targetModeId) => {
+    return [...document.querySelectorAll(`[data-pick-mode="${targetModeId}"]`)]
+      .map((button) => ({
+        path: button.dataset.pickModePath || button.closest("[data-mode-choice-path]")?.dataset.modeChoicePath || "",
+        disabled: button.disabled,
+        className: button.className,
+        text: button.textContent?.replace(/\s+/g, " ").trim() || ""
+      }));
+  }, modeId);
+
+  throw new Error(`Could not click enabled mode card for "${modeId}": ${JSON.stringify(diagnostics)}`);
+}
+
+async function ensureSectionAndModeReady(page, sectionName, modeId) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    await page.evaluate((targetSectionName) => {
+      const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
+        .find((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName));
+      if (!sectionButton) {
+        throw new Error(`Could not find section chip for "${targetSectionName}".`);
+      }
+      if (sectionButton.getAttribute("aria-pressed") !== "true") {
+        sectionButton.click();
+      }
+    }, sectionName);
+
+    const ready = await page.waitForFunction(
+      ({ targetSectionName, targetModeId }) => {
+        const sectionSelected = [...document.querySelectorAll("[data-toggle-mode-section]")]
+          .some((button) => (
+            (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName)
+            && button.getAttribute("aria-pressed") === "true"
+          ));
+        const boardHasSelection = Boolean(document.querySelector(".mode-choice-board.has-section-selection"));
+        const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]`);
+        return sectionSelected && boardHasSelection && Boolean(modeButton && !modeButton.disabled);
+      },
+      { targetSectionName: sectionName, targetModeId: modeId },
+      { timeout: 4000 }
+    ).then(() => true).catch(() => false);
+
+    if (ready) {
+      return;
+    }
+  }
+
+  const diagnostics = await page.evaluate(({ targetSectionName, targetModeId }) => {
+    return {
+      selectedSections: [...document.querySelectorAll("[data-toggle-mode-section]")]
+        .filter((button) => button.getAttribute("aria-pressed") === "true")
+        .map((button) => button.dataset.sectionTitle || button.textContent?.replace(/\s+/g, " ").trim() || ""),
+      targetSectionButtons: [...document.querySelectorAll("[data-toggle-mode-section]")]
+        .filter((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName))
+        .map((button) => ({
+          title: button.dataset.sectionTitle || button.textContent?.replace(/\s+/g, " ").trim() || "",
+          pressed: button.getAttribute("aria-pressed"),
+          disabled: button.disabled
+        })),
+      boardClass: document.querySelector(".mode-choice-board")?.className || "",
+      modeButtons: [...document.querySelectorAll(`[data-pick-mode="${targetModeId}"]`)]
+        .map((button) => ({
+          path: button.dataset.pickModePath || button.closest("[data-mode-choice-path]")?.dataset.modeChoicePath || "",
+          disabled: button.disabled,
+          className: button.className
+        }))
+    };
+  }, { targetSectionName: sectionName, targetModeId: modeId });
+
+  throw new Error(`Route builder did not enable ${modeId}: ${JSON.stringify(diagnostics)}`);
 }
 
 async function chooseLocalRoute(page) {

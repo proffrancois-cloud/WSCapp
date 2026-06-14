@@ -75,8 +75,8 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
 the legacy live-room renderer/controller, content-normalization helper, app
 event-router, raw-content controller, study-game controller, and arcade-game
-controller extractions, plus the route-builder view controller extraction, it
-is about 13.6k lines, down from the roughly
+controller extractions, plus the route-builder view controller and app-shell
+renderer extractions, it is about 13.2k lines, down from the roughly
 19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
@@ -142,7 +142,8 @@ Important groups:
   the app entry, online campus launcher, bootstrap/listener registration,
   initial state factories, selectors, DOM ref lookup, trusted HTML mount
   boundaries, text escaping helpers, template parsing, dynamic overlay mount
-  creation, route-builder selection state transitions, wizard view
+  creation, app-shell rendering for stats/session controls/entry/auth/resources
+  and cooperation modals, route-builder selection state transitions, wizard view
   orchestration, mode-choice card animation, Alpaccount
   auth/session orchestration, and local progress-storage orchestration,
   selected-mode launch/close mechanics, experience-panel render dispatch, and
@@ -266,8 +267,12 @@ tests without deploying anything.
   mode-choice card animation are centralized in
   `route-builder-view-controller.js`. `app.js` still keeps compatibility
   wrappers, route scrolling, timers, and launch policy.
+- App-shell rendering for the stats strip, session controls, app-entry gate,
+  auth modal context, resources modal, cooperation modal, insight cards, and
+  summary chips is centralized in `app-shell-renderer.js`; `app.js` still
+  decides when the shell surfaces render and keeps entry/auth state actions.
 - Auth/session mechanics are partially centralized in `auth-controller.js`, but
-  `app.js` still owns UI rendering callbacks and live game callers.
+  `app.js` still owns auth state actions and live game callers.
 - Local progress, raw mastery, and guest-name persistence are centralized in
   `progress-storage-controller.js`, while `app.js` still decides when progress
   is saved.

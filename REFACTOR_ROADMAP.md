@@ -90,6 +90,11 @@ Current progress:
 
 - `src/app/app-entry-service.js` now owns the online alpaca name, the campus 3D
   URL, and the button metadata used by the app-shell entry points.
+- `src/app/app-shell-renderer.js` now owns app-shell rendering for insight
+  cards, stats, session controls, the app-entry gate, app-entry auth panel,
+  auth modal context/render wrappers, summary chips, resources, and cooperation
+  modals while `app.js` keeps state transitions, render timing, and action
+  policy.
 - `src/app/app-bootstrap-service.js` now owns startup task execution, app-ready
   signaling, and global listener registration mechanics.
 - `src/app/app-state-service.js` now owns initial state factories and small
@@ -177,9 +182,8 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the route-builder view controller
-extraction, `app.js` is about 13.6k lines, so it is improved but still above
-the target
+automatic safety guarantees. After the app-shell renderer extraction, `app.js`
+is about 13.2k lines, so it is improved but still above the target
 for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |
