@@ -153,7 +153,9 @@ artifact audits validate that the same chunk graph exists after build.
 
 `app/src/` is a transition layer. It already separates some mechanics from
 `app.js`, but these files are still loaded as browser scripts rather than ES
-module imports in the main app.
+module imports in the main app. `classic-script-dependency-map-test.mjs`
+validates the `index.html -> window.WSC_* -> app.js` load chain so new browser
+script providers cannot be added without also being loaded in the correct order.
 
 Important groups:
 
@@ -277,6 +279,8 @@ GitHub Pages:
   files before they are treated as publishable.
 - `css-import-graph-test.mjs` checks the ordered main-app stylesheet graph in
   source and in built Pages/Vercel artifacts.
+- `classic-script-dependency-map-test.mjs` checks the classic browser-script
+  dependency graph for the main app and the campus content loader.
 
 Pull requests and `codex/**` branches run `.github/workflows/verify.yml`, which
 installs dependencies, installs Playwright Chromium for future browser tests,
@@ -289,7 +293,9 @@ tests without deploying anything.
 - `app.js` is still a large god file.
 - CSS is split into ordered chunks, but late override files still carry mixed
   responsibilities and need a later semantic cleanup pass.
-- `index.html` relies on strict script order and global variables.
+- `index.html` relies on strict script order and global variables. This is now
+  guarded by `test:classic-scripts`, but it remains a migration risk until the
+  main app moves to explicit imports or typed module contracts.
 - Main app modules are not true imports, so dependency boundaries are weak.
 - Route-builder state transitions are centralized in
   `route-builder-controller.js`, while wizard view orchestration and the
