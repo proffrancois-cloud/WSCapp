@@ -171,6 +171,9 @@ Recent extractions reduce `app.js` without changing behavior:
 - `alpaca-channel-controller.js`: Alpaca Channel experience construction,
   render bridge/fallbacks, playlist building, standalone-video matching,
   YouTube embed/preview helpers, domain generation, and video URL normalization.
+- `build-case-controller.js`: Debate Lab / Build Case experience construction,
+  topic selection, spinner timers, side assignment, suggestion rounds, NPG
+  reveal timers, scoring, and rendering.
 - `app-bootstrap-service.js`: startup task execution and global listeners.
 - `app-state-service.js`: default state factories and selectors.
 - `app-dom-service.js`: DOM refs, trusted HTML boundaries, escaping, text
@@ -274,8 +277,8 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the Alpaca Channel/video helper extraction, `app/app.js` is about
-  12.5k lines. That is smaller than the pre-refactor file, but still above the
+- As of the Debate Lab / Build Case extraction, `app/app.js` is about 11.0k
+  lines. That is smaller than the pre-refactor file, but still above the
   target for the Medium-risk threshold.
 - `index.html` depends on strict script order and browser globals.
 - Main app modules are not true ES imports yet.

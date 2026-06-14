@@ -75,9 +75,10 @@ that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
 `app/app.js` is the main orchestrator and remains the highest-risk file. After
 the legacy live-room renderer/controller, content-normalization helper, app
 event-router, raw-content controller, study-game controller, arcade-game
-controller, Alpacards controller/renderer bridge, and Alpaca Channel/video
-controller extractions, plus the route-builder view controller and app-shell
-renderer extractions, it is about 12.5k lines, down from the roughly
+controller, Alpacards controller/renderer bridge, Alpaca Channel/video
+controller, and Debate Lab/Build Case controller extractions, plus the
+route-builder view controller and app-shell renderer extractions, it is about
+11.0k lines, down from the roughly
 19.2k-line state described in the
 architecture analysis DOCX, but it is still above the high-risk threshold for a
 single browser script. It owns or coordinates:
@@ -145,8 +146,9 @@ Important groups:
   boundaries, text escaping helpers, template parsing, dynamic overlay mount
   creation, app-shell rendering for stats/session controls/entry/auth/resources
   and cooperation modals, Alpacards selection/rendering/carousel bridge
-  mechanics, Alpaca Channel playlist/video helper mechanics, route-builder
-  selection state transitions, wizard view
+  mechanics, Alpaca Channel playlist/video helper mechanics, Debate Lab topic,
+  spinner, suggestion, scoring, and render mechanics, route-builder selection
+  state transitions, wizard view
   orchestration, mode-choice card animation, Alpaccount
   auth/session orchestration, and local progress-storage orchestration,
   selected-mode launch/close mechanics, experience-panel render dispatch, and
@@ -283,6 +285,10 @@ tests without deploying anything.
   video URL normalization are centralized in `alpaca-channel-controller.js`;
   `app.js` keeps compatibility wrappers for Raw Content, Regular Guide,
   legacy live waiting videos, and mode runtime dispatch.
+- Debate Lab / Build Case experience construction, topic selection, spinner
+  timers, side assignment, suggestion rounds, NPG reveal timers, scoring, and
+  rendering are centralized in `build-case-controller.js`; `app.js` keeps
+  compatibility wrappers for the event router and mode runtime dispatch.
 - Auth/session mechanics are partially centralized in `auth-controller.js`, but
   `app.js` still owns auth state actions and live game callers.
 - Local progress, raw mastery, and guest-name persistence are centralized in

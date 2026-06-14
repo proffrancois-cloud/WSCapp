@@ -104,6 +104,10 @@ Current progress:
   matching, YouTube embed/preview helpers, domain generation, and video URL
   normalization while `app.js` keeps compatibility wrappers for Raw Content,
   Regular Guide, legacy live waiting videos, and mode runtime dispatch.
+- `src/app/build-case-controller.js` now owns Debate Lab / Build Case
+  experience construction, topic selection, spinner timers, side assignment,
+  suggestion rounds, NPG reveal timers, scoring, and rendering while `app.js`
+  keeps compatibility wrappers for the event router and mode runtime dispatch.
 - `src/app/app-bootstrap-service.js` now owns startup task execution, app-ready
   signaling, and global listener registration mechanics.
 - `src/app/app-state-service.js` now owns initial state factories and small
@@ -191,8 +195,8 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the Alpaca Channel/video helper extraction,
-`app.js` is about 12.5k lines, so it is improved but still above the target
+automatic safety guarantees. After the Debate Lab / Build Case extraction,
+`app.js` is about 11.0k lines, so it is improved but still above the target
 for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |
