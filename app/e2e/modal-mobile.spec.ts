@@ -15,15 +15,6 @@ async function waitForAppReady(page: Page) {
   await page.waitForFunction(() => Boolean(window.WSC_APP_READY));
 }
 
-async function chooseLocalEntry(page: Page) {
-  const localEntryButton = page.locator('[data-app-entry-choice="local"]');
-  await expect(localEntryButton).toBeVisible();
-  await expect(localEntryButton).toBeEnabled();
-  await page.evaluate(() => {
-    document.querySelector<HTMLElement>('[data-app-entry-choice="local"]')?.click();
-  });
-}
-
 async function getFocusedIndex(page: Page, dialogCss: string) {
   return page.evaluate(
     ({ dialogCss: selector, focusableCss }) => {
@@ -122,14 +113,16 @@ test("modal focus stays trapped and Escape closes dismissible dialogs", async ({
     .poll(() => getFocusedIndex(page, ".app-entry-gate-overlay"))
     .toBeGreaterThanOrEqual(1);
 
-  await chooseLocalEntry(page);
-  const cooperationModal = page.locator(".cooperation-modal-overlay");
-  await expect(cooperationModal).toBeVisible({ timeout: 10_000 });
-  await expectFocusInside(page, ".cooperation-modal-overlay");
+  await page.evaluate(() => {
+    document.querySelector<HTMLElement>("[data-open-resources]")?.click();
+  });
+  const resourcesModal = page.locator('[data-close-resources][role="dialog"]');
+  await expect(resourcesModal).toBeVisible({ timeout: 10_000 });
+  await expectFocusInside(page, '[data-close-resources][role="dialog"]');
 
   await page.keyboard.press("Escape");
-  await expect(cooperationModal).toHaveCount(0);
-  await expect(page.locator("#routeBuilder")).toBeVisible();
+  await expect(resourcesModal).toHaveCount(0);
+  await expect(entryGate).toBeVisible();
 });
 
 test("entry gate and route builder avoid horizontal overflow at 390px", async ({ page }) => {
