@@ -193,6 +193,9 @@ Recent extractions reduce `app.js` without changing behavior:
 - `route-builder-controller.js`: route-builder state transitions.
 - `route-builder-view-controller.js`: wizard render orchestration,
   route-builder render context/helper wiring, and mode-choice card animation.
+- `route-orchestration-controller.js`: route selection orchestration, mode
+  launch/close handoff, route-builder scrolling, and scroll-preserving render
+  refreshes.
 - `auth-controller.js`: Alpaccount/session form orchestration.
 - `progress-storage-controller.js`: local stats, mastery, and guest-name
   persistence.

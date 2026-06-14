@@ -18,6 +18,7 @@ const modalFocusService = window.WSC_MODAL_FOCUS_SERVICE || null;
 const createContentNormalizationHelpers = window.WSC_CREATE_CONTENT_NORMALIZATION_HELPERS;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createRouteBuilderViewController = window.WSC_CREATE_ROUTE_BUILDER_VIEW_CONTROLLER;
+const createRouteOrchestrationController = window.WSC_CREATE_ROUTE_ORCHESTRATION_CONTROLLER;
 const createAppShellRenderer = window.WSC_CREATE_APP_SHELL_RENDERER;
 const createAppShellController = window.WSC_CREATE_APP_SHELL_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
@@ -1234,6 +1235,38 @@ const routeBuilderViewController = createRouteBuilderViewController({
   }
 });
 
+
+const routeOrchestrationController = createRouteOrchestrationController({
+  appState: state,
+  refs,
+  routeBuilderController,
+  routeBuilderViewController,
+  gameLaunchController,
+  documentRef: document,
+  windowRef: window,
+  constants: {
+    DEFAULT_LENS_ID
+  },
+  helpers: {
+    getSelectedSectionIds,
+    getOrderedSectionIds,
+    getModePath,
+    isModeUnavailable,
+    getAlpacaChannelVideosForSection,
+    hasRegularGuideForSection: (sectionId) => Boolean(IMPORTED_RAW_CONTENT_BANK[sectionId]?.regularGuide),
+    normalizeSectionId
+  },
+  callbacks: {
+    clearJeopardyTimer,
+    clearDebateSpinTimer,
+    closeHeroMenu,
+    render,
+    renderCurrentExperience: () => modeRuntimeController.renderCurrentExperience(),
+    isAlpacapardyLiveActive,
+    leaveAlpacapardyLiveRoom
+  }
+});
+
 const appEventRouter = createAppEventRouter({
   appState: state,
   refs,
@@ -1555,43 +1588,23 @@ function handleTouchStart(...args) { return appEventRouter.handleTouchStart(...a
 function handleTouchEnd(...args) { return appEventRouter.handleTouchEnd(...args); }
 
 function choosePath(pathId) {
-  clearJeopardyTimer();
-  clearDebateSpinTimer();
-  routeBuilderController.choosePath(state, pathId, { defaultLensId: DEFAULT_LENS_ID });
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.choosePath(pathId);
 }
 
 function chooseLens(lensId) {
-  clearJeopardyTimer();
-  routeBuilderController.chooseLens(state, lensId);
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.chooseLens(lensId);
 }
 
 function chooseTarget(targetId) {
-  clearJeopardyTimer();
-  routeBuilderController.chooseTarget(state, targetId, {
-    getSelectedSectionIds,
-    getOrderedSectionIds
-  });
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.chooseTarget(targetId);
 }
 
 function toggleModeChoiceSection(targetId) {
-  clearJeopardyTimer();
-  routeBuilderController.toggleModeChoiceSection(state, targetId, {
-    visibleOpenPath: getVisibleModeChoicePath(),
-    getSelectedSectionIds,
-    getOrderedSectionIds
-  });
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.toggleModeChoiceSection(targetId);
 }
 
 function getVisibleModeChoicePath() {
-  return routeBuilderViewController.getVisibleModeChoicePath();
+  return routeOrchestrationController.getVisibleModeChoicePath();
 }
 
 function toggleHeroMenu(button) {
@@ -1651,100 +1664,35 @@ function toggleModeChoiceMenu(button) {
 }
 
 function continueTargetSelection() {
-  const selectedIds = getSelectedSectionIds();
-  if (!selectedIds.length) {
-    return;
-  }
-
-  clearJeopardyTimer();
-  routeBuilderController.continueTargetSelection(state, {
-    defaultLensId: DEFAULT_LENS_ID,
-    selectedIds
-  });
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.continueTargetSelection();
 }
 
 function chooseMode(modeId, pathId = null) {
-  clearJeopardyTimer();
-  closeHeroMenu();
-  const result = routeBuilderController.chooseMode(state, modeId, {
-    pathId,
-    defaultLensId: DEFAULT_LENS_ID,
-    selectedIds: getSelectedSectionIds(),
-    getModePath,
-    isModeUnavailable
-  });
-  if (!result.selected) {
-    render();
-    keepRouteBuilderInView();
-    return;
-  }
-
-  if (result.unavailable) {
-    gameLaunchController.openUnavailableExperience(modeId);
-    render();
-    refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
-  }
-  launchExperience();
+  return routeOrchestrationController.chooseMode(modeId, pathId);
 }
 
 function changeGuidingSections() {
-  clearJeopardyTimer();
-  routeBuilderController.changeGuidingSections(state, { defaultLensId: DEFAULT_LENS_ID });
-  document.body.classList.remove("with-popup");
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.changeGuidingSections();
 }
 
 function changeModeSelection() {
-  clearJeopardyTimer();
-  const selectedIds = getSelectedSectionIds();
-  routeBuilderController.changeModeSelection(state, {
-    defaultLensId: DEFAULT_LENS_ID,
-    selectedIds
-  });
-  document.body.classList.remove("with-popup");
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.changeModeSelection();
 }
 
 function clearFrom(step) {
-  clearJeopardyTimer();
-  routeBuilderController.clearFrom(state, step, { defaultLensId: DEFAULT_LENS_ID });
-  render();
-  keepRouteBuilderInView();
+  return routeOrchestrationController.clearFrom(step);
 }
 
 function openRawConnection(lensId, targetId) {
-  if (!lensId || !targetId) {
-    return;
-  }
-
-  clearJeopardyTimer();
-  routeBuilderController.openRawConnection(state, lensId, targetId);
-  launchExperience();
+  return routeOrchestrationController.openRawConnection(lensId, targetId);
 }
 
 function openGuideSection(sectionId) {
-  if (!sectionId || !IMPORTED_RAW_CONTENT_BANK[sectionId]?.regularGuide) {
-    return;
-  }
-
-  clearJeopardyTimer();
-  routeBuilderController.openGuideSection(state, sectionId);
-  launchExperience();
+  return routeOrchestrationController.openGuideSection(sectionId);
 }
 
 function openSectionChannel(sectionId) {
-  if (!sectionId || !getAlpacaChannelVideosForSection(sectionId).length) {
-    return;
-  }
-
-  clearJeopardyTimer();
-  routeBuilderController.openSectionChannel(state, sectionId, { normalizeSectionId });
-  launchExperience();
+  return routeOrchestrationController.openSectionChannel(sectionId);
 }
 
 function render() {
@@ -2222,85 +2170,27 @@ function resetCurrentRouteAttempts() {
 }
 
 function launchExperience() {
-  const result = gameLaunchController.launchSelectedExperience();
-  if (!result.launched) {
-    return;
-  }
-
-  render();
-  refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  return routeOrchestrationController.launchExperience();
 }
 
 function closeCurrentExperience() {
-  if (isAlpacapardyLiveActive()) {
-    leaveAlpacapardyLiveRoom();
-    return false;
-  }
-
-  gameLaunchController.closeExperience();
-  render();
-  return true;
+  return routeOrchestrationController.closeCurrentExperience();
 }
 
 function renderExperience() {
-  modeRuntimeController.renderCurrentExperience();
+  return routeOrchestrationController.renderExperience();
 }
 
 function renderExperiencePreservingScroll() {
-  renderPreservingScroll(renderExperience);
+  return routeOrchestrationController.renderExperiencePreservingScroll();
 }
 
 function renderPreservingScroll(renderCallback) {
-  const scrollContainer = document.scrollingElement || document.documentElement || document.body;
-  const scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY || 0;
-  const scrollLeft = scrollContainer ? scrollContainer.scrollLeft : window.scrollX || 0;
-  const waitingOverlay = document.querySelector(".live-waiting-overlay");
-  const waitingOverlayScrollTop = waitingOverlay ? waitingOverlay.scrollTop : null;
-  const waitingOverlayScrollLeft = waitingOverlay ? waitingOverlay.scrollLeft : null;
-  const previousHtmlBehavior = document.documentElement ? document.documentElement.style.scrollBehavior : "";
-  const previousBodyBehavior = document.body ? document.body.style.scrollBehavior : "";
-
-  if (document.documentElement) {
-    document.documentElement.style.scrollBehavior = "auto";
-  }
-  if (document.body) {
-    document.body.style.scrollBehavior = "auto";
-  }
-
-  renderCallback();
-
-  const restoreScroll = () => {
-    const target = document.scrollingElement || document.documentElement || document.body;
-    if (target) {
-      target.scrollTop = scrollTop;
-      target.scrollLeft = scrollLeft;
-    }
-    const currentWaitingOverlay = document.querySelector(".live-waiting-overlay");
-    if (currentWaitingOverlay && waitingOverlayScrollTop !== null) {
-      currentWaitingOverlay.scrollTop = waitingOverlayScrollTop;
-      currentWaitingOverlay.scrollLeft = waitingOverlayScrollLeft || 0;
-    }
-    window.scrollTo({ left: scrollLeft, top: scrollTop, behavior: "auto" });
-    if (document.documentElement) {
-      document.documentElement.style.scrollBehavior = previousHtmlBehavior;
-    }
-    if (document.body) {
-      document.body.style.scrollBehavior = previousBodyBehavior;
-    }
-  };
-
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(restoreScroll);
-  });
+  return routeOrchestrationController.renderPreservingScroll(renderCallback);
 }
 
 function renderLiveSurfaces() {
-  if (state.ui.appShellMode === "online") {
-    renderPreservingScroll(render);
-    return;
-  }
-
-  renderExperiencePreservingScroll();
+  return routeOrchestrationController.renderLiveSurfaces();
 }
 
 function buildAlpacardExperience() {
@@ -2495,11 +2385,7 @@ function refreshRunTimerDisplay(experience) {
 }
 
 function keepRouteBuilderInView() {
-  window.requestAnimationFrame(() => {
-    if (refs.routeBuilder) {
-      refs.routeBuilder.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
+  return routeOrchestrationController.keepRouteBuilderInView();
 }
 
 function hasActiveQuestionPopup() {
