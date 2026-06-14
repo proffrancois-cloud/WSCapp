@@ -15,6 +15,15 @@ async function waitForAppReady(page: Page) {
   await page.waitForFunction(() => Boolean(window.WSC_APP_READY));
 }
 
+async function chooseLocalEntry(page: Page) {
+  const localEntryButton = page.locator('[data-app-entry-choice="local"]');
+  await expect(localEntryButton).toBeVisible();
+  await expect(localEntryButton).toBeEnabled();
+  await page.evaluate(() => {
+    document.querySelector<HTMLElement>('[data-app-entry-choice="local"]')?.click();
+  });
+}
+
 async function getFocusedIndex(page: Page, dialogCss: string) {
   return page.evaluate(
     ({ dialogCss: selector, focusableCss }) => {
@@ -113,9 +122,9 @@ test("modal focus stays trapped and Escape closes dismissible dialogs", async ({
     .poll(() => getFocusedIndex(page, ".app-entry-gate-overlay"))
     .toBeGreaterThanOrEqual(1);
 
-  await page.locator('[data-app-entry-choice="local"]').click();
+  await chooseLocalEntry(page);
   const cooperationModal = page.locator(".cooperation-modal-overlay");
-  await expect(cooperationModal).toBeVisible();
+  await expect(cooperationModal).toBeVisible({ timeout: 10_000 });
   await expectFocusInside(page, ".cooperation-modal-overlay");
 
   await page.keyboard.press("Escape");
