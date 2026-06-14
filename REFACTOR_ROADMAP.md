@@ -154,7 +154,9 @@ Current progress:
 - `src/app/content-normalization-helpers.js` now owns raw-content section/entry
   normalization, support-field cleanup, subject and big-idea alias mapping,
   wrong-answer cleanup, and French-text fallback generation while `app.js`
-  keeps raw override data and startup wiring.
+  keeps raw override data and startup wiring. Moving `RAW_ENTRY_OVERRIDES` and
+  `RAW_SECTION_OVERRIDES` out of `app.js` remains a separate
+  content-canonicalization pass.
 - `src/app/app-event-router.js` now owns document-level click, input, submit,
   keydown, wheel, touchstart, and touchend dispatch mechanics while `app.js`
   keeps the action implementations and compatibility handler wrappers.
@@ -289,9 +291,10 @@ Acceptance:
 
 ## Known Verification Notes
 
-- `npm run test:theme` now runs `theme:compare` with the active-runtime profile,
-  which passes and reports the known full-voyage / first guide question deltas
-  as accepted differences. Use `npm run theme:compare:strict` for the full
-  legacy compatibility audit.
+- `npm run test:theme` validates the source theme, runs the active-runtime
+  compatibility comparison, and checks that `app/generated/current-runtime/`
+  is exactly regenerable from `content/themes/2026/`.
+- Use `npm run theme:compare:strict` and `npm run theme:compare:legacy-audit`
+  only for legacy compatibility audits; they are not the source-of-truth gate.
 - `npm run test:smoke` currently passes in the clean GitHub copy and should stay
   part of the verification loop.
