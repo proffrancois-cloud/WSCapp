@@ -285,8 +285,10 @@ tests without deploying anything.
 - Route-builder state transitions are centralized in
   `route-builder-controller.js`, while wizard view orchestration and the
   mode-choice card animation are centralized in
-  `route-builder-view-controller.js`. `app.js` still keeps compatibility
-  wrappers, route scrolling, timers, and launch policy.
+  `route-builder-view-controller.js`. Route action orchestration, route-builder
+  scroll preservation, selected experience launch/close, and live-surface
+  refresh are centralized in `route-orchestration-controller.js`; `app.js`
+  keeps compatibility wrappers for the event router and controller callbacks.
 - App-shell rendering for the stats strip, session controls, app-entry gate,
   auth modal context, resources modal, cooperation modal, insight cards, and
   summary chips is centralized in `app-shell-renderer.js`; `app.js` still

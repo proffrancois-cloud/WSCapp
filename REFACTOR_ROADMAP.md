@@ -126,6 +126,10 @@ Current progress:
   orchestration, route-builder render context/helper wiring, and the
   mode-choice card spread/open/close animation while `app.js` keeps
   compatibility wrappers plus route scrolling and launch policy.
+- `src/app/route-orchestration-controller.js` now owns route action
+  orchestration, route-builder scroll preservation, selected experience launch/
+  close mechanics, and live-surface render refresh while `app.js` keeps
+  compatibility wrappers for the event router and existing controllers.
 - `src/app/auth-controller.js` now owns Alpaccount client/session setup,
   profile/progress loading, signup/login/forgot/reset form actions, sign-out,
   and anonymous live-session auth while `app.js` keeps compatibility wrappers
