@@ -248,6 +248,8 @@ Completed first cuts:
 - late shell/header/route-builder/learn/online overrides kept in original
   cascade order;
 - 3D campus styles are already separate and should stay separate.
+- CSS import graph anti-drift is now enforced by `test:css-imports` in source
+  and by the Pages/Vercel artifact audits after build.
 
 Next CSS cleanup work:
 

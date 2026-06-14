@@ -145,6 +145,9 @@ still resolve in the static app, GitHub Pages, Vercel, and the desktop package:
 This is a risk-reduction split, not a final design-system extraction. Several
 late override chunks still contain mixed responsibilities because preserving
 the current cascade is safer than semantically reordering old selector passes.
+`css-import-graph-test.mjs` treats this import list as a protected boundary:
+`npm run test:css-imports` validates the source graph, and the Pages/Vercel
+artifact audits validate that the same chunk graph exists after build.
 
 ## `app/src` Bridge
 
@@ -272,6 +275,8 @@ GitHub Pages:
   the built 3D campus, and prunes unused heavy custom 3D props.
 - `audit-public-artifact.mjs` checks artifacts for forbidden source/config/SQL
   files before they are treated as publishable.
+- `css-import-graph-test.mjs` checks the ordered main-app stylesheet graph in
+  source and in built Pages/Vercel artifacts.
 
 Pull requests and `codex/**` branches run `.github/workflows/verify.yml`, which
 installs dependencies, installs Playwright Chromium for future browser tests,

@@ -262,7 +262,10 @@ an import index that preserves the old cascade order:
 This is a first risk-reduction pass, not a complete design-system cleanup. The
 late override files still contain mixed responsibilities because the safer
 choice was to preserve visual behavior before reorganizing selectors
-semantically.
+semantically. `npm run test:css-imports` now validates the ordered import graph
+in source, and `npm run audit:pages` / `npm run audit:vercel` validate the same
+graph in built artifacts so CSS chunk drift cannot silently reach GitHub Pages
+or the non-deploying Vercel artifact.
 
 ## Security And IT Posture
 
