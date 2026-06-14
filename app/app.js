@@ -19,6 +19,7 @@ const createContentNormalizationHelpers = window.WSC_CREATE_CONTENT_NORMALIZATIO
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createRouteBuilderViewController = window.WSC_CREATE_ROUTE_BUILDER_VIEW_CONTROLLER;
 const createAppShellRenderer = window.WSC_CREATE_APP_SHELL_RENDERER;
+const createAppShellController = window.WSC_CREATE_APP_SHELL_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
 const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
 const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
@@ -1374,40 +1375,7 @@ const appEventRouter = createAppEventRouter({
   }
 });
 
-const RESOURCE_LINKS = [
-  {
-    label: "Official website",
-    url: "https://www.scholarscup.org/"
-  },
-  {
-    label: "PwaaPwaa Revolution!",
-    url: "https://pwaapwaarevolution.pwaaapwaarevolution.workers.dev/#"
-  },
-  {
-    label: "PwaaPwaa Discord",
-    url: "https://discord.gg/CK93VwNST8"
-  },
-  {
-    label: "Pwaalpaca",
-    url: "https://discord.gg/gRhgxKd7Q"
-  },
-  {
-    label: "WSC reddit",
-    url: "https://www.reddit.com/r/WorldScholars/"
-  },
-  {
-    label: "ReadyScholarOne Discord",
-    url: "https://discord.gg/93nMSrMG"
-  },
-  {
-    label: "HongKong regional round slides",
-    url: "https://docs.google.com/presentation/d/1xzByNi68oPn36sQyyJQt8cv4rnuTCacyLrNet8VXnDU/edit?slide=id.g3d1146daefb_0_4#slide=id.g3d1146daefb_0_4"
-  },
-  {
-    label: "Pwaaprep",
-    url: "https://pwaaprep.com/Are-We-There-Yet.html"
-  }
-];
+const RESOURCE_LINKS = window.WSC_APP_SHELL_RESOURCE_LINKS || [];
 
 const appShellRenderer = createAppShellRenderer({
   appState: state,
@@ -1445,6 +1413,30 @@ const appShellRenderer = createAppShellRenderer({
     getLiveGameLabel,
     getSelectedSectionIds,
     getTargetLabel
+  }
+});
+
+const appShellController = createAppShellController({
+  appState: state,
+  refs,
+  appStateService,
+  appShellRenderer,
+  onlineModeController,
+  modalFocusService,
+  documentRef: document,
+  constants: {
+    DEFAULT_LENS_ID
+  },
+  callbacks: {
+    renderSummary,
+    renderWizard,
+    renderLiveOverlayMount,
+    renderExperience,
+    resetAlpacapardyLiveState,
+    canAccessLegacyLiveRooms,
+    getLegacyLiveRoomsDisabledMessage,
+    buildJeopardyExperience,
+    refreshAlpacapardyLiveLobby
   }
 });
 
@@ -1603,23 +1595,11 @@ function getVisibleModeChoicePath() {
 }
 
 function toggleHeroMenu(button) {
-  const links = button.closest(".hero-links");
-  if (!links) {
-    return;
-  }
-
-  const isOpen = links.classList.toggle("is-open");
-  button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  button.setAttribute("aria-label", isOpen ? "Close header menu" : "Open header menu");
+  return appShellController.toggleHeroMenu(button);
 }
 
 function closeHeroMenu() {
-  const links = document.querySelector(".hero-links.is-open");
-  if (!links) {
-    return;
-  }
-  links.classList.remove("is-open");
-  links.querySelector("[data-toggle-hero-menu]")?.setAttribute("aria-expanded", "false");
+  return appShellController.closeHeroMenu();
 }
 
 function primeModeChoiceCardSpread(column) {
@@ -1768,97 +1748,47 @@ function openSectionChannel(sectionId) {
 }
 
 function render() {
-  appShellRenderer.syncAppModeClasses();
-  renderStats();
-  renderSessionControls();
-  renderAppEntryGate();
-  renderSummary();
-  renderWizard();
-  renderLiveOverlayMount();
-  renderExperience();
-  renderCooperationModal();
-  renderResourcesModal();
-  renderAuthModal();
-  syncPopupScrollLock();
-  syncActiveModalFocus();
+  return appShellController.render();
 }
 
 function syncActiveModalFocus() {
-  modalFocusService?.syncActiveDialog({ documentRef: document });
+  return appShellController.syncActiveModalFocus();
 }
 
 function renderInsights() {
-  return appShellRenderer.renderInsights();
+  return appShellController.renderInsights();
 }
 
 function renderStats() {
-  return appShellRenderer.renderStats();
+  return appShellController.renderStats();
 }
 
 function renderSessionControls() {
-  return appShellRenderer.renderSessionControls();
+  return appShellController.renderSessionControls();
 }
 
 function renderAppEntryGate() {
-  return appShellRenderer.renderAppEntryGate();
+  return appShellController.renderAppEntryGate();
 }
 
 function renderAppEntryAuthPanel() {
-  return appShellRenderer.renderAppEntryAuthPanel();
+  return appShellController.renderAppEntryAuthPanel();
 }
 
 function chooseAppEntryMode(mode) {
-  if (mode === "online") {
-    openAlpacaOnlineCampus();
-    return;
-  }
-
-  switchToLocalMode();
+  return appShellController.chooseAppEntryMode(mode);
 }
 
 function openAlpacaOnlineCampus() {
-  state.ui.appEntryGateOpen = false;
-  onlineModeController.openCampusMultiplayer();
+  return appShellController.openAlpacaOnlineCampus();
 }
 
 function switchToLocalMode() {
-  state.ui.appEntryGateOpen = false;
-  state.ui.appShellMode = "local";
-  state.ui.cooperationOpen = true;
-  resetAlpacapardyLiveState();
-  state.experience = null;
-  state.selection.path = null;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  render();
-  refs.routeBuilder && refs.routeBuilder.scrollIntoView({ behavior: "smooth", block: "start" });
+  return appShellController.switchToLocalMode();
 }
 
 function openAlpacaOnlineHub() {
-  if (!canAccessLegacyLiveRooms()) {
-    state.ui.appEntryGateOpen = true;
-    state.live.error = getLegacyLiveRoomsDisabledMessage();
-    render();
-    return;
-  }
-
-  state.ui.appEntryGateOpen = false;
-  state.ui.appShellMode = "online";
-  state.ui.cooperationOpen = false;
-  state.ui.wizardTransition = "forward";
-  state.live.onlineView = "hub";
-  state.selection.path = "play";
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = "jeopardy";
-  state.experience = buildJeopardyExperience();
-  state.experience.playMode = "multiplayer";
-  render();
-  refreshAlpacapardyLiveLobby();
-  refs.routeBuilder && refs.routeBuilder.scrollIntoView({ behavior: "smooth", block: "start" });
+  return appShellController.openAlpacaOnlineHub();
 }
 
 function returnToAlpacaOnlineHub() {
@@ -2573,66 +2503,11 @@ function keepRouteBuilderInView() {
 }
 
 function hasActiveQuestionPopup() {
-  if (state.ui.appEntryGateOpen) {
-    return true;
-  }
-
-  if (state.ui.resourcesOpen) {
-    return true;
-  }
-
-  if (state.ui.cooperationOpen) {
-    return true;
-  }
-
-  if (state.ui.authOpen) {
-    return true;
-  }
-
-  if (state.ui.rawMediaLightbox) {
-    return true;
-  }
-
-  const experience = state.experience;
-  if (!experience || experience.finished) {
-    return false;
-  }
-
-  if (experience.type === "jeopardy") {
-    if (state.ui.appShellMode === "online" && !experience.started) {
-      return false;
-    }
-    return !experience.started || Boolean(experience.active);
-  }
-
-  if (experience.type === "relay") {
-    return Boolean(experience.started);
-  }
-
-  if (experience.type === "buildcase") {
-    return experience.phase === "topic";
-  }
-
-  if (experience.type === "mindmap") {
-    return Boolean(experience.activeEntryKey || experience.activeGuideSectionId);
-  }
-
-  if (experience.type === "race") {
-    return Boolean(experience.started);
-  }
-
-  if (experience.type === "jump") {
-    return experience.phase === "question" || experience.phase === "feedback";
-  }
-
-  return false;
+  return appShellController.hasActiveQuestionPopup();
 }
 
 function syncPopupScrollLock() {
-  const shouldLock = appStateService.isPopupBlocking(state, {
-    hasActiveQuestionPopup: hasActiveQuestionPopup()
-  });
-  document.body.classList.toggle("with-popup", shouldLock);
+  return appShellController.syncPopupScrollLock();
 }
 
 function hasSupabaseConfig() {
@@ -2676,13 +2551,7 @@ function canDismissAuthModal() {
 }
 
 function syncAuthChrome() {
-  renderSessionControls();
-  renderAppEntryGate();
-  renderAuthModal();
-  if (state.experience?.type === "jeopardy") {
-    renderExperience();
-  }
-  syncPopupScrollLock();
+  return appShellController.syncAuthChrome();
 }
 
 function clearAuthNotice() {
@@ -2750,7 +2619,7 @@ function getLiveDisplayName() {
 }
 
 function renderAuthModal() {
-  return appShellRenderer.renderAuthModal();
+  return appShellController.renderAuthModal();
 }
 
 function renderAuthGate() {
@@ -2811,11 +2680,11 @@ function getAuthRenderContext() {
 }
 
 function renderResourcesModal() {
-  return appShellRenderer.renderResourcesModal();
+  return appShellController.renderResourcesModal();
 }
 
 function renderCooperationModal() {
-  return appShellRenderer.renderCooperationModal();
+  return appShellController.renderCooperationModal();
 }
 
 function buildSlideshowExperience() {
