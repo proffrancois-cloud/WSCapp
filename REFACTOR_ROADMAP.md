@@ -99,6 +99,11 @@ Current progress:
   construction, renderer bridging, carousel DOM synchronization, flip,
   navigation, and shuffle mechanics while `app.js` keeps compatibility wrappers
   for the event router and mode factory registry.
+- `src/app/alpaca-channel-controller.js` now owns Alpaca Channel experience
+  construction, render bridge/fallbacks, playlist building, standalone-video
+  matching, YouTube embed/preview helpers, domain generation, and video URL
+  normalization while `app.js` keeps compatibility wrappers for Raw Content,
+  Regular Guide, legacy live waiting videos, and mode runtime dispatch.
 - `src/app/app-bootstrap-service.js` now owns startup task execution, app-ready
   signaling, and global listener registration mechanics.
 - `src/app/app-state-service.js` now owns initial state factories and small
@@ -186,9 +191,8 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the Alpacards controller/renderer bridge
-extraction, `app.js` is about 13.0k lines, so it is improved but still above
-the target
+automatic safety guarantees. After the Alpaca Channel/video helper extraction,
+`app.js` is about 12.5k lines, so it is improved but still above the target
 for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |
