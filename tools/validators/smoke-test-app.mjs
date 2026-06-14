@@ -109,7 +109,11 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   await clickEnabledModeCard(page, sectionName, modeId);
   await page.waitForFunction(() => !document.querySelector("#experiencePanel")?.classList.contains("hidden"), null, { timeout: 8000 }).catch(() => {});
 
-  return page.evaluate((text) => {
+  const alpacapardyFlow = modeId === "jeopardy"
+    ? await completeLocalAlpacapardyFlow(page)
+    : null;
+
+  return page.evaluate(({ text, alpacapardyFlow: flow }) => {
     const panel = document.querySelector("#experiencePanel");
     const panelText = panel?.textContent?.replace(/\s+/g, " ").trim() || "";
     return {
@@ -119,9 +123,49 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       rawCards: document.querySelectorAll(".raw-content-card, .raw-entry-card, [data-raw-entry]").length,
       alpacardImages: document.querySelectorAll(".alpacard-image").length,
       channelCards: document.querySelectorAll(".channel-card, .alpaca-channel-card, [data-channel-video]").length,
-      jeopardyControls: document.querySelectorAll("[data-jeopardy-start], [data-jeopardy-open], [data-jeopardy-toggle-category]").length
+      jeopardyControls: document.querySelectorAll("[data-jeopardy-start], [data-jeopardy-open], [data-jeopardy-toggle-category]").length,
+      alpacapardyFlow: flow
     };
-  }, expectedText);
+  }, { text: expectedText, alpacapardyFlow });
+}
+
+async function completeLocalAlpacapardyFlow(page) {
+  await page.waitForSelector("[data-jeopardy-start]:not([disabled])", { timeout: 8000 });
+  await page.evaluate(() => {
+    document.querySelector("[data-jeopardy-start]:not([disabled])")?.click();
+  });
+  await page.waitForFunction(() => document.querySelectorAll("[data-jeopardy-open]").length > 0, null, { timeout: 8000 });
+
+  const boardTilesBefore = await page.evaluate(() => document.querySelectorAll("[data-jeopardy-open]").length);
+  await page.evaluate(() => {
+    document.querySelector("[data-jeopardy-open]:not([disabled])")?.click();
+  });
+  await page.waitForSelector("[data-jeopardy-option]:not([disabled])", { timeout: 8000 });
+  const focusOpened = await page.evaluate(() => Boolean(document.querySelector("[data-jeopardy-option]:not([disabled])")));
+
+  await page.evaluate(() => {
+    document.querySelector("[data-jeopardy-option]:not([disabled])")?.click();
+  });
+  await page.waitForSelector("[data-jeopardy-back]:not([disabled])", { timeout: 8000 });
+  const answered = await page.evaluate(() => Boolean(document.querySelector(".feedback-card")));
+
+  await page.evaluate(() => {
+    document.querySelector("[data-jeopardy-back]:not([disabled])")?.click();
+  });
+  await page.waitForFunction(() => {
+    return !document.querySelector("[data-jeopardy-back]")
+      && document.querySelectorAll("[data-jeopardy-open]").length > 0
+      && document.querySelectorAll("[data-jeopardy-open].done").length > 0;
+  }, null, { timeout: 8000 });
+
+  return page.evaluate(({ initialTileCount, focusOpened: didOpenFocus, answered: didAnswer }) => ({
+    boardStarted: document.querySelectorAll("[data-jeopardy-open]").length === initialTileCount,
+    focusOpened: didOpenFocus,
+    answered: didAnswer,
+    returnedToBoard: !document.querySelector("[data-jeopardy-back]"),
+    doneTiles: document.querySelectorAll("[data-jeopardy-open].done").length,
+    openTiles: document.querySelectorAll("[data-jeopardy-open]:not(.done)").length
+  }), { initialTileCount: boardTilesBefore, focusOpened, answered });
 }
 
 async function clickEnabledModeCard(page, sectionName, modeId) {
@@ -416,6 +460,15 @@ async function main() {
     }
     if (alpacapardy.jeopardyControls < 1) {
       failures.push("Alpacapardy smoke check did not render setup or board controls");
+    }
+    if (
+      !alpacapardy.alpacapardyFlow?.boardStarted ||
+      !alpacapardy.alpacapardyFlow?.focusOpened ||
+      !alpacapardy.alpacapardyFlow?.answered ||
+      !alpacapardy.alpacapardyFlow?.returnedToBoard ||
+      alpacapardy.alpacapardyFlow.doneTiles < 1
+    ) {
+      failures.push("Alpacapardy local flow did not start, open a tile, answer, and return to the board");
     }
     for (const [mode, check] of Object.entries(result.modes)) {
       if (check.experienceHidden || !check.containsExpectedText) {

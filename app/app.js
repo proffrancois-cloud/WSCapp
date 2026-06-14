@@ -30,6 +30,7 @@ const createLegacyLiveRoomRenderer = window.WSC_CREATE_LEGACY_LIVE_ROOM_RENDERER
 const createRawContentController = window.WSC_CREATE_RAW_CONTENT_CONTROLLER;
 const createStudyGameController = window.WSC_CREATE_STUDY_GAME_CONTROLLER;
 const createArcadeGameController = window.WSC_CREATE_ARCADE_GAME_CONTROLLER;
+const createAlpacapardyController = window.WSC_CREATE_ALPACAPARDY_CONTROLLER;
 const createAlpacardsController = window.WSC_CREATE_ALPACARDS_CONTROLLER;
 const createAlpacaChannelController = window.WSC_CREATE_ALPACA_CHANNEL_CONTROLLER;
 const createBuildCaseController = window.WSC_CREATE_BUILD_CASE_CONTROLLER;
@@ -69,7 +70,6 @@ let subjectKnowledgeById = {};
 let learnSubjectKnowledgeById = {};
 let bigIdeaKnowledgeById = {};
 let wholeThemeKnowledge = null;
-let jeopardyTimerId = null;
 let runTimerId = null;
 let raceTimerId = null;
 let relayAnswerTimerId = null;
@@ -816,6 +816,8 @@ const state = appStateService.createInitialState({
 });
 
 const refs = appDomService.getAppRefs(document);
+let alpacapardyController = null;
+
 const authController = createAuthController({
   appState: state,
   config: { url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY },
@@ -1111,6 +1113,39 @@ const legacyLiveRoomController = createLegacyLiveRoomController({
     renderLiveSurfaces,
     shuffle,
     startJeopardyTimer
+  }
+});
+
+alpacapardyController = createAlpacapardyController({
+  appState: state,
+  windowRef: window,
+  alpacapardyLive,
+  constants: {
+    GAME_CONFIG
+  },
+  callbacks: {
+    allJeopardyTilesDone,
+    buildConfiguredJeopardyBoard,
+    canAnswerAlpacapardyLiveFocus,
+    canCloseAlpacapardyLiveFocus,
+    canOpenAlpacapardyLiveTile,
+    clearJumpAnimation,
+    clearRaceTimer,
+    clearRelayAnswerTimer,
+    clearRunTimer,
+    createJeopardyTeams,
+    emitAlpacapardyLiveEvent,
+    finalizeSessionStats,
+    getAlpacapardyLiveIdentityContext,
+    getBestStreakFromAnswers,
+    getHighestTeamScore,
+    getThemedTeamLabel,
+    isAlpacapardyLiveActive,
+    render,
+    renderExperience,
+    renderExperiencePreservingScroll,
+    renderLiveSurfaces,
+    syncAlpacapardyLiveSettings
   }
 });
 
@@ -1504,14 +1539,7 @@ function clearJumpAnimation() {
 }
 
 function clearJeopardyTimer() {
-  if (jeopardyTimerId) {
-    window.clearInterval(jeopardyTimerId);
-    jeopardyTimerId = null;
-  }
-  clearRunTimer();
-  clearRaceTimer();
-  clearRelayAnswerTimer();
-  clearJumpAnimation();
+  return alpacapardyController.clearJeopardyTimer();
 }
 
 function clearDebateSpinTimer() {
@@ -5727,84 +5755,15 @@ function startRunRoute(...args) {
 }
 
 function setJeopardyTeamCount(count) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.started) {
-    return;
-  }
-
-  if (
-    experience.playMode === "multiplayer" &&
-    state.live.currentSession &&
-    (!getAlpacapardyLiveIdentityContext().isHost || state.live.players.length > 1)
-  ) {
-    return;
-  }
-
-  if (count < GAME_CONFIG.jeopardyMinTeams || count > GAME_CONFIG.jeopardyMaxTeams) {
-    return;
-  }
-
-  experience.setupTeamCount = count;
-  experience.teams = createJeopardyTeams(count);
-  experience.activeTeamIndex = 0;
-  if (experience.playMode === "multiplayer" && state.live.currentSession) {
-    syncAlpacapardyLiveSettings();
-  }
-  renderLiveSurfaces();
+  return alpacapardyController.setJeopardyTeamCount(count);
 }
 
 function toggleJeopardySetupCategory(categoryId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.started) {
-    return;
-  }
-
-  if (
-    experience.playMode === "multiplayer" &&
-    state.live.currentSession &&
-    !getAlpacapardyLiveIdentityContext().isHost
-  ) {
-    return;
-  }
-
-  const current = new Set(experience.setupCategoryIds);
-  if (current.has(categoryId)) {
-    if (current.size === 1) {
-      return;
-    }
-    current.delete(categoryId);
-  } else if (current.size < GAME_CONFIG.jeopardyMinGroups) {
-    current.add(categoryId);
-  } else {
-    return;
-  }
-
-  experience.setupCategoryIds = Array.from(current);
-  if (experience.playMode === "multiplayer" && state.live.currentSession) {
-    syncAlpacapardyLiveSettings();
-  }
-  renderLiveSurfaces();
+  return alpacapardyController.toggleJeopardySetupCategory(categoryId);
 }
 
 function startJeopardyGame() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.started) {
-    return;
-  }
-
-  if (experience.playMode === "multiplayer") {
-    return;
-  }
-
-  if (experience.setupCategoryIds.length !== GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  experience.started = true;
-  experience.teams = createJeopardyTeams(experience.setupTeamCount);
-  experience.board = buildConfiguredJeopardyBoard(experience.setupCategoryIds);
-  experience.activeTeamIndex = 0;
-  renderExperience();
+  return alpacapardyController.startJeopardyGame();
 }
 
 function buildConfiguredJeopardyBoard(categoryIds) {
@@ -5907,156 +5866,23 @@ function buildFallbackJeopardyBoard(selectionQuestions) {
 }
 
 function openJeopardyTile(groupIndex, tileIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy") {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    if (!canOpenAlpacapardyLiveTile()) {
-      return;
-    }
-    emitAlpacapardyLiveEvent(alpacapardyLive.createTileOpenedEvent({
-      groupIndex,
-      tileIndex,
-      teamIndex: experience.activeTeamIndex,
-      answerTime: GAME_CONFIG.jeopardyAnswerTime
-    }));
-    return;
-  }
-
-  if (experience.active) {
-    return;
-  }
-
-  const tile = experience.board[groupIndex].tiles[tileIndex];
-  if (!tile || tile.done) {
-    return;
-  }
-
-  experience.active = {
-    groupIndex,
-    tileIndex,
-    teamIndex: experience.activeTeamIndex,
-    timeRemaining: GAME_CONFIG.jeopardyAnswerTime,
-    revealed: false,
-    selectedIndex: null,
-    correct: false,
-    timedOut: false
-  };
-
-  renderExperience();
-  startJeopardyTimer();
+  return alpacapardyController.openJeopardyTile(groupIndex, tileIndex);
 }
 
 function answerJeopardyQuestion(optionIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || !experience.active || experience.active.revealed) {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    if (!canAnswerAlpacapardyLiveFocus()) {
-      return;
-    }
-    emitAlpacapardyLiveEvent(alpacapardyLive.createTileAnsweredEvent({ optionIndex, timedOut: false }));
-    return;
-  }
-
-  resolveJeopardyQuestion(optionIndex, false);
+  return alpacapardyController.answerJeopardyQuestion(optionIndex);
 }
 
 function resolveJeopardyTimeout() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || !experience.active || experience.active.revealed) {
-    clearJeopardyTimer();
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    clearJeopardyTimer();
-    if (canAnswerAlpacapardyLiveFocus()) {
-      emitAlpacapardyLiveEvent(alpacapardyLive.createTileAnsweredEvent({ optionIndex: null, timedOut: true }));
-    }
-    return;
-  }
-
-  resolveJeopardyQuestion(null, true);
+  return alpacapardyController.resolveJeopardyTimeout();
 }
 
 function resolveJeopardyQuestion(optionIndex, timedOut) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || !experience.active || experience.active.revealed) {
-    return;
-  }
-
-  clearJeopardyTimer();
-
-  const active = experience.active;
-  const tile = experience.board[active.groupIndex].tiles[active.tileIndex];
-  const question = tile.question;
-  const team = experience.teams[active.teamIndex];
-  const isCorrect = !timedOut && optionIndex === question.answerIndex;
-
-  active.revealed = true;
-  active.selectedIndex = Number.isInteger(optionIndex) ? optionIndex : null;
-  active.correct = isCorrect;
-  active.timedOut = timedOut;
-  tile.done = true;
-  tile.teamIndex = active.teamIndex;
-  tile.result = isCorrect ? "correct" : (timedOut ? "timeout" : "wrong");
-
-  if (isCorrect) {
-    team.score += tile.value;
-    team.correct += 1;
-  } else {
-    team.wrong += 1;
-  }
-
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds,
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect,
-    teamId: team.id,
-    teamLabel: team.label,
-    timedOut
-  });
-
-  renderExperience();
+  return alpacapardyController.resolveJeopardyQuestion(optionIndex, timedOut);
 }
 
 function closeJeopardyFocus() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy") {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    if (!canCloseAlpacapardyLiveFocus()) {
-      return;
-    }
-    clearJeopardyTimer();
-    emitAlpacapardyLiveEvent(alpacapardyLive.createFocusClosedEvent());
-    return;
-  }
-
-  clearJeopardyTimer();
-  const nextTeamIndex = experience.active ? (experience.active.teamIndex + 1) % experience.teams.length : experience.activeTeamIndex;
-  experience.active = null;
-  if (allJeopardyTilesDone(experience.board)) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers), {
-      type: "jeopardy",
-      score: getHighestTeamScore(experience.teams),
-      teamOneScore: Number(experience.teams[0]?.score) || 0
-    });
-  } else {
-    experience.activeTeamIndex = nextTeamIndex;
-  }
-
-  render();
+  return alpacapardyController.closeJeopardyFocus();
 }
 
 function createJeopardyTeams(count = GAME_CONFIG.jeopardyDefaultTeams) {
@@ -6084,96 +5910,23 @@ function renderJeopardyTileFace(tile) {
 }
 
 function startJeopardyTimer() {
-  clearJeopardyTimer();
-
-  jeopardyTimerId = window.setInterval(() => {
-    const experience = state.experience;
-    if (!experience || experience.type !== "jeopardy" || !experience.active) {
-      clearJeopardyTimer();
-      return;
-    }
-
-    if (experience.active.revealed) {
-      clearJeopardyTimer();
-      return;
-    }
-
-    if (experience.active.timeRemaining <= 1) {
-      resolveJeopardyTimeout();
-      return;
-    }
-
-    experience.active.timeRemaining -= 1;
-    renderExperiencePreservingScroll();
-  }, 1000);
+  return alpacapardyController.startJeopardyTimer();
 }
 
 function chooseJeopardyTeam(teamIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.active) {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    return;
-  }
-
-  if (teamIndex < 0 || teamIndex >= experience.teams.length) {
-    return;
-  }
-
-  experience.activeTeamIndex = teamIndex;
-  renderExperience();
+  return alpacapardyController.chooseJeopardyTeam(teamIndex);
 }
 
 function addJeopardyTeam() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.active || experience.teams.length >= GAME_CONFIG.jeopardyMaxTeams) {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    return;
-  }
-
-  const nextIndex = experience.teams.length;
-  experience.teams.push({
-    id: `team-${nextIndex + 1}`,
-    label: getThemedTeamLabel(nextIndex),
-    score: 0,
-    correct: 0,
-    wrong: 0
-  });
-  renderExperience();
+  return alpacapardyController.addJeopardyTeam();
 }
 
 function removeJeopardyTeam() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.active || experience.teams.length <= GAME_CONFIG.jeopardyMinTeams) {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    return;
-  }
-
-  experience.teams.pop();
-  experience.activeTeamIndex = Math.min(experience.activeTeamIndex, experience.teams.length - 1);
-  renderExperience();
+  return alpacapardyController.removeJeopardyTeam();
 }
 
 function advanceJeopardyTeam() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.active) {
-    return;
-  }
-
-  if (isAlpacapardyLiveActive()) {
-    return;
-  }
-
-  experience.activeTeamIndex = (experience.activeTeamIndex + 1) % experience.teams.length;
-  renderExperience();
+  return alpacapardyController.advanceJeopardyTeam();
 }
 
 function renderJeopardyResults(experience) {

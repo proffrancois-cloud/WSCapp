@@ -156,8 +156,8 @@ Current progress:
 - `src/app/legacy-live-room-controller.js` now owns legacy/live room access,
   lobby/session sync, heartbeat/subscription cleanup, live event reducers,
   chat, start/join/leave actions, and arcade-live action mechanics while
-  `app.js` keeps compatibility wrappers, public availability flags, and
-  remaining Jeopardy-local game calls.
+  `app.js` keeps compatibility wrappers, public availability flags, and local
+  Alpacapardy board/render helper wiring.
 - `src/app/content-normalization-helpers.js` now owns raw-content section/entry
   normalization, support-field cleanup, subject and big-idea alias mapping,
   wrong-answer cleanup, and French-text fallback generation. Editorial
@@ -179,6 +179,9 @@ Current progress:
 - `src/app/arcade-game-controller.js` now owns local Race, Alpaca Run, Relay,
   and Jump action mechanics while `app.js` keeps their builders, renderers,
   timers, DOM patch helpers, and compatibility wrappers.
+- `src/app/alpacapardy-controller.js` now owns local Alpacapardy setup, team,
+  tile, focus, answer-resolution, and clue-timer mechanics while `app.js` keeps
+  board builders, renderer helper assembly, and compatibility wrappers.
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
@@ -220,8 +223,8 @@ Highest-value next extractions from the architecture analysis:
 
 - route render orchestration and timer lifecycle;
 - mode-specific renderers that can move behind feature modules;
-- remaining Jeopardy-specific local start/reset/tile/focus flows after current
-  smoke coverage is broadened;
+- remaining game-specific board/render helper builders that can move behind
+  feature modules after current smoke coverage is broadened;
 - a classic-script dependency map before any ES module or bundler migration.
 
 Non-goals remain important: do not rewrite the whole main app in React now, do
