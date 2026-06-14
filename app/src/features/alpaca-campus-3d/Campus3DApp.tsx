@@ -60,6 +60,7 @@ import {
 } from "./content-surfaces";
 import { ROOM_MANIFEST_ROOM_IDS, type RoomManifestRoomId } from "./room-manifest";
 import { getCampusMapRoom, type CampusMapObject } from "./map-source";
+import { ensureCampusContentLoaded } from "./campus-runtime-loader";
 
 const roomIcons: Record<string, typeof DoorOpen> = {
   "campus-courtyard": MapPin,
@@ -120,8 +121,10 @@ function getAlpacardPanelData(content: WorldContentCard | null): AlpacardPanelDa
 
 function ViewControls(): ReactElement {
   const viewSettings = useCampusStore((state) => state.viewSettings);
+  const highDetailEnabled = useCampusStore((state) => state.highDetailEnabled);
   const nudgeViewSettings = useCampusStore((state) => state.nudgeViewSettings);
   const setViewLight = useCampusStore((state) => state.setViewLight);
+  const setHighDetailEnabled = useCampusStore((state) => state.setHighDetailEnabled);
   const resetViewSettings = useCampusStore((state) => state.resetViewSettings);
 
   return (
@@ -159,6 +162,15 @@ function ViewControls(): ReactElement {
           onChange={(event) => setViewLight(event.currentTarget.valueAsNumber)}
           aria-label="Scene light"
         />
+      </label>
+      <label className="campus3d-detail-toggle" title="Load high-detail campus props">
+        <input
+          type="checkbox"
+          checked={highDetailEnabled}
+          onChange={(event) => setHighDetailEnabled(event.currentTarget.checked)}
+          aria-label="High detail"
+        />
+        <span>High detail</span>
       </label>
     </section>
   );
@@ -322,6 +334,7 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
   const room = getRoom(roomId);
   const visibleRooms = useMemo(() => orderFirstSliceRooms(rooms), [rooms]);
   const nearestItem = useMemo(() => getNearestActionItem(room, localPlayer), [room, localPlayer.x, localPlayer.y]);
+  const [, setContentReadyRevision] = useState(0);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -333,6 +346,30 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [closePanel]);
+
+  useEffect(() => {
+    const openedItem = openPanel?.item;
+    if (!openedItem || window.WSC_CAMPUS_CONTENT_READY) {
+      return undefined;
+    }
+
+    let cancelled = false;
+    void ensureCampusContentLoaded().then((ready) => {
+      if (cancelled || !ready) {
+        return;
+      }
+
+      setContentReadyRevision((revision) => revision + 1);
+      const currentPanel = useCampusStore.getState().openPanel;
+      if (currentPanel?.item && currentPanel.item.id === openedItem.id) {
+        useCampusStore.getState().openItemPanel(currentPanel.item);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [openPanel?.item?.id]);
 
   return (
     <main className="campus3d-shell" aria-label="Alpaca Campus 3D">

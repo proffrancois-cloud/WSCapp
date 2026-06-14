@@ -122,8 +122,6 @@
         title: localPlayer.title || "",
         level: localPlayer.level || 1,
         xp: localPlayer.xp || 0,
-        x: Number(localPlayer.x) || 640,
-        y: Number(localPlayer.y) || 560,
         status: "online",
         onlineAt: new Date().toISOString(),
         onlineAtMs: nowMs,

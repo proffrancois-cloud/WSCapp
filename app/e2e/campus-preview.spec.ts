@@ -2,7 +2,8 @@ import { expect, test, type Page, type TestInfo } from "@playwright/test";
 
 const campusRoute = "alpaca-campus-3d/?mode=multiplayer";
 const localAssetPattern = /\.(?:css|glb|jpe?g|js|png|webp)$/i;
-const requiredAssetTypes = new Set([".css", ".glb", ".js", ".webp"]);
+const requiredCoreAssetTypes = new Set([".css", ".glb", ".js"]);
+const textureAssetTypes = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 
 function getAssetType(urlString: string) {
   const pathname = new URL(urlString).pathname;
@@ -129,9 +130,13 @@ test("3D campus preview loads a rendered canvas and local assets", async ({ page
     expect(health.width, "canvas backing width").toBeGreaterThan(0);
     expect(health.height, "canvas backing height").toBeGreaterThan(0);
     expect(failedLocalAssets, "local campus assets should load").toEqual([]);
-    for (const assetType of requiredAssetTypes) {
+    for (const assetType of requiredCoreAssetTypes) {
       expect(loadedAssetTypes, `expected at least one ${assetType} asset`).toContain(assetType);
     }
+    expect(
+      [...loadedAssetTypes].some((assetType) => textureAssetTypes.has(assetType)),
+      `expected at least one raster texture asset, received ${JSON.stringify([...loadedAssetTypes])}`
+    ).toBe(true);
     const severeConsoleErrors = consoleErrors.filter((message) =>
       /failed to load resource|three|uncaught|webgl/i.test(message)
     );

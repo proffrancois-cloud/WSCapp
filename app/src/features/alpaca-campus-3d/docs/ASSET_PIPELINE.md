@@ -38,9 +38,39 @@ Export from Blender to GLB, then optimize with glTF Transform:
 npx --yes @gltf-transform/cli optimize input.glb output.glb --compress meshopt --texture-compress webp --texture-size 2048
 ```
 
+The repo also includes a dry-run helper for the current custom props:
+
+```bash
+cd app
+npm run optimize:campus-glbs
+npm run optimize:campus-glbs -- --write
+```
+
+The helper writes to `app/public/assets/campus-3d/props/optimized/`. Do not repoint runtime assets to optimized files until the visual pass confirms scale, pivots, materials, and interaction proxies still match the current campus look.
+
 Use web-safe PBR materials, reuse materials aggressively, and keep image textures proportional to how large the object appears on screen.
 
-## Budgets
+## Loading Tiers And Budgets
+
+Every placed environment asset must fit one of these tiers:
+
+- `critical`: floor, collisions, portals, labels, simple content surfaces, and tiny props required for the room to be usable.
+- `deferred`: non-blocking room dressing that may load after idle once the player has a stable first frame.
+- `highDetail`: signature raw GLBs and large decorative props. These load only when the local `High detail` toggle is enabled.
+
+Initial multiplayer route budgets:
+
+| Route Stage | Critical Asset Budget |
+|---|---:|
+| Campus shell visible | no GLB required |
+| Courtyard ready | 8 MB max |
+| Lobby ready | 12 MB max |
+| Any single room ready | 16 MB max |
+| Any GLB before explicit interaction/high detail | 20 MB max |
+
+The forbidden-before-ready list currently includes `alhambra-study-ii.glb`, `masjid-al-aqsa-dome-of-the-rock.glb`, `oriental-fountain.glb`, `cour-du-chateau-de-chambord.glb`, and `old-wooden-door.glb`.
+
+## Room Asset Budgets
 
 | Room | Max Tris | Max Draw Calls | Max Optimized GLB |
 |---|---:|---:|---:|

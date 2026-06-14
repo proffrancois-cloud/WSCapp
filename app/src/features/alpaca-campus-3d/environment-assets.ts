@@ -247,6 +247,7 @@ export const RAW_ENVIRONMENT_ASSETS = {
 
 export type EnvironmentAssetKey = keyof typeof RAW_ENVIRONMENT_ASSETS;
 export type EnvironmentAssetScale = number | [number, number, number];
+export type EnvironmentAssetLoadTier = "critical" | "deferred" | "highDetail";
 export type CampusWallFramePlacement = {
   id: string;
   roomId: string;
@@ -307,7 +308,25 @@ export type EnvironmentAssetPlacement = {
   openOnClick?: boolean;
   openAngle?: number;
   openDirection?: 1 | -1;
+  loadTier?: EnvironmentAssetLoadTier;
 };
+
+export const HIGH_DETAIL_ENVIRONMENT_ASSET_KEYS = new Set<EnvironmentAssetKey>([
+  "customAlhambraPattern",
+  "customAlhambraStudy",
+  "customAntiqueWoodenPedestalStandTypeA",
+  "customArabMajlis",
+  "customChambordCourtyard",
+  "customFinePersianEsfahanCarpet",
+  "customMasjidAlAqsaDomeOfTheRock",
+  "customOldWoodenDoor",
+  "customOrientalFountain",
+  "customOttomanPillowAndCarpets"
+]);
+
+export function getEnvironmentAssetLoadTier(placement: EnvironmentAssetPlacement): EnvironmentAssetLoadTier {
+  return placement.loadTier || (HIGH_DETAIL_ENVIRONMENT_ASSET_KEYS.has(placement.asset) ? "highDetail" : "critical");
+}
 
 function point(x: number, y: number): CampusPoint {
   return { x: Math.round(x * DATA_SCALE), y: Math.round(y * DATA_SCALE) };

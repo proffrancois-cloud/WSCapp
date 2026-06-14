@@ -81,8 +81,10 @@ const server = createServer((request, response) => {
     return;
   }
 
+  const fileStat = statSync(absolutePath);
   response.writeHead(200, {
-    "content-type": contentTypes.get(extname(absolutePath)) || "application/octet-stream"
+    "content-type": contentTypes.get(extname(absolutePath)) || "application/octet-stream",
+    "content-length": String(fileStat.size)
   });
   createReadStream(absolutePath).pipe(response);
 });

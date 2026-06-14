@@ -122,6 +122,7 @@ type CampusState = {
   pendingSeatEvent: CampusSeatRuntimeEvent | null;
   pendingChatMessage: CampusChatMessage | null;
   viewSettings: CampusViewSettings;
+  highDetailEnabled: boolean;
   setCampusMode: (mode: CampusLaunchMode) => void;
   setRoom: (roomId: string, spawnId?: string) => void;
   setMovementTarget: (point: CampusPoint | null) => void;
@@ -140,6 +141,7 @@ type CampusState = {
   nudgeViewSettings: (delta: Partial<CampusViewSettings>) => void;
   setViewLight: (light: number) => void;
   resetViewSettings: () => void;
+  setHighDetailEnabled: (enabled: boolean) => void;
   openItemPanel: (item: CampusItem) => void;
   closePanel: () => void;
   claimSeat: (seat: CampusItem) => void;
@@ -166,6 +168,7 @@ export const avatarOptions: AlpacaAvatar[] = [
 ];
 
 const LOCAL_AVATAR_KEY = "wsc-campus-3d-avatar";
+const HIGH_DETAIL_KEY = "wsc-campus-3d-high-detail";
 const INITIAL_ROOM_ID = "campus-courtyard";
 export const DEFAULT_LOCAL_ALPACA_NAME = "Scholar Alpaca";
 export const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
@@ -199,6 +202,10 @@ function readSavedAvatar(): AlpacaAvatar {
     return avatarOptions.find((avatar) => avatar.id === saved.id) || avatarOptions[0];
   }
   return avatarOptions[0];
+}
+
+function readSavedHighDetailEnabled(): boolean {
+  return Boolean(readJsonFromBrowserStorage<boolean>(HIGH_DETAIL_KEY, false));
 }
 
 function createClientId(): string {
@@ -536,6 +543,7 @@ export const useCampusStore = create<CampusState>((set, get) => ({
   pendingSeatEvent: null,
   pendingChatMessage: null,
   viewSettings: DEFAULT_VIEW_SETTINGS,
+  highDetailEnabled: readSavedHighDetailEnabled(),
 
   setCampusMode(mode) {
     const nextName = mode === "multiplayer" ? DEFAULT_ONLINE_ALPACA_NAME : DEFAULT_LOCAL_ALPACA_NAME;
@@ -816,6 +824,11 @@ export const useCampusStore = create<CampusState>((set, get) => ({
 
   resetViewSettings() {
     set({ viewSettings: DEFAULT_VIEW_SETTINGS });
+  },
+
+  setHighDetailEnabled(enabled) {
+    writeJsonToBrowserStorage(HIGH_DETAIL_KEY, enabled);
+    set({ highDetailEnabled: enabled });
   },
 
   openItemPanel(item) {
