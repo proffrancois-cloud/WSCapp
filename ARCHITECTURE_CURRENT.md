@@ -52,6 +52,14 @@ Generator scripts in `tools/generators/` build browser-ready runtime files in
 Those generated files assign globals such as `window.WSC_DATA` and
 `window.WSC_RAW_CONTENT_BANK`.
 
+`app/generated/current-runtime/` is committed because GitHub Pages serves a
+static artifact, but it is not edited by hand. `npm run theme:check-runtime`
+regenerates the runtime into `tmp/current-runtime-ci/`, compares it with the
+committed runtime, and validates that `summary.json` matches the real runtime
+payload. The older root files such as `app/data.js`, `app/knowledge-bank.js`,
+and `app/raw-content-bank.js` are legacy compatibility material; the active
+browser path loads `app/generated/current-runtime/`.
+
 ## Main App Boot Path
 
 `app/index.html` is the main browser entry point. It loads scripts in a strict
@@ -344,11 +352,11 @@ tests without deploying anything.
 - Asset base paths differ between Vercel root deploys and GitHub project Pages.
 - Supabase access must still be reviewed at the RLS/policy level before any
   claim of durable MMO readiness.
-- `npm run test:theme` uses the active-runtime compatibility profile and passes
-  while reporting accepted legacy/current-runtime differences for
-  `fullVoyageQuestions`, `firstGuideQuestion`, and `firstFullVoyage`.
-  `npm run theme:compare:strict` remains available for the full legacy
-  compatibility audit.
+- `npm run test:theme` validates the source theme, keeps the active-runtime
+  compatibility comparison, and now fails if `app/generated/current-runtime/`
+  cannot be reproduced from `content/themes/2026/`. `npm run
+  theme:compare:strict` remains available for the full legacy compatibility
+  audit, but it is not the source-of-truth gate.
 - `npm run test:smoke` currently passes in the clean GitHub copy.
 
 ## Risk Targets

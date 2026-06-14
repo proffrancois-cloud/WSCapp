@@ -39,6 +39,10 @@ jobs:
         run: npm ci
         working-directory: app
 
+      - name: Verify theme runtime
+        run: npm run test:theme
+        working-directory: app
+
       - name: Build Pages artifact
         run: npm run build:pages
         working-directory: app

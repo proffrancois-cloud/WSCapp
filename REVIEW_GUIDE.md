@@ -73,18 +73,22 @@ npm run test:campus-smoke
 VITE_BASE=/WSCapp/ npm run build:pages
 npm run audit:pages
 npm run verify
+npm run verify:vercel
 ```
 
 Optional content checks:
 
 ```zsh
 npm run test:theme
+npm run theme:check-runtime
 npm run theme:compare:strict
 npm run theme:compare:legacy-audit
 ```
 
-`test:theme` uses the active-runtime compatibility profile. The strict command
-is intentionally stricter and may report known legacy/current-runtime deltas.
+`test:theme` validates the theme source, runs the active-runtime compatibility
+comparison, and checks that `app/generated/current-runtime/` is exactly
+regenerable from `content/themes/2026/`. The strict and legacy-audit commands
+are compatibility audits; they are not the source-of-truth gate.
 
 ## Deployment Split
 
@@ -99,6 +103,8 @@ Vercel and GitHub Pages are deliberately separate right now.
 - `npm run audit:pages` and `npm run audit:vercel` verify that public artifacts
   do not include package metadata, SQL, source-only TS/TSX, docs, desktop code,
   local artifacts, or test/build debris.
+- `npm run verify:vercel` builds and audits `app/dist-vercel/` without
+  deploying Vercel.
 - `.github/workflows/verify.yml` runs the PR/branch verification gate and
   installs Playwright Chromium so browser smoke tests can be added without
   changing CI setup again.
@@ -371,9 +377,9 @@ Most important roadmap recommendations from the DOCX:
 - Treat `content/themes/2026/` as the source of truth.
 - Use generators in `tools/generators/` rather than editing generated runtime
   files by hand.
-- Keep `test:theme` passing for the active runtime profile.
-- Document accepted legacy/current-runtime differences when strict comparison
-  reports them.
+- Keep `test:theme` passing so generated runtime drift is caught before review.
+- Treat root runtime files such as `app/data.js` and `app/raw-content-bank.js`
+  as legacy compatibility material unless a later cleanup removes them.
 
 ## Suggested Next Refactor Passes
 

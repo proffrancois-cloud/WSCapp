@@ -39,50 +39,44 @@ window.WSC_DATA = {
     {
       "id": "special-area",
       "label": "Special Area",
-      "description": "Philosophy, pure psychology, cognition, perception, motivation, waiting, liminality, effort, and arrival/threshold concepts.",
+      "description": "Big ideas, the psychology of waiting, thresholds, mental prototypes, and the philosophy of getting there.",
       "color": "#C89C44",
-      "soft": "rgba(200, 156, 68, 0.16)",
-      "iconKey": "philosophy"
+      "soft": "rgba(200, 156, 68, 0.16)"
     },
     {
       "id": "history",
       "label": "History",
-      "description": "Historical cases, origins, periodization, cultural history, and historical travel/development narratives.",
+      "description": "Roads, hotels, term limits, giant projects, navigation, and long traditions of movement.",
       "color": "#8A6338",
-      "soft": "rgba(138, 99, 56, 0.12)",
-      "iconKey": "history"
+      "soft": "rgba(138, 99, 56, 0.12)"
     },
     {
       "id": "social-studies",
       "label": "Social Studies",
-      "description": "Society, institutions, economics and trade, geography, politics, urban systems, public infrastructure, labor, and productivity systems.",
+      "description": "Governments in transition, urban planning, tourism, collective behavior, and public policy.",
       "color": "#B98953",
-      "soft": "rgba(185, 137, 83, 0.14)",
-      "iconKey": "economics-and-trade"
+      "soft": "rgba(185, 137, 83, 0.14)"
     },
     {
       "id": "science-technology",
-      "label": "Science & Tech",
-      "description": "Natural sciences, software, interfaces, AI, engineering, emerging infrastructure, science-led risk, and longevity topics.",
+      "label": "Science & Technology",
+      "description": "Navigation, cognition, adolescence, interfaces, AI, quantum computing, prototypes, and transport.",
       "color": "#6B4E16",
-      "soft": "rgba(107, 78, 22, 0.12)",
-      "iconKey": "sciences"
+      "soft": "rgba(107, 78, 22, 0.12)"
     },
     {
       "id": "art-music",
       "label": "Art & Music",
-      "description": "Visual art, music, performance, aesthetics, and architecture/design when treated primarily as artistic form.",
+      "description": "Paintings, songs, road imagery, creative drafts, and liminal landscapes.",
       "color": "#A87645",
-      "soft": "rgba(168, 118, 69, 0.12)",
-      "iconKey": "visual-and-performing-arts"
+      "soft": "rgba(168, 118, 69, 0.12)"
     },
     {
       "id": "literature-media",
-      "label": "Lit & Media",
-      "description": "Language, literature, narrative, film, games, and media texts when treated as story, interpretation, or cultural form.",
+      "label": "Literature & Media",
+      "description": "Travel narratives, ambiguous endings, storyboards, long takes, famous lines, and screen culture.",
       "color": "#7A5A33",
-      "soft": "rgba(122, 90, 51, 0.12)",
-      "iconKey": "language-and-literature"
+      "soft": "rgba(122, 90, 51, 0.12)"
     }
   ],
   "presets": [

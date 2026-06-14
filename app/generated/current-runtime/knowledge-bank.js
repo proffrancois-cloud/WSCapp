@@ -4,11 +4,11 @@ window.WSC_KNOWLEDGE_BANK = {
     "note": "Build-ready synthesis for junior scholars. It expands publicly indexed guiding-section structure into explicit content atoms so young learners need less inference.",
     "official_theme": "Are We There Yet?",
     "official_subjects": [
-      "Science & Tech",
+      "Science & Technology",
       "Social Studies",
       "History",
       "Art & Music",
-      "Lit & Media",
+      "Literature & Media",
       "Special Area"
     ]
   },
@@ -18,7 +18,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "guiding_section": "Introductory Questions",
       "official_subjects": [
         "Special Area",
-        "Lit & Media",
+        "Literature & Media",
         "Social Studies"
       ],
       "overlay_categories": [
@@ -319,7 +319,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "section_order": 2,
       "guiding_section": "Progress, Not Regress",
       "official_subjects": [
-        "Science & Tech",
+        "Science & Technology",
         "Social Studies",
         "Special Area"
       ],
@@ -610,7 +610,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "guiding_section": "More To Do Than Can Ever Be Listed",
       "official_subjects": [
         "Special Area",
-        "Lit & Media",
+        "Literature & Media",
         "Social Studies"
       ],
       "overlay_categories": [
@@ -1166,8 +1166,8 @@ window.WSC_KNOWLEDGE_BANK = {
       "guiding_section": "There’s a Draft in Here",
       "official_subjects": [
         "Art & Music",
-        "Lit & Media",
-        "Science & Tech"
+        "Literature & Media",
+        "Science & Technology"
       ],
       "overlay_categories": [
         "Design",
@@ -1687,7 +1687,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "official_subjects": [
         "Social Studies",
         "History",
-        "Science & Tech"
+        "Science & Technology"
       ],
       "overlay_categories": [
         "Urban Design",
@@ -1929,7 +1929,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "section_order": 8,
       "guiding_section": "Monkey See, Monkey Prototype",
       "official_subjects": [
-        "Science & Tech",
+        "Science & Technology",
         "Special Area",
         "Social Studies"
       ],
@@ -2175,7 +2175,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "guiding_section": "The Lovely and the Liminal",
       "official_subjects": [
         "Art & Music",
-        "Lit & Media",
+        "Literature & Media",
         "Special Area"
       ],
       "overlay_categories": [
@@ -2420,7 +2420,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "guiding_section": "Going Pains",
       "official_subjects": [
         "Social Studies",
-        "Lit & Media",
+        "Literature & Media",
         "Special Area"
       ],
       "overlay_categories": [
@@ -2664,7 +2664,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "official_subjects": [
         "History",
         "Social Studies",
-        "Lit & Media"
+        "Literature & Media"
       ],
       "overlay_categories": [
         "Psychology",
@@ -2906,7 +2906,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "section_order": 12,
       "guiding_section": "Where We’re Going, We’ll Still Need Them",
       "official_subjects": [
-        "Science & Tech",
+        "Science & Technology",
         "Social Studies",
         "History"
       ],
@@ -3150,7 +3150,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "official_subjects": [
         "Social Studies",
         "History",
-        "Lit & Media"
+        "Literature & Media"
       ],
       "overlay_categories": [
         "Travel",
@@ -3391,8 +3391,8 @@ window.WSC_KNOWLEDGE_BANK = {
       "section_order": 14,
       "guiding_section": "Next Year in Futurism",
       "official_subjects": [
-        "Science & Tech",
-        "Lit & Media",
+        "Science & Technology",
+        "Literature & Media",
         "Special Area"
       ],
       "overlay_categories": [
@@ -3636,7 +3636,7 @@ window.WSC_KNOWLEDGE_BANK = {
       "guiding_section": "Concluding Questions",
       "official_subjects": [
         "Special Area",
-        "Lit & Media",
+        "Literature & Media",
         "History"
       ],
       "overlay_categories": [
@@ -3880,7 +3880,7 @@ window.WSC_KNOWLEDGE_BANK = {
     }
   ],
   "subject_bank": {
-    "Science & Tech": {
+    "Science & Technology": {
       "pull_from_sections": [
         "Progress, Not Regress",
         "There’s a Draft in Here",
@@ -3969,7 +3969,7 @@ window.WSC_KNOWLEDGE_BANK = {
         "art/media Jeopardy"
       ]
     },
-    "Lit & Media": {
+    "Literature & Media": {
       "pull_from_sections": [
         "Introductory Questions",
         "There’s a Draft in Here",
