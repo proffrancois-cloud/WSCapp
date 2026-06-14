@@ -35,7 +35,6 @@ import {
 import { roomManifests, type RoomManifestRoomId } from "./room-manifest";
 import {
   PLAYER_ALPACA_MODEL_SRC,
-  PLAYER_ALPACA_TEXTURES,
   getPlayerAlpacaTextureSrc
 } from "./avatar-assets";
 import lobbyFloorBaseColorSrc from "../../../assets/campus-3d/materials/medievaltiles-red/base-color.webp?url";
@@ -54,6 +53,7 @@ import {
   CAMPUS_LIBRARY_ROCOCO_WALLPAPER_TEXTURE_SRC,
   LOBBY_INFORMATION_ALPACA_ASSET_POINT,
   RAW_ENVIRONMENT_ASSETS,
+  getEnvironmentAssetLoadTier,
   getCampusWallFramePlacements,
   getCampusWallWallpaperPlacements,
   type CampusWallFramePlacement,
@@ -528,10 +528,16 @@ function getPortalPose(room: CampusRoom, item: CampusItem): { position: [number,
 
 export function CampusScene(): ReactElement {
   const light = useCampusStore((state) => state.viewSettings.light);
+  const highDetailEnabled = useCampusStore((state) => state.highDetailEnabled);
+  const shadowMapSize = highDetailEnabled ? 2048 : 1024;
 
   return (
     <div className="campus3d-canvas">
-      <Canvas shadows={{ type: PCFShadowMap }} camera={{ position: [7, 7, 10], fov: 45, near: 0.1, far: 100 }}>
+      <Canvas
+        dpr={[1, highDetailEnabled ? 1.5 : 1.25]}
+        shadows={{ type: PCFShadowMap }}
+        camera={{ position: [7, 7, 10], fov: 45, near: 0.1, far: 100 }}
+      >
         <CampusReadyMarker />
         <RendererClippingSettings />
         <color attach="background" args={["#e8ece4"]} />
@@ -540,7 +546,7 @@ export function CampusScene(): ReactElement {
           position={[6, 10, 5]}
           intensity={1.55 * light}
           castShadow
-          shadow-mapSize={[2048, 2048]}
+          shadow-mapSize={[shadowMapSize, shadowMapSize]}
         />
         <Physics gravity={[0, -9.81, 0]}>
           <CampusWorld />
@@ -1031,12 +1037,88 @@ function LobbyDoorMaterial(): ReactElement {
 
 function EnvironmentAssetProps({ room }: { room: CampusRoom }): ReactElement {
   const placements = getCampusMapDecorativePlacements(room.id);
+  const highDetailEnabled = useCampusStore((state) => state.highDetailEnabled);
+  const [deferredReady, setDeferredReady] = useState(false);
+
+  useEffect(() => {
+    setDeferredReady(false);
+    if (highDetailEnabled) {
+      return undefined;
+    }
+
+    const idleCallback = window.requestIdleCallback;
+    if (idleCallback) {
+      const id = idleCallback(() => setDeferredReady(true), { timeout: 1500 });
+      return () => window.cancelIdleCallback?.(id);
+    }
+
+    const timerId = window.setTimeout(() => setDeferredReady(true), 900);
+    return () => window.clearTimeout(timerId);
+  }, [highDetailEnabled, room.id]);
 
   return (
     <group>
-      {placements.map((placement) => (
-        <EnvironmentAssetProp key={placement.id} room={room} placement={placement} />
-      ))}
+      {placements.map((placement) => {
+        const tier = getEnvironmentAssetLoadTier(placement);
+        const shouldRenderAsset = tier === "critical"
+          || (tier === "deferred" && (deferredReady || highDetailEnabled))
+          || (tier === "highDetail" && highDetailEnabled);
+
+        return shouldRenderAsset ? (
+          <EnvironmentAssetProp key={placement.id} room={room} placement={placement} />
+        ) : (
+          <EnvironmentAssetPlaceholder key={placement.id} room={room} placement={placement} />
+        );
+      })}
+    </group>
+  );
+}
+
+function EnvironmentAssetPlaceholder({
+  room,
+  placement
+}: {
+  room: CampusRoom;
+  placement: EnvironmentAssetPlacement;
+}): ReactElement | null {
+  const openItemPanel = useCampusStore((state) => state.openItemPanel);
+  const linkedPortal = useMemo(
+    () => placement.portalId ? (room.portals || []).find((item) => item.id === placement.portalId) || null : null,
+    [placement.portalId, room.portals]
+  );
+
+  if (placement.asset === "customChambordCourtyard") {
+    return null;
+  }
+
+  const [x, , z] = worldToScene(room, placement.point, placement.height ?? 0.02);
+  const portalWidth = linkedPortal ? Math.max(0.55, linkedPortal.width * WORLD_SCALE) : 0.72;
+  const portalDepth = linkedPortal ? Math.max(0.12, linkedPortal.height * WORLD_SCALE * 0.12) : 0.72;
+  const isCarpet = placement.asset === "customFinePersianEsfahanCarpet";
+  const height = isCarpet ? 0.018 : linkedPortal ? 0.9 : 0.34;
+
+  return (
+    <group
+      position={[x, placement.height ?? 0.02, z]}
+      rotation={[placement.rotationX ?? 0, placement.rotationY ?? 0, placement.rotationZ ?? 0]}
+      onPointerDown={linkedPortal ? (event) => {
+        event.stopPropagation();
+        openItemPanel(linkedPortal);
+      } : undefined}
+    >
+      <mesh castShadow={!isCarpet} receiveShadow>
+        <boxGeometry args={[
+          isCarpet ? 0.95 : portalWidth,
+          height,
+          isCarpet ? 0.62 : portalDepth
+        ]} />
+        <meshStandardMaterial
+          color={linkedPortal ? "#a47a43" : isCarpet ? "#8f4b3f" : "#d4c5a8"}
+          roughness={0.88}
+          transparent
+          opacity={linkedPortal ? 0.86 : 0.68}
+        />
+      </mesh>
     </group>
   );
 }
@@ -2003,10 +2085,6 @@ function selectDebugTargetAtReference(room: CampusRoom): void {
   window.console.log(`[campus-debug] no selectable target near x=${Math.round(point.x)} y=${Math.round(point.y)}`);
 }
 
-useGLTF.preload(PLAYER_ALPACA_MODEL_SRC);
-useTexture.preload(CAMPUS_ORNATE_FRAME_TEXTURE_SRC);
-Object.values(PLAYER_ALPACA_TEXTURES).forEach((src) => useTexture.preload(src));
-
 function KeyboardDriver({ room }: { room: CampusRoom }): null {
   const keysRef = useRef<Record<string, boolean>>({});
 
@@ -2176,7 +2254,17 @@ function FollowCamera({ room }: { room: CampusRoom }): null {
 
 function LocalAvatar({ room }: { room: CampusRoom }): ReactElement {
   const player = useCampusStore((state) => state.localPlayer);
-  return <AlpacaAvatarMesh room={room} player={player} />;
+  const modelEnabled = useDeferredAvatarModelEnabled(`${room.id}:${player.avatar.textureId}:${player.seatId || ""}`);
+
+  if (!modelEnabled) {
+    return <AlpacaAvatarProxy room={room} player={player} />;
+  }
+
+  return (
+    <Suspense fallback={<AlpacaAvatarProxy room={room} player={player} />}>
+      <AlpacaAvatarMesh room={room} player={player} />
+    </Suspense>
+  );
 }
 
 function RemoteAvatars({ room }: { room: CampusRoom }): ReactElement {
@@ -2185,9 +2273,65 @@ function RemoteAvatars({ room }: { room: CampusRoom }): ReactElement {
   return (
     <>
       {players.map((player) => (
-        <AlpacaAvatarMesh key={player.clientId} room={room} player={player} />
+        <RemoteAvatar key={player.clientId} room={room} player={player} />
       ))}
     </>
+  );
+}
+
+function RemoteAvatar({ room, player }: { room: CampusRoom; player: CampusPlayer }): ReactElement {
+  const modelEnabled = useDeferredAvatarModelEnabled(`${room.id}:${player.clientId}:${player.avatar.textureId}:${player.seatId || ""}`);
+
+  if (!modelEnabled) {
+    return <AlpacaAvatarProxy room={room} player={player} />;
+  }
+
+  return (
+    <Suspense fallback={<AlpacaAvatarProxy room={room} player={player} />}>
+      <AlpacaAvatarMesh room={room} player={player} />
+    </Suspense>
+  );
+}
+
+function useDeferredAvatarModelEnabled(resetKey: string): boolean {
+  const [modelEnabled, setModelEnabled] = useState(false);
+
+  useEffect(() => {
+    setModelEnabled(false);
+    const idleCallback = window.requestIdleCallback;
+    if (idleCallback) {
+      const id = idleCallback(() => setModelEnabled(true), { timeout: 1800 });
+      return () => window.cancelIdleCallback?.(id);
+    }
+
+    const timerId = window.setTimeout(() => setModelEnabled(true), 1200);
+    return () => window.clearTimeout(timerId);
+  }, [resetKey]);
+
+  return modelEnabled;
+}
+
+function AlpacaAvatarProxy({
+  room,
+  player
+}: {
+  room: CampusRoom;
+  player: CampusPlayer;
+}): ReactElement {
+  const [x, y, z] = worldToScene(room, player, getPlayerAvatarBaseHeight(room, player));
+  const isSitting = Boolean(player.seatId);
+
+  return (
+    <group position={[x, y, z]} rotation={[0, Math.PI, 0]}>
+      <mesh position={[0, 0.34, 0]} castShadow receiveShadow>
+        <cylinderGeometry args={[0.18, 0.22, isSitting ? 0.28 : 0.38, 14]} />
+        <meshStandardMaterial color={player.avatar.wool || "#d8c0a2"} roughness={0.82} />
+      </mesh>
+      <mesh position={[0, 0.68, -0.02]} castShadow receiveShadow>
+        <sphereGeometry args={[0.22, 16, 12]} />
+        <meshStandardMaterial color={player.avatar.wool || "#d8c0a2"} roughness={0.78} />
+      </mesh>
+    </group>
   );
 }
 

@@ -165,6 +165,7 @@ const channel = realtime.createCampusRoomChannel({
 channel.subscribe();
 await Promise.resolve();
 assert(trackedPayloads.length === 1, "Subscribe should track initial presence.");
+assert(!("x" in trackedPayloads[0]) && !("y" in trackedPayloads[0]), "Presence payload should not include movement coordinates.");
 
 await channel.sendMovement({ kind: "move", seq: 1, x: 10, y: 20, locomotion: "idle" });
 assert(sentPayloads.length === 1, "Normal movement payload should be sent.");

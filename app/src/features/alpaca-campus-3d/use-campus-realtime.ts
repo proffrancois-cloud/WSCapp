@@ -6,6 +6,7 @@ import {
   type CampusMovementSnapshot,
   shouldSendMovementFrame
 } from "./campus-network-guardrails";
+import { ensureSupabaseRealtimeLoaded } from "./campus-runtime-loader";
 import { useCampusStore } from "./campus-store";
 import {
   CAMPUS_MOVEMENT_POLICY,
@@ -106,11 +107,15 @@ export function useCampusRealtime(enabled = true): void {
   const localClientId = useCampusStore((state) => state.localPlayer.clientId);
   const localX = useCampusStore((state) => state.localPlayer.x);
   const localY = useCampusStore((state) => state.localPlayer.y);
+  const localAvatarId = useCampusStore((state) => state.localPlayer.avatar.id);
+  const localActivityId = useCampusStore((state) => state.localPlayer.activityId);
   const claimedSeatId = useCampusStore((state) => state.claimedSeatId);
   const pendingSeatEvent = useCampusStore((state) => state.pendingSeatEvent);
   const pendingChatMessage = useCampusStore((state) => state.pendingChatMessage);
   const channelRef = useRef<CampusRoomChannel | null>(null);
   const lastSentAtRef = useRef(0);
+  const lastPresenceSentAtRef = useRef(0);
+  const lastPresenceSignatureRef = useRef("");
   const lastMovementFrameRef = useRef<CampusMovementSnapshot | null>(null);
 
   useEffect(() => {
@@ -129,105 +134,179 @@ export function useCampusRealtime(enabled = true): void {
       return undefined;
     }
 
-    const { client, status } = createSupabaseClient();
-    if (!client || status !== "connected") {
-      useCampusStore.getState().setRealtimeStatus(status === "missing-config" ? "Supabase config missing" : CAMPUS_NETWORK_FALLBACK_POLICY.statusLabel);
-      return undefined;
-    }
-
-    const state = useCampusStore.getState();
+    const createChannel = factory;
     let active = true;
-    const channel = factory({
-      client,
-      roomId,
-      localPlayer: {
-        ...state.localPlayer,
-        roomId
-      },
-      handlers: {
-        onStatus(nextStatus: string) {
-          if (!active || channelRef.current !== channel) {
-            return;
-          }
+    let activeChannel: CampusRoomChannel | null = null;
 
-          useCampusStore.getState().setRealtimeStatus(mapRealtimeStatus(nextStatus));
+    async function startRealtime() {
+      useCampusStore.getState().setRealtimeStatus("Loading realtime");
+      const supabaseReady = await ensureSupabaseRealtimeLoaded();
+      if (!active) {
+        return;
+      }
+
+      if (!supabaseReady) {
+        useCampusStore.getState().setRealtimeStatus(CAMPUS_NETWORK_FALLBACK_POLICY.statusLabel);
+        return;
+      }
+
+      const { client, status } = createSupabaseClient();
+      if (!client || status !== "connected") {
+        useCampusStore.getState().setRealtimeStatus(status === "missing-config" ? "Supabase config missing" : CAMPUS_NETWORK_FALLBACK_POLICY.statusLabel);
+        return;
+      }
+
+      const state = useCampusStore.getState();
+      const channel = createChannel({
+        client,
+        roomId,
+        localPlayer: {
+          ...state.localPlayer,
+          roomId
         },
-        onPresenceSync(players: Array<Record<string, unknown>>) {
-          if (!active || channelRef.current !== channel) {
-            return;
-          }
+        handlers: {
+          onStatus(nextStatus: string) {
+            if (!active || channelRef.current !== channel) {
+              return;
+            }
 
-          useCampusStore.getState().setRemotePlayers(
-            players.filter((player) => isPayloadForRoom(player, roomId))
-          );
-        },
-        onMove(payload: Record<string, unknown>) {
-          if (!active) {
-            return;
-          }
+            useCampusStore.getState().setRealtimeStatus(mapRealtimeStatus(nextStatus));
+          },
+          onPresenceSync(players: Array<Record<string, unknown>>) {
+            if (!active || channelRef.current !== channel) {
+              return;
+            }
 
-          if (
-            !isPayloadForRoom(payload, roomId) ||
-            !isInboundPayloadWithinLimit(payload, CAMPUS_MOVEMENT_POLICY.maxPayloadBytes)
-          ) {
-            return;
-          }
+            useCampusStore.getState().setRemotePlayers(
+              players.filter((player) => isPayloadForRoom(player, roomId))
+            );
+          },
+          onMove(payload: Record<string, unknown>) {
+            if (!active) {
+              return;
+            }
 
-          useCampusStore.getState().upsertRemotePlayer(payload);
-        },
-        onAvatar(payload: Record<string, unknown>) {
-          if (!active) {
-            return;
-          }
+            if (
+              !isPayloadForRoom(payload, roomId) ||
+              !isInboundPayloadWithinLimit(payload, CAMPUS_MOVEMENT_POLICY.maxPayloadBytes)
+            ) {
+              return;
+            }
 
-          useCampusStore.getState().upsertRemotePlayer(payload);
-        },
-        onChat(payload: Record<string, unknown>) {
-          if (!active) {
-            return;
-          }
+            useCampusStore.getState().upsertRemotePlayer(payload);
+          },
+          onAvatar(payload: Record<string, unknown>) {
+            if (!active) {
+              return;
+            }
 
-          if (!isPayloadForRoom(payload, roomId) || getJsonPayloadByteSize(payload) > 1024) {
-            return;
-          }
+            useCampusStore.getState().upsertRemotePlayer(payload);
+          },
+          onChat(payload: Record<string, unknown>) {
+            if (!active) {
+              return;
+            }
 
-          useCampusStore.getState().receiveChatMessage(payload);
-        },
-        onObject(payload: Record<string, unknown>) {
-          if (!active) {
-            return;
-          }
+            if (!isPayloadForRoom(payload, roomId) || getJsonPayloadByteSize(payload) > 1024) {
+              return;
+            }
 
-          const eventName = String(payload.eventName || "");
-          if (eventName !== CAMPUS_NETWORK_EVENTS.seatClaimed && eventName !== CAMPUS_NETWORK_EVENTS.seatReleased) {
-            return;
-          }
+            useCampusStore.getState().receiveChatMessage(payload);
+          },
+          onObject(payload: Record<string, unknown>) {
+            if (!active) {
+              return;
+            }
 
-          const seatEvent = normalizeSeatPayload(payload);
-          if (seatEvent) {
-            useCampusStore.getState().syncSeatEvent(seatEvent);
+            const eventName = String(payload.eventName || "");
+            if (eventName !== CAMPUS_NETWORK_EVENTS.seatClaimed && eventName !== CAMPUS_NETWORK_EVENTS.seatReleased) {
+              return;
+            }
+
+            const seatEvent = normalizeSeatPayload(payload);
+            if (seatEvent) {
+              useCampusStore.getState().syncSeatEvent(seatEvent);
+            }
           }
         }
-      }
-    }) as CampusRoomChannel | null;
+      }) as CampusRoomChannel | null;
 
-    if (!channel) {
-      useCampusStore.getState().setRealtimeStatus(CAMPUS_NETWORK_FALLBACK_POLICY.statusLabel);
-      return undefined;
+      if (!channel) {
+        useCampusStore.getState().setRealtimeStatus(CAMPUS_NETWORK_FALLBACK_POLICY.statusLabel);
+        return;
+      }
+
+      activeChannel = channel;
+      channelRef.current = channel;
+      lastMovementFrameRef.current = null;
+      lastPresenceSignatureRef.current = "";
+      lastSentAtRef.current = 0;
+      lastPresenceSentAtRef.current = 0;
+      channel.subscribe();
     }
 
-    channelRef.current = channel;
-    lastMovementFrameRef.current = null;
-    lastSentAtRef.current = 0;
-    channel.subscribe();
+    void startRealtime();
 
     return () => {
       active = false;
       channelRef.current = null;
       lastMovementFrameRef.current = null;
-      void channel.destroy();
+      lastPresenceSignatureRef.current = "";
+      if (activeChannel) {
+        void activeChannel.destroy();
+      }
     };
   }, [enabled, campusMode, roomId, localClientId]);
+
+  const sendPresenceUpdate = useCallback((forceHeartbeat = false) => {
+    const channel = channelRef.current;
+    if (!enabled || campusMode !== "multiplayer" || !channel) {
+      return;
+    }
+
+    const now = window.performance.now();
+    if (!forceHeartbeat && now - lastPresenceSentAtRef.current < CAMPUS_PRESENCE_POLICY.refreshIntervalMs) {
+      return;
+    }
+
+    const sentAtMs = Date.now();
+    const state = useCampusStore.getState();
+    const player = state.localPlayer;
+    const status = state.claimedSeatId ? "sitting" : state.movementTarget ? "walking" : "online";
+    const payload = {
+      v: CAMPUS_NETWORK_PROTOCOL_VERSION,
+      schema: CAMPUS_NETWORK_SCHEMA,
+      kind: "presence",
+      roomId,
+      avatar: player.avatar,
+      status,
+      seatId: state.claimedSeatId || undefined,
+      activityId: player.activityId,
+      interest: {
+        mode: player.activityId ? "activity" : "room",
+        seatId: state.claimedSeatId || undefined,
+        activityId: player.activityId
+      },
+      updatedAtMs: sentAtMs
+    };
+    const signature = JSON.stringify({
+      roomId,
+      avatarId: player.avatar.id,
+      status,
+      seatId: state.claimedSeatId || "",
+      activityId: player.activityId || ""
+    });
+
+    if (!forceHeartbeat && signature === lastPresenceSignatureRef.current) {
+      return;
+    }
+
+    if (isPayloadWithinByteLimit(payload, CAMPUS_PRESENCE_POLICY.maxPayloadBytes)) {
+      void channel.updatePresence(payload);
+      lastPresenceSentAtRef.current = now;
+      lastPresenceSignatureRef.current = signature;
+    }
+  }, [enabled, campusMode, roomId]);
 
   const sendLocalNetworkFrame = useCallback((forceHeartbeat = false) => {
     const channel = channelRef.current;
@@ -263,22 +342,6 @@ export function useCampusRealtime(enabled = true): void {
     }
 
     const sentAtMs = Date.now();
-    const presencePayload = {
-      v: CAMPUS_NETWORK_PROTOCOL_VERSION,
-      schema: CAMPUS_NETWORK_SCHEMA,
-      kind: "presence",
-      roomId,
-      x,
-      y,
-      avatar: player.avatar,
-      status: frame.locomotion || "online",
-      seatId: state.claimedSeatId || undefined,
-      interest: {
-        mode: "room",
-        seatId: state.claimedSeatId || undefined
-      },
-      updatedAtMs: sentAtMs
-    };
     const movementPayload = {
       v: CAMPUS_NETWORK_PROTOCOL_VERSION,
       schema: CAMPUS_NETWORK_SCHEMA,
@@ -293,10 +356,6 @@ export function useCampusRealtime(enabled = true): void {
       seatId: state.claimedSeatId || undefined
     };
 
-    if (isPayloadWithinByteLimit(presencePayload, CAMPUS_PRESENCE_POLICY.maxPayloadBytes)) {
-      void channel.updatePresence(presencePayload);
-    }
-
     if (isPayloadWithinByteLimit(movementPayload, CAMPUS_MOVEMENT_POLICY.maxPayloadBytes)) {
       void channel.sendMovement(movementPayload);
       lastSentAtRef.current = now;
@@ -309,6 +368,10 @@ export function useCampusRealtime(enabled = true): void {
   }, [sendLocalNetworkFrame, localX, localY, claimedSeatId]);
 
   useEffect(() => {
+    sendPresenceUpdate(true);
+  }, [sendPresenceUpdate, roomId, claimedSeatId, localAvatarId, localActivityId]);
+
+  useEffect(() => {
     if (!enabled || campusMode !== "multiplayer") {
       return undefined;
     }
@@ -319,6 +382,18 @@ export function useCampusRealtime(enabled = true): void {
     );
     return () => window.clearInterval(timerId);
   }, [enabled, campusMode, sendLocalNetworkFrame]);
+
+  useEffect(() => {
+    if (!enabled || campusMode !== "multiplayer") {
+      return undefined;
+    }
+
+    const timerId = window.setInterval(
+      () => sendPresenceUpdate(true),
+      CAMPUS_PRESENCE_POLICY.refreshIntervalMs
+    );
+    return () => window.clearInterval(timerId);
+  }, [enabled, campusMode, sendPresenceUpdate]);
 
   useEffect(() => {
     const channel = channelRef.current;
