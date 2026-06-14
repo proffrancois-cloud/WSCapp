@@ -225,7 +225,8 @@ Highest-value next extractions from the architecture analysis:
 - mode-specific renderers that can move behind feature modules;
 - remaining game-specific board/render helper builders that can move behind
   feature modules after current smoke coverage is broadened;
-- a classic-script dependency map before any ES module or bundler migration.
+- continue from the new classic-script dependency map toward explicit module
+  imports only after the browser-script boundaries are stable.
 
 Non-goals remain important: do not rewrite the whole main app in React now, do
 not move all UI into TypeScript at once, and do not reopen legacy live rooms
@@ -263,6 +264,22 @@ Acceptance:
 - no class renames unless proven safe;
 - visual smoke check on desktop and mobile sizes;
 - no layout regressions in entry gate and major modes.
+
+## Pass 5B: Guard Classic Script Dependencies
+
+Status: started. `test:classic-scripts` now validates the main `index.html`
+classic-script order and the campus content-loader script order. It catches
+missing local script files, duplicate script tags, consumers loaded before their
+`window.WSC_*` providers, and new main-app providers under `app/src` that are
+not loaded by `index.html`.
+
+Next app.js cleanup work:
+
+- extract the remaining Alpacapardy board/setup/render bridge into
+  `app/src/app/alpacapardy-board-controller.js`;
+- keep compatibility wrappers in `app.js`;
+- let `test:classic-scripts` catch the new provider if the script tag is missing
+  or ordered incorrectly.
 
 ## Pass 6: Build Unification
 

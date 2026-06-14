@@ -74,6 +74,7 @@ VITE_BASE=/WSCapp/ npm run build:pages
 npm run audit:pages
 npm run verify
 npm run verify:vercel
+npm run test:classic-scripts
 ```
 
 Optional content checks:
@@ -104,6 +105,8 @@ Vercel and GitHub Pages are deliberately separate right now.
 - `npm run audit:pages` and `npm run audit:vercel` verify that public artifacts
   do not include package metadata, SQL, source-only TS/TSX, docs, desktop code,
   local artifacts, or test/build debris.
+- `npm run test:classic-scripts` verifies that `index.html` and the 3D campus
+  content loader keep classic `window.WSC_*` providers before their consumers.
 - `npm run verify:vercel` builds and audits `app/dist-vercel/` without
   deploying Vercel.
 - `.github/workflows/verify.yml` runs the PR, `codex/**`, and `main`
@@ -166,7 +169,9 @@ WSCapp/
 `app/index.html` loads classic browser scripts in a strict order. Those scripts
 attach APIs to `window.WSC_*`. `app/app.js` reads those globals and coordinates
 state, navigation, render calls, auth, progress, game launches, and online/live
-flows.
+flows. `classic-script-dependency-map-test.mjs` now guards this implicit
+dependency map in CI; it is a safety rail, not a replacement for eventual ES
+module imports.
 
 Recent extractions reduce `app.js` without changing behavior:
 
@@ -398,8 +403,8 @@ Most important roadmap recommendations from the DOCX:
 
 ## Suggested Next Refactor Passes
 
-1. Continue shrinking `app.js` by extracting remaining game render/build
-   orchestration.
+1. Extract the Alpacapardy board/setup/render bridge after the classic-script
+   dependency guard has landed.
 2. Add screenshot-based UI coverage before semantic CSS cleanup.
 3. Move remaining game board/render helper builders behind feature modules.
 4. Review Supabase RLS and realtime policy before expanding real multiplayer.
