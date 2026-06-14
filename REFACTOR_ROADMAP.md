@@ -93,8 +93,11 @@ Current progress:
 - `src/app/app-shell-renderer.js` now owns app-shell rendering for insight
   cards, stats, session controls, the app-entry gate, app-entry auth panel,
   auth modal context/render wrappers, summary chips, resources, and cooperation
-  modals while `app.js` keeps state transitions, render timing, and action
-  policy.
+  modals.
+- `src/app/app-shell-controller.js` now owns app-shell render orchestration,
+  header menu toggling, app-entry local/online transitions, popup scroll-lock
+  decisions, auth chrome refresh, and resource-link constants while `app.js`
+  keeps compatibility wrappers for existing router callbacks.
 - `src/app/alpacards-controller.js` now owns Alpacards selection, experience
   construction, renderer bridging, carousel DOM synchronization, flip,
   navigation, and shuffle mechanics while `app.js` keeps compatibility wrappers
@@ -198,9 +201,9 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the raw-content override extraction,
-`app.js` is about 10.1k lines, so it is improved but still just above the
-target for the Medium-risk band.
+automatic safety guarantees. After the app-shell controller extraction,
+`app.js` is just under 10.0k lines, so it has crossed the first Medium-risk
+size gate while still needing more responsibility cleanup.
 
 | `app.js` state | Target risk | Meaning |
 | --- | --- | --- |

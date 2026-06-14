@@ -172,6 +172,9 @@ Recent extractions reduce `app.js` without changing behavior:
 - `app-entry-service.js`: app entry labels and campus launcher metadata.
 - `app-shell-renderer.js`: stats, session controls, app-entry/auth shell,
   summary chips, resources, cooperation modal, and insight-card rendering.
+- `app-shell-controller.js`: app-shell render orchestration, header-menu
+  toggling, app-entry local/online transitions, popup scroll-lock decisions,
+  auth chrome refresh, and resource-link constants.
 - `alpacards-controller.js`: Alpacards selection, experience construction,
   renderer bridge, carousel sync, navigation, flip, and shuffle mechanics.
 - `alpaca-channel-controller.js`: Alpaca Channel experience construction,
@@ -287,9 +290,9 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the raw-content override extraction, `app/app.js` is about 10.1k lines.
-  That is smaller than the pre-refactor file, but still just above the target
-  for the Medium-risk threshold.
+- As of the app-shell controller extraction, `app/app.js` is just under 10.0k
+  lines. That crosses the first Medium-risk size gate, but it is still too
+  broad and should keep shrinking toward clearer responsibility boundaries.
 - `index.html` depends on strict script order and browser globals.
 - Main app modules are not true ES imports yet.
 - Route rendering and route policy remain partly mixed.

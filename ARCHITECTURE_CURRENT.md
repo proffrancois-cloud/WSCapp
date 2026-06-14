@@ -89,11 +89,12 @@ the legacy live-room renderer/controller, content-normalization helper, app
 event-router, raw-content controller, study-game controller, arcade-game
 controller, Alpacards controller/renderer bridge, Alpaca Channel/video
 controller, and Debate Lab/Build Case controller extractions, plus the
-route-builder view controller and app-shell renderer extractions, it is about
-10.1k lines, down from the roughly
+route-builder view controller, app-shell renderer, and app-shell controller
+extractions, it is just under 10.0k lines, down from the roughly
 19.2k-line state described in the
-architecture analysis DOCX, but it is still above the high-risk threshold for a
-single browser script. It owns or coordinates:
+architecture analysis DOCX. It has crossed the first size gate for Medium-risk
+review, but it is still too broad for a true low-risk browser script. It owns
+or coordinates:
 
 - global app state and DOM ref consumers;
 - app entry gate and local/online mode selection;
@@ -111,8 +112,8 @@ single browser script. It owns or coordinates:
 
 `app.js` is functional, but it is still a god file. Future work should extract
 small behavioral seams while keeping compatibility wrappers. The next risk
-target is to move it below 10k lines with passing smoke/build/typecheck gates;
-true low risk requires explicit imports, typed contracts, focused unit tests,
+target is to move below 8k lines with passing smoke/build/typecheck gates; true
+low risk requires explicit imports, typed contracts, focused unit tests,
 browser journey coverage, and much less dependence on `window.WSC_*` script
 order.
 
@@ -157,10 +158,12 @@ Important groups:
   initial state factories, selectors, DOM ref lookup, trusted HTML mount
   boundaries, text escaping helpers, template parsing, dynamic overlay mount
   creation, app-shell rendering for stats/session controls/entry/auth/resources
-  and cooperation modals, Alpacards selection/rendering/carousel bridge
-  mechanics, Alpaca Channel playlist/video helper mechanics, Debate Lab topic,
-  spinner, suggestion, scoring, and render mechanics, route-builder selection
-  state transitions, wizard view
+  and cooperation modals, app-shell render orchestration, header-menu toggling,
+  local/online entry transitions, popup scroll-lock decisions, auth chrome
+  refresh, Alpacards selection/rendering/carousel bridge mechanics, Alpaca
+  Channel playlist/video helper mechanics, Debate Lab topic, spinner,
+  suggestion, scoring, and render mechanics, route-builder selection state
+  transitions, wizard view
   orchestration, mode-choice card animation, Alpaccount
   auth/session orchestration, and local progress-storage orchestration,
   selected-mode launch/close mechanics, experience-panel render dispatch, and
