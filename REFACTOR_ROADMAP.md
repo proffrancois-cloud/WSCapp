@@ -153,10 +153,11 @@ Current progress:
   remaining Jeopardy-local game calls.
 - `src/app/content-normalization-helpers.js` now owns raw-content section/entry
   normalization, support-field cleanup, subject and big-idea alias mapping,
-  wrong-answer cleanup, and French-text fallback generation while `app.js`
-  keeps raw override data and startup wiring. Moving `RAW_ENTRY_OVERRIDES` and
-  `RAW_SECTION_OVERRIDES` out of `app.js` remains a separate
-  content-canonicalization pass.
+  wrong-answer cleanup, and French-text fallback generation. Editorial
+  raw-content overrides now live in
+  `content/themes/2026/compat/raw-content-overrides.json`, are generated into
+  `app/generated/current-runtime/content/raw-content-overrides.js`, and are
+  consumed through `window.WSC_RAW_CONTENT_OVERRIDES`.
 - `src/app/app-event-router.js` now owns document-level click, input, submit,
   keydown, wheel, touchstart, and touchend dispatch mechanics while `app.js`
   keeps the action implementations and compatibility handler wrappers.
@@ -197,9 +198,9 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the Debate Lab / Build Case extraction,
-`app.js` is about 11.0k lines, so it is improved but still above the target
-for the Medium-risk band.
+automatic safety guarantees. After the raw-content override extraction,
+`app.js` is about 10.1k lines, so it is improved but still just above the
+target for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |
 | --- | --- | --- |

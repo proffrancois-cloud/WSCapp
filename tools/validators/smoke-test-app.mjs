@@ -276,6 +276,8 @@ async function main() {
         quiz,
         legacy,
         v3,
+        rawEntryOverrides: Object.keys(window.WSC_RAW_CONTENT_OVERRIDES?.entryOverrides || {}).length,
+        rawSectionOverrides: Object.keys(window.WSC_RAW_CONTENT_OVERRIDES?.sectionOverrides || {}).length,
         videos: window.WSC_ALPACA_CHANNEL?.videos?.length || 0,
         alpacards: Array.isArray(window.WSC_ALPACARDS) ? window.WSC_ALPACARDS.length : 0,
         engines: {
@@ -346,6 +348,7 @@ async function main() {
     });
 
     const rawContent = await runModeSmoke(page, "We Are All in This to Get There", "rawcontent", "Raw Content");
+    const rawOverrideContent = await runModeSmoke(page, "The End is Nearish", "rawcontent", "When Power Is Supposed to Be Temporary");
     const alpacards = await runModeSmoke(page, "We Are All in This to Get There", "alpacard", "Alpacard");
     const channel = await runModeSmoke(page, "We Are All in This to Get There", "channel", "Alpaca Channel");
     const quiz = await runModeSmoke(page, "We Are All in This to Get There", "quiz", "Scholar's Challenge");
@@ -365,6 +368,7 @@ async function main() {
       boot,
       modes: {
         rawContent,
+        rawOverrideContent,
         alpacards,
         channel,
         quiz,
@@ -400,6 +404,9 @@ async function main() {
     }
     if (boot.legacy !== 0 || boot.v3 !== 0) {
       failures.push("generated runtime still contains legacy question arrays");
+    }
+    if (boot.rawEntryOverrides !== 14 || boot.rawSectionOverrides !== 1) {
+      failures.push("raw content overrides did not load with expected counts");
     }
     if (rawContent.rawCards < 1) {
       failures.push("raw content smoke check did not render raw cards");

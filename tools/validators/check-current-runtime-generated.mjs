@@ -23,6 +23,7 @@ const RUNTIME_FILES = [
   "assets-config.js",
   "raw-content-bank.js",
   "alpaca-channel.js",
+  "content/raw-content-overrides.js",
   "content/alpacards.js",
   "summary.json"
 ];
@@ -128,10 +129,12 @@ function computeRuntimeSummary(dir) {
   vm.createContext(context);
 
   loadRuntimeScript(context, dir, "raw-content-bank.js");
+  loadRuntimeScript(context, dir, "content/raw-content-overrides.js");
   loadRuntimeScript(context, dir, "alpaca-channel.js");
   loadRuntimeScript(context, dir, "content/alpacards.js");
 
   const rawContentBank = context.window.WSC_RAW_CONTENT_BANK || {};
+  const rawContentOverrides = context.window.WSC_RAW_CONTENT_OVERRIDES || {};
   const alpacaChannel = context.window.WSC_ALPACA_CHANNEL || {};
   const alpacardsPayload = context.window.WSC_ALPACARDS || [];
   const alpacards = Array.isArray(alpacardsPayload)
@@ -158,6 +161,10 @@ function computeRuntimeSummary(dir) {
     guideQuestions,
     gameOnlyQuestions,
     fullVoyageQuestions: (rawContentBank.fullVoyageQuestions || []).length,
+    rawEntryOverrides: Object.keys(rawContentOverrides.entryOverrides || {}).length,
+    rawSectionOverrides: Object.keys(rawContentOverrides.sectionOverrides || {}).length,
+    rawSectionOverrideEntries: Object.values(rawContentOverrides.sectionOverrides || {})
+      .reduce((sum, section) => sum + (section.entries || []).length, 0),
     videos: (alpacaChannel.videos || []).length,
     alpacards: alpacards.length
   };

@@ -16,6 +16,7 @@ const requiredPaths = [
   "service-worker.js",
   "manifest.webmanifest",
   "generated/current-runtime/data.js",
+  "generated/current-runtime/content/raw-content-overrides.js",
   "generated/current-runtime/content/alpacards.js",
   "content/debate/debate-lab-data.js",
   "content/debate/debate-judge-instructions.pdf",

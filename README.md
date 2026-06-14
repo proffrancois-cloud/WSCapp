@@ -62,6 +62,11 @@ matches a fresh generation from `content/themes/2026/`. Use
 `npm run theme:compare:strict` and `npm run theme:compare:legacy-audit` for
 legacy compatibility audits only; they are not the source-of-truth gate.
 
+Editorial raw-content corrections are part of that source-of-truth flow:
+`content/themes/2026/compat/raw-content-overrides.json` is generated into
+`app/generated/current-runtime/content/raw-content-overrides.js` and loaded as
+`window.WSC_RAW_CONTENT_OVERRIDES`.
+
 ## Cleanup Rule
 
 Active runtime/source stays in `app/`, `content/`, and `tools/`. Anything not loaded, generated, or intentionally kept for current validation goes to `archive/toreview/` instead of being deleted.

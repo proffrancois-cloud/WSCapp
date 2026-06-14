@@ -14,6 +14,10 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+function readJsonIfExists(filePath, fallback) {
+  return fs.existsSync(filePath) ? readJson(filePath) : fallback;
+}
+
 function writeJsonScript(filePath, globalName, data, declaration = "window") {
   ensureDir(path.dirname(filePath));
   fs.writeFileSync(filePath, `${declaration}.${globalName} = ${JSON.stringify(data, null, 2)};\n`);
@@ -202,6 +206,32 @@ function buildRawContentBank(manifest) {
   };
 }
 
+function buildRawContentOverrides(rawContentBank) {
+  const overrides = readJsonIfExists(path.join(THEME_DIR, "compat/raw-content-overrides.json"), {
+    entryOverrides: {},
+    sectionOverrides: {}
+  });
+  const sectionOverrides = structuredClone(overrides.sectionOverrides || {});
+
+  for (const section of Object.values(sectionOverrides)) {
+    for (const entry of section.entries || []) {
+      const source = entry.rawOfficialTextSource;
+      if (!source || typeof source !== "object") {
+        continue;
+      }
+
+      const sourceEntry = rawContentBank.sections?.[source.sectionId]?.entries?.[source.entryIndex] || {};
+      entry.rawOfficialText = sourceEntry.rawOfficialText || "";
+      delete entry.rawOfficialTextSource;
+    }
+  }
+
+  return {
+    entryOverrides: overrides.entryOverrides || {},
+    sectionOverrides
+  };
+}
+
 function buildAlpacaChannel(manifest) {
   const metadata = readJson(path.join(THEME_DIR, "compat/alpaca-channel-metadata.json"));
   const order = readJson(path.join(THEME_DIR, "compat/alpaca-channel-order.json"));
@@ -271,7 +301,7 @@ function buildAlpacards(manifest) {
   return cards;
 }
 
-function summarize(rawContentBank, alpacaChannel, alpacards) {
+function summarize(rawContentBank, rawContentOverrides, alpacaChannel, alpacards) {
   let entries = 0;
   let quizQuestions = 0;
   let guideQuestions = 0;
@@ -291,6 +321,10 @@ function summarize(rawContentBank, alpacaChannel, alpacards) {
     guideQuestions,
     gameOnlyQuestions,
     fullVoyageQuestions: (rawContentBank.fullVoyageQuestions || []).length,
+    rawEntryOverrides: Object.keys(rawContentOverrides.entryOverrides || {}).length,
+    rawSectionOverrides: Object.keys(rawContentOverrides.sectionOverrides || {}).length,
+    rawSectionOverrideEntries: Object.values(rawContentOverrides.sectionOverrides || {})
+      .reduce((sum, section) => sum + (section.entries || []).length, 0),
     videos: (alpacaChannel.videos || []).length,
     alpacards: alpacards.length
   };
@@ -302,6 +336,7 @@ function main() {
   const knowledgeBank = readJson(path.join(THEME_DIR, "compat/knowledge-bank.json"));
   const assetConfig = readJson(path.join(THEME_DIR, "compat/assets-config.json"));
   const rawContentBank = buildRawContentBank(manifest);
+  const rawContentOverrides = buildRawContentOverrides(rawContentBank);
   const alpacaChannel = buildAlpacaChannel(manifest);
   const alpacards = buildAlpacards(manifest);
 
@@ -312,11 +347,12 @@ function main() {
   writeWindowScript(path.join(OUT_DIR, "knowledge-bank.js"), "WSC_KNOWLEDGE_BANK", knowledgeBank);
   writeWindowScript(path.join(OUT_DIR, "assets-config.js"), "WSC_ASSETS", assetConfig);
   writeWindowScript(path.join(OUT_DIR, "raw-content-bank.js"), "WSC_RAW_CONTENT_BANK", rawContentBank);
+  writeWindowScript(path.join(OUT_DIR, "content/raw-content-overrides.js"), "WSC_RAW_CONTENT_OVERRIDES", rawContentOverrides);
   writeWindowScript(path.join(OUT_DIR, "alpaca-channel.js"), "WSC_ALPACA_CHANNEL", alpacaChannel);
   writeWindowScript(path.join(OUT_DIR, "content/alpacards.js"), "WSC_ALPACARDS", alpacards);
   fs.writeFileSync(
     path.join(OUT_DIR, "summary.json"),
-    `${JSON.stringify(summarize(rawContentBank, alpacaChannel, alpacards), null, 2)}\n`
+    `${JSON.stringify(summarize(rawContentBank, rawContentOverrides, alpacaChannel, alpacards), null, 2)}\n`
   );
 
   console.log(`Generated compatibility runtime in ${path.relative(ROOT, OUT_DIR)}`);
