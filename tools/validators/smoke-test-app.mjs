@@ -63,13 +63,18 @@ function findCachedPlaywright() {
 }
 
 function loadPlaywright() {
-  const require = createRequire(import.meta.url);
+  const appRequire = createRequire(path.join(APP_DIR, "package.json"));
   try {
-    return require("playwright");
-  } catch (_error) {
-    const cached = findCachedPlaywright();
-    if (cached) {
-      return require(cached);
+    return appRequire("playwright");
+  } catch (_appError) {
+    const toolRequire = createRequire(import.meta.url);
+    try {
+      return toolRequire("playwright");
+    } catch (_toolError) {
+      const cached = findCachedPlaywright();
+      if (cached) {
+        return toolRequire(cached);
+      }
     }
   }
 
