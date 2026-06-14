@@ -107,7 +107,8 @@ or coordinates:
 - progress, stats, and local storage integration through the extracted
   progress-storage controller;
 - learn/play/train mode bridges;
-- live Alpacapardy room wrappers and game-specific compatibility calls;
+- live Alpacapardy room wrappers plus local Alpacapardy action compatibility
+  calls through the extracted controller;
 - timers and cleanup for games and overlays.
 
 `app.js` is functional, but it is still a god file. Future work should extract
@@ -172,11 +173,12 @@ Important groups:
   `app-event-router.js`, Raw Content/media-lightbox orchestration through
   `raw-content-controller.js`, local Writing/Bowl/Alpaquiz action mechanics
   through `study-game-controller.js`, and local Race/Run/Relay/Jump action
-  mechanics through `arcade-game-controller.js`, plus legacy/live room access,
-  lobby/session sync, event reducers, chat, and start/join/leave actions
-  through `legacy-live-room-controller.js`, and raw-content import
-  normalization, title cleanup, support-field cleanup, subject/big-idea alias
-  mapping, and French-text fallback generation through
+  mechanics through `arcade-game-controller.js`, local Alpacapardy setup/team/
+  tile/focus/answer/timer mechanics through `alpacapardy-controller.js`, plus
+  legacy/live room access, lobby/session sync, event reducers, chat, and
+  start/join/leave actions through `legacy-live-room-controller.js`, and
+  raw-content import normalization, title cleanup, support-field cleanup,
+  subject/big-idea alias mapping, and French-text fallback generation through
   `content-normalization-helpers.js`.
 - `src/services/`: assets, storage, progress, video helpers, auth, Supabase
   profile calls, raw content filtering, game questions, Scholar's Bowl, and
@@ -222,8 +224,10 @@ The older main-app Alpaca Online/live room screens are separate legacy/future
 live game room mechanics. Their rendering now lives in
 `legacy-live-room-renderer.js`, and their access, lobby/session sync, live
 event reducers, chat, and start/join/leave actions now live in
-`legacy-live-room-controller.js`. `app.js` keeps compatibility wrappers and
-some Jeopardy-specific local game calls. These screens are not the public
+`legacy-live-room-controller.js`. Local Alpacapardy setup, team, tile, focus,
+answer-resolution, and clue-timer mechanics now live in
+`alpacapardy-controller.js`; `app.js` keeps compatibility wrappers plus board
+builders and renderer helper assembly. These screens are not the public
 `Explore preview` destination, and `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED` keeps
 them disabled in public builds.
 

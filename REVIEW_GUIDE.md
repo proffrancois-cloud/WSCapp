@@ -372,7 +372,8 @@ Most important roadmap recommendations from the DOCX:
 
 - Keep `npm run test:smoke` as the baseline app boot/mode check.
 - Add browser tests for entry gate, local route builder, Raw Content,
-  Alpacards, Alpacapardy, and 3D campus launch.
+  Alpacards, the local Alpacapardy start/open/answer/return flow, and 3D
+  campus launch.
 - Add targeted auth tests once auth flows are isolated enough.
 - Add visual regression snapshots before major CSS cleanup.
 
@@ -397,7 +398,7 @@ Most important roadmap recommendations from the DOCX:
 1. Continue shrinking `app.js` by extracting remaining game render/build
    orchestration.
 2. Add screenshot-based UI coverage before semantic CSS cleanup.
-3. Extract remaining Jeopardy local tile/focus/start mechanics.
+3. Move remaining game board/render helper builders behind feature modules.
 4. Review Supabase RLS and realtime policy before expanding real multiplayer.
 5. Move the main app toward true module imports once enough boundaries are
    stable.
