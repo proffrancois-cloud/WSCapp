@@ -63,13 +63,18 @@ function findCachedPlaywright() {
 }
 
 function loadPlaywright() {
-  const require = createRequire(import.meta.url);
+  const appRequire = createRequire(path.join(APP_DIR, "package.json"));
   try {
-    return require("playwright");
-  } catch (_error) {
-    const cached = findCachedPlaywright();
-    if (cached) {
-      return require(cached);
+    return appRequire("playwright");
+  } catch (_appError) {
+    const toolRequire = createRequire(import.meta.url);
+    try {
+      return toolRequire("playwright");
+    } catch (_toolError) {
+      const cached = findCachedPlaywright();
+      if (cached) {
+        return toolRequire(cached);
+      }
     }
   }
 
@@ -79,18 +84,30 @@ function loadPlaywright() {
 async function runModeSmoke(page, sectionName, modeId, expectedText) {
   await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
   await chooseLocalRoute(page);
-  await page.evaluate((targetSectionName) => {
-    const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
-      .find((button) => (button.dataset.sectionTitle || button.textContent || "").match(targetSectionName));
-    if (sectionButton && sectionButton.getAttribute("aria-pressed") !== "true") {
-      sectionButton.click();
-    }
-  }, sectionName);
-  await page.waitForTimeout(300);
-  await page.evaluate((targetModeId) => {
-    document.querySelector(`[data-pick-mode="${targetModeId}"]`)?.click();
+  await page.waitForFunction(() => window.WSC_APP_READY === true && document.querySelector(".mode-choice-board"));
+
+  await ensureSectionAndModeReady(page, sectionName, modeId);
+
+  const modePath = await page.evaluate((targetModeId) => {
+    const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]`);
+    return modeButton?.dataset.pickModePath || modeButton?.closest("[data-mode-choice-path]")?.dataset.modeChoicePath || null;
   }, modeId);
-  await page.waitForTimeout(1000);
+  if (!modePath) {
+    throw new Error(`Could not find route-builder path for mode "${modeId}".`);
+  }
+
+  await page.evaluate((targetModePath) => {
+    const modeMenuButton = document.querySelector(`[data-toggle-mode-menu="${targetModePath}"]`);
+    if (!modeMenuButton) {
+      throw new Error(`Could not find mode menu button for "${targetModePath}".`);
+    }
+    modeMenuButton.click();
+  }, modePath);
+  await page.waitForFunction((targetModePath) => {
+    return document.querySelector(`[data-mode-choice-path="${targetModePath}"]`)?.classList.contains("is-open");
+  }, modePath);
+  await clickEnabledModeCard(page, sectionName, modeId);
+  await page.waitForFunction(() => !document.querySelector("#experiencePanel")?.classList.contains("hidden"), null, { timeout: 8000 }).catch(() => {});
 
   return page.evaluate((text) => {
     const panel = document.querySelector("#experiencePanel");
@@ -107,15 +124,113 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   }, expectedText);
 }
 
+async function clickEnabledModeCard(page, sectionName, modeId) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    await ensureSectionAndModeReady(page, sectionName, modeId);
+    const clicked = await page.evaluate((targetModeId) => {
+      const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]:not([disabled])`);
+      if (!modeButton) {
+        return false;
+      }
+      modeButton.click();
+      return true;
+    }, modeId);
+
+    if (clicked) {
+      return;
+    }
+
+    await page.waitForTimeout(350);
+  }
+
+  const diagnostics = await page.evaluate((targetModeId) => {
+    return [...document.querySelectorAll(`[data-pick-mode="${targetModeId}"]`)]
+      .map((button) => ({
+        path: button.dataset.pickModePath || button.closest("[data-mode-choice-path]")?.dataset.modeChoicePath || "",
+        disabled: button.disabled,
+        className: button.className,
+        text: button.textContent?.replace(/\s+/g, " ").trim() || ""
+      }));
+  }, modeId);
+
+  throw new Error(`Could not click enabled mode card for "${modeId}": ${JSON.stringify(diagnostics)}`);
+}
+
+async function ensureSectionAndModeReady(page, sectionName, modeId) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    await page.evaluate((targetSectionName) => {
+      const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
+        .find((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName));
+      if (!sectionButton) {
+        throw new Error(`Could not find section chip for "${targetSectionName}".`);
+      }
+      if (sectionButton.getAttribute("aria-pressed") !== "true") {
+        sectionButton.click();
+      }
+    }, sectionName);
+
+    const ready = await page.waitForFunction(
+      ({ targetSectionName, targetModeId }) => {
+        const sectionSelected = [...document.querySelectorAll("[data-toggle-mode-section]")]
+          .some((button) => (
+            (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName)
+            && button.getAttribute("aria-pressed") === "true"
+          ));
+        const boardHasSelection = Boolean(document.querySelector(".mode-choice-board.has-section-selection"));
+        const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]`);
+        return sectionSelected && boardHasSelection && Boolean(modeButton && !modeButton.disabled);
+      },
+      { targetSectionName: sectionName, targetModeId: modeId },
+      { timeout: 4000 }
+    ).then(() => true).catch(() => false);
+
+    if (ready) {
+      return;
+    }
+  }
+
+  const diagnostics = await page.evaluate(({ targetSectionName, targetModeId }) => {
+    return {
+      selectedSections: [...document.querySelectorAll("[data-toggle-mode-section]")]
+        .filter((button) => button.getAttribute("aria-pressed") === "true")
+        .map((button) => button.dataset.sectionTitle || button.textContent?.replace(/\s+/g, " ").trim() || ""),
+      targetSectionButtons: [...document.querySelectorAll("[data-toggle-mode-section]")]
+        .filter((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName))
+        .map((button) => ({
+          title: button.dataset.sectionTitle || button.textContent?.replace(/\s+/g, " ").trim() || "",
+          pressed: button.getAttribute("aria-pressed"),
+          disabled: button.disabled
+        })),
+      boardClass: document.querySelector(".mode-choice-board")?.className || "",
+      modeButtons: [...document.querySelectorAll(`[data-pick-mode="${targetModeId}"]`)]
+        .map((button) => ({
+          path: button.dataset.pickModePath || button.closest("[data-mode-choice-path]")?.dataset.modeChoicePath || "",
+          disabled: button.disabled,
+          className: button.className
+        }))
+    };
+  }, { targetSectionName: sectionName, targetModeId: modeId });
+
+  throw new Error(`Route builder did not enable ${modeId}: ${JSON.stringify(diagnostics)}`);
+}
+
 async function chooseLocalRoute(page) {
-  const localChoice = page.locator('[data-app-entry-choice="local"]');
-  if ((await localChoice.count()) > 0) {
-    await localChoice.click({ timeout: 40000 });
-  }
-  const cooperationClose = page.locator("[data-close-cooperation]").first();
-  if ((await cooperationClose.count()) > 0) {
-    await cooperationClose.click({ timeout: 40000 });
-  }
+  await page.waitForFunction(() => window.WSC_APP_READY === true, null, { timeout: 60000 });
+
+  await page.evaluate(() => {
+    document.querySelector('[data-app-entry-choice="local"]')?.click();
+  });
+
+  await page.waitForFunction(() => !document.querySelector(".app-entry-gate-overlay"), null, { timeout: 40000 });
+
+  await page.evaluate(() => {
+    document.querySelector("[data-close-cooperation]")?.click();
+  });
+  await page.waitForFunction(() => {
+    return !document.querySelector('[role="dialog"][aria-modal="true"]')
+      && !document.body.classList.contains("with-popup")
+      && !document.querySelector("#routeBuilder")?.inert;
+  }, null, { timeout: 40000 });
 }
 
 async function main() {

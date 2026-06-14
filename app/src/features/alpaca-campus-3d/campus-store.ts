@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { readJsonFromBrowserStorage, writeJsonToBrowserStorage } from "./browser-storage";
 import {
   type CampusItem,
   type CampusPanel,
@@ -22,6 +23,12 @@ import {
   roundDebugZ,
   type CampusDebugPlacementClick
 } from "./campus-debug";
+import {
+  sanitizeNetworkCoordinate,
+  sanitizeNetworkId,
+  sanitizeNetworkText,
+  selectRenderedRemotePlayers
+} from "./campus-network-guardrails";
 
 export type AlpacaAvatar = {
   id: string;
@@ -115,6 +122,7 @@ type CampusState = {
   pendingSeatEvent: CampusSeatRuntimeEvent | null;
   pendingChatMessage: CampusChatMessage | null;
   viewSettings: CampusViewSettings;
+  highDetailEnabled: boolean;
   setCampusMode: (mode: CampusLaunchMode) => void;
   setRoom: (roomId: string, spawnId?: string) => void;
   setMovementTarget: (point: CampusPoint | null) => void;
@@ -133,6 +141,7 @@ type CampusState = {
   nudgeViewSettings: (delta: Partial<CampusViewSettings>) => void;
   setViewLight: (light: number) => void;
   resetViewSettings: () => void;
+  setHighDetailEnabled: (enabled: boolean) => void;
   openItemPanel: (item: CampusItem) => void;
   closePanel: () => void;
   claimSeat: (seat: CampusItem) => void;
@@ -159,6 +168,7 @@ export const avatarOptions: AlpacaAvatar[] = [
 ];
 
 const LOCAL_AVATAR_KEY = "wsc-campus-3d-avatar";
+const HIGH_DETAIL_KEY = "wsc-campus-3d-high-detail";
 const INITIAL_ROOM_ID = "campus-courtyard";
 export const DEFAULT_LOCAL_ALPACA_NAME = "Scholar Alpaca";
 export const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
@@ -187,15 +197,15 @@ const DEFAULT_VIEW_SETTINGS: CampusViewSettings = {
 };
 
 function readSavedAvatar(): AlpacaAvatar {
-  try {
-    const saved = window.localStorage.getItem(LOCAL_AVATAR_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved) as AlpacaAvatar;
-      return avatarOptions.find((avatar) => avatar.id === parsed.id) || avatarOptions[0];
-    }
-  } catch (_error) {}
-
+  const saved = readJsonFromBrowserStorage<Partial<AlpacaAvatar> | null>(LOCAL_AVATAR_KEY, null);
+  if (saved?.id) {
+    return avatarOptions.find((avatar) => avatar.id === saved.id) || avatarOptions[0];
+  }
   return avatarOptions[0];
+}
+
+function readSavedHighDetailEnabled(): boolean {
+  return Boolean(readJsonFromBrowserStorage<boolean>(HIGH_DETAIL_KEY, false));
 }
 
 function createClientId(): string {
@@ -224,31 +234,39 @@ function resolveAvatar(avatar: Partial<AlpacaAvatar> | undefined, fallbackAvatar
     return fallbackAvatar;
   }
 
-  return avatarOptions.find((option) => option.id === avatar.id) || {
-    ...fallbackAvatar,
-    ...avatar,
-    id: String(avatar.id),
-    name: String(avatar.name || fallbackAvatar.name),
-    wool: String(avatar.wool || fallbackAvatar.wool),
-    outfit: String(avatar.outfit || fallbackAvatar.outfit),
-    accent: String(avatar.accent || fallbackAvatar.accent),
-    textureId: String(avatar.textureId || avatar.id)
+  const avatarId = sanitizeNetworkId(avatar.id, fallbackAvatar.id, 40);
+  return avatarOptions.find((option) => option.id === avatarId) || {
+    id: avatarId,
+    name: sanitizeNetworkText(avatar.name, fallbackAvatar.name, 48),
+    wool: sanitizeNetworkText(avatar.wool, fallbackAvatar.wool, 24),
+    outfit: sanitizeNetworkText(avatar.outfit, fallbackAvatar.outfit, 24),
+    accent: sanitizeNetworkText(avatar.accent, fallbackAvatar.accent, 24),
+    textureId: sanitizeNetworkId(avatar.textureId || avatar.id, fallbackAvatar.textureId, 40)
   };
 }
 
-function normalizePlayer(player: Partial<CampusPlayer>, fallbackAvatar = avatarOptions[0]): CampusPlayer {
+function normalizePlayer(
+  player: Partial<CampusPlayer>,
+  fallbackAvatar = avatarOptions[0],
+  fallbackPlayer?: CampusPlayer
+): CampusPlayer {
+  const fallbackClientId = fallbackPlayer?.clientId || createClientId();
+  const fallbackUserId = fallbackPlayer?.userId || "guest";
+  const fallbackDisplayName = fallbackPlayer?.displayName || "Scholar";
+  const fallbackAlpacaName = fallbackPlayer?.alpacaName || fallbackDisplayName;
+
   return {
-    clientId: String(player.clientId || player.userId || createClientId()),
-    userId: String(player.userId || player.clientId || "guest"),
-    displayName: String(player.displayName || player.alpacaName || "Scholar"),
-    alpacaName: String(player.alpacaName || player.displayName || "Scholar"),
+    clientId: sanitizeNetworkId(player.clientId || player.userId, fallbackClientId, 80),
+    userId: sanitizeNetworkId(player.userId || player.clientId, fallbackUserId, 80),
+    displayName: sanitizeNetworkText(player.displayName || player.alpacaName, fallbackDisplayName, 48),
+    alpacaName: sanitizeNetworkText(player.alpacaName || player.displayName, fallbackAlpacaName, 48),
     avatar: resolveAvatar(player.avatar as Partial<AlpacaAvatar> | undefined, fallbackAvatar),
-    x: Number(player.x) || 0,
-    y: Number(player.y) || 0,
-    targetX: Number(player.targetX) || undefined,
-    targetY: Number(player.targetY) || undefined,
-    seatId: player.seatId ? String(player.seatId) : undefined,
-    activityId: player.activityId ? String(player.activityId) : undefined
+    x: sanitizeNetworkCoordinate(player.x, fallbackPlayer?.x || 0),
+    y: sanitizeNetworkCoordinate(player.y, fallbackPlayer?.y || 0),
+    targetX: player.targetX === undefined ? undefined : sanitizeNetworkCoordinate(player.targetX, fallbackPlayer?.targetX || 0),
+    targetY: player.targetY === undefined ? undefined : sanitizeNetworkCoordinate(player.targetY, fallbackPlayer?.targetY || 0),
+    seatId: player.seatId ? sanitizeNetworkId(player.seatId, "", 80) : undefined,
+    activityId: player.activityId ? sanitizeNetworkId(player.activityId, "", 80) : undefined
   };
 }
 
@@ -525,6 +543,7 @@ export const useCampusStore = create<CampusState>((set, get) => ({
   pendingSeatEvent: null,
   pendingChatMessage: null,
   viewSettings: DEFAULT_VIEW_SETTINGS,
+  highDetailEnabled: readSavedHighDetailEnabled(),
 
   setCampusMode(mode) {
     const nextName = mode === "multiplayer" ? DEFAULT_ONLINE_ALPACA_NAME : DEFAULT_LOCAL_ALPACA_NAME;
@@ -774,7 +793,7 @@ export const useCampusStore = create<CampusState>((set, get) => ({
   },
 
   chooseAvatar(avatar) {
-    window.localStorage.setItem(LOCAL_AVATAR_KEY, JSON.stringify(avatar));
+    writeJsonToBrowserStorage(LOCAL_AVATAR_KEY, avatar);
     set((state) => ({
       localPlayer: {
         ...state.localPlayer,
@@ -805,6 +824,11 @@ export const useCampusStore = create<CampusState>((set, get) => ({
 
   resetViewSettings() {
     set({ viewSettings: DEFAULT_VIEW_SETTINGS });
+  },
+
+  setHighDetailEnabled(enabled) {
+    writeJsonToBrowserStorage(HIGH_DETAIL_KEY, enabled);
+    set({ highDetailEnabled: enabled });
   },
 
   openItemPanel(item) {
@@ -888,9 +912,11 @@ export const useCampusStore = create<CampusState>((set, get) => ({
 
   setRemotePlayers(players) {
     const localId = get().localPlayer.clientId;
-    const remotePlayers = players
-      .filter((player) => player.clientId !== localId)
-      .map((player) => normalizePlayer(player));
+    const remotePlayers = selectRenderedRemotePlayers(
+      players
+        .filter((player) => player.clientId !== localId)
+        .map((player) => normalizePlayer(player))
+    );
     const occupiedSeats = Object.fromEntries(
       Object.entries(get().occupiedSeats).filter(([, clientId]) => clientId === localId)
     );
@@ -908,12 +934,14 @@ export const useCampusStore = create<CampusState>((set, get) => ({
   },
 
   upsertRemotePlayer(player) {
-    const normalized = normalizePlayer(player);
-    if (normalized.clientId === get().localPlayer.clientId) {
-      return;
-    }
-
     set((state) => {
+      const incomingClientId = sanitizeNetworkId(player.clientId || player.userId, "", 80);
+      const previous = state.remotePlayers.find((entry) => entry.clientId === incomingClientId);
+      const normalized = normalizePlayer(player, previous?.avatar || avatarOptions[0], previous);
+      if (normalized.clientId === state.localPlayer.clientId) {
+        return state;
+      }
+
       const existing = state.remotePlayers.filter((entry) => entry.clientId !== normalized.clientId);
       const occupiedSeats = { ...state.occupiedSeats };
       Object.keys(occupiedSeats).forEach((seatId) => {
@@ -926,7 +954,7 @@ export const useCampusStore = create<CampusState>((set, get) => ({
       }
 
       return {
-        remotePlayers: [...existing, normalized],
+        remotePlayers: selectRenderedRemotePlayers([normalized, ...existing]),
         occupiedSeats
       };
     });

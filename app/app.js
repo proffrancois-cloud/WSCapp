@@ -9,11 +9,33 @@ const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabas
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
 const ASSET_CACHE_VERSION = "20260524coop2";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
+const appEntryService = window.WSC_APP_ENTRY_SERVICE;
+const createOnlineModeController = window.WSC_CREATE_ONLINE_MODE_CONTROLLER;
+const appBootstrapService = window.WSC_APP_BOOTSTRAP_SERVICE;
+const appStateService = window.WSC_APP_STATE_SERVICE;
+const appDomService = window.WSC_APP_DOM_SERVICE;
+const modalFocusService = window.WSC_MODAL_FOCUS_SERVICE || null;
+const createContentNormalizationHelpers = window.WSC_CREATE_CONTENT_NORMALIZATION_HELPERS;
+const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
+const createRouteBuilderViewController = window.WSC_CREATE_ROUTE_BUILDER_VIEW_CONTROLLER;
+const createAppShellRenderer = window.WSC_CREATE_APP_SHELL_RENDERER;
+const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
+const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
+const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
+const createModeRuntimeController = window.WSC_CREATE_MODE_RUNTIME_CONTROLLER;
+const createLegacyLiveRoomController = window.WSC_CREATE_LEGACY_LIVE_ROOM_CONTROLLER;
+const createLegacyLiveRoomRenderer = window.WSC_CREATE_LEGACY_LIVE_ROOM_RENDERER;
+const createRawContentController = window.WSC_CREATE_RAW_CONTENT_CONTROLLER;
+const createStudyGameController = window.WSC_CREATE_STUDY_GAME_CONTROLLER;
+const createArcadeGameController = window.WSC_CREATE_ARCADE_GAME_CONTROLLER;
+const createAlpacardsController = window.WSC_CREATE_ALPACARDS_CONTROLLER;
+const createAlpacaChannelController = window.WSC_CREATE_ALPACA_CHANNEL_CONTROLLER;
+const createBuildCaseController = window.WSC_CREATE_BUILD_CASE_CONTROLLER;
+const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
-const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
-const ALPACA_ONLINE_CAMPUS_URL = "./alpaca-campus-3d/?mode=multiplayer";
-const MULTIPLAYER_PUBLIC_ENABLED = true;
+const CAMPUS_PREVIEW_PUBLIC_ENABLED = true;
+const LEGACY_LIVE_ROOMS_PUBLIC_ENABLED = false;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
   writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
   buildcase: "Debate Lab is available soon. We are keeping it closed for this public build.",
@@ -53,9 +75,6 @@ let jumpAnimationId = null;
 let mindMapOrbitAnimationId = null;
 let relayBuzzAudio = null;
 let relayBuzzAudioSrc = null;
-let liveLaunchCountdownTimerId = null;
-let debateSpinTimerId = null;
-let debateRevealTimerId = null;
 
 const GAME_CONFIG = {
   raceLives: 3,
@@ -180,77 +199,6 @@ const JUMP_OBSTACLE_PATTERN = [
   "ground",
   "ground"
 ];
-
-const FRENCH_TEXT_PATTERN = /[àâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ]/;
-const FRENCH_STOPWORDS = new Set([
-  "le", "la", "les", "un", "une", "des", "du", "de", "d", "au", "aux", "dans", "sur", "pour", "avec",
-  "sans", "entre", "chez", "que", "qui", "quoi", "quand", "comment", "pourquoi", "est", "sont", "etaient",
-  "était", "étaient", "cela", "ce", "cette", "ces", "point", "montre", "explique", "interroge", "invite",
-  "utile", "débattre", "debattre", "question", "questions", "réponse", "reponse", "temps", "équipe",
-  "equipe", "joueur", "joueuse", "choisit", "sélectionne", "selectionne", "meilleur", "meilleure",
-  "voyage", "trajet", "arrivée", "arrivee", "attente", "progrès", "progres", "histoire", "toujours",
-  "parfois", "aussi", "mais", "donc", "leur", "leurs", "plus", "moins", "comme", "peut", "peuvent"
-]);
-
-const SUBJECT_LABEL_ALIASES = {
-  "visual arts": "Art & Music",
-  "visual and performing arts": "Art & Music",
-  "music": "Art & Music",
-  "theatre": "Art & Music",
-  "language and literature": "Lit & Media",
-  "literature and media": "Lit & Media",
-  "media film": "Lit & Media",
-  "media and film": "Lit & Media",
-  "computer science technology": "Science & Tech",
-  "computer science and technology": "Science & Tech",
-  "science technology": "Science & Tech",
-  "science and technology": "Science & Tech",
-  "sciences": "Science & Tech",
-  "environmental science": "Science & Tech",
-  "biology human development": "Science & Tech",
-  "physics": "Science & Tech",
-  "psychology": "Special Area",
-  "philosophy": "Special Area",
-  "philosophy of progress": "Special Area",
-  "sociology": "Social Studies",
-  "economics trade": "Social Studies",
-  "economics and trade": "Social Studies",
-  "geography human geography": "Social Studies",
-  "geography and human geography": "Social Studies",
-  "politics government global politics": "Social Studies",
-  "politics and government global politics": "Social Studies",
-  "design architecture urbanism": "Social Studies",
-  "design architecture and urbanism": "Social Studies"
-};
-
-const BIG_IDEA_LABEL_ALIASES = {
-  "adulthood": "Thresholds & Irreversibility",
-  "arrival": "Narrated Endings",
-  "bright and dark future": "Managing Uncertainty",
-  "collapse and apocalypse": "Narrated Endings",
-  "delay": "Delayed Arrival",
-  "destinations": "Movement Without Arrival",
-  "drafts and prototypes": "Incompletion That Stays Active",
-  "endings": "Narrated Endings",
-  "home and wandering": "Movement Without Arrival",
-  "journeys": "Movement Without Arrival",
-  "liminality": "Thresholds & Irreversibility",
-  "migration": "Movement Without Arrival",
-  "navigation": "Infrastructure Shapes Behavior",
-  "patience": "Delayed Arrival",
-  "planning and projects": "Incompletion That Stays Active",
-  "prediction": "Managing Uncertainty",
-  "progress": "Performed Progress",
-  "routes and roads": "Infrastructure Shapes Behavior",
-  "routes roads and navigation": "Infrastructure Shapes Behavior",
-  "the future": "Managing Uncertainty",
-  "thresholds": "Thresholds & Irreversibility",
-  "tourism": "Movement Without Arrival",
-  "transition": "Thresholds & Irreversibility",
-  "waiting": "Delayed Arrival"
-};
-
-const REMOVED_BIG_IDEA_KEYS = new Set();
 
 const DEEP_STRUCTURE_BIG_IDEAS = [
   "Visible vs Real",
@@ -1211,633 +1159,20 @@ const RAW_SECTION_OVERRIDES = Object.freeze({
 
 });
 
-const rawContentSections = normalizeRawContentSections(window.WSC_RAW_CONTENT_BANK?.sections || {});
-const fullVoyageQuestions = normalizeFullVoyageQuestions(window.WSC_RAW_CONTENT_BANK?.fullVoyageQuestions || []);
-
-function normalizeRawContentSections(sections) {
-  const normalizedSections = Object.entries(sections || {}).map(([sectionId, section]) => {
-      const canonicalSectionId = normalizeSectionId(section?.id || sectionId);
-      return [
-        canonicalSectionId,
-        normalizeRawContentSection(section, sectionId, canonicalSectionId)
-      ];
-    });
-
-  normalizedSections.sort((left, right) => compareOfficialSectionOrder(left[1], right[1]));
-
-  return Object.fromEntries(normalizedSections);
-}
-
-function normalizeRawContentSection(section, fallbackId, canonicalSectionId = null) {
-  const rawSectionId = section?.id || fallbackId;
-  const sectionId = canonicalSectionId || normalizeSectionId(rawSectionId);
-  const sectionOverride = RAW_SECTION_OVERRIDES[rawSectionId] || RAW_SECTION_OVERRIDES[fallbackId] || RAW_SECTION_OVERRIDES[sectionId];
-  const rawEntries = Array.isArray(section?.entries) ? section.entries : [];
-  const sectionSource = sectionOverride
-    ? {
-        ...(section || {}),
-        ...sectionOverride,
-        entries: rawEntries.length ? rawEntries : (sectionOverride.entries || [])
-      }
-    : (section || {});
-  const guidingLabel = stripMasterTemplateSuffix(sectionSource.guidingSection || sectionSource.title || "");
-  const normalizedSectionTitle = guidingLabel || sectionSource.guidingSection || sectionSource.title || fallbackId || "Guiding Section";
-
-  return {
-    ...sectionSource,
-    id: sectionId,
-    title: normalizedSectionTitle,
-    guidingSection: sectionSource.guidingSection || normalizedSectionTitle,
-    entries: (sectionSource.entries || []).map((entry, index) =>
-      normalizeRawContentEntry(entry, index, normalizedSectionTitle, sectionId)
-    )
-  };
-}
-
-function normalizeBigIdeaLabels(items) {
-  return normalizeMappedLabels(expandBigIdeaLabels(items), BIG_IDEA_LABEL_ALIASES).filter(
-    (item) => !REMOVED_BIG_IDEA_KEYS.has(normalizeKnowledgeKey(item))
-  );
-}
-
-function expandBigIdeaLabels(items) {
-  return (items || []).flatMap((item) => {
-    const text = normalizeWhitespace(item);
-    if (!text) {
-      return [];
-    }
-
-    if (normalizeKnowledgeKey(text) === "adulthood transition") {
-      return ["Adulthood", "Transition"];
-    }
-
-    return text
-      .split(/\s*\/\s*/)
-      .map((part) => normalizeWhitespace(part))
-      .filter(Boolean);
-  });
-}
-
-function getRawEntryOverride(sectionId, title) {
-  return RAW_ENTRY_OVERRIDES[rawEntryOverrideKey(sectionId, title)] || null;
-}
-
-function normalizeRawContentEntry(entry, index, sectionTitle, sectionId) {
-  const normalizedTitle = normalizeRawEntryTitle(entry, index);
-  const override = getRawEntryOverride(sectionId, normalizedTitle);
-  const finalTitle = override?.title || normalizedTitle;
-  const sourceQuizQuestions = Array.isArray(entry.quizQuestions) ? entry.quizQuestions : [];
-  const overrideQuizQuestions = Array.isArray(override?.quizQuestions) ? override.quizQuestions : [];
-  const mergedEntry = override
-    ? {
-        ...entry,
-        ...override,
-        quizQuestions: sourceQuizQuestions.length ? sourceQuizQuestions : overrideQuizQuestions
-      }
-    : entry;
-  const rawQuizQuestions = Array.isArray(mergedEntry.quizQuestions) ? mergedEntry.quizQuestions : [];
-  const entryContext = {
-    ...mergedEntry,
-    title: finalTitle,
-    guidingSection: sectionTitle
-  };
-
-  return {
-    ...mergedEntry,
-    title: finalTitle,
-    entryIndex: index + 1,
-    guidingSection: sectionTitle,
-    studentExplanation: normalizeSupportField(mergedEntry.studentExplanation, "studentExplanation", entryContext),
-    whyItMatters: normalizeSupportField(mergedEntry.whyItMatters, "whyItMatters", entryContext),
-    takeaway: normalizeSupportField(mergedEntry.takeaway, "takeaway", entryContext),
-    debateRelevance: normalizeSupportField(mergedEntry.debateRelevance, "debateRelevance", entryContext),
-    counterargument: normalizeSupportField(mergedEntry.counterargument, "counterargument", entryContext),
-    officialWscSubject: mergedEntry.officialWscSubject || (Array.isArray(mergedEntry.subjects) ? normalizeMappedLabels(mergedEntry.subjects, SUBJECT_LABEL_ALIASES)[0] : ""),
-    subject: mergedEntry.officialWscSubject || mergedEntry.subject || (Array.isArray(mergedEntry.subjects) ? normalizeMappedLabels(mergedEntry.subjects, SUBJECT_LABEL_ALIASES)[0] : ""),
-    subjects: mergedEntry.officialWscSubject ? [mergedEntry.officialWscSubject] : normalizeMappedLabels(mergedEntry.subjects, SUBJECT_LABEL_ALIASES).slice(0, 1),
-    legacySubjectLabels: Array.isArray(mergedEntry.legacySubjectLabels) ? mergedEntry.legacySubjectLabels : [],
-    subjectIconKey: mergedEntry.subjectIconKey || "",
-    bigIdeas: normalizeBigIdeaLabels(mergedEntry.bigIdeas),
-    examples: (mergedEntry.examples || [])
-      .map((item) => normalizeEnglishOnlyShortField(item, ""))
-      .filter(Boolean),
-    links: (mergedEntry.links || [])
-      .map((link) => ({
-        ...link,
-        label: normalizeEnglishOnlyShortField(link.label, link.url || "Source")
-      }))
-      .filter((link) => link.url),
-    quizQuestions: rawQuizQuestions.map((question, questionIndex) => normalizeRawQuizQuestion(question, questionIndex))
-  };
-}
-
-function normalizeMappedLabels(items, aliasMap) {
-  const seen = new Set();
-  return (items || [])
-    .map((item) => mapAliasLabel(item, aliasMap))
-    .filter((item) => {
-      if (!item) {
-        return false;
-      }
-      const key = normalizeKnowledgeKey(item);
-      if (seen.has(key)) {
-        return false;
-      }
-      seen.add(key);
-      return true;
-    });
-}
-
-function mapAliasLabel(label, aliasMap) {
-  const text = String(label || "").trim();
-  if (!text) {
-    return "";
+const contentNormalizationHelpers = createContentNormalizationHelpers({
+  constants: {
+    rawSectionOverrides: RAW_SECTION_OVERRIDES,
+    rawEntryOverrides: RAW_ENTRY_OVERRIDES
+  },
+  callbacks: {
+    compareOfficialSectionOrder,
+    normalizeKnowledgeKey,
+    normalizeSectionId
   }
-  return aliasMap[normalizeKnowledgeKey(text)] || text;
-}
+});
 
-function normalizeRawQuizQuestion(question) {
-  const correctAnswer = normalizeWhitespace(question.correctAnswer);
-  return {
-    ...question,
-    prompt: normalizeWhitespace(question.prompt),
-    correctAnswer,
-    wrongAnswers: normalizeRawWrongAnswers(question, correctAnswer),
-    visibleCorrectExplanation: normalizeWhitespace(question.visibleCorrectExplanation),
-    visibleConnection: normalizeWhitespace(question.visibleConnection),
-    visibleTakeaway: normalizeWhitespace(question.visibleTakeaway)
-  };
-}
-
-function normalizeFullVoyageQuestions(questions) {
-  return (questions || [])
-    .map((question) => normalizeRawQuizQuestion(question))
-    .filter((question) => {
-      const level = Number(question.level);
-      return [4, 5].includes(level) && question.id && question.prompt && question.correctAnswer;
-    });
-}
-
-function normalizeRawWrongAnswers(question, correctAnswer) {
-  const seen = new Set([normalizeKnowledgeKey(correctAnswer)]);
-  const wrongAnswers = [];
-  const addAnswer = (answer) => {
-    const text = normalizeWhitespace(answer);
-    const key = normalizeKnowledgeKey(text);
-    if (!text || seen.has(key)) {
-      return;
-    }
-    seen.add(key);
-    wrongAnswers.push(text);
-  };
-
-  (question.wrongAnswers || []).forEach(addAnswer);
-
-  [
-    "It treats the example as unrelated to the route.",
-    "It says the destination matters and the journey never does.",
-    "It removes the need to compare evidence, context, or meaning.",
-    "It turns the source into a decorative detail instead of a useful checkpoint."
-  ].forEach((answer) => {
-    if (wrongAnswers.length < 3) {
-      addAnswer(answer);
-    }
-  });
-
-  return wrongAnswers.slice(0, 3);
-}
-
-function normalizeSupportField(value, field, entry) {
-  const text = normalizeWhitespace(value);
-  if (!text) {
-    return "";
-  }
-
-  if (!looksFrenchText(text)) {
-    return text;
-  }
-
-  const translated = translateFrenchSupportText(text);
-  if (translated && !looksFrenchText(translated)) {
-    return translated;
-  }
-
-  return generateEnglishSupportText(field, entry);
-}
-
-function generateEnglishSupportText(field, entry) {
-  const title = entry.title || "this entry";
-  const titleLower = lowerFirst(title);
-  const bigIdeas = joinHumanList(entry.bigIdeas || []);
-  const subjects = joinHumanList(entry.subjects || []);
-  const examples = joinHumanList((entry.examples || []).slice(0, 4));
-  const officialLead = deriveEnglishLead(entry.rawOfficialText);
-
-  if (field === "studentExplanation") {
-    return officialLead
-      ? `${title} focuses on ${officialLead}. It uses this example to clarify the route through ${entry.guidingSection || "the selected section"}.`
-      : `${title} gives students a clearer way into the official source text and connects the point to ${entry.guidingSection || "the selected route"}.`;
-  }
-
-  if (field === "whyItMatters") {
-    if (bigIdeas && subjects) {
-      return `It matters because it links ${subjects} to ${bigIdeas}, showing why ${titleLower} belongs in this route.`;
-    }
-
-    if (bigIdeas) {
-      return `It matters because it helps explain how ${bigIdeas} shape this route through ${titleLower}.`;
-    }
-
-    if (subjects) {
-      return `It matters because it gives ${subjects} a concrete way into the larger route question.`;
-    }
-
-    return `It matters because ${titleLower} turns the official source into a usable checkpoint for the route.`;
-  }
-
-  if (field === "takeaway") {
-    if (bigIdeas) {
-      return `Key takeaway: ${title} helps show how ${bigIdeas} operate in this route.`;
-    }
-
-    return `Key takeaway: ${title} is meant to sharpen the route’s main question, not just add another example.`;
-  }
-
-  if (field === "debateRelevance") {
-    if (examples && bigIdeas) {
-      return `Useful for debate when weighing ${examples} against bigger questions about ${bigIdeas}.`;
-    }
-
-    if (bigIdeas) {
-      return `Useful for debate because it gives a concrete entry point into larger questions about ${bigIdeas}.`;
-    }
-
-    return `Useful for debate because it turns the source text into a claim that can be defended, challenged, or reframed.`;
-  }
-
-  if (field === "counterargument") {
-    if (examples) {
-      return `A counterargument is that ${examples} may not always support the same conclusion once the context, definition, or evidence changes.`;
-    }
-
-    return `A counterargument is that this point may look very different once its definitions, evidence, or historical context are widened.`;
-  }
-
-  return "";
-}
-
-function translateFrenchSupportText(value) {
-  let text = normalizeWhitespace(value)
-    .replaceAll("’", "'")
-    .replaceAll("“", "\"")
-    .replaceAll("”", "\"")
-    .replaceAll("«", "\"")
-    .replaceAll("»", "\"");
-
-  const phraseReplacements = [
-    [/^Ce point s'intéresse aux /i, "This point looks at "],
-    [/^Ce point s'intéresse à la /i, "This point looks at the "],
-    [/^Ce point s'intéresse au /i, "This point looks at the "],
-    [/^Ce point s'intéresse à l'/i, "This point looks at "],
-    [/^Ce point s'intéresse à /i, "This point looks at "],
-    [/^Ce point explique que /i, "This point explains that "],
-    [/^Ce point montre comment /i, "This point shows how "],
-    [/^Ce point montre que /i, "This point shows that "],
-    [/^Ce point oppose /i, "This point contrasts "],
-    [/^Ce point pose une question difficile ?: /i, "This point raises a difficult question: "],
-    [/^Ce point pose la question de /i, "This point raises the question of "],
-    [/^Ce point pose la question /i, "This point raises the question "],
-    [/^Ce point demande si /i, "This point asks whether "],
-    [/^Ce point demande /i, "This point asks "],
-    [/^Ce point étudie /i, "This point examines "],
-    [/^Ce point compare /i, "This point compares "],
-    [/^Ce point présente /i, "This point presents "],
-    [/^Ce point rassemble /i, "This point brings together "],
-    [/^Ce point observe /i, "This point observes "],
-    [/^Ce point interroge /i, "This point questions "],
-    [/^Ce point revient sur /i, "This point returns to "],
-    [/^Ce point revient à /i, "This point returns to "],
-    [/^Cette dernière ligne ferme le thème en rappelant que /i, "This final line closes the theme by reminding us that "],
-    [/^Il montre que /i, "It shows that "],
-    [/^Il relie /i, "It connects "],
-    [/^Il élargit /i, "It broadens "],
-    [/^Il rappelle que /i, "It reminds us that "],
-    [/^Il rappelle /i, "It reminds us of "],
-    [/^Il renverse l'idée que /i, "It overturns the idea that "],
-    [/^Il reprend /i, "It returns to "],
-    [/^Il pousse /i, "It pushes "],
-    [/^Il fait passer /i, "It moves "],
-    [/^Il met au centre /i, "It places at the center "],
-    [/^Elle termine /i, "It ends "],
-    [/^Utile pour débattre de /i, "Useful for debating "],
-    [/^Utile pour discuter de /i, "Useful for discussing "],
-    [/^On peut dire que /i, "One could argue that "],
-    [/^Parfois, /i, "Sometimes, "],
-    [/^Le paradoxe de Zénon suggère que /i, "Zeno's paradox suggests that "],
-    [/^La patience est l'un des grands fils émotionnels du thème\./i, "Patience is one of the theme's strongest emotional threads."],
-    [/^Les hôtels sont des lieux de pause qui rendent les voyages possibles\./i, "Hotels are places of pause that make travel possible."],
-    [/^Le tourisme moderne vient aussi d'une tradition où voyager servait à se former et à se distinguer\./i, "Modern tourism also grows out of a tradition in which travel was meant to educate and distinguish the traveler."],
-    [/^Le tourisme de masse est le produit des transports modernes et d'un accès élargi au loisir\./i, "Mass tourism is the product of modern transport and broader access to leisure."],
-    [/^Abandonner n'est pas toujours un échec ; cela peut aussi être une forme de lucidité\./i, "Giving up is not always a failure; it can also be a form of lucidity."],
-    [/^Savoir combien de temps il reste peut aider, mais aussi parfois rendre l'attente pire\./i, "Knowing how much time is left can help, but it can also make waiting feel worse."],
-    [/^Avec l'infini, même un trajet simple devient mystérieux\./i, "Once infinity enters the picture, even a simple journey becomes mysterious."],
-    [/^La patience aide à supporter l'attente, mais elle peut aussi devenir passivité\./i, "Patience helps people endure waiting, but it can also turn into passivity."],
-    [/^Certaines des plus grandes idées humaines sont des rêves d'arrivée finale\./i, "Some of humanity's biggest ideas are dreams of a final arrival."],
-    [/^Atteindre la fin, c'est souvent se retrouver au début de quelque chose d'autre\./i, "Reaching the end often means finding yourself at the start of something else."],
-    [/^Les animaux savent souvent "arriver" sans cartes humaines, grâce à des systèmes biologiques remarquables\./i, "Animals often know how to 'arrive' without human maps, thanks to remarkable biological systems."],
-    [/^Naviguer sans technologie moderne demande plus qu'un outil : cela demande une relation intime au monde\./i, "Navigating without modern technology takes more than a tool: it requires an intimate relationship with the world."],
-    [/^Ne pas tout savoir à l'avance peut parfois rendre le monde plus riche à découvrir\./i, "Not knowing everything in advance can sometimes make the world richer to discover."],
-    [/^La poésie de l'immigration transforme le passage entre deux mondes en expérience intérieure\./i, "Immigration poetry turns the passage between two worlds into an inner experience."],
-    [/^L'art du migrant rend visible ce que signifie vivre entre plusieurs appartenances\./i, "Migrant art makes visible what it means to live between multiple forms of belonging."]
-  ];
-
-  phraseReplacements.forEach(([pattern, replacement]) => {
-    text = text.replace(pattern, replacement);
-  });
-
-  const genericReplacements = [
-    [/\bà la fois\b/gi, "at the same time"],
-    [/\bpas seulement\b/gi, "not only"],
-    [/\bmais aussi\b/gi, "but also"],
-    [/\bainsi que\b/gi, "as well as"],
-    [/\bc'est-à-dire\b/gi, "that is to say"],
-    [/\bc'est aussi\b/gi, "it is also"],
-    [/\bc'est\b/gi, "it is"],
-    [/\bn'est pas seulement\b/gi, "is not only"],
-    [/\bn'est pas\b/gi, "is not"],
-    [/\bpeut aussi\b/gi, "can also"],
-    [/\bparce que\b/gi, "because"],
-    [/\btoujours\b/gi, "always"],
-    [/\bparfois\b/gi, "sometimes"],
-    [/\bjamais\b/gi, "never"],
-    [/\bencore\b/gi, "still"],
-    [/\bplutôt que\b/gi, "rather than"],
-    [/\bau lieu de\b/gi, "instead of"],
-    [/\bgrâce à\b/gi, "thanks to"],
-    [/\baujourd'hui\b/gi, "today"],
-    [/\bhier\b/gi, "yesterday"],
-    [/\bdemain\b/gi, "tomorrow"],
-    [/\bquestion de savoir si\b/gi, "question of whether"],
-    [/\bde la manière dont\b/gi, "the way"],
-    [/\bla manière dont\b/gi, "the way"],
-    [/\bde plus en plus\b/gi, "more and more"],
-    [/\bd'une partie de la population\b/gi, "for part of the population"],
-    [/\bdu niveau de vie\b/gi, "the standard of living"],
-    [/\bniveau de vie\b/gi, "standard of living"],
-    [/\btrajet\b/gi, "journey"],
-    [/\btrajets\b/gi, "journeys"],
-    [/\bvoyage\b/gi, "travel"],
-    [/\bvoyages\b/gi, "travels"],
-    [/\bvoyageur\b/gi, "traveler"],
-    [/\bvoyageurs\b/gi, "travelers"],
-    [/\barrivée\b/gi, "arrival"],
-    [/\barriver\b/gi, "arrive"],
-    [/\battente\b/gi, "waiting"],
-    [/\bprogrès\b/gi, "progress"],
-    [/\bseuil\b/gi, "threshold"],
-    [/\bseuils\b/gi, "thresholds"],
-    [/\bmonde\b/gi, "world"],
-    [/\bmondes\b/gi, "worlds"],
-    [/\bsociété\b/gi, "society"],
-    [/\bsociétés\b/gi, "societies"],
-    [/\broute\b/gi, "route"],
-    [/\broutes\b/gi, "routes"],
-    [/\bdestination\b/gi, "destination"],
-    [/\bdestinations\b/gi, "destinations"],
-    [/\bpaix définitive\b/gi, "lasting peace"],
-    [/\bvictoire finale\b/gi, "final victory"],
-    [/\bgrands projets\b/gi, "major projects"],
-    [/\bretards\b/gi, "delays"],
-    [/\bfrontières\b/gi, "borders"],
-    [/\baccueil\b/gi, "reception"],
-    [/\basile\b/gi, "asylum"],
-    [/\bimmigration\b/gi, "immigration"],
-    [/\bmigration\b/gi, "migration"],
-    [/\bpoésie\b/gi, "poetry"],
-    [/\bpatience\b/gi, "patience"],
-    [/\bimpatience\b/gi, "impatience"],
-    [/\bambiguïté\b/gi, "ambiguity"],
-    [/\bclôture\b/gi, "closure"],
-    [/\binjustice\b/gi, "injustice"],
-    [/\bimmobilisme\b/gi, "stagnation"],
-    [/\bautocontrôle\b/gi, "self-control"],
-    [/\bexpérience vécue\b/gi, "lived experience"],
-    [/\brôle\b/gi, "role"],
-    [/\bvaleur\b/gi, "value"],
-    [/\bhumain\b/gi, "human"],
-    [/\bhumains\b/gi, "human beings"],
-    [/\bvivant\b/gi, "living world"],
-    [/\bespèces\b/gi, "species"],
-    [/\btechnologie\b/gi, "technology"],
-    [/\btechnologies\b/gi, "technologies"],
-    [/\boutils\b/gi, "tools"],
-    [/\boutils de navigation\b/gi, "navigation tools"],
-    [/\bnavigation\b/gi, "navigation"],
-    [/\bcolonial\b/gi, "colonial"],
-    [/\bcolonialisme\b/gi, "colonialism"],
-    [/\bdomination\b/gi, "domination"],
-    [/\bpolitique\b/gi, "political"],
-    [/\bpolitiques\b/gi, "policies"],
-    [/\bjuridique\b/gi, "legal"],
-    [/\bidentité\b/gi, "identity"],
-    [/\bidentités\b/gi, "identities"],
-    [/\bappartenance\b/gi, "belonging"],
-    [/\bappartenances\b/gi, "belongings"],
-    [/\bœuvres\b/gi, "works"],
-    [/\bart\b/gi, "art"],
-    [/\bmusique\b/gi, "music"],
-    [/\broute la plus directe\b/gi, "the most direct route"],
-    [/\bchemin le plus court\b/gi, "the shortest path"],
-    [/\bmeilleur chemin\b/gi, "best route"],
-    [/\bchez-soi\b/gi, "home"],
-    [/\bquitter\b/gi, "quit"],
-    [/\bpersévérer\b/gi, "keep going"],
-    [/\bdurée\b/gi, "duration"],
-    [/\bpeut être\b/gi, "may be"],
-    [/\btrop vite\b/gi, "too quickly"],
-    [/\bpeut rendre\b/gi, "can make"],
-    [/\bsécuriser\b/gi, "make safer"],
-    [/\benrichir\b/gi, "enrich"],
-    [/\bdécouvrir\b/gi, "discover"],
-    [/\bfaire partie de\b/gi, "be part of"],
-    [/\bmettre au centre\b/gi, "place at the center of"],
-    [/\bfaire visible\b/gi, "make visible"],
-    [/\bdeux mondes\b/gi, "two worlds"],
-    [/\bplus puissan(te|t)\b/gi, "more powerful"],
-    [/\bfinale\b/gi, "final"],
-    [/\bfinale\b/gi, "final"]
-  ];
-
-  genericReplacements.forEach(([pattern, replacement]) => {
-    text = text.replace(pattern, replacement);
-  });
-
-  text = text
-    .replace(/\bdu thème\b/gi, "of the theme")
-    .replace(/\bdu trajet\b/gi, "of the journey")
-    .replace(/\bde l'arrivée\b/gi, "of arrival")
-    .replace(/\bdu voyage\b/gi, "of travel")
-    .replace(/\bde la route\b/gi, "of the route")
-    .replace(/\bd'une manière\b/gi, "in a way")
-    .replace(/\bet de la question de savoir si\b/gi, "and the question of whether")
-    .replace(/\bet de la manière dont\b/gi, "and the way")
-    .replace(/\bet du fait que\b/gi, "and the fact that")
-    .replace(/\bne peut pas\b/gi, "cannot")
-    .replace(/\bne peuvent pas\b/gi, "cannot")
-    .replace(/\bdevenir\b/gi, "become")
-    .replace(/\bdevenu\b/gi, "become")
-    .replace(/\best devenu\b/gi, "has become")
-    .replace(/\bpose\b/gi, "raises")
-    .replace(/\bmontre\b/gi, "shows")
-    .replace(/\bexplique\b/gi, "explains")
-    .replace(/\boppose\b/gi, "contrasts")
-    .replace(/\bcompare\b/gi, "compares")
-    .replace(/\binterroge\b/gi, "questions")
-    .replace(/\brappelle\b/gi, "reminds us")
-    .replace(/\bélargit\b/gi, "broadens")
-    .replace(/\brelie\b/gi, "connects")
-    .replace(/\btermine\b/gi, "ends")
-    .replace(/\bouvre\b/gi, "opens")
-    .replace(/\bdoit\b/gi, "must")
-    .replace(/\bpeut\b/gi, "can")
-    .replace(/\bpeuvent\b/gi, "can")
-    .replace(/\bsert\b/gi, "serves")
-    .replace(/\bservent\b/gi, "serve")
-    .replace(/\best aussi\b/gi, "is also")
-    .replace(/\bcela\b/gi, "that")
-    .replace(/\bquelque part\b/gi, "somewhere")
-    .replace(/\btout à fait\b/gi, "entirely")
-    .replace(/\bbien plus que\b/gi, "much more than")
-    .replace(/\bde plus\b/gi, "moreover")
-    .replace(/\bde même\b/gi, "likewise");
-
-  text = text
-    .replace(/\s+([,.;:!?])/g, "$1")
-    .replace(/\(\s+/g, "(")
-    .replace(/\s+\)/g, ")")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-
-  if (text && !/[.!?]$/.test(text)) {
-    text += ".";
-  }
-
-  return text;
-}
-
-function normalizeRawEntryTitle(entry, index) {
-  const candidate = stripMasterTemplateSuffix(entry?.title || "");
-  if (candidate && !looksFrenchText(candidate)) {
-    return candidate;
-  }
-
-  const derived = deriveEnglishTitleFromRawText(entry?.rawOfficialText);
-  return derived || `Entry ${index + 1}`;
-}
-
-function deriveEnglishTitleFromRawText(value) {
-  const text = normalizeWhitespace(value);
-  if (!text) {
-    return "";
-  }
-
-  const firstSentence = text.split(/[.?!]/)[0].trim();
-  if (!firstSentence) {
-    return "";
-  }
-
-  return firstSentence.length > 88
-    ? `${firstSentence.slice(0, 85).trim()}...`
-    : firstSentence;
-}
-
-function normalizeEnglishOnlyField(value, fallback) {
-  const text = normalizeWhitespace(value);
-  if (!text) {
-    return "";
-  }
-
-  return looksFrenchText(text) ? fallback : text;
-}
-
-function normalizeEnglishOnlyShortField(value, fallback) {
-  const text = normalizeWhitespace(value);
-  if (!text) {
-    return "";
-  }
-
-  return looksFrenchText(text) ? fallback : text;
-}
-
-function stripMasterTemplateSuffix(value) {
-  return String(value || "")
-    .replace(/\s+[—-]\s+MASTER TEMPLATE APPLIQU[ÉE]/gi, "")
-    .trim();
-}
-
-function normalizeWhitespace(value) {
-  return String(value || "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function lowerFirst(value) {
-  const text = normalizeWhitespace(value);
-  return text ? text.charAt(0).toLowerCase() + text.slice(1) : "";
-}
-
-function joinHumanList(items = []) {
-  const clean = items.map((item) => normalizeWhitespace(item)).filter(Boolean);
-  if (!clean.length) {
-    return "";
-  }
-  if (clean.length === 1) {
-    return clean[0];
-  }
-  if (clean.length === 2) {
-    return `${clean[0]} and ${clean[1]}`;
-  }
-  return `${clean.slice(0, -1).join(", ")}, and ${clean[clean.length - 1]}`;
-}
-
-function deriveEnglishLead(value) {
-  const sentence = deriveEnglishTitleFromRawText(value);
-  if (!sentence) {
-    return "";
-  }
-
-  return sentence.endsWith("...") ? `${sentence.slice(0, -3).trim()}...` : sentence;
-}
-
-function looksFrenchText(value) {
-  const text = normalizeWhitespace(value);
-  if (!text) {
-    return false;
-  }
-
-  if (FRENCH_TEXT_PATTERN.test(text)) {
-    return true;
-  }
-
-  const words = text
-    .toLowerCase()
-    .replace(/[^a-z'\- ]/g, " ")
-    .split(/\s+/)
-    .filter(Boolean);
-
-  if (words.length < 5) {
-    return false;
-  }
-
-  let hits = 0;
-  words.forEach((word) => {
-    if (FRENCH_STOPWORDS.has(word)) {
-      hits += 1;
-    }
-  });
-
-  return hits >= 2 && hits / words.length >= 0.15;
-}
+const rawContentSections = contentNormalizationHelpers.normalizeRawContentSections(window.WSC_RAW_CONTENT_BANK?.sections || {});
+const fullVoyageQuestions = contentNormalizationHelpers.normalizeFullVoyageQuestions(window.WSC_RAW_CONTENT_BANK?.fullVoyageQuestions || []);
 
 const ALPACA_RUN_ROUTE = [
   { id: "pristina", label: "Pristina, Kosovo", phase: "Regional Round", x: 52, y: 40 },
@@ -2324,86 +1659,584 @@ const rawContentService = window.WSC_CREATE_RAW_CONTENT_SERVICE
     })
   : null;
 
-const state = {
-  selection: {
-    path: null,
-    lens: DEFAULT_LENS_ID,
-    targetIds: [],
-    targetId: null,
-    mode: null
-  },
-  ui: {
-    wizardTransition: "forward",
-    appEntryGateOpen: true,
-    appShellMode: null,
-    cooperationOpen: false,
-    authOpen: false,
-    authMode: "login",
-    resourcesOpen: false,
-    rawAssetSelections: {},
-    rawQuizSelections: {},
-    rawQuizPages: {},
-    openModeChoicePath: null,
-    rawMediaLightbox: null,
-    rawMediaSwipeStartX: null
-  },
-  auth: {
-    client: null,
-    session: null,
-    profile: null,
-    status: "checking",
-    message: "",
-    error: ""
-  },
-  live: {
-    openSessions: [],
-    currentSession: null,
-    currentPlayer: null,
-    players: [],
-    revision: 0,
-    status: "idle",
-    message: "",
-    error: "",
-    selectedGameType: "alpacapardy",
-    onlineView: "hub",
-    arcadeState: null,
-    lobbyChannel: null,
-    sessionChannel: null,
-    heartbeatId: null,
-    syncId: null,
-    syncBusy: false,
-    joinCodeDraft: "",
-    autoStartBusy: false,
-    launchCountdownText: "",
-    launchCountdownSessionId: null,
-    waitingVideoSessionId: null,
-    waitingVideos: [],
-    waitingVideoIndex: 0,
-    pendingRunColor: LIVE_ALPACA_COLORS[0]?.id || "cream",
-    guestName: loadGuestAlpacaName()
-  },
-  experience: null,
-  stats: loadStats(),
-  rawMastery: loadRawMastery()
-};
+const onlineModeController = createOnlineModeController({
+  entryService: appEntryService
+});
 
-const refs = {
-  heroMascot: document.getElementById("heroMascot"),
-  statsStrip: document.getElementById("statsStrip"),
-  sessionControls: document.getElementById("sessionControls"),
-  heroOnlineMount: document.getElementById("heroOnlineMount"),
-  appEntryGateMount: document.getElementById("appEntryGateMount"),
-  cooperationModalMount: document.getElementById("cooperationModalMount"),
-  insightGrid: document.getElementById("insightGrid"),
-  routeBuilder: document.getElementById("routeBuilder"),
-  routeBuilderTitle: document.getElementById("routeBuilderTitle"),
-  choiceSummary: document.getElementById("choiceSummary"),
-  wizardRailMount: document.getElementById("wizardRailMount"),
-  wizardSteps: document.getElementById("wizardSteps"),
-  experiencePanel: document.getElementById("experiencePanel"),
-  resourcesModalMount: document.getElementById("resourcesModalMount"),
-  authModalMount: document.getElementById("authModalMount")
-};
+const progressStorageController = createProgressStorageController({
+  storageService: appStorageService,
+  progressService: appProgressService,
+  entryService: appEntryService
+});
+
+const state = appStateService.createInitialState({
+  defaultLensId: DEFAULT_LENS_ID,
+  pendingRunColor: LIVE_ALPACA_COLORS[0]?.id || "cream",
+  guestName: progressStorageController.loadGuestAlpacaName(),
+  stats: progressStorageController.loadStats(),
+  rawMastery: progressStorageController.loadRawMastery()
+});
+
+const refs = appDomService.getAppRefs(document);
+const authController = createAuthController({
+  appState: state,
+  config: { url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY },
+  authService: appAuthService,
+  profileService: supabaseProfileService,
+  supabaseGlobal: window.supabase,
+  alpacaNamePattern: ALPACA_NAME_PATTERN,
+  locationObject: window.location,
+  callbacks: {
+    syncAuthChrome,
+    normalizeStats,
+    normalizeRawMastery,
+    saveProgressLocally,
+    saveRemoteProgress: saveAlpacaProgress,
+    renderStats,
+    renderExperience,
+    resetLiveState: resetAlpacapardyLiveState
+  }
+});
+
+const alpacardsController = createAlpacardsController({
+  appState: state,
+  refs,
+  data: {
+    getCards: () => window.WSC_ALPACARDS
+  },
+  renderers: {
+    alpacardsMode
+  },
+  helpers: {
+    escapeHtml,
+    getSelectedSectionIds,
+    getSelectionQuestions,
+    getTargetLabel,
+    normalizeSectionId,
+    renderLearnCardFooterNav,
+    renderPanelTitle,
+    shuffle
+  },
+  callbacks: {
+    renderExperience
+  }
+});
+
+const alpacaChannelController = createAlpacaChannelController({
+  appState: state,
+  data: {
+    alpacaChannelCatalog,
+    sectionById,
+    subjectById,
+    bigIdeaRouteById,
+    learnSubjectRouteById
+  },
+  services: {
+    videoService: appVideoService
+  },
+  renderers: {
+    alpacaChannelMode
+  },
+  helpers: {
+    escapeHtml,
+    getApprovedRawContentSection,
+    getModeAssetPath,
+    getRawEntriesForSelection,
+    getSectionIdFromGuidingTitle,
+    getSelectedSectionIds,
+    getSelectedSectionLabels,
+    getTargetLabel,
+    mapRawEntriesWithSection,
+    normalizeKnowledgeKey,
+    normalizeSectionId,
+    renderConfiguredMascotAsset,
+    renderLearnCardFooterNav,
+    renderPanelTitle
+  },
+  callbacks: {
+    renderExperience
+  }
+});
+
+const buildCaseController = createBuildCaseController({
+  appState: state,
+  windowRef: window,
+  data: {
+    debateLabData,
+    sectionById
+  },
+  constants: {
+    buildCaseRoundCount: GAME_CONFIG.buildCaseRoundCount
+  },
+  helpers: {
+    buildChoiceSet,
+    buildSingleChoiceSet,
+    escapeHtml,
+    getAssetValue,
+    getBestStreakFromAnswers,
+    getBigIdeaIdsFromLabels,
+    getBroadSubjectIdsFromLabels,
+    getOrderedSectionIds,
+    getRawEntriesForSelection,
+    getSectionIdFromGuidingTitle,
+    getSelectedSectionIds,
+    getTargetLabel,
+    renderAssetImage,
+    renderGameQuestionPopup,
+    renderPanelTitle,
+    shortenTrainText,
+    shuffle,
+    slugifyBigIdea,
+    splitArgumentFragments
+  },
+  callbacks: {
+    finalizeSessionStats,
+    renderExperience,
+    renderExperiencePreservingScroll
+  }
+});
+
+const experienceFactories = Object.freeze({
+  slideshow: buildSlideshowExperience,
+  mindmap: buildMindMapExperience,
+  rawcontent: buildRawContentExperience,
+  regularguide: buildRegularGuideExperience,
+  channel: buildAlpacaChannelExperience,
+  alpacard: buildAlpacardExperience,
+  writing: buildWritingExperience,
+  quiz: buildQuizExperience,
+  bowl: buildBowlExperience,
+  race: buildRaceExperience,
+  jump: buildJumpExperience,
+  jeopardy: buildJeopardyExperience,
+  run: buildRunExperience,
+  relay: buildRelayExperience,
+  buildcase: buildBuildCaseExperience
+});
+
+const gameLaunchController = createGameLaunchController({
+  appState: state,
+  experienceFactories,
+  unavailableFactory: buildUnavailableModeExperience,
+  cleanupCallbacks: [
+    clearJeopardyTimer,
+    clearDebateSpinTimer,
+    clearDebateRevealTimer
+  ]
+});
+
+const rawContentController = createRawContentController({
+  appState: state,
+  refs,
+  documentRef: document,
+  windowRef: window,
+  services: {
+    rawContentService,
+    appVideoService
+  },
+  renderers: {
+    rawContentMode,
+    rawContentEntryRenderer,
+    rawContentQuizRenderer,
+    rawContentMediaLightbox,
+    rawContentVisualAssets,
+    rawContentTransferTable,
+    rawContentMastery
+  },
+  data: {
+    IMPORTED_RAW_CONTENT_BANK,
+    sectionById,
+    subjectById,
+    bigIdeaRouteById,
+    learnSubjectRouteById,
+    BIG_IDEA_ROUTES,
+    LEARN_SUBJECT_ROUTES
+  },
+  helpers: {
+    escapeHtml,
+    compareOfficialSectionOrder,
+    compareRawEntriesByOfficialOrder,
+    entryMatchesLearnSubjectRoute,
+    getAlpacaChannelVideosForEntry,
+    getAssetValue,
+    getEmbeddableVideo,
+    getModeAssetPath,
+    getSectionIdFromGuidingTitle,
+    getSelectedSectionIds,
+    getTargetLabel,
+    getTargetLabelForLens,
+    getVideoPreview,
+    normalizeKnowledgeKey,
+    renderAlpacaList,
+    renderLearnCardFooterNav,
+    renderOptionToken,
+    renderPanelTitle,
+    usesGranularLearnSubjects
+  },
+  callbacks: {
+    renderExperience,
+    renderStats,
+    saveRawMastery,
+    syncPopupScrollLock
+  }
+});
+
+const studyGameController = createStudyGameController({
+  appState: state,
+  appData: {
+    data
+  },
+  alpaquizEngine,
+  constants: {
+    GAME_CONFIG,
+    WRITING_PHASES
+  },
+  callbacks: {
+    buildBowlExperience,
+    buildQuizExperience,
+    buildQuizQuestionPlan,
+    finalizeSessionStats,
+    getBestStreakFromAnswers,
+    getCurrentBowlQuestion,
+    getUnavailableRawGameReason,
+    normalizeQuizDifficultySelection,
+    renderExperience,
+    renderExperiencePreservingScroll
+  }
+});
+
+const arcadeGameController = createArcadeGameController({
+  appState: state,
+  windowRef: window,
+  constants: {
+    GAME_CONFIG
+  },
+  callbacks: {
+    buildAlpacaRunQuestionPlan,
+    buildJumpQuestionPlan,
+    buildRaceLevelQueues,
+    buildRelayQuestionSequence,
+    clearRaceTimer,
+    clearRelayAnswerTimer,
+    createJumpObstacle,
+    createRelayTeams,
+    finalizeSessionStats,
+    getBestStreakFromAnswers,
+    getCurrentRaceQuestion,
+    getHighestTeamScore,
+    getRaceActiveLevelState,
+    getRawEntriesForRunSetupCategoryIds,
+    getRunReachedStage,
+    getThemedTeamLabel,
+    getUnavailableRawGameReason,
+    playRelayBuzzSound,
+    queueNextJumpObstacle,
+    queueNextRaceQuestion,
+    render,
+    renderExperience,
+    syncRelayTeamBindings,
+    updateJumpDom
+  }
+});
+
+const legacyLiveRoomController = createLegacyLiveRoomController({
+  appState: state,
+  appStateService,
+  authController,
+  alpacaChannelCatalog,
+  alpacapardyLive,
+  alpacapardyLiveSupabaseService,
+  alpacapardyEngine,
+  windowRef: window,
+  constants: {
+    LEGACY_LIVE_ROOMS_PUBLIC_ENABLED,
+    MULTIPLAYER_ALLOWED_EMAILS,
+    MULTIPLAYER_ALLOWED_EMAIL_DOMAINS,
+    LIVE_GAME_TYPES,
+    LIVE_ALPACA_COLORS,
+    LIVE_SYNC_INTERVAL_MS,
+    GAME_CONFIG
+  },
+  callbacks: {
+    buildConfiguredJeopardyBoard,
+    buildJeopardyExperience,
+    buildPatternQuestionSequence,
+    buildRawQuestionPoolsFromEntries,
+    createStandaloneAlpacaChannelVideo,
+    finalizeSessionStats,
+    getBestStreakFromAnswers,
+    getEmbeddableVideo,
+    getHighestTeamScore,
+    getRawEntriesForRouteSelection,
+    loadGuestAlpacaName,
+    render,
+    renderLiveSurfaces,
+    shuffle,
+    startJeopardyTimer
+  }
+});
+
+const modeRuntimeController = createModeRuntimeController({
+  appState: state,
+  refs,
+  domService: appDomService,
+  renderers: {
+    slideshow: renderSlideshowExperience,
+    mindmap: renderMindMapExperience,
+    rawcontent: renderRawContentExperience,
+    regularguide: renderRegularGuideExperience,
+    channel: renderAlpacaChannelExperience,
+    alpacard: renderAlpacardExperience,
+    writing: renderWritingExperience,
+    quiz: renderQuizExperience,
+    bowl: renderBowlExperience,
+    race: renderRaceExperience,
+    jump: renderJumpExperience,
+    jeopardy: renderJeopardyExperience,
+    run: renderRunExperience,
+    relay: renderRelayExperience,
+    buildcase: renderBuildCaseExperience,
+    unavailable: renderUnavailableModeExperience
+  },
+  callbacks: {
+    stopMindMapOrbitAnimation,
+    syncExperienceTimers,
+    syncPopupScrollLock,
+    syncRadialMindMapScroll,
+    syncMindMapOrbitAnimation,
+    syncRawQuestionGalleries,
+    syncActiveModalFocus
+  }
+});
+
+const legacyLiveRoomRenderer = createLegacyLiveRoomRenderer({
+  appState: state,
+  appDomService,
+  onlineModeController,
+  documentRef: document,
+  windowRef: window,
+  constants: {
+    LIVE_GAME_TYPES,
+    LIVE_GAME_ORDER,
+    LIVE_ALPACA_COLORS,
+    GAME_CONFIG,
+    ALPACA_RUN_ROUTE
+  },
+  helpers: {
+    escapeHtml,
+    canAccessLegacyLiveRooms,
+    getLegacyLiveRoomsDisabledMessage,
+    getAlpacapardyLiveIdentityContext,
+    getAlpacapardyLiveRenderContext,
+    normalizeLiveGameType,
+    getCurrentLiveGameType,
+    getLiveGameLabel,
+    getLivePlayablePlayers,
+    getAssetValue,
+    getWizardCardAsset,
+    renderConfiguredMascotAsset,
+    renderJeopardyExperience,
+    renderJeopardySetup,
+    canStartSelectedLiveGame,
+    getLiveWaitingVideos,
+    getLiveWaitingVideoIndex,
+    getEmbeddableVideo,
+    getVideoPreview,
+    getAlpacaChannelDomain,
+    normalizeVideoUrl,
+    getModeAssetPath,
+    getArcadeState,
+    getLiveRunSetupColorId,
+    renderRunMapBackground,
+    renderRunMapStop,
+    getRunMapTop,
+    renderOptionToken,
+    getArcadeLeaderboard,
+    renderRaceLivesIcon
+  },
+  callbacks: {
+    syncActiveModalFocus
+  }
+});
+
+const routeBuilderViewController = createRouteBuilderViewController({
+  appState: state,
+  refs,
+  appDomService,
+  wizardRenderer,
+  documentRef: document,
+  windowRef: window,
+  constants: {
+    WIZARD_TOTAL_STEPS,
+    DEFAULT_LENS_ID,
+    PATH_OPTIONS,
+    LENS_OPTIONS
+  },
+  helpers: {
+    escapeHtml,
+    renderConfiguredMascotAsset,
+    getAssetValue,
+    getWizardCardAsset,
+    getTargetAssetPath,
+    getModeAssetPath,
+    getPathReviewBadge,
+    getLensReviewBadge,
+    getTargetReviewBadge,
+    getModeReviewBadge,
+    getTargetLabel,
+    getModeOption,
+    getSelectedSectionIds,
+    getTargetOptions,
+    getVisibleModeOptions,
+    getVisibleModeOptionsForPath,
+    getModePath,
+    getAppModeSwitchIcon
+  },
+  callbacks: {
+    renderAlpacaOnlineHub
+  }
+});
+
+const appEventRouter = createAppEventRouter({
+  appState: state,
+  refs,
+  alpacapardyLiveSupabaseService,
+  windowRef: window,
+  documentRef: document,
+  actions: {
+    closeHeroMenu,
+    syncAuthChrome,
+    syncPopupScrollLock,
+    renderAuthModal,
+    clearAuthNotice,
+    signOutOfAlpaccount,
+    openAlpacaOnlineCampus,
+    chooseAppEntryMode,
+    renderCooperationModal,
+    switchToLocalMode,
+    refreshAlpacapardyLiveLobby,
+    returnToAlpacaOnlineHub,
+    chooseOnlineGameType,
+    createSelectedLiveGameRoom,
+    selectLiveRunSetupColor,
+    startSelectedLiveGame,
+    selectLiveAlpacaColor,
+    answerSelectedLiveGame,
+    advanceSelectedLiveGame,
+    buzzSelectedLiveGame,
+    navigateLiveWaitingVideo,
+    renderResourcesModal,
+    toggleHeroMenu,
+    canDismissAuthModal,
+    choosePath,
+    chooseLens,
+    chooseTarget,
+    toggleModeChoiceSection,
+    toggleModeChoiceMenu,
+    continueTargetSelection,
+    chooseMode,
+    closeTrainTip,
+    clearFrom,
+    goToWizardStep,
+    openRawConnection,
+    openGuideSection,
+    openSectionChannel,
+    rememberRawQuestionGallerySlide,
+    selectRawQuizOption,
+    shiftRawQuizPage,
+    toggleRawMastery,
+    selectRawAssetPoint,
+    openRawMediaLightboxFromTrigger,
+    shiftRawMediaLightbox,
+    closeRawMediaLightbox,
+    openMindMapEntry,
+    navigateMindMapGallery,
+    openMindMapGuide,
+    closeMindMapEntry,
+    closeMindMapGuide,
+    launchExperience,
+    navigateSlide,
+    navigateAlpacaChannel,
+    navigateAlpacard,
+    setAlpacardIndex,
+    flipAlpacard,
+    shuffleAlpacard,
+    toggleQuizSection,
+    selectAllQuizSections,
+    setQuizQuestionCount,
+    toggleQuizDifficulty,
+    startQuizRoute,
+    answerQuizQuestion,
+    submitQuizRoute,
+    resetQuizRoute,
+    nextWritingPrompt,
+    setWritingPhase,
+    startBowlPractice,
+    answerBowlQuestion,
+    advanceBowlQuestion,
+    resetBowlPractice,
+    answerRaceQuestion,
+    startRaceRoute,
+    toggleRaceSetupCategory,
+    advanceRace,
+    startJumpRoute,
+    toggleJumpSetupCategory,
+    performJumpAction,
+    answerJumpQuestion,
+    continueJumpRoute,
+    startBuildCaseRoute,
+    showNextDebateTopic,
+    startDebateConversation,
+    toggleDebateSideSpin,
+    returnToDebateTopic,
+    resetDebateSpinForCurrentTopic,
+    renderExperience,
+    toggleDebateSuggestion,
+    submitDebateRound,
+    advanceDebateRound,
+    chooseBuildCaseCamp,
+    toggleBuildCaseSupport,
+    confirmBuildCaseSupports,
+    chooseBuildCaseRebuttal,
+    advanceBuildCaseRound,
+    setJeopardyPlayMode,
+    createAlpacapardyLiveRoom,
+    joinAlpacapardyLiveRoom,
+    leaveAlpacapardyLiveRoom,
+    startAlpacapardyLiveGame,
+    openJeopardyTile,
+    answerJeopardyQuestion,
+    setJeopardyTeamCount,
+    toggleJeopardySetupCategory,
+    startJeopardyGame,
+    closeJeopardyFocus,
+    chooseJeopardyTeam,
+    addJeopardyTeam,
+    removeJeopardyTeam,
+    advanceJeopardyTeam,
+    answerRelayQuestion,
+    startRelayRoute,
+    toggleRelaySetupCategory,
+    setRelayTeamCount,
+    setRelayQuestionCount,
+    advanceRelayQuestion,
+    addRelayTeam,
+    removeRelayTeam,
+    buzzRelayTeam,
+    answerRunQuestion,
+    toggleRunSetupCategory,
+    startRunRoute,
+    continueRun,
+    resetCurrentRouteAttempts,
+    changeGuidingSections,
+    changeModeSelection,
+    closeCurrentExperience,
+    joinAlpacapardyLiveRoomByCode,
+    sendAlpacapardyLiveChat,
+    submitAuthForm,
+    getActiveMindMapEntryBundle
+  }
+});
 
 const RESOURCE_LINKS = [
   {
@@ -2439,6 +2272,45 @@ const RESOURCE_LINKS = [
     url: "https://pwaaprep.com/Are-We-There-Yet.html"
   }
 ];
+
+const appShellRenderer = createAppShellRenderer({
+  appState: state,
+  refs,
+  appDomService,
+  appStateService,
+  appEntryService,
+  onlineModeController,
+  authModalRenderer,
+  constants: {
+    ASSET_CACHE_VERSION,
+    DISCORD_INVITE_URL,
+    CONTACT_EMAIL_URL,
+    WSC_ROUND_OPTIONS,
+    LIVE_GAME_ORDER,
+    ALPACA_RUN_ROUTE,
+    RESOURCE_LINKS,
+    insights: data.insights
+  },
+  helpers: {
+    escapeHtml,
+    getPathOption,
+    getModeOption,
+    normalizeLiveGameType
+  },
+  callbacks: {
+    syncActiveModalFocus,
+    isSignedIn,
+    canDismissAuthModal,
+    canAccessCampusPreview,
+    getCurrentUserEmail,
+    getTotalRawMasterableEntries,
+    getMasteredRawEntryCount,
+    getDefaultStats,
+    getLiveGameLabel,
+    getSelectedSectionIds,
+    getTargetLabel
+  }
+});
 
 init();
 
@@ -2482,1197 +2354,116 @@ function clearJeopardyTimer() {
 }
 
 function clearDebateSpinTimer() {
-  if (debateSpinTimerId) {
-    window.clearTimeout(debateSpinTimerId);
-    debateSpinTimerId = null;
-  }
+  return buildCaseController.clearSpinTimer();
 }
 
 function clearDebateRevealTimer() {
-  if (debateRevealTimerId) {
-    window.clearTimeout(debateRevealTimerId);
-    debateRevealTimerId = null;
-  }
+  return buildCaseController.clearRevealTimer();
 }
 
-function clearAlpacapardyLiveHeartbeat() {
-  if (state.live.heartbeatId) {
-    window.clearInterval(state.live.heartbeatId);
-    state.live.heartbeatId = null;
-  }
+function clearAlpacapardyLiveHeartbeat(...args) {
+  return legacyLiveRoomController.clearAlpacapardyLiveHeartbeat(...args);
 }
 
-function clearAlpacapardyLiveSync() {
-  if (state.live.syncId) {
-    window.clearInterval(state.live.syncId);
-    state.live.syncId = null;
-  }
-  state.live.syncBusy = false;
+function clearAlpacapardyLiveSync(...args) {
+  return legacyLiveRoomController.clearAlpacapardyLiveSync(...args);
 }
 
-function clearLiveLaunchCountdown() {
-  if (liveLaunchCountdownTimerId) {
-    window.clearTimeout(liveLaunchCountdownTimerId);
-    liveLaunchCountdownTimerId = null;
-  }
+function clearLiveLaunchCountdown(...args) {
+  return legacyLiveRoomController.clearLiveLaunchCountdown(...args);
 }
 
-function clearAlpacapardyLiveSubscriptions() {
-  const client = getSupabaseClient();
-  if (state.live.sessionChannel) {
-    alpacapardyLiveSupabaseService?.removeChannel(client, state.live.sessionChannel);
-    state.live.sessionChannel = null;
-  }
-  if (state.live.lobbyChannel) {
-    alpacapardyLiveSupabaseService?.removeChannel(client, state.live.lobbyChannel);
-    state.live.lobbyChannel = null;
-  }
+function clearAlpacapardyLiveSubscriptions(...args) {
+  return legacyLiveRoomController.clearAlpacapardyLiveSubscriptions(...args);
 }
 
 function resetAlpacapardyLiveState({ keepGuestName = true } = {}) {
-  clearAlpacapardyLiveHeartbeat();
-  clearAlpacapardyLiveSync();
-  clearAlpacapardyLiveSubscriptions();
-  clearLiveLaunchCountdown();
-  state.live.openSessions = [];
-  state.live.currentSession = null;
-  state.live.currentPlayer = null;
-  state.live.players = [];
-  state.live.revision = 0;
-  state.live.status = "idle";
-  state.live.message = "";
-  state.live.error = "";
-  state.live.selectedGameType = "alpacapardy";
-  state.live.onlineView = "hub";
-  state.live.arcadeState = null;
-  state.live.syncBusy = false;
-  state.live.joinCodeDraft = "";
-  state.live.autoStartBusy = false;
-  state.live.launchCountdownText = "";
-  state.live.launchCountdownSessionId = null;
-  state.live.waitingVideoSessionId = null;
-  state.live.waitingVideos = [];
-  state.live.waitingVideoIndex = 0;
-  if (!keepGuestName) {
-    state.live.guestName = loadGuestAlpacaName();
-  }
+  return legacyLiveRoomController.resetAlpacapardyLiveState({ keepGuestName });
 }
 
 function init() {
-  hydrateKnowledgeBank();
-  preloadExperienceAudio();
-  setupSupabaseAuth();
-  if (refs.heroMascot) {
-    refs.heroMascot.innerHTML = renderHeroVisual();
-  }
-  renderInsights();
-  render();
-  window.WSC_APP_READY = true;
-  window.dispatchEvent(new Event("wsc:app-ready"));
-  document.addEventListener("click", handleClick);
-  document.addEventListener("input", handleInput);
-  document.addEventListener("submit", handleSubmit);
-  document.addEventListener("keydown", handleKeyDown);
-  document.addEventListener("wheel", handleMindMapGalleryWheel, { passive: false });
-  document.addEventListener("touchstart", handleTouchStart, { passive: true });
-  document.addEventListener("touchend", handleTouchEnd, { passive: true });
-  window.addEventListener("resize", syncRadialMindMapScroll);
+  const startupTasks = [
+    hydrateKnowledgeBank,
+    preloadExperienceAudio,
+    setupSupabaseAuth,
+    () => {
+      if (refs.heroMascot) {
+        appDomService.setHtml(refs.heroMascot, renderHeroVisual());
+      }
+    },
+    renderInsights,
+    render
+  ];
+  const eventBindings = [
+    { target: document, type: "click", handler: handleClick },
+    { target: document, type: "input", handler: handleInput },
+    { target: document, type: "submit", handler: handleSubmit },
+    { target: document, type: "keydown", handler: handleKeyDown },
+    { target: document, type: "wheel", handler: handleMindMapGalleryWheel, options: { passive: false } },
+    { target: document, type: "touchstart", handler: handleTouchStart, options: { passive: true } },
+    { target: document, type: "touchend", handler: handleTouchEnd, options: { passive: true } },
+    { target: window, type: "resize", handler: syncRadialMindMapScroll }
+  ];
+
+  appBootstrapService.runStartupTasks(startupTasks);
+  appBootstrapService.markAppReady({
+    windowTarget: window,
+    flagName: "WSC_APP_READY",
+    eventName: "wsc:app-ready"
+  });
+  appBootstrapService.registerEventListeners(eventBindings);
 }
 
-function handleClick(event) {
-  const backToTop = event.target.closest("[data-back-to-top]");
-  if (backToTop) {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
-    return;
-  }
+function handleClick(...args) { return appEventRouter.handleClick(...args); }
 
-  const openAuth = event.target.closest("[data-open-auth]");
-  if (openAuth) {
-    closeHeroMenu();
-    if (state.ui.appEntryGateOpen) {
-      state.ui.authMode = "login";
-      syncAuthChrome();
-      return;
-    }
-    state.ui.authOpen = true;
-    syncPopupScrollLock();
-    renderAuthModal();
-    return;
-  }
+function handleInput(...args) { return appEventRouter.handleInput(...args); }
 
-  const authModeButton = event.target.closest("[data-auth-mode]");
-  if (authModeButton) {
-    state.ui.authMode = authModeButton.dataset.authMode;
-    clearAuthNotice();
-    syncAuthChrome();
-    return;
-  }
+function handleSubmit(...args) { return appEventRouter.handleSubmit(...args); }
 
-  const signOutButton = event.target.closest("[data-auth-signout]");
-  if (signOutButton) {
-    signOutOfAlpaccount();
-    return;
-  }
+function handleKeyDown(...args) { return appEventRouter.handleKeyDown(...args); }
 
-  const openAlpacaOnlineCampusButton = event.target.closest("[data-open-alpaca-online-campus]");
-  if (openAlpacaOnlineCampusButton) {
-    openAlpacaOnlineCampus();
-    return;
-  }
+function handleTouchStart(...args) { return appEventRouter.handleTouchStart(...args); }
 
-  const openAppEntryGate = event.target.closest("[data-open-app-entry-gate]");
-  if (openAppEntryGate) {
-    state.ui.appEntryGateOpen = true;
-    state.ui.authOpen = false;
-    state.ui.authMode = "login";
-    syncAuthChrome();
-    return;
-  }
-
-  const appEntryChoice = event.target.closest("[data-app-entry-choice]");
-  if (appEntryChoice) {
-    chooseAppEntryMode(appEntryChoice.dataset.appEntryChoice);
-    return;
-  }
-
-  const closeCooperation = event.target.closest("[data-close-cooperation]");
-  if (closeCooperation) {
-    state.ui.cooperationOpen = false;
-    syncPopupScrollLock();
-    renderCooperationModal();
-    return;
-  }
-
-  const appEntryLogin = event.target.closest("[data-app-entry-login]");
-  if (appEntryLogin) {
-    state.ui.authMode = "login";
-    syncAuthChrome();
-    return;
-  }
-
-  const onlineBackLocal = event.target.closest("[data-online-back-local]");
-  if (onlineBackLocal) {
-    switchToLocalMode();
-    return;
-  }
-
-  const onlineRefresh = event.target.closest("[data-online-refresh]");
-  if (onlineRefresh) {
-    refreshAlpacapardyLiveLobby();
-    return;
-  }
-
-  const onlineReturnHub = event.target.closest("[data-online-return-hub]");
-  if (onlineReturnHub) {
-    returnToAlpacaOnlineHub();
-    return;
-  }
-
-  const onlineGameChoice = event.target.closest("[data-online-game-choice]");
-  if (onlineGameChoice) {
-    chooseOnlineGameType(onlineGameChoice.dataset.onlineGameChoice);
-    return;
-  }
-
-  const liveCreateGame = event.target.closest("[data-live-create-game]");
-  if (liveCreateGame) {
-    createSelectedLiveGameRoom();
-    return;
-  }
-
-  const liveRunSetupColor = event.target.closest("[data-live-run-setup-color]");
-  if (liveRunSetupColor) {
-    selectLiveRunSetupColor(liveRunSetupColor.dataset.liveRunSetupColor);
-    return;
-  }
-
-  const liveStartGame = event.target.closest("[data-live-start-game]");
-  if (liveStartGame) {
-    startSelectedLiveGame();
-    return;
-  }
-
-  const liveColorSelect = event.target.closest("[data-live-color-select]");
-  if (liveColorSelect) {
-    selectLiveAlpacaColor(liveColorSelect.dataset.liveColorSelect);
-    return;
-  }
-
-  const liveAnswer = event.target.closest("[data-live-answer]");
-  if (liveAnswer) {
-    answerSelectedLiveGame(Number(liveAnswer.dataset.liveAnswer));
-    return;
-  }
-
-  const liveNext = event.target.closest("[data-live-next]");
-  if (liveNext) {
-    advanceSelectedLiveGame();
-    return;
-  }
-
-  const liveBuzz = event.target.closest("[data-live-buzz]");
-  if (liveBuzz) {
-    buzzSelectedLiveGame();
-    return;
-  }
-
-  const liveWaitingVideoNav = event.target.closest("[data-live-waiting-video-nav]");
-  if (liveWaitingVideoNav) {
-    navigateLiveWaitingVideo(liveWaitingVideoNav.dataset.liveWaitingVideoNav);
-    return;
-  }
-
-  const openResources = event.target.closest("[data-open-resources]");
-  if (openResources) {
-    state.ui.resourcesOpen = true;
-    closeHeroMenu();
-    syncPopupScrollLock();
-    renderResourcesModal();
-    return;
-  }
-
-  const heroMenuButton = event.target.closest("[data-toggle-hero-menu]");
-  if (heroMenuButton) {
-    toggleHeroMenu(heroMenuButton);
-    return;
-  }
-
-  const closeAuth = event.target.closest("[data-close-auth]");
-  if (closeAuth) {
-    if (!canDismissAuthModal()) {
-      return;
-    }
-    state.ui.authOpen = false;
-    syncPopupScrollLock();
-    renderAuthModal();
-    return;
-  }
-
-  const closeResources = event.target.closest("[data-close-resources]");
-  if (closeResources && (!event.target.closest("[data-resources-window]") || event.target.closest(".popup-close-button"))) {
-    state.ui.resourcesOpen = false;
-    syncPopupScrollLock();
-    renderResourcesModal();
-    return;
-  }
-
-  const scrollButton = event.target.closest("[data-scroll-route-builder]");
-  if (scrollButton) {
-    refs.routeBuilder && refs.routeBuilder.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
-  }
-
-  const pathButton = event.target.closest("[data-pick-path]");
-  if (pathButton) {
-    choosePath(pathButton.dataset.pickPath);
-    return;
-  }
-
-  const lensButton = event.target.closest("[data-pick-lens]");
-  if (lensButton) {
-    chooseLens(lensButton.dataset.pickLens);
-    return;
-  }
-
-  const targetButton = event.target.closest("[data-pick-target]");
-  if (targetButton) {
-    chooseTarget(targetButton.dataset.pickTarget);
-    return;
-  }
-
-  const modeSectionButton = event.target.closest("[data-toggle-mode-section]");
-  if (modeSectionButton) {
-    toggleModeChoiceSection(modeSectionButton.dataset.toggleModeSection);
-    return;
-  }
-
-  const modeMenuButton = event.target.closest("[data-toggle-mode-menu]");
-  if (modeMenuButton) {
-    toggleModeChoiceMenu(modeMenuButton);
-    return;
-  }
-
-  const targetNextButton = event.target.closest("[data-target-next]");
-  if (targetNextButton) {
-    continueTargetSelection();
-    return;
-  }
-
-  const modeButton = event.target.closest("[data-pick-mode]");
-  if (modeButton) {
-    chooseMode(modeButton.dataset.pickMode, modeButton.dataset.pickModePath || null);
-    return;
-  }
-
-  const trainTipClose = event.target.closest("[data-train-tip-close]");
-  if (trainTipClose) {
-    closeTrainTip();
-    return;
-  }
-
-  const clearButton = event.target.closest("[data-clear-from]");
-  if (clearButton) {
-    clearFrom(clearButton.dataset.clearFrom);
-    return;
-  }
-
-  const goStepButton = event.target.closest("[data-go-step]");
-  if (goStepButton) {
-    goToWizardStep(Number(goStepButton.dataset.goStep));
-    return;
-  }
-
-  const rawConnectionButton = event.target.closest("[data-open-raw-connection]");
-  if (rawConnectionButton) {
-    openRawConnection(
-      rawConnectionButton.dataset.openRawConnectionLens,
-      rawConnectionButton.dataset.openRawConnectionTarget
-    );
-    return;
-  }
-
-  const guideSectionButton = event.target.closest("[data-open-guide-section]");
-  if (guideSectionButton) {
-    openGuideSection(guideSectionButton.dataset.openGuideSection);
-    return;
-  }
-
-  const sectionChannelButton = event.target.closest("[data-open-section-channel]");
-  if (sectionChannelButton) {
-    openSectionChannel(sectionChannelButton.dataset.openSectionChannel);
-    return;
-  }
-
-  const rawQuizOptionButton = event.target.closest("[data-raw-quiz-option]");
-  if (rawQuizOptionButton) {
-    rememberRawQuestionGallerySlide(rawQuizOptionButton);
-    selectRawQuizOption(
-      rawQuizOptionButton.dataset.rawQuizKey,
-      Number(rawQuizOptionButton.dataset.rawQuizOption)
-    );
-    return;
-  }
-
-  const rawQuizPageButton = event.target.closest("[data-raw-quiz-page]");
-  if (rawQuizPageButton) {
-    shiftRawQuizPage(
-      rawQuizPageButton.dataset.rawQuizPage,
-      Number(rawQuizPageButton.dataset.rawQuizDirection),
-      Number(rawQuizPageButton.dataset.rawQuizTotal)
-    );
-    return;
-  }
-
-  const rawMasteryToggle = event.target.closest("[data-raw-mastery-toggle]");
-  if (rawMasteryToggle) {
-    toggleRawMastery(rawMasteryToggle.dataset.rawMasteryToggle);
-    return;
-  }
-
-  const rawAssetPointButton = event.target.closest("[data-raw-asset-point]");
-  if (rawAssetPointButton) {
-    selectRawAssetPoint(
-      Number(rawAssetPointButton.dataset.rawAssetEntryIndex),
-      Number(rawAssetPointButton.dataset.rawAssetIndex),
-      Number(rawAssetPointButton.dataset.rawAssetPoint)
-    );
-    return;
-  }
-
-  const rawMediaTrigger = event.target.closest("[data-open-raw-media]");
-  if (rawMediaTrigger) {
-    openRawMediaLightboxFromTrigger(rawMediaTrigger);
-    return;
-  }
-
-  const rawMediaNav = event.target.closest("[data-raw-media-nav]");
-  if (rawMediaNav) {
-    shiftRawMediaLightbox(rawMediaNav.dataset.rawMediaNav === "next" ? 1 : -1);
-    return;
-  }
-
-  const closeRawMedia = event.target.closest("[data-close-raw-media]");
-  if (closeRawMedia && (!event.target.closest("[data-raw-media-window]") || event.target.closest(".popup-close-button"))) {
-    closeRawMediaLightbox();
-    return;
-  }
-
-  const openMindMapEntryButton = event.target.closest("[data-open-mindmap-entry]");
-  if (openMindMapEntryButton) {
-    openMindMapEntry(openMindMapEntryButton.dataset.openMindmapEntry);
-    return;
-  }
-
-  const mindMapGalleryNavButton = event.target.closest("[data-mindmap-gallery-nav]");
-  if (mindMapGalleryNavButton) {
-    navigateMindMapGallery(mindMapGalleryNavButton.dataset.mindmapGalleryNav);
-    return;
-  }
-
-  const openMindMapGuideButton = event.target.closest("[data-open-mindmap-guide]");
-  if (openMindMapGuideButton) {
-    openMindMapGuide(openMindMapGuideButton.dataset.openMindmapGuide);
-    return;
-  }
-
-  const closeMindMapPopup = event.target.closest("[data-close-mindmap-popup]");
-  if (closeMindMapPopup && (!event.target.closest("[data-mindmap-popup-window]") || closeMindMapPopup.tagName === "BUTTON")) {
-    closeMindMapEntry();
-    return;
-  }
-
-  const closeMindMapGuidePopup = event.target.closest("[data-close-mindmap-guide-popup]");
-  if (closeMindMapGuidePopup && (!event.target.closest("[data-mindmap-guide-popup-window]") || closeMindMapGuidePopup.tagName === "BUTTON")) {
-    closeMindMapGuide();
-    return;
-  }
-
-  const launchButton = event.target.closest("[data-launch-experience]");
-  if (launchButton) {
-    launchExperience();
-    return;
-  }
-
-  const slideNavButton = event.target.closest("[data-slide-nav]");
-  if (slideNavButton) {
-    navigateSlide(slideNavButton.dataset.slideNav);
-    return;
-  }
-
-  const channelNavButton = event.target.closest("[data-channel-nav]");
-  if (channelNavButton) {
-    navigateAlpacaChannel(channelNavButton.dataset.channelNav);
-    return;
-  }
-
-  const alpacardNavButton = event.target.closest("[data-alpacard-nav]");
-  if (alpacardNavButton) {
-    navigateAlpacard(alpacardNavButton.dataset.alpacardNav);
-    return;
-  }
-
-  const alpacardThumbButton = event.target.closest("[data-alpacard-index]");
-  if (alpacardThumbButton) {
-    setAlpacardIndex(Number(alpacardThumbButton.dataset.alpacardIndex));
-    return;
-  }
-
-  const alpacardFlipButton = event.target.closest("[data-alpacard-flip]");
-  if (alpacardFlipButton) {
-    flipAlpacard();
-    return;
-  }
-
-  const alpacardShuffleButton = event.target.closest("[data-alpacard-shuffle]");
-  if (alpacardShuffleButton) {
-    shuffleAlpacard();
-    return;
-  }
-
-  const quizToggleSection = event.target.closest("[data-quiz-toggle-section]");
-  if (quizToggleSection) {
-    toggleQuizSection(quizToggleSection.dataset.quizToggleSection);
-    return;
-  }
-
-  const quizSelectAll = event.target.closest("[data-quiz-select-all]");
-  if (quizSelectAll) {
-    selectAllQuizSections();
-    return;
-  }
-
-  const quizSetCount = event.target.closest("[data-quiz-set-count]");
-  if (quizSetCount) {
-    setQuizQuestionCount(Number(quizSetCount.dataset.quizSetCount));
-    return;
-  }
-
-  const quizToggleDifficulty = event.target.closest("[data-quiz-toggle-difficulty]");
-  if (quizToggleDifficulty) {
-    toggleQuizDifficulty(Number(quizToggleDifficulty.dataset.quizToggleDifficulty));
-    return;
-  }
-
-  const quizStart = event.target.closest("[data-quiz-start]");
-  if (quizStart) {
-    startQuizRoute();
-    return;
-  }
-
-  const quizOption = event.target.closest("[data-quiz-option]");
-  if (quizOption) {
-    answerQuizQuestion(
-      Number(quizOption.dataset.quizQuestion),
-      Number(quizOption.dataset.quizOption)
-    );
-    return;
-  }
-
-  const quizSubmit = event.target.closest("[data-quiz-submit]");
-  if (quizSubmit) {
-    submitQuizRoute();
-    return;
-  }
-
-  const quizReset = event.target.closest("[data-quiz-reset]");
-  if (quizReset) {
-    resetQuizRoute();
-    return;
-  }
-
-  const writingPromptButton = event.target.closest("[data-writing-next-prompt]");
-  if (writingPromptButton) {
-    nextWritingPrompt();
-    return;
-  }
-
-  const writingPhaseButton = event.target.closest("[data-writing-phase]");
-  if (writingPhaseButton) {
-    setWritingPhase(writingPhaseButton.dataset.writingPhase);
-    return;
-  }
-
-  const bowlStart = event.target.closest("[data-bowl-start]");
-  if (bowlStart) {
-    startBowlPractice();
-    return;
-  }
-
-  const bowlOption = event.target.closest("[data-bowl-option]");
-  if (bowlOption) {
-    answerBowlQuestion(Number(bowlOption.dataset.bowlOption));
-    return;
-  }
-
-  const bowlNext = event.target.closest("[data-bowl-next]");
-  if (bowlNext) {
-    advanceBowlQuestion();
-    return;
-  }
-
-  const bowlReset = event.target.closest("[data-bowl-reset]");
-  if (bowlReset) {
-    resetBowlPractice();
-    return;
-  }
-
-  const raceOptionButton = event.target.closest("[data-race-option]");
-  if (raceOptionButton) {
-    answerRaceQuestion(Number(raceOptionButton.dataset.raceOption));
-    return;
-  }
-
-  const raceStartButton = event.target.closest("[data-race-start]");
-  if (raceStartButton) {
-    startRaceRoute();
-    return;
-  }
-
-  const raceToggleCategory = event.target.closest("[data-race-toggle-category]");
-  if (raceToggleCategory) {
-    toggleRaceSetupCategory(raceToggleCategory.dataset.raceToggleCategory);
-    return;
-  }
-
-  const raceAdvanceButton = event.target.closest("[data-race-advance]");
-  if (raceAdvanceButton) {
-    advanceRace();
-    return;
-  }
-
-  const jumpStartButton = event.target.closest("[data-jump-start]");
-  if (jumpStartButton) {
-    startJumpRoute();
-    return;
-  }
-
-  const jumpToggleCategory = event.target.closest("[data-jump-toggle-category]");
-  if (jumpToggleCategory) {
-    toggleJumpSetupCategory(jumpToggleCategory.dataset.jumpToggleCategory);
-    return;
-  }
-
-  const jumpActionButton = event.target.closest("[data-jump-action]");
-  if (jumpActionButton) {
-    performJumpAction(jumpActionButton.dataset.jumpAction);
-    return;
-  }
-
-  const jumpOptionButton = event.target.closest("[data-jump-option]");
-  if (jumpOptionButton) {
-    answerJumpQuestion(Number(jumpOptionButton.dataset.jumpOption));
-    return;
-  }
-
-  const jumpContinueButton = event.target.closest("[data-jump-continue]");
-  if (jumpContinueButton) {
-    continueJumpRoute();
-    return;
-  }
-
-  const buildCaseStart = event.target.closest("[data-buildcase-start]");
-  if (buildCaseStart) {
-    startBuildCaseRoute();
-    return;
-  }
-
-  const buildCaseNextTopic = event.target.closest("[data-buildcase-next-topic]");
-  if (buildCaseNextTopic) {
-    showNextDebateTopic();
-    return;
-  }
-
-  const buildCaseLetsDebate = event.target.closest("[data-buildcase-lets-debate]");
-  if (buildCaseLetsDebate) {
-    startDebateConversation();
-    return;
-  }
-
-  const buildCaseSpinToggle = event.target.closest("[data-buildcase-spin-toggle]");
-  if (buildCaseSpinToggle) {
-    toggleDebateSideSpin();
-    return;
-  }
-
-  const buildCaseBackTopic = event.target.closest("[data-buildcase-back-topic]");
-  if (buildCaseBackTopic) {
-    returnToDebateTopic();
-    return;
-  }
-
-  const buildCaseSpinAgain = event.target.closest("[data-buildcase-spin-again]");
-  if (buildCaseSpinAgain) {
-    resetDebateSpinForCurrentTopic();
-    renderExperience();
-    return;
-  }
-
-  const debateSuggestion = event.target.closest("[data-debate-suggestion]");
-  if (debateSuggestion) {
-    toggleDebateSuggestion(debateSuggestion.dataset.debateSuggestion);
-    return;
-  }
-
-  const debateSubmitRound = event.target.closest("[data-debate-submit-round]");
-  if (debateSubmitRound) {
-    submitDebateRound();
-    return;
-  }
-
-  const debateNextRound = event.target.closest("[data-debate-next-round]");
-  if (debateNextRound) {
-    advanceDebateRound();
-    return;
-  }
-
-  const buildCaseCamp = event.target.closest("[data-buildcase-camp]");
-  if (buildCaseCamp) {
-    chooseBuildCaseCamp(buildCaseCamp.dataset.buildcaseCamp);
-    return;
-  }
-
-  const buildCaseSupport = event.target.closest("[data-buildcase-support]");
-  if (buildCaseSupport) {
-    toggleBuildCaseSupport(Number(buildCaseSupport.dataset.buildcaseSupport));
-    return;
-  }
-
-  const buildCaseSupportSubmit = event.target.closest("[data-buildcase-support-submit]");
-  if (buildCaseSupportSubmit) {
-    confirmBuildCaseSupports();
-    return;
-  }
-
-  const buildCaseRebuttal = event.target.closest("[data-buildcase-rebuttal]");
-  if (buildCaseRebuttal) {
-    chooseBuildCaseRebuttal(Number(buildCaseRebuttal.dataset.buildcaseRebuttal));
-    return;
-  }
-
-  const buildCaseNext = event.target.closest("[data-buildcase-next]");
-  if (buildCaseNext) {
-    advanceBuildCaseRound();
-    return;
-  }
-
-  const jeopardyPlayMode = event.target.closest("[data-jeopardy-play-mode]");
-  if (jeopardyPlayMode) {
-    setJeopardyPlayMode(jeopardyPlayMode.dataset.jeopardyPlayMode);
-    return;
-  }
-
-  const liveRefresh = event.target.closest("[data-jeopardy-live-refresh]");
-  if (liveRefresh) {
-    refreshAlpacapardyLiveLobby();
-    return;
-  }
-
-  const liveCreate = event.target.closest("[data-jeopardy-live-create]");
-  if (liveCreate) {
-    createAlpacapardyLiveRoom();
-    return;
-  }
-
-  const liveJoin = event.target.closest("[data-jeopardy-live-join]");
-  if (liveJoin) {
-    joinAlpacapardyLiveRoom(liveJoin.dataset.jeopardyLiveJoin);
-    return;
-  }
-
-  const liveLeave = event.target.closest("[data-jeopardy-live-leave]");
-  if (liveLeave) {
-    leaveAlpacapardyLiveRoom();
-    return;
-  }
-
-  const liveStart = event.target.closest("[data-jeopardy-live-start]");
-  if (liveStart) {
-    startAlpacapardyLiveGame();
-    return;
-  }
-
-  const jeopardyTile = event.target.closest("[data-jeopardy-open]");
-  if (jeopardyTile) {
-    const [groupIndex, tileIndex] = jeopardyTile.dataset.jeopardyOpen.split(":").map(Number);
-    openJeopardyTile(groupIndex, tileIndex);
-    return;
-  }
-
-  const jeopardyOption = event.target.closest("[data-jeopardy-option]");
-  if (jeopardyOption) {
-    answerJeopardyQuestion(Number(jeopardyOption.dataset.jeopardyOption));
-    return;
-  }
-
-  const jeopardySetTeams = event.target.closest("[data-jeopardy-set-teams]");
-  if (jeopardySetTeams) {
-    setJeopardyTeamCount(Number(jeopardySetTeams.dataset.jeopardySetTeams));
-    return;
-  }
-
-  const jeopardyToggleCategory = event.target.closest("[data-jeopardy-toggle-category]");
-  if (jeopardyToggleCategory) {
-    toggleJeopardySetupCategory(jeopardyToggleCategory.dataset.jeopardyToggleCategory);
-    return;
-  }
-
-  const jeopardyStart = event.target.closest("[data-jeopardy-start]");
-  if (jeopardyStart) {
-    startJeopardyGame();
-    return;
-  }
-
-  const jeopardyBack = event.target.closest("[data-jeopardy-back]");
-  if (jeopardyBack) {
-    closeJeopardyFocus();
-    return;
-  }
-
-  const jeopardyTeam = event.target.closest("[data-jeopardy-team]");
-  if (jeopardyTeam) {
-    chooseJeopardyTeam(Number(jeopardyTeam.dataset.jeopardyTeam));
-    return;
-  }
-
-  const jeopardyAddTeam = event.target.closest("[data-jeopardy-add-team]");
-  if (jeopardyAddTeam) {
-    addJeopardyTeam();
-    return;
-  }
-
-  const jeopardyRemoveTeam = event.target.closest("[data-jeopardy-remove-team]");
-  if (jeopardyRemoveTeam) {
-    removeJeopardyTeam();
-    return;
-  }
-
-  const jeopardyNextTurn = event.target.closest("[data-jeopardy-next-turn]");
-  if (jeopardyNextTurn) {
-    advanceJeopardyTeam();
-    return;
-  }
-
-  const relayOption = event.target.closest("[data-relay-option]");
-  if (relayOption) {
-    answerRelayQuestion(Number(relayOption.dataset.relayOption));
-    return;
-  }
-
-  const relayStart = event.target.closest("[data-relay-start]");
-  if (relayStart) {
-    startRelayRoute();
-    return;
-  }
-
-  const relayToggleCategory = event.target.closest("[data-relay-toggle-category]");
-  if (relayToggleCategory) {
-    toggleRelaySetupCategory(relayToggleCategory.dataset.relayToggleCategory);
-    return;
-  }
-
-  const relaySetTeams = event.target.closest("[data-relay-set-teams]");
-  if (relaySetTeams) {
-    setRelayTeamCount(Number(relaySetTeams.dataset.relaySetTeams));
-    return;
-  }
-
-  const relaySetQuestionCount = event.target.closest("[data-relay-set-question-count]");
-  if (relaySetQuestionCount) {
-    setRelayQuestionCount(Number(relaySetQuestionCount.dataset.relaySetQuestionCount));
-    return;
-  }
-
-  const relayContinue = event.target.closest("[data-relay-continue]");
-  if (relayContinue) {
-    advanceRelayQuestion();
-    return;
-  }
-
-  const relayAddTeam = event.target.closest("[data-relay-add-team]");
-  if (relayAddTeam) {
-    addRelayTeam();
-    return;
-  }
-
-  const relayRemoveTeam = event.target.closest("[data-relay-remove-team]");
-  if (relayRemoveTeam) {
-    removeRelayTeam();
-    return;
-  }
-
-  const relayBuzz = event.target.closest("[data-relay-buzz]");
-  if (relayBuzz) {
-    buzzRelayTeam(Number(relayBuzz.dataset.relayBuzz));
-    return;
-  }
-
-  const runOption = event.target.closest("[data-run-option]");
-  if (runOption) {
-    answerRunQuestion(Number(runOption.dataset.runOption));
-    return;
-  }
-
-  const runToggleCategory = event.target.closest("[data-run-toggle-category]");
-  if (runToggleCategory) {
-    toggleRunSetupCategory(runToggleCategory.dataset.runToggleCategory);
-    return;
-  }
-
-  const runStart = event.target.closest("[data-run-start]");
-  if (runStart) {
-    startRunRoute();
-    return;
-  }
-
-  const runContinue = event.target.closest("[data-run-continue]");
-  if (runContinue) {
-    continueRun();
-    return;
-  }
-
-  const replayButton = event.target.closest("[data-replay-current]");
-  if (replayButton) {
-    resetCurrentRouteAttempts();
-    document.body.classList.remove("with-popup");
-    launchExperience();
-    return;
-  }
-
-  const changeSectionsButton = event.target.closest("[data-change-sections]");
-  if (changeSectionsButton) {
-    changeGuidingSections();
-    return;
-  }
-
-  const changeModeButton = event.target.closest("[data-change-mode]");
-  if (changeModeButton) {
-    changeModeSelection();
-    return;
-  }
-
-  const closeExperience = event.target.closest("[data-close-experience]");
-  if (closeExperience) {
-    if (isAlpacapardyLiveActive()) {
-      leaveAlpacapardyLiveRoom();
-      return;
-    }
-    clearJeopardyTimer();
-    clearDebateSpinTimer();
-    clearDebateRevealTimer();
-    state.experience = null;
-    render();
-    return;
-  }
-}
-
-function handleInput(event) {
-  const joinCodeInput = event.target.closest("[data-online-room-code-input]");
-  if (joinCodeInput) {
-    state.live.joinCodeDraft = alpacapardyLiveSupabaseService?.normalizeRoomCode
-      ? alpacapardyLiveSupabaseService.normalizeRoomCode(joinCodeInput.value)
-      : String(joinCodeInput.value || "").trim().toUpperCase();
-    joinCodeInput.value = state.live.joinCodeDraft;
-  }
-}
-
-function handleSubmit(event) {
-  const onlineJoinCodeForm = event.target.closest("[data-online-join-code-form]");
-  if (onlineJoinCodeForm) {
-    event.preventDefault();
-    joinAlpacapardyLiveRoomByCode(new FormData(onlineJoinCodeForm));
-    return;
-  }
-
-  const liveChatForm = event.target.closest("[data-jeopardy-live-chat-form]");
-  if (liveChatForm) {
-    event.preventDefault();
-    sendAlpacapardyLiveChat(new FormData(liveChatForm));
-    liveChatForm.reset();
-    return;
-  }
-
-  const authForm = event.target.closest("[data-auth-form]");
-  if (!authForm) {
-    return;
-  }
-
-  event.preventDefault();
-  submitAuthForm(authForm);
-}
-
-function handleKeyDown(event) {
-  if (state.ui.rawMediaLightbox) {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      closeRawMediaLightbox();
-      return;
-    }
-
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      shiftRawMediaLightbox(-1);
-      return;
-    }
-
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      shiftRawMediaLightbox(1);
-      return;
-    }
-  }
-
-  if (getActiveMindMapEntryBundle() && event.key === "Escape") {
-    event.preventDefault();
-    closeMindMapEntry();
-    return;
-  }
-
-  if (state.ui.resourcesOpen && event.key === "Escape") {
-    event.preventDefault();
-    state.ui.resourcesOpen = false;
-    syncPopupScrollLock();
-    renderResourcesModal();
-    return;
-  }
-
-  if (state.ui.cooperationOpen && event.key === "Escape") {
-    event.preventDefault();
-    state.ui.cooperationOpen = false;
-    syncPopupScrollLock();
-    renderCooperationModal();
-    return;
-  }
-
-  if (state.ui.authOpen && event.key === "Escape" && canDismissAuthModal()) {
-    event.preventDefault();
-    state.ui.authOpen = false;
-    syncPopupScrollLock();
-    renderAuthModal();
-    return;
-  }
-
-  const targetTag = event.target && event.target.tagName ? event.target.tagName.toLowerCase() : "";
-  if (targetTag === "input" || targetTag === "textarea" || targetTag === "select") {
-    return;
-  }
-
-  if (
-    state.ui.appShellMode === "online" &&
-    state.live.currentSession?.game_type === "alpaquiz" &&
-    event.key === " " &&
-    !event.repeat
-  ) {
-    event.preventDefault();
-    buzzSelectedLiveGame();
-    return;
-  }
-
-  if (state.experience && state.experience.type === "jump") {
-    if (event.key === "ArrowUp" || event.key === " " || event.key.toLowerCase() === "w") {
-      event.preventDefault();
-      performJumpAction("jump");
-      return;
-    }
-
-    if (event.key === "ArrowDown" || event.key.toLowerCase() === "s") {
-      event.preventDefault();
-      performJumpAction("duck");
-      return;
-    }
-  }
-
-  if (state.experience && state.experience.type === "alpacard") {
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      navigateAlpacard("previous");
-      return;
-    }
-
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      navigateAlpacard("next");
-      return;
-    }
-
-    if (event.key === " " || event.key.toLowerCase() === "f") {
-      event.preventDefault();
-      flipAlpacard();
-      return;
-    }
-  }
-
-  if (event.repeat || !state.experience || state.experience.type !== "relay") {
-    return;
-  }
-
-  const experience = state.experience;
-  if (!experience.started || experience.revealed || experience.buzzedTeamIndex !== null) {
-    return;
-  }
-
-  const normalizedKey = event.key.toLowerCase();
-  const teamIndex = experience.teams.findIndex((team) => team.key.toLowerCase() === normalizedKey);
-  if (teamIndex === -1) {
-    return;
-  }
-
-  event.preventDefault();
-  buzzRelayTeam(teamIndex);
-}
-
-function handleTouchStart(event) {
-  if (!state.ui.rawMediaLightbox) {
-    return;
-  }
-
-  const touch = event.changedTouches && event.changedTouches[0];
-  if (!touch || !event.target.closest(".raw-media-lightbox-window")) {
-    state.ui.rawMediaSwipeStartX = null;
-    return;
-  }
-
-  state.ui.rawMediaSwipeStartX = touch.clientX;
-}
-
-function handleTouchEnd(event) {
-  if (!state.ui.rawMediaLightbox || !Number.isFinite(state.ui.rawMediaSwipeStartX)) {
-    return;
-  }
-
-  const touch = event.changedTouches && event.changedTouches[0];
-  if (!touch) {
-    state.ui.rawMediaSwipeStartX = null;
-    return;
-  }
-
-  const deltaX = touch.clientX - state.ui.rawMediaSwipeStartX;
-  state.ui.rawMediaSwipeStartX = null;
-
-  if (Math.abs(deltaX) < 40) {
-    return;
-  }
-
-  shiftRawMediaLightbox(deltaX < 0 ? 1 : -1);
-}
+function handleTouchEnd(...args) { return appEventRouter.handleTouchEnd(...args); }
 
 function choosePath(pathId) {
   clearJeopardyTimer();
   clearDebateSpinTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = pathId;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.choosePath(state, pathId, { defaultLensId: DEFAULT_LENS_ID });
   render();
   keepRouteBuilderInView();
 }
 
 function chooseLens(lensId) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.lens = lensId;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.chooseLens(state, lensId);
   render();
   keepRouteBuilderInView();
 }
 
 function chooseTarget(targetId) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "neutral";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  const current = new Set(getSelectedSectionIds());
-  if (current.has(targetId)) {
-    current.delete(targetId);
-  } else {
-    current.add(targetId);
-  }
-  state.selection.targetIds = getOrderedSectionIds().filter((id) => current.has(id));
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.chooseTarget(state, targetId, {
+    getSelectedSectionIds,
+    getOrderedSectionIds
+  });
   render();
   keepRouteBuilderInView();
 }
 
 function toggleModeChoiceSection(targetId) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "neutral";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  const visibleOpenPath = state.ui.openModeChoicePath
-    || document.querySelector(".mode-choice-board")?.dataset.activePath
-    || document.querySelector(".mode-choice-column.is-open")?.dataset.modeChoicePath
-    || null;
-  const preservedOpenPath = ["learn", "play", "train"].includes(visibleOpenPath)
-    ? visibleOpenPath
-    : null;
-
-  const current = new Set(getSelectedSectionIds());
-  if (current.has(targetId)) {
-    current.delete(targetId);
-  } else {
-    current.add(targetId);
-  }
-
-  const selectedIds = getOrderedSectionIds().filter((id) => current.has(id));
-  state.selection.targetIds = selectedIds;
-  state.selection.targetId = selectedIds[0] || null;
-  state.selection.mode = null;
-  state.experience = null;
-  state.ui.openModeChoicePath = selectedIds.length ? preservedOpenPath : null;
+  routeBuilderController.toggleModeChoiceSection(state, targetId, {
+    visibleOpenPath: getVisibleModeChoicePath(),
+    getSelectedSectionIds,
+    getOrderedSectionIds
+  });
   render();
   keepRouteBuilderInView();
+}
+
+function getVisibleModeChoicePath() {
+  return routeBuilderViewController.getVisibleModeChoicePath();
 }
 
 function toggleHeroMenu(button) {
@@ -3696,262 +2487,51 @@ function closeHeroMenu() {
 }
 
 function primeModeChoiceCardSpread(column) {
-  column.querySelectorAll(".mode-choice-card-grid .wizard-choice-card").forEach((card, index) => {
-    card.style.setProperty("opacity", "0", "important");
-    card.style.setProperty("filter", "blur(2px)", "important");
-    card.style.setProperty("transform", "translate(-50%, -50%) scale(0.18)", "important");
-    card.style.setProperty("transition", "none", "important");
-    card.style.setProperty("transition-delay", `${index * 36}ms`, "important");
-  });
+  return routeBuilderViewController.primeModeChoiceCardSpread(column);
 }
 
 function scheduleModeChoiceCardSpread(column, board) {
-  primeModeChoiceCardSpread(column);
-  column.classList.remove("is-open");
-  column.querySelector(".mode-choice-card-grid")?.getBoundingClientRect();
-  column.classList.add("is-open");
-  column.classList.remove("is-closing");
-  column.querySelector(".mode-choice-card-grid")?.getBoundingClientRect();
-
-  board._modeChoiceOpenFrame = window.requestAnimationFrame(() => {
-    board._modeChoiceOpenFrame = window.requestAnimationFrame(() => {
-      animateModeChoiceCardSpread(column, board);
-      board._modeChoiceOpenFrame = null;
-    });
-  });
+  return routeBuilderViewController.scheduleModeChoiceCardSpread(column, board);
 }
 
 function getModeChoiceCardTarget(card) {
-  const computedStyle = window.getComputedStyle(card);
-  const parsePercent = (value, fallback) => {
-    const parsed = Number.parseFloat(String(value || "").replace("%", ""));
-    return Number.isFinite(parsed) ? parsed : fallback;
-  };
-  return {
-    x: parsePercent(computedStyle.getPropertyValue("--menu-x"), 50),
-    y: parsePercent(computedStyle.getPropertyValue("--menu-y"), 0)
-  };
+  return routeBuilderViewController.getModeChoiceCardTarget(card);
 }
 
 function easeModeChoiceSpread(progress) {
-  return progress < 0.5
-    ? 4 * progress * progress * progress
-    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+  return routeBuilderViewController.easeModeChoiceSpread(progress);
 }
 
 function setModeChoiceCardSpreadFrame(card, target, progress) {
-  const eased = easeModeChoiceSpread(Math.min(1, Math.max(0, progress)));
-  const x = -50 + (target.x + 50) * eased;
-  const y = -50 + (target.y + 50) * eased;
-  const scale = 0.18 + 0.82 * eased;
-  const opacity = Math.min(1, Math.max(0, progress * 1.45));
-  const blur = Math.max(0, 2 * (1 - eased));
-  card.style.setProperty("opacity", String(opacity), "important");
-  card.style.setProperty("filter", `blur(${blur.toFixed(2)}px)`, "important");
-  card.style.setProperty("transform", `translate(${x.toFixed(2)}%, ${y.toFixed(2)}%) scale(${scale.toFixed(3)})`, "important");
+  return routeBuilderViewController.setModeChoiceCardSpreadFrame(card, target, progress);
 }
 
 function animateModeChoiceCardSpread(column, board) {
-  const duration = 980;
-  const cards = Array.from(column.querySelectorAll(".mode-choice-card-grid .wizard-choice-card")).map((card, index) => ({
-    card,
-    index,
-    target: getModeChoiceCardTarget(card)
-  }));
-  const startedAt = window.performance.now();
-
-  const step = (now) => {
-    let isRunning = false;
-    cards.forEach(({ card, index, target }) => {
-      const progress = (now - startedAt - index * 36) / duration;
-      if (progress < 1) {
-        isRunning = true;
-      }
-      setModeChoiceCardSpreadFrame(card, target, progress);
-    });
-
-    if (isRunning) {
-      board._modeChoiceSpreadAnimationId = window.requestAnimationFrame(step);
-      return;
-    }
-
-    cards.forEach(({ card, target }) => {
-      card.style.setProperty("opacity", "1", "important");
-      card.style.setProperty("filter", "blur(0)", "important");
-      card.style.setProperty("transform", `translate(${target.x}%, ${target.y}%) scale(1)`, "important");
-    });
-    board._modeChoiceSpreadAnimationId = null;
-  };
-
-  board._modeChoiceSpreadAnimationId = window.requestAnimationFrame(step);
+  return routeBuilderViewController.animateModeChoiceCardSpread(column, board);
 }
 
 function clearModeChoiceCardSpread(column) {
-  column.querySelectorAll(".mode-choice-card-grid .wizard-choice-card").forEach((card) => {
-    card.style.removeProperty("opacity");
-    card.style.removeProperty("filter");
-    card.style.removeProperty("transform");
-    card.style.removeProperty("transition");
-    card.style.removeProperty("transition-delay");
-  });
+  return routeBuilderViewController.clearModeChoiceCardSpread(column);
 }
 
 function freezeModeChoiceColumnAtCurrentPosition(column, board) {
-  const boardRect = board.getBoundingClientRect();
-  const columnRect = column.getBoundingClientRect();
-  column.style.setProperty("left", `${columnRect.left - boardRect.left}px`, "important");
-  column.style.setProperty("top", `${columnRect.top - boardRect.top}px`, "important");
-  column.style.setProperty("width", `${columnRect.width}px`, "important");
-  column.style.setProperty("height", `${columnRect.height}px`, "important");
-  column.style.setProperty("transform", "none", "important");
-  column.style.setProperty("opacity", "1", "important");
-  column.getBoundingClientRect();
+  return routeBuilderViewController.freezeModeChoiceColumnAtCurrentPosition(column, board);
 }
 
 function getModeChoiceCollapsedSlot(column) {
-  const pathId = column.dataset.modeChoicePath || "";
-  const left = Math.min(16, Math.max(4, window.innerWidth * 0.011));
-  const topByPath = {
-    learn: 40,
-    play: 174,
-    train: 308
-  };
-  return {
-    left,
-    top: topByPath[pathId] || 40,
-    width: 112,
-    height: 112
-  };
+  return routeBuilderViewController.getModeChoiceCollapsedSlot(column);
 }
 
 function moveModeChoiceColumnToCollapsedSlot(column) {
-  const slot = getModeChoiceCollapsedSlot(column);
-  column.style.setProperty("left", `${slot.left}px`, "important");
-  column.style.setProperty("top", `${slot.top}px`, "important");
-  column.style.setProperty("width", `${slot.width}px`, "important");
-  column.style.setProperty("height", `${slot.height}px`, "important");
-  column.style.setProperty("transform", "none", "important");
-  column.style.setProperty("opacity", "0.68", "important");
+  return routeBuilderViewController.moveModeChoiceColumnToCollapsedSlot(column);
 }
 
 function clearModeChoiceColumnPosition(column) {
-  ["left", "top", "width", "height", "transform", "opacity"].forEach((property) => {
-    column.style.removeProperty(property);
-  });
+  return routeBuilderViewController.clearModeChoiceColumnPosition(column);
 }
 
 function toggleModeChoiceMenu(button) {
-  const column = button.closest(".mode-choice-column");
-  if (!column) {
-    return;
-  }
-
-  if (!getSelectedSectionIds().length) {
-    const board = column.closest(".mode-choice-board");
-    board?.classList.add("needs-section-selection");
-    window.setTimeout(() => board?.classList.remove("needs-section-selection"), 560);
-    return;
-  }
-
-  const board = column.closest(".mode-choice-board");
-  if (!board) {
-    return;
-  }
-
-  const pathId = column.dataset.modeChoicePath || button.dataset.toggleModeMenu || "";
-  const isOpen = column.classList.contains("is-open");
-  const openColumn = board.querySelector(".mode-choice-column.is-open");
-  const isSwitching = Boolean(openColumn && openColumn !== column);
-  const animationMs = 1240;
-
-  if (board._modeChoiceTimer) {
-    window.clearTimeout(board._modeChoiceTimer);
-  }
-  if (board._modeChoiceFinishTimer) {
-    window.clearTimeout(board._modeChoiceFinishTimer);
-  }
-  if (board._modeChoiceOpenTimer) {
-    window.clearTimeout(board._modeChoiceOpenTimer);
-  }
-  if (board._modeChoiceOpenFrame) {
-    window.cancelAnimationFrame(board._modeChoiceOpenFrame);
-    board._modeChoiceOpenFrame = null;
-  }
-  if (board._modeChoiceSpreadAnimationId) {
-    window.cancelAnimationFrame(board._modeChoiceSpreadAnimationId);
-    board._modeChoiceSpreadAnimationId = null;
-  }
-  board.querySelectorAll(".mode-choice-column").forEach((item) => {
-    if (item !== column) {
-      clearModeChoiceCardSpread(item);
-      clearModeChoiceColumnPosition(item);
-    }
-  });
-
-  if (isOpen) {
-    state.ui.openModeChoicePath = null;
-    clearModeChoiceCardSpread(column);
-    clearModeChoiceColumnPosition(column);
-    column.classList.add("is-closing");
-    board.classList.add("is-menu-closing");
-    board.removeAttribute("data-active-path");
-    button.setAttribute("aria-expanded", "false");
-    board._modeChoiceTimer = window.setTimeout(() => {
-      clearModeChoiceCardSpread(column);
-      clearModeChoiceColumnPosition(column);
-      column.classList.remove("is-open", "is-closing", "is-opening", "is-targeting");
-      board.classList.remove("is-menu-closing", "is-menu-switching");
-      board._modeChoiceTimer = null;
-    }, animationMs);
-    return;
-  }
-
-  if (isSwitching && openColumn) {
-    freezeModeChoiceColumnAtCurrentPosition(openColumn, board);
-  }
-  state.ui.openModeChoicePath = pathId;
-  board.dataset.activePath = pathId;
-  board.classList.toggle("is-menu-switching", isSwitching);
-  board.querySelectorAll("[data-toggle-mode-menu]").forEach((menuButton) => {
-    menuButton.setAttribute("aria-expanded", menuButton === button ? "true" : "false");
-  });
-  board.querySelectorAll(".mode-choice-column").forEach((item) => {
-    item.classList.toggle("is-targeting", item === column);
-    if (item === column) {
-      item.classList.remove("is-closing");
-      item.classList.add("is-opening");
-      return;
-    }
-    item.classList.remove("is-opening", "is-targeting");
-    if (item !== openColumn) {
-      item.classList.remove("is-open", "is-closing");
-    }
-  });
-  if (openColumn && openColumn !== column) {
-    openColumn.classList.add("is-closing");
-    openColumn.classList.remove("is-open", "is-opening", "is-targeting");
-    moveModeChoiceColumnToCollapsedSlot(openColumn);
-  }
-  button.setAttribute("aria-expanded", "true");
-
-  clearModeChoiceColumnPosition(column);
-  scheduleModeChoiceCardSpread(column, board);
-
-  board._modeChoiceTimer = window.setTimeout(() => {
-    board.querySelectorAll(".mode-choice-column").forEach((item) => {
-      if (item === column) {
-        item.classList.remove("is-opening", "is-targeting");
-        clearModeChoiceCardSpread(item);
-        clearModeChoiceColumnPosition(item);
-        return;
-      }
-      clearModeChoiceCardSpread(item);
-      clearModeChoiceColumnPosition(item);
-      item.classList.remove("is-open", "is-closing", "is-opening", "is-targeting");
-    });
-    board._modeChoiceTimer = null;
-    board.classList.remove("is-menu-switching", "is-menu-closing");
-  }, animationMs);
+  return routeBuilderViewController.toggleModeChoiceMenu(button);
 }
 
 function continueTargetSelection() {
@@ -3961,14 +2541,10 @@ function continueTargetSelection() {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = selectedIds;
-  state.selection.targetId = selectedIds[0];
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.continueTargetSelection(state, {
+    defaultLensId: DEFAULT_LENS_ID,
+    selectedIds
+  });
   render();
   keepRouteBuilderInView();
 }
@@ -3976,28 +2552,21 @@ function continueTargetSelection() {
 function chooseMode(modeId, pathId = null) {
   clearJeopardyTimer();
   closeHeroMenu();
-  if (!getSelectedSectionIds().length) {
-    state.selection.mode = null;
-    state.experience = null;
+  const result = routeBuilderController.chooseMode(state, modeId, {
+    pathId,
+    defaultLensId: DEFAULT_LENS_ID,
+    selectedIds: getSelectedSectionIds(),
+    getModePath,
+    isModeUnavailable
+  });
+  if (!result.selected) {
     render();
     keepRouteBuilderInView();
     return;
   }
 
-  state.ui.wizardTransition = "forward";
-  if (modeId !== "rawcontent") {
-    state.ui.rawQuizSelections = {};
-    state.ui.rawQuizPages = {};
-  }
-  if (!state.selection.targetId && getSelectedSectionIds().length) {
-    state.selection.targetId = getSelectedSectionIds()[0];
-  }
-  state.selection.path = pathId || getModePath(modeId) || state.selection.path || "learn";
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.mode = modeId;
-  state.experience = null;
-  if (isModeUnavailable(modeId)) {
-    state.experience = buildUnavailableModeExperience(modeId);
+  if (result.unavailable) {
+    gameLaunchController.openUnavailableExperience(modeId);
     render();
     refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
@@ -4007,15 +2576,7 @@ function chooseMode(modeId, pathId = null) {
 
 function changeGuidingSections() {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "backward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = null;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = [];
-  state.selection.targetId = null;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.changeGuidingSections(state, { defaultLensId: DEFAULT_LENS_ID });
   document.body.classList.remove("with-popup");
   render();
   keepRouteBuilderInView();
@@ -4023,16 +2584,11 @@ function changeGuidingSections() {
 
 function changeModeSelection() {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "backward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
   const selectedIds = getSelectedSectionIds();
-  state.selection.path = null;
-  state.selection.lens = DEFAULT_LENS_ID;
-  state.selection.targetIds = selectedIds;
-  state.selection.targetId = selectedIds[0] || state.selection.targetId;
-  state.selection.mode = null;
-  state.experience = null;
+  routeBuilderController.changeModeSelection(state, {
+    defaultLensId: DEFAULT_LENS_ID,
+    selectedIds
+  });
   document.body.classList.remove("with-popup");
   render();
   keepRouteBuilderInView();
@@ -4040,32 +2596,7 @@ function changeModeSelection() {
 
 function clearFrom(step) {
   clearJeopardyTimer();
-  state.ui.wizardTransition = "backward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  if (step === "path") {
-    state.selection.path = null;
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.targetIds = [];
-    state.selection.targetId = null;
-    state.selection.mode = null;
-  } else if (step === "lens") {
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.targetIds = [];
-    state.selection.targetId = null;
-    state.selection.mode = null;
-  } else if (step === "target") {
-    state.selection.path = null;
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.targetIds = [];
-    state.selection.targetId = null;
-    state.selection.mode = null;
-  } else if (step === "mode") {
-    state.selection.lens = DEFAULT_LENS_ID;
-    state.selection.mode = null;
-  }
-
-  state.experience = null;
+  routeBuilderController.clearFrom(state, step, { defaultLensId: DEFAULT_LENS_ID });
   render();
   keepRouteBuilderInView();
 }
@@ -4076,15 +2607,7 @@ function openRawConnection(lensId, targetId) {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = "learn";
-  state.selection.lens = lensId;
-  state.selection.targetIds = targetId && targetId !== "all" ? [targetId] : [];
-  state.selection.targetId = targetId;
-  state.selection.mode = "rawcontent";
-  state.experience = null;
+  routeBuilderController.openRawConnection(state, lensId, targetId);
   launchExperience();
 }
 
@@ -4094,15 +2617,7 @@ function openGuideSection(sectionId) {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = "learn";
-  state.selection.lens = "section";
-  state.selection.targetIds = [sectionId];
-  state.selection.targetId = sectionId;
-  state.selection.mode = "regularguide";
-  state.experience = null;
+  routeBuilderController.openGuideSection(state, sectionId);
   launchExperience();
 }
 
@@ -4112,21 +2627,12 @@ function openSectionChannel(sectionId) {
   }
 
   clearJeopardyTimer();
-  state.ui.wizardTransition = "forward";
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.selection.path = "learn";
-  state.selection.lens = "section";
-  state.selection.targetId = normalizeSectionId(sectionId);
-  state.selection.targetIds = [state.selection.targetId].filter(Boolean);
-  state.selection.mode = "channel";
-  state.experience = null;
+  routeBuilderController.openSectionChannel(state, sectionId, { normalizeSectionId });
   launchExperience();
 }
 
 function render() {
-  document.body.classList.toggle("is-online-mode", state.ui.appShellMode === "online");
-  document.body.classList.toggle("is-local-mode", state.ui.appShellMode === "local");
+  appShellRenderer.syncAppModeClasses();
   renderStats();
   renderSessionControls();
   renderAppEntryGate();
@@ -4138,201 +2644,31 @@ function render() {
   renderResourcesModal();
   renderAuthModal();
   syncPopupScrollLock();
+  syncActiveModalFocus();
+}
+
+function syncActiveModalFocus() {
+  modalFocusService?.syncActiveDialog({ documentRef: document });
 }
 
 function renderInsights() {
-  if (!refs.insightGrid) {
-    return;
-  }
-  refs.insightGrid.innerHTML = data.insights
-    .map(
-      (insight) => `
-        <article class="insight-card">
-          <strong>${escapeHtml(insight.title)}</strong>
-          <span>${escapeHtml(insight.body)}</span>
-        </article>
-      `
-    )
-    .join("");
+  return appShellRenderer.renderInsights();
 }
 
 function renderStats() {
-  if (!refs.statsStrip) {
-    return;
-  }
-
-  if (state.ui.appShellMode === "online") {
-    refs.statsStrip.innerHTML = renderOnlineScoreStrip();
-    return;
-  }
-
-  const totalAnswered = Number(state.stats.totalAnswered) || 0;
-  const totalCorrect = Number(state.stats.totalCorrect) || 0;
-  const accuracy = totalAnswered ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
-  const totalMasterable = getTotalRawMasterableEntries();
-  const mastered = getMasteredRawEntryCount();
-  const masteredPercent = totalMasterable ? Math.round((mastered / totalMasterable) * 100) : 0;
-
-  refs.statsStrip.innerHTML = `
-    <div class="hero-progress-circles" aria-label="Progress circles">
-      ${renderProgressCircleStatCard(
-        "Questions answered",
-        `${totalAnswered} answered`,
-        `${accuracy}% accuracy`,
-        accuracy
-      )}
-      ${renderProgressCircleStatCard(
-        "Knowledge mastered",
-        `${mastered}/${totalMasterable} entries`,
-        `${masteredPercent}% mastered`,
-        masteredPercent
-      )}
-    </div>
-    ${renderBestScoreStrip()}
-  `;
+  return appShellRenderer.renderStats();
 }
 
 function renderSessionControls() {
-  if (!refs.sessionControls) {
-    return;
-  }
-
-  const isOnline = state.ui.appShellMode === "online";
-  const shellLabel = isOnline ? "Stay solo" : "Join online";
-  const shellIcon = state.ui.appShellMode === "online"
-    ? "./app-icons/icon-local-transparent.png?v=20260520train"
-    : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
-  const soonLabel = isOnline ? "Switch mode" : "Open Alpaca Campus 3D";
-  const modeButton = `
-    <button
-      class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
-      type="button"
-      ${isOnline ? "data-open-app-entry-gate" : "data-open-alpaca-online-campus"}
-      aria-label="${escapeHtml(shellLabel)}. Open Local or Online menu"
-      title="${escapeHtml(soonLabel)}"
-    >
-      <img src="${shellIcon}" alt="" aria-hidden="true" />
-      <span>${escapeHtml(shellLabel)}</span>
-    </button>
-  `;
-  if (refs.heroOnlineMount) {
-    refs.heroOnlineMount.innerHTML = modeButton;
-  }
-
-  if (!isSignedIn()) {
-    refs.sessionControls.classList.remove("hidden");
-    refs.sessionControls.innerHTML = `
-      <div class="session-control-stack">
-        <button
-          class="hero-link-icon session-signout-button"
-          type="button"
-          data-open-auth
-          aria-label="Open Alpaccount login"
-          title="Alpaccount"
-        >
-          <img src="./assets/icons/ui/signin.png?v=20260509t" alt="Alpaccount icon" />
-        </button>
-      </div>
-    `;
-    return;
-  }
-
-  refs.sessionControls.classList.remove("hidden");
-  refs.sessionControls.innerHTML = `
-    <div class="session-control-stack">
-      <button
-        class="hero-link-icon session-signout-button"
-        type="button"
-        data-auth-signout
-        aria-label="Log out of your Alpaccount"
-        title="Log out"
-      >
-        <img src="./assets/footer/logout-icon.png?v=20260429b" alt="Log out icon" />
-      </button>
-    </div>
-  `;
+  return appShellRenderer.renderSessionControls();
 }
 
 function renderAppEntryGate() {
-  if (!refs.appEntryGateMount) {
-    return;
-  }
-
-  if (!state.ui.appEntryGateOpen) {
-    refs.appEntryGateMount.innerHTML = "";
-    return;
-  }
-
-  const onlineAllowed = canAccessMultiplayer();
-
-  refs.appEntryGateMount.innerHTML = `
-    <div class="app-entry-gate-overlay" role="dialog" aria-modal="true" aria-label="App mode">
-      <article class="app-entry-gate-window">
-        ${renderAppEntryAuthPanel()}
-        <div class="app-entry-choice-grid">
-          <button class="app-entry-choice-card primary-choice" type="button" data-app-entry-choice="local">
-            <span>LOCAL</span>
-            <img
-              class="app-entry-choice-logo"
-              src="./app-icons/icon-local-transparent.png?v=20260520train"
-              alt=""
-              aria-hidden="true"
-            />
-            <strong>Stay solo</strong>
-          </button>
-          <button class="app-entry-choice-card online-choice" type="button" data-app-entry-choice="online" ${onlineAllowed ? "" : "disabled"}>
-            <span>ALPACA ONLINE</span>
-            <img
-              class="app-entry-choice-logo"
-              src="./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train"
-              alt=""
-              aria-hidden="true"
-            />
-            <strong>Join online</strong>
-            ${onlineAllowed ? `<small>${escapeHtml(DEFAULT_ONLINE_ALPACA_NAME)}</small>` : "<small>Available soon</small>"}
-          </button>
-        </div>
-      </article>
-    </div>
-  `;
+  return appShellRenderer.renderAppEntryGate();
 }
 
 function renderAppEntryAuthPanel() {
-  const context = getAuthRenderContext();
-  const mode = context.mode || "login";
-  const title = context.signedIn
-    ? "Alpaccount"
-    : mode === "signup"
-      ? "Create Alpaccount"
-      : mode === "forgot"
-        ? "Recover Alpaccount"
-        : mode === "reset"
-          ? "New password"
-          : "Sign in";
-
-  if (context.signedIn) {
-    const profile = context.profile || {};
-    return `
-      <section class="app-entry-auth-panel signed-in">
-        <div>
-          <p class="challenge-label">Alpaccount</p>
-          <h3>${escapeHtml(profile.alpaca_name || "Connected")}</h3>
-          <p>${escapeHtml([profile.school_name, profile.country].filter(Boolean).join(" · ") || getCurrentUserEmail() || "Ready")}</p>
-        </div>
-      </section>
-    `;
-  }
-
-  return `
-    <section class="app-entry-auth-panel">
-      <div class="app-entry-auth-heading">
-        <p class="challenge-label">Alpaccount</p>
-        <h3>${escapeHtml(title)}</h3>
-      </div>
-      ${authModalRenderer.renderNotice(context, { escapeHtml })}
-      ${authModalRenderer.renderBody(context, { escapeHtml })}
-    </section>
-  `;
+  return appShellRenderer.renderAppEntryAuthPanel();
 }
 
 function chooseAppEntryMode(mode) {
@@ -4346,7 +2682,7 @@ function chooseAppEntryMode(mode) {
 
 function openAlpacaOnlineCampus() {
   state.ui.appEntryGateOpen = false;
-  window.location.href = ALPACA_ONLINE_CAMPUS_URL;
+  onlineModeController.openCampusMultiplayer();
 }
 
 function switchToLocalMode() {
@@ -4365,6 +2701,13 @@ function switchToLocalMode() {
 }
 
 function openAlpacaOnlineHub() {
+  if (!canAccessLegacyLiveRooms()) {
+    state.ui.appEntryGateOpen = true;
+    state.live.error = getLegacyLiveRoomsDisabledMessage();
+    render();
+    return;
+  }
+
   state.ui.appEntryGateOpen = false;
   state.ui.appShellMode = "online";
   state.ui.cooperationOpen = false;
@@ -4383,1357 +2726,227 @@ function openAlpacaOnlineHub() {
 }
 
 function returnToAlpacaOnlineHub() {
-  if (state.live.currentSession) {
-    return;
-  }
-  state.live.onlineView = "hub";
-  state.live.selectedGameType = "alpacapardy";
-  state.live.arcadeState = null;
-  state.live.error = "";
-  if (!state.experience || state.experience.type !== "jeopardy") {
-    state.experience = buildJeopardyExperience();
-    state.experience.playMode = "multiplayer";
-  }
-  renderLiveSurfaces();
+  return legacyLiveRoomController.returnToAlpacaOnlineHub();
 }
 
 function renderProgressCircleStatCard(label, primary, secondary, percent) {
-  const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
-  return `
-    <div class="stat-card progress-circle-card">
-      <div
-        class="stat-progress-ring"
-        style="--percent:${safePercent};"
-        aria-label="${escapeHtml(label)}: ${escapeHtml(primary)}, ${escapeHtml(secondary)}"
-      >
-        <div class="stat-progress-ring-inner">
-          <strong>${safePercent}%</strong>
-        </div>
-      </div>
-      <div class="stat-progress-circle-copy">
-        <span>${escapeHtml(label)}</span>
-        <strong>${escapeHtml(primary)}</strong>
-        <em>${escapeHtml(secondary)}</em>
-      </div>
-    </div>
-  `;
+  return appShellRenderer.renderProgressCircleStatCard(label, primary, secondary, percent);
 }
 
 function renderBestScoreStrip() {
-  const stats = state.stats || getDefaultStats();
-  const cards = [
-    {
-      label: "Alpacapardy",
-      value: formatBestNumberStat(stats.bestAlpacapardyScore),
-      note: "Best team score"
-    },
-    {
-      label: "Alpaca Run",
-      value: getBestRunDestinationLabel(stats.bestRunStage),
-      note: "Best destination"
-    },
-    {
-      label: "Alpaca Jump",
-      value: `${Math.round(Number(stats.bestJumpDistance) || 0)}m`,
-      note: "Longest distance"
-    },
-    {
-      label: "Alpaquiz",
-      value: formatBestNumberStat(stats.bestRelayScore),
-      note: "Best team score"
-    },
-    {
-      label: "Survivalpaca",
-      value: formatBestNumberStat(stats.bestRaceScore),
-      note: "Best score"
-    }
-  ];
-
-  return `
-    <div class="hero-best-strip" aria-label="Best game scores">
-      ${cards.map((card) => renderBestScoreCard(card)).join("")}
-    </div>
-  `;
+  return appShellRenderer.renderBestScoreStrip();
 }
 
 function renderBestScoreCard(card) {
-  return `
-    <article class="hero-best-card">
-      <span>${escapeHtml(card.label)}</span>
-      <strong>${escapeHtml(card.value)}</strong>
-      <em>${escapeHtml(card.note)}</em>
-    </article>
-  `;
+  return appShellRenderer.renderBestScoreCard(card);
 }
 
 function renderOnlineScoreStrip() {
-  const cards = LIVE_GAME_ORDER.map((gameType) => {
-    const record = getOnlineGameRecord(gameType);
-    return {
-      label: getLiveGameLabel(gameType),
-      value: `${record.wins}/${record.games} games`,
-      note: record.bestGames >= 5 && record.bestName
-        ? `${record.bestName} · ${record.bestWinPercent}% wins`
-        : "Best alpaca unlocks after 5 games"
-    };
-  });
-
-  return `
-    <div class="hero-best-strip hero-best-strip-online" aria-label="Online game records">
-      ${cards.map((card) => renderBestScoreCard(card)).join("")}
-    </div>
-  `;
+  return appShellRenderer.renderOnlineScoreStrip();
 }
 
 function getOnlineGameRecord(gameType) {
-  const liveRecords = state.stats.liveRecords || {};
-  const record = liveRecords[normalizeLiveGameType(gameType)] || {};
-  const games = Math.max(0, Number(record.games) || 0);
-  const wins = Math.max(0, Number(record.wins) || 0);
-  const bestGames = Math.max(0, Number(record.bestGames) || 0);
-  const bestWins = Math.max(0, Number(record.bestWins) || 0);
-  const bestWinPercent = bestGames ? Math.round((bestWins / bestGames) * 100) : 0;
-  return {
-    games,
-    wins,
-    bestGames,
-    bestName: record.bestName || "",
-    bestWinPercent
-  };
+  return appShellRenderer.getOnlineGameRecord(gameType);
 }
 
 function formatBestNumberStat(value) {
-  return String(Math.max(0, Number(value) || 0));
+  return appShellRenderer.formatBestNumberStat(value);
 }
 
 function getBestRunDestinationLabel(stageValue) {
-  const stage = Number(stageValue);
-  if (!Number.isFinite(stage) || stage < 0) {
-    return "Not started";
-  }
-
-  const stop = ALPACA_RUN_ROUTE[Math.min(Math.max(0, Math.round(stage)), ALPACA_RUN_ROUTE.length - 1)];
-  return stop ? stop.label : "Not started";
+  return appShellRenderer.getBestRunDestinationLabel(stageValue);
 }
 
 function renderSummary() {
-  if (!refs.choiceSummary) {
-    return;
-  }
-
-  if (state.ui.appShellMode === "online") {
-    refs.choiceSummary.innerHTML = "";
-    refs.choiceSummary.classList.add("hidden");
-    return;
-  }
-
-  const chips = [];
-  const { path, mode } = state.selection;
-  const selectedIds = getSelectedSectionIds();
-
-  if (path) {
-    chips.push(renderSummaryChip("Route", getPathOption(path).label));
-  }
-  if (selectedIds.length) {
-    chips.push(renderSummaryChip("Guiding Sections", getTargetLabel()));
-  }
-  if (mode) {
-    chips.push(renderSummaryChip("Next Stop", getModeOption(mode).title));
-  }
-
-  refs.choiceSummary.innerHTML = chips.join("");
-  refs.choiceSummary.classList.toggle("hidden", chips.length === 0);
+  return appShellRenderer.renderSummary();
 }
 
 function renderSummaryChip(label, value) {
-  return `
-    <div class="summary-chip">
-      <span>${escapeHtml(label)}:</span>
-      <strong>${escapeHtml(value)}</strong>
-    </div>
-  `;
+  return appShellRenderer.renderSummaryChip(label, value);
 }
 
 function renderWizard() {
-  if (state.ui.appShellMode === "online") {
-    if (refs.routeBuilderTitle) {
-      refs.routeBuilderTitle.textContent = "";
-    }
-    if (refs.wizardRailMount) {
-      refs.wizardRailMount.innerHTML = "";
-    }
-    refs.wizardSteps.innerHTML = renderAlpacaOnlineHub();
-    return;
-  }
-
-  const renderedWizard = wizardRenderer.renderWizard(getWizardRenderContext(), getWizardRenderHelpers());
-
-  if (refs.routeBuilderTitle) {
-    refs.routeBuilderTitle.textContent = renderedWizard.title;
-  }
-
-  if (refs.wizardRailMount) {
-    refs.wizardRailMount.innerHTML = renderedWizard.railHtml;
-  }
-
-  refs.wizardSteps.innerHTML = renderedWizard.stepsHtml;
+  return routeBuilderViewController.renderWizard();
 }
 
-function renderAlpacaOnlineHub() {
-  const busy = ["loading", "joining", "creating", "starting"].includes(state.live.status);
-  const currentSession = state.live.currentSession;
-  const roster = getAlpacaOnlineRoster();
-  const roomPlayers = state.live.players || [];
-  const isHost = getAlpacapardyLiveIdentityContext().isHost;
-  const canStart = getAlpacapardyLiveRenderContext().canStart;
-  const onGamePage = Boolean(currentSession || state.live.onlineView === "game");
+function renderAlpacaOnlineHub(...args) { return legacyLiveRoomRenderer.renderAlpacaOnlineHub(...args); }
 
-  return `
-    <section class="online-hub-shell ${onGamePage ? "online-hub-shell-game" : "online-hub-shell-home"}">
-      <aside class="online-hub-column online-hub-left">
-        ${renderOnlineLiveSidebar({ busy, currentSession, roomPlayers, roster })}
-      </aside>
+function renderLegacyLiveRoomsDisabled(...args) { return legacyLiveRoomRenderer.renderLegacyLiveRoomsDisabled(...args); }
 
-      <main class="online-hub-main ${onGamePage ? "" : "online-hub-main-wide"}">
-        ${onGamePage
-          ? renderOnlineCreateGamePanel({ currentSession, roomPlayers, isHost, canStart, busy })
-          : renderOnlineHomeGameGrid()}
-      </main>
-    </section>
-  `;
-}
+function getLiveOverlayRenderContext(...args) { return legacyLiveRoomRenderer.getLiveOverlayRenderContext(...args); }
 
-function getLiveOverlayRenderContext() {
-  const busy = ["loading", "joining", "creating", "starting"].includes(state.live.status);
-  const currentSession = state.live.currentSession;
-  const roomPlayers = state.live.players || [];
-  const isHost = getAlpacapardyLiveIdentityContext().isHost;
-  const canStart = getAlpacapardyLiveRenderContext().canStart;
-  return { currentSession, roomPlayers, isHost, canStart, busy };
-}
+function getLiveOverlayMount(...args) { return legacyLiveRoomRenderer.getLiveOverlayMount(...args); }
 
-function getLiveOverlayMount() {
-  let mount = document.getElementById("liveOverlayMount");
-  if (!mount) {
-    mount = document.createElement("div");
-    mount.id = "liveOverlayMount";
-    document.body.appendChild(mount);
-  }
-  return mount;
-}
+function renderLiveOverlayMount(...args) { return legacyLiveRoomRenderer.renderLiveOverlayMount(...args); }
 
-function renderLiveOverlayMount() {
-  const mount = getLiveOverlayMount();
-  const html = state.ui.appShellMode === "online"
-    ? renderLiveOverlayLayer(getLiveOverlayRenderContext())
-    : "";
+function canPatchLiveWaitingOverlay(...args) { return legacyLiveRoomRenderer.canPatchLiveWaitingOverlay(...args); }
 
-  if (!html) {
-    mount.innerHTML = "";
-    return;
-  }
+function patchLiveWaitingOverlay(...args) { return legacyLiveRoomRenderer.patchLiveWaitingOverlay(...args); }
 
-  const template = document.createElement("template");
-  template.innerHTML = html.trim();
-  const nextOverlay = template.content.firstElementChild;
-  if (!nextOverlay) {
-    mount.innerHTML = "";
-    return;
-  }
+function replaceLiveWaitingPart(...args) { return legacyLiveRoomRenderer.replaceLiveWaitingPart(...args); }
 
-  const currentOverlay = mount.firstElementChild;
-  if (canPatchLiveWaitingOverlay(currentOverlay, nextOverlay)) {
-    patchLiveWaitingOverlay(currentOverlay, nextOverlay);
-    return;
-  }
+function renderOnlineLiveSidebar(...args) { return legacyLiveRoomRenderer.renderOnlineLiveSidebar(...args); }
 
-  mount.replaceChildren(nextOverlay);
-}
+function renderOnlineCurrentGameSummary(...args) { return legacyLiveRoomRenderer.renderOnlineCurrentGameSummary(...args); }
 
-function canPatchLiveWaitingOverlay(currentOverlay, nextOverlay) {
-  if (!currentOverlay || !nextOverlay) {
-    return false;
-  }
-  if (!currentOverlay.classList.contains("live-waiting-overlay") || !nextOverlay.classList.contains("live-waiting-overlay")) {
-    return false;
-  }
-  if (currentOverlay.dataset.liveWaitingSessionId !== nextOverlay.dataset.liveWaitingSessionId) {
-    return false;
-  }
-  const currentVideoKey = currentOverlay.querySelector("[data-live-waiting-video-card]")?.dataset.liveWaitingVideoKey || "";
-  const nextVideoKey = nextOverlay.querySelector("[data-live-waiting-video-card]")?.dataset.liveWaitingVideoKey || "";
-  return Boolean(currentVideoKey && currentVideoKey === nextVideoKey);
-}
+function getAlpacaOnlineConnectedCount(...args) { return legacyLiveRoomRenderer.getAlpacaOnlineConnectedCount(...args); }
 
-function patchLiveWaitingOverlay(currentOverlay, nextOverlay) {
-  const overlayScrollTop = currentOverlay.scrollTop;
-  replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-waiting-top");
-  replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-player-grid");
-  replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-color-picker", ".live-waiting-channel");
-  replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-waiting-actions");
-  currentOverlay.scrollTop = overlayScrollTop;
-  window.requestAnimationFrame(() => {
-    currentOverlay.scrollTop = overlayScrollTop;
-  });
-}
+function renderOnlineJoinForm(...args) { return legacyLiveRoomRenderer.renderOnlineJoinForm(...args); }
 
-function replaceLiveWaitingPart(currentOverlay, nextOverlay, selector, beforeSelector = null) {
-  const currentPart = currentOverlay.querySelector(selector);
-  const nextPart = nextOverlay.querySelector(selector);
-  if (currentPart && nextPart) {
-    currentPart.replaceWith(nextPart);
-    return;
-  }
-  if (currentPart && !nextPart) {
-    currentPart.remove();
-    return;
-  }
-  if (!currentPart && nextPart) {
-    const waitingWindow = currentOverlay.querySelector(".live-waiting-window");
-    const beforeNode = beforeSelector ? currentOverlay.querySelector(beforeSelector) : null;
-    if (waitingWindow) {
-      waitingWindow.insertBefore(nextPart, beforeNode || null);
-    }
-  }
-}
+function renderOnlineOpenRoomsList(...args) { return legacyLiveRoomRenderer.renderOnlineOpenRoomsList(...args); }
 
-function renderOnlineLiveSidebar({ busy, currentSession, roomPlayers, roster }) {
-  const connectedCount = getAlpacaOnlineConnectedCount(roster);
-  return `
-    <div class="online-hub-card online-live-sidebar-card">
-      <p class="online-connected-count">Alpacas connected: ${connectedCount}</p>
-      <p class="challenge-label">Live game</p>
-      ${renderOnlineJoinForm(busy || Boolean(currentSession))}
-      ${currentSession ? renderOnlineCurrentGameSummary(currentSession, roomPlayers) : ""}
-      ${renderOnlineOpenRoomsList(busy || Boolean(currentSession))}
-    </div>
-  `;
-}
+function renderOnlineCreateGamePanel(...args) { return legacyLiveRoomRenderer.renderOnlineCreateGamePanel(...args); }
 
-function renderOnlineCurrentGameSummary(currentSession, roomPlayers) {
-  const gameType = normalizeLiveGameType(currentSession.game_type);
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.alpacapardy;
-  const players = getLivePlayablePlayers(roomPlayers);
-  return `
-    <article class="online-current-room">
-      <div>
-        <strong>${escapeHtml(game.label)}</strong>
-        <span>${escapeHtml(currentSession.status || "lobby")} session</span>
-        <small>Room ${escapeHtml(currentSession.room_code || "ROOM")} · ${players.length}/${Number(currentSession.max_players) || game.maxPlayers} alpacas</small>
-      </div>
-    </article>
-  `;
-}
+function renderOnlineHomeGameGrid(...args) { return legacyLiveRoomRenderer.renderOnlineHomeGameGrid(...args); }
 
-function getAlpacaOnlineConnectedCount(roster) {
-  return Array.isArray(roster) ? roster.length : 0;
-}
+function renderOnlineHomeGameCard(...args) { return legacyLiveRoomRenderer.renderOnlineHomeGameCard(...args); }
 
-function renderOnlineJoinForm(busy) {
-  return `
-    <form class="online-join-form compact" data-online-join-code-form>
-      <input
-        name="room_code"
-        type="text"
-        maxlength="12"
-        autocomplete="off"
-        placeholder="Room code"
-        value="${escapeHtml(state.live.joinCodeDraft || "")}"
-        data-online-room-code-input
-        ${busy ? "disabled" : ""}
-      />
-      <button class="button secondary" type="submit" ${busy ? "disabled" : ""}>Join</button>
-    </form>
-  `;
-}
+function getOnlineGameCardDescription(...args) { return legacyLiveRoomRenderer.getOnlineGameCardDescription(...args); }
 
-function renderOnlineOpenRoomsList(busy) {
-  const roomsByGame = getOpenLiveRoomsByGame(state.live.openSessions || []);
-  const roomCount = Object.values(roomsByGame).reduce((sum, rooms) => sum + rooms.length, 0);
+function renderSelectedOnlineGameBody(...args) { return legacyLiveRoomRenderer.renderSelectedOnlineGameBody(...args); }
 
-  if (!roomCount) {
-    return `<p class="online-room-empty">No open rooms yet.</p>`;
-  }
+function renderOnlineAlpacapardyLiveGame(...args) { return legacyLiveRoomRenderer.renderOnlineAlpacapardyLiveGame(...args); }
 
-  return `
-    <div class="online-room-list-compact">
-      ${LIVE_GAME_ORDER.map((gameType) => {
-        const rooms = roomsByGame[gameType] || [];
-        if (!rooms.length) {
-          return "";
-        }
-        return `
-          <section class="online-room-game-group">
-            <h4>${escapeHtml(getLiveGameLabel(gameType))}</h4>
-            ${rooms.map((room) => renderOnlineRoomListItem(room, busy)).join("")}
-          </section>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
+function renderOnlineArcadeSetup(...args) { return legacyLiveRoomRenderer.renderOnlineArcadeSetup(...args); }
 
-function renderOnlineCreateGamePanel({ currentSession, roomPlayers, isHost, canStart, busy }) {
-  const currentGameType = getCurrentLiveGameType();
-  return `
-    <article class="online-hub-card online-feature-card online-create-game-panel">
-      <div class="online-create-heading">
-        <div class="online-create-title-copy">
-          <p class="challenge-label">${currentSession ? "Live room" : "Create a game"}</p>
-          <h2>${escapeHtml(getLiveGameLabel(currentGameType))}</h2>
-        </div>
-        ${currentSession ? "" : `<button class="button secondary small online-return-hub-button" type="button" data-online-return-hub>Return to hub</button>`}
-      </div>
-      ${state.live.error ? `<p class="live-lobby-error">${escapeHtml(state.live.error)}</p>` : ""}
-      ${renderSelectedOnlineGameBody({ currentSession, roomPlayers, isHost, canStart, busy })}
-    </article>
-  `;
-}
+function renderOnlineAlpacapardySetup(...args) { return legacyLiveRoomRenderer.renderOnlineAlpacapardySetup(...args); }
 
-function renderOnlineHomeGameGrid() {
-  return `
-    <section class="online-home-game-board">
-      <div class="online-home-heading">
-        <p class="challenge-label">Choose a live game</p>
-        <h2>Alpaca Online</h2>
-      </div>
-      <div class="online-home-game-grid">
-        ${LIVE_GAME_ORDER.map((gameType) => renderOnlineHomeGameCard(gameType)).join("")}
-      </div>
-    </section>
-  `;
-}
+function renderOnlineWaitingPopup(...args) { return legacyLiveRoomRenderer.renderOnlineWaitingPopup(...args); }
 
-function renderOnlineHomeGameCard(gameType) {
-  const game = LIVE_GAME_TYPES[gameType];
-  const asset = getAssetValue(["contexts", "modes", game.modeId]);
-  const openRoomCount = getOpenRoomsForGame(gameType).length;
-  return `
-    <button class="online-mode-card online-glow-card" type="button" data-online-game-choice="${escapeHtml(gameType)}">
-      <span class="online-card-container noselect">
-        <span class="online-card-canvas">
-          ${Array.from({ length: 9 }, (_, index) => `<span class="tracker tr-${index + 1}" aria-hidden="true"></span>`).join("")}
-          <span class="online-card-frame">
-            <span class="card-content">
-              <span class="card-glare" aria-hidden="true"></span>
-              <span class="cyber-lines" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </span>
-              <span class="online-card-prompt">LIVE ROUTE</span>
-              <span class="online-card-art">
-                ${renderConfiguredMascotAsset(
-                  getWizardCardAsset(asset),
-                  gameType === "quiz" || gameType === "alpaquiz" ? "excited" : "determined",
-                  "small",
-                  {
-                    alt: `${game.label} alpaca`,
-                    slotClass: "online-card-image-slot",
-                    imageClass: "online-card-image"
-                  }
-                )}
-              </span>
-              <span class="title">${escapeHtml(game.label)}</span>
-              <span class="glowing-elements" aria-hidden="true">
-                <span class="glow-1"></span>
-                <span class="glow-2"></span>
-                <span class="glow-3"></span>
-              </span>
-              <span class="subtitle">
-                <span>${escapeHtml(getOnlineGameCardDescription(gameType))}</span>
-                <span class="highlight">${openRoomCount} open ${openRoomCount === 1 ? "room" : "rooms"}</span>
-              </span>
-              <span class="card-particles" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-              </span>
-              <span class="corner-elements" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </span>
-              <span class="scan-line" aria-hidden="true"></span>
-            </span>
-          </span>
-        </span>
-      </span>
-    </button>
-  `;
-}
+function renderOnlineArcadeWaitingRoom(...args) { return legacyLiveRoomRenderer.renderOnlineArcadeWaitingRoom(...args); }
 
-function getOnlineGameCardDescription(gameType) {
-  const descriptions = {
-    alpacapardy: "Shared clue board, team strategy, and quick answers.",
-    run: "Two alpacas race across the map toward Yale.",
-    quiz: "Timed live questions with a fast leaderboard.",
-    race: "Sudden-death survival with lives on the line.",
-    alpaquiz: "Buzz first, answer fast, and control the turn."
-  };
+function renderLiveOverlayLayer(...args) { return legacyLiveRoomRenderer.renderLiveOverlayLayer(...args); }
 
-  return descriptions[gameType] || "Create a live alpaca game room.";
-}
+function renderLiveLaunchCountdownOverlay(...args) { return legacyLiveRoomRenderer.renderLiveLaunchCountdownOverlay(...args); }
 
-function renderSelectedOnlineGameBody({ currentSession, roomPlayers, isHost, canStart, busy }) {
-  const gameType = getCurrentLiveGameType();
-  if (gameType === "alpacapardy") {
-    if (!currentSession) {
-      return renderOnlineAlpacapardySetup();
-    }
-    if (currentSession.status === "playing" || state.experience?.started) {
-      return renderOnlineAlpacapardyLiveGame();
-    }
-    return renderOnlineWaitingPopup({ currentSession, roomPlayers, isHost, canStart, busy });
-  }
+function renderLiveWaitingOverlay(...args) { return legacyLiveRoomRenderer.renderLiveWaitingOverlay(...args); }
 
-  if (!currentSession) {
-    return renderOnlineArcadeSetup(gameType, busy);
-  }
-
-  if (currentSession.status === "lobby") {
-    return renderOnlineArcadeWaitingRoom({ currentSession, roomPlayers, isHost, busy });
-  }
-
-  return renderOnlineArcadeGame({ currentSession, roomPlayers, isHost, busy });
-}
-
-function renderOnlineAlpacapardyLiveGame() {
-  if (!state.experience?.started) {
-    return `
-      <div class="online-waiting-popup" role="status">
-        <h3>Loading Alpacapardy board</h3>
-        <p>The live room has started. Syncing the board now.</p>
-      </div>
-    `;
-  }
-
-  return `<div class="online-alpacapardy-live-board">${renderJeopardyExperience()}</div>`;
-}
-
-function renderOnlineArcadeSetup(gameType, busy) {
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
-  const rules = {
-    run: "2 players. Each alpaca gets different all-theme questions and races across the shared progress map.",
-    quiz: "2-4 players. Kahoot-style shared questions, timed answers, and a leaderboard after every question.",
-    race: "2 players. Sudden death, 3 lives each, one alpaca answers per turn.",
-    alpaquiz: "2-4 players. Everyone sees the same all-theme question. First buzz controls the answer."
-  };
-
-  return `
-    <section class="online-arcade-setup">
-      <p>${escapeHtml(rules[gameType] || "Create a live game room.")}</p>
-      <div class="race-launch-pills">
-        <span>${game.minPlayers}-${game.maxPlayers} alpacas</span>
-        <span>All themes</span>
-        <span>Live room code</span>
-      </div>
-      ${gameType === "run" ? renderLiveRunSetupColorPicker() : ""}
-      <div class="panel-actions">
-        <button class="button primary" type="button" data-live-create-game ${busy ? "disabled" : ""}>Create ${escapeHtml(game.label)}</button>
-      </div>
-    </section>
-  `;
-}
-
-function renderOnlineAlpacapardySetup() {
-  if (!state.experience || state.experience.type !== "jeopardy") {
-    return `<p class="online-muted">Alpacapardy setup is loading.</p>`;
-  }
-
-  return `
-    <div class="online-alpacapardy-setup">
-      ${renderJeopardySetup(state.experience)}
-    </div>
-  `;
-}
-
-function renderOnlineWaitingPopup({ currentSession, roomPlayers, isHost, canStart, busy }) {
-  return `
-    <div class="online-waiting-popup" role="status">
-      <div>
-        <p class="challenge-label">Room ${escapeHtml(currentSession.room_code || "ROOM")}</p>
-        <h3>Waiting for alpacas to join</h3>
-        <p>${escapeHtml(isHost ? "You are hosting. Share the room code, then start when enough alpacas arrive." : "Waiting for the host to start the game.")}</p>
-      </div>
-      <div class="panel-actions">
-        <button class="button primary" type="button" data-jeopardy-live-start ${!canStart || busy ? "disabled" : ""}>Start Alpacapardy</button>
-        <button class="button secondary" type="button" data-jeopardy-live-leave>Cancel the game</button>
-      </div>
-    </div>
-  `;
-}
-
-function renderOnlineArcadeWaitingRoom({ currentSession, roomPlayers, isHost, busy }) {
-  const gameType = getCurrentLiveGameType();
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
-  const canStart = canStartSelectedLiveGame();
-
-  return `
-    <div class="online-waiting-popup" role="status">
-      <div>
-        <p class="challenge-label">Room ${escapeHtml(currentSession.room_code || "ROOM")}</p>
-        <h3>Waiting for alpacas to join</h3>
-        <p>${escapeHtml(isHost ? `You are hosting ${game.label}. Share the room code, then start when enough alpacas arrive.` : `Waiting for the host to start ${game.label}.`)}</p>
-      </div>
-      <div class="panel-actions">
-        ${isHost ? `<button class="button primary" type="button" data-live-start-game ${!canStart || busy ? "disabled" : ""}>Start ${escapeHtml(game.label)}</button>` : ""}
-        <button class="button secondary" type="button" data-jeopardy-live-leave>Cancel the game</button>
-      </div>
-    </div>
-  `;
-}
-
-function renderLiveOverlayLayer({ currentSession, roomPlayers, isHost, canStart, busy }) {
-  if (state.live.launchCountdownText) {
-    return renderLiveLaunchCountdownOverlay();
-  }
-
-  if (!currentSession || currentSession.status !== "lobby") {
-    return "";
-  }
-
-  return renderLiveWaitingOverlay({ currentSession, roomPlayers, isHost, canStart, busy });
-}
-
-function renderLiveLaunchCountdownOverlay() {
-  return `
-    <div class="live-launch-overlay" role="status" aria-live="assertive">
-      <div class="live-launch-number">${escapeHtml(state.live.launchCountdownText)}</div>
-    </div>
-  `;
-}
-
-function renderLiveWaitingOverlay({ currentSession, roomPlayers, isHost, canStart, busy }) {
-  const gameType = normalizeLiveGameType(currentSession.game_type);
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.alpacapardy;
-  const players = getLivePlayablePlayers(roomPlayers);
-  const waitingVideos = getLiveWaitingVideos(currentSession.id);
-  const launchCopy = canStart
-    ? "Enough alpacas are here. Launching automatically..."
-    : `Waiting for ${Math.max(0, game.minPlayers - players.length)} more alpaca${game.minPlayers - players.length === 1 ? "" : "s"}.`;
-
-  return `
-    <div
-      class="live-waiting-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Waiting for alpacas"
-      data-live-waiting-session-id="${escapeHtml(currentSession.id || "")}"
-    >
-      <article class="live-waiting-window">
-        <div class="live-waiting-top">
-          <p class="challenge-label">Room ${escapeHtml(currentSession.room_code || "ROOM")}</p>
-          <h2>Waiting for alpacas to join</h2>
-          <p>${escapeHtml(`${game.label} · ${players.length}/${Number(currentSession.max_players) || game.maxPlayers} alpacas connected. ${launchCopy}`)}</p>
-        </div>
-        ${renderLiveWaitingVideoRail(waitingVideos)}
-        <div class="panel-actions live-waiting-actions">
-          ${isHost && gameType === "alpacapardy" ? `<button class="button primary" type="button" data-jeopardy-live-start ${!canStart || busy ? "disabled" : ""}>Start now</button>` : ""}
-          ${isHost && gameType !== "alpacapardy" ? `<button class="button primary" type="button" data-live-start-game ${!canStart || busy ? "disabled" : ""}>Start now</button>` : ""}
-          <button class="button secondary" type="button" data-jeopardy-live-leave>Cancel the game</button>
-        </div>
-      </article>
-    </div>
-  `;
-}
-
-function renderLiveWaitingVideoRail(videos) {
-  if (!videos.length) {
-    return "";
-  }
-
-  const currentIndex = getLiveWaitingVideoIndex(videos);
-  const current = videos[currentIndex];
-  const previous = videos[(currentIndex - 1 + videos.length) % videos.length];
-  const next = videos[(currentIndex + 1) % videos.length];
-  const embeddedVideo = getEmbeddableVideo(current.url);
-  const videoPreview = getVideoPreview(current.url);
-  const canEmbedVideo = Boolean(embeddedVideo) && !window.WSC_DESKTOP_APP;
-  const singleVideo = videos.length <= 1;
-  const channelDomain = getAlpacaChannelDomain(current.sectionTitle || current.sectionTitles?.[0] || getLiveGameLabel());
-  const description = current.description || current.verdict || current.channel || "Short Alpaca Channel video while the room fills.";
-  const videoKey = normalizeVideoUrl(current.url);
-
-  return `
-    <section class="live-waiting-channel channel-shell">
-      <article
-        class="channel-browser live-waiting-channel-browser"
-        aria-label="Alpaca Channel while you wait"
-        data-live-waiting-video-card
-        data-live-waiting-video-key="${escapeHtml(videoKey)}"
-      >
-        <div class="channel-browser-bar">
-          <div class="channel-window-dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="channel-address-pill">
-            <span>${escapeHtml(channelDomain)}</span>
-          </div>
-        </div>
-        <div class="channel-youtube-copy">
-          <div class="channel-brand-row">
-            ${renderConfiguredMascotAsset(getModeAssetPath("channel"), "excited", "small", {
-              alt: "Alpaca Channel logo",
-              slotClass: "channel-brand-icon-slot",
-              imageClass: "channel-brand-icon"
-            })}
-            <span>Alpaca Channel while you wait</span>
-          </div>
-          <h2>${escapeHtml(current.title || "Alpaca Channel video")}</h2>
-        </div>
-        <div class="channel-video-frame">
-          ${canEmbedVideo ? `
-            <iframe
-              class="channel-video-iframe"
-              src="${escapeHtml(embeddedVideo.embedUrl)}"
-              title="${escapeHtml(current.title || "Alpaca Channel video")}"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <a class="channel-open-link" href="${escapeHtml(current.url)}" target="_blank" rel="noreferrer">Open on YouTube</a>
-          ` : videoPreview ? `
-            <a class="channel-video-fallback" href="${escapeHtml(current.url)}" target="_blank" rel="noreferrer">
-              <img src="${escapeHtml(videoPreview.thumbnailUrl)}" alt="${escapeHtml(current.title || "Alpaca Channel video")}" loading="lazy" referrerpolicy="no-referrer" />
-              <span>Open video</span>
-            </a>
-          ` : `
-            <a class="channel-video-fallback no-thumb" href="${escapeHtml(current.url)}" target="_blank" rel="noreferrer">
-              <span>Open video</span>
-            </a>
-          `}
-        </div>
-        <div class="channel-description">
-          <h3>Description</h3>
-          <p>${escapeHtml(description)}</p>
-        </div>
-        <div class="channel-video-count">${currentIndex + 1} / ${videos.length}</div>
-      </article>
-      <div class="channel-actions live-waiting-channel-actions">
-        <button class="button secondary" type="button" data-live-waiting-video-nav="prev" ${singleVideo ? "disabled" : ""}>
-          <span>Previous</span>
-          <small>${escapeHtml(previous.title || "Video")}</small>
-        </button>
-        <button class="button primary" type="button" data-live-waiting-video-nav="next" ${singleVideo ? "disabled" : ""}>
-          <span>Next</span>
-          <small>${escapeHtml(next.title || "Video")}</small>
-        </button>
-      </div>
-    </section>
-  `;
-}
+function renderLiveWaitingVideoRail(...args) { return legacyLiveRoomRenderer.renderLiveWaitingVideoRail(...args); }
 
 function getLiveWaitingVideoIndex(videos) {
-  if (!videos.length) {
-    return 0;
-  }
-
-  if (!Number.isInteger(state.live.waitingVideoIndex)) {
-    state.live.waitingVideoIndex = 0;
-  }
-  state.live.waitingVideoIndex = (state.live.waitingVideoIndex + videos.length) % videos.length;
-  return state.live.waitingVideoIndex;
+  return legacyLiveRoomController.getLiveWaitingVideoIndex(videos);
 }
 
 function navigateLiveWaitingVideo(direction) {
-  if (!state.live.currentSession) {
-    return;
-  }
-
-  const videos = getLiveWaitingVideos(state.live.currentSession.id);
-  if (videos.length <= 1) {
-    return;
-  }
-
-  const currentIndex = getLiveWaitingVideoIndex(videos);
-  state.live.waitingVideoIndex = direction === "prev"
-    ? (currentIndex - 1 + videos.length) % videos.length
-    : (currentIndex + 1) % videos.length;
-  renderLiveSurfaces();
+  return legacyLiveRoomController.navigateLiveWaitingVideo(direction);
 }
 
 function getLiveWaitingVideos(sessionId) {
-  if (state.live.waitingVideoSessionId !== sessionId || !state.live.waitingVideos.length) {
-    const videos = (alpacaChannelCatalog.videos || [])
-      .filter(isShortLiveWaitingVideo)
-      .map((video) => createStandaloneAlpacaChannelVideo(video));
-    state.live.waitingVideoSessionId = sessionId;
-    state.live.waitingVideos = shuffle(videos).slice();
-    state.live.waitingVideoIndex = 0;
-  }
-
-  return state.live.waitingVideos;
+  return legacyLiveRoomController.getLiveWaitingVideos(sessionId);
 }
 
 function isShortLiveWaitingVideo(video) {
-  return Boolean(video?.url && getVideoDurationSeconds(video.duration) < 120 && getEmbeddableVideo(video.url));
+  return legacyLiveRoomController.isShortLiveWaitingVideo(video);
 }
 
 function getVideoDurationSeconds(duration) {
-  const text = String(duration || "").trim();
-  if (!text) {
-    return Infinity;
-  }
-
-  const parts = text.split(":").map((part) => Number(part));
-  if (!parts.length || parts.some((part) => !Number.isFinite(part))) {
-    return Infinity;
-  }
-
-  return parts.reduce((total, part) => total * 60 + part, 0);
+  return legacyLiveRoomController.getVideoDurationSeconds(duration);
 }
 
-function renderOnlineArcadeGame({ currentSession, roomPlayers, isHost }) {
-  const gameType = getCurrentLiveGameType();
-  const arcadeState = getArcadeState(gameType);
-  if (!arcadeState.started) {
-    return renderOnlineArcadeWaitingRoom({ currentSession, roomPlayers, isHost, busy: false });
-  }
+function renderOnlineArcadeGame(...args) { return legacyLiveRoomRenderer.renderOnlineArcadeGame(...args); }
 
-  if (gameType === "run") {
-    return renderLiveRunGame(arcadeState, roomPlayers);
-  }
-  if (gameType === "quiz") {
-    return renderLiveQuizGame(arcadeState, roomPlayers, isHost);
-  }
-  if (gameType === "race") {
-    return renderLiveRaceGame(arcadeState, roomPlayers);
-  }
-  if (gameType === "alpaquiz") {
-    return renderLiveAlpaquizGame(arcadeState, roomPlayers, isHost);
-  }
-
-  return `<p class="online-muted">This live game is loading.</p>`;
-}
-
-function renderLivePlayerCard(player) {
-  return `
-    <article class="live-player-card ${player.user_id === state.auth.session?.user?.id ? "self" : ""}">
-      <span>${escapeHtml(player.role === "host" ? "Host" : `Team ${Number(player.team_index) + 1}`)}</span>
-      <strong>${escapeHtml(player.display_name)}</strong>
-      <small>${escapeHtml(player.is_guest ? "Guest" : "Alpaccount")} · ${escapeHtml(player.connection_status || "online")}</small>
-    </article>
-  `;
-}
+function renderLivePlayerCard(...args) { return legacyLiveRoomRenderer.renderLivePlayerCard(...args); }
 
 function getLiveRunSetupColorId() {
-  const requested = state.live.pendingRunColor;
-  return LIVE_ALPACA_COLORS.some((color) => color.id === requested)
-    ? requested
-    : LIVE_ALPACA_COLORS[0]?.id || "cream";
+  return legacyLiveRoomController.getLiveRunSetupColorId();
 }
 
-function renderLiveRunSetupColorPicker() {
-  const selectedColor = getLiveRunSetupColorId();
-
-  return `
-    <section class="live-color-picker live-run-setup-color-picker" aria-label="Choose your Alpaca Run color">
-      <strong>Choose your alpaca color</strong>
-      <div class="live-color-grid">
-        ${LIVE_ALPACA_COLORS.map((color) => {
-          const selected = color.id === selectedColor;
-          return `
-            <button
-              class="live-color-chip ${selected ? "active" : ""}"
-              type="button"
-              data-live-run-setup-color="${escapeHtml(color.id)}"
-              aria-pressed="${selected ? "true" : "false"}"
-              title="${escapeHtml(color.label)}"
-            >
-              ${renderLiveRunAlpacaToken(color.id, "small")}
-              <span>${escapeHtml(color.label)}</span>
-            </button>
-          `;
-        }).join("")}
-      </div>
-    </section>
-  `;
-}
+function renderLiveRunSetupColorPicker(...args) { return legacyLiveRoomRenderer.renderLiveRunSetupColorPicker(...args); }
 
 function selectLiveRunSetupColor(colorId) {
-  if (!LIVE_ALPACA_COLORS.some((color) => color.id === colorId)) {
-    return;
-  }
-  state.live.pendingRunColor = colorId;
-  renderLiveSurfaces();
+  return legacyLiveRoomController.selectLiveRunSetupColor(colorId);
 }
 
-function renderLiveRunColorPicker(roomPlayers) {
-  const arcadeState = getArcadeState("run");
-  const colorsByUserId = arcadeState.colorsByUserId || {};
-  const usedColors = new Set(Object.values(colorsByUserId));
-  const userId = state.auth.session?.user?.id || "";
+function renderLiveRunColorPicker(...args) { return legacyLiveRoomRenderer.renderLiveRunColorPicker(...args); }
 
-  return `
-    <section class="live-color-picker">
-      <strong>Choose your alpaca color</strong>
-      <div class="live-color-grid">
-        ${LIVE_ALPACA_COLORS.map((color) => {
-          const owner = roomPlayers.find((player) => colorsByUserId[player.user_id] === color.id);
-          const selected = colorsByUserId[userId] === color.id;
-          const disabled = Boolean(owner && owner.user_id !== userId);
-          return `
-            <button
-              class="live-color-chip ${selected ? "active" : ""}"
-              type="button"
-              data-live-color-select="${escapeHtml(color.id)}"
-              ${disabled ? "disabled" : ""}
-              title="${escapeHtml(disabled ? `${owner.display_name} chose ${color.label}` : color.label)}"
-            >
-              ${renderLiveRunAlpacaToken(color.id, "small")}
-              <span>${escapeHtml(color.label)}</span>
-            </button>
-          `;
-        }).join("")}
-      </div>
-    </section>
-  `;
-}
+function renderLiveRunGame(...args) { return legacyLiveRoomRenderer.renderLiveRunGame(...args); }
 
-function renderLiveRunGame(arcadeState, roomPlayers) {
-  const userId = state.auth.session?.user?.id || "";
-  const players = getLivePlayablePlayers(roomPlayers).slice(0, 2);
-  const selfPlayer = players.find((player) => player.user_id === userId) || players[0] || null;
+function renderLiveRunMap(...args) { return legacyLiveRoomRenderer.renderLiveRunMap(...args); }
 
-  return `
-    <section class="live-run-shell">
-      ${renderLiveRunMap(arcadeState, players)}
-      <div class="live-run-player-area">
-        ${selfPlayer ? renderLiveRunPlayerPanel(selfPlayer, arcadeState) : `<p class="online-muted">Waiting for your alpaca profile.</p>`}
-        <div class="live-run-opponent-status">
-          ${players.filter((player) => player.user_id !== userId).map((player) => {
-            const playerProgress = arcadeState.progress?.[player.user_id] || {};
-            const colorId = arcadeState.colorsByUserId?.[player.user_id] || "cream";
-            return `
-              <article>
-                ${renderLiveRunAlpacaToken(colorId, "small")}
-                <div>
-                  <strong>${escapeHtml(player.display_name)}</strong>
-                  <span>${getLiveRunRouteIndex(playerProgress)} / ${ALPACA_RUN_ROUTE.length - 1} stops</span>
-                </div>
-              </article>
-            `;
-          }).join("") || `<p class="online-muted">Waiting for the other alpaca.</p>`}
-        </div>
-      </div>
-    </section>
-  `;
-}
+function getLiveRunRouteIndex(...args) { return legacyLiveRoomRenderer.getLiveRunRouteIndex(...args); }
 
-function renderLiveRunMap(arcadeState, players) {
-  const progress = arcadeState.progress || {};
-  const routeIndexes = players.map((player) => getLiveRunRouteIndex(progress[player.user_id] || {}));
-  const currentIndex = Math.max(0, ...routeIndexes);
+function renderLiveRunPlayerPanel(...args) { return legacyLiveRoomRenderer.renderLiveRunPlayerPanel(...args); }
 
-  return `
-    <div class="run-map-stage live-run-map-stage">
-      ${renderRunMapBackground()}
-      ${ALPACA_RUN_ROUTE.map((stop, index) => renderRunMapStop(stop, index, currentIndex)).join("")}
-      ${players.map((player, index) => {
-        const playerProgress = progress[player.user_id] || {};
-        const routeIndex = getLiveRunRouteIndex(playerProgress);
-        const stop = ALPACA_RUN_ROUTE[routeIndex] || ALPACA_RUN_ROUTE[0];
-        const colorId = arcadeState.colorsByUserId?.[player.user_id] || "cream";
-        const offset = index === 0 ? -18 : 18;
-        return `
-          <div
-            class="run-travel-marker live-run-player-marker"
-            style="left:${stop.x}%; top:${getRunMapTop(stop)}; --live-run-offset:${offset}px;"
-          >
-            ${renderLiveRunAlpacaToken(colorId, "map")}
-            <span>${escapeHtml(player.display_name)}</span>
-          </div>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
+function renderLiveQuizGame(...args) { return legacyLiveRoomRenderer.renderLiveQuizGame(...args); }
 
-function getLiveRunRouteIndex(playerProgress) {
-  const stage = Math.max(0, Number(playerProgress.stage) || 0);
-  const maxLiveStage = Math.max(1, GAME_CONFIG.runRegionalLevelOneCount);
-  const maxRouteIndex = Math.max(0, ALPACA_RUN_ROUTE.length - 1);
-  return Math.min(maxRouteIndex, Math.round((stage / maxLiveStage) * maxRouteIndex));
-}
+function renderLiveRaceGame(...args) { return legacyLiveRoomRenderer.renderLiveRaceGame(...args); }
 
-function renderLiveRunPlayerPanel(player, arcadeState) {
-  const playerProgress = arcadeState.progress?.[player.user_id] || {};
-  const questions = arcadeState.questionsByUserId?.[player.user_id] || [];
-  const index = Number(playerProgress.index) || 0;
-  const question = questions[index] || null;
-  const answered = Boolean(playerProgress.revealed);
-  const selectedIndex = playerProgress.selectedIndex;
+function renderLiveAlpaquizGame(...args) { return legacyLiveRoomRenderer.renderLiveAlpaquizGame(...args); }
 
-  return `
-    <article class="live-question-panel self">
-      <div class="live-question-head">
-        <strong>${escapeHtml(player.display_name)}</strong>
-        <span>${getLiveRunRouteIndex(playerProgress)} stops cleared</span>
-      </div>
-      ${question ? `
-        <h3>${escapeHtml(question.prompt)}</h3>
-        <div class="raw-quiz-options">
-          ${question.options.map((option, optionIndex) => {
-            let classes = "raw-quiz-option option-button";
-            if (answered) {
-              if (optionIndex === question.answerIndex) {
-                classes += " correct";
-              } else if (optionIndex === selectedIndex) {
-                classes += " wrong";
-              }
-              classes += " disabled";
-            }
-            return `
-              <button class="${classes}" type="button" data-live-answer="${optionIndex}" ${answered || arcadeState.finished ? "disabled" : ""}>
-                ${renderOptionToken(optionIndex)}
-                <span>${escapeHtml(option)}</span>
-              </button>
-            `;
-          }).join("")}
-        </div>
-        ${answered ? `<button class="button primary small" type="button" data-live-next>Continue</button>` : ""}
-      ` : `<p class="online-muted">${arcadeState.finished ? "Finished." : "Waiting for the next question."}</p>`}
-    </article>
-  `;
-}
+function renderLiveRunAlpacaToken(...args) { return legacyLiveRoomRenderer.renderLiveRunAlpacaToken(...args); }
 
-function renderLiveQuizGame(arcadeState, roomPlayers, isHost) {
-  const players = getLivePlayablePlayers(roomPlayers);
-  const question = arcadeState.questions?.[arcadeState.questionIndex] || null;
-  const revealed = arcadeState.revealed || arcadeState.finished;
-  const answers = arcadeState.answers?.[arcadeState.questionIndex] || {};
-  const userAnswer = answers[state.auth.session?.user?.id || ""];
-  const leaderboard = getArcadeLeaderboard(arcadeState, players);
-  const remaining = Math.max(0, Number(arcadeState.revealAt || 0) - Date.now());
-  const secondsLeft = Math.ceil(remaining / 1000);
+function renderLiveRaceLives(...args) { return legacyLiveRoomRenderer.renderLiveRaceLives(...args); }
 
-  return `
-    <section class="live-kahoot-shell">
-      <div class="live-kahoot-question">
-        <p class="challenge-label">Question ${arcadeState.questionIndex + 1}/${arcadeState.questions.length}</p>
-        <h3>${escapeHtml(question?.prompt || "Loading question...")}</h3>
-        <strong class="live-timer-pill">${revealed ? "Answers locked" : `${secondsLeft}s`}</strong>
-      </div>
-      ${question ? `
-        <div class="live-kahoot-options">
-          ${question.options.map((option, optionIndex) => `
-            <button
-              class="live-kahoot-option ${userAnswer?.optionIndex === optionIndex ? "active" : ""} ${revealed && optionIndex === question.answerIndex ? "correct" : ""}"
-              type="button"
-              data-live-answer="${optionIndex}"
-              ${revealed || userAnswer ? "disabled" : ""}
-            >
-              ${renderOptionToken(optionIndex)}
-              <span>${escapeHtml(option)}</span>
-            </button>
-          `).join("")}
-        </div>
-      ` : ""}
-      ${revealed ? renderLiveQuizRoundResults(arcadeState, players, question, answers, leaderboard) : renderLiveAnswerStatus(players, answers)}
-      ${isHost && (revealed || secondsLeft <= 0 || Object.keys(answers).length >= players.length) ? `
-        <div class="panel-actions">
-          <button class="button primary" type="button" data-live-next>${arcadeState.questionIndex >= arcadeState.questions.length - 1 ? "Final leaderboard" : "Next question"}</button>
-        </div>
-      ` : ""}
-    </section>
-  `;
-}
+function renderLiveAnswerStatus(...args) { return legacyLiveRoomRenderer.renderLiveAnswerStatus(...args); }
 
-function renderLiveRaceGame(arcadeState, roomPlayers) {
-  const players = getLivePlayablePlayers(roomPlayers).slice(0, 2);
-  const activeUserId = arcadeState.activeUserId;
-  const question = arcadeState.questions?.[arcadeState.questionIndex] || null;
-  const userId = state.auth.session?.user?.id || "";
-  const canAnswer = userId === activeUserId && !arcadeState.revealed && !arcadeState.finished;
+function renderLiveQuizRoundResults(...args) { return legacyLiveRoomRenderer.renderLiveQuizRoundResults(...args); }
 
-  return `
-    <section class="live-race-shell">
-      <div class="live-race-lives">
-        ${players.map((player) => `
-          <article class="${player.user_id === activeUserId ? "active" : ""}">
-            <strong>${escapeHtml(player.display_name)}</strong>
-            <div class="race-lives-row">${renderLiveRaceLives(arcadeState.livesByUserId?.[player.user_id] ?? 3)}</div>
-          </article>
-        `).join("")}
-      </div>
-      ${arcadeState.finished ? renderLiveWinnerCard(arcadeState, players) : `
-        <article class="live-question-panel self">
-          <p class="challenge-label">${escapeHtml(players.find((player) => player.user_id === activeUserId)?.display_name || "Next alpaca")} answers now</p>
-          <h3>${escapeHtml(question?.prompt || "Loading question...")}</h3>
-          <div class="raw-quiz-options">
-            ${(question?.options || []).map((option, optionIndex) => `
-              <button class="raw-quiz-option option-button ${arcadeState.revealed && optionIndex === question.answerIndex ? "correct" : ""}" type="button" data-live-answer="${optionIndex}" ${canAnswer ? "" : "disabled"}>
-                ${renderOptionToken(optionIndex)}
-                <span>${escapeHtml(option)}</span>
-              </button>
-            `).join("")}
-          </div>
-          ${arcadeState.revealed ? `<button class="button primary small" type="button" data-live-next>Next turn</button>` : ""}
-        </article>
-      `}
-    </section>
-  `;
-}
+function renderLiveLeaderboard(...args) { return legacyLiveRoomRenderer.renderLiveLeaderboard(...args); }
 
-function renderLiveAlpaquizGame(arcadeState, roomPlayers, isHost) {
-  const players = getLivePlayablePlayers(roomPlayers);
-  const question = arcadeState.questions?.[arcadeState.questionIndex] || null;
-  const buzzedPlayer = players.find((player) => player.user_id === arcadeState.buzzedUserId);
-  const userId = state.auth.session?.user?.id || "";
-  const canBuzz = !arcadeState.buzzedUserId && !arcadeState.revealed && !arcadeState.finished;
-  const answerPending = Number.isInteger(arcadeState.selectedIndex) && !arcadeState.revealed;
-  const answerSecondsLeft = arcadeState.buzzedUserId && arcadeState.answerDeadlineAt
-    ? Math.max(0, Math.ceil((Number(arcadeState.answerDeadlineAt) - Date.now()) / 1000))
-    : 0;
-  const canAnswer = arcadeState.buzzedUserId === userId &&
-    !arcadeState.revealed &&
-    !answerPending &&
-    (!arcadeState.answerDeadlineAt || answerSecondsLeft > 0);
-  const timerLabel = answerPending
-    ? "Checking..."
-    : buzzedPlayer
-      ? `${buzzedPlayer.display_name} · ${answerSecondsLeft}s`
-      : "Press space or Buzz";
+function renderLiveWinnerCard(...args) { return legacyLiveRoomRenderer.renderLiveWinnerCard(...args); }
 
-  return `
-    <section class="live-alpaquiz-shell">
-      <div class="live-kahoot-question">
-        <p class="challenge-label">Alpaquiz · Question ${arcadeState.questionIndex + 1}/${arcadeState.questions.length}</p>
-        <h3>${escapeHtml(question?.prompt || "Loading question...")}</h3>
-        <strong class="live-timer-pill">${escapeHtml(timerLabel)}</strong>
-      </div>
-      <button class="button primary live-buzz-button" type="button" data-live-buzz ${canBuzz ? "" : "disabled"}>Buzz</button>
-      <div class="raw-quiz-options">
-        ${(question?.options || []).map((option, optionIndex) => {
-          let classes = "raw-quiz-option option-button";
-          if (optionIndex === arcadeState.selectedIndex) {
-            classes += " active";
-          }
-          if (arcadeState.revealed && optionIndex === question.answerIndex) {
-            classes += " correct";
-          } else if (arcadeState.revealed && optionIndex === arcadeState.selectedIndex) {
-            classes += " wrong";
-          }
-          return `
-            <button class="${classes}" type="button" data-live-answer="${optionIndex}" ${canAnswer ? "" : "disabled"}>
-              ${renderOptionToken(optionIndex)}
-              <span>${escapeHtml(option)}</span>
-            </button>
-          `;
-        }).join("")}
-      </div>
-      ${answerPending ? `<p class="online-muted">Answer locked. Revealing in 2 seconds...</p>` : ""}
-      ${arcadeState.revealed && Number.isInteger(arcadeState.selectedIndex) ? `
-        <p class="live-answer-feedback ${arcadeState.lastCorrect ? "correct" : "wrong"}">
-          ${escapeHtml(arcadeState.lastCorrect ? "Correct answer!" : "Wrong turn. The green answer was correct.")}
-        </p>
-      ` : ""}
-      ${renderLiveLeaderboard(getArcadeLeaderboard(arcadeState, players))}
-      ${isHost && arcadeState.revealed ? `
-        <div class="panel-actions">
-          <button class="button primary" type="button" data-live-next>${arcadeState.questionIndex >= arcadeState.questions.length - 1 ? "Final leaderboard" : "Next question"}</button>
-        </div>
-      ` : ""}
-    </section>
-  `;
-}
+function renderOnlineRoomListItem(...args) { return legacyLiveRoomRenderer.renderOnlineRoomListItem(...args); }
 
-function renderLiveRunAlpacaToken(colorId, size = "small") {
-  const color = LIVE_ALPACA_COLORS.find((entry) => entry.id === colorId) || LIVE_ALPACA_COLORS[0];
-  const asset = getAssetValue(["run", "travelMarker"]) || "./app-icons/icon-192.png";
-  return `
-    <span class="live-alpaca-token ${escapeHtml(size)}" style="--alpaca-color:${escapeHtml(color.hex)}; --alpaca-filter:${escapeHtml(color.filter)};">
-      <img src="${escapeHtml(asset)}" alt="" aria-hidden="true" />
-    </span>
-  `;
-}
+function getAlpacaOnlineRoster(...args) { return legacyLiveRoomRenderer.getAlpacaOnlineRoster(...args); }
 
-function renderLiveRaceLives(lives) {
-  return Array.from({ length: 3 }, (_, index) => {
-    const state = index < lives ? (lives === 1 ? "warning" : "full") : "empty";
-    return `<span class="race-life ${state}">${renderRaceLivesIcon(state)}</span>`;
-  }).join("");
-}
+function getOpenLiveRoomsByGame(...args) { return legacyLiveRoomRenderer.getOpenLiveRoomsByGame(...args); }
 
-function renderLiveAnswerStatus(players, answers) {
-  return `
-    <div class="live-answer-status-grid">
-      ${players.map((player) => `
-        <article class="${answers[player.user_id] ? "answered" : ""}">
-          <strong>${escapeHtml(player.display_name)}</strong>
-          <span>${answers[player.user_id] ? "Locked" : "Thinking"}</span>
-        </article>
-      `).join("")}
-    </div>
-  `;
-}
-
-function renderLiveQuizRoundResults(arcadeState, players, question, answers, leaderboard) {
-  return `
-    <section class="live-round-results">
-      ${players.map((player) => {
-        const answer = answers[player.user_id];
-        const label = Number.isInteger(answer?.optionIndex) ? question.options[answer.optionIndex] : "No answer";
-        return `
-          <article class="${answer?.correct ? "correct" : "wrong"}">
-            <strong>${escapeHtml(player.display_name)}</strong>
-            <span>${escapeHtml(label)}</span>
-          </article>
-        `;
-      }).join("")}
-      ${renderLiveLeaderboard(leaderboard)}
-    </section>
-  `;
-}
-
-function renderLiveLeaderboard(leaderboard) {
-  return `
-    <div class="live-leaderboard">
-      ${leaderboard.map((row, index) => `
-        <article class="${index === 0 ? "leader" : ""}">
-          <span>${index + 1}</span>
-          <strong>${escapeHtml(row.name)}</strong>
-          <em>${row.score} pts</em>
-        </article>
-      `).join("")}
-    </div>
-  `;
-}
-
-function renderLiveWinnerCard(arcadeState, players) {
-  const winner = players.find((player) => player.user_id === arcadeState.winnerUserId);
-  return `
-    <article class="live-winner-card">
-      <p class="challenge-label">Winner</p>
-      <h3>${escapeHtml(winner?.display_name || "Winning alpaca")}</h3>
-      <p>The other alpaca ran out of lives.</p>
-    </article>
-  `;
-}
-
-function renderOnlineRoomListItem(room, busy) {
-  const players = room.players || [];
-  const playerCount = players.filter((player) => ["host", "player"].includes(player.role)).length;
-  const maxPlayers = Number(room.max_players) || 2;
-  const gameType = normalizeLiveGameType(room.game_type);
-
-  return `
-    <article class="online-room-mini">
-      <div>
-        <strong>${escapeHtml(room.room_code || "ROOM")}</strong>
-        <span>${escapeHtml(getLiveGameLabel(gameType))} · ${playerCount}/${maxPlayers} alpacas waiting</span>
-      </div>
-      <button class="button secondary" type="button" data-jeopardy-live-join="${escapeHtml(room.id)}" ${busy || playerCount >= maxPlayers ? "disabled" : ""}>Join</button>
-    </article>
-  `;
-}
-
-function getAlpacaOnlineRoster() {
-  const byId = new Map();
-  const addPlayer = (player, detail) => {
-    if (!player?.display_name) {
-      return;
-    }
-    byId.set(player.user_id || player.id || player.display_name, {
-      name: player.display_name,
-      detail
-    });
-  };
-
-  (state.live.players || []).forEach((player) => addPlayer(player, player.role === "host" ? "Hosting room" : "In your room"));
-  (state.live.openSessions || []).forEach((room) => {
-    (room.players || []).forEach((player) => addPlayer(player, `Waiting in ${room.room_code || "room"}`));
-  });
-
-  return Array.from(byId.values());
-}
-
-function getOpenLiveRoomsByGame(rooms = []) {
-  return rooms.reduce((groups, room) => {
-    const gameType = normalizeLiveGameType(room.game_type);
-    groups[gameType] = groups[gameType] || [];
-    groups[gameType].push(room);
-    return groups;
-  }, {});
-}
-
-function getOpenRoomsForGame(gameType) {
-  const normalized = normalizeLiveGameType(gameType);
-  return (state.live.openSessions || []).filter((room) => normalizeLiveGameType(room.game_type) === normalized);
-}
+function getOpenRoomsForGame(...args) { return legacyLiveRoomRenderer.getOpenRoomsForGame(...args); }
 
 function normalizeLiveGameType(gameType) {
-  const normalized = String(gameType || "").trim().toLowerCase();
-  return LIVE_GAME_TYPES[normalized] ? normalized : "alpacapardy";
+  return legacyLiveRoomController.normalizeLiveGameType(gameType);
 }
 
 function getCurrentLiveGameType() {
-  return normalizeLiveGameType(state.live.currentSession?.game_type || state.live.selectedGameType || "alpacapardy");
+  return legacyLiveRoomController.getCurrentLiveGameType();
 }
 
 function getLiveGameLabel(gameType = getCurrentLiveGameType()) {
-  return LIVE_GAME_TYPES[normalizeLiveGameType(gameType)]?.label || "Live game";
+  return legacyLiveRoomController.getLiveGameLabel(gameType);
 }
 
 function getLivePlayablePlayers(players = state.live.players) {
-  return (players || []).filter((player) => ["host", "player"].includes(player.role)).sort(compareLivePlayers);
+  return legacyLiveRoomController.getLivePlayablePlayers(players);
 }
 
 function getArcadeState(gameType = getCurrentLiveGameType()) {
-  if (!state.live.arcadeState || state.live.arcadeState.gameType !== gameType) {
-    state.live.arcadeState = createEmptyArcadeState(gameType);
-  }
-  return state.live.arcadeState;
+  return legacyLiveRoomController.getArcadeState(gameType);
 }
 
 function createEmptyArcadeState(gameType) {
-  return {
-    gameType,
-    started: false,
-    finished: false,
-    colorsByUserId: {},
-    scoresByUserId: {},
-    answers: {}
-  };
+  return legacyLiveRoomController.createEmptyArcadeState(gameType);
 }
 
 function chooseOnlineGameType(gameType) {
-  const normalized = normalizeLiveGameType(gameType);
-  if (state.live.currentSession) {
-    return;
-  }
-  state.live.selectedGameType = normalized;
-  state.live.onlineView = "game";
-  state.live.arcadeState = normalized === "alpacapardy" ? null : createEmptyArcadeState(normalized);
-  if (normalized === "alpacapardy" && (!state.experience || state.experience.type !== "jeopardy")) {
-    state.experience = buildJeopardyExperience();
-    state.experience.playMode = "multiplayer";
-  }
-  renderLiveSurfaces();
+  return legacyLiveRoomController.chooseOnlineGameType(gameType);
 }
 
 function renderStepPanel(index, title, helper, content, gridClass) {
-  return wizardRenderer.renderStepPanel(index, title, helper, content, gridClass, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderStepPanel(index, title, helper, content, gridClass);
 }
 
 function getCurrentWizardStepNumber() {
-  return wizardRenderer.getCurrentStepNumber(getWizardRenderContext());
+  return routeBuilderViewController.getCurrentWizardStepNumber();
 }
 
 function getWizardStepDefinition(stepNumber) {
-  return wizardRenderer.getStepDefinition(stepNumber, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.getWizardStepDefinition(stepNumber);
 }
 
 function renderWizardRail(currentStep) {
-  return wizardRenderer.renderWizardRail(currentStep, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderWizardRail(currentStep);
 }
 
 function renderWizardRailItem(item, currentStep) {
-  return wizardRenderer.renderWizardRailItem(item, currentStep, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderWizardRailItem(item, currentStep);
 }
 
 function getWizardRailItems() {
-  return wizardRenderer.getRailItems(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.getWizardRailItems();
 }
 
 function getWizardCompletionDepth() {
-  return wizardRenderer.getCompletionDepth(getWizardRenderContext());
+  return routeBuilderViewController.getWizardCompletionDepth();
 }
 
 function goToWizardStep(stepNumber) {
@@ -5748,69 +2961,43 @@ function goToWizardStep(stepNumber) {
 }
 
 function renderPathCards() {
-  return wizardRenderer.renderPathCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderPathCards();
 }
 
 function renderLensCards() {
-  return wizardRenderer.renderLensCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderLensCards();
 }
 
 function renderTargetCards() {
-  return wizardRenderer.renderTargetCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderTargetCards();
 }
 
 function renderModeCards() {
-  return wizardRenderer.renderModeCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeCards();
 }
 
 function renderModeChoiceBoard() {
-  return wizardRenderer.renderModeChoiceBoard(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeChoiceBoard();
 }
 
 function renderModeChoiceColumn(pathId, title, asset, options) {
-  return wizardRenderer.renderModeChoiceColumn(pathId, title, asset, options, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeChoiceColumn(pathId, title, asset, options);
 }
 
 function renderModeChoiceCard(option, pathId) {
-  return wizardRenderer.renderModeChoiceCard(option, pathId, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeChoiceCard(option, pathId);
 }
 
 function getWizardRenderContext() {
-  return {
-    selection: state.selection,
-    ui: state.ui,
-    wizardTotalSteps: WIZARD_TOTAL_STEPS,
-    defaultLensId: DEFAULT_LENS_ID,
-    pathOptions: PATH_OPTIONS,
-    lensOptions: LENS_OPTIONS
-  };
+  return routeBuilderViewController.getWizardRenderContext();
 }
 
 function getWizardRenderHelpers() {
-  return {
-    escapeHtml,
-    renderConfiguredMascotAsset,
-    getAssetValue,
-    getWizardCardAsset,
-    getTargetAssetPath,
-    getModeAssetPath,
-    getPathReviewBadge,
-    getLensReviewBadge,
-    getTargetReviewBadge,
-    getModeReviewBadge,
-    getTargetLabel,
-    getModeOption,
-    getSelectedSectionIds,
-    getTargetOptions,
-    getVisibleModeOptions,
-    getVisibleModeOptionsForPath,
-    getModePath,
-    getAppModeSwitchIcon
-  };
+  return routeBuilderViewController.getWizardRenderHelpers();
 }
 
 function getAppModeSwitchIcon() {
-  return state.ui.appShellMode === "online"
+  return appStateService.isOnlineMode(state)
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
 }
@@ -5965,129 +3152,32 @@ function getTargetOptions() {
 }
 
 function resetCurrentRouteAttempts() {
-  state.ui.rawQuizSelections = {};
-  state.ui.rawQuizPages = {};
-  state.ui.rawMediaLightbox = null;
-  state.ui.rawMediaSwipeStartX = null;
+  gameLaunchController.resetCurrentRouteAttempts();
 }
 
 function launchExperience() {
-  const { mode } = state.selection;
-
-  if (!mode) {
+  const result = gameLaunchController.launchSelectedExperience();
+  if (!result.launched) {
     return;
-  }
-
-  clearJeopardyTimer();
-  clearDebateSpinTimer();
-  clearDebateRevealTimer();
-
-  if (mode === "slideshow") {
-    state.experience = buildSlideshowExperience();
-  } else if (mode === "mindmap") {
-    state.experience = buildMindMapExperience();
-  } else if (mode === "rawcontent") {
-    state.experience = buildRawContentExperience();
-  } else if (mode === "regularguide") {
-    state.experience = buildRegularGuideExperience();
-  } else if (mode === "channel") {
-    state.experience = buildAlpacaChannelExperience();
-  } else if (mode === "alpacard") {
-    state.experience = buildAlpacardExperience();
-  } else if (mode === "writing") {
-    state.experience = buildWritingExperience();
-  } else if (mode === "quiz") {
-    state.experience = buildQuizExperience();
-  } else if (mode === "bowl") {
-    state.experience = buildBowlExperience();
-  } else if (mode === "race") {
-    state.experience = buildRaceExperience();
-  } else if (mode === "jump") {
-    state.experience = buildJumpExperience();
-  } else if (mode === "jeopardy") {
-    state.experience = buildJeopardyExperience();
-  } else if (mode === "run") {
-    state.experience = buildRunExperience();
-  } else if (mode === "relay") {
-    state.experience = buildRelayExperience();
-  } else if (mode === "buildcase") {
-    state.experience = buildBuildCaseExperience();
   }
 
   render();
   refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function closeCurrentExperience() {
+  if (isAlpacapardyLiveActive()) {
+    leaveAlpacapardyLiveRoom();
+    return false;
+  }
+
+  gameLaunchController.closeExperience();
+  render();
+  return true;
+}
+
 function renderExperience() {
-  if (state.ui.appShellMode === "online") {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
-    refs.experiencePanel.classList.add("hidden");
-    refs.experiencePanel.classList.remove("experience-panel--mindmap");
-    refs.experiencePanel.innerHTML = "";
-    stopMindMapOrbitAnimation();
-    syncPopupScrollLock();
-    return;
-  }
-
-  if (!state.experience) {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
-    refs.experiencePanel.classList.add("hidden");
-    refs.experiencePanel.classList.remove("experience-panel--mindmap");
-    refs.experiencePanel.innerHTML = "";
-    stopMindMapOrbitAnimation();
-    syncPopupScrollLock();
-    return;
-  }
-
-  refs.experiencePanel.classList.remove("hidden");
-  refs.experiencePanel.classList.toggle("experience-panel--mindmap", state.experience.type === "mindmap");
-
-  if (!["rawcontent", "mindmap"].includes(state.experience.type) && state.ui.rawMediaLightbox) {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
-  }
-
-  if (state.experience.type === "slideshow") {
-    refs.experiencePanel.innerHTML = renderSlideshowExperience();
-  } else if (state.experience.type === "mindmap") {
-    refs.experiencePanel.innerHTML = renderMindMapExperience();
-  } else if (state.experience.type === "rawcontent") {
-    refs.experiencePanel.innerHTML = renderRawContentExperience();
-  } else if (state.experience.type === "regularguide") {
-    refs.experiencePanel.innerHTML = renderRegularGuideExperience();
-  } else if (state.experience.type === "channel") {
-    refs.experiencePanel.innerHTML = renderAlpacaChannelExperience();
-  } else if (state.experience.type === "alpacard") {
-    refs.experiencePanel.innerHTML = renderAlpacardExperience();
-  } else if (state.experience.type === "writing") {
-    refs.experiencePanel.innerHTML = renderWritingExperience();
-  } else if (state.experience.type === "quiz") {
-    refs.experiencePanel.innerHTML = renderQuizExperience();
-  } else if (state.experience.type === "bowl") {
-    refs.experiencePanel.innerHTML = renderBowlExperience();
-  } else if (state.experience.type === "race") {
-    refs.experiencePanel.innerHTML = renderRaceExperience();
-  } else if (state.experience.type === "jump") {
-    refs.experiencePanel.innerHTML = renderJumpExperience();
-  } else if (state.experience.type === "jeopardy") {
-    refs.experiencePanel.innerHTML = renderJeopardyExperience();
-  } else if (state.experience.type === "run") {
-    refs.experiencePanel.innerHTML = renderRunExperience();
-  } else if (state.experience.type === "relay") {
-    refs.experiencePanel.innerHTML = renderRelayExperience();
-  } else if (state.experience.type === "buildcase") {
-    refs.experiencePanel.innerHTML = renderBuildCaseExperience();
-  } else if (state.experience.type === "unavailable") {
-    refs.experiencePanel.innerHTML = renderUnavailableModeExperience();
-  }
-
-  syncExperienceTimers();
-  syncPopupScrollLock();
-  syncRadialMindMapScroll();
-  syncMindMapOrbitAnimation();
-  syncRawQuestionGalleries();
+  modeRuntimeController.renderCurrentExperience();
 }
 
 function renderExperiencePreservingScroll() {
@@ -6148,332 +3238,47 @@ function renderLiveSurfaces() {
 }
 
 function buildAlpacardExperience() {
-  const cards = getAlpacardsForSelection();
-  return alpacardsMode?.buildExperience
-    ? alpacardsMode.buildExperience(cards, getTargetLabel())
-    : {
-        type: "alpacard",
-        routeTitle: getTargetLabel(),
-        cards,
-        index: 0,
-        flipped: false
-      };
+  return alpacardsController.buildExperience();
 }
 
 function getAlpacardsForSelection() {
-  const cards = Array.isArray(window.WSC_ALPACARDS) ? window.WSC_ALPACARDS : [];
-  const selectedSectionIds = getSelectedSectionIds();
-  if (alpacardsMode?.getCardsForSelection) {
-    return alpacardsMode.getCardsForSelection({
-      cards,
-      selectedSectionIds,
-      selection: state.selection,
-      selectionQuestions: state.selection.lens === "section" ? [] : getSelectionQuestions(),
-      normalizeSectionId
-    });
-  }
-
-  if (state.selection.lens === "section" && selectedSectionIds.length) {
-    const sectionIds = new Set(selectedSectionIds);
-    return cards.filter((card) => sectionIds.has(normalizeSectionId(card.sectionId)));
-  }
-
-  if (!state.selection.lens || !state.selection.targetId || state.selection.targetId === "all") {
-    return cards.slice();
-  }
-
-  if (state.selection.lens === "section") {
-    const targetId = normalizeSectionId(state.selection.targetId);
-    return cards.filter((card) => normalizeSectionId(card.sectionId) === targetId);
-  }
-
-  const sectionIds = new Set(getSelectionQuestions().map((question) => question.sectionId));
-  return cards.filter((card) => sectionIds.has(normalizeSectionId(card.sectionId)));
+  return alpacardsController.getCardsForSelection();
 }
 
 function renderAlpacardExperience() {
-  if (alpacardsMode?.renderExperience) {
-    return alpacardsMode.renderExperience(state.experience, {
-      escapeHtml,
-      renderPanelTitle,
-      renderLearnCardFooterNav
-    });
-  }
-
-  const experience = state.experience;
-  const cards = experience.cards || [];
-  const total = cards.length;
-  const current = total ? cards[Math.min(experience.index, total - 1)] : null;
-  const title = "Alpacard";
-  const subtitle = total
-    ? "Flip each card to practice recognizing the exact artwork, building, place, film, or game."
-    : "No Alpacards are attached to this route yet.";
-  const metaLine = total ? "" : "Choose more guiding sections for a larger deck.";
-
-  if (!current) {
-    return `
-      ${renderPanelTitle(title, subtitle, metaLine)}
-      <div class="alpacard-shell">
-      <div class="alpacard-empty">
-        <h3>No Alpacards here yet.</h3>
-        <p>This selected route does not have a matching recognition card in the current local deck.</p>
-      </div>
-    </div>
-    ${renderLearnCardFooterNav("alpacard")}
-    `;
-  }
-
-  return `
-    ${renderPanelTitle(title, subtitle, metaLine)}
-    <div class="alpacard-shell">
-      <div class="alpacard-meta-row">
-        <span class="alpacard-badge">${escapeHtml(current.category || "Recognition")}</span>
-        <strong>${experience.index + 1} / ${total}</strong>
-      </div>
-      <article class="alpacard-stage ${experience.flipped ? "is-flipped" : ""}">
-        ${experience.flipped ? renderAlpacardBack(current) : renderAlpacardFront(current)}
-      </article>
-      <div class="alpacard-controls">
-        <button class="button secondary" type="button" data-alpacard-nav="previous">Previous</button>
-        <button class="button primary" type="button" data-alpacard-flip><span>Flip</span></button>
-        <button class="button secondary" type="button" data-alpacard-nav="next">Next</button>
-      </div>
-    </div>
-    ${renderLearnCardFooterNav("alpacard")}
-  `;
+  return alpacardsController.renderExperience();
 }
 
 function renderAlpacardFront(card) {
-  if (alpacardsMode?.renderFront) {
-    return alpacardsMode.renderFront(card, escapeHtml);
-  }
-
-  return `
-    <div class="alpacard-card alpacard-front">
-      <div class="alpacard-image-wrap">
-        <img class="alpacard-image" src="./${escapeHtml(card.imagePath)}?v=20260520train" alt="${escapeHtml(card.title)}" loading="lazy" decoding="async" />
-      </div>
-    </div>
-  `;
+  return alpacardsController.renderFront(card);
 }
 
 function renderAlpacardBack(card) {
-  if (alpacardsMode?.renderBack) {
-    return alpacardsMode.renderBack(card, escapeHtml);
-  }
-
-  const fields = [
-    ["Title / Name", card.title],
-    ["Creator / Architect / Studio", card.creator],
-    ["Year / Date", card.year],
-    ["Location / Medium", card.locationMedium],
-    ["Movement / Context", card.movementContext],
-    ["Recognition focus", card.notice]
-  ].filter(([, value]) => value);
-  const connections = getAlpacardConnectionChips(card);
-
-  return `
-    <div class="alpacard-card alpacard-back">
-      <div class="alpacard-back-heading">
-        <h3>${escapeHtml(card.title)}</h3>
-      </div>
-      <div class="alpacard-back-grid">
-        ${fields.map(([label, value]) => `
-          <div class="alpacard-field">
-            <span>${escapeHtml(label)}</span>
-            <p>${escapeHtml(value)}</p>
-          </div>
-        `).join("")}
-      </div>
-      ${connections.length ? `
-        <div class="alpacard-connection-row" aria-label="WSC theme connection">
-          ${connections.map((connection) => `<span>${escapeHtml(connection)}</span>`).join("")}
-        </div>
-      ` : ""}
-    </div>
-  `;
+  return alpacardsController.renderBack(card);
 }
 
 function getAlpacardConnectionChips(card) {
-  if (alpacardsMode?.getConnectionChips) {
-    return alpacardsMode.getConnectionChips(card);
-  }
-
-  return String(card.wscConnection || "")
-    .split("·")
-    .flatMap((part) => part.replace(/^\s*(Guiding section|Big ideas|Subjects):\s*/i, "").split("/"))
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .filter((part, index, all) => all.indexOf(part) === index);
+  return alpacardsController.getConnectionChips(card);
 }
 
 function navigateAlpacard(direction) {
-  const didNavigate = alpacardsMode?.navigate
-    ? alpacardsMode.navigate(state.experience, direction)
-    : false;
-  if (didNavigate) {
-    if (!syncAlpacardCarouselState({ scrollThumbnail: true })) {
-      renderExperience();
-    }
-    return;
-  }
-
-  if (!state.experience || state.experience.type !== "alpacard" || !state.experience.cards.length) {
-    return;
-  }
-
-  const total = state.experience.cards.length;
-  const currentIndex = Math.max(0, Math.min(total - 1, state.experience.index));
-  const targetIndex = direction === "previous"
-    ? (currentIndex - 1 + total) % total
-    : (currentIndex + 1) % total;
-
-  state.experience.flipped = false;
-  state.experience.index = targetIndex;
-  if (!syncAlpacardCarouselState({ scrollThumbnail: true })) {
-    renderExperience();
-  }
+  return alpacardsController.navigate(direction);
 }
 
 function setAlpacardIndex(index) {
-  const didSetIndex = alpacardsMode?.setIndex
-    ? alpacardsMode.setIndex(state.experience, index)
-    : false;
-  if (didSetIndex) {
-    if (!syncAlpacardCarouselState({ scrollThumbnail: true })) {
-      renderExperience();
-    }
-    return;
-  }
-
-  if (!state.experience || state.experience.type !== "alpacard" || !state.experience.cards.length) {
-    return;
-  }
-
-  const total = state.experience.cards.length;
-  const targetIndex = Math.max(0, Math.min(total - 1, Math.trunc(Number(index) || 0)));
-  if (targetIndex !== state.experience.index) {
-    state.experience.flipped = false;
-  }
-
-  state.experience.index = targetIndex;
-  if (!syncAlpacardCarouselState({ scrollThumbnail: true })) {
-    renderExperience();
-  }
+  return alpacardsController.setIndex(index);
 }
 
 function flipAlpacard() {
-  const didFlip = alpacardsMode?.flip
-    ? alpacardsMode.flip(state.experience)
-    : false;
-  if (didFlip) {
-    if (!syncAlpacardCarouselState({ scrollThumbnail: false })) {
-      renderExperience();
-    }
-    return;
-  }
-
-  if (!state.experience || state.experience.type !== "alpacard") {
-    return;
-  }
-
-  state.experience.flipped = !state.experience.flipped;
-  if (!syncAlpacardCarouselState({ scrollThumbnail: false })) {
-    renderExperience();
-  }
+  return alpacardsController.flip();
 }
 
 function syncAlpacardCarouselState(options = {}) {
-  if (!refs.experiencePanel || !state.experience || state.experience.type !== "alpacard") {
-    return false;
-  }
-
-  const cards = Array.isArray(state.experience.cards) ? state.experience.cards : [];
-  if (!cards.length) {
-    return false;
-  }
-
-  const total = cards.length;
-  const index = Math.max(0, Math.min(total - 1, Math.trunc(Number(state.experience.index) || 0)));
-  state.experience.index = index;
-
-  const current = cards[index] || {};
-  const track = refs.experiencePanel.querySelector("[data-alpacard-track]");
-  const counter = refs.experiencePanel.querySelector("[data-alpacard-counter]");
-  const category = refs.experiencePanel.querySelector("[data-alpacard-current-category]");
-  const flipLabel = refs.experiencePanel.querySelector("[data-alpacard-flip-label]");
-  const previousButton = refs.experiencePanel.querySelector('[data-alpacard-nav="previous"]');
-  const nextButton = refs.experiencePanel.querySelector('[data-alpacard-nav="next"]');
-  const slides = refs.experiencePanel.querySelectorAll("[data-alpacard-slide]");
-  const thumbnails = refs.experiencePanel.querySelectorAll("[data-alpacard-index]");
-
-  if (!track || !slides.length || !thumbnails.length) {
-    return false;
-  }
-
-  track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
-
-  slides.forEach((slide, slideIndex) => {
-    const isActive = slideIndex === index;
-    const stage = slide.querySelector("[data-alpacard-stage]");
-    slide.classList.toggle("is-active", isActive);
-    slide.setAttribute("aria-hidden", isActive ? "false" : "true");
-    if (stage) {
-      stage.classList.toggle("is-flipped", isActive && Boolean(state.experience.flipped));
-    }
-  });
-
-  thumbnails.forEach((thumbnail, thumbnailIndex) => {
-    const isActive = thumbnailIndex === index;
-    thumbnail.classList.toggle("is-active", isActive);
-    thumbnail.setAttribute("aria-current", isActive ? "true" : "false");
-  });
-
-  if (counter) {
-    counter.textContent = `${index + 1} / ${total}`;
-  }
-
-  if (category) {
-    category.textContent = current.category || "Recognition";
-  }
-
-  if (flipLabel) {
-    flipLabel.textContent = "Flip";
-  }
-
-  if (previousButton) {
-    previousButton.disabled = false;
-  }
-
-  if (nextButton) {
-    nextButton.disabled = false;
-  }
-
-  if (options.scrollThumbnail !== false) {
-    const activeThumbnail = refs.experiencePanel.querySelector(`[data-alpacard-index="${index}"]`);
-    activeThumbnail?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-  }
-
-  return true;
+  return alpacardsController.syncCarouselState(options);
 }
 
 function shuffleAlpacard() {
-  const didShuffle = alpacardsMode?.shuffleDeck
-    ? alpacardsMode.shuffleDeck(state.experience, shuffle)
-    : false;
-  if (didShuffle) {
-    renderExperience();
-    return;
-  }
-
-  if (!state.experience || state.experience.type !== "alpacard" || state.experience.cards.length < 2) {
-    return;
-  }
-
-  state.experience.cards = shuffle([...state.experience.cards]);
-  state.experience.index = 0;
-  state.experience.flipped = false;
-  renderExperience();
+  return alpacardsController.shuffleDeck();
 }
 
 function syncRadialMindMapScroll() {
@@ -6596,39 +3401,10 @@ function navigateMindMapGallery(direction) {
   });
 }
 
-function handleMindMapGalleryWheel(event) {
-  if (state.experience?.type !== "mindmap") {
-    return;
-  }
-
-  const viewport = event.target.closest?.("[data-mindmap-gallery-viewport]");
-  if (!viewport || viewport.querySelectorAll("[data-mindmap-gallery-slide]").length < 2) {
-    return;
-  }
-
-  const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
-  if (!delta) {
-    return;
-  }
-
-  event.preventDefault();
-  viewport.scrollBy({ left: delta * 1.2, behavior: "auto" });
-}
+function handleMindMapGalleryWheel(...args) { return appEventRouter.handleMindMapGalleryWheel(...args); }
 
 function replaceMarkup(target, markup) {
-  if (!target) {
-    return null;
-  }
-
-  const template = document.createElement("template");
-  template.innerHTML = markup.trim();
-  const nextNode = template.content.firstElementChild;
-  if (!nextNode) {
-    return null;
-  }
-
-  target.replaceWith(nextNode);
-  return nextNode;
+  return appDomService.replaceWithMarkup(target, markup, document);
 }
 
 function refreshRunTimerDisplay(experience) {
@@ -6717,49 +3493,50 @@ function hasActiveQuestionPopup() {
 }
 
 function syncPopupScrollLock() {
-  const blockingOverlayOpen = Boolean(
-    state.ui.appEntryGateOpen ||
-    state.ui.resourcesOpen ||
-    state.ui.cooperationOpen ||
-    state.ui.authOpen ||
-    state.ui.rawMediaLightbox ||
-    state.live.launchCountdownText ||
-    (state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
-  );
-  const shouldLock = state.ui.appShellMode === "online"
-    ? blockingOverlayOpen
-    : hasActiveQuestionPopup();
+  const shouldLock = appStateService.isPopupBlocking(state, {
+    hasActiveQuestionPopup: hasActiveQuestionPopup()
+  });
   document.body.classList.toggle("with-popup", shouldLock);
 }
 
 function hasSupabaseConfig() {
-  return appAuthService?.hasConfig
-    ? appAuthService.hasConfig({ url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY })
-    : Boolean(SUPABASE_URL && SUPABASE_PUBLISHABLE_KEY);
+  return authController.hasSupabaseConfig();
 }
 
 function isSignedIn() {
-  return Boolean(state.auth.session && state.auth.session.user && !isAnonymousUser(state.auth.session.user));
+  return authController.isSignedIn();
 }
 
 function hasAuthSession() {
-  return Boolean(state.auth.session && state.auth.session.user);
+  return authController.hasAuthSession();
 }
 
-function isAnonymousUser(user = state.auth.session?.user) {
-  return Boolean(user?.is_anonymous || user?.app_metadata?.provider === "anonymous");
+function isAnonymousUser(user) {
+  return authController.isAnonymousUser(user);
 }
 
 function getCurrentUserEmail() {
-  return String(state.auth.session?.user?.email || state.auth.profile?.email || "").trim().toLowerCase();
+  return authController.getCurrentUserEmail();
+}
+
+function canAccessCampusPreview() {
+  return Boolean(CAMPUS_PREVIEW_PUBLIC_ENABLED);
+}
+
+function canAccessLegacyLiveRooms() {
+  return legacyLiveRoomController.canAccessLegacyLiveRooms();
+}
+
+function getLegacyLiveRoomsDisabledMessage() {
+  return legacyLiveRoomController.getLegacyLiveRoomsDisabledMessage();
 }
 
 function canAccessMultiplayer() {
-  return Boolean(MULTIPLAYER_PUBLIC_ENABLED);
+  return legacyLiveRoomController.canAccessMultiplayer();
 }
 
 function canDismissAuthModal() {
-  return state.ui.authMode !== "reset";
+  return authController.canDismissAuthModal();
 }
 
 function syncAuthChrome() {
@@ -6773,434 +3550,79 @@ function syncAuthChrome() {
 }
 
 function clearAuthNotice() {
-  state.auth.error = "";
-  state.auth.message = "";
+  authController.clearNotice();
 }
 
 function normalizeAlpacaName(value) {
-  return appAuthService?.normalizeAlpacaName
-    ? appAuthService.normalizeAlpacaName(value)
-    : String(value || "").trim().toLowerCase();
+  return authController.normalizeAlpacaName(value);
 }
 
 function getCurrentRedirectUrl() {
-  return appAuthService?.getCurrentRedirectUrl
-    ? appAuthService.getCurrentRedirectUrl(window.location)
-    : window.location.href.split("#")[0].split("?")[0];
+  return authController.getCurrentRedirectUrl();
 }
 
 function getSupabaseClient() {
-  if (state.auth.client) {
-    return state.auth.client;
-  }
-
-  if (!hasSupabaseConfig()) {
-    return null;
-  }
-
-  state.auth.client = appAuthService?.createClient
-    ? appAuthService.createClient({ url: SUPABASE_URL, publishableKey: SUPABASE_PUBLISHABLE_KEY }, window.supabase)
-    : (
-        window.supabase && typeof window.supabase.createClient === "function"
-          ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-              auth: {
-                autoRefreshToken: true,
-                detectSessionInUrl: true,
-                persistSession: true
-              }
-            })
-          : null
-      );
-
-  return state.auth.client;
+  return authController.getSupabaseClient();
 }
 
 function setupSupabaseAuth() {
-  if (!hasSupabaseConfig()) {
-    state.auth.status = "missing-config";
-    state.ui.authOpen = false;
-    return;
-  }
-
-  const client = getSupabaseClient();
-  if (!client) {
-    state.auth.status = "missing-client";
-    state.ui.authOpen = false;
-    return;
-  }
-
-  client.auth.onAuthStateChange((eventName, session) => {
-    state.auth.session = session || null;
-    state.auth.status = "ready";
-
-    if (eventName === "PASSWORD_RECOVERY") {
-      state.ui.authMode = "reset";
-      state.ui.authOpen = true;
-      state.auth.message = "Choose a new password for your Alpaccount.";
-    } else if (session && !isAnonymousUser(session.user)) {
-      state.ui.authOpen = false;
-      loadAlpacaProfile();
-      loadAlpacaProgress();
-    } else {
-      state.auth.profile = null;
-    }
-
-    syncAuthChrome();
-  });
-
-  client.auth.getSession().then(({ data: sessionData, error }) => {
-    if (error) {
-      state.auth.error = error.message;
-    }
-
-    state.auth.session = sessionData && sessionData.session ? sessionData.session : null;
-    state.auth.status = "ready";
-    state.ui.authOpen = false;
-
-    if (state.auth.session && !isAnonymousUser(state.auth.session.user)) {
-      loadAlpacaProfile();
-      loadAlpacaProgress();
-    }
-
-    syncAuthChrome();
-  });
+  authController.setupSupabaseAuth();
 }
 
 async function loadAlpacaProfile() {
-  const client = getSupabaseClient();
-  const user = state.auth.session && state.auth.session.user;
-  if (!client || !user || isAnonymousUser(user)) {
-    return;
-  }
-
-  const { data: profile, error } = supabaseProfileService?.fetchProfile
-    ? await supabaseProfileService.fetchProfile(client, user.id)
-    : await client
-        .from("alpaca_profiles")
-        .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round")
-        .eq("id", user.id)
-        .maybeSingle();
-
-  if (error) {
-    state.auth.error = error.message;
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.profile = profile || null;
-  syncAuthChrome();
+  await authController.loadProfile();
 }
 
 async function loadAlpacaProgress() {
-  const client = getSupabaseClient();
-  const user = state.auth.session && state.auth.session.user;
-  if (!client || !user || isAnonymousUser(user)) {
-    return;
-  }
-
-  let data;
-  let error;
-  try {
-    const response = supabaseProfileService?.fetchProgress
-      ? await supabaseProfileService.fetchProgress(client, user.id)
-      : await client
-          .from("alpaca_progress")
-          .select("game_stats,raw_mastered_entries")
-          .eq("user_id", user.id)
-          .maybeSingle();
-    data = response.data;
-    error = response.error;
-  } catch (_error) {
-    saveProgressLocally();
-    return;
-  }
-
-  if (error) {
-    saveProgressLocally();
-    return;
-  }
-
-  if (data) {
-    state.stats = normalizeStats(data.game_stats);
-    state.rawMastery = normalizeRawMastery(data.raw_mastered_entries);
-    saveProgressLocally();
-    renderStats();
-    if (state.experience?.type === "rawcontent") {
-      renderExperience();
-    }
-    return;
-  }
-
-  saveAlpacaProgress();
+  await authController.loadProgress();
 }
 
 async function submitAuthForm(form) {
-  const action = form.dataset.authForm;
-  const client = getSupabaseClient();
-
-  clearAuthNotice();
-
-  if (!client) {
-    state.auth.error = "Supabase is not configured yet. Add the publishable key in supabase-config.js.";
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.status = "submitting";
-  syncAuthChrome();
-
-  try {
-    if (action === "signup") {
-      await createAlpaccount(new FormData(form), client);
-    } else if (action === "forgot") {
-      await sendPasswordReset(new FormData(form), client);
-    } else if (action === "reset") {
-      await updateRecoveredPassword(new FormData(form), client);
-    } else {
-      await connectToAlpaccount(new FormData(form), client);
-    }
-  } catch (error) {
-    state.auth.error = error.message || "Something went wrong. Please try again.";
-  } finally {
-    if (state.auth.status === "submitting") {
-      state.auth.status = "ready";
-    }
-    syncAuthChrome();
-  }
+  await authController.submitForm(form);
 }
 
 async function createAlpaccount(formData, client) {
-  const email = String(formData.get("email") || "").trim().toLowerCase();
-  const alpacaName = normalizeAlpacaName(formData.get("alpaca_name"));
-  const password = String(formData.get("password") || "");
-  const country = String(formData.get("country") || "").trim();
-  const schoolName = String(formData.get("school_name") || "").trim();
-  const wscEventCount = Number(formData.get("wsc_event_count") || 0);
-  const highestWscRound = String(formData.get("highest_wsc_round") || "").trim();
-
-  if (!email || !alpacaName || !password || !country || !schoolName || !highestWscRound) {
-    throw new Error("Please fill in every field to create your Alpaccount.");
-  }
-
-  if (!ALPACA_NAME_PATTERN.test(alpacaName)) {
-    throw new Error("Your alpaca name needs 3-32 characters: letters, numbers, underscores, or hyphens.");
-  }
-
-  if (!Number.isInteger(wscEventCount) || wscEventCount < 0 || wscEventCount > 99) {
-    throw new Error("Please enter a valid number of WSC events.");
-  }
-
-  const availability = supabaseProfileService?.checkAlpacaNameAvailability
-    ? await supabaseProfileService.checkAlpacaNameAvailability(client, alpacaName)
-    : await client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
-  if (availability.error) {
-    throw availability.error;
-  }
-
-  if (availability.data === false) {
-    throw new Error("That alpaca name is already taken. Try another one.");
-  }
-
-  const { data: signUpData, error } = await client.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: getCurrentRedirectUrl(),
-      data: {
-        alpaca_name: alpacaName,
-        country,
-        school_name: schoolName,
-        wsc_event_count: wscEventCount,
-        highest_wsc_round: highestWscRound
-      }
-    }
-  });
-
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = signUpData.session || state.auth.session;
-  state.auth.message = signUpData.session
-    ? "Alpaccount created. Welcome aboard."
-    : "Alpaccount created. Please confirm your email, then come back to connect.";
-  state.ui.authMode = "login";
-  state.ui.authOpen = !signUpData.session;
-
-  if (signUpData.session) {
-    await loadAlpacaProfile();
-  }
+  await authController.createAccount(formData, client);
 }
 
 async function resolveLoginIdentifier(identifier, client) {
-  const value = String(identifier || "").trim().toLowerCase();
-  if (!value) {
-    throw new Error("Enter your alpaca name or email address.");
-  }
-
-  if (value.includes("@")) {
-    return value;
-  }
-
-  const { data: email, error } = supabaseProfileService?.resolveAlpacaLogin
-    ? await supabaseProfileService.resolveAlpacaLogin(client, normalizeAlpacaName(value))
-    : await client.rpc("resolve_alpaca_login", {
-        p_alpaca_name: normalizeAlpacaName(value)
-      });
-
-  if (error) {
-    throw error;
-  }
-
-  if (!email) {
-    throw new Error("No Alpaccount found for that alpaca name.");
-  }
-
-  return email;
+  return authController.resolveLoginIdentifier(identifier, client);
 }
 
 async function connectToAlpaccount(formData, client) {
-  const email = await resolveLoginIdentifier(formData.get("identifier"), client);
-  const password = String(formData.get("password") || "");
-
-  if (!password) {
-    throw new Error("Enter your password.");
-  }
-
-  const { data: signInData, error } = await client.auth.signInWithPassword({ email, password });
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = signInData.session;
-  state.ui.authOpen = false;
-  state.auth.message = "";
-  await loadAlpacaProfile();
+  await authController.connect(formData, client);
 }
 
 async function sendPasswordReset(formData, client) {
-  const email = await resolveLoginIdentifier(formData.get("identifier"), client);
-  const { error } = await client.auth.resetPasswordForEmail(email, {
-    redirectTo: getCurrentRedirectUrl()
-  });
-
-  if (error) {
-    throw error;
-  }
-
-  state.auth.message = "Password reset email sent. Check your inbox.";
-  state.ui.authMode = "login";
+  await authController.sendPasswordReset(formData, client);
 }
 
 async function updateRecoveredPassword(formData, client) {
-  const password = String(formData.get("password") || "");
-  const confirmPassword = String(formData.get("confirm_password") || "");
-
-  if (!password || password.length < 6) {
-    throw new Error("Choose a password with at least 6 characters.");
-  }
-
-  if (password !== confirmPassword) {
-    throw new Error("The two passwords do not match.");
-  }
-
-  const { error } = await client.auth.updateUser({ password });
-  if (error) {
-    throw error;
-  }
-
-  state.auth.message = "Password updated. You are connected to your Alpaccount.";
-  state.ui.authOpen = false;
-  await loadAlpacaProfile();
+  await authController.updateRecoveredPassword(formData, client);
 }
 
 async function signOutOfAlpaccount() {
-  const client = getSupabaseClient();
-  if (!client) {
-    return;
-  }
-
-  clearAuthNotice();
-  state.auth.status = "submitting";
-  syncAuthChrome();
-
-  const { error } = await client.auth.signOut();
-  state.auth.status = "ready";
-
-  if (error) {
-    state.auth.error = error.message;
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.session = null;
-  state.auth.profile = null;
-  resetAlpacapardyLiveState({ keepGuestName: true });
-  if (state.ui.appShellMode === "online") {
-    state.ui.appShellMode = null;
-    state.ui.appEntryGateOpen = true;
-    state.experience = null;
-  }
-  state.ui.authMode = "login";
-  state.ui.authOpen = false;
-  syncAuthChrome();
+  await authController.signOut();
 }
 
 async function ensureLiveAuthSession() {
-  const client = getSupabaseClient();
-  if (!client) {
-    throw new Error("Supabase is not configured yet, so live multiplayer cannot start.");
-  }
-
-  if (state.auth.session?.user) {
-    return state.auth.session;
-  }
-
-  if (!client.auth?.signInAnonymously) {
-    throw new Error("Anonymous guest sign-in is not available in this Supabase client.");
-  }
-
-  state.live.status = "joining";
-  state.live.message = "Connecting as guest...";
-  state.live.error = "";
-  renderExperience();
-
-  const { data: authData, error } = await client.auth.signInAnonymously();
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = authData.session || state.auth.session;
-  state.auth.profile = null;
-  syncAuthChrome();
-  return state.auth.session;
+  return legacyLiveRoomController.ensureLiveAuthSession();
 }
 
 function getLiveDisplayName() {
-  if (state.auth.profile?.alpaca_name && !isAnonymousUser()) {
-    return state.auth.profile.alpaca_name;
-  }
-  return state.live.guestName || "Guest";
+  return legacyLiveRoomController.getLiveDisplayName();
 }
 
 function renderAuthModal() {
-  if (!refs.authModalMount) {
-    return;
-  }
-
-  refs.authModalMount.innerHTML = authModalRenderer.renderModal(getAuthRenderContext(), { escapeHtml });
+  return appShellRenderer.renderAuthModal();
 }
 
 function renderAuthGate() {
-  return authModalRenderer.renderGate(getAuthRenderContext(), { escapeHtml });
+  return appShellRenderer.renderAuthGate();
 }
 
 function renderAuthIntro(mode, signedIn) {
-  return authModalRenderer.renderIntro({
-    ...getAuthRenderContext(),
-    mode,
-    signedIn
-  });
+  return appShellRenderer.renderAuthIntro(mode, signedIn);
 }
 
 function getAccountAlpacaName() {
@@ -7221,159 +3643,43 @@ function getThemedTeamLabel(index) {
 }
 
 function renderAuthNotice() {
-  return authModalRenderer.renderNotice(getAuthRenderContext(), { escapeHtml });
+  return appShellRenderer.renderAuthNotice();
 }
 
 function renderAuthBody(mode, busy) {
-  return authModalRenderer.renderBody({
-    ...getAuthRenderContext(),
-    mode,
-    busy
-  }, { escapeHtml });
+  return appShellRenderer.renderAuthBody(mode, busy);
 }
 
 function renderConnectedAlpaccount(busy) {
-  return authModalRenderer.renderConnectedAlpaccount({
-    ...getAuthRenderContext(),
-    busy
-  }, { escapeHtml });
+  return appShellRenderer.renderConnectedAlpaccount(busy);
 }
 
 function renderLoginForm(busy) {
-  return authModalRenderer.renderLoginForm({ ...getAuthRenderContext(), busy });
+  return appShellRenderer.renderLoginForm(busy);
 }
 
 function renderSignupForm(busy) {
-  return authModalRenderer.renderSignupForm({ ...getAuthRenderContext(), busy }, { escapeHtml });
+  return appShellRenderer.renderSignupForm(busy);
 }
 
 function renderForgotPasswordForm(busy) {
-  return authModalRenderer.renderForgotPasswordForm({ ...getAuthRenderContext(), busy });
+  return appShellRenderer.renderForgotPasswordForm(busy);
 }
 
 function renderResetPasswordForm(busy) {
-  return authModalRenderer.renderResetPasswordForm({ ...getAuthRenderContext(), busy });
+  return appShellRenderer.renderResetPasswordForm(busy);
 }
 
 function getAuthRenderContext() {
-  return {
-    isOpen: state.ui.authOpen,
-    mode: state.ui.authMode || "login",
-    signedIn: isSignedIn(),
-    busy: state.auth.status === "checking" || state.auth.status === "submitting",
-    status: state.auth.status,
-    error: state.auth.error,
-    message: state.auth.message,
-    profile: state.auth.profile,
-    roundOptions: WSC_ROUND_OPTIONS,
-    canDismiss: canDismissAuthModal()
-  };
+  return appShellRenderer.getAuthRenderContext();
 }
 
 function renderResourcesModal() {
-  if (!refs.resourcesModalMount) {
-    return;
-  }
-
-  refs.resourcesModalMount.innerHTML = state.ui.resourcesOpen ? `
-    <div class="auth-modal-overlay" data-close-resources role="dialog" aria-modal="true" aria-label="Route resources">
-      <div class="auth-modal-window resources-modal-window" data-resources-window>
-        <button class="popup-close-button" type="button" data-close-resources aria-label="Close route resources">
-          <span aria-hidden="true">×</span>
-        </button>
-        <div class="auth-modal-stack resources-modal-stack">
-          <div class="resources-modal-hero" aria-hidden="true">
-            <img src="./assets/footer/link-icon.png?v=${ASSET_CACHE_VERSION}" alt="" />
-          </div>
-          <div class="resource-link-list">
-            ${RESOURCE_LINKS.map((item) => `
-              <a class="resource-link-item" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">
-                <span class="resource-link-label">${escapeHtml(item.label)}</span>
-                <span class="resource-link-url">${escapeHtml(item.url)}</span>
-              </a>
-            `).join("")}
-          </div>
-          <div class="panel-actions">
-            <button class="button primary" type="button" data-close-resources>Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  ` : "";
+  return appShellRenderer.renderResourcesModal();
 }
 
 function renderCooperationModal() {
-  if (!refs.cooperationModalMount) {
-    return;
-  }
-
-  refs.cooperationModalMount.innerHTML = state.ui.cooperationOpen ? `
-    <div class="auth-modal-overlay cooperation-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cooperationModalTitle">
-      <div class="auth-modal-window cooperation-modal-window">
-        <button class="popup-close-button" type="button" data-close-cooperation aria-label="Close call to cooperation">
-          <span aria-hidden="true">×</span>
-        </button>
-        <div class="auth-modal-stack cooperation-modal-stack">
-          <h3 id="cooperationModalTitle">Call to cooperation</h3>
-          <div class="cooperation-copy">
-            <p>
-              Since we released the app a little over a month ago, more than <strong>850 people</strong> from over <strong>35 countries</strong> have visited it.
-              Many alpacas have contacted us with suggestions, corrections, and ideas for improvement. We have also heard from people who wanted to build similar tools or create their own WSC resources.
-            </p>
-
-            <p>
-              That is exactly the spirit we want to encourage.
-            </p>
-
-            <p>
-              We want Alpacapp to become a useful space for everyone: a place where alpacas can train, learn while having fun, share resources, and stay connected beyond their own school club.
-            </p>
-
-            <p>
-              Our ultimate goal is for this app to become <strong>one central place</strong> for everything connected to WSC: useful information, guides, mocks, contests, questions, events, weekly challenges, forums, and anything else the community can imagine.
-            </p>
-
-            <p>
-              WSC should not only be something we think about during ASA, during our school club, or one month before a round. When we started preparing, we had to join more than eight Discord servers, find documents scattered around the internet, and answer Google Forms pretending to be Scholar’s Challenge rounds.
-            </p>
-
-            <p class="big-question">
-              Why not bring everything together in <strong>ONE PLACE</strong>?
-            </p>
-
-            <p>
-              We encourage everyone to create their own resources and share them with the community. But we also believe those resources should be easier to find, easier to use, and easier to improve together.
-            </p>
-
-            <p class="promise">
-              <strong>Our promise is to always keep this app free. We do not want it to become a business, and we do not want to make money from it. We simply want to help WSC reach as many alpacas as possible.</strong>
-            </p>
-
-            <div class="community-call">
-              <p><strong>Cornucopia</strong>, let us use your incredible guides and questionnaires!</p>
-              <p><strong>Ignition</strong> and <strong>Kumqwatt</strong>, use the app to organize events!</p>
-              <p><strong>Pwaa Pwaa Revolution</strong>, come improve the app with your IT skills!</p>
-              <p><strong>Beijing Alpacas</strong>, <strong>Pwaaparation</strong>, <strong>Pwaprep</strong>, <strong>Pwapwa Revolution</strong>: share your knowledge here!</p>
-            </div>
-
-            <p class="final-call">
-              <strong>Join the team.</strong>
-            </p>
-          </div>
-          <div class="panel-actions cooperation-actions">
-            <a class="cooperation-action-card" href="${escapeHtml(DISCORD_INVITE_URL)}" target="_blank" rel="noopener noreferrer" aria-label="Join on discord">
-              <img src="./assets/mascot/library/final-pack/Discordlogo.png?v=${ASSET_CACHE_VERSION}" alt="" aria-hidden="true" />
-              <strong>Join on discord</strong>
-            </a>
-            <a class="cooperation-action-card" href="${escapeHtml(CONTACT_EMAIL_URL)}" aria-label="Send an email">
-              <img src="./assets/footer/contact-icon.png?v=${ASSET_CACHE_VERSION}" alt="" aria-hidden="true" />
-              <strong>Send an email</strong>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  ` : "";
+  return appShellRenderer.renderCooperationModal();
 }
 
 function buildSlideshowExperience() {
@@ -7452,41 +3758,11 @@ function renderUnavailableModeExperience() {
 }
 
 function buildAlpacaChannelExperience() {
-  const videos = buildAlpacaChannelPlaylist();
-
-  return alpacaChannelMode?.buildExperience
-    ? alpacaChannelMode.buildExperience(videos, getTargetLabel())
-    : {
-        type: "channel",
-        title: "Alpaca Channel",
-        routeTitle: getTargetLabel(),
-        videos,
-        index: 0
-      };
+  return alpacaChannelController.buildExperience();
 }
 
-function getApprovedRawContentSection(targetId = state.selection.targetId) {
-  if (rawContentService?.getApprovedSection) {
-    return rawContentService.getApprovedSection(targetId);
-  }
-
-  if (!targetId || targetId === "all") {
-    return null;
-  }
-
-  if (IMPORTED_RAW_CONTENT_BANK[targetId]) {
-    return IMPORTED_RAW_CONTENT_BANK[targetId];
-  }
-
-  const selectedSection = sectionById[targetId];
-  if (!selectedSection) {
-    return null;
-  }
-
-  const normalizedTarget = normalizeKnowledgeKey(selectedSection.originalTitle);
-  return Object.values(IMPORTED_RAW_CONTENT_BANK).find((section) => {
-    return normalizeKnowledgeKey(section.guidingSection || section.title) === normalizedTarget;
-  }) || null;
+function getApprovedRawContentSection(...args) {
+  return rawContentController.getApprovedRawContentSection(...args);
 }
 
 function getBroadSubjectIdsFromLabels(labels = []) {
@@ -8171,151 +4447,8 @@ function buildSingleChoiceSet(correctText, distractorTexts, fallbackCorrect, fal
   ]).slice(0, totalOptions);
 }
 
-function buildBuildCasePrompt(entry) {
-  const officialQuestion = splitArgumentFragments(entry.rawOfficialText)
-    .find((fragment) => fragment.includes("?"));
-
-  if (officialQuestion) {
-    return officialQuestion;
-  }
-
-  return `Build a case around this stop: ${entry.title}.`;
-}
-
-function buildBuildCaseRounds() {
-  const entries = shuffle(
-    getRawEntriesForSelection().filter((entry) => entry.debateRelevance && entry.counterargument)
-  ).slice(0, GAME_CONFIG.buildCaseRoundCount);
-
-  if (!entries.length) {
-    return {
-      unavailableReason: `This route does not yet have enough debate-ready raw content for ${getTargetLabel()}.`,
-      rounds: []
-    };
-  }
-
-  const rounds = entries.map((entry, index) => {
-    const proFallbacks = [
-      "The strongest support should show why this point matters for the theme as a whole.",
-      "A good case should connect the stop to a wider question, not just repeat the title."
-    ];
-    const conFallbacks = [
-      "The strongest objection should point to trade-offs, limits, or missing context.",
-      "A good counter-case should show why the claim sounds too absolute or incomplete."
-    ];
-
-    const proSupports = buildChoiceSet(
-      [entry.debateRelevance, entry.whyItMatters, entry.takeaway, entry.studentExplanation],
-      [entry.counterargument],
-      proFallbacks,
-      [
-        "It matters only because the example is famous.",
-        "It proves the issue has the same answer in every context."
-      ]
-    );
-
-    const conSupports = buildChoiceSet(
-      [entry.counterargument],
-      [entry.debateRelevance, entry.whyItMatters, entry.takeaway],
-      conFallbacks,
-      [
-        "It clearly solves the whole issue with no trade-offs at all.",
-        "The example should be accepted without asking any harder question."
-      ]
-    );
-
-    const proRebuttals = buildSingleChoiceSet(
-      entry.debateRelevance || entry.whyItMatters || entry.takeaway,
-      [entry.counterargument],
-      "The better rebuttal is to show why the point still matters even after the objection is raised.",
-      [
-        "The best reply is simply to repeat the other side's concern.",
-        "The best reply is to claim there are never any trade-offs."
-      ]
-    );
-
-    const conRebuttals = buildSingleChoiceSet(
-      entry.counterargument,
-      [entry.debateRelevance, entry.whyItMatters, entry.takeaway],
-      "The better rebuttal is to insist on limits, context, and unintended consequences.",
-      [
-        "The best reply is to pretend the objection disappeared on its own.",
-        "The best reply is to say the point is always right because it sounds inspiring."
-      ]
-    );
-
-    return {
-      id: `buildcase-${index + 1}-${slugifyBigIdea(entry.title || `entry-${index + 1}`)}`,
-      title: entry.title,
-      prompt: buildBuildCasePrompt(entry),
-      sectionId: entry.sectionId || getSectionIdFromGuidingTitle(entry.guidingSection || entry.sectionTitle),
-      sectionLabel: entry.sectionTitle || entry.guidingSection || getTargetLabel(),
-      subjectLabels: Array.isArray(entry.subjects) ? entry.subjects.slice() : [],
-      entry,
-      proSupports,
-      conSupports,
-      proOpponentResponse: entry.counterargument,
-      conOpponentResponse: entry.debateRelevance || entry.whyItMatters || entry.takeaway || entry.studentExplanation,
-      proRebuttals,
-      conRebuttals
-    };
-  });
-
-  return {
-    unavailableReason: null,
-    rounds
-  };
-}
-
-function getDebateLabTopicsForSelection() {
-  const allTopics = Array.isArray(debateLabData.topics) ? debateLabData.topics : [];
-  const selectedIds = getSelectedSectionIds();
-
-  if (!selectedIds.length || selectedIds.length === getOrderedSectionIds().length) {
-    return allTopics.slice();
-  }
-
-  const selected = new Set(selectedIds);
-  const filtered = allTopics.filter((topic) => selected.has(topic.sectionId));
-  return filtered.length ? filtered : allTopics.slice();
-}
-
-function buildDebateTopicOrder(topics, previousTopicId = null) {
-  const order = shuffle(topics.map((topic) => topic.id));
-  if (order.length > 1 && previousTopicId && order[0] === previousTopicId) {
-    const swapIndex = order.findIndex((id) => id !== previousTopicId);
-    if (swapIndex > 0) {
-      [order[0], order[swapIndex]] = [order[swapIndex], order[0]];
-    }
-  }
-  return order;
-}
-
 function buildBuildCaseExperience() {
-  const topics = getDebateLabTopicsForSelection();
-  const unavailableReason = topics.length
-    ? null
-    : "The Debate Lab workbook did not load any motions yet.";
-
-  return {
-    type: "buildcase",
-    title: "Debate Lab",
-    topics,
-    topicOrder: buildDebateTopicOrder(topics),
-    index: 0,
-    phase: "topic",
-    selectedSide: null,
-    spinStatus: "idle",
-    spinOutcome: null,
-    spinTargetAngle: 0,
-    debateRound: 0,
-    debateRounds: [],
-    winner: null,
-    feedback: null,
-    finished: false,
-    tipDismissed: false,
-    unavailableReason
-  };
+  return buildCaseController.buildExperience();
 }
 
 function closeTrainTip() {
@@ -8444,22 +4577,12 @@ function getCurrentWritingPrompt(experience = state.experience) {
   return experience.prompts[experience.promptIndex % experience.prompts.length];
 }
 
-function nextWritingPrompt() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "writing" || !experience.prompts.length) {
-    return;
-  }
-  experience.promptIndex = (experience.promptIndex + 1) % experience.prompts.length;
-  renderExperiencePreservingScroll();
+function nextWritingPrompt(...args) {
+  return studyGameController.nextWritingPrompt(...args);
 }
 
-function setWritingPhase(phaseId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "writing" || !WRITING_PHASES.some((phase) => phase.id === phaseId)) {
-    return;
-  }
-  experience.phase = phaseId;
-  renderExperiencePreservingScroll();
+function setWritingPhase(...args) {
+  return studyGameController.setWritingPhase(...args);
 }
 
 function buildBowlExperience() {
@@ -8511,66 +4634,20 @@ function getCurrentBowlQuestion(experience = state.experience) {
   return experience.questions[Math.min(experience.index, experience.questions.length - 1)];
 }
 
-function startBowlPractice() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "bowl" || experience.unavailableReason) {
-    return;
-  }
-  experience.started = true;
-  experience.tipDismissed = true;
-  renderExperience();
+function startBowlPractice(...args) {
+  return studyGameController.startBowlPractice(...args);
 }
 
-function answerBowlQuestion(optionIndex) {
-  const experience = state.experience;
-  const question = getCurrentBowlQuestion(experience);
-  if (!experience || experience.type !== "bowl" || !experience.started || experience.revealed || !question) {
-    return;
-  }
-
-  const isCorrect = optionIndex === question.answerIndex;
-  const points = isCorrect ? 1 : 0;
-  experience.selectedIndex = optionIndex;
-  experience.revealed = true;
-  experience.score += points;
-  experience.streak = isCorrect ? experience.streak + 1 : 0;
-  experience.bestStreak = Math.max(experience.bestStreak, experience.streak);
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds || [],
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect
-  });
-  renderExperience();
+function answerBowlQuestion(...args) {
+  return studyGameController.answerBowlQuestion(...args);
 }
 
-function advanceBowlQuestion() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "bowl" || !experience.revealed) {
-    return;
-  }
-
-  if (experience.index >= experience.questions.length - 1) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, experience.bestStreak, {
-      type: "bowl",
-      score: experience.score
-    });
-  } else {
-    experience.index += 1;
-    experience.selectedIndex = null;
-    experience.revealed = false;
-  }
-  renderExperience();
+function advanceBowlQuestion(...args) {
+  return studyGameController.advanceBowlQuestion(...args);
 }
 
-function resetBowlPractice() {
-  const nextExperience = buildBowlExperience();
-  nextExperience.tipDismissed = true;
-  nextExperience.started = !nextExperience.unavailableReason;
-  state.experience = nextExperience;
-  renderExperience();
+function resetBowlPractice(...args) {
+  return studyGameController.resetBowlPractice(...args);
 }
 
 function syncExperienceTimers() {
@@ -8626,129 +4703,7 @@ function syncExperienceTimers() {
 }
 
 function renderAlpacaChannelExperience() {
-  if (alpacaChannelMode?.renderExperience) {
-    return alpacaChannelMode.renderExperience(state.experience, {
-      escapeHtml,
-      renderPanelTitle,
-      renderConfiguredMascotAsset,
-      renderLearnCardFooterNav,
-      getModeAssetPath,
-      getTargetLabel,
-      getSelectedSectionLabels,
-      getEmbeddableVideo,
-      getVideoPreview,
-      isDesktopApp: window.WSC_DESKTOP_APP === true
-    });
-  }
-
-  const experience = state.experience;
-  const videos = experience.videos || [];
-  const current = videos[experience.index] || null;
-  const routeLabel = getAlpacaChannelRouteTitleLabel(experience.routeTitle || getTargetLabel());
-
-  if (!current) {
-    return `
-      ${renderPanelTitle("Alpaca Channel", null, null, { titleHtml: renderAlpacaChannelTitleMarkup(routeLabel), showSectionSpans: false })}
-      <div class="channel-empty">
-        ${renderConfiguredMascotAsset(getModeAssetPath("channel"), "thinking", "medium", {
-          alt: "Alpaca Channel alpaca",
-          slotClass: "channel-empty-icon-slot",
-          imageClass: "channel-empty-icon"
-        })}
-        <div>
-          <h3>No videos on this route yet</h3>
-          <p>Alpaca Channel is ready, but this selected route does not currently include YouTube video links in its app-visible raw entries.</p>
-        </div>
-      </div>
-      ${renderLearnCardFooterNav("channel")}
-    `;
-  }
-
-  const previous = videos[(experience.index - 1 + videos.length) % videos.length];
-  const next = videos[(experience.index + 1) % videos.length];
-  const embeddedVideo = getEmbeddableVideo(current.url);
-  const videoPreview = getVideoPreview(current.url);
-  const canEmbedVideo = Boolean(embeddedVideo) && !window.WSC_DESKTOP_APP;
-  const singleVideo = videos.length <= 1;
-  const channelDomain = getAlpacaChannelDomain(routeLabel);
-  const description = current.description || `Video from ${current.sectionTitle || experience.routeTitle || getTargetLabel()}.`;
-
-  return `
-    ${renderPanelTitle("Alpaca Channel", null, null, { titleHtml: renderAlpacaChannelTitleMarkup(routeLabel), showSectionSpans: false })}
-    <div class="channel-shell">
-      <article class="channel-browser" aria-label="Alpaca Channel video player">
-        <div class="channel-browser-bar">
-          <div class="channel-window-dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="channel-address-pill">
-            <span>${escapeHtml(channelDomain)}</span>
-          </div>
-        </div>
-        <div class="channel-youtube-copy">
-          <h2>${escapeHtml(current.title)}</h2>
-        </div>
-        <div class="channel-video-frame">
-          ${canEmbedVideo ? `
-            <iframe
-              class="channel-video-iframe"
-              src="${escapeHtml(embeddedVideo.embedUrl)}"
-              title="${escapeHtml(current.title)}"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <a class="channel-open-link" href="${escapeHtml(current.url)}" target="_blank" rel="noreferrer">Open on YouTube</a>
-          ` : videoPreview ? `
-            <a class="channel-video-fallback" href="${escapeHtml(current.url)}" target="_blank" rel="noreferrer">
-              <img src="${escapeHtml(videoPreview.thumbnailUrl)}" alt="${escapeHtml(current.title)}" loading="lazy" referrerpolicy="no-referrer" />
-              <span>Open video</span>
-            </a>
-          ` : `
-            <a class="channel-video-fallback no-thumb" href="${escapeHtml(current.url)}" target="_blank" rel="noreferrer">
-              <span>Open video</span>
-            </a>
-          `}
-        </div>
-        <div class="channel-description">
-          <h3>Description</h3>
-          <p>${escapeHtml(description)}</p>
-        </div>
-        <div class="channel-browser-footer">
-          <button class="button secondary channel-nav-button" type="button" data-channel-nav="prev" ${singleVideo ? "disabled" : ""}>
-            <span class="channel-nav-label">Last video</span>
-            <span class="channel-nav-title">${escapeHtml(previous.title)}</span>
-          </button>
-          <div class="channel-video-count">${experience.index + 1} / ${videos.length}</div>
-          <button class="button primary channel-nav-button" type="button" data-channel-nav="next" ${singleVideo ? "disabled" : ""}>
-            <span class="channel-nav-label">Next video</span>
-            <span class="channel-nav-title">${escapeHtml(next.title)}</span>
-          </button>
-        </div>
-      </article>
-    </div>
-    ${renderLearnCardFooterNav("channel")}
-  `;
-}
-
-function renderAlpacaChannelTitleMarkup(routeLabel = getAlpacaChannelRouteTitleLabel()) {
-  return `
-    <span class="channel-panel-title-brand">
-      ${renderConfiguredMascotAsset(getModeAssetPath("channel"), "excited", "small", {
-        alt: "Alpaca Channel logo",
-        slotClass: "channel-panel-title-icon-slot",
-        imageClass: "channel-panel-title-icon"
-      })}
-      <span>Alpaca Channel</span>
-      ${routeLabel ? `<span class="channel-panel-section-chip">${escapeHtml(routeLabel)}</span>` : ""}
-    </span>
-  `;
-}
-
-function getAlpacaChannelRouteTitleLabel(fallbackLabel = getTargetLabel()) {
-  const labels = getSelectedSectionLabels();
-  return labels.length ? labels.join(" · ") : fallbackLabel;
+  return alpacaChannelController.renderExperience();
 }
 
 function renderSlideshowExperience() {
@@ -8960,333 +4915,27 @@ function navigateSlide(direction) {
 }
 
 function navigateAlpacaChannel(direction) {
-  const experience = state.experience;
-  const didNavigate = alpacaChannelMode?.navigate
-    ? alpacaChannelMode.navigate(experience, direction)
-    : false;
-  if (didNavigate) {
-    renderExperience();
-    return;
-  }
-
-  if (!experience || experience.type !== "channel" || !experience.videos?.length) {
-    return;
-  }
-
-  const total = experience.videos.length;
-  experience.index = direction === "prev"
-    ? (experience.index - 1 + total) % total
-    : (experience.index + 1) % total;
-  renderExperience();
-}
-
-function buildAlpacaChannelPlaylist() {
-  return dedupeAlpacaChannelVideos([
-    ...getRawEntriesForSelection().flatMap((entry) => getEmbeddedAlpacaChannelVideosForEntry(entry)),
-    ...getStandaloneAlpacaChannelVideosForSelection()
-  ]);
-}
-
-function dedupeAlpacaChannelVideos(videos) {
-  const seen = new Set();
-  const output = [];
-
-  (videos || []).forEach((video) => {
-    const key = normalizeVideoUrl(video.url);
-    if (!key || seen.has(key)) {
-      return;
-    }
-    seen.add(key);
-    output.push(video);
-  });
-
-  return output;
+  return alpacaChannelController.navigate(direction);
 }
 
 function getAlpacaChannelVideosForEntry(entry) {
-  return dedupeAlpacaChannelVideos([
-    ...getEmbeddedAlpacaChannelVideosForEntry(entry),
-    ...getStandaloneAlpacaChannelVideosForEntry(entry)
-  ]);
-}
-
-function getEmbeddedAlpacaChannelVideosForEntry(entry) {
-  if (!entry) {
-    return [];
-  }
-
-  return collectAlpacaChannelVideos(entry, entry.title || "Video", "", entry).map((video) => ({
-    ...video,
-    entryTitle: entry.title,
-    sectionTitle: entry.sectionTitle || entry.guidingSection || ""
-  }));
-}
-
-function getStandaloneAlpacaChannelVideosForEntry(entry) {
-  if (!entry?.title) {
-    return [];
-  }
-
-  return getAlpacaChannelCatalogVideos()
-    .filter((video) => standaloneVideoMatchesEntry(video, entry))
-    .map((video) => createStandaloneAlpacaChannelVideo(video, entry.sectionId));
-}
-
-function standaloneVideoMatchesEntry(video, entry) {
-  if (!video?.url || !entry?.title) {
-    return false;
-  }
-
-  const entryTitleKey = normalizeKnowledgeKey(entry.title);
-  const videoEntryTitles = normalizeLabelList(video.entryTitles);
-  if (!videoEntryTitles.includes(entryTitleKey)) {
-    return false;
-  }
-
-  const entrySectionId = normalizeSectionId(entry.sectionId || getSectionIdFromGuidingTitle(entry.sectionTitle || entry.guidingSection || ""));
-  const videoSectionIds = normalizeIdList(video.sectionIds);
-
-  return !entrySectionId || !videoSectionIds.length || videoSectionIds.includes(entrySectionId);
+  return alpacaChannelController.getVideosForEntry(entry);
 }
 
 function getAlpacaChannelVideosForSection(sectionId) {
-  const canonicalSectionId = normalizeSectionId(sectionId);
-  if (!canonicalSectionId) {
-    return [];
-  }
-
-  const section = getApprovedRawContentSection(canonicalSectionId);
-  const embeddedVideos = section
-    ? mapRawEntriesWithSection(section, section.entries || []).flatMap((entry) => getEmbeddedAlpacaChannelVideosForEntry(entry))
-    : [];
-  const standaloneVideos = getAlpacaChannelCatalogVideos()
-    .filter((video) => normalizeIdList(video.sectionIds).includes(canonicalSectionId))
-    .map((video) => createStandaloneAlpacaChannelVideo(video, canonicalSectionId));
-
-  return dedupeAlpacaChannelVideos([...embeddedVideos, ...standaloneVideos]);
-}
-
-function getAlpacaChannelCatalogVideos() {
-  return Array.isArray(alpacaChannelCatalog.videos)
-    ? alpacaChannelCatalog.videos
-    : [];
-}
-
-function getStandaloneAlpacaChannelVideosForSelection() {
-  return getAlpacaChannelCatalogVideos()
-    .filter(videoMatchesAlpacaChannelSelection)
-    .map((video) => createStandaloneAlpacaChannelVideo(video));
+  return alpacaChannelController.getVideosForSection(sectionId);
 }
 
 function createStandaloneAlpacaChannelVideo(video, fallbackSectionId = null) {
-  const sectionId = fallbackSectionId || getPrimaryStandaloneVideoSectionId(video);
-  const sectionTitle = sectionId && sectionById[sectionId]
-    ? sectionById[sectionId].title
-    : (video.sectionTitles || [])[0] || getTargetLabel();
-
-  return {
-    title: cleanChannelVideoTitle(video.title || "Alpaca Channel video"),
-    url: video.url,
-    description: cleanChannelDescription(video.description || video.verdict || ""),
-    location: "alpaca-channel",
-    entryTitle: (video.entryTitles || [])[0] || "",
-    sectionTitle,
-    source: "alpaca-channel",
-    channel: video.channel || "",
-    duration: video.duration || "",
-    score: video.score || null,
-    bigIdeaLabels: Array.isArray(video.bigIdeaLabels) ? video.bigIdeaLabels.slice() : [],
-    subjectLabels: Array.isArray(video.subjectLabels) ? video.subjectLabels.slice() : []
-  };
-}
-
-function videoMatchesAlpacaChannelSelection(video) {
-  if (!video || !video.url) {
-    return false;
-  }
-
-  const selectedSectionIds = getSelectedSectionIds();
-  if (state.selection.lens === "section" && selectedSectionIds.length) {
-    const selected = new Set(selectedSectionIds);
-    return normalizeIdList(video.sectionIds).some((sectionId) => selected.has(sectionId));
-  }
-
-  if (state.selection.targetId === "all") {
-    return true;
-  }
-
-  if (state.selection.lens === "section") {
-    return normalizeIdList(video.sectionIds).includes(state.selection.targetId);
-  }
-
-  if (state.selection.lens === "bigidea") {
-    const route = bigIdeaRouteById[state.selection.targetId];
-    const labels = normalizeLabelList(video.bigIdeaLabels);
-    const ids = normalizeIdList(video.bigIdeaIds);
-    return ids.includes(state.selection.targetId) || (route && labels.includes(normalizeKnowledgeKey(route.label)));
-  }
-
-  if (state.selection.lens === "subject") {
-    const route = learnSubjectRouteById[state.selection.targetId] || subjectById[state.selection.targetId];
-    const labels = normalizeLabelList(video.subjectLabels);
-    const ids = normalizeIdList(video.subjectIds);
-    return ids.includes(state.selection.targetId) || (route && labels.includes(normalizeKnowledgeKey(route.label)));
-  }
-
-  return false;
-}
-
-function getPrimaryStandaloneVideoSectionId(video) {
-  const sectionIds = normalizeIdList(video.sectionIds);
-  const selectedSectionIds = getSelectedSectionIds();
-
-  if (state.selection.lens === "section" && selectedSectionIds.length) {
-    return selectedSectionIds.find((sectionId) => sectionIds.includes(sectionId)) || sectionIds[0] || null;
-  }
-
-  return sectionIds[0] || null;
-}
-
-function normalizeIdList(values = []) {
-  return (Array.isArray(values) ? values : [])
-    .map((value) => normalizeSectionId(String(value || "").trim()))
-    .filter(Boolean);
-}
-
-function normalizeLabelList(values = []) {
-  return (Array.isArray(values) ? values : [])
-    .map((value) => normalizeKnowledgeKey(value))
-    .filter(Boolean);
-}
-
-function collectAlpacaChannelVideos(value, fallbackTitle, trail = "", entry = null) {
-  if (appVideoService?.collectVideos) {
-    return appVideoService.collectVideos(value, fallbackTitle, trail, entry);
-  }
-
-  const videos = [];
-
-  function visit(node, localTitle, localTrail) {
-    if (!node) {
-      return;
-    }
-
-    if (Array.isArray(node)) {
-      node.forEach((item, index) => visit(item, localTitle, `${localTrail}[${index}]`));
-      return;
-    }
-
-    if (typeof node !== "object") {
-      return;
-    }
-
-    const nodeTitle = cleanChannelVideoTitle(node.sourceTitle || node.title || node.label || node.previewLabel || localTitle || fallbackTitle);
-    if (typeof node.url === "string" && isAlpacaChannelVideoUrl(node.url)) {
-      videos.push({
-        title: nodeTitle,
-        url: node.url,
-        description: getChannelVideoDescription(node, entry),
-        location: localTrail || trail || "entry"
-      });
-    }
-
-    Object.entries(node).forEach(([key, child]) => {
-      visit(child, nodeTitle, localTrail ? `${localTrail}.${key}` : key);
-    });
-  }
-
-  visit(value, fallbackTitle, trail);
-  return videos;
-}
-
-function getChannelVideoDescription(node, entry = null) {
-  if (appVideoService?.getChannelDescription) {
-    return appVideoService.getChannelDescription(node, entry);
-  }
-
-  return cleanChannelDescription(
-    node.note ||
-    node.description ||
-    node.caption ||
-    entry?.takeaway ||
-    entry?.whyItMatters ||
-    entry?.studentExplanation ||
-    ""
-  );
-}
-
-function cleanChannelDescription(description) {
-  if (appVideoService?.cleanDescription) {
-    return appVideoService.cleanDescription(description);
-  }
-
-  return String(description || "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function isAlpacaChannelVideoUrl(url) {
-  if (appVideoService?.isSupportedVideoUrl) {
-    return appVideoService.isSupportedVideoUrl(url);
-  }
-
-  return Boolean(getEmbeddableVideo(url) || getVideoPreview(url));
+  return alpacaChannelController.createStandaloneVideo(video, fallbackSectionId);
 }
 
 function normalizeVideoUrl(url) {
-  if (appVideoService?.normalizeUrl) {
-    return appVideoService.normalizeUrl(url);
-  }
-
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname.replace(/^www\./, "");
-    if (host === "youtu.be") {
-      const videoId = parsed.pathname.split("/").filter(Boolean)[0];
-      return videoId ? `youtube:${videoId}` : url;
-    }
-    if (host === "youtube.com" || host === "m.youtube.com") {
-      const videoId = parsed.searchParams.get("v");
-      const playlistId = parsed.searchParams.get("list");
-      if (videoId) {
-        return `youtube:${videoId}`;
-      }
-      if (playlistId) {
-        return `youtube-playlist:${playlistId}`;
-      }
-    }
-  } catch (_error) {
-    return url;
-  }
-
-  return url;
-}
-
-function cleanChannelVideoTitle(title) {
-  if (appVideoService?.cleanTitle) {
-    return appVideoService.cleanTitle(title);
-  }
-
-  return String(title || "Video")
-    .replace(/\s+-\s+YouTube$/i, "")
-    .replace(/\s+video$/i, "")
-    .trim() || "Video";
+  return alpacaChannelController.normalizeVideoUrl(url);
 }
 
 function getAlpacaChannelDomain(label) {
-  if (alpacaChannelMode?.getDomain) {
-    return alpacaChannelMode.getDomain(label);
-  }
-
-  const slug = String(label || "route")
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[’']/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "")
-    .trim() || "route";
-
-  return `www.alpacachannel.${slug}.com`;
+  return alpacaChannelController.getDomain(label);
 }
 
 function buildLearnDeck() {
@@ -9574,84 +5223,28 @@ function getRegularGuideRenderHelpers() {
   };
 }
 
-function getRawVisibleQuizQuestionItems(entry) {
-  return (entry.quizQuestions || [])
-    .map((question, questionIndex) => ({ question, questionIndex }))
-    .filter(({ question }) => [1, 2].includes(Number(question.level)));
+function getRawVisibleQuizQuestionItems(...args) {
+  return rawContentController.getRawVisibleQuizQuestionItems(...args);
 }
 
 function getSectionGuideQuestions(section) {
   return Array.isArray(section?.guideQuestions) ? section.guideQuestions : [];
 }
 
-function renderSectionTransferTable(sectionOrEntry, options = {}) {
-  return rawContentTransferTable?.renderSectionTransferTable
-    ? rawContentTransferTable.renderSectionTransferTable(sectionOrEntry, options, { escapeHtml })
-    : "";
+function renderSectionTransferTable(...args) {
+  return rawContentController.renderSectionTransferTable(...args);
 }
 
-function getVisibleWrongExplanation(question, selectedOption) {
-  if (!question || !selectedOption || selectedOption.correct) {
-    return "";
-  }
-
-  const selectedKey = normalizeKnowledgeKey(selectedOption.text);
-  const visibleWrongExplanations = Array.isArray(question.visibleWrongExplanations)
-    ? question.visibleWrongExplanations
-    : [];
-  const matchingExplanation = visibleWrongExplanations.find((item) => (
-    normalizeKnowledgeKey(item.answer) === selectedKey
-    || normalizeKnowledgeKey(item.text) === selectedKey
-  ));
-
-  return matchingExplanation?.explanation || "";
+function getVisibleWrongExplanation(...args) {
+  return rawContentController.getVisibleWrongExplanation(...args);
 }
 
-function getVisibleQuizFeedbackParts(question, selectedOption) {
-  if (!question || !selectedOption) {
-    return null;
-  }
-
-  const wrongExplanation = getVisibleWrongExplanation(question, selectedOption);
-  const correctExplanation = question.visibleCorrectExplanation || question.explanation || "";
-  const paragraphs = [];
-
-  if (!selectedOption.correct && wrongExplanation) {
-    paragraphs.push(wrongExplanation);
-  }
-
-  if (question.visibleConnection) {
-    paragraphs.push(question.visibleConnection);
-  }
-
-  if (correctExplanation && (selectedOption.correct || correctExplanation !== wrongExplanation)) {
-    paragraphs.push(correctExplanation);
-  }
-
-  if (!paragraphs.length && question.explanation) {
-    paragraphs.push(question.explanation);
-  }
-
-  return {
-    heading: selectedOption.correct ? "Exactly" : "Not quite",
-    paragraphs,
-    takeaway: question.visibleTakeaway || ""
-  };
+function getVisibleQuizFeedbackParts(...args) {
+  return rawContentController.getVisibleQuizFeedbackParts(...args);
 }
 
-function renderRawQuizFeedback(question, selectedOption) {
-  const feedback = getVisibleQuizFeedbackParts(question, selectedOption);
-  if (!feedback || (!feedback.paragraphs.length && !feedback.takeaway)) {
-    return "";
-  }
-
-  return `
-    <div class="raw-quiz-feedback ${selectedOption.correct ? "correct" : "incorrect"}">
-      <strong>${feedback.heading}</strong>
-      ${feedback.paragraphs.map((paragraph) => `<p>${renderTextWithBreaks(paragraph)}</p>`).join("")}
-      ${feedback.takeaway ? `<p class="raw-quiz-takeaway"><span>Takeaway:</span> ${renderTextWithBreaks(feedback.takeaway)}</p>` : ""}
-    </div>
-  `;
+function renderRawQuizFeedback(...args) {
+  return rawContentController.renderRawQuizFeedback(...args);
 }
 
 function renderGuideQuizQuestion(question, section, questionIndex) {
@@ -9691,513 +5284,108 @@ function renderGuideQuizQuestion(question, section, questionIndex) {
   `;
 }
 
-function renderRawContentExperience() {
-  const payload = getRawContentPayload();
-  if (rawContentMode?.renderExperience) {
-    return rawContentMode.renderExperience({
-      experience: state.experience,
-      payload,
-      scopeLabel: getRawContentScopeLabel(),
-      targetLabel: getTargetLabel()
-    }, {
-      escapeHtml,
-      renderPanelTitle,
-      renderEntryGroups: renderRawContentEntryGroups,
-      renderMediaLightbox: renderRawMediaLightbox,
-      renderLearnCardFooterNav
-    });
-  }
-
-  if (!payload) {
-    return `
-      ${renderPanelTitle(
-        "Raw Content",
-        "",
-        ""
-      )}
-      <div class="raw-content-shell">
-        <article class="raw-source-card">
-          <div class="raw-source-top">
-            <div>
-              <p class="challenge-label">${escapeHtml(getRawContentScopeLabel())}</p>
-              <h3>${escapeHtml(getTargetLabel())}</h3>
-            </div>
-          </div>
-          <p>Waiting for updates until you receive the ones.</p>
-          <div class="chip-row">
-            <span>${escapeHtml(getTargetLabel())}</span>
-            <span>Raw Content update pending</span>
-          </div>
-        </article>
-      </div>
-    `;
-  }
-
-  return `
-    ${renderPanelTitle(
-      "Raw Content",
-      "",
-      `${payload.entries.length} raw entries`
-    )}
-    <div class="raw-content-shell">
-      ${renderRawContentEntryGroups(payload.entries)}
-      ${renderRawMediaLightbox()}
-    </div>
-    ${renderLearnCardFooterNav("rawcontent")}
-  `;
+function renderRawContentExperience(...args) {
+  return rawContentController.renderRawContentExperience(...args);
 }
 
-function renderRawContentEntryGroups(entries) {
-  const selectedSectionIds = getSelectedSectionIds();
-  if (rawContentMode?.renderEntryGroups) {
-    return rawContentMode.renderEntryGroups(entries, {
-      selectedSectionIds,
-      sectionById
-    }, {
-      escapeHtml,
-      getSectionIdFromGuidingTitle,
-      renderEntryCard: renderRawContentEntryCard
-    });
-  }
-
-  if (selectedSectionIds.length <= 1) {
-    return entries.map((entry, entryIndex) => renderRawContentEntryCard(entry, entryIndex)).join("");
-  }
-
-  const entriesBySection = new Map();
-  entries.forEach((entry, entryIndex) => {
-    const sectionId = entry.sectionId || getSectionIdFromGuidingTitle(entry.guidingSection || entry.sectionTitle || "");
-    if (!entriesBySection.has(sectionId)) {
-      entriesBySection.set(sectionId, []);
-    }
-    entriesBySection.get(sectionId).push({ entry, entryIndex });
-  });
-
-  return selectedSectionIds.map((sectionId) => {
-    const sectionEntries = entriesBySection.get(sectionId) || [];
-    if (!sectionEntries.length) {
-      return "";
-    }
-
-    return `
-      <article class="raw-source-card raw-section-group-card">
-        <div class="raw-source-top raw-section-group-top">
-          <div>
-            <h3>${escapeHtml(sectionById[sectionId]?.title || sectionEntries[0].entry.sectionTitle || sectionId)}</h3>
-          </div>
-        </div>
-        <div class="raw-section-entry-list">
-          ${sectionEntries.map(({ entry, entryIndex }) => renderRawContentEntryCard(entry, entryIndex)).join("")}
-        </div>
-      </article>
-    `;
-  }).join("");
+function renderRawContentEntryGroups(...args) {
+  return rawContentController.renderRawContentEntryGroups(...args);
 }
 
-function renderRawContentEntryCard(entry, entryIndex) {
-  if (rawContentEntryRenderer?.renderEntryCard) {
-    return rawContentEntryRenderer.renderEntryCard(entry, entryIndex, {
-      escapeHtml,
-      renderTextWithBreaks,
-      renderAlpacaList,
-      renderRawStudentAssets,
-      renderRawConnectionGroups,
-      renderSectionTransferTable,
-      renderRawQuizPager,
-      renderRawMasteryToggle,
-      getRawOfficialDisplayText
-    });
-  }
-
-  const rawOfficialText = getRawOfficialDisplayText(entry);
-
-  return `
-    <article class="raw-atom-card raw-entry-card">
-      <div class="raw-atom-top">
-        <div>
-          <h3>${escapeHtml(entry.title)}</h3>
-        </div>
-        ${entry.links && entry.links.length ? `
-          <div class="raw-link-list raw-link-list-inline">
-            ${entry.links.map((link) => `
-              <a class="raw-link-pill raw-link-pill-inline" href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">
-                ${escapeHtml(link.label || link.url)}
-              </a>
-            `).join("")}
-          </div>
-        ` : ""}
-      </div>
-      ${(rawOfficialText || (entry.rawOfficialBullets && entry.rawOfficialBullets.length)) ? `
-        <div class="raw-block">
-          <strong>Raw official text</strong>
-          ${rawOfficialText ? `<p>${renderTextWithBreaks(rawOfficialText)}</p>` : ""}
-          ${entry.rawOfficialBullets && entry.rawOfficialBullets.length
-            ? renderAlpacaList(entry.rawOfficialBullets)
-            : ""}
-        </div>
-      ` : ""}
-      ${entry.studentExplanation ? `
-        <div class="raw-block">
-          <strong>Student explanation</strong>
-          <p>${renderTextWithBreaks(entry.studentExplanation)}</p>
-          ${renderRawStudentAssets(entry, entryIndex)}
-        </div>
-      ` : ""}
-      ${entry.whyItMatters ? `
-        <div class="raw-block">
-          <strong>Why it matters</strong>
-          <p>${renderTextWithBreaks(entry.whyItMatters)}</p>
-        </div>
-      ` : ""}
-      ${renderRawConnectionGroups(entry)}
-      ${renderSectionTransferTable(entry, { collapsed: true, context: "raw" })}
-      ${renderRawQuizPager(entry, entryIndex)}
-      ${renderRawMasteryToggle(entry, { includeBackToTop: true, entryIndex })}
-    </article>
-  `;
+function renderRawContentEntryCard(...args) {
+  return rawContentController.renderRawContentEntryCard(...args);
 }
 
-function getRawContentScopeLabel() {
-  if (rawContentService?.getScopeLabel) {
-    return rawContentService.getScopeLabel(state.selection);
-  }
-
-  if (state.selection.lens === "subject") {
-    return "Subject Route";
-  }
-
-  if (state.selection.lens === "bigidea") {
-    return "Big Idea Route";
-  }
-
-  return "Guiding Section";
+function getRawContentScopeLabel(...args) {
+  return rawContentController.getRawContentScopeLabel(...args);
 }
 
-function getRawContentPayload() {
-  if (rawContentService?.getPayload) {
-    return rawContentService.getPayload(state.selection, getSelectedSectionIds(), getTargetLabel());
-  }
-
-  const entries = getRawEntriesForSelection();
-  if (!entries.length) {
-    return null;
-  }
-
-  return {
-    scopeLabel: getRawContentScopeLabel(),
-    title: getTargetLabel(),
-    entries
-  };
+function getRawContentPayload(...args) {
+  return rawContentController.getRawContentPayload(...args);
 }
 
-function getRawEntriesForSelection() {
-  const selectedSectionIds = getSelectedSectionIds();
-  if (rawContentService?.getEntriesForSelection) {
-    return rawContentService.getEntriesForSelection(state.selection, selectedSectionIds);
-  }
-
-  if (state.selection.lens === "section" && selectedSectionIds.length) {
-    return selectedSectionIds.flatMap((sectionId) => getRawEntriesForRouteSelection("section", sectionId));
-  }
-
-  return getRawEntriesForRouteSelection(state.selection.lens, state.selection.targetId);
+function getRawEntriesForSelection(...args) {
+  return rawContentController.getRawEntriesForSelection(...args);
 }
 
-function getRawEntriesForRouteSelection(lensId, targetId) {
-  if (rawContentService?.getEntriesForRouteSelection) {
-    return rawContentService.getEntriesForRouteSelection(lensId, targetId);
-  }
-
-  const sections = getOrderedRawContentSections();
-
-  if (targetId === "all") {
-    return sections.flatMap((section) => mapRawEntriesWithSection(section, section.entries || []));
-  }
-
-  if (lensId === "section") {
-    const approved = getApprovedRawContentSection(targetId);
-    if (!approved) {
-      return [];
-    }
-    return mapRawEntriesWithSection(approved, approved.entries || []);
-  }
-
-  if (lensId === "bigidea") {
-    const route = bigIdeaRouteById[targetId];
-    if (!route) {
-      return [];
-    }
-
-    return sections.flatMap((section) => {
-      const entries = (section.entries || []).filter((entry) => (entry.bigIdeas || []).includes(route.label));
-      return mapRawEntriesWithSection(section, entries);
-    }).sort(compareRawEntriesByOfficialOrder);
-  }
-
-  if (lensId === "subject") {
-    if (usesGranularLearnSubjects()) {
-      const route = learnSubjectRouteById[targetId];
-      if (!route) {
-        return [];
-      }
-
-      return sections.flatMap((section) => {
-        const sectionId = section.id || getSectionIdFromGuidingTitle(section.guidingSection || section.title);
-        const entries = (section.entries || []).filter((entry) => entryMatchesLearnSubjectRoute(entry, sectionId, route));
-        return mapRawEntriesWithSection(section, entries);
-      }).sort(compareRawEntriesByOfficialOrder);
-    }
-
-    const subject = subjectById[targetId];
-    if (!subject) {
-      return [];
-    }
-
-    const normalizedSubject = normalizeKnowledgeKey(subject.label);
-    return sections.flatMap((section) => {
-      const entries = (section.entries || []).filter((entry) => {
-        const entrySubjects = entry.officialWscSubject ? [entry.officialWscSubject] : (entry.subjects || []);
-        return entrySubjects.some((label) => normalizeKnowledgeKey(label) === normalizedSubject);
-      });
-      return mapRawEntriesWithSection(section, entries);
-    }).sort(compareRawEntriesByOfficialOrder);
-  }
-
-  return [];
+function getRawEntriesForRouteSelection(...args) {
+  return rawContentController.getRawEntriesForRouteSelection(...args);
 }
 
-function getRawEntriesForRunSetupCategoryIds(categoryIds) {
-  if (rawContentService?.getEntriesForCategoryIds) {
-    return rawContentService.getEntriesForCategoryIds(categoryIds, state.selection);
-  }
-
-  const seen = new Set();
-  return (categoryIds || []).flatMap((categoryId) =>
-    getRawEntriesForRouteSelection(state.selection.lens, categoryId)
-  ).filter((entry) => {
-    const key = `${entry.sectionId || entry.guidingSection}|${entry.title}`;
-    if (seen.has(key)) {
-      return false;
-    }
-    seen.add(key);
-    return true;
-  });
+function getRawEntriesForRunSetupCategoryIds(...args) {
+  return rawContentController.getRawEntriesForRunSetupCategoryIds(...args);
 }
 
-function countRawQuizQuestions(entries) {
-  return (entries || []).reduce((sum, entry) => {
-    return sum + (Array.isArray(entry.quizQuestions) ? entry.quizQuestions.length : 0);
-  }, 0);
+function countRawQuizQuestions(...args) {
+  return rawContentController.countRawQuizQuestions(...args);
 }
 
-function getOrderedRawContentSections() {
-  if (rawContentService?.getOrderedSections) {
-    return rawContentService.getOrderedSections();
-  }
-
-  return Object.values(IMPORTED_RAW_CONTENT_BANK || {}).sort(compareOfficialSectionOrder);
+function getOrderedRawContentSections(...args) {
+  return rawContentController.getOrderedRawContentSections(...args);
 }
 
-function mapRawEntriesWithSection(section, entries) {
-  if (rawContentService?.mapEntriesWithSection) {
-    return rawContentService.mapEntriesWithSection(section, entries);
-  }
-
-  const sectionId = section.id || getSectionIdFromGuidingTitle(section.guidingSection || section.title);
-  const sectionLabel = sectionId && sectionById[sectionId]
-    ? sectionById[sectionId].title
-    : section.guidingSection || section.title;
-
-  return entries.map((entry, index) => ({
-    ...entry,
-    sectionId,
-    entryIndex: Number.isFinite(entry.entryIndex) ? entry.entryIndex : index + 1,
-    sectionTitle: sectionLabel,
-    sectionTransferTable: section.transferTable || null,
-    sourceFile: section.sourceFile || section.title
-  }));
+function mapRawEntriesWithSection(...args) {
+  return rawContentController.mapRawEntriesWithSection(...args);
 }
 
-function getRawEntryMasteryKey(entry) {
-  if (rawContentService?.getEntryMasteryKey) {
-    return rawContentService.getEntryMasteryKey(entry);
-  }
-
-  return [
-    entry.sectionId || getSectionIdFromGuidingTitle(entry.guidingSection || entry.sectionTitle || ""),
-    entry.title || "",
-    entry.sourceFile || ""
-  ].map((part) => normalizeKnowledgeKey(part || "entry")).join("::");
+function getRawEntryMasteryKey(...args) {
+  return rawContentController.getRawEntryMasteryKey(...args);
 }
 
-function isRawEntryMastered(entry) {
-  return Boolean(state.rawMastery[getRawEntryMasteryKey(entry)]);
+function isRawEntryMastered(...args) {
+  return rawContentController.isRawEntryMastered(...args);
 }
 
-function getRawMasteryHelpers() {
-  return {
-    escapeHtml,
-    getEntryMasteryKey: getRawEntryMasteryKey,
-    isEntryMastered: isRawEntryMastered,
-    getAssetValue,
-    getModeAssetPath,
-    getAlpacaChannelVideosForEntry
-  };
+function getRawMasteryHelpers(...args) {
+  return rawContentController.getRawMasteryHelpers(...args);
 }
 
-function renderRawMasteryToggle(entry, options = {}) {
-  return rawContentMastery?.renderToggle
-    ? rawContentMastery.renderToggle(entry, options, getRawMasteryHelpers())
-    : "";
+function renderRawMasteryToggle(...args) {
+  return rawContentController.renderRawMasteryToggle(...args);
 }
 
-function renderRawEntryQuickActions(entry, entryIndex) {
-  return rawContentMastery?.renderQuickActions
-    ? rawContentMastery.renderQuickActions(entry, entryIndex, getRawMasteryHelpers())
-    : "";
+function renderRawEntryQuickActions(...args) {
+  return rawContentController.renderRawEntryQuickActions(...args);
 }
 
-function renderRawBackToTopButton() {
-  return rawContentMastery?.renderBackToTopButton
-    ? rawContentMastery.renderBackToTopButton(getRawMasteryHelpers())
-    : "";
+function renderRawBackToTopButton(...args) {
+  return rawContentController.renderRawBackToTopButton(...args);
 }
 
-function renderRawEntryChannelLinks(entry, entryIndex) {
-  return rawContentMastery?.renderEntryChannelLinks
-    ? rawContentMastery.renderEntryChannelLinks(entry, entryIndex, getRawMasteryHelpers())
-    : "";
+function renderRawEntryChannelLinks(...args) {
+  return rawContentController.renderRawEntryChannelLinks(...args);
 }
 
-function toggleRawMastery(key) {
-  if (!key) {
-    return;
-  }
-
-  state.rawMastery = {
-    ...state.rawMastery,
-    [key]: !state.rawMastery[key]
-  };
-
-  if (!state.rawMastery[key]) {
-    delete state.rawMastery[key];
-  }
-
-  saveRawMastery();
-  renderStats();
-  renderExperience();
+function toggleRawMastery(...args) {
+  return rawContentController.toggleRawMastery(...args);
 }
 
-function getAllRawEntries() {
-  if (rawContentService?.getAllEntries) {
-    return rawContentService.getAllEntries();
-  }
-
-  return getOrderedRawContentSections().flatMap((section) =>
-    mapRawEntriesWithSection(section, section.entries || [])
-  ).sort(compareRawEntriesByOfficialOrder);
+function getAllRawEntries(...args) {
+  return rawContentController.getAllRawEntries(...args);
 }
 
-function getTotalRawMasterableEntries() {
-  if (rawContentService?.getTotalMasterableEntries) {
-    return rawContentService.getTotalMasterableEntries();
-  }
-
-  return new Set(getAllRawEntries().map((entry) => getRawEntryMasteryKey(entry))).size;
+function getTotalRawMasterableEntries(...args) {
+  return rawContentController.getTotalRawMasterableEntries(...args);
 }
 
-function getMasteredRawEntryCount() {
-  if (rawContentService?.getMasteredEntryCount) {
-    return rawContentService.getMasteredEntryCount(state.rawMastery);
-  }
-
-  const validKeys = new Set(getAllRawEntries().map((entry) => getRawEntryMasteryKey(entry)));
-  return Object.keys(state.rawMastery).filter((key) => state.rawMastery[key] && validKeys.has(key)).length;
+function getMasteredRawEntryCount(...args) {
+  return rawContentController.getMasteredRawEntryCount(...args);
 }
 
-function findLearnSubjectRouteIdByLabel(label) {
-  const normalized = normalizeKnowledgeKey(label);
-  const route = LEARN_SUBJECT_ROUTES.find((item) => normalizeKnowledgeKey(item.label) === normalized);
-  return route ? route.id : null;
+function findLearnSubjectRouteIdByLabel(...args) {
+  return rawContentController.findLearnSubjectRouteIdByLabel(...args);
 }
 
-function findBigIdeaRouteIdByLabel(label) {
-  const normalized = normalizeKnowledgeKey(label);
-  const route = BIG_IDEA_ROUTES.find((item) => normalizeKnowledgeKey(item.label) === normalized);
-  return route ? route.id : null;
+function findBigIdeaRouteIdByLabel(...args) {
+  return rawContentController.findBigIdeaRouteIdByLabel(...args);
 }
 
-function getRawConnectionGroups(entry) {
-  const groups = [];
-
-  if (state.selection.lens !== "section" && entry.sectionId) {
-    groups.push({
-      label: "Guiding Section",
-      items: [
-        {
-          lens: "section",
-          targetId: entry.sectionId,
-          label: entry.sectionTitle || getTargetLabelForLens("section", entry.sectionId)
-        }
-      ]
-    });
-  }
-
-  if (state.selection.lens !== "subject" && entry.subjects && entry.subjects.length) {
-    const subjectItems = entry.subjects
-      .map((label) => {
-        const targetId = findLearnSubjectRouteIdByLabel(label);
-        return targetId ? { lens: "subject", targetId, label } : null;
-      })
-      .filter(Boolean);
-
-    if (subjectItems.length) {
-      groups.push({
-        label: "Subjects",
-        items: subjectItems
-      });
-    }
-  }
-
-  if (state.selection.lens !== "bigidea" && entry.bigIdeas && entry.bigIdeas.length) {
-    const bigIdeaItems = entry.bigIdeas
-      .map((label) => {
-        const targetId = findBigIdeaRouteIdByLabel(label);
-        return targetId ? { lens: "bigidea", targetId, label } : null;
-      })
-      .filter(Boolean);
-
-    if (bigIdeaItems.length) {
-      groups.push({
-        label: "Big Ideas",
-        items: bigIdeaItems
-      });
-    }
-  }
-
-  return groups.length ? `
-    <div class="raw-block raw-connections-block">
-      <strong>Connections</strong>
-      <div class="raw-connection-groups">
-        ${groups.map((group) => `
-          <div class="raw-connection-group">
-            <span class="raw-connection-group-label">${escapeHtml(group.label)}</span>
-            <div class="raw-connection-list">
-              ${group.items.map((item) => `
-                <span class="raw-connection-pill raw-connection-pill-static">
-                  ${escapeHtml(item.label)}
-                </span>
-              `).join("")}
-            </div>
-          </div>
-        `).join("")}
-      </div>
-    </div>
-  ` : "";
+function getRawConnectionGroups(...args) {
+  return rawContentController.getRawConnectionGroups(...args);
 }
 
-function renderRawConnectionGroups(entry) {
-  return getRawConnectionGroups(entry);
+function renderRawConnectionGroups(...args) {
+  return rawContentController.renderRawConnectionGroups(...args);
 }
 
 function buildMindMap(sectionId = null, providedEntries = null, entryOffset = 0) {
@@ -10472,693 +5660,36 @@ function getMindMapRenderHelpers() {
   };
 }
 
-function getBuildCaseRound(experience) {
-  return getCurrentDebateTopic(experience);
-}
-
-function getCurrentDebateTopic(experience = state.experience) {
-  if (!experience || experience.type !== "buildcase") {
-    return null;
-  }
-
-  const currentId = Array.isArray(experience.topicOrder) ? experience.topicOrder[experience.index] : null;
-  return (experience.topics || []).find((topic) => topic.id === currentId) || (experience.topics || [])[0] || null;
-}
-
-function resetDebateSpinState(experience) {
-  if (!experience) {
-    return;
-  }
-
-  clearDebateSpinTimer();
-  clearDebateRevealTimer();
-  experience.phase = "topic";
-  experience.selectedSide = null;
-  experience.spinStatus = "idle";
-  experience.spinOutcome = null;
-  experience.spinTargetAngle = 0;
-  experience.debateRound = 0;
-  experience.debateRounds = [];
-  experience.winner = null;
-  experience.feedback = null;
-  experience.finished = false;
-}
-
 function showNextDebateTopic() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || !experience.topics?.length) {
-    return;
-  }
-
-  const previousTopic = getCurrentDebateTopic(experience);
-  if (!experience.topicOrder?.length) {
-    experience.topicOrder = buildDebateTopicOrder(experience.topics, previousTopic?.id);
-    experience.index = 0;
-  } else if (experience.index >= experience.topicOrder.length - 1) {
-    experience.topicOrder = buildDebateTopicOrder(experience.topics, previousTopic?.id);
-    experience.index = 0;
-  } else {
-    experience.index += 1;
-  }
-
-  resetDebateSpinState(experience);
-  renderExperience();
-}
-
-function openDebateSideSpinner() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || !getCurrentDebateTopic(experience)) {
-    return;
-  }
-
-  resetDebateSpinForCurrentTopic();
-  renderExperience();
-}
-
-function toggleDebateSideSpin() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || experience.phase !== "topic") {
-    return;
-  }
-
-  if (experience.spinStatus === "spinning") {
-    stopDebateSideSpin();
-    return;
-  }
-
-  if (experience.spinStatus === "idle" || experience.spinStatus === "stopped") {
-    clearDebateSpinTimer();
-    clearDebateRevealTimer();
-    experience.selectedSide = null;
-    experience.spinOutcome = null;
-    experience.spinStatus = "spinning";
-    experience.spinTargetAngle = 0;
-    renderExperience();
-  }
-}
-
-function stopDebateSideSpin() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || experience.spinStatus !== "spinning") {
-    return;
-  }
-
-  const outcome = Math.random() < 0.5 ? "pro" : "con";
-  const stopIndex = outcome === "pro" ? 12 : 13;
-  experience.selectedSide = outcome;
-  experience.spinOutcome = outcome;
-  experience.spinStatus = "stopping";
-  experience.spinTargetAngle = stopIndex;
-  clearDebateSpinTimer();
-  debateSpinTimerId = window.setTimeout(() => {
-    const current = state.experience;
-    if (!current || current.type !== "buildcase" || current.phase !== "topic" || current.spinStatus !== "stopping") {
-      return;
-    }
-
-    current.spinStatus = "stopped";
-    debateSpinTimerId = null;
-    renderExperience();
-  }, 3200);
-  renderExperience();
-}
-
-function returnToDebateTopic() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase") {
-    return;
-  }
-
-  resetDebateSpinState(experience);
-  renderExperience();
-}
-
-function resetDebateSpinForCurrentTopic() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase") {
-    return;
-  }
-
-  clearDebateSpinTimer();
-  clearDebateRevealTimer();
-  experience.phase = "topic";
-  experience.selectedSide = null;
-  experience.spinStatus = "idle";
-  experience.spinOutcome = null;
-  experience.spinTargetAngle = 0;
-  experience.debateRound = 0;
-  experience.debateRounds = [];
-  experience.winner = null;
-  experience.feedback = null;
-  experience.finished = false;
+  return buildCaseController.showNextTopic();
 }
 
 function startDebateConversation() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase") {
-    return;
-  }
-
-  if (!experience.selectedSide) {
-    toggleDebateSideSpin();
-    return;
-  }
-
-  clearDebateSpinTimer();
-  clearDebateRevealTimer();
-  experience.phase = "debate";
-  experience.debateRound = 0;
-  experience.debateRounds = [];
-  experience.winner = null;
-  experience.feedback = null;
-  experience.finished = false;
-  ensureDebateRoundState(experience);
-  beginDebateNpcOpeningIfNeeded(experience);
-  renderExperience();
+  return buildCaseController.startConversation();
 }
 
-function getDebateItemQualityScore(item) {
-  if (!item) {
-    return 0;
-  }
-
-  if (item.kind === "connection") {
-    return 2;
-  }
-
-  if (item.qualityKey === "strong") {
-    return 3;
-  }
-
-  if (item.qualityKey === "medium") {
-    return 2;
-  }
-
-  return 1;
+function toggleDebateSideSpin() {
+  return buildCaseController.toggleSideSpin();
 }
 
-function getDebateItemQualityLabel(item) {
-  if (!item) {
-    return "Choice";
-  }
-
-  if (item.kind === "connection") {
-    return "Workbook connection";
-  }
-
-  if (item.qualityKey === "strong") {
-    return "Strong";
-  }
-
-  if (item.qualityKey === "medium") {
-    return "Medium";
-  }
-
-  return "Other workbook row";
+function returnToDebateTopic() {
+  return buildCaseController.returnToTopic();
 }
 
-function toDebateArgumentItem(argument, side) {
-  return {
-    id: argument.id,
-    kind: "argument",
-    side,
-    qualityKey: argument.qualityKey,
-    label: getDebateItemQualityLabel(argument),
-    title: argument.argument,
-    body: argument.judgeScoringMove || argument.evidenceHook || argument.sameSideDefense || argument.useWarning || "",
-    source: argument.suggestedSpeakerRole || "",
-    score: getDebateItemQualityScore(argument)
-  };
-}
-
-function toDebateConnectionItem(connection, topic, index) {
-  return {
-    id: `debate-${topic.id}-connection-${index}`,
-    kind: "connection",
-    side: "both",
-    qualityKey: "connection",
-    label: "Workbook connection",
-    title: connection.entryOrAnchor || connection.unitCategory || "Workbook connection",
-    body: connection.whyItConnects || connection.source || "",
-    source: connection.type || "",
-    score: 2
-  };
-}
-
-function getDebateArgumentsByQuality(topic, side, qualityKey) {
-  return (topic.arguments?.[side] || []).filter((item) => item.qualityKey === qualityKey);
-}
-
-function getDebateOtherArguments(topic, side) {
-  return (topic.arguments?.[side] || []).filter((item) => !["strong", "medium"].includes(item.qualityKey));
-}
-
-function pickDebateItems(items, count, roundIndex, usedIds = new Set()) {
-  const available = items.filter((item) => !usedIds.has(item.id));
-  const source = available.length >= count ? available : items;
-  const picked = [];
-
-  for (let offset = 0; offset < source.length && picked.length < count; offset += 1) {
-    const item = source[(roundIndex * count + offset) % source.length];
-    if (item && !picked.some((pickedItem) => pickedItem.id === item.id)) {
-      picked.push(item);
-    }
-  }
-
-  return picked;
-}
-
-function getUsedDebateSuggestionIds(experience) {
-  return new Set((experience.debateRounds || []).flatMap((round) => [
-    ...(round.userSelections || []),
-    ...(round.npcSelections || []),
-    ...(round.suggestions || []).map((item) => item.id)
-  ]));
-}
-
-function buildDebateSuggestions(topic, side, roundIndex, experience) {
-  const usedIds = getUsedDebateSuggestionIds(experience);
-  const strong = pickDebateItems(
-    getDebateArgumentsByQuality(topic, side, "strong").map((item) => toDebateArgumentItem(item, side)),
-    2,
-    roundIndex,
-    usedIds
-  );
-  strong.forEach((item) => usedIds.add(item.id));
-
-  const medium = pickDebateItems(
-    getDebateArgumentsByQuality(topic, side, "medium").map((item) => toDebateArgumentItem(item, side)),
-    1,
-    roundIndex,
-    usedIds
-  );
-  medium.forEach((item) => usedIds.add(item.id));
-
-  const other = pickDebateItems(
-    getDebateOtherArguments(topic, side).map((item) => toDebateArgumentItem(item, side)),
-    1,
-    roundIndex,
-    usedIds
-  );
-  other.forEach((item) => usedIds.add(item.id));
-
-  const connections = pickDebateItems(
-    (topic.connections || []).map((connection, index) => toDebateConnectionItem(connection, topic, index)),
-    2,
-    roundIndex,
-    usedIds
-  );
-
-  return shuffle([...strong, ...medium, ...other, ...connections]).slice(0, 6);
-}
-
-function ensureDebateRoundState(experience = state.experience) {
-  if (!experience || experience.type !== "buildcase") {
-    return null;
-  }
-
-  const topic = getCurrentDebateTopic(experience);
-  if (!topic) {
-    return null;
-  }
-
-  const roundIndex = Math.min(Math.max(Number(experience.debateRound) || 0, 0), 2);
-  experience.debateRound = roundIndex;
-  if (!Array.isArray(experience.debateRounds)) {
-    experience.debateRounds = [];
-  }
-
-  if (!experience.debateRounds[roundIndex]) {
-    experience.debateRounds[roundIndex] = {
-      index: roundIndex,
-      suggestions: buildDebateSuggestions(topic, experience.selectedSide || "pro", roundIndex, experience),
-      userSelections: [],
-      npcSelections: [],
-      revealedNpcCount: 0,
-      submitted: false,
-      complete: false
-    };
-  }
-
-  return experience.debateRounds[roundIndex];
-}
-
-function getCurrentDebateSuggestions(experience = state.experience) {
-  const round = ensureDebateRoundState(experience);
-  return round ? round.suggestions || [] : [];
-}
-
-function getDebateRoundSpeakerLabel(roundIndex) {
-  return ["First debater", "Second debater", "Third debater"][roundIndex] || `Debater ${roundIndex + 1}`;
-}
-
-function isDebateUserTurnOpen(round, experience) {
-  if (!round || !experience || round.submitted || experience.finished) {
-    return false;
-  }
-
-  if (experience.selectedSide === "con") {
-    return Boolean(round.npcOpeningComplete);
-  }
-
-  return true;
-}
-
-function getDebateItemById(experience, itemId) {
-  return (experience.debateRounds || [])
-    .flatMap((round) => [...(round.suggestions || []), ...(round.npcItems || [])])
-    .find((item) => item.id === itemId) || null;
+function resetDebateSpinForCurrentTopic() {
+  return buildCaseController.resetSpinForCurrentTopic();
 }
 
 function toggleDebateSuggestion(itemId) {
-  const experience = state.experience;
-  const round = ensureDebateRoundState(experience);
-  if (!experience || !round || !isDebateUserTurnOpen(round, experience)) {
-    return;
-  }
-
-  const selected = new Set(round.userSelections || []);
-  if (selected.has(itemId)) {
-    selected.delete(itemId);
-  } else if (selected.size < 3) {
-    selected.add(itemId);
-  }
-
-  round.userSelections = Array.from(selected);
-  renderExperiencePreservingScroll();
-}
-
-function getNpcQualityTarget(item) {
-  if (!item) {
-    return "strong";
-  }
-
-  if (item.kind === "connection") {
-    return "strong";
-  }
-
-  if (item.qualityKey === "strong") {
-    return "strong";
-  }
-
-  if (item.qualityKey === "medium") {
-    return "strong";
-  }
-
-  return "medium";
-}
-
-function buildNpcDebateSelections(topic, npcSide, userItems, experience) {
-  const usedIds = new Set((experience.debateRounds || []).flatMap((round) => round.npcSelections || []));
-  const selected = [];
-  const fallbackOrder = ["strong", "medium", "other"];
-
-  userItems.forEach((userItem) => {
-    const target = getNpcQualityTarget(userItem);
-    const candidateGroups = target === "other"
-      ? ["other", ...fallbackOrder]
-      : [target, ...fallbackOrder.filter((key) => key !== target)];
-
-    for (const group of candidateGroups) {
-      const rawItems = group === "other"
-        ? getDebateOtherArguments(topic, npcSide)
-        : getDebateArgumentsByQuality(topic, npcSide, group);
-      const candidate = rawItems
-        .map((item) => toDebateArgumentItem(item, npcSide))
-        .find((item) => !usedIds.has(item.id) && !selected.some((selectedItem) => selectedItem.id === item.id));
-      if (candidate) {
-        selected.push(candidate);
-        usedIds.add(candidate.id);
-        break;
-      }
-    }
-  });
-
-  if (!selected.length) {
-    selected.push(...pickDebateItems(
-      getDebateArgumentsByQuality(topic, npcSide, "strong").map((item) => toDebateArgumentItem(item, npcSide)),
-      1,
-      Number(experience.debateRound) || 0,
-      usedIds
-    ));
-  }
-
-  return selected.slice(0, Math.max(1, userItems.length));
-}
-
-function buildNpcOpeningDebateSelections(topic, npcSide, experience) {
-  const usedIds = new Set((experience.debateRounds || []).flatMap((round) => round.npcSelections || []));
-  const roundIndex = Number(experience.debateRound) || 0;
-  const strong = pickDebateItems(
-    getDebateArgumentsByQuality(topic, npcSide, "strong").map((item) => toDebateArgumentItem(item, npcSide)),
-    2,
-    roundIndex,
-    usedIds
-  );
-  strong.forEach((item) => usedIds.add(item.id));
-  const medium = pickDebateItems(
-    getDebateArgumentsByQuality(topic, npcSide, "medium").map((item) => toDebateArgumentItem(item, npcSide)),
-    1,
-    roundIndex,
-    usedIds
-  );
-  const selected = [...strong, ...medium];
-  if (selected.length < 3) {
-    selected.push(...pickDebateItems(
-      getDebateOtherArguments(topic, npcSide).map((item) => toDebateArgumentItem(item, npcSide)),
-      3 - selected.length,
-      roundIndex,
-      usedIds
-    ));
-  }
-  return selected.slice(0, 3);
-}
-
-function beginDebateNpcOpeningIfNeeded(experience = state.experience) {
-  const round = ensureDebateRoundState(experience);
-  const topic = getCurrentDebateTopic(experience);
-  if (!experience || !round || !topic || experience.selectedSide !== "con" || round.npcOpeningStarted) {
-    return;
-  }
-
-  const npcSide = "pro";
-  const npcItems = buildNpcOpeningDebateSelections(topic, npcSide, experience);
-  round.npcItems = npcItems;
-  round.npcSelections = npcItems.map((item) => item.id);
-  round.revealedNpcCount = 0;
-  round.npcOpeningStarted = true;
-  round.npcOpeningComplete = false;
-  round.complete = false;
-  scheduleNextNpcReveal();
-}
-
-function scheduleNextNpcReveal() {
-  clearDebateRevealTimer();
-  const experience = state.experience;
-  const round = ensureDebateRoundState(experience);
-  if (!experience || !round || round.complete || !(round.npcSelections || []).length) {
-    return;
-  }
-
-  if (round.revealedNpcCount >= (round.npcSelections || []).length) {
-    if (experience.selectedSide === "con" && !round.submitted) {
-      round.npcOpeningComplete = true;
-    } else {
-      round.complete = true;
-      if (experience.debateRound >= 2) {
-        finalizeDebateConversation();
-      }
-    }
-    renderExperiencePreservingScroll();
-    return;
-  }
-
-  debateRevealTimerId = window.setTimeout(() => {
-    const current = state.experience;
-    const currentRound = ensureDebateRoundState(current);
-    if (!current || !currentRound || current.phase !== "debate" || currentRound.complete) {
-      return;
-    }
-
-    currentRound.revealedNpcCount += 1;
-    debateRevealTimerId = null;
-    renderExperiencePreservingScroll();
-    scheduleNextNpcReveal();
-  }, 2000);
+  return buildCaseController.toggleSuggestion(itemId);
 }
 
 function submitDebateRound() {
-  const experience = state.experience;
-  const round = ensureDebateRoundState(experience);
-  const topic = getCurrentDebateTopic(experience);
-  if (
-    !experience ||
-    !round ||
-    !topic ||
-    !isDebateUserTurnOpen(round, experience) ||
-    !(round.userSelections || []).length
-  ) {
-    return;
-  }
-
-  const userItems = (round.userSelections || [])
-    .map((id) => (round.suggestions || []).find((item) => item.id === id))
-    .filter(Boolean);
-  round.userItems = userItems;
-  round.submitted = true;
-
-  if (experience.selectedSide === "con") {
-    round.complete = true;
-    if (experience.debateRound >= 2) {
-      finalizeDebateConversation();
-    }
-    renderExperiencePreservingScroll();
-    return;
-  }
-
-  const npcSide = "con";
-  const npcItems = buildNpcDebateSelections(topic, npcSide, userItems, experience);
-  round.npcItems = npcItems;
-  round.npcSelections = npcItems.map((item) => item.id);
-  round.revealedNpcCount = 0;
-  round.complete = false;
-  renderExperiencePreservingScroll();
-  scheduleNextNpcReveal();
+  return buildCaseController.submitRound();
 }
 
 function advanceDebateRound() {
-  const experience = state.experience;
-  const round = ensureDebateRoundState(experience);
-  if (!experience || !round || !round.complete) {
-    return;
-  }
-
-  if (experience.debateRound >= 2) {
-    finalizeDebateConversation();
-  } else {
-    experience.debateRound += 1;
-    ensureDebateRoundState(experience);
-    beginDebateNpcOpeningIfNeeded(experience);
-  }
-  renderExperiencePreservingScroll();
-}
-
-function getDebateRoundScore(items = []) {
-  return items.reduce((sum, item) => sum + getDebateItemQualityScore(item), 0);
-}
-
-function getDebateChoiceJustification(item) {
-  if (!item) {
-    return "";
-  }
-
-  if (item.kind === "connection") {
-    return "Useful evidence hook, but it still needs a claim attached.";
-  }
-
-  if (item.qualityKey === "strong") {
-    return "Clear clash and mechanism for the judge.";
-  }
-
-  if (item.qualityKey === "medium") {
-    return "Useful starter, though it needs sharper weighing.";
-  }
-
-  return "Creative idea, but easier for the other side to attack.";
-}
-
-function getDebateDisplayTitle(item) {
-  const rawTitle = String(item?.title || "");
-  const badGoodMatch = rawTitle.match(/^Bad-good\s+(?:PRO|CON):\s*[“"]([^”"]+)[”"]\s*Why weak:\s*(.+)$/i);
-  if (badGoodMatch) {
-    return badGoodMatch[1];
-  }
-
-  return rawTitle.replace(/^Bad-good\s+(?:PRO|CON):\s*/i, "");
-}
-
-function getDebateDisplayBody(item) {
-  if (!item) {
-    return "";
-  }
-
-  if (String(item.qualityKey || "").startsWith("bad-good")) {
-    return "Turn this into a sharper claim with evidence and weighing.";
-  }
-
-  return item.body || "";
-}
-
-function finalizeDebateConversation() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase") {
-    return;
-  }
-
-  clearDebateRevealTimer();
-  const rounds = (experience.debateRounds || []).filter((round) => round?.submitted);
-  const userScore = rounds.reduce((sum, round) => sum + getDebateRoundScore(round.userItems || []), 0);
-  const npcScore = rounds.reduce((sum, round) => sum + getDebateRoundScore(round.npcItems || []), 0);
-  const winner = userScore > npcScore ? "user" : "npg";
-  const userSide = getDebateSideLabel(experience.selectedSide);
-  const npcSide = getDebateSideLabel(getOpposingDebateSide(experience.selectedSide));
-  const selectedWeakRows = rounds.flatMap((round) => round.userItems || []).filter((item) => getDebateItemQualityScore(item) < 3);
-
-  experience.winner = winner;
-  experience.feedback = {
-    userScore,
-    npcScore,
-    winnerLabel: winner === "user" ? `${userSide} wins` : `NPG (${npcSide}) wins`,
-    why: winner === "user"
-      ? "Your side won because the selected arguments were stronger overall and created clearer judge-visible clash."
-      : userScore === npcScore
-        ? "It was tied on choice quality, so the win goes to NPG by rule."
-        : "NPG won because it matched the levels you chose and upgraded where stronger workbook rows were available.",
-    better: selectedWeakRows.length
-      ? "It would have been better to replace the easier-to-attack rows with stronger mechanism or weighing rows."
-      : "No major choice problem: the next improvement is tighter weighing between impacts."
-  };
-  experience.finished = true;
-}
-
-function renderBuildCaseCampOption(campId, title, assetPath, active) {
-  return `
-    <button
-      class="setup-option-button ${active ? "active" : ""}"
-      type="button"
-      data-buildcase-camp="${campId}"
-    >
-      ${renderAssetImage(
-        assetPath,
-        `${title} camp alpaca`,
-        "setup-option-mascot",
-        "setup-option-mascot-image"
-      )}
-      <span>${escapeHtml(title)}</span>
-    </button>
-  `;
-}
-
-function renderBuildCaseSupportOption(option, index, selected) {
-  return `
-    <button
-      class="option-button ${selected ? "active" : ""}"
-      type="button"
-      data-buildcase-support="${index}"
-    >
-      <span class="option-token text">${selected ? "✓" : "•"}</span>
-      <span>${escapeHtml(option.text)}</span>
-    </button>
-  `;
-}
-
-function renderBuildCaseRebuttalOption(option, index) {
-  return `
-    <button class="option-button" type="button" data-buildcase-rebuttal="${index}">
-      ${renderOptionToken(index)}
-      <span>${escapeHtml(option.text)}</span>
-    </button>
-  `;
+  return buildCaseController.advanceRound();
 }
 
 function shortenTrainText(value, maxLength = 260) {
@@ -11526,741 +6057,32 @@ function renderBowlExperience() {
   `;
 }
 
-function getDebateSideLabel(side) {
-  return side === "con" ? "CON" : "PRO";
-}
-
-function getOpposingDebateSide(side) {
-  return side === "con" ? "pro" : "con";
-}
-
-function getDebateTopicSectionLabel(topic) {
-  return sectionById[topic.sectionId]?.title || topic.primaryUnit || "Debate Lab";
-}
-
-function renderDebateList(items, className = "debate-mini-list") {
-  const values = (items || []).filter(Boolean);
-  if (!values.length) {
-    return `<p class="debate-muted">No workbook notes for this field.</p>`;
-  }
-
-  return `
-    <ul class="${escapeHtml(className)}">
-      ${values.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-    </ul>
-  `;
-}
-
-function renderDebateSourceLinks(topic) {
-  const urls = (topic.sourceUrls || []).filter(Boolean);
-  if (!urls.length) {
-    return `<p class="debate-muted">No source links listed for this motion.</p>`;
-  }
-
-  return `
-    <div class="debate-source-links">
-      ${urls.map((url, index) => `
-        <a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">
-          Source ${index + 1}
-        </a>
-      `).join("")}
-    </div>
-  `;
-}
-
-function renderDebateTopicCard(topic, experience) {
-  return `
-    <article class="debate-topic-card debate-topic-card-clean">
-      <header class="debate-topic-main">
-        <h2>${escapeHtml(topic.motion)}</h2>
-        <button class="button secondary" type="button" data-buildcase-next-topic ${experience.topicOrder.length <= 1 ? "disabled" : ""}>Change topic</button>
-      </header>
-      <div class="debate-topic-spin-zone">
-        ${renderDebateSlotMachine(experience)}
-      </div>
-    </article>
-  `;
-}
-
-function renderDebateSlotMachine(experience) {
-  const status = experience.spinStatus || "idle";
-  const isBusy = status === "stopping";
-  const buttonLabel = status === "spinning"
-    ? "Stop"
-    : status === "stopping"
-      ? "Slowing..."
-      : status === "stopped"
-        ? "Spin again"
-        : "Spin";
-  const sideSequence = Array.from({ length: 18 }, (_, index) => index % 2 === 0 ? "pro" : "con");
-
-  return `
-    <section class="debate-slot-card" aria-live="polite">
-      <div class="debate-slot-window">
-        <div
-          class="debate-slot-reel ${status === "spinning" ? "is-spinning" : ""} ${status === "stopping" ? "is-stopping" : ""} ${status === "stopped" ? "is-locked" : ""}"
-          style="--debate-slot-stop: ${Number(experience.spinTargetAngle || 12)}"
-        >
-          ${sideSequence.map((side) => `
-            <div class="debate-slot-tile ${escapeHtml(side)}">
-              ${renderAssetImage(getAssetValue(["debate", side]), `${getDebateSideLabel(side)} side`, "debate-slot-logo-slot", "debate-slot-logo")}
-              <strong>${escapeHtml(getDebateSideLabel(side))}</strong>
-            </div>
-          `).join("")}
-        </div>
-      </div>
-      <div class="debate-slot-controls">
-        <button
-          class="button ${status === "stopped" ? "secondary" : "primary"}"
-          type="button"
-          data-buildcase-spin-toggle
-          ${isBusy ? "disabled" : ""}
-        >
-          ${escapeHtml(buttonLabel)}
-        </button>
-        ${status === "stopped" && experience.selectedSide ? `
-          <button class="button primary" type="button" data-buildcase-lets-debate>Let's debate</button>
-        ` : ""}
-      </div>
-    </section>
-  `;
-}
-
-function renderDebateSideSpinner(topic, experience) {
-  const status = experience.spinStatus || "idle";
-  const rotorClass = status === "spinning"
-    ? "is-spinning"
-    : status === "stopping"
-      ? "is-stopping"
-      : "";
-  const buttonLabel = status === "spinning"
-    ? "Stop"
-    : status === "stopping"
-      ? "Slowing..."
-      : "Spin";
-  const buttonDisabled = status === "stopping" ? "disabled" : "";
-  const outcome = experience.spinOutcome;
-
-  return `
-    <article class="debate-spinner-card">
-      <div class="debate-spinner-copy">
-        <div class="question-meta">
-          <span class="meta-pill section">${escapeHtml(getDebateTopicSectionLabel(topic))}</span>
-          <span class="meta-pill subject">${escapeHtml(topic.difficulty || "Debate")}</span>
-        </div>
-        <p class="challenge-label">Side draw</p>
-        <h2>${escapeHtml(topic.motion)}</h2>
-        <p>Click once to spin. Click again to stop; the selector slows down and lands on PRO or CON.</p>
-      </div>
-
-      <div class="debate-orbit-shell" aria-live="polite">
-        <div class="debate-orbit-marker">
-          <span></span>
-          <strong>YOUR SIDE</strong>
-        </div>
-        <div
-          class="debate-side-rotor ${rotorClass}"
-          style="--debate-spin-target-angle: ${Number(experience.spinTargetAngle || 0)}deg"
-        >
-          <span class="debate-side-line" aria-hidden="true"></span>
-          <span class="debate-side-node debate-side-node-pro">
-            ${renderAssetImage(getAssetValue(["debate", "pro"]), "PRO side", "debate-side-icon-slot", "debate-side-icon")}
-            <strong>PRO</strong>
-          </span>
-          <span class="debate-side-node debate-side-node-con">
-            ${renderAssetImage(getAssetValue(["debate", "con"]), "CON side", "debate-side-icon-slot", "debate-side-icon")}
-            <strong>CON</strong>
-          </span>
-        </div>
-        <div class="debate-orbit-core">
-          <span>${status === "idle" ? "Ready" : status === "spinning" ? "Spinning" : status === "stopping" ? "Stopping" : "Locked"}</span>
-          <strong>${outcome ? getDebateSideLabel(outcome) : "?"}</strong>
-        </div>
-      </div>
-
-      <div class="panel-actions debate-spinner-actions">
-        <button class="button secondary" type="button" data-buildcase-back-topic>Back to topic</button>
-        <button class="button primary" type="button" data-buildcase-spin-toggle ${buttonDisabled}>${escapeHtml(buttonLabel)}</button>
-      </div>
-    </article>
-  `;
-}
-
-function renderDebateClashCard(topic, side) {
-  const clash = topic.clashCard || {};
-  const opponent = getOpposingDebateSide(side);
-  const sidePath = side === "con" ? clash.strongestConPath : clash.strongestProPath;
-  const opponentPath = opponent === "con" ? clash.strongestConPath : clash.strongestProPath;
-  const sideMustProve = side === "con" ? clash.conMustProve : clash.proMustProve;
-  const opponentMustProve = opponent === "con" ? clash.conMustProve : clash.proMustProve;
-
-  return `
-    <section class="debate-clash-card">
-      <div>
-        <h3>${escapeHtml(getDebateSideLabel(side))} must prove</h3>
-        <p>${escapeHtml(sideMustProve || "Define the motion, prove the mechanism, and weigh why this side wins.")}</p>
-      </div>
-      <div>
-        <h3>${escapeHtml(getDebateSideLabel(opponent))} must prove</h3>
-        <p>${escapeHtml(opponentMustProve || "Attack the motion, show the trade-offs, and weigh why this side wins.")}</p>
-      </div>
-      <div>
-        <h3>Definitions to lock</h3>
-        <p>${escapeHtml(clash.definitionsToLock || "Lock the key terms, affected stakeholders, scope, and threshold.")}</p>
-      </div>
-      <div>
-        <h3>Your strongest path</h3>
-        ${renderDebateList(sidePath)}
-      </div>
-      <div>
-        <h3>Opponent path to expect</h3>
-        ${renderDebateList(opponentPath)}
-      </div>
-    </section>
-  `;
-}
-
-function getDebateArgumentGroups(argumentsForSide) {
-  const groups = [
-    { key: "strong", title: "Strong arguments" },
-    { key: "medium", title: "Medium starters" },
-    { key: "bad-good", title: "Bad-good traps" }
-  ];
-  const grouped = groups.map((group) => ({
-    ...group,
-    items: argumentsForSide.filter((item) => item.qualityKey === group.key)
-  }));
-  const known = new Set(groups.map((group) => group.key));
-  const otherItems = argumentsForSide.filter((item) => !known.has(item.qualityKey));
-  if (otherItems.length) {
-    grouped.push({ key: "other", title: "Other workbook rows", items: otherItems });
-  }
-  return grouped.filter((group) => group.items.length);
-}
-
-function renderDebateArgumentCard(argument) {
-  return `
-    <article class="debate-argument-card">
-      <header>
-        <span>${escapeHtml(argument.quality || "Argument")} ${escapeHtml(argument.number || "")}</span>
-        <strong>${escapeHtml(argument.suggestedSpeakerRole || "Any speaker")}</strong>
-      </header>
-      <p class="debate-argument-main">${escapeHtml(argument.argument)}</p>
-      <dl>
-        <div>
-          <dt>Use / warning</dt>
-          <dd>${escapeHtml(argument.useWarning || "Use this row as a prep note.")}</dd>
-        </div>
-        <div>
-          <dt>Opposing rebuttal</dt>
-          <dd>${escapeHtml(argument.opposingRebuttal || "No opposing rebuttal listed.")}</dd>
-        </div>
-        <div>
-          <dt>Same-side defense</dt>
-          <dd>${escapeHtml(argument.sameSideDefense || "No same-side defense listed.")}</dd>
-        </div>
-        <div>
-          <dt>Judge move</dt>
-          <dd>${escapeHtml(argument.judgeScoringMove || "Make the scoring move obvious.")}</dd>
-        </div>
-        <div>
-          <dt>Evidence hook</dt>
-          <dd>${escapeHtml(argument.evidenceHook || "No evidence hook listed.")}</dd>
-        </div>
-        <div>
-          <dt>Likely category</dt>
-          <dd>${escapeHtml(argument.likelyJudgeCategory || "Content / Strategy")}</dd>
-        </div>
-      </dl>
-    </article>
-  `;
-}
-
-function renderDebateArgumentDeck(topic, side, open = false) {
-  const argumentsForSide = topic.arguments?.[side] || [];
-  const groups = getDebateArgumentGroups(argumentsForSide);
-
-  return `
-    <details class="debate-argument-deck" ${open ? "open" : ""}>
-      <summary>
-        <span>${escapeHtml(getDebateSideLabel(side))} full argument deck</span>
-        <strong>${argumentsForSide.length} rows</strong>
-      </summary>
-      <div class="debate-argument-groups">
-        ${groups.map((group, index) => `
-          <details class="debate-argument-group" ${index === 0 ? "open" : ""}>
-            <summary>
-              <span>${escapeHtml(group.title)}</span>
-              <strong>${group.items.length}</strong>
-            </summary>
-            <div class="debate-argument-grid">
-              ${group.items.map(renderDebateArgumentCard).join("")}
-            </div>
-          </details>
-        `).join("")}
-      </div>
-    </details>
-  `;
-}
-
-function renderDebateConnections(topic) {
-  const connections = topic.connections || [];
-  if (!connections.length) {
-    return `<p class="debate-muted">No connection rows loaded for this motion.</p>`;
-  }
-
-  return `
-    <details class="debate-connection-deck">
-      <summary>
-        <span>Workbook connections</span>
-        <strong>${connections.length}</strong>
-      </summary>
-      <div class="debate-connection-list">
-        ${connections.map((connection) => `
-          <article>
-            <span>${escapeHtml(connection.type || "Connection")} | ${escapeHtml(connection.unitCategory || "")}</span>
-            <strong>${escapeHtml(connection.entryOrAnchor || "Anchor")}</strong>
-            <p>${escapeHtml(connection.whyItConnects || "")}</p>
-            ${connection.source ? `<small>${escapeHtml(connection.source)}</small>` : ""}
-          </article>
-        `).join("")}
-      </div>
-    </details>
-  `;
-}
-
-function renderDebateJudgePrep() {
-  const rows = (Array.isArray(debateLabData.judgePrep) ? debateLabData.judgePrep : []).filter((row) => (
-    row.Section ||
-    row["Official guide idea"] ||
-    row["What alpacas should do"] ||
-    row["Where this workbook helps"]
-  ));
-  return `
-    <details class="debate-judge-prep" open>
-      <summary>
-        <span>Judge-aligned prep</span>
-        <strong>${rows.length} notes</strong>
-      </summary>
-      <div class="debate-judge-prep-list">
-        ${rows.map((row) => `
-          <article>
-            <strong>${escapeHtml(row.Section || "Judge note")}</strong>
-            ${row["Official guide idea"] ? `<p>${escapeHtml(row["Official guide idea"])}</p>` : ""}
-            ${row["What alpacas should do"] ? `<p>${escapeHtml(row["What alpacas should do"])}</p>` : ""}
-            ${row["Where this workbook helps"] ? `<small>${escapeHtml(row["Where this workbook helps"])}</small>` : ""}
-          </article>
-        `).join("")}
-      </div>
-    </details>
-  `;
-}
-
-function renderDebateSpeakerJobs(topic) {
-  const clash = topic.clashCard || {};
-  const jobs = [clash.speaker1Job, clash.speaker2Job, clash.speaker3Job].filter(Boolean);
-  return `
-    <section class="debate-speaker-jobs">
-      <h3>Speaker route</h3>
-      ${jobs.length ? jobs.map((job, index) => `
-        <article>
-          <span>Speaker ${index + 1}</span>
-          <p>${escapeHtml(job)}</p>
-        </article>
-      `).join("") : `<p class="debate-muted">No speaker jobs listed for this motion.</p>`}
-    </section>
-  `;
-}
-
-function renderDebateCase(topic, experience) {
-  experience.phase = "debate";
-  ensureDebateRoundState(experience);
-  return renderWhatspwaapDebatePage(topic, experience);
-}
-
-function renderDebateSuggestionCard(item, round, disabled = false) {
-  const selected = (round.userSelections || []).includes(item.id);
-  const isDisabled = Boolean(disabled);
-
-  return `
-    <button
-      class="debate-suggestion-card ${selected ? "selected" : ""}"
-      type="button"
-      data-debate-suggestion="${escapeHtml(item.id)}"
-      aria-pressed="${selected ? "true" : "false"}"
-      ${isDisabled ? "disabled" : ""}
-    >
-      <strong>${escapeHtml(getDebateDisplayTitle(item))}</strong>
-      ${getDebateDisplayBody(item) ? `<p>${escapeHtml(shortenTrainText(getDebateDisplayBody(item), 170))}</p>` : ""}
-    </button>
-  `;
-}
-
-function renderDebateSuggestionPanel(topic, experience) {
-  const round = ensureDebateRoundState(experience);
-  if (!round) {
-    return "";
-  }
-
-  const selectedCount = (round.userSelections || []).length;
-  const sideLabel = getDebateSideLabel(experience.selectedSide);
-  const isFinal = Number(experience.debateRound) >= 2;
-  const isUserTurnOpen = isDebateUserTurnOpen(round, experience);
-
-  return `
-    <section class="whatspwaap-suggestions">
-      <header>
-        <p class="challenge-label">${escapeHtml(sideLabel)} suggestions</p>
-        <h3>${escapeHtml(getDebateRoundSpeakerLabel(Number(experience.debateRound) || 0))}</h3>
-      </header>
-      <div class="debate-suggestion-grid">
-        ${(round.suggestions || []).map((item) => renderDebateSuggestionCard(item, round, !isUserTurnOpen)).join("")}
-      </div>
-      <div class="panel-actions whatspwaap-actions">
-        ${!round.submitted ? `
-          <button class="button primary" type="button" data-debate-submit-round ${selectedCount && isUserTurnOpen ? "" : "disabled"}>Validate</button>
-        ` : round.complete ? `
-          <button class="button primary" type="button" data-debate-next-round>${isFinal ? "See winner" : "Next exchange"}</button>
-        ` : ""}
-      </div>
-    </section>
-  `;
-}
-
-function renderWhatspwaapBubble(item, side, owner, delayIndex = 0) {
-  return `
-    <article class="whatspwaap-bubble ${owner}" style="--bubble-delay: ${delayIndex * 90}ms">
-      <span>${escapeHtml(owner === "user" ? `You | ${getDebateSideLabel(side)}` : `NPG | ${getDebateSideLabel(side)}`)}</span>
-      <strong>${escapeHtml(getDebateDisplayTitle(item))}</strong>
-      <p>${escapeHtml(getDebateChoiceJustification(item))}</p>
-    </article>
-  `;
-}
-
-function renderWhatspwaapMessages(experience) {
-  const userSide = experience.selectedSide || "pro";
-  const npcSide = getOpposingDebateSide(userSide);
-  const rounds = (experience.debateRounds || []).slice(0, Number(experience.debateRound) + 1);
-  const messages = [];
-
-  rounds.forEach((round, roundIndex) => {
-    if (!round) {
-      return;
-    }
-
-    const proItems = userSide === "pro"
-      ? round.submitted ? round.userItems || [] : []
-      : (round.npcItems || []).slice(0, round.revealedNpcCount || 0);
-    const conItems = userSide === "con"
-      ? round.submitted ? round.userItems || [] : []
-      : (round.npcItems || []).slice(0, round.revealedNpcCount || 0);
-
-    if (!proItems.length && !conItems.length) {
-      return;
-    }
-
-    messages.push(`
-      <div class="whatspwaap-round-label">${escapeHtml(getDebateRoundSpeakerLabel(roundIndex))}</div>
-    `);
-
-    proItems.forEach((item, itemIndex) => {
-      messages.push(renderWhatspwaapBubble(item, "pro", userSide === "pro" ? "user" : "npg", itemIndex));
-    });
-
-    conItems.forEach((item, itemIndex) => {
-      messages.push(renderWhatspwaapBubble(item, "con", userSide === "con" ? "user" : "npg", itemIndex));
-    });
-  });
-
-  return messages.join("");
-}
-
-function renderDebateFeedbackList(title, items) {
-  if (!items.length) {
-    return "";
-  }
-
-  return `
-    <section>
-      <h4>${escapeHtml(title)}</h4>
-      ${items.map((item, index) => `
-        <p><strong>${index + 1}. ${escapeHtml(shortenTrainText(getDebateDisplayTitle(item), 86))}</strong> ${escapeHtml(getDebateChoiceJustification(item))}</p>
-      `).join("")}
-    </section>
-  `;
-}
-
-function renderDebateResultCard(experience) {
-  const feedback = experience.feedback;
-  if (!feedback) {
-    return "";
-  }
-
-  const userItems = (experience.debateRounds || []).flatMap((round) => round?.userItems || []);
-  const npcItems = (experience.debateRounds || []).flatMap((round) => round?.npcItems || []);
-
-  return `
-    <section class="whatspwaap-result">
-      <p class="challenge-label">Result</p>
-      <h3>${escapeHtml(feedback.winnerLabel)}</h3>
-      <p>${escapeHtml(feedback.why)}</p>
-      <p>${escapeHtml(feedback.better)}</p>
-      <div class="whatspwaap-feedback-grid">
-        ${renderDebateFeedbackList("Your choices", userItems)}
-        ${renderDebateFeedbackList("NPG choices", npcItems)}
-      </div>
-    </section>
-  `;
-}
-
-function getDebateNpcChoosingSide(experience = state.experience) {
-  const round = ensureDebateRoundState(experience);
-  if (!experience || !round || experience.finished) {
-    return null;
-  }
-
-  if (experience.selectedSide === "con" && round.npcOpeningStarted && !round.npcOpeningComplete) {
-    return "pro";
-  }
-
-  if (experience.selectedSide === "pro" && round.submitted && !round.complete) {
-    return "con";
-  }
-
-  return null;
-}
-
-function renderWhatspwaapStatus(experience) {
-  const choosingSide = getDebateNpcChoosingSide(experience);
-  if (!choosingSide) {
-    return `<footer class="whatspwaap-status empty" aria-hidden="true"></footer>`;
-  }
-
-  return `
-    <footer class="whatspwaap-status" aria-live="polite">
-      ${renderAssetImage(
-        getAssetValue(["debate", choosingSide]),
-        `${getDebateSideLabel(choosingSide)} side`,
-        "whatspwaap-status-logo-slot",
-        "whatspwaap-status-logo"
-      )}
-      <span>NPG is choosing...</span>
-    </footer>
-  `;
-}
-
-function renderWhatspwaapPanel(topic, experience) {
-  return `
-    <aside class="whatspwaap-chat" aria-live="polite">
-      <header>
-        <div>
-          <strong>WhatsPwaap</strong>
-          <p>${escapeHtml(topic.motion)}</p>
-        </div>
-      </header>
-      <div class="whatspwaap-messages">
-        ${renderWhatspwaapMessages(experience)}
-      </div>
-      ${renderWhatspwaapStatus(experience)}
-    </aside>
-  `;
-}
-
-function renderWhatspwaapDebatePage(topic, experience) {
-  return `
-    ${renderPanelTitle(
-      "Debate Lab",
-      null,
-      "",
-      { showSectionSpans: false }
-    )}
-    <div class="mode-shell whatspwaap-shell">
-      <header class="whatspwaap-page-title">
-        <div class="whatspwaap-motion-line">
-          <h2>${escapeHtml(topic.motion)}</h2>
-          <div class="debate-side-inline ${escapeHtml(experience.selectedSide)}">
-            ${renderAssetImage(
-              getAssetValue(["debate", experience.selectedSide]),
-              `${getDebateSideLabel(experience.selectedSide)} side`,
-              "debate-side-inline-slot",
-              "debate-side-inline-icon"
-            )}
-            <strong>${escapeHtml(getDebateSideLabel(experience.selectedSide))}</strong>
-          </div>
-        </div>
-      </header>
-      <section class="whatspwaap-layout">
-        ${experience.finished ? renderDebateResultCard(experience) : renderDebateSuggestionPanel(topic, experience)}
-        ${renderWhatspwaapPanel(topic, experience)}
-      </section>
-      <div class="panel-actions debate-case-actions">
-        <button class="button secondary" type="button" data-buildcase-back-topic>Back to topics</button>
-        <button class="button secondary" type="button" data-buildcase-spin-again>Spin again</button>
-        <button class="button primary" type="button" data-buildcase-next-topic ${experience.topicOrder.length <= 1 ? "disabled" : ""}>Change topic</button>
-      </div>
-    </div>
-  `;
-}
-
 function renderBuildCaseExperience() {
-  const experience = state.experience;
-
-  if (experience.unavailableReason) {
-    return `
-      ${renderPanelTitle("Debate Lab", "Pick a motion, draw a side, and prep with judge-ready arguments.", "", { showSectionSpans: false })}
-      <div class="mode-shell">
-        <article class="setup-card">
-          <div class="setup-card-header">
-            ${renderAssetImage(
-              getAssetValue(["debate", "lab"]),
-              "Debate Lab unavailable alpaca",
-              "mascot-slot mascot-slot-medium",
-              "mascot-asset mascot-asset-medium"
-            )}
-            <div>
-              <p class="challenge-label">Debate Lab</p>
-              <h3>${escapeHtml(experience.unavailableReason)}</h3>
-            </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
-
-  const topic = getCurrentDebateTopic(experience);
-  if (!topic) {
-    return "";
-  }
-
-  if (experience.phase === "debate" || experience.phase === "case") {
-    experience.phase = "debate";
-    ensureDebateRoundState(experience);
-    return renderWhatspwaapDebatePage(topic, experience);
-  }
-
-  return `
-    ${renderPanelTitle(
-      "Debate Lab",
-      "Random WSC motions with workbook arguments, rebuttals, and judge-style scoring.",
-      `Motion ${experience.index + 1} of ${experience.topicOrder.length}`,
-      { showSectionSpans: false }
-    )}
-    <div class="mode-shell debate-lab-shell">
-      ${renderGameQuestionPopup(renderDebateTopicCard(topic, experience), "buildcase debate-lab")}
-    </div>
-  `;
+  return buildCaseController.renderExperience();
 }
 
 function startBuildCaseRoute() {
-  openDebateSideSpinner();
+  return buildCaseController.startRoute();
 }
 
 function chooseBuildCaseCamp(camp) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase") {
-    return;
-  }
-
-  if (!["pro", "con"].includes(camp)) {
-    return;
-  }
-
-  experience.selectedSide = camp;
-  experience.spinOutcome = camp;
-  experience.spinStatus = "stopped";
-  experience.phase = "debate";
-  ensureDebateRoundState(experience);
-  beginDebateNpcOpeningIfNeeded(experience);
-  renderExperience();
+  return buildCaseController.chooseCamp(camp);
 }
 
 function toggleBuildCaseSupport(index) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || experience.phase !== "support") {
-    return;
-  }
-
-  const selected = new Set(experience.selectedSupports);
-  if (selected.has(index)) {
-    selected.delete(index);
-  } else if (selected.size < 2) {
-    selected.add(index);
-  }
-
-  experience.selectedSupports = Array.from(selected).sort((left, right) => left - right);
-  renderExperience();
+  return buildCaseController.toggleSupport(index);
 }
 
 function confirmBuildCaseSupports() {
-  const experience = state.experience;
-  if (
-    !experience ||
-    experience.type !== "buildcase" ||
-    experience.phase !== "support" ||
-    experience.selectedSupports.length !== 2
-  ) {
-    return;
-  }
-
-  const round = getBuildCaseRound(experience);
-  const options = experience.selectedCamp === "con" ? round.conSupports : round.proSupports;
-  experience.supportHits = experience.selectedSupports.reduce((sum, index) => sum + (options[index] && options[index].correct ? 1 : 0), 0);
-  experience.phase = "rebuttal";
-  renderExperience();
+  return buildCaseController.confirmSupports();
 }
 
 function chooseBuildCaseRebuttal(index) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || experience.phase !== "rebuttal") {
-    return;
-  }
-
-  const round = getBuildCaseRound(experience);
-  const options = experience.selectedCamp === "con" ? round.conRebuttals : round.proRebuttals;
-  const selected = options[index];
-  if (!selected) {
-    return;
-  }
-
-  experience.selectedRebuttal = index;
-  experience.rebuttalCorrect = Boolean(selected.correct);
-  const supportScore = experience.supportHits * 25 + (experience.supportHits === 2 ? 10 : 0);
-  const rebuttalScore = experience.rebuttalCorrect ? 40 : 0;
-  experience.roundScore = supportScore + rebuttalScore;
-  experience.score += experience.roundScore;
-  experience.bestRound = Math.max(experience.bestRound, experience.roundScore);
-  experience.answers.push({
-    questionId: round.id,
-    sectionId: round.sectionId,
-    subjectIds: getBroadSubjectIdsFromLabels(round.subjectLabels || []),
-    bigIdeaIds: getBigIdeaIdsFromLabels(round.entry?.bigIdeas || []),
-    isCorrect: experience.roundScore >= 60
-  });
-  experience.phase = "feedback";
-  renderExperience();
+  return buildCaseController.chooseRebuttal(index);
 }
 
 function advanceBuildCaseRound() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "buildcase" || experience.phase !== "feedback") {
-    return;
-  }
-
-  if (experience.index === experience.rounds.length - 1) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers));
-  } else {
-    experience.index += 1;
-    experience.phase = "camp";
-    experience.selectedCamp = null;
-    experience.selectedSupports = [];
-    experience.selectedRebuttal = null;
-    experience.supportHits = 0;
-    experience.rebuttalCorrect = false;
-    experience.roundScore = 0;
-  }
-
-  renderExperience();
+  return buildCaseController.advanceLegacyRound();
 }
 
 function buildQuizExperience() {
@@ -12393,132 +6215,36 @@ function renderQuizQuestionFeedback(question, selectedIndex, isCorrect) {
   return alpaquizRenderer.renderQuestionFeedback(question, selectedIndex, isCorrect, getAlpaquizRenderHelpers());
 }
 
-function toggleQuizSection(sectionId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started) {
-    return;
-  }
-
-  const current = new Set(experience.selectedSectionIds);
-  if (current.has(sectionId)) {
-    current.delete(sectionId);
-  } else {
-    current.add(sectionId);
-  }
-  experience.selectedSectionIds = data.sections
-    .map((section) => section.id)
-    .filter((id) => current.has(id));
-  experience.unavailableReason = null;
-  renderExperience();
+function toggleQuizSection(...args) {
+  return studyGameController.toggleQuizSection(...args);
 }
 
-function selectAllQuizSections() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started) {
-    return;
-  }
-
-  experience.selectedSectionIds = data.sections.map((section) => section.id);
-  experience.unavailableReason = null;
-  renderExperience();
+function selectAllQuizSections(...args) {
+  return studyGameController.selectAllQuizSections(...args);
 }
 
-function toggleQuizDifficulty(level) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started || ![1, 2, 3, 4, 5].includes(level)) {
-    return;
-  }
-
-  experience.selectedDifficulties = alpaquizEngine.toggleDifficulty(experience.selectedDifficulties, level);
-  experience.unavailableReason = null;
-  renderExperience();
+function toggleQuizDifficulty(...args) {
+  return studyGameController.toggleQuizDifficulty(...args);
 }
 
-function setQuizQuestionCount(count) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started || ![10, 15, 20].includes(count)) {
-    return;
-  }
-
-  experience.setupQuestionCount = alpaquizEngine.setQuestionCount(experience.setupQuestionCount, count);
-  renderExperience();
+function setQuizQuestionCount(...args) {
+  return studyGameController.setQuizQuestionCount(...args);
 }
 
-function startQuizRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.started) {
-    return;
-  }
-
-  if (experience.selectedSectionIds.length < GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  if (!normalizeQuizDifficultySelection(experience.selectedDifficulties).length) {
-    experience.unavailableReason = "Choose at least one difficulty.";
-    renderExperience();
-    return;
-  }
-
-  const plan = buildQuizQuestionPlan(
-    experience.selectedSectionIds,
-    experience.setupQuestionCount,
-    experience.selectedDifficulties
-  );
-  if (plan.unavailableReason || plan.questions.length !== experience.setupQuestionCount) {
-    experience.unavailableReason = plan.unavailableReason || getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-
-  experience.questions = plan.questions;
-  experience.selectedAnswers = {};
-  experience.answers = [];
-  experience.score = 0;
-  experience.started = true;
-  experience.submitted = false;
-  renderExperience();
+function startQuizRoute(...args) {
+  return studyGameController.startQuizRoute(...args);
 }
 
-function answerQuizQuestion(questionIndex, optionIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.submitted || !experience.questions[questionIndex]) {
-    return;
-  }
-
-  experience.selectedAnswers = alpaquizEngine.answerQuestion(experience, questionIndex, optionIndex);
-  renderExperiencePreservingScroll();
+function answerQuizQuestion(...args) {
+  return studyGameController.answerQuizQuestion(...args);
 }
 
-function submitQuizRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz" || experience.submitted) {
-    return;
-  }
-
-  if (Object.keys(experience.selectedAnswers).length !== experience.questions.length) {
-    return;
-  }
-
-  const result = alpaquizEngine.buildSubmittedAnswers(experience);
-  experience.answers = result.answers;
-  experience.score = result.score;
-  experience.submitted = true;
-  finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers), {
-    type: "quiz",
-    score: experience.score
-  });
-  renderExperience();
+function submitQuizRoute(...args) {
+  return studyGameController.submitQuizRoute(...args);
 }
 
-function resetQuizRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "quiz") {
-    return;
-  }
-
-  state.experience = buildQuizExperience();
-  renderExperience();
+function resetQuizRoute(...args) {
+  return studyGameController.resetQuizRoute(...args);
 }
 
 function renderRaceExperience() {
@@ -12678,104 +6404,24 @@ function renderTargetSetupSelector(experience, dataAttributeName, blockClass = "
   `;
 }
 
-function startRaceRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "race" || experience.started || experience.unavailableReason) {
-    return;
-  }
-
-  if (experience.setupCategoryIds.length < GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  const racePlan = buildRaceLevelQueues(getRawEntriesForRunSetupCategoryIds(experience.setupCategoryIds));
-  if (racePlan.unavailableReason || !racePlan.levels.length) {
-    experience.unavailableReason = racePlan.unavailableReason || getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-
-  experience.levels = racePlan.levels;
-  experience.availableQuestionCount = getRaceAvailableQuestionCount(experience.levels);
-  experience.totalQuestions = experience.availableQuestionCount;
-  const firstLevelIndex = experience.levels.findIndex((level) => level.questions.length);
-  experience.currentLevelIndex = firstLevelIndex === -1 ? 0 : firstLevelIndex;
-  experience.currentQuestion = getCurrentRaceQuestion(experience);
-  if (!experience.currentQuestion) {
-    experience.unavailableReason = getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-  experience.started = true;
-  renderExperience();
+function startRaceRoute(...args) {
+  return arcadeGameController.startRaceRoute(...args);
 }
 
-function getRaceAvailableQuestionCount(levels) {
-  return (levels || []).reduce((sum, level) => sum + level.questions.length, 0);
+function getRaceAvailableQuestionCount(...args) {
+  return arcadeGameController.getRaceAvailableQuestionCount(...args);
 }
 
-function toggleRaceSetupCategory(categoryId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "race" || experience.started) {
-    return;
-  }
-
-  if (!toggleSetupCategorySelection(experience, categoryId)) {
-    return;
-  }
-
-  renderExperience();
+function toggleRaceSetupCategory(...args) {
+  return arcadeGameController.toggleRaceSetupCategory(...args);
 }
 
-function answerRaceQuestion(optionIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "race" || experience.revealed || !experience.currentQuestion) {
-    return;
-  }
-
-  resolveRaceQuestion(optionIndex, false);
+function answerRaceQuestion(...args) {
+  return arcadeGameController.answerRaceQuestion(...args);
 }
 
-function resolveRaceQuestion(optionIndex, timedOut) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "race" || experience.revealed) {
-    return;
-  }
-
-  clearRaceTimer();
-
-  const question = experience.currentQuestion;
-  const isCorrect = !timedOut && optionIndex === question.answerIndex;
-  const levelState = getRaceActiveLevelState(experience);
-
-  experience.revealed = true;
-  experience.lastCorrect = isCorrect;
-  experience.lastTimedOut = timedOut;
-  experience.selectedIndex = Number.isInteger(optionIndex) ? optionIndex : null;
-
-  if (isCorrect) {
-    experience.score += 1;
-    experience.streak += 1;
-    experience.bestStreak = Math.max(experience.bestStreak, experience.streak);
-    levelState && levelState.pendingIds.delete(question.id);
-  } else {
-    if (timedOut) {
-      experience.timeouts += 1;
-    }
-    experience.lives = Math.max(0, experience.lives - 1);
-    experience.streak = 0;
-  }
-
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds,
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect,
-    timedOut
-  });
-
-  renderExperience();
+function resolveRaceQuestion(...args) {
+  return arcadeGameController.resolveRaceQuestion(...args);
 }
 
 function renderRaceQuestionPills(experience, currentLevel) {
@@ -12793,36 +6439,8 @@ function renderRaceQuestionPills(experience, currentLevel) {
   `;
 }
 
-function advanceRace() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "race") {
-    return;
-  }
-
-  if (experience.lives <= 0) {
-    experience.failed = true;
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, experience.bestStreak, {
-      type: "race",
-      score: experience.score
-    });
-  } else if (!queueNextRaceQuestion(experience)) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, experience.bestStreak, {
-      type: "race",
-      score: experience.score
-    });
-  } else {
-    experience.index += 1;
-    experience.revealed = false;
-    experience.lastCorrect = null;
-    experience.lastTimedOut = false;
-    experience.selectedIndex = null;
-    experience.questionTime = GAME_CONFIG.raceQuestionTime;
-    experience.timeRemaining = experience.questionTime;
-  }
-
-  render();
+function advanceRace(...args) {
+  return arcadeGameController.advanceRace(...args);
 }
 
 function renderJeopardyExperience() {
@@ -12879,81 +6497,31 @@ function getAlpacapardyRenderHelpers() {
 }
 
 function getAlpacapardyLiveRenderContext() {
-  const experience = state.experience;
-  const enabled = Boolean(experience?.playMode === "multiplayer" && state.live.currentSession);
-  const user = state.auth.session?.user || null;
-  const isHost = Boolean(state.live.currentSession && user && state.live.currentSession.host_user_id === user.id);
-  const playerCount = state.live.players.filter((player) => ["host", "player"].includes(player.role)).length;
-  const maxPlayers = Number(state.live.currentSession?.max_players || experience?.setupTeamCount || GAME_CONFIG.jeopardyDefaultTeams);
-
-  return {
-    available: Boolean(hasSupabaseConfig() && alpacapardyLiveSupabaseService && alpacapardyLive),
-    accessAllowed: canAccessMultiplayer(),
-    enabled,
-    session: state.live.currentSession,
-    player: state.live.currentPlayer,
-    players: state.live.players,
-    openSessions: state.live.openSessions,
-    status: state.live.status,
-    message: state.live.message,
-    error: state.live.error,
-    userId: user?.id || null,
-    isHost,
-    isGuest: Boolean(user && isAnonymousUser(user)),
-    canStart: Boolean(isHost && playerCount >= 2 && playerCount <= maxPlayers),
-    canOpenTile: enabled ? canOpenAlpacapardyLiveTile() : true,
-    canAnswerFocus: enabled ? canAnswerAlpacapardyLiveFocus() : true,
-    canCloseFocus: enabled ? canCloseAlpacapardyLiveFocus() : true,
-    canChat: Boolean(enabled && state.live.currentPlayer)
-  };
+  return legacyLiveRoomController.getAlpacapardyLiveRenderContext();
 }
 
 function isAlpacapardyLiveActive() {
-  return Boolean(
-    state.experience?.type === "jeopardy" &&
-    state.experience.playMode === "multiplayer" &&
-    state.live.currentSession &&
-    normalizeLiveGameType(state.live.currentSession.game_type) === "alpacapardy"
-  );
+  return legacyLiveRoomController.isAlpacapardyLiveActive();
 }
 
 function guardMultiplayerAccess() {
-  if (canAccessMultiplayer()) {
-    return true;
-  }
-  state.live.error = isSignedIn()
-    ? "Available soon. Multiplayer is currently limited to approved school domains."
-    : "Available soon. Connect with an approved Alpaccount to test multiplayer.";
-  renderLiveSurfaces();
-  return false;
+  return legacyLiveRoomController.guardMultiplayerAccess();
 }
 
 function canOpenAlpacapardyLiveTile() {
-  return alpacapardyLive?.canOpenTile
-    ? alpacapardyLive.canOpenTile(state.experience, getAlpacapardyLiveIdentityContext())
-    : false;
+  return legacyLiveRoomController.canOpenAlpacapardyLiveTile();
 }
 
 function canAnswerAlpacapardyLiveFocus() {
-  return alpacapardyLive?.canAnswerFocus
-    ? alpacapardyLive.canAnswerFocus(state.experience, getAlpacapardyLiveIdentityContext())
-    : false;
+  return legacyLiveRoomController.canAnswerAlpacapardyLiveFocus();
 }
 
 function canCloseAlpacapardyLiveFocus() {
-  return alpacapardyLive?.canCloseFocus
-    ? alpacapardyLive.canCloseFocus(state.experience, getAlpacapardyLiveIdentityContext())
-    : false;
+  return legacyLiveRoomController.canCloseAlpacapardyLiveFocus();
 }
 
 function getAlpacapardyLiveIdentityContext() {
-  const user = state.auth.session?.user || null;
-  return {
-    enabled: isAlpacapardyLiveActive(),
-    userId: user?.id || null,
-    playerId: state.live.currentPlayer?.id || null,
-    isHost: Boolean(state.live.currentSession && user && state.live.currentSession.host_user_id === user.id)
-  };
+  return legacyLiveRoomController.getAlpacapardyLiveIdentityContext();
 }
 
 function setJeopardyPlayMode(playMode) {
@@ -12975,1367 +6543,204 @@ function setJeopardyPlayMode(playMode) {
   }
 }
 
-async function refreshAlpacapardyLiveLobby() {
-  if (!guardMultiplayerAccess() || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  try {
-    await ensureLiveAuthSession();
-    const client = getSupabaseClient();
-    state.live.status = "loading";
-    state.live.error = "";
-    renderLiveSurfaces();
-    const { data: sessions, error } = await alpacapardyLiveSupabaseService.listOpenSessions(client);
-    if (error) {
-      throw error;
-    }
-    state.live.openSessions = sessions || [];
-    state.live.status = "idle";
-    subscribeAlpacapardyLobby();
-    startAlpacapardyLiveSync();
-  } catch (error) {
-    state.live.status = "idle";
-    state.live.error = error.message || "Unable to load live rooms.";
-  }
-
-  renderLiveSurfaces();
+async function refreshAlpacapardyLiveLobby(...args) {
+  return legacyLiveRoomController.refreshAlpacapardyLiveLobby(...args);
 }
 
-function subscribeAlpacapardyLobby() {
-  const client = getSupabaseClient();
-  if (!client || state.live.lobbyChannel || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  state.live.lobbyChannel = alpacapardyLiveSupabaseService.subscribeToLobby(client, {
-    onSessionsChanged: () => refreshAlpacapardyLiveLobbySilently(),
-    onPlayersChanged: () => refreshAlpacapardyLiveLobbySilently()
-  });
+function subscribeAlpacapardyLobby(...args) {
+  return legacyLiveRoomController.subscribeAlpacapardyLobby(...args);
 }
 
-async function refreshAlpacapardyLiveLobbySilently() {
-  if (!canAccessMultiplayer() || !alpacapardyLiveSupabaseService || !hasAuthSession()) {
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const { data: sessions, error } = await alpacapardyLiveSupabaseService.listOpenSessions(client);
-  if (!error) {
-    state.live.openSessions = sessions || [];
-    renderLiveSurfaces();
-  }
+async function refreshAlpacapardyLiveLobbySilently(...args) {
+  return legacyLiveRoomController.refreshAlpacapardyLiveLobbySilently(...args);
 }
 
-function startAlpacapardyLiveSync() {
-  if (state.live.syncId) {
-    return;
-  }
-
-  const sync = () => {
-    syncAlpacapardyLiveNow({ renderAfter: true });
-  };
-  sync();
-  state.live.syncId = window.setInterval(sync, LIVE_SYNC_INTERVAL_MS);
+function startAlpacapardyLiveSync(...args) {
+  return legacyLiveRoomController.startAlpacapardyLiveSync(...args);
 }
 
-async function syncAlpacapardyLiveNow({ renderAfter = false } = {}) {
-  if (
-    state.live.syncBusy ||
-    !canAccessMultiplayer() ||
-    !alpacapardyLiveSupabaseService ||
-    !hasAuthSession()
-  ) {
-    return;
-  }
-
-  if (!state.live.currentSession && state.ui.appShellMode !== "online") {
-    return;
-  }
-
-  state.live.syncBusy = true;
-  try {
-    if (state.live.currentSession) {
-      await refreshAlpacapardyLiveSessionState({ renderAfter });
-      await maybeAutoRevealTimedLiveGame();
-      await maybeAutoResolveTimedAlpaquiz();
-    } else {
-      await refreshAlpacapardyLiveLobbySilently();
-    }
-  } finally {
-    state.live.syncBusy = false;
-  }
+async function syncAlpacapardyLiveNow(...args) {
+  return legacyLiveRoomController.syncAlpacapardyLiveNow(...args);
 }
 
-async function maybeAutoRevealTimedLiveGame() {
-  if (!getAlpacapardyLiveIdentityContext().isHost || getCurrentLiveGameType() !== "quiz") {
-    return;
-  }
-  const arcadeState = getArcadeState("quiz");
-  if (!arcadeState.started || arcadeState.finished || arcadeState.revealed) {
-    return;
-  }
-  if (Number(arcadeState.revealAt || 0) > Date.now()) {
-    return;
-  }
-  await emitLiveEvent({ type: "quiz.revealed", payload: {} });
+async function maybeAutoRevealTimedLiveGame(...args) {
+  return legacyLiveRoomController.maybeAutoRevealTimedLiveGame(...args);
 }
 
-async function maybeAutoResolveTimedAlpaquiz() {
-  if (!getAlpacapardyLiveIdentityContext().isHost || getCurrentLiveGameType() !== "alpaquiz") {
-    return;
-  }
-  const arcadeState = getArcadeState("alpaquiz");
-  if (!arcadeState.started || arcadeState.finished || arcadeState.revealed || !arcadeState.buzzedUserId) {
-    return;
-  }
-  if (arcadeState.pendingRevealAt && Number(arcadeState.pendingRevealAt) <= Date.now()) {
-    await emitLiveEvent({ type: "alpaquiz.revealed", payload: {} });
-    return;
-  }
-  if (!Number.isInteger(arcadeState.selectedIndex) && Number(arcadeState.answerDeadlineAt || 0) > 0 && Number(arcadeState.answerDeadlineAt) <= Date.now()) {
-    await emitLiveEvent({
-      type: "alpaquiz.answered",
-      payload: {
-        userId: arcadeState.buzzedUserId,
-        optionIndex: -1
-      }
-    });
-  }
+async function maybeAutoResolveTimedAlpaquiz(...args) {
+  return legacyLiveRoomController.maybeAutoResolveTimedAlpaquiz(...args);
 }
 
-async function refreshAlpacapardyLiveSessionState({ renderAfter = false } = {}) {
-  if (!state.live.currentSession || !alpacapardyLiveSupabaseService || !hasAuthSession()) {
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const sessionId = state.live.currentSession.id;
-  const [sessionResponse, playersResponse, eventsResponse] = await Promise.all([
-    alpacapardyLiveSupabaseService.fetchSession(client, sessionId),
-    alpacapardyLiveSupabaseService.fetchPlayers(client, sessionId),
-    alpacapardyLiveSupabaseService.fetchEventsSince(client, sessionId, state.live.revision)
-  ]);
-
-  let shouldRender = false;
-  if (!sessionResponse.error && sessionResponse.data) {
-    const previousStatus = state.live.currentSession?.status;
-    state.live.currentSession = sessionResponse.data;
-    state.live.selectedGameType = normalizeLiveGameType(sessionResponse.data.game_type);
-    if (state.live.selectedGameType === "alpacapardy" && sessionResponse.data.settings) {
-      applyAlpacapardyLiveSettings(sessionResponse.data.settings);
-    }
-    maybeStartLiveLaunchCountdown(previousStatus, sessionResponse.data);
-    shouldRender = true;
-  }
-
-  if (!playersResponse.error) {
-    state.live.players = (playersResponse.data || []).sort(compareLivePlayers);
-    state.live.currentPlayer =
-      state.live.players.find((player) => player.user_id === state.auth.session?.user?.id) ||
-      state.live.currentPlayer;
-    maybeAutoStartReadyLiveGame();
-    shouldRender = true;
-  }
-
-  if (!eventsResponse.error) {
-    (eventsResponse.data || []).forEach((event) => applyLiveEvent(event));
-  } else if (eventsResponse.error.message) {
-    state.live.error = eventsResponse.error.message;
-  }
-
-  if (renderAfter && shouldRender) {
-    renderLiveSurfaces();
-  }
+async function refreshAlpacapardyLiveSessionState(...args) {
+  return legacyLiveRoomController.refreshAlpacapardyLiveSessionState(...args);
 }
 
-async function createSelectedLiveGameRoom() {
-  const gameType = getCurrentLiveGameType();
-  if (gameType === "alpacapardy") {
-    createAlpacapardyLiveRoom();
-    return;
-  }
-  await createArcadeLiveRoom(gameType);
+async function createSelectedLiveGameRoom(...args) {
+  return legacyLiveRoomController.createSelectedLiveGameRoom(...args);
 }
 
-async function createArcadeLiveRoom(gameType) {
-  if (!guardMultiplayerAccess() || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
-  const selectedRunColor = gameType === "run" ? getLiveRunSetupColorId() : "";
-  try {
-    const session = await ensureLiveAuthSession();
-    const client = getSupabaseClient();
-    const user = session.user;
-    state.live.status = "creating";
-    state.live.error = "";
-    state.live.message = `Creating ${game.label} room...`;
-    renderLiveSurfaces();
-
-    const created = await alpacapardyLiveSupabaseService.createSession(client, {
-      gameType,
-      hostUserId: user.id,
-      maxPlayers: game.maxPlayers,
-      settings: {
-        gameType,
-        label: game.label,
-        allThemes: true,
-        ...(selectedRunColor ? { runHostColor: selectedRunColor } : {})
-      }
-    });
-    if (created.error) {
-      throw created.error;
-    }
-
-    const joined = await alpacapardyLiveSupabaseService.joinSession(client, {
-      sessionId: created.data.id,
-      userId: user.id,
-      displayName: getLiveDisplayName(),
-      role: "host",
-      teamIndex: 0,
-      isGuest: isAnonymousUser(user)
-    });
-    if (joined.error) {
-      throw joined.error;
-    }
-
-    state.live.currentSession = created.data;
-    state.live.currentPlayer = joined.data;
-    state.live.selectedGameType = "alpacapardy";
-    state.live.onlineView = "game";
-    state.live.arcadeState = createEmptyArcadeState(gameType);
-    if (gameType === "run") {
-      state.live.arcadeState.colorsByUserId = {
-        [user.id]: selectedRunColor || getLiveRunSetupColorId()
-      };
-    }
-    state.live.players = [joined.data];
-    state.live.selectedGameType = gameType;
-    state.live.revision = 0;
-    state.live.status = "idle";
-    state.live.message = `Waiting for alpacas to join. Room ${created.data.room_code}.`;
-    subscribeAlpacapardySession(created.data.id);
-    startAlpacapardyLiveHeartbeat();
-    startAlpacapardyLiveSync();
-    if (gameType === "run" && selectedRunColor) {
-      await emitLiveEvent({
-        type: "run.color_selected",
-        payload: {
-          userId: user.id,
-          colorId: selectedRunColor
-        }
-      });
-    }
-    await refreshAlpacapardyLiveSessionState({ renderAfter: true });
-    refreshAlpacapardyLiveLobbySilently();
-  } catch (error) {
-    state.live.status = "idle";
-    state.live.error = error.message || `Unable to create ${game.label} room.`;
-  }
-
-  renderLiveSurfaces();
+async function createArcadeLiveRoom(...args) {
+  return legacyLiveRoomController.createArcadeLiveRoom(...args);
 }
 
-async function createAlpacapardyLiveRoom() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy" || experience.started || !guardMultiplayerAccess()) {
-    return;
-  }
-
-  try {
-    const session = await ensureLiveAuthSession();
-    const client = getSupabaseClient();
-    const user = session.user;
-    state.live.status = "creating";
-    state.live.error = "";
-    state.live.message = "Creating live room...";
-    renderLiveSurfaces();
-
-    const created = await alpacapardyLiveSupabaseService.createSession(client, {
-      hostUserId: user.id,
-      maxPlayers: experience.setupTeamCount,
-      settings: buildAlpacapardyLiveSettings(experience)
-    });
-    if (created.error) {
-      throw created.error;
-    }
-
-    const joined = await alpacapardyLiveSupabaseService.joinSession(client, {
-      sessionId: created.data.id,
-      userId: user.id,
-      displayName: getLiveDisplayName(),
-      role: "host",
-      teamIndex: 0,
-      isGuest: isAnonymousUser(user)
-    });
-    if (joined.error) {
-      throw joined.error;
-    }
-
-    state.live.currentSession = created.data;
-    state.live.currentPlayer = joined.data;
-    state.live.players = [joined.data];
-    state.live.selectedGameType = "alpacapardy";
-    state.live.onlineView = "game";
-    state.live.revision = 0;
-    state.live.status = "idle";
-    state.live.message = `Waiting for alpacas to join. Room ${created.data.room_code}.`;
-    subscribeAlpacapardySession(created.data.id);
-    startAlpacapardyLiveHeartbeat();
-    startAlpacapardyLiveSync();
-    await refreshAlpacapardyLiveSessionState({ renderAfter: true });
-    refreshAlpacapardyLiveLobbySilently();
-  } catch (error) {
-    state.live.status = "idle";
-    state.live.error = error.message || "Unable to create live room.";
-  }
-
-  renderLiveSurfaces();
+async function createAlpacapardyLiveRoom(...args) {
+  return legacyLiveRoomController.createAlpacapardyLiveRoom(...args);
 }
 
-async function joinAlpacapardyLiveRoom(sessionId) {
-  const experience = state.experience;
-  if (!guardMultiplayerAccess()) {
-    return;
-  }
-
-  try {
-    const authSession = await ensureLiveAuthSession();
-    const client = getSupabaseClient();
-    state.live.status = "joining";
-    state.live.error = "";
-    state.live.message = "Joining live room...";
-    renderLiveSurfaces();
-
-    const sessionResponse = await alpacapardyLiveSupabaseService.fetchSession(client, sessionId);
-    if (sessionResponse.error) {
-      throw sessionResponse.error;
-    }
-    const liveSession = sessionResponse.data;
-    if (!liveSession || liveSession.status !== "lobby" || liveSession.is_open === false) {
-      throw new Error("This room is no longer open.");
-    }
-    const gameType = normalizeLiveGameType(liveSession.game_type);
-    if (gameType === "alpacapardy" && (!experience || experience.type !== "jeopardy" || experience.started)) {
-      throw new Error("Alpacapardy setup is not ready.");
-    }
-
-    const players = liveSession.players || [];
-    const teamIndex = alpacapardyLiveSupabaseService.findNextTeamIndex(players, liveSession.max_players);
-    if (teamIndex < 0) {
-      throw new Error("This room is already full.");
-    }
-
-    const joined = await alpacapardyLiveSupabaseService.joinSession(client, {
-      sessionId: liveSession.id,
-      userId: authSession.user.id,
-      displayName: getLiveDisplayName(),
-      role: "player",
-      teamIndex,
-      isGuest: isAnonymousUser(authSession.user)
-    });
-    if (joined.error) {
-      throw joined.error;
-    }
-
-    state.live.currentSession = liveSession;
-    state.live.currentPlayer = joined.data;
-    state.live.selectedGameType = gameType;
-    state.live.onlineView = "game";
-    state.live.arcadeState = gameType === "alpacapardy" ? null : createEmptyArcadeState(gameType);
-    state.live.players = players
-      .filter((player) => player.user_id !== authSession.user.id)
-      .concat(joined.data)
-      .sort(compareLivePlayers);
-    state.live.revision = 0;
-    state.live.status = "idle";
-    state.live.message = `Joined room ${liveSession.room_code}. Waiting for the host.`;
-    if (gameType === "alpacapardy") {
-      applyAlpacapardyLiveSettings(liveSession.settings || {});
-    }
-    subscribeAlpacapardySession(liveSession.id);
-    startAlpacapardyLiveHeartbeat();
-    startAlpacapardyLiveSync();
-    await refreshAlpacapardyLiveSessionState({ renderAfter: true });
-  } catch (error) {
-    state.live.status = "idle";
-    state.live.error = error.message || "Unable to join live room.";
-  }
-
-  renderLiveSurfaces();
+async function joinAlpacapardyLiveRoom(...args) {
+  return legacyLiveRoomController.joinAlpacapardyLiveRoom(...args);
 }
 
-async function joinAlpacapardyLiveRoomByCode(formData) {
-  if (!guardMultiplayerAccess() || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  const roomCode = alpacapardyLiveSupabaseService.normalizeRoomCode(formData.get("room_code"));
-  state.live.joinCodeDraft = roomCode;
-  if (!roomCode) {
-    state.live.error = "Enter a room code.";
-    render();
-    return;
-  }
-
-  try {
-    await ensureLiveAuthSession();
-    const client = getSupabaseClient();
-    state.live.status = "joining";
-    state.live.error = "";
-    state.live.message = `Looking for room ${roomCode}...`;
-    render();
-
-    const response = await alpacapardyLiveSupabaseService.findSessionByRoomCode(client, roomCode);
-    if (response.error) {
-      throw response.error;
-    }
-    if (!response.data) {
-      throw new Error(`No open room found for ${roomCode}.`);
-    }
-
-    await joinAlpacapardyLiveRoom(response.data.id);
-    state.live.joinCodeDraft = "";
-  } catch (error) {
-    state.live.status = "idle";
-    state.live.error = error.message || "Unable to join that room.";
-    render();
-  }
+async function joinAlpacapardyLiveRoomByCode(...args) {
+  return legacyLiveRoomController.joinAlpacapardyLiveRoomByCode(...args);
 }
 
-function buildAlpacapardyLiveSettings(experience) {
-  return {
-    setupTeamCount: experience.setupTeamCount,
-    setupCategoryIds: experience.setupCategoryIds || [],
-    selectionLens: state.selection.lens,
-    targetId: state.selection.targetId,
-    targetIds: state.selection.targetIds || []
-  };
+function buildAlpacapardyLiveSettings(...args) {
+  return legacyLiveRoomController.buildAlpacapardyLiveSettings(...args);
 }
 
-function applyAlpacapardyLiveSettings(settings = {}) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy") {
-    return;
-  }
-
-  if (Number.isInteger(settings.setupTeamCount)) {
-    experience.setupTeamCount = settings.setupTeamCount;
-  }
-  if (Array.isArray(settings.setupCategoryIds) && settings.setupCategoryIds.length) {
-    experience.setupCategoryIds = settings.setupCategoryIds.slice(0, GAME_CONFIG.jeopardyMinGroups);
-  }
+function applyAlpacapardyLiveSettings(...args) {
+  return legacyLiveRoomController.applyAlpacapardyLiveSettings(...args);
 }
 
-async function syncAlpacapardyLiveSettings() {
-  if (!state.live.currentSession || !getAlpacapardyLiveIdentityContext().isHost) {
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const response = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
-    max_players: state.experience.setupTeamCount,
-    settings: buildAlpacapardyLiveSettings(state.experience)
-  });
-  if (!response.error) {
-    state.live.currentSession = response.data;
-  }
+async function syncAlpacapardyLiveSettings(...args) {
+  return legacyLiveRoomController.syncAlpacapardyLiveSettings(...args);
 }
 
-function subscribeAlpacapardySession(sessionId) {
-  const client = getSupabaseClient();
-  if (!client || !sessionId || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  if (state.live.sessionChannel) {
-    alpacapardyLiveSupabaseService.removeChannel(client, state.live.sessionChannel);
-  }
-
-  state.live.sessionChannel = alpacapardyLiveSupabaseService.subscribeToSession(client, sessionId, {
-    onEvent: (event) => {
-      applyLiveEvent(event);
-      syncAlpacapardyLiveNow({ renderAfter: true });
-    },
-    onPlayersChanged: () => {
-      refreshAlpacapardyLivePlayers();
-      syncAlpacapardyLiveNow({ renderAfter: true });
-    },
-    onSessionChanged: (session) => {
-      const previousStatus = state.live.currentSession?.status;
-      state.live.currentSession = session;
-      state.live.selectedGameType = normalizeLiveGameType(session.game_type);
-      if (normalizeLiveGameType(session.game_type) === "alpacapardy" && session.settings) {
-        applyAlpacapardyLiveSettings(session.settings);
-      }
-      maybeStartLiveLaunchCountdown(previousStatus, session);
-      syncAlpacapardyLiveNow({ renderAfter: true });
-      renderLiveSurfaces();
-    }
-  });
+function subscribeAlpacapardySession(...args) {
+  return legacyLiveRoomController.subscribeAlpacapardySession(...args);
 }
 
-async function refreshAlpacapardyLivePlayers() {
-  if (!state.live.currentSession || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const { data: players, error } = await alpacapardyLiveSupabaseService.fetchPlayers(client, state.live.currentSession.id);
-  if (error) {
-    return;
-  }
-
-  state.live.players = (players || []).sort(compareLivePlayers);
-  state.live.currentPlayer = state.live.players.find((player) => player.user_id === state.auth.session?.user?.id) || state.live.currentPlayer;
-  maybeAutoStartReadyLiveGame();
-  renderLiveSurfaces();
+async function refreshAlpacapardyLivePlayers(...args) {
+  return legacyLiveRoomController.refreshAlpacapardyLivePlayers(...args);
 }
 
-function startAlpacapardyLiveHeartbeat() {
-  clearAlpacapardyLiveHeartbeat();
-  const beat = async () => {
-    if (!state.live.currentSession || !state.live.currentPlayer || !alpacapardyLiveSupabaseService) {
-      return;
-    }
-
-    const client = getSupabaseClient();
-    await alpacapardyLiveSupabaseService.heartbeatPlayer(client, state.live.currentPlayer.id);
-    if (getAlpacapardyLiveIdentityContext().isHost) {
-      const response = await alpacapardyLiveSupabaseService.heartbeatHost(client, state.live.currentSession.id);
-      if (!response.error && response.data) {
-        state.live.currentSession = response.data;
-      }
-    }
-  };
-
-  beat();
-  state.live.heartbeatId = window.setInterval(beat, 25000);
+function startAlpacapardyLiveHeartbeat(...args) {
+  return legacyLiveRoomController.startAlpacapardyLiveHeartbeat(...args);
 }
 
-function maybeStartLiveLaunchCountdown(previousStatus, session) {
-  if (
-    !session ||
-    session.status !== "playing" ||
-    previousStatus === "playing" ||
-    state.live.launchCountdownSessionId === session.id
-  ) {
-    return;
-  }
-
-  startLiveLaunchCountdown(session.id);
+function maybeStartLiveLaunchCountdown(...args) {
+  return legacyLiveRoomController.maybeStartLiveLaunchCountdown(...args);
 }
 
-function startLiveLaunchCountdown(sessionId) {
-  clearLiveLaunchCountdown();
-  state.live.launchCountdownSessionId = sessionId;
-  const steps = ["3", "2", "1", "Let's go"];
-  let index = 0;
-
-  const advance = () => {
-    state.live.launchCountdownText = steps[index] || "";
-    renderLiveSurfaces();
-    index += 1;
-    if (index <= steps.length) {
-      liveLaunchCountdownTimerId = window.setTimeout(advance, index === steps.length ? 1000 : 850);
-      return;
-    }
-    state.live.launchCountdownText = "";
-    liveLaunchCountdownTimerId = null;
-    renderLiveSurfaces();
-  };
-
-  advance();
+function startLiveLaunchCountdown(...args) {
+  return legacyLiveRoomController.startLiveLaunchCountdown(...args);
 }
 
-function maybeAutoStartReadyLiveGame() {
-  if (
-    state.live.autoStartBusy ||
-    !state.live.currentSession ||
-    state.live.currentSession.status !== "lobby" ||
-    !getAlpacapardyLiveIdentityContext().isHost
-  ) {
-    return;
-  }
-
-  const gameType = getCurrentLiveGameType();
-  const canStart = gameType === "alpacapardy"
-    ? getAlpacapardyLiveRenderContext().canStart
-    : canStartSelectedLiveGame();
-  if (!canStart) {
-    return;
-  }
-
-  state.live.autoStartBusy = true;
-  window.setTimeout(async () => {
-    if (!state.live.currentSession || state.live.currentSession.status !== "lobby") {
-      state.live.autoStartBusy = false;
-      return;
-    }
-    if (getCurrentLiveGameType() === "alpacapardy") {
-      await startAlpacapardyLiveGame();
-    } else {
-      await startSelectedLiveGame();
-    }
-    state.live.autoStartBusy = false;
-  }, 900);
+function maybeAutoStartReadyLiveGame(...args) {
+  return legacyLiveRoomController.maybeAutoStartReadyLiveGame(...args);
 }
 
 function compareLivePlayers(left, right) {
-  return Number(left.team_index ?? 99) - Number(right.team_index ?? 99) ||
-    String(left.display_name || "").localeCompare(String(right.display_name || ""));
+  return legacyLiveRoomController.compareLivePlayers(left, right);
 }
 
-async function syncAlpacapardyLiveEvents() {
-  if (!state.live.currentSession || !alpacapardyLiveSupabaseService) {
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const { data: events, error } = await alpacapardyLiveSupabaseService.fetchEventsSince(
-    client,
-    state.live.currentSession.id,
-    state.live.revision
-  );
-  if (error) {
-    state.live.error = error.message;
-    return;
-  }
-
-  (events || []).forEach((event) => applyLiveEvent(event));
+async function syncAlpacapardyLiveEvents(...args) {
+  return legacyLiveRoomController.syncAlpacapardyLiveEvents(...args);
 }
 
-function applyLiveEvent(row) {
-  if (!row || row.revision <= state.live.revision) {
-    return;
-  }
-
-  if (String(row.event_type || "").startsWith("alpacapardy.")) {
-    applyAlpacapardyLiveEvent(row);
-    return;
-  }
-
-  applyArcadeLiveEvent(row);
+function applyLiveEvent(...args) {
+  return legacyLiveRoomController.applyLiveEvent(...args);
 }
 
-function applyAlpacapardyLiveEvent(row) {
-  if (!row || !alpacapardyLive || row.revision <= state.live.revision) {
-    return;
-  }
-
-  const liveState = alpacapardyLive.reduce(extractAlpacapardyLiveState(state.experience), {
-    type: row.event_type,
-    payload: row.payload || {}
-  }, {
-    afterFinished: (nextState) => {
-      finalizeSessionStats(nextState.answers, getBestStreakFromAnswers(nextState.answers), {
-        type: "jeopardy",
-        score: getHighestTeamScore(nextState.teams),
-        teamOneScore: Number(nextState.teams[0]?.score) || 0
-      });
-    }
-  });
-
-  state.live.revision = row.revision;
-  mergeAlpacapardyLiveState(liveState);
-  render();
-  if (state.experience?.active && !state.experience.active.revealed) {
-    startJeopardyTimer();
-  }
+function applyAlpacapardyLiveEvent(...args) {
+  return legacyLiveRoomController.applyAlpacapardyLiveEvent(...args);
 }
 
-function extractAlpacapardyLiveState(experience) {
-  return alpacapardyLive.createState({
-    board: experience?.board || [],
-    teams: experience?.teams || [],
-    activeTeamIndex: experience?.activeTeamIndex || 0,
-    active: experience?.active || null,
-    answers: experience?.answers || [],
-    chat: experience?.chat || [],
-    finished: experience?.finished || false,
-    forfeit: experience?.forfeit || null
-  });
+function extractAlpacapardyLiveState(...args) {
+  return legacyLiveRoomController.extractAlpacapardyLiveState(...args);
 }
 
-function mergeAlpacapardyLiveState(liveState) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jeopardy") {
-    return;
-  }
-
-  experience.started = liveState.started;
-  experience.finished = liveState.finished;
-  experience.board = liveState.board || [];
-  experience.teams = liveState.teams || [];
-  experience.activeTeamIndex = liveState.activeTeamIndex || 0;
-  experience.active = liveState.active || null;
-  experience.answers = liveState.answers || [];
-  experience.chat = liveState.chat || experience.chat || [];
-  experience.forfeit = liveState.forfeit || null;
+function mergeAlpacapardyLiveState(...args) {
+  return legacyLiveRoomController.mergeAlpacapardyLiveState(...args);
 }
 
-async function emitAlpacapardyLiveEvent(event) {
-  return emitLiveEvent(event);
+async function emitAlpacapardyLiveEvent(...args) {
+  return legacyLiveRoomController.emitAlpacapardyLiveEvent(...args);
 }
 
-async function emitLiveEvent(event) {
-  if (!state.live.currentSession || !state.live.currentPlayer || !event || !alpacapardyLiveSupabaseService) {
-    return null;
-  }
-
-  const client = getSupabaseClient();
-  const response = await alpacapardyLiveSupabaseService.appendEventWithNextRevision(client, {
-    sessionId: state.live.currentSession.id,
-    playerId: state.live.currentPlayer.id,
-    type: event.type,
-    payload: event.payload
-  });
-
-  if (response.error) {
-    state.live.error = response.error.message;
-    renderLiveSurfaces();
-    return null;
-  }
-
-  applyLiveEvent(response.data);
-  return response.data;
+async function emitLiveEvent(...args) {
+  return legacyLiveRoomController.emitLiveEvent(...args);
 }
 
-function applyArcadeLiveEvent(row) {
-  const eventType = String(row.event_type || "");
-  const gameType = normalizeLiveGameType(eventType.split(".")[0]);
-  state.live.selectedGameType = gameType;
-  state.live.arcadeState = reduceArcadeLiveState(getArcadeState(gameType), {
-    type: eventType,
-    payload: row.payload || {}
-  });
-  state.live.revision = row.revision;
-  renderLiveSurfaces();
+function applyArcadeLiveEvent(...args) {
+  return legacyLiveRoomController.applyArcadeLiveEvent(...args);
 }
 
-function reduceArcadeLiveState(currentState, event) {
-  const next = clonePlain(currentState || createEmptyArcadeState(event.type.split(".")[0]));
-  const payload = event.payload || {};
-  const gameType = next.gameType;
-
-  if (event.type.endsWith(".color_selected")) {
-    next.colorsByUserId = {
-      ...(next.colorsByUserId || {}),
-      [payload.userId]: payload.colorId
-    };
-    return next;
-  }
-
-  if (event.type.endsWith(".started")) {
-    return {
-      ...createEmptyArcadeState(gameType),
-      ...payload.state,
-      gameType,
-      started: true,
-      finished: false
-    };
-  }
-
-  if (gameType === "run") {
-    return reduceLiveRunState(next, event);
-  }
-  if (gameType === "quiz") {
-    return reduceLiveQuizState(next, event);
-  }
-  if (gameType === "race") {
-    return reduceLiveRaceState(next, event);
-  }
-  if (gameType === "alpaquiz") {
-    return reduceLiveAlpaquizState(next, event);
-  }
-
-  return next;
+function reduceArcadeLiveState(...args) {
+  return legacyLiveRoomController.reduceArcadeLiveState(...args);
 }
 
-function reduceLiveRunState(stateValue, event) {
-  const next = stateValue;
-  const payload = event.payload || {};
-  const userId = payload.userId;
-  const progress = next.progress?.[userId] || { index: 0, stage: 0, score: 0 };
-  const question = next.questionsByUserId?.[userId]?.[progress.index];
-
-  if (event.type === "run.answered" && userId && question && !progress.revealed) {
-    const correct = payload.optionIndex === question.answerIndex;
-    next.progress = {
-      ...(next.progress || {}),
-      [userId]: {
-        ...progress,
-        selectedIndex: payload.optionIndex,
-        revealed: true,
-        lastCorrect: correct,
-        stage: correct ? Math.min((progress.stage || 0) + 1, GAME_CONFIG.runRegionalLevelOneCount) : Math.max(0, (progress.stage || 0) - 1),
-        score: (progress.score || 0) + (correct ? 1 : 0)
-      }
-    };
-    return next;
-  }
-
-  if (event.type === "run.continued" && userId) {
-    const updated = next.progress?.[userId] || progress;
-    const nextIndex = (updated.index || 0) + 1;
-    const finished = nextIndex >= (next.questionsByUserId?.[userId] || []).length ||
-      (updated.stage || 0) >= GAME_CONFIG.runRegionalLevelOneCount;
-    next.progress = {
-      ...(next.progress || {}),
-      [userId]: {
-        ...updated,
-        index: nextIndex,
-        revealed: false,
-        selectedIndex: null,
-        lastCorrect: null,
-        finished
-      }
-    };
-    next.finished = Object.values(next.progress).some((entry) => entry.finished);
-    next.winnerUserId = Object.entries(next.progress).sort((left, right) => (right[1].stage || 0) - (left[1].stage || 0))[0]?.[0] || null;
-    return next;
-  }
-
-  return next;
+function reduceLiveRunState(...args) {
+  return legacyLiveRoomController.reduceLiveRunState(...args);
 }
 
-function reduceLiveQuizState(stateValue, event) {
-  const next = stateValue;
-  const payload = event.payload || {};
-  const question = next.questions?.[next.questionIndex];
-  const answers = next.answers?.[next.questionIndex] || {};
-
-  if (event.type === "quiz.answered" && payload.userId && question && !answers[payload.userId] && !next.revealed) {
-    const correct = payload.optionIndex === question.answerIndex;
-    next.answers = {
-      ...(next.answers || {}),
-      [next.questionIndex]: {
-        ...answers,
-        [payload.userId]: { optionIndex: payload.optionIndex, correct }
-      }
-    };
-    next.scoresByUserId = {
-      ...(next.scoresByUserId || {}),
-      [payload.userId]: (next.scoresByUserId?.[payload.userId] || 0) + (correct ? 100 : 0)
-    };
-    return next;
-  }
-
-  if (event.type === "quiz.revealed") {
-    next.revealed = true;
-    return next;
-  }
-
-  if (event.type === "quiz.next_question") {
-    if (next.questionIndex >= next.questions.length - 1) {
-      next.finished = true;
-      next.revealed = true;
-      return next;
-    }
-    next.questionIndex += 1;
-    next.revealed = false;
-    next.revealAt = Number(payload.revealAt) || Date.now() + ((LIVE_GAME_TYPES.quiz.timerSeconds || 20) * 1000);
-    return next;
-  }
-
-  return next;
+function reduceLiveQuizState(...args) {
+  return legacyLiveRoomController.reduceLiveQuizState(...args);
 }
 
-function reduceLiveRaceState(stateValue, event) {
-  const next = stateValue;
-  const payload = event.payload || {};
-  const question = next.questions?.[next.questionIndex];
-
-  if (event.type === "race.answered" && payload.userId === next.activeUserId && question && !next.revealed && !next.finished) {
-    const correct = payload.optionIndex === question.answerIndex;
-    const lives = next.livesByUserId?.[payload.userId] ?? 3;
-    const nextLives = correct ? lives : Math.max(0, lives - 1);
-    next.selectedIndex = payload.optionIndex;
-    next.lastCorrect = correct;
-    next.revealed = true;
-    next.livesByUserId = {
-      ...(next.livesByUserId || {}),
-      [payload.userId]: nextLives
-    };
-    if (nextLives <= 0) {
-      next.finished = true;
-      next.winnerUserId = (next.playerOrder || []).find((userId) => userId !== payload.userId) || null;
-    }
-    return next;
-  }
-
-  if (event.type === "race.next_turn" && !next.finished) {
-    const order = next.playerOrder || [];
-    const currentIndex = Math.max(0, order.indexOf(next.activeUserId));
-    next.activeUserId = order[(currentIndex + 1) % Math.max(1, order.length)] || next.activeUserId;
-    next.questionIndex = (next.questionIndex + 1) % Math.max(1, next.questions.length);
-    next.revealed = false;
-    next.selectedIndex = null;
-    next.lastCorrect = null;
-    return next;
-  }
-
-  return next;
+function reduceLiveRaceState(...args) {
+  return legacyLiveRoomController.reduceLiveRaceState(...args);
 }
 
-function reduceLiveAlpaquizState(stateValue, event) {
-  const next = stateValue;
-  const payload = event.payload || {};
-  const question = next.questions?.[next.questionIndex];
-
-  if (event.type === "alpaquiz.buzzed" && payload.userId && !next.buzzedUserId && !next.revealed) {
-    next.buzzedUserId = payload.userId;
-    next.answerDeadlineAt = Date.now() + ((LIVE_GAME_TYPES.alpaquiz.answerSeconds || 4) * 1000);
-    next.selectedIndex = null;
-    next.pendingRevealAt = null;
-    return next;
-  }
-
-  if (event.type === "alpaquiz.answered" && payload.userId === next.buzzedUserId && question && !next.revealed && !Number.isInteger(next.selectedIndex)) {
-    const correct = payload.optionIndex === question.answerIndex;
-    next.selectedIndex = payload.optionIndex;
-    next.lastCorrect = correct;
-    next.pendingRevealAt = Date.now() + 2000;
-    next.answerDeadlineAt = null;
-    const scores = { ...(next.scoresByUserId || {}) };
-    if (correct) {
-      scores[payload.userId] = (scores[payload.userId] || 0) + 100;
-    } else {
-      (next.playerOrder || []).filter((userId) => userId !== payload.userId).forEach((userId) => {
-        scores[userId] = (scores[userId] || 0) + 100;
-      });
-    }
-    next.scoresByUserId = scores;
-    return next;
-  }
-
-  if (event.type === "alpaquiz.revealed" && Number.isInteger(next.selectedIndex)) {
-    next.revealed = true;
-    next.pendingRevealAt = null;
-    next.answerDeadlineAt = null;
-    return next;
-  }
-
-  if (event.type === "alpaquiz.next_question") {
-    if (next.questionIndex >= next.questions.length - 1) {
-      next.finished = true;
-      next.revealed = true;
-      return next;
-    }
-    next.questionIndex += 1;
-    next.buzzedUserId = null;
-    next.selectedIndex = null;
-    next.lastCorrect = null;
-    next.answerDeadlineAt = null;
-    next.pendingRevealAt = null;
-    next.revealed = false;
-    return next;
-  }
-
-  return next;
+function reduceLiveAlpaquizState(...args) {
+  return legacyLiveRoomController.reduceLiveAlpaquizState(...args);
 }
 
-function canStartSelectedLiveGame() {
-  if (!state.live.currentSession || !getAlpacapardyLiveIdentityContext().isHost) {
-    return false;
-  }
-  const gameType = getCurrentLiveGameType();
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
-  const players = getLivePlayablePlayers();
-  if (players.length < game.minPlayers || players.length > game.maxPlayers) {
-    return false;
-  }
-  return true;
+function canStartSelectedLiveGame(...args) {
+  return legacyLiveRoomController.canStartSelectedLiveGame(...args);
 }
 
-async function startSelectedLiveGame() {
-  const gameType = getCurrentLiveGameType();
-  if (gameType === "alpacapardy") {
-    startAlpacapardyLiveGame();
-    return;
-  }
-  if (!canStartSelectedLiveGame()) {
-    state.live.error = `${getLiveGameLabel(gameType)} needs enough alpacas before starting.`;
-    renderLiveSurfaces();
-    return;
-  }
-
-  state.live.status = "starting";
-  state.live.error = "";
-  renderLiveSurfaces();
-
-  const players = getLivePlayablePlayers();
-  const statePayload = buildArcadeStartState(gameType, players);
-  const event = await emitLiveEvent({
-    type: `${gameType}.started`,
-    payload: { state: statePayload }
-  });
-
-  if (!event) {
-    state.live.status = "idle";
-    renderLiveSurfaces();
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const updated = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
-    status: "playing",
-    is_open: false,
-    current_state: statePayload,
-    settings: {
-      ...(state.live.currentSession.settings || {}),
-      gameType,
-      allThemes: true
-    }
-  });
-  if (!updated.error) {
-    const previousStatus = state.live.currentSession?.status;
-    state.live.currentSession = updated.data;
-    maybeStartLiveLaunchCountdown(previousStatus, updated.data);
-  } else {
-    state.live.error = updated.error.message || "Unable to start live game.";
-  }
-  await refreshAlpacapardyLiveSessionState({ renderAfter: true });
-  state.live.status = "idle";
-  renderLiveSurfaces();
+async function startSelectedLiveGame(...args) {
+  return legacyLiveRoomController.startSelectedLiveGame(...args);
 }
 
-function getLiveRunColorAssignments(players) {
-  const existing = { ...(getArcadeState("run").colorsByUserId || {}) };
-  const assignments = {};
-  const used = new Set();
-  const palette = LIVE_ALPACA_COLORS.map((color) => color.id);
-  const fallbackColor = palette[0] || "cream";
-  const currentUserId = state.auth.session?.user?.id || "";
-  const hostUserId = state.live.currentSession?.host_user_id || currentUserId;
-  const preferredByUserId = {
-    ...(hostUserId ? { [hostUserId]: getLiveRunSetupColorId() } : {}),
-    ...(currentUserId ? { [currentUserId]: getLiveRunSetupColorId() } : {})
-  };
-
-  players.forEach((player) => {
-    const preferred = existing[player.user_id] || preferredByUserId[player.user_id] || "";
-    const colorId = palette.includes(preferred) && !used.has(preferred)
-      ? preferred
-      : palette.find((candidate) => !used.has(candidate)) || fallbackColor;
-    assignments[player.user_id] = colorId;
-    used.add(colorId);
-  });
-
-  return assignments;
+function getLiveRunColorAssignments(...args) {
+  return legacyLiveRoomController.getLiveRunColorAssignments(...args);
 }
 
-function buildArcadeStartState(gameType, players) {
-  const playerOrder = players.map((player) => player.user_id);
-  const scoresByUserId = Object.fromEntries(playerOrder.map((userId) => [userId, 0]));
-  if (gameType === "run") {
-    const questionsByUserId = Object.fromEntries(players.map((player, index) => [
-      player.user_id,
-      buildAllThemeQuestionSequence([1, 1, 2, 2, 3, 3, 4, 4, 5, 5], true, index)
-    ]));
-    return {
-      ...getArcadeState("run"),
-      gameType,
-      started: true,
-      colorsByUserId: getLiveRunColorAssignments(players),
-      questionsByUserId,
-      progress: Object.fromEntries(playerOrder.map((userId) => [userId, { index: 0, stage: 0, score: 0, revealed: false }])),
-      playerOrder
-    };
-  }
-
-  if (gameType === "quiz") {
-    return {
-      gameType,
-      started: true,
-      finished: false,
-      questionIndex: 0,
-      revealed: false,
-      revealAt: Date.now() + ((LIVE_GAME_TYPES.quiz.timerSeconds || 20) * 1000),
-      questions: buildAllThemeQuestionSequence([1, 2, 3, 4, 5, 1, 2, 3, 4, 5], true),
-      answers: {},
-      scoresByUserId,
-      playerOrder
-    };
-  }
-
-  if (gameType === "race") {
-    return {
-      gameType,
-      started: true,
-      finished: false,
-      questionIndex: 0,
-      activeUserId: playerOrder[0],
-      playerOrder,
-      questions: buildAllThemeQuestionSequence(Array.from({ length: 24 }, (_, index) => (index % 5) + 1), true),
-      livesByUserId: Object.fromEntries(playerOrder.map((userId) => [userId, 3])),
-      scoresByUserId
-    };
-  }
-
-  return {
-    gameType: "alpaquiz",
-    started: true,
-    finished: false,
-    questionIndex: 0,
-    questions: buildAllThemeQuestionSequence(Array.from({ length: LIVE_GAME_TYPES.alpaquiz.questionCount }, (_, index) => (index % 5) + 1), true),
-    scoresByUserId,
-    playerOrder,
-    buzzedUserId: null,
-    answerDeadlineAt: null,
-    pendingRevealAt: null,
-    selectedIndex: null,
-    lastCorrect: null,
-    revealed: false
-  };
+function buildArcadeStartState(...args) {
+  return legacyLiveRoomController.buildArcadeStartState(...args);
 }
 
-function buildAllThemeQuestionSequence(pattern, allowReuse = true, salt = 0) {
-  const pools = buildRawQuestionPoolsFromEntries(getRawEntriesForRouteSelection("section", "all"));
-  const rotatedPattern = pattern.slice(salt).concat(pattern.slice(0, salt));
-  return buildPatternQuestionSequence(rotatedPattern, pools, allowReuse);
+function buildAllThemeQuestionSequence(...args) {
+  return legacyLiveRoomController.buildAllThemeQuestionSequence(...args);
 }
 
-async function selectLiveAlpacaColor(colorId) {
-  if (getCurrentLiveGameType() !== "run" || !state.live.currentPlayer) {
-    return;
-  }
-  const color = LIVE_ALPACA_COLORS.find((entry) => entry.id === colorId);
-  if (!color) {
-    return;
-  }
-  const colors = getArcadeState("run").colorsByUserId || {};
-  const usedByOther = Object.entries(colors).some(([userId, usedColor]) =>
-    userId !== state.auth.session?.user?.id && usedColor === colorId
-  );
-  if (usedByOther) {
-    return;
-  }
-  await emitLiveEvent({
-    type: "run.color_selected",
-    payload: {
-      userId: state.auth.session?.user?.id || null,
-      colorId
-    }
-  });
+async function selectLiveAlpacaColor(...args) {
+  return legacyLiveRoomController.selectLiveAlpacaColor(...args);
 }
 
-async function answerSelectedLiveGame(optionIndex) {
-  const gameType = getCurrentLiveGameType();
-  const userId = state.auth.session?.user?.id || null;
-  if (!userId || !Number.isInteger(optionIndex)) {
-    return;
-  }
-
-  const arcadeState = getArcadeState(gameType);
-  if (gameType === "run") {
-    const progress = arcadeState.progress?.[userId] || {};
-    if (progress.revealed || progress.finished) {
-      return;
-    }
-  }
-  if (gameType === "quiz" && (arcadeState.revealed || arcadeState.answers?.[arcadeState.questionIndex]?.[userId])) {
-    return;
-  }
-  if (gameType === "race" && (arcadeState.activeUserId !== userId || arcadeState.revealed || arcadeState.finished)) {
-    return;
-  }
-  if (gameType === "alpaquiz" && (
-    arcadeState.buzzedUserId !== userId ||
-    arcadeState.revealed ||
-    arcadeState.finished ||
-    Number.isInteger(arcadeState.selectedIndex)
-  )) {
-    return;
-  }
-
-  await emitLiveEvent({
-    type: `${gameType}.answered`,
-    payload: {
-      userId,
-      optionIndex
-    }
-  });
+async function answerSelectedLiveGame(...args) {
+  return legacyLiveRoomController.answerSelectedLiveGame(...args);
 }
 
-async function advanceSelectedLiveGame() {
-  const gameType = getCurrentLiveGameType();
-  const arcadeState = getArcadeState(gameType);
-  const userId = state.auth.session?.user?.id || null;
-  if (gameType === "run") {
-    await emitLiveEvent({ type: "run.continued", payload: { userId } });
-    return;
-  }
-  if (gameType === "quiz") {
-    await emitLiveEvent({
-      type: arcadeState.revealed ? "quiz.next_question" : "quiz.revealed",
-      payload: arcadeState.revealed ? { revealAt: Date.now() + ((LIVE_GAME_TYPES.quiz.timerSeconds || 20) * 1000) } : {}
-    });
-    return;
-  }
-  if (gameType === "race") {
-    await emitLiveEvent({ type: "race.next_turn", payload: {} });
-    return;
-  }
-  if (gameType === "alpaquiz") {
-    await emitLiveEvent({ type: "alpaquiz.next_question", payload: {} });
-  }
+async function advanceSelectedLiveGame(...args) {
+  return legacyLiveRoomController.advanceSelectedLiveGame(...args);
 }
 
-async function buzzSelectedLiveGame() {
-  if (getCurrentLiveGameType() !== "alpaquiz") {
-    return;
-  }
-  const userId = state.auth.session?.user?.id || null;
-  const arcadeState = getArcadeState("alpaquiz");
-  if (!userId || arcadeState.buzzedUserId || arcadeState.revealed || arcadeState.finished) {
-    return;
-  }
-  await emitLiveEvent({ type: "alpaquiz.buzzed", payload: { userId } });
+async function buzzSelectedLiveGame(...args) {
+  return legacyLiveRoomController.buzzSelectedLiveGame(...args);
 }
 
-function getArcadeLeaderboard(arcadeState, players) {
-  return players.map((player) => ({
-    userId: player.user_id,
-    name: player.display_name,
-    score: Number(arcadeState.scoresByUserId?.[player.user_id]) || 0
-  })).sort((left, right) => right.score - left.score || left.name.localeCompare(right.name));
+function getArcadeLeaderboard(...args) {
+  return legacyLiveRoomController.getArcadeLeaderboard(...args);
 }
 
-function clonePlain(value) {
-  return JSON.parse(JSON.stringify(value || {}));
+function clonePlain(...args) {
+  return legacyLiveRoomController.clonePlain(...args);
 }
 
-async function startAlpacapardyLiveGame() {
-  const experience = state.experience;
-  if (!isAlpacapardyLiveActive() || !getAlpacapardyLiveIdentityContext().isHost || experience.started) {
-    return;
-  }
-
-  try {
-    state.live.status = "starting";
-    state.live.error = "";
-    renderLiveSurfaces();
-    await refreshAlpacapardyLiveSessionState({ renderAfter: true });
-    if (experience.started) {
-      state.live.status = "idle";
-      renderLiveSurfaces();
-      return;
-    }
-
-    const players = state.live.players.filter((player) => ["host", "player"].includes(player.role)).sort(compareLivePlayers);
-    if (players.length < 2 || players.length > GAME_CONFIG.jeopardyMaxTeams) {
-      state.live.status = "idle";
-      state.live.error = "Live Alpacapardy needs 2 to 4 players.";
-      renderLiveSurfaces();
-      return;
-    }
-
-    const board = buildConfiguredJeopardyBoard(experience.setupCategoryIds);
-    const teams = alpacapardyEngine.createTeamsFromPlayers(players);
-    const startedEvent = await emitAlpacapardyLiveEvent(alpacapardyLive.createBoardStartedEvent({ board, teams, activeTeamIndex: 0 }));
-    if (!startedEvent) {
-      state.live.status = "idle";
-      renderLiveSurfaces();
-      return;
-    }
-
-    const client = getSupabaseClient();
-    const updated = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
-      status: "playing",
-      is_open: false,
-      board_state: { board },
-      current_state: { activeTeamIndex: 0 },
-      settings: buildAlpacapardyLiveSettings(experience)
-    });
-    if (!updated.error) {
-      const previousStatus = state.live.currentSession?.status;
-      state.live.currentSession = updated.data;
-      state.live.selectedGameType = "alpacapardy";
-      maybeStartLiveLaunchCountdown(previousStatus, updated.data);
-    } else {
-      state.live.error = updated.error.message || "Unable to mark the room as playing.";
-    }
-    await refreshAlpacapardyLiveSessionState({ renderAfter: true });
-    state.live.status = "idle";
-    renderLiveSurfaces();
-  } catch (error) {
-    state.live.status = "idle";
-    state.live.error = error.message || "Unable to start Alpacapardy.";
-    renderLiveSurfaces();
-  }
+async function startAlpacapardyLiveGame(...args) {
+  return legacyLiveRoomController.startAlpacapardyLiveGame(...args);
 }
 
-async function sendAlpacapardyLiveChat(formData) {
-  if (!isAlpacapardyLiveActive() || !state.live.currentPlayer) {
-    return;
-  }
-
-  const message = String(formData.get("message") || "").trim();
-  if (!message) {
-    return;
-  }
-
-  await emitAlpacapardyLiveEvent(alpacapardyLive.createChatMessageEvent({
-    playerId: state.live.currentPlayer.id,
-    userId: state.auth.session?.user?.id || null,
-    displayName: state.live.currentPlayer.display_name || getLiveDisplayName(),
-    message
-  }));
+async function sendAlpacapardyLiveChat(...args) {
+  return legacyLiveRoomController.sendAlpacapardyLiveChat(...args);
 }
 
-async function leaveAlpacapardyLiveRoom() {
-  if (!state.live.currentSession || !state.live.currentPlayer || !alpacapardyLiveSupabaseService) {
-    resetAlpacapardyLiveState();
-    renderLiveSurfaces();
-    return;
-  }
-
-  const client = getSupabaseClient();
-  const userId = state.auth.session?.user?.id || null;
-  const isHost = getAlpacapardyLiveIdentityContext().isHost;
-  const gameType = getCurrentLiveGameType();
-  const wasStarted = gameType === "alpacapardy"
-    ? Boolean(state.experience?.started && !state.experience?.finished)
-    : Boolean(state.live.currentSession?.status === "playing" && !state.live.arcadeState?.finished);
-
-  try {
-    if (isHost) {
-      if (wasStarted) {
-        const winner = state.live.players.find((player) => player.user_id !== userId && ["host", "player"].includes(player.role));
-        if (winner && gameType === "alpacapardy") {
-          await emitAlpacapardyLiveEvent(alpacapardyLive.createSessionForfeitedEvent({
-            forfeitingUserId: userId,
-            winnerUserId: winner.user_id,
-            reason: "host_left"
-          }));
-        }
-        await alpacapardyLiveSupabaseService.closeSession(client, state.live.currentSession.id, {
-          status: "finished",
-          reason: "host_left"
-        });
-      } else {
-        await alpacapardyLiveSupabaseService.closeSession(client, state.live.currentSession.id, {
-          status: "abandoned",
-          reason: "host_left_lobby"
-        });
-      }
-    } else {
-      await alpacapardyLiveSupabaseService.leaveSession(client, state.live.currentPlayer.id);
-    }
-  } catch (error) {
-    state.live.error = error.message || "Unable to leave room cleanly.";
-  }
-
-  resetAlpacapardyLiveState();
-  if (state.experience?.type === "jeopardy") {
-    const playMode = state.experience.playMode || "multiplayer";
-    state.experience = buildJeopardyExperience();
-    state.experience.playMode = playMode;
-  }
-  render();
+async function leaveAlpacapardyLiveRoom(...args) {
+  return legacyLiveRoomController.leaveAlpacapardyLiveRoom(...args);
 }
 
 function buildJeopardyBoard() {
@@ -14418,56 +6823,16 @@ function getSetupTargetHelper(selectedCount) {
   return `${selectedCount} selected. Minimum ${minimum}.`;
 }
 
-function toggleSetupCategorySelection(experience, categoryId) {
-  const current = new Set(experience.setupCategoryIds);
-  if (current.has(categoryId)) {
-    if (current.size <= GAME_CONFIG.jeopardyMinGroups) {
-      return false;
-    }
-    current.delete(categoryId);
-  } else {
-    current.add(categoryId);
-  }
-
-  experience.setupCategoryIds = Array.from(current);
-  return true;
+function toggleSetupCategorySelection(...args) {
+  return arcadeGameController.toggleSetupCategorySelection(...args);
 }
 
-function toggleRunSetupCategory(categoryId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "run" || experience.started) {
-    return;
-  }
-
-  if (!toggleSetupCategorySelection(experience, categoryId)) {
-    return;
-  }
-
-  renderExperience();
+function toggleRunSetupCategory(...args) {
+  return arcadeGameController.toggleRunSetupCategory(...args);
 }
 
-function startRunRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "run" || experience.started) {
-    return;
-  }
-
-  if (experience.setupCategoryIds.length < GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  const runPlan = buildAlpacaRunQuestionPlan(getRawEntriesForRunSetupCategoryIds(experience.setupCategoryIds));
-  if (runPlan.unavailableReason || !runPlan.mainQuestions?.length) {
-    experience.unavailableReason = runPlan.unavailableReason || getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-
-  experience.mainQuestions = runPlan.mainQuestions || [];
-  experience.yaleQuestions = runPlan.yaleQuestions || [];
-  experience.currentQuestion = experience.mainQuestions[0] || null;
-  experience.started = true;
-  renderExperience();
+function startRunRoute(...args) {
+  return arcadeGameController.startRunRoute(...args);
 }
 
 function setJeopardyTeamCount(count) {
@@ -15215,255 +7580,56 @@ function renderRelayPopupTeamSection(experience, leader) {
   `;
 }
 
-function startRelayRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "relay" || experience.started || experience.unavailableReason) {
-    return;
-  }
-
-  if (experience.setupCategoryIds.length < GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  const relayPlan = buildRelayQuestionSequence(
-    experience.setupQuestionCount,
-    getRawEntriesForRunSetupCategoryIds(experience.setupCategoryIds)
-  );
-  if (relayPlan.unavailableReason || !relayPlan.questions.length) {
-    experience.unavailableReason = relayPlan.unavailableReason || getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-
-  experience.questions = relayPlan.questions;
-  experience.index = 0;
-  experience.started = true;
-  experience.answerTimeRemaining = GAME_CONFIG.relayAnswerTime;
-  renderExperience();
+function startRelayRoute(...args) {
+  return arcadeGameController.startRelayRoute(...args);
 }
 
-function toggleRelaySetupCategory(categoryId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "relay" || experience.started) {
-    return;
-  }
-
-  if (!toggleSetupCategorySelection(experience, categoryId)) {
-    return;
-  }
-
-  renderExperience();
+function toggleRelaySetupCategory(...args) {
+  return arcadeGameController.toggleRelaySetupCategory(...args);
 }
 
-function setRelayTeamCount(count) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "relay" || experience.started) {
-    return;
-  }
-
-  if (count < GAME_CONFIG.relayMinTeams || count > GAME_CONFIG.relayMaxTeams) {
-    return;
-  }
-
-  experience.teams = createRelayTeams(count);
-  renderExperience();
+function setRelayTeamCount(...args) {
+  return arcadeGameController.setRelayTeamCount(...args);
 }
 
-function setRelayQuestionCount(count) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "relay" || experience.started) {
-    return;
-  }
-
-  if (!GAME_CONFIG.relayQuestionOptions.includes(count)) {
-    return;
-  }
-
-  experience.setupQuestionCount = count;
-  renderExperience();
+function setRelayQuestionCount(...args) {
+  return arcadeGameController.setRelayQuestionCount(...args);
 }
 
-function buzzRelayTeam(teamIndex) {
-  const experience = state.experience;
-  if (
-    !experience ||
-    experience.type !== "relay" ||
-    !experience.started ||
-    experience.revealed ||
-    experience.buzzedTeamIndex !== null ||
-    teamIndex < 0 ||
-    teamIndex >= experience.teams.length
-  ) {
-    return;
-  }
-
-  experience.buzzedTeamIndex = teamIndex;
-  experience.answerTimeRemaining = GAME_CONFIG.relayAnswerTime;
-  playRelayBuzzSound();
-  renderExperience();
+function buzzRelayTeam(...args) {
+  return arcadeGameController.buzzRelayTeam(...args);
 }
 
-function answerRelayQuestion(optionIndex) {
-  const experience = state.experience;
-  if (
-    !experience ||
-    experience.type !== "relay" ||
-    experience.revealed ||
-    !Number.isInteger(experience.buzzedTeamIndex)
-  ) {
-    return;
-  }
-
-  const question = experience.questions[experience.index];
-  const isCorrect = optionIndex === question.answerIndex;
-  resolveRelayOutcome(optionIndex, isCorrect, false);
+function answerRelayQuestion(...args) {
+  return arcadeGameController.answerRelayQuestion(...args);
 }
 
-function getRelayAwardRecipients(experience, excludedIndex) {
-  return experience.teams.filter((_, index) => index !== excludedIndex);
+function getRelayAwardRecipients(...args) {
+  return arcadeGameController.getRelayAwardRecipients(...args);
 }
 
-function formatRelayAwardedTeams(labels = []) {
-  if (!labels.length) {
-    return "";
-  }
-
-  if (labels.length === 1) {
-    return labels[0];
-  }
-
-  if (labels.length === 2) {
-    return `${labels[0]} and ${labels[1]}`;
-  }
-
-  return `${labels.slice(0, -1).join(", ")}, and ${labels[labels.length - 1]}`;
+function formatRelayAwardedTeams(...args) {
+  return arcadeGameController.formatRelayAwardedTeams(...args);
 }
 
-function resolveRelayOutcome(optionIndex, isCorrect, timedOut) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "relay" || !Number.isInteger(experience.buzzedTeamIndex)) {
-    return;
-  }
-
-  const team = experience.teams[experience.buzzedTeamIndex];
-  const question = experience.questions[experience.index];
-  const awardedTeams = isCorrect ? [team] : getRelayAwardRecipients(experience, experience.buzzedTeamIndex);
-  const awardedTeamLabels = awardedTeams.map((entry) => entry.label);
-
-  clearRelayAnswerTimer();
-  experience.revealed = true;
-  experience.lastCorrect = isCorrect;
-  experience.lastTimedOut = timedOut;
-  experience.lastAwardedTeamLabels = awardedTeamLabels;
-  experience.selectedIndex = optionIndex;
-
-  if (isCorrect) {
-    team.score += GAME_CONFIG.relayCorrectPoints;
-    team.correct += 1;
-  } else {
-    team.wrong += 1;
-    awardedTeams.forEach((awardedTeam) => {
-      awardedTeam.score += GAME_CONFIG.relayCorrectPoints;
-    });
-  }
-
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds,
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect,
-    teamId: team.id,
-    teamLabel: team.label,
-    awardedTeamIds: awardedTeams.map((awardedTeam) => awardedTeam.id),
-    awardedTeamLabels: awardedTeamLabels.slice(),
-    timedOut
-  });
-
-  renderExperience();
+function resolveRelayOutcome(...args) {
+  return arcadeGameController.resolveRelayOutcome(...args);
 }
 
-function handleRelayTimeout() {
-  const experience = state.experience;
-  if (
-    !experience ||
-    experience.type !== "relay" ||
-    experience.revealed ||
-    !Number.isInteger(experience.buzzedTeamIndex)
-  ) {
-    return;
-  }
-
-  resolveRelayOutcome(null, false, true);
+function handleRelayTimeout(...args) {
+  return arcadeGameController.handleRelayTimeout(...args);
 }
 
-function advanceRelayQuestion() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "relay") {
-    return;
-  }
-
-  if (experience.index === experience.questions.length - 1) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers), {
-      type: "relay",
-      score: getHighestTeamScore(experience.teams),
-      teamOneScore: Number(experience.teams[0]?.score) || 0
-    });
-  } else {
-    experience.index += 1;
-    experience.buzzedTeamIndex = null;
-    experience.answerTimeRemaining = GAME_CONFIG.relayAnswerTime;
-    experience.revealed = false;
-    experience.lastCorrect = null;
-    experience.lastTimedOut = false;
-    experience.lastAwardedTeamLabels = [];
-    experience.selectedIndex = null;
-  }
-
-  render();
+function advanceRelayQuestion(...args) {
+  return arcadeGameController.advanceRelayQuestion(...args);
 }
 
-function addRelayTeam() {
-  const experience = state.experience;
-  if (
-    !experience ||
-    experience.type !== "relay" ||
-    experience.revealed ||
-    experience.buzzedTeamIndex !== null ||
-    experience.teams.length >= GAME_CONFIG.relayMaxTeams
-  ) {
-    return;
-  }
-
-  experience.teams.push({
-    id: `relay-team-${experience.teams.length + 1}`,
-    label: getThemedTeamLabel(experience.teams.length),
-    key: "",
-    keyLabel: "",
-    score: 0,
-    correct: 0,
-    wrong: 0
-  });
-  syncRelayTeamBindings(experience);
-  renderExperience();
+function addRelayTeam(...args) {
+  return arcadeGameController.addRelayTeam(...args);
 }
 
-function removeRelayTeam() {
-  const experience = state.experience;
-  if (
-    !experience ||
-    experience.type !== "relay" ||
-    experience.revealed ||
-    experience.buzzedTeamIndex !== null ||
-    experience.teams.length <= GAME_CONFIG.relayMinTeams
-  ) {
-    return;
-  }
-
-  experience.teams.pop();
-  syncRelayTeamBindings(experience);
-  renderExperience();
+function removeRelayTeam(...args) {
+  return arcadeGameController.removeRelayTeam(...args);
 }
 
 function renderRelayResults(experience) {
@@ -16342,73 +8508,16 @@ function renderJumpQuestionOverlay(experience, question) {
   `, "jump", { showClose: false });
 }
 
-function startJumpRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jump" || experience.started || experience.unavailableReason) {
-    return;
-  }
-
-  if (experience.setupCategoryIds.length < GAME_CONFIG.jeopardyMinGroups) {
-    return;
-  }
-
-  const plan = buildJumpQuestionPlan(getRawEntriesForRunSetupCategoryIds(experience.setupCategoryIds));
-  if (plan.unavailableReason || !plan.questions.length) {
-    experience.unavailableReason = plan.unavailableReason || getUnavailableRawGameReason();
-    renderExperience();
-    return;
-  }
-
-  experience.questions = plan.questions || [];
-  experience.index = 0;
-  experience.currentQuestion = experience.questions[0] || null;
-  experience.phase = "running";
-  experience.started = true;
-  experience.obstacleCursor = 0;
-  experience.obstaclesCleared = 0;
-  experience.obstacle = createJumpObstacle(experience.obstacleCursor);
-  experience.runnerState = "running";
-  experience.lastFrameAt = null;
-  renderExperience();
+function startJumpRoute(...args) {
+  return arcadeGameController.startJumpRoute(...args);
 }
 
-function toggleJumpSetupCategory(categoryId) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jump" || experience.started) {
-    return;
-  }
-
-  if (!toggleSetupCategorySelection(experience, categoryId)) {
-    return;
-  }
-
-  renderExperience();
+function toggleJumpSetupCategory(...args) {
+  return arcadeGameController.toggleJumpSetupCategory(...args);
 }
 
-function performJumpAction(action) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jump" || experience.phase !== "running") {
-    return;
-  }
-
-  if (action === "jump" && experience.runnerY <= 1) {
-    experience.runnerVelocity = GAME_CONFIG.jumpImpulse;
-    experience.runnerState = "jumping";
-  }
-
-  if (action === "duck") {
-    experience.ducking = true;
-    experience.runnerState = "ducking";
-    window.setTimeout(() => {
-      if (state.experience && state.experience.type === "jump") {
-        state.experience.ducking = false;
-        state.experience.runnerState = "running";
-        updateJumpDom(state.experience);
-      }
-    }, 620);
-  }
-
-  updateJumpDom(experience);
+function performJumpAction(...args) {
+  return arcadeGameController.performJumpAction(...args);
 }
 
 function startJumpAnimation() {
@@ -16545,7 +8654,10 @@ function updateJumpDom(experience) {
     const runnerState = getJumpRunnerState(experience);
     if (runner.dataset.jumpRunnerState !== runnerState) {
       runner.dataset.jumpRunnerState = runnerState;
-      runner.innerHTML = renderJumpRunner(experience);
+      appDomService.setTrustedHtml(
+        runner,
+        appDomService.trustedHtml(renderJumpRunner(experience), "jump-runner")
+      );
     }
     runner.style.transform = `translateY(-${Math.max(0, experience.runnerY)}px)`;
     runner.classList.toggle("state-ducking", runnerState === "ducking");
@@ -16559,7 +8671,10 @@ function updateJumpDom(experience) {
     const obstacleKind = experience.obstacle.kind;
     if (obstacle.dataset.jumpObstacleKind !== obstacleKind) {
       obstacle.dataset.jumpObstacleKind = obstacleKind;
-      obstacle.innerHTML = renderJumpObstacle(experience.obstacle);
+      appDomService.setTrustedHtml(
+        obstacle,
+        appDomService.trustedHtml(renderJumpObstacle(experience.obstacle), "jump-obstacle")
+      );
     }
     obstacle.style.left = `${experience.obstacle.x}%`;
     obstacle.classList.toggle("ground", obstacleKind === "ground");
@@ -16574,72 +8689,19 @@ function updateJumpDom(experience) {
 
   const lives = refs.experiencePanel.querySelector("[data-jump-lives]");
   if (lives) {
-    lives.innerHTML = renderJumpLives(experience.lives);
+    appDomService.setTrustedHtml(
+      lives,
+      appDomService.trustedHtml(renderJumpLives(experience.lives), "jump-lives")
+    );
   }
 }
 
-function answerJumpQuestion(optionIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jump" || experience.phase !== "question") {
-    return;
-  }
-
-  const question = experience.currentQuestion;
-  if (!question) {
-    return;
-  }
-
-  const isCorrect = optionIndex === question.answerIndex;
-  experience.selectedIndex = optionIndex;
-  experience.lastCorrect = isCorrect;
-  experience.phase = "feedback";
-  experience.score += isCorrect ? 1 : 0;
-  if (!isCorrect) {
-    experience.lives = Math.max(0, experience.lives - 1);
-    experience.runnerState = "hurting";
-  } else {
-    experience.runnerState = "running";
-  }
-
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds,
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect
-  });
-
-  renderExperience();
+function answerJumpQuestion(...args) {
+  return arcadeGameController.answerJumpQuestion(...args);
 }
 
-function continueJumpRoute() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "jump" || experience.phase !== "feedback") {
-    return;
-  }
-
-  if (experience.lives <= 0 || experience.index >= experience.questions.length - 1) {
-    experience.failed = experience.lives <= 0;
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers), {
-      type: "jump",
-      score: experience.score,
-      distance: experience.distance
-    });
-    render();
-    return;
-  }
-
-  experience.index += 1;
-  experience.currentQuestion = experience.questions[experience.index] || null;
-  experience.phase = "running";
-  experience.selectedIndex = null;
-  experience.lastCorrect = null;
-  experience.obstaclesCleared = 0;
-  experience.runnerState = "running";
-  queueNextJumpObstacle(experience);
-  experience.lastFrameAt = null;
-  renderExperience();
+function continueJumpRoute(...args) {
+  return arcadeGameController.continueJumpRoute(...args);
 }
 
 function renderRunExperience() {
@@ -16815,90 +8877,12 @@ function renderExperienceCloseButton(className = "popup-close-button") {
   `;
 }
 
-function answerRunQuestion(optionIndex) {
-  const experience = state.experience;
-  if (!experience || experience.type !== "run" || experience.revealed) {
-    return;
-  }
-
-  const question = experience.currentQuestion;
-  if (!question) {
-    return;
-  }
-  const isCorrect = optionIndex === question.answerIndex;
-  const yaleStage = experience.stage >= experience.route.length - 1;
-
-  experience.revealed = true;
-  experience.lastCorrect = isCorrect;
-  experience.selectedIndex = optionIndex;
-  experience.answeredCount += 1;
-
-  if (isCorrect) {
-    experience.correctCount += 1;
-    if (yaleStage) {
-      experience.pendingStage = experience.stage;
-      experience.pendingYaleProgress = experience.yaleProgress + 1;
-    } else {
-      experience.pendingStage = Math.min(experience.stage + 1, experience.route.length - 1);
-      experience.pendingYaleProgress = 0;
-    }
-  } else {
-    experience.pendingStage = yaleStage ? Math.max(experience.route.length - 2, 0) : Math.max(experience.stage - 1, 0);
-    experience.pendingYaleProgress = 0;
-  }
-
-  experience.answers.push({
-    questionId: question.id,
-    sectionId: question.sectionId,
-    subjectIds: question.subjectIds,
-    bigIdeaIds: question.bigIdeaIds || [],
-    isCorrect
-  });
-
-  renderExperience();
+function answerRunQuestion(...args) {
+  return arcadeGameController.answerRunQuestion(...args);
 }
 
-function continueRun() {
-  const experience = state.experience;
-  if (!experience || experience.type !== "run") {
-    return;
-  }
-
-  if (experience.lastCorrect && experience.stage >= experience.route.length - 1 && experience.yaleProgress === GAME_CONFIG.runYaleLevelFiveCount - 1) {
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, experience.correctCount, {
-      type: "run",
-      stage: getRunReachedStage(experience)
-    });
-    render();
-    return;
-  }
-
-  if (experience.timeRemaining <= 0) {
-    experience.failed = true;
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, experience.correctCount, {
-      type: "run",
-      stage: getRunReachedStage(experience)
-    });
-    render();
-    return;
-  }
-
-  experience.stage = Number.isInteger(experience.pendingStage) ? experience.pendingStage : experience.stage;
-  experience.yaleProgress = Number.isInteger(experience.pendingYaleProgress) ? experience.pendingYaleProgress : experience.yaleProgress;
-  if (experience.stage >= experience.route.length - 1) {
-    experience.currentQuestion = experience.yaleQuestions[experience.yaleProgress] || null;
-  } else {
-    experience.currentQuestion = experience.mainQuestions[experience.stage] || null;
-  }
-  experience.revealed = false;
-  experience.lastCorrect = null;
-  experience.selectedIndex = null;
-  experience.pendingStage = null;
-  experience.pendingYaleProgress = null;
-
-  renderExperience();
+function continueRun(...args) {
+  return arcadeGameController.continueRun(...args);
 }
 
 function renderResultsScreen(config) {
@@ -18250,122 +10234,27 @@ function getTargetLabel() {
 }
 
 function getDefaultStats() {
-  return appProgressService?.getDefaultStats
-    ? appProgressService.getDefaultStats()
-    : {
-        sessions: 0,
-        totalAnswered: 0,
-        totalCorrect: 0,
-        bestAccuracy: 0,
-        bestStreak: 0,
-        bestAlpacapardyScore: 0,
-        bestRunStage: -1,
-        bestJumpScore: 0,
-        bestJumpDistance: 0,
-        bestRelayScore: 0,
-        bestRaceScore: 0,
-        liveRecords: {}
-      };
+  return progressStorageController.getDefaultStats();
 }
 
 function normalizeStats(value) {
-  if (appProgressService?.normalizeStats) {
-    return appProgressService.normalizeStats(value);
-  }
-
-  const defaults = getDefaultStats();
-  if (!value || typeof value !== "object") {
-    return defaults;
-  }
-
-  const normalized = {
-    ...defaults,
-    ...Object.fromEntries(
-      Object.entries(value)
-        .filter(([key]) => key !== "liveRecords")
-        .map(([key, entryValue]) => [key, Number(entryValue) || 0])
-    ),
-    liveRecords: normalizeLiveRecords(value.liveRecords || defaults.liveRecords)
-  };
-  return normalized;
-}
-
-function normalizeLiveRecords(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(Object.entries(value).map(([gameType, record]) => {
-    const normalized = normalizeLiveGameType(gameType);
-    const safeRecord = record && typeof record === "object" ? record : {};
-    return [normalized, {
-      games: Math.max(0, Number(safeRecord.games) || 0),
-      wins: Math.max(0, Number(safeRecord.wins) || 0),
-      bestName: String(safeRecord.bestName || "").slice(0, 64),
-      bestGames: Math.max(0, Number(safeRecord.bestGames) || 0),
-      bestWins: Math.max(0, Number(safeRecord.bestWins) || 0)
-    }];
-  }));
+  return progressStorageController.normalizeStats(value);
 }
 
 function normalizeRawMastery(value) {
-  if (appProgressService?.normalizeRawMastery) {
-    return appProgressService.normalizeRawMastery(value);
-  }
-
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    Object.entries(value)
-      .filter(([key, entryValue]) => key && entryValue === true)
-      .map(([key]) => [key, true])
-  );
+  return progressStorageController.normalizeRawMastery(value);
 }
 
 function loadStats() {
-  const defaults = getDefaultStats();
-  if (appStorageService?.getJson) {
-    const parsed = appStorageService.getJson("wsc-alpaca-stats", null);
-    return parsed ? normalizeStats(parsed) : defaults;
-  }
-
-  try {
-    const raw = localStorage.getItem("wsc-alpaca-stats");
-    return raw ? normalizeStats(JSON.parse(raw)) : defaults;
-  } catch (_error) {
-    return defaults;
-  }
+  return progressStorageController.loadStats();
 }
 
 function loadRawMastery() {
-  if (appStorageService?.getJson) {
-    return normalizeRawMastery(appStorageService.getJson("wsc-alpaca-raw-mastery", {}));
-  }
-
-  try {
-    const raw = localStorage.getItem("wsc-alpaca-raw-mastery");
-    return normalizeRawMastery(raw ? JSON.parse(raw) : {});
-  } catch (_error) {
-    return {};
-  }
+  return progressStorageController.loadRawMastery();
 }
 
 function loadGuestAlpacaName() {
-  const key = "wsc-live-guest-name";
-  const fallback = DEFAULT_ONLINE_ALPACA_NAME;
-  try {
-    const current = localStorage.getItem(key);
-    const normalizedCurrent = String(current || "").trim();
-    if (normalizedCurrent.length >= 2 && !/^Guest\s+\d{4}$/i.test(normalizedCurrent)) {
-      return normalizedCurrent;
-    }
-    localStorage.setItem(key, fallback);
-  } catch (_error) {
-    return fallback;
-  }
-  return fallback;
+  return progressStorageController.loadGuestAlpacaName();
 }
 
 function saveStats() {
@@ -18379,14 +10268,11 @@ function saveRawMastery() {
 }
 
 function saveProgressLocally() {
-  if (appStorageService?.setJson) {
-    appStorageService.setJson("wsc-alpaca-stats", state.stats);
-    appStorageService.setJson("wsc-alpaca-raw-mastery", state.rawMastery);
-    return;
-  }
-
-  localStorage.setItem("wsc-alpaca-stats", JSON.stringify(state.stats));
-  localStorage.setItem("wsc-alpaca-raw-mastery", JSON.stringify(state.rawMastery));
+  const result = progressStorageController.saveLocalProgress(state);
+  state.ui.localProgressSaveError = result?.ok
+    ? ""
+    : "Local progress could not be saved in this browser. You can keep using WSCapp, but progress may reset after reload.";
+  return result;
 }
 
 async function saveAlpacaProgress() {
@@ -18916,854 +10802,176 @@ function renderAlpacaList(items) {
   `;
 }
 
-function getRawVisualAssetHelpers() {
-  return {
-    escapeHtml,
-    getEmbeddableVideo
-  };
+function getRawVisualAssetHelpers(...args) {
+  return rawContentController.getRawVisualAssetHelpers(...args);
 }
 
-function renderRawStudentAssets(entry, entryIndex) {
-  return rawContentVisualAssets?.renderStudentAssets
-    ? rawContentVisualAssets.renderStudentAssets(entry, entryIndex, state.ui.rawAssetSelections, getRawVisualAssetHelpers())
-    : "";
+function renderRawStudentAssets(...args) {
+  return rawContentController.renderRawStudentAssets(...args);
 }
 
-function getRawAssetSelectionKey(entryIndex, assetIndex) {
-  return rawContentVisualAssets?.getSelectionKey
-    ? rawContentVisualAssets.getSelectionKey(entryIndex, assetIndex)
-    : `${entryIndex}:${assetIndex}`;
+function getRawAssetSelectionKey(...args) {
+  return rawContentController.getRawAssetSelectionKey(...args);
 }
 
-function selectRawAssetPoint(entryIndex, assetIndex, pointIndex) {
-  if (!Number.isFinite(entryIndex) || !Number.isFinite(assetIndex) || !Number.isFinite(pointIndex)) {
-    return;
-  }
-
-  state.ui.rawAssetSelections = {
-    ...state.ui.rawAssetSelections,
-    [getRawAssetSelectionKey(entryIndex, assetIndex)]: pointIndex
-  };
-  renderExperience();
+function selectRawAssetPoint(...args) {
+  return rawContentController.selectRawAssetPoint(...args);
 }
 
-function renderRawSpecialAssets(assets, entryIndex) {
-  return rawContentVisualAssets?.renderSpecialAssets
-    ? rawContentVisualAssets.renderSpecialAssets(assets, entryIndex, state.ui.rawAssetSelections, getRawVisualAssetHelpers())
-    : "";
+function renderRawSpecialAssets(...args) {
+  return rawContentController.renderRawSpecialAssets(...args);
 }
 
-function renderRawSpecialAsset(asset, entryIndex, assetIndex) {
-  return rawContentVisualAssets?.renderSpecialAsset
-    ? rawContentVisualAssets.renderSpecialAsset(asset, entryIndex, assetIndex, state.ui.rawAssetSelections, getRawVisualAssetHelpers())
-    : "";
+function renderRawSpecialAsset(...args) {
+  return rawContentController.renderRawSpecialAsset(...args);
 }
 
-function renderRawTimelineAsset(asset, entryIndex, assetIndex) {
-  return rawContentVisualAssets?.renderTimelineAsset
-    ? rawContentVisualAssets.renderTimelineAsset(asset, entryIndex, assetIndex, state.ui.rawAssetSelections, getRawVisualAssetHelpers())
-    : "";
+function renderRawTimelineAsset(...args) {
+  return rawContentController.renderRawTimelineAsset(...args);
 }
 
-function renderRawRouteMapAsset(asset, entryIndex, assetIndex) {
-  return rawContentVisualAssets?.renderRouteMapAsset
-    ? rawContentVisualAssets.renderRouteMapAsset(asset, entryIndex, assetIndex, state.ui.rawAssetSelections, getRawVisualAssetHelpers())
-    : "";
+function renderRawRouteMapAsset(...args) {
+  return rawContentController.renderRawRouteMapAsset(...args);
 }
 
-function renderRawImageCardAsset(asset) {
-  return rawContentVisualAssets?.renderImageCardAsset
-    ? rawContentVisualAssets.renderImageCardAsset(asset, getRawVisualAssetHelpers())
-    : "";
+function renderRawImageCardAsset(...args) {
+  return rawContentController.renderRawImageCardAsset(...args);
 }
 
-function renderRawVisualSections(sections, entryIndex) {
-  return rawContentVisualAssets?.renderVisualSections
-    ? rawContentVisualAssets.renderVisualSections(sections, entryIndex, getRawVisualAssetHelpers())
-    : "";
+function renderRawVisualSections(...args) {
+  return rawContentController.renderRawVisualSections(...args);
 }
 
-function renderRawVisualFooterQuestion(footer) {
-  return rawContentVisualAssets?.renderVisualFooterQuestion
-    ? rawContentVisualAssets.renderVisualFooterQuestion(footer, getRawVisualAssetHelpers())
-    : "";
+function renderRawVisualFooterQuestion(...args) {
+  return rawContentController.renderRawVisualFooterQuestion(...args);
 }
 
-function renderRawVisualGallery(items, entryIndex, sectionIndex = null) {
-  return rawContentVisualAssets?.renderVisualGallery
-    ? rawContentVisualAssets.renderVisualGallery(items, entryIndex, getRawVisualAssetHelpers(), sectionIndex)
-    : "";
+function renderRawVisualGallery(...args) {
+  return rawContentController.renderRawVisualGallery(...args);
 }
 
-function renderRawVisualLinkPreview(item) {
-  return rawContentVisualAssets?.renderVisualLinkPreview
-    ? rawContentVisualAssets.renderVisualLinkPreview(item, getRawVisualAssetHelpers())
-    : "";
+function renderRawVisualLinkPreview(...args) {
+  return rawContentController.renderRawVisualLinkPreview(...args);
 }
 
-function getRawMediaLinkItems(item) {
-  if (rawContentMediaLightbox?.getLinkItems) {
-    return rawContentMediaLightbox.getLinkItems(item);
-  }
-
-  const explicitLinks = Array.isArray(item.links)
-    ? item.links.filter((link) => link && link.url)
-    : [];
-
-  if (explicitLinks.length) {
-    return explicitLinks;
-  }
-
-  if (item.url) {
-    return [
-      {
-        label: item.previewLabel || "Open source",
-        url: item.url
-      }
-    ];
-  }
-
-  return [];
+function getRawMediaLinkItems(...args) {
+  return rawContentController.getRawMediaLinkItems(...args);
 }
 
-function renderRawMediaLinkButtons(item) {
-  if (rawContentMediaLightbox?.renderLinkButtons) {
-    return rawContentMediaLightbox.renderLinkButtons(item, escapeHtml);
-  }
-
-  const links = getRawMediaLinkItems(item);
-  if (!links.length) {
-    return "";
-  }
-
-  return `
-    <div class="raw-media-lightbox-link-list">
-      ${links.map((link) => `
-        <a class="raw-media-lightbox-link-button" href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">
-          ${escapeHtml(link.label || "Open source")}
-        </a>
-      `).join("")}
-    </div>
-  `;
+function renderRawMediaLinkButtons(...args) {
+  return rawContentController.renderRawMediaLinkButtons(...args);
 }
 
 function getEmbeddableVideo(url) {
-  if (appVideoService?.getEmbeddableVideo) {
-    return appVideoService.getEmbeddableVideo(url);
-  }
-
-  if (!url) {
-    return null;
-  }
-
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname.replace(/^www\./, "");
-
-    if (host === "youtu.be") {
-      const videoId = parsed.pathname.split("/").filter(Boolean)[0];
-      if (!videoId) {
-        return null;
-      }
-
-      return {
-        provider: "youtube",
-        embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?rel=0&playsinline=1`
-      };
-    }
-
-    if (host === "youtube.com" || host === "m.youtube.com") {
-      const videoId = parsed.searchParams.get("v");
-      const playlistId = parsed.searchParams.get("list");
-
-      if (videoId) {
-        const params = new URLSearchParams({ rel: "0" });
-        if (playlistId) {
-          params.set("list", playlistId);
-        }
-
-        return {
-          provider: "youtube",
-          embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?${params.toString()}&playsinline=1`
-        };
-      }
-
-      if (playlistId) {
-        return {
-          provider: "youtube",
-          embedUrl: `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(playlistId)}&rel=0&playsinline=1`
-        };
-      }
-    }
-  } catch (_error) {
-    return null;
-  }
-
-  return null;
+  return alpacaChannelController.getEmbeddableVideo(url);
 }
 
 function getVideoPreview(url) {
-  if (appVideoService?.getPreview) {
-    return appVideoService.getPreview(url);
-  }
-
-  if (!url) {
-    return null;
-  }
-
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname.replace(/^www\./, "");
-    let videoId = null;
-
-    if (host === "youtu.be") {
-      videoId = parsed.pathname.split("/").filter(Boolean)[0] || null;
-    } else if (host === "youtube.com" || host === "m.youtube.com") {
-      videoId = parsed.searchParams.get("v");
-    }
-
-    if (!videoId) {
-      return null;
-    }
-
-    return {
-      provider: "youtube",
-      videoId,
-      thumbnailUrl: `https://img.youtube.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`
-    };
-  } catch (_error) {
-    return null;
-  }
+  return alpacaChannelController.getVideoPreview(url);
 }
 
-function renderRawVisualPreview(kind) {
-  return rawContentVisualAssets?.renderVisualPreview
-    ? rawContentVisualAssets.renderVisualPreview(kind, getRawVisualAssetHelpers())
-    : "";
+function renderRawVisualPreview(...args) {
+  return rawContentController.renderRawVisualPreview(...args);
 }
 
-function renderTextWithBreaks(value) {
-  return escapeHtml(value).replace(/\n/g, "<br />");
+function renderTextWithBreaks(...args) {
+  return rawContentController.renderTextWithBreaks(...args);
 }
 
-function getRawOfficialDisplayText(entry) {
-  return stripRawOfficialReferenceAppendix(entry?.rawOfficialText || "");
+function getRawOfficialDisplayText(...args) {
+  return rawContentController.getRawOfficialDisplayText(...args);
 }
 
-function stripRawOfficialReferenceAppendix(value) {
-  const paragraphs = String(value || "")
-    .replace(/\r\n?/g, "\n")
-    .trimEnd()
-    .split(/\n\s*\n+/);
-
-  if (paragraphs.length < 2) {
-    return String(value || "").trimEnd();
-  }
-
-  const cleaned = paragraphs.slice();
-  while (cleaned.length > 1 && isRawOfficialReferenceAppendix(cleaned[cleaned.length - 1])) {
-    cleaned.pop();
-  }
-
-  return cleaned.join("\n\n").trimEnd();
+function stripRawOfficialReferenceAppendix(...args) {
+  return rawContentController.stripRawOfficialReferenceAppendix(...args);
 }
 
-function isRawOfficialReferenceAppendix(block) {
-  const lines = String(block || "")
-    .split(/\n+/)
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  if (!lines.length) {
-    return false;
-  }
-
-  if (lines.length === 1) {
-    const pieces = lines[0].split(/\s*\|\s*/).filter(Boolean);
-    return pieces.length >= 3 && pieces.every((piece) => piece.length <= 90);
-  }
-
-  const pipeLines = lines.filter((line) => line.includes("|")).length;
-  const referenceLines = lines.filter((line) => isRawOfficialReferenceLine(line)).length;
-
-  return pipeLines / lines.length >= 0.7 || (lines.length >= 4 && referenceLines / lines.length >= 0.7);
+function isRawOfficialReferenceAppendix(...args) {
+  return rawContentController.isRawOfficialReferenceAppendix(...args);
 }
 
-function isRawOfficialReferenceLine(line) {
-  const value = String(line || "").trim();
-  if (!value) {
-    return false;
-  }
-
-  if (value.includes("|")) {
-    const pieces = value.split(/\s*\|\s*/).filter(Boolean);
-    return pieces.length >= 2 && pieces.every((piece) => piece.length <= 96);
-  }
-
-  return /^[A-Z0-9"“][^.!?]{0,120}\((?:c\.\s*)?(?:\d{3,4}|early|late|mid)[^)]+\)\s*$/i.test(value);
+function isRawOfficialReferenceLine(...args) {
+  return rawContentController.isRawOfficialReferenceLine(...args);
 }
 
-function getRawQuizPagerKey(entry, entryIndex) {
-  if (rawContentQuizRenderer?.getPagerKey) {
-    return rawContentQuizRenderer.getPagerKey(entry, entryIndex, getSectionIdFromGuidingTitle);
-  }
-
-  return [
-    "raw",
-    entry?.sectionId || getSectionIdFromGuidingTitle(entry?.guidingSection || entry?.sectionTitle || "") || "section",
-    entry?.id || entry?.title || "entry",
-    entryIndex
-  ].join("|");
+function getRawQuizPagerKey(...args) {
+  return rawContentController.getRawQuizPagerKey(...args);
 }
 
-function getRawQuizPageIndex(pagerKey, total) {
-  if (rawContentQuizRenderer?.getPageIndex) {
-    return rawContentQuizRenderer.getPageIndex(state.ui.rawQuizPages, pagerKey, total);
-  }
-
-  const index = Number(state.ui.rawQuizPages?.[pagerKey]);
-  if (!Number.isFinite(index) || total < 1) {
-    return 0;
-  }
-  return Math.max(0, Math.min(total - 1, index));
+function getRawQuizPageIndex(...args) {
+  return rawContentController.getRawQuizPageIndex(...args);
 }
 
-function renderRawQuizPager(entry, entryIndex) {
-  if (rawContentQuizRenderer?.renderPager) {
-    return rawContentQuizRenderer.renderPager(entry, entryIndex, {
-      pages: state.ui.rawQuizPages,
-      selections: state.ui.rawQuizSelections
-    }, {
-      escapeHtml,
-      getVisibleQuizQuestionItems: getRawVisibleQuizQuestionItems,
-      getSectionIdFromGuidingTitle,
-      renderOptionToken,
-      renderFeedback: renderRawQuizFeedback
-    });
-  }
-
-  const items = getRawVisibleQuizQuestionItems(entry);
-  if (!items.length) {
-    return "";
-  }
-
-  const pagerKey = getRawQuizPagerKey(entry, entryIndex);
-  const currentIndex = getRawQuizPageIndex(pagerKey, items.length);
-  const current = items[currentIndex];
-
-  return `
-    <div class="raw-block raw-quiz-pager">
-      <div class="raw-quiz-pager-head">
-        <strong>Questions</strong>
-        <span>Question ${currentIndex + 1} / ${items.length}</span>
-      </div>
-      ${renderRawQuizQuestion(current.question, entryIndex, current.questionIndex)}
-      ${items.length > 1 ? `
-        <div class="raw-quiz-pager-actions">
-          <button
-            class="button secondary small"
-            type="button"
-            data-raw-quiz-page="${escapeHtml(pagerKey)}"
-            data-raw-quiz-direction="-1"
-            data-raw-quiz-total="${items.length}"
-            ${currentIndex === 0 ? "disabled" : ""}
-          >Previous</button>
-          <button
-            class="button primary small"
-            type="button"
-            data-raw-quiz-page="${escapeHtml(pagerKey)}"
-            data-raw-quiz-direction="1"
-            data-raw-quiz-total="${items.length}"
-            ${currentIndex === items.length - 1 ? "disabled" : ""}
-          >Next</button>
-        </div>
-      ` : ""}
-    </div>
-  `;
+function renderRawQuizPager(...args) {
+  return rawContentController.renderRawQuizPager(...args);
 }
 
-function renderRawQuizQuestion(question, entryIndex, questionIndex) {
-  if (rawContentQuizRenderer?.renderQuestion) {
-    return rawContentQuizRenderer.renderQuestion(question, entryIndex, questionIndex, {
-      selections: state.ui.rawQuizSelections
-    }, {
-      escapeHtml,
-      renderOptionToken,
-      renderFeedback: renderRawQuizFeedback
-    });
-  }
-
-  const quizKey = getRawQuizQuestionKey(question);
-  const selectedIndex = state.ui.rawQuizSelections[quizKey];
-  const options = stableShuffleByKey([
-    {
-      text: question.correctAnswer,
-      correct: true
-    },
-    ...(question.wrongAnswers || []).map((answer) => ({
-      text: answer,
-      correct: false
-    }))
-  ].filter((option) => option.text), `${question.level}|${question.prompt}|${question.correctAnswer}`);
-  const selectedOption = Number.isInteger(selectedIndex) ? options[selectedIndex] : null;
-  const displayLevel = question.displayLevel || (Number(question.level) ? Number(question.level) * 100 : "");
-
-  return `
-    <article class="raw-quiz-card">
-      ${displayLevel ? `
-        <div class="raw-quiz-top">
-          <span class="raw-quiz-level">Level ${escapeHtml(displayLevel)}</span>
-        </div>
-      ` : ""}
-      ${question.media?.src ? `
-        <button
-          class="raw-quiz-media"
-          type="button"
-          data-open-raw-media="question"
-          data-raw-media-entry-index="${entryIndex}"
-          data-raw-media-question-index="${questionIndex}"
-          aria-label="Open question visual"
-        >
-          <img src="${escapeHtml(question.media.src)}" alt="${escapeHtml(question.media.alt || "Question visual")}" loading="lazy" />
-        </button>
-      ` : ""}
-      <p class="raw-quiz-prompt">${escapeHtml(question.prompt)}</p>
-      <div class="raw-quiz-options">
-        ${options.map((option, index) => `
-          <button
-            class="raw-quiz-option ${renderRawQuizOptionStateClass(option, index, selectedIndex)}"
-            type="button"
-            data-raw-quiz-option="${index}"
-            data-raw-quiz-key="${escapeHtml(quizKey)}"
-            aria-pressed="${selectedIndex === index ? "true" : "false"}"
-          >
-            ${renderOptionToken(index)}
-            <span>${escapeHtml(option.text)}</span>
-          </button>
-        `).join("")}
-      </div>
-      ${renderRawQuizFeedback(question, selectedOption)}
-    </article>
-  `;
+function renderRawQuizQuestion(...args) {
+  return rawContentController.renderRawQuizQuestion(...args);
 }
 
-function openRawMediaLightboxFromTrigger(trigger) {
-  const payload = getRawContentPayload();
-  if (!payload) {
-    return;
-  }
-
-  const anchor = getRawMediaLightboxAnchor(trigger);
-  const kind = trigger.dataset.openRawMedia;
-  if (kind === "gallery") {
-    const entry = payload.entries[Number(trigger.dataset.rawMediaEntryIndex)];
-    const sectionIndex = Number(trigger.dataset.rawMediaSectionIndex);
-    const sourceItems = Number.isFinite(sectionIndex)
-      ? entry?.visualSections?.[sectionIndex]?.items || []
-      : entry?.visualGallery || [];
-    const items = sourceItems.filter((item) => {
-      return item && (
-        item.src ||
-        item.url ||
-        (Array.isArray(item.links) && item.links.length) ||
-        item.note
-      );
-    });
-    if (!items.length) {
-      return;
-    }
-
-    state.ui.rawMediaLightbox = {
-      items,
-      index: Math.max(0, Math.min(items.length - 1, Number(trigger.dataset.rawMediaItemIndex) || 0)),
-      anchor
-    };
-    syncPopupScrollLock();
-    renderExperience();
-    return;
-  }
-
-  if (kind === "entry-channel") {
-    const entry = payload.entries[Number(trigger.dataset.rawMediaEntryIndex)];
-    const items = getAlpacaChannelVideosForEntry(entry).map((video) => ({
-      title: video.title || "Alpaca Channel video",
-      url: video.url,
-      previewLabel: "Play video",
-      note: video.description || video.channel || "",
-      links: [
-        {
-          label: "Open video",
-          url: video.url
-        }
-      ]
-    }));
-
-    if (!items.length) {
-      return;
-    }
-
-    state.ui.rawMediaLightbox = {
-      items,
-      index: Math.max(0, Math.min(items.length - 1, Number(trigger.dataset.rawMediaItemIndex) || 0)),
-      anchor
-    };
-    syncPopupScrollLock();
-    renderExperience();
-    return;
-  }
-
-  if (kind === "question") {
-    const entry = payload.entries[Number(trigger.dataset.rawMediaEntryIndex)];
-    const question = entry?.quizQuestions?.[Number(trigger.dataset.rawMediaQuestionIndex)];
-    if (!question?.media?.src) {
-      return;
-    }
-
-    state.ui.rawMediaLightbox = {
-      items: [
-        {
-          src: question.media.src,
-          title: question.media.alt || question.prompt || "Question visual"
-        }
-      ],
-      index: 0,
-      anchor
-    };
-    syncPopupScrollLock();
-    renderExperience();
-  }
+function openRawMediaLightboxFromTrigger(...args) {
+  return rawContentController.openRawMediaLightboxFromTrigger(...args);
 }
 
-function getRawMediaLightboxAnchor(trigger) {
-  if (!trigger || !trigger.getBoundingClientRect) {
-    return null;
-  }
-
-  const rect = trigger.getBoundingClientRect();
-  const shell = trigger.closest(".raw-content-shell") || refs.experiencePanel || document.body;
-  const shellRect = shell.getBoundingClientRect();
-  const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
-  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
-  const shellHeight = shell.scrollHeight || shellRect.height || viewportHeight;
-  const estimatedWidth = Math.min(860, Math.max(320, Math.min(viewportWidth, shellRect.width || viewportWidth) - 32));
-  const estimatedHeight = Math.min(720, Math.max(320, viewportHeight - 32));
-  const centerX = rect.left - shellRect.left + rect.width / 2;
-  const centerY = rect.top - shellRect.top + rect.height / 2;
-  const minLeft = Math.max(16, -shellRect.left + 16);
-  const maxLeft = Math.max(minLeft, -shellRect.left + viewportWidth - estimatedWidth - 16);
-  const minTop = Math.max(16, -shellRect.top + 16);
-  const maxTop = Math.max(
-    minTop,
-    Math.min(
-      shellHeight - estimatedHeight - 16,
-      -shellRect.top + viewportHeight - estimatedHeight - 16
-    )
-  );
-  const left = Math.min(
-    Math.max(minLeft, centerX - estimatedWidth / 2),
-    maxLeft
-  );
-  const top = Math.min(
-    Math.max(minTop, centerY - estimatedHeight / 2),
-    maxTop
-  );
-
-  return {
-    left: Math.round(left),
-    top: Math.round(top)
-  };
+function getRawMediaLightboxAnchor(...args) {
+  return rawContentController.getRawMediaLightboxAnchor(...args);
 }
 
-function closeRawMediaLightbox() {
-  state.ui.rawMediaLightbox = null;
-  state.ui.rawMediaSwipeStartX = null;
-  syncPopupScrollLock();
-  renderExperience();
+function closeRawMediaLightbox(...args) {
+  return rawContentController.closeRawMediaLightbox(...args);
 }
 
-function shiftRawMediaLightbox(direction) {
-  const lightbox = state.ui.rawMediaLightbox;
-  if (!lightbox || !lightbox.items?.length) {
-    return;
-  }
-
-  const total = lightbox.items.length;
-  lightbox.index = (lightbox.index + direction + total) % total;
-  renderExperience();
+function shiftRawMediaLightbox(...args) {
+  return rawContentController.shiftRawMediaLightbox(...args);
 }
 
-function renderRawMediaLightbox() {
-  if (rawContentMediaLightbox?.renderLightbox) {
-    return rawContentMediaLightbox.renderLightbox(state.ui.rawMediaLightbox, {
-      escapeHtml,
-      getEmbeddableVideo,
-      getVideoPreview,
-      isDesktopApp: window.WSC_DESKTOP_APP === true
-    });
-  }
-
-  const lightbox = state.ui.rawMediaLightbox;
-  if (!lightbox || !lightbox.items?.length) {
-    return "";
-  }
-
-  const current = lightbox.items[lightbox.index];
-  const multi = lightbox.items.length > 1;
-  const hasImage = Boolean(current.src);
-  const hasLink = getRawMediaLinkItems(current).length > 0;
-  const embeddedVideo = !hasImage ? getEmbeddableVideo(current.url) : null;
-  const videoPreview = !hasImage ? getVideoPreview(current.url) : null;
-  const canEmbedVideo = Boolean(embeddedVideo) && !window.WSC_DESKTOP_APP;
-  const hasVideoPreview = Boolean(videoPreview);
-  const anchor = lightbox.anchor || null;
-  const anchorStyle = anchor
-    ? ` style="--raw-media-anchor-left: ${Math.max(0, Math.round(Number(anchor.left) || 0))}px; --raw-media-anchor-top: ${Math.max(0, Math.round(Number(anchor.top) || 0))}px;"`
-    : "";
-  const anchorClass = anchor ? " raw-media-lightbox-overlay--anchored" : "";
-
-  return `
-    <div class="raw-media-lightbox-overlay${anchorClass}" data-close-raw-media role="dialog" aria-modal="true" aria-label="Raw content media viewer"${anchorStyle}>
-      <div class="raw-media-lightbox-window" data-raw-media-window>
-        <button class="popup-close-button" type="button" data-close-raw-media aria-label="Close media viewer">
-          <span aria-hidden="true">×</span>
-        </button>
-        <div class="raw-media-lightbox-stack">
-          <div class="raw-media-lightbox-top">
-            <p class="challenge-label">Raw Content visual</p>
-            <h3>${escapeHtml(current.title || "Visual")}</h3>
-          </div>
-          <div class="raw-media-lightbox-frame">
-            ${multi ? `<button class="raw-media-lightbox-nav prev" type="button" data-raw-media-nav="prev" aria-label="Previous visual">‹</button>` : ""}
-            <div class="raw-media-lightbox-asset ${hasImage ? "" : canEmbedVideo ? "video-slide" : hasVideoPreview ? "video-preview-slide" : "link-slide"}">
-              ${hasImage ? `
-                <img class="raw-media-lightbox-image${current.preserveOriginalColor ? " original-color" : ""}" src="${escapeHtml(current.src)}" alt="${escapeHtml(current.title || "Raw content visual")}" />
-              ` : canEmbedVideo ? `
-                <div class="raw-media-lightbox-video-wrap">
-                  <iframe
-                    class="raw-media-lightbox-iframe"
-                    src="${escapeHtml(embeddedVideo.embedUrl)}"
-                    title="${escapeHtml(current.title || "Embedded video")}"
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              ` : hasVideoPreview ? `
-                <div class="raw-media-lightbox-video-preview">
-                  <img class="raw-media-lightbox-video-thumb" src="${escapeHtml(videoPreview.thumbnailUrl)}" alt="${escapeHtml(current.title || "Video preview")}" loading="lazy" referrerpolicy="no-referrer" />
-                  <div class="raw-media-lightbox-video-copy">
-                    <span class="challenge-label">Video preview</span>
-                    <p class="raw-media-lightbox-note">YouTube blocks direct playback inside the local Mac app, so this slide opens the original video reliably in your browser.</p>
-                    ${renderRawMediaLinkButtons(current)}
-                  </div>
-                </div>
-              ` : `
-                <div class="raw-media-lightbox-link-slide">
-                  <span class="challenge-label">Reference slide</span>
-                  <h4>${escapeHtml(current.title || "Reference")}</h4>
-                  ${current.note ? `<p class="raw-media-lightbox-note">${escapeHtml(current.note)}</p>` : ""}
-                  ${renderRawMediaLinkButtons(current)}
-                </div>
-              `}
-            </div>
-            ${multi ? `<button class="raw-media-lightbox-nav next" type="button" data-raw-media-nav="next" aria-label="Next visual">›</button>` : ""}
-          </div>
-          ${((hasImage || canEmbedVideo) && (current.note || hasLink)) ? `
-            <div class="raw-media-lightbox-meta">
-              ${current.note ? `<p class="raw-media-lightbox-note">${escapeHtml(current.note)}</p>` : ""}
-              ${renderRawMediaLinkButtons(current)}
-            </div>
-          ` : ""}
-          ${multi ? `
-            <div class="raw-media-lightbox-footer">
-              <span>${lightbox.index + 1} / ${lightbox.items.length}</span>
-              <span>Swipe or use the arrows to move through the set.</span>
-            </div>
-          ` : ""}
-        </div>
-      </div>
-    </div>
-  `;
+function renderRawMediaLightbox(...args) {
+  return rawContentController.renderRawMediaLightbox(...args);
 }
 
-function getRawQuizQuestionKey(question) {
-  if (rawContentQuizRenderer?.getQuestionKey) {
-    return rawContentQuizRenderer.getQuestionKey(question);
-  }
-
-  return `${question.level}|${question.prompt}|${question.correctAnswer}`;
+function getRawQuizQuestionKey(...args) {
+  return rawContentController.getRawQuizQuestionKey(...args);
 }
 
-function selectRawQuizOption(quizKey, optionIndex) {
-  if (!quizKey || !Number.isFinite(optionIndex)) {
-    return;
-  }
-
-  state.ui.rawQuizSelections = {
-    ...state.ui.rawQuizSelections,
-    [quizKey]: optionIndex
-  };
-
-  renderExperience();
+function selectRawQuizOption(...args) {
+  return rawContentController.selectRawQuizOption(...args);
 }
 
-function rememberRawQuestionGallerySlide(target) {
-  const gallery = target?.closest?.("[data-raw-question-gallery]");
-  const slide = target?.closest?.("[data-raw-question-gallery-slide]");
-  if (!gallery || !slide) {
-    return;
-  }
-
-  setRawQuizPageIndex(
-    gallery.dataset.rawQuestionPager,
-    Number(slide.dataset.rawQuestionIndex),
-    Number(gallery.dataset.rawQuestionTotal),
-    false
-  );
+function rememberRawQuestionGallerySlide(...args) {
+  return rawContentController.rememberRawQuestionGallerySlide(...args);
 }
 
-function setRawQuizPageIndex(pagerKey, index, total, sync = true) {
-  if (!pagerKey || !Number.isFinite(index) || !Number.isFinite(total) || total < 1) {
-    return null;
-  }
-
-  const nextIndex = Math.max(0, Math.min(total - 1, Math.round(index)));
-  state.ui.rawQuizPages = {
-    ...state.ui.rawQuizPages,
-    [pagerKey]: nextIndex
-  };
-
-  if (sync) {
-    const gallery = getRawQuestionGalleryByPagerKey(pagerKey);
-    if (gallery) {
-      syncRawQuestionGallery(gallery, { behavior: "smooth" });
-    }
-  }
-
-  return nextIndex;
+function setRawQuizPageIndex(...args) {
+  return rawContentController.setRawQuizPageIndex(...args);
 }
 
-function shiftRawQuizPage(pagerKey, direction, total) {
-  if (!pagerKey || !Number.isFinite(direction) || !Number.isFinite(total) || total < 1) {
-    return;
-  }
-
-  const currentIndex = getRawQuizPageIndex(pagerKey, total);
-  const nextIndex = setRawQuizPageIndex(pagerKey, currentIndex + direction, total, true);
-  if (nextIndex === null || !getRawQuestionGalleryByPagerKey(pagerKey)) {
-    renderExperience();
-  }
+function shiftRawQuizPage(...args) {
+  return rawContentController.shiftRawQuizPage(...args);
 }
 
-function getRawQuestionGalleryByPagerKey(pagerKey) {
-  if (!refs.experiencePanel || !pagerKey) {
-    return null;
-  }
-
-  return [...refs.experiencePanel.querySelectorAll("[data-raw-question-gallery]")]
-    .find((gallery) => gallery.dataset.rawQuestionPager === pagerKey) || null;
+function getRawQuestionGalleryByPagerKey(...args) {
+  return rawContentController.getRawQuestionGalleryByPagerKey(...args);
 }
 
-function syncRawQuestionGalleries(options = {}) {
-  if (!refs.experiencePanel) {
-    return;
-  }
-
-  refs.experiencePanel.querySelectorAll("[data-raw-question-gallery]").forEach((gallery) => {
-    syncRawQuestionGallery(gallery, options);
-  });
+function syncRawQuestionGalleries(...args) {
+  return rawContentController.syncRawQuestionGalleries(...args);
 }
 
-function syncRawQuestionGallery(gallery, options = {}) {
-  if (!gallery) {
-    return false;
-  }
-
-  const pagerKey = gallery.dataset.rawQuestionPager || "";
-  const total = Number(gallery.dataset.rawQuestionTotal);
-  const viewport = gallery.querySelector("[data-raw-question-gallery-viewport]");
-  const slides = [...gallery.querySelectorAll("[data-raw-question-gallery-slide]")];
-  if (!pagerKey || !viewport || !slides.length || !Number.isFinite(total)) {
-    return false;
-  }
-
-  const currentIndex = getRawQuizPageIndex(pagerKey, Math.max(total, slides.length));
-  const safeIndex = Math.max(0, Math.min(slides.length - 1, currentIndex));
-  const targetSlide = slides[safeIndex];
-
-  slides.forEach((slide, index) => {
-    slide.classList.toggle("active", index === safeIndex);
-    slide.setAttribute("aria-hidden", index === safeIndex ? "false" : "true");
-  });
-
-  const currentLabel = gallery.closest(".raw-quiz-pager, .regular-guide-question-block")
-    ?.querySelector("[data-raw-question-current]");
-  if (currentLabel) {
-    currentLabel.textContent = `Question ${safeIndex + 1} / ${slides.length}`;
-  }
-
-  gallery.querySelectorAll("[data-raw-quiz-page]").forEach((button) => {
-    const direction = Number(button.dataset.rawQuizDirection);
-    button.disabled = direction < 0 ? safeIndex === 0 : safeIndex === slides.length - 1;
-  });
-
-  window.requestAnimationFrame(() => {
-    const targetLeft = targetSlide.offsetLeft - Math.max(0, (viewport.clientWidth - targetSlide.offsetWidth) / 2);
-    viewport.scrollTo({
-      left: Math.max(0, targetLeft),
-      behavior: options.behavior || "auto"
-    });
-  });
-
-  return true;
+function syncRawQuestionGallery(...args) {
+  return rawContentController.syncRawQuestionGallery(...args);
 }
 
-function renderRawQuizOptionStateClass(option, index, selectedIndex) {
-  if (rawContentQuizRenderer?.getOptionStateClass) {
-    return rawContentQuizRenderer.getOptionStateClass(option, index, selectedIndex);
-  }
-
-  if (!Number.isInteger(selectedIndex)) {
-    return "";
-  }
-
-  if (index === selectedIndex) {
-    return option.correct ? "revealed-correct" : "revealed-selected";
-  }
-
-  if (option.correct) {
-    return "revealed-correct";
-  }
-
-  return "revealed-wrong";
+function renderRawQuizOptionStateClass(...args) {
+  return rawContentController.renderRawQuizOptionStateClass(...args);
 }
 
-function stableShuffleByKey(items, key) {
-  if (rawContentQuizRenderer?.stableShuffleByKey) {
-    return rawContentQuizRenderer.stableShuffleByKey(items, key);
-  }
-
-  const output = [...items];
-  let seed = hashString(key);
-
-  for (let index = output.length - 1; index > 0; index -= 1) {
-    seed = (seed * 1664525 + 1013904223) >>> 0;
-    const swapIndex = seed % (index + 1);
-    [output[index], output[swapIndex]] = [output[swapIndex], output[index]];
-  }
-
-  return output;
+function stableShuffleByKey(...args) {
+  return rawContentController.stableShuffleByKey(...args);
 }
 
-function hashString(value) {
-  let hash = 2166136261;
-  const text = String(value || "");
-  for (let index = 0; index < text.length; index += 1) {
-    hash ^= text.charCodeAt(index);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
+function hashString(...args) {
+  return rawContentController.hashString(...args);
 }
 
 function shuffle(items) {

@@ -253,21 +253,7 @@ create trigger create_alpaca_profile_for_new_user
 
 revoke all on function public.create_alpaca_profile_for_new_user() from public;
 
-create or replace function public.resolve_alpaca_login(p_alpaca_name text)
-returns text
-language sql
-security definer
-stable
-set search_path = ''
-as $$
-  select email
-  from public.alpaca_profiles
-  where alpaca_name = lower(trim(p_alpaca_name))
-  limit 1;
-$$;
-
-revoke all on function public.resolve_alpaca_login(text) from public;
-grant execute on function public.resolve_alpaca_login(text) to anon, authenticated;
+drop function if exists public.resolve_alpaca_login(text);
 
 create or replace function public.is_alpaca_name_available(p_alpaca_name text)
 returns boolean
@@ -284,7 +270,8 @@ as $$
 $$;
 
 revoke all on function public.is_alpaca_name_available(text) from public;
-grant execute on function public.is_alpaca_name_available(text) to anon, authenticated;
+revoke execute on function public.is_alpaca_name_available(text) from anon;
+grant execute on function public.is_alpaca_name_available(text) to authenticated;
 
 create table if not exists public.alpaca_progress (
   user_id uuid primary key references auth.users(id) on delete cascade,

@@ -148,12 +148,16 @@
     if (!raw) {
       return "";
     }
-    if (typeof document === "undefined") {
+    if (
+      typeof document === "undefined" ||
+      typeof window === "undefined" ||
+      !window.WSC_APP_DOM_SERVICE?.htmlToText
+    ) {
       return raw.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     }
-    const element = document.createElement("div");
-    element.innerHTML = raw;
-    return element.textContent.replace(/\s+/g, " ").trim();
+
+    const domService = window.WSC_APP_DOM_SERVICE;
+    return domService.htmlToText(domService.trustedHtml(raw, "campus-content-bridge-strip"));
   }
 
   function sentenceClip(value, maxLength = 220) {

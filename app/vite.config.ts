@@ -16,6 +16,11 @@ export default defineConfig({
   build: {
     outDir: "dist-3d",
     emptyOutDir: true,
+    modulePreload: {
+      resolveDependencies() {
+        return [];
+      }
+    },
     rollupOptions: {
       input: {
         "alpaca-campus-3d": resolve(__dirname, "alpaca-campus-3d/index.html")

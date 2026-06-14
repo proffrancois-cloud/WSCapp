@@ -129,8 +129,8 @@ window.WSC_ASSETS = {
   },
   "debate": {
     "lab": "./assets/mascot/library/final-pack/DebateLab.png",
-    "pro": "./assets/mascot/library/final-pack/debate-pro-logo.png",
-    "con": "./assets/mascot/library/final-pack/debate-con-logo.png"
+    "pro": "./assets/mascot/library/final-pack/Debate_pro.png",
+    "con": "./assets/mascot/library/final-pack/Debate_con.png"
   },
   "lessons": {
     "slideshowIllustration": null,
@@ -145,8 +145,7 @@ window.WSC_ASSETS = {
   "contexts": {
     "paths": {
       "learn": "./assets/mascot/library/final-pack/reading studious.png",
-      "play": "./assets/mascot/library/final-pack/Playing.png",
-      "train": "./assets/mascot/library/final-pack/Train-transparent.png"
+      "play": "./assets/mascot/library/final-pack/Playing.png"
     },
     "lenses": {
       "subject": "./assets/mascot/library/final-pack/BySubject.png",
@@ -161,8 +160,6 @@ window.WSC_ASSETS = {
       "channel": "./assets/mascot/library/final-pack/alpacachannel.png",
       "alpacard": "./assets/mascot/library/final-pack/Flashcards.png",
       "quiz": "./assets/mascot/library/final-pack/thinking.png",
-      "writing": "./assets/mascot/library/final-pack/drawing.png",
-      "bowl": "./assets/mascot/library/final-pack/schalorsbowl.png",
       "jeopardy": "./assets/mascot/library/final-pack/Jongleur.png",
       "run": "./assets/mascot/library/final-pack/card-crops/AlpacaRun.png",
       "jump": "./assets/Alpacajump/gameicone.png",

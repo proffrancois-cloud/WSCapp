@@ -5,7 +5,7 @@ Checked against Supabase Realtime Presence and Broadcast docs on 2026-05-27.
 ## Topology
 
 - Room presence and movement use one Supabase Realtime channel per room: `alpaca-campus::{roomId}`. This preserves compatibility with the current browser room-channel factory.
-- Presence uses `clientId` as the Supabase presence key. The presence payload carries identity, avatar, room, current position, seat/activity focus, and interest snapshot.
+- Presence uses `clientId` as the Supabase presence key. The presence payload carries identity, avatar, room, seat/activity focus, and interest snapshot. It does not carry high-frequency coordinates.
 - Movement is an ephemeral Supabase Broadcast event named `campus3d.avatar.move`.
 - Seat, debate, and activity actions are durable events on `alpaca-campus-durable::{roomId}`. The durable lane expects ack/replay semantics once the persistence adapter exists.
 - Activity-specific high-interest traffic may use `alpaca-campus-activity::{roomId}::{activityId}` only while the activity is open or the player is seated there.
@@ -24,11 +24,6 @@ Presence payload shape:
   alpacaName: string,
   avatar: { id: string, name?: string, wool?: string, outfit?: string, accent?: string },
   status: "online" | "away" | "idle" | "walking" | "sitting" | "in_activity",
-  x: number,
-  y: number,
-  targetX?: number,
-  targetY?: number,
-  facing?: "n" | "ne" | "e" | "se" | "s" | "sw" | "w" | "nw",
   seatId?: string,
   activityId?: string,
   interest: {
@@ -47,11 +42,16 @@ Presence payload shape:
 
 ## Movement Budget
 
+- Positions are sent only as Broadcast movement frames, not as Presence updates.
 - Send rate: 10 Hz maximum, one movement frame every 100 ms.
 - Idle heartbeat: 1 Hz maximum, one frame every 1000 ms if the player is still connected but not moving.
 - Send only when the player moved at least 3 world pixels, changed target/facing/locomotion, or hit the idle heartbeat.
 - Round `x`, `y`, `targetX`, and `targetY` to one decimal place.
 - Movement payload target: 384 bytes or less. Do not include display names, large avatar objects, room metadata, or content data in movement frames.
+- Current runtime enforcement lives in `campus-network-guardrails.ts`,
+  `use-campus-realtime.ts`, and `campus-shared/realtime/room-channel.js`.
+  `npm run test:campus-network` checks movement delta/heartbeat decisions,
+  oversized-payload rejection, and the 24-player render cap.
 
 Movement payload shape:
 
@@ -110,6 +110,8 @@ Durable event envelope:
 - Publish `interest.mode`, `zoneIds`, `viewport`, `focusObjectId`, `seatId`, and `activityId` in presence so clients can prioritize rendering nearby or relevant players.
 - Join an activity channel only while a player has the activity open, is seated in it, or is hosting it.
 - Render at most 24 remote players by default, prioritizing same activity, same zone, then nearest viewport distance.
+- Current preview enforcement caps remote players before rendering; deeper
+  priority sorting by activity/zone/viewport remains future MMO work.
 
 ## Local Fallback
 

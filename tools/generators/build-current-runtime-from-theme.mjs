@@ -52,24 +52,6 @@ function loadQuestionBank(manifest) {
   return readJson(bankPath);
 }
 
-function loadGameOnlyLegacyQuestions() {
-  const legacyPath = path.join(THEME_DIR, "compat/game-only-legacy-questions.json");
-  if (!fs.existsSync(legacyPath)) {
-    return new Map();
-  }
-
-  const payload = readJson(legacyPath);
-  const bySection = new Map();
-  for (const [sectionId, section] of Object.entries(payload.sections || {})) {
-    const byEntryTitle = new Map();
-    for (const entry of section.entries || []) {
-      byEntryTitle.set(entry.entryTitle, entry.questions || []);
-    }
-    bySection.set(sectionId, byEntryTitle);
-  }
-  return bySection;
-}
-
 function questionMatchesSection(question, sectionId) {
   return (question.placements || []).some((placement) => placement.sectionId === sectionId) ||
     question.sectionId === sectionId ||
@@ -125,7 +107,6 @@ function buildRawContentBank(manifest) {
   const fullVoyageOrder = readJson(path.join(THEME_DIR, "compat/full-voyage-order.json"));
   const manifestById = new Map((manifest.sections || []).map((section) => [section.id, section]));
   const questionBank = loadQuestionBank(manifest);
-  const gameOnlyLegacyQuestions = loadGameOnlyLegacyQuestions();
   const sections = {};
   const fullVoyageBySourceId = new Map();
   const regularGuides = [];
@@ -163,7 +144,6 @@ function buildRawContentBank(manifest) {
       }
     }
 
-    const sectionGameOnlyQuestions = gameOnlyLegacyQuestions.get(section.id) || new Map();
     const entries = (rawContent.entries || []).map((entry) => {
       const {
         id: _generatedEntryId,
@@ -174,8 +154,7 @@ function buildRawContentBank(manifest) {
       } = entry;
       return {
         ...rest,
-        quizQuestions: entryQuestionsByEntryId.get(entry.id) || [],
-        gameOnlyQuestions: sectionGameOnlyQuestions.get(entry.title) || []
+        quizQuestions: entryQuestionsByEntryId.get(entry.id) || []
       };
     });
 
@@ -296,11 +275,13 @@ function summarize(rawContentBank, alpacaChannel, alpacards) {
   let entries = 0;
   let quizQuestions = 0;
   let guideQuestions = 0;
+  let gameOnlyQuestions = 0;
   for (const section of Object.values(rawContentBank.sections || {})) {
     entries += (section.entries || []).length;
     guideQuestions += (section.guideQuestions || []).length;
     for (const entry of section.entries || []) {
       quizQuestions += (entry.quizQuestions || []).length;
+      gameOnlyQuestions += (entry.gameOnlyQuestions || []).length;
     }
   }
   return {
@@ -308,6 +289,7 @@ function summarize(rawContentBank, alpacaChannel, alpacards) {
     entries,
     quizQuestions,
     guideQuestions,
+    gameOnlyQuestions,
     fullVoyageQuestions: (rawContentBank.fullVoyageQuestions || []).length,
     videos: (alpacaChannel.videos || []).length,
     alpacards: alpacards.length

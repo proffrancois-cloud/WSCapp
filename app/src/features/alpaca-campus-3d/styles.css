@@ -280,6 +280,26 @@ button {
   accent-color: #d6a15c;
 }
 
+.campus3d-detail-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 0 8px;
+  border-left: 1px solid rgba(37, 79, 89, 0.16);
+  color: #244f59;
+  font-size: 0.74rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.campus3d-detail-toggle input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: #d6a15c;
+}
+
 .campus3d-room-dock {
   left: 50%;
   bottom: 18px;
@@ -1083,6 +1103,11 @@ button {
 
   .campus3d-light-slider input {
     width: 64px;
+  }
+
+  .campus3d-detail-toggle {
+    padding-left: 6px;
+    font-size: 0.68rem;
   }
 
   .campus3d-avatar-dock {

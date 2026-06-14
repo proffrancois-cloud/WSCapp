@@ -10,16 +10,24 @@ builds/
 dist/
 app/dist-3d/
 app/dist-pages/
+app/dist-vercel/
 exports/
 output/
 outputs/
 reports/
 test-results/
+coverage/
+tmp/
+app/artifacts/
+app/assets-source/
+app/coverage/
+app/test-results/
+app/playwright-report/
 
 # Local reference and archived lock material; the live app source is in app/
 references/
 v2-lock/
-archive/toreview/
+archive/
 
 # Common local-only files
 .playwright-cli/
@@ -27,6 +35,10 @@ app/.playwright-cli/
 __pycache__/
 *.pyc
 *.log
+*.tmp
+*.bak
+*.orig
+*.swp
 .env
 .env.*
 

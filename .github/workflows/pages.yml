@@ -6,10 +6,10 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions: {}
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 concurrency:
   group: pages
@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,8 +31,16 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
 
+      - name: Check Node runtime
+        run: node -v && npm -v
+        working-directory: app
+
       - name: Install dependencies
         run: npm ci
+        working-directory: app
+
+      - name: Verify theme runtime
+        run: npm run test:theme
         working-directory: app
 
       - name: Build Pages artifact
@@ -39,8 +49,9 @@ jobs:
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
+      - name: Audit Pages artifact
+        run: npm run audit:pages
+        working-directory: app
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -48,12 +59,18 @@ jobs:
           path: app/dist-pages
 
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
