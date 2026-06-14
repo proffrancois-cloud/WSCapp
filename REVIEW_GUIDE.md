@@ -171,6 +171,8 @@ Recent extractions reduce `app.js` without changing behavior:
 - `modal-focus-service.js`: active dialog focus trapping, inert background
   siblings, and focus restoration for HTML-rendered modals.
 - `route-builder-controller.js`: route-builder state transitions.
+- `route-builder-view-controller.js`: wizard render orchestration,
+  route-builder render context/helper wiring, and mode-choice card animation.
 - `auth-controller.js`: Alpaccount/session form orchestration.
 - `progress-storage-controller.js`: local stats, mastery, and guest-name
   persistence.
@@ -265,7 +267,7 @@ Current higher-risk areas:
 ## Known Technical Debt
 
 - `app/app.js` is still the main god file and should continue shrinking.
-- As of the content-normalization helper extraction, `app/app.js` is about 13.8k
+- As of the route-builder view controller extraction, `app/app.js` is about 13.6k
   lines. That is smaller than the pre-refactor file, but still above the
   target for the Medium-risk threshold.
 - `index.html` depends on strict script order and browser globals.
@@ -365,7 +367,8 @@ Most important roadmap recommendations from the DOCX:
 
 ## Suggested Next Refactor Passes
 
-1. Continue shrinking `app.js` by extracting route render orchestration.
+1. Continue shrinking `app.js` by extracting remaining game render/build
+   orchestration.
 2. Add screenshot-based UI coverage before semantic CSS cleanup.
 3. Extract remaining Jeopardy local tile/focus/start mechanics.
 4. Review Supabase RLS and realtime policy before expanding real multiplayer.

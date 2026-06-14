@@ -101,6 +101,10 @@ Current progress:
   mutations for paths, lenses, target sections, modes, clear/change actions,
   and route deep-links while `app.js` keeps timers, render calls, scrolling,
   unavailable-mode handling, and experience launch policy.
+- `src/app/route-builder-view-controller.js` now owns wizard render
+  orchestration, route-builder render context/helper wiring, and the
+  mode-choice card spread/open/close animation while `app.js` keeps
+  compatibility wrappers plus route scrolling and launch policy.
 - `src/app/auth-controller.js` now owns Alpaccount client/session setup,
   profile/progress loading, signup/login/forgot/reset form actions, sign-out,
   and anonymous live-session auth while `app.js` keeps compatibility wrappers
@@ -173,8 +177,9 @@ Acceptance per extraction:
 The architecture analysis DOCX identifies `app/app.js` as the top severity and
 likelihood risk until it is small enough to review by responsibility instead of
 by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the content-normalization helper extraction,
-`app.js` is about 13.8k lines, so it is improved but still above the target
+automatic safety guarantees. After the route-builder view controller
+extraction, `app.js` is about 13.6k lines, so it is improved but still above
+the target
 for the Medium-risk band.
 
 | `app.js` state | Target risk | Meaning |

@@ -17,6 +17,7 @@ const appDomService = window.WSC_APP_DOM_SERVICE;
 const modalFocusService = window.WSC_MODAL_FOCUS_SERVICE || null;
 const createContentNormalizationHelpers = window.WSC_CREATE_CONTENT_NORMALIZATION_HELPERS;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
+const createRouteBuilderViewController = window.WSC_CREATE_ROUTE_BUILDER_VIEW_CONTROLLER;
 const createAuthController = window.WSC_CREATE_AUTH_CONTROLLER;
 const createProgressStorageController = window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER;
 const createGameLaunchController = window.WSC_CREATE_GAME_LAUNCH_CONTROLLER;
@@ -1958,6 +1959,44 @@ const legacyLiveRoomRenderer = createLegacyLiveRoomRenderer({
   }
 });
 
+const routeBuilderViewController = createRouteBuilderViewController({
+  appState: state,
+  refs,
+  appDomService,
+  wizardRenderer,
+  documentRef: document,
+  windowRef: window,
+  constants: {
+    WIZARD_TOTAL_STEPS,
+    DEFAULT_LENS_ID,
+    PATH_OPTIONS,
+    LENS_OPTIONS
+  },
+  helpers: {
+    escapeHtml,
+    renderConfiguredMascotAsset,
+    getAssetValue,
+    getWizardCardAsset,
+    getTargetAssetPath,
+    getModeAssetPath,
+    getPathReviewBadge,
+    getLensReviewBadge,
+    getTargetReviewBadge,
+    getModeReviewBadge,
+    getTargetLabel,
+    getModeOption,
+    getSelectedSectionIds,
+    getTargetOptions,
+    getVisibleModeOptions,
+    getVisibleModeOptionsForPath,
+    getModePath,
+    getAppModeSwitchIcon
+  },
+  callbacks: {
+    renderAlpacaOnlineHub
+  }
+});
+
 const appEventRouter = createAppEventRouter({
   appState: state,
   refs,
@@ -2291,10 +2330,7 @@ function toggleModeChoiceSection(targetId) {
 }
 
 function getVisibleModeChoicePath() {
-  return state.ui.openModeChoicePath
-    || document.querySelector(".mode-choice-board")?.dataset.activePath
-    || document.querySelector(".mode-choice-column.is-open")?.dataset.modeChoicePath
-    || null;
+  return routeBuilderViewController.getVisibleModeChoicePath();
 }
 
 function toggleHeroMenu(button) {
@@ -2318,262 +2354,51 @@ function closeHeroMenu() {
 }
 
 function primeModeChoiceCardSpread(column) {
-  column.querySelectorAll(".mode-choice-card-grid .wizard-choice-card").forEach((card, index) => {
-    card.style.setProperty("opacity", "0", "important");
-    card.style.setProperty("filter", "blur(2px)", "important");
-    card.style.setProperty("transform", "translate(-50%, -50%) scale(0.18)", "important");
-    card.style.setProperty("transition", "none", "important");
-    card.style.setProperty("transition-delay", `${index * 36}ms`, "important");
-  });
+  return routeBuilderViewController.primeModeChoiceCardSpread(column);
 }
 
 function scheduleModeChoiceCardSpread(column, board) {
-  primeModeChoiceCardSpread(column);
-  column.classList.remove("is-open");
-  column.querySelector(".mode-choice-card-grid")?.getBoundingClientRect();
-  column.classList.add("is-open");
-  column.classList.remove("is-closing");
-  column.querySelector(".mode-choice-card-grid")?.getBoundingClientRect();
-
-  board._modeChoiceOpenFrame = window.requestAnimationFrame(() => {
-    board._modeChoiceOpenFrame = window.requestAnimationFrame(() => {
-      animateModeChoiceCardSpread(column, board);
-      board._modeChoiceOpenFrame = null;
-    });
-  });
+  return routeBuilderViewController.scheduleModeChoiceCardSpread(column, board);
 }
 
 function getModeChoiceCardTarget(card) {
-  const computedStyle = window.getComputedStyle(card);
-  const parsePercent = (value, fallback) => {
-    const parsed = Number.parseFloat(String(value || "").replace("%", ""));
-    return Number.isFinite(parsed) ? parsed : fallback;
-  };
-  return {
-    x: parsePercent(computedStyle.getPropertyValue("--menu-x"), 50),
-    y: parsePercent(computedStyle.getPropertyValue("--menu-y"), 0)
-  };
+  return routeBuilderViewController.getModeChoiceCardTarget(card);
 }
 
 function easeModeChoiceSpread(progress) {
-  return progress < 0.5
-    ? 4 * progress * progress * progress
-    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+  return routeBuilderViewController.easeModeChoiceSpread(progress);
 }
 
 function setModeChoiceCardSpreadFrame(card, target, progress) {
-  const eased = easeModeChoiceSpread(Math.min(1, Math.max(0, progress)));
-  const x = -50 + (target.x + 50) * eased;
-  const y = -50 + (target.y + 50) * eased;
-  const scale = 0.18 + 0.82 * eased;
-  const opacity = Math.min(1, Math.max(0, progress * 1.45));
-  const blur = Math.max(0, 2 * (1 - eased));
-  card.style.setProperty("opacity", String(opacity), "important");
-  card.style.setProperty("filter", `blur(${blur.toFixed(2)}px)`, "important");
-  card.style.setProperty("transform", `translate(${x.toFixed(2)}%, ${y.toFixed(2)}%) scale(${scale.toFixed(3)})`, "important");
+  return routeBuilderViewController.setModeChoiceCardSpreadFrame(card, target, progress);
 }
 
 function animateModeChoiceCardSpread(column, board) {
-  const duration = 980;
-  const cards = Array.from(column.querySelectorAll(".mode-choice-card-grid .wizard-choice-card")).map((card, index) => ({
-    card,
-    index,
-    target: getModeChoiceCardTarget(card)
-  }));
-  const startedAt = window.performance.now();
-
-  const step = (now) => {
-    let isRunning = false;
-    cards.forEach(({ card, index, target }) => {
-      const progress = (now - startedAt - index * 36) / duration;
-      if (progress < 1) {
-        isRunning = true;
-      }
-      setModeChoiceCardSpreadFrame(card, target, progress);
-    });
-
-    if (isRunning) {
-      board._modeChoiceSpreadAnimationId = window.requestAnimationFrame(step);
-      return;
-    }
-
-    cards.forEach(({ card, target }) => {
-      card.style.setProperty("opacity", "1", "important");
-      card.style.setProperty("filter", "blur(0)", "important");
-      card.style.setProperty("transform", `translate(${target.x}%, ${target.y}%) scale(1)`, "important");
-    });
-    board._modeChoiceSpreadAnimationId = null;
-  };
-
-  board._modeChoiceSpreadAnimationId = window.requestAnimationFrame(step);
+  return routeBuilderViewController.animateModeChoiceCardSpread(column, board);
 }
 
 function clearModeChoiceCardSpread(column) {
-  column.querySelectorAll(".mode-choice-card-grid .wizard-choice-card").forEach((card) => {
-    card.style.removeProperty("opacity");
-    card.style.removeProperty("filter");
-    card.style.removeProperty("transform");
-    card.style.removeProperty("transition");
-    card.style.removeProperty("transition-delay");
-  });
+  return routeBuilderViewController.clearModeChoiceCardSpread(column);
 }
 
 function freezeModeChoiceColumnAtCurrentPosition(column, board) {
-  const boardRect = board.getBoundingClientRect();
-  const columnRect = column.getBoundingClientRect();
-  column.style.setProperty("left", `${columnRect.left - boardRect.left}px`, "important");
-  column.style.setProperty("top", `${columnRect.top - boardRect.top}px`, "important");
-  column.style.setProperty("width", `${columnRect.width}px`, "important");
-  column.style.setProperty("height", `${columnRect.height}px`, "important");
-  column.style.setProperty("transform", "none", "important");
-  column.style.setProperty("opacity", "1", "important");
-  column.getBoundingClientRect();
+  return routeBuilderViewController.freezeModeChoiceColumnAtCurrentPosition(column, board);
 }
 
 function getModeChoiceCollapsedSlot(column) {
-  const pathId = column.dataset.modeChoicePath || "";
-  const left = Math.min(16, Math.max(4, window.innerWidth * 0.011));
-  const topByPath = {
-    learn: 40,
-    play: 174,
-    train: 308
-  };
-  return {
-    left,
-    top: topByPath[pathId] || 40,
-    width: 112,
-    height: 112
-  };
+  return routeBuilderViewController.getModeChoiceCollapsedSlot(column);
 }
 
 function moveModeChoiceColumnToCollapsedSlot(column) {
-  const slot = getModeChoiceCollapsedSlot(column);
-  column.style.setProperty("left", `${slot.left}px`, "important");
-  column.style.setProperty("top", `${slot.top}px`, "important");
-  column.style.setProperty("width", `${slot.width}px`, "important");
-  column.style.setProperty("height", `${slot.height}px`, "important");
-  column.style.setProperty("transform", "none", "important");
-  column.style.setProperty("opacity", "0.68", "important");
+  return routeBuilderViewController.moveModeChoiceColumnToCollapsedSlot(column);
 }
 
 function clearModeChoiceColumnPosition(column) {
-  ["left", "top", "width", "height", "transform", "opacity"].forEach((property) => {
-    column.style.removeProperty(property);
-  });
+  return routeBuilderViewController.clearModeChoiceColumnPosition(column);
 }
 
 function toggleModeChoiceMenu(button) {
-  const column = button.closest(".mode-choice-column");
-  if (!column) {
-    return;
-  }
-
-  if (!getSelectedSectionIds().length) {
-    const board = column.closest(".mode-choice-board");
-    board?.classList.add("needs-section-selection");
-    window.setTimeout(() => board?.classList.remove("needs-section-selection"), 560);
-    return;
-  }
-
-  const board = column.closest(".mode-choice-board");
-  if (!board) {
-    return;
-  }
-
-  const pathId = column.dataset.modeChoicePath || button.dataset.toggleModeMenu || "";
-  const isOpen = column.classList.contains("is-open");
-  const openColumn = board.querySelector(".mode-choice-column.is-open");
-  const isSwitching = Boolean(openColumn && openColumn !== column);
-  const animationMs = 1240;
-
-  if (board._modeChoiceTimer) {
-    window.clearTimeout(board._modeChoiceTimer);
-  }
-  if (board._modeChoiceFinishTimer) {
-    window.clearTimeout(board._modeChoiceFinishTimer);
-  }
-  if (board._modeChoiceOpenTimer) {
-    window.clearTimeout(board._modeChoiceOpenTimer);
-  }
-  if (board._modeChoiceOpenFrame) {
-    window.cancelAnimationFrame(board._modeChoiceOpenFrame);
-    board._modeChoiceOpenFrame = null;
-  }
-  if (board._modeChoiceSpreadAnimationId) {
-    window.cancelAnimationFrame(board._modeChoiceSpreadAnimationId);
-    board._modeChoiceSpreadAnimationId = null;
-  }
-  board.querySelectorAll(".mode-choice-column").forEach((item) => {
-    if (item !== column) {
-      clearModeChoiceCardSpread(item);
-      clearModeChoiceColumnPosition(item);
-    }
-  });
-
-  if (isOpen) {
-    state.ui.openModeChoicePath = null;
-    clearModeChoiceCardSpread(column);
-    clearModeChoiceColumnPosition(column);
-    column.classList.add("is-closing");
-    board.classList.add("is-menu-closing");
-    board.removeAttribute("data-active-path");
-    button.setAttribute("aria-expanded", "false");
-    board._modeChoiceTimer = window.setTimeout(() => {
-      clearModeChoiceCardSpread(column);
-      clearModeChoiceColumnPosition(column);
-      column.classList.remove("is-open", "is-closing", "is-opening", "is-targeting");
-      board.classList.remove("is-menu-closing", "is-menu-switching");
-      board._modeChoiceTimer = null;
-    }, animationMs);
-    return;
-  }
-
-  if (isSwitching && openColumn) {
-    freezeModeChoiceColumnAtCurrentPosition(openColumn, board);
-  }
-  state.ui.openModeChoicePath = pathId;
-  board.dataset.activePath = pathId;
-  board.classList.toggle("is-menu-switching", isSwitching);
-  board.querySelectorAll("[data-toggle-mode-menu]").forEach((menuButton) => {
-    menuButton.setAttribute("aria-expanded", menuButton === button ? "true" : "false");
-  });
-  board.querySelectorAll(".mode-choice-column").forEach((item) => {
-    item.classList.toggle("is-targeting", item === column);
-    if (item === column) {
-      item.classList.remove("is-closing");
-      item.classList.add("is-opening");
-      return;
-    }
-    item.classList.remove("is-opening", "is-targeting");
-    if (item !== openColumn) {
-      item.classList.remove("is-open", "is-closing");
-    }
-  });
-  if (openColumn && openColumn !== column) {
-    openColumn.classList.add("is-closing");
-    openColumn.classList.remove("is-open", "is-opening", "is-targeting");
-    moveModeChoiceColumnToCollapsedSlot(openColumn);
-  }
-  button.setAttribute("aria-expanded", "true");
-
-  clearModeChoiceColumnPosition(column);
-  scheduleModeChoiceCardSpread(column, board);
-
-  board._modeChoiceTimer = window.setTimeout(() => {
-    board.querySelectorAll(".mode-choice-column").forEach((item) => {
-      if (item === column) {
-        item.classList.remove("is-opening", "is-targeting");
-        clearModeChoiceCardSpread(item);
-        clearModeChoiceColumnPosition(item);
-        return;
-      }
-      clearModeChoiceCardSpread(item);
-      clearModeChoiceColumnPosition(item);
-      item.classList.remove("is-open", "is-closing", "is-opening", "is-targeting");
-    });
-    board._modeChoiceTimer = null;
-    board.classList.remove("is-menu-switching", "is-menu-closing");
-  }, animationMs);
+  return routeBuilderViewController.toggleModeChoiceMenu(button);
 }
 
 function continueTargetSelection() {
@@ -3125,28 +2950,7 @@ function renderSummaryChip(label, value) {
 }
 
 function renderWizard() {
-  if (state.ui.appShellMode === "online") {
-    if (refs.routeBuilderTitle) {
-      refs.routeBuilderTitle.textContent = "";
-    }
-    if (refs.wizardRailMount) {
-      appDomService.clearHtml(refs.wizardRailMount);
-    }
-    appDomService.setHtml(refs.wizardSteps, renderAlpacaOnlineHub());
-    return;
-  }
-
-  const renderedWizard = wizardRenderer.renderWizard(getWizardRenderContext(), getWizardRenderHelpers());
-
-  if (refs.routeBuilderTitle) {
-    refs.routeBuilderTitle.textContent = renderedWizard.title;
-  }
-
-  if (refs.wizardRailMount) {
-    appDomService.setHtml(refs.wizardRailMount, renderedWizard.railHtml);
-  }
-
-  appDomService.setHtml(refs.wizardSteps, renderedWizard.stepsHtml);
+  return routeBuilderViewController.renderWizard();
 }
 
 function renderAlpacaOnlineHub(...args) { return legacyLiveRoomRenderer.renderAlpacaOnlineHub(...args); }
@@ -3302,31 +3106,31 @@ function chooseOnlineGameType(gameType) {
 }
 
 function renderStepPanel(index, title, helper, content, gridClass) {
-  return wizardRenderer.renderStepPanel(index, title, helper, content, gridClass, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderStepPanel(index, title, helper, content, gridClass);
 }
 
 function getCurrentWizardStepNumber() {
-  return wizardRenderer.getCurrentStepNumber(getWizardRenderContext());
+  return routeBuilderViewController.getCurrentWizardStepNumber();
 }
 
 function getWizardStepDefinition(stepNumber) {
-  return wizardRenderer.getStepDefinition(stepNumber, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.getWizardStepDefinition(stepNumber);
 }
 
 function renderWizardRail(currentStep) {
-  return wizardRenderer.renderWizardRail(currentStep, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderWizardRail(currentStep);
 }
 
 function renderWizardRailItem(item, currentStep) {
-  return wizardRenderer.renderWizardRailItem(item, currentStep, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderWizardRailItem(item, currentStep);
 }
 
 function getWizardRailItems() {
-  return wizardRenderer.getRailItems(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.getWizardRailItems();
 }
 
 function getWizardCompletionDepth() {
-  return wizardRenderer.getCompletionDepth(getWizardRenderContext());
+  return routeBuilderViewController.getWizardCompletionDepth();
 }
 
 function goToWizardStep(stepNumber) {
@@ -3341,65 +3145,39 @@ function goToWizardStep(stepNumber) {
 }
 
 function renderPathCards() {
-  return wizardRenderer.renderPathCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderPathCards();
 }
 
 function renderLensCards() {
-  return wizardRenderer.renderLensCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderLensCards();
 }
 
 function renderTargetCards() {
-  return wizardRenderer.renderTargetCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderTargetCards();
 }
 
 function renderModeCards() {
-  return wizardRenderer.renderModeCards(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeCards();
 }
 
 function renderModeChoiceBoard() {
-  return wizardRenderer.renderModeChoiceBoard(getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeChoiceBoard();
 }
 
 function renderModeChoiceColumn(pathId, title, asset, options) {
-  return wizardRenderer.renderModeChoiceColumn(pathId, title, asset, options, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeChoiceColumn(pathId, title, asset, options);
 }
 
 function renderModeChoiceCard(option, pathId) {
-  return wizardRenderer.renderModeChoiceCard(option, pathId, getWizardRenderContext(), getWizardRenderHelpers());
+  return routeBuilderViewController.renderModeChoiceCard(option, pathId);
 }
 
 function getWizardRenderContext() {
-  return {
-    selection: state.selection,
-    ui: state.ui,
-    wizardTotalSteps: WIZARD_TOTAL_STEPS,
-    defaultLensId: DEFAULT_LENS_ID,
-    pathOptions: PATH_OPTIONS,
-    lensOptions: LENS_OPTIONS
-  };
+  return routeBuilderViewController.getWizardRenderContext();
 }
 
 function getWizardRenderHelpers() {
-  return {
-    escapeHtml,
-    renderConfiguredMascotAsset,
-    getAssetValue,
-    getWizardCardAsset,
-    getTargetAssetPath,
-    getModeAssetPath,
-    getPathReviewBadge,
-    getLensReviewBadge,
-    getTargetReviewBadge,
-    getModeReviewBadge,
-    getTargetLabel,
-    getModeOption,
-    getSelectedSectionIds,
-    getTargetOptions,
-    getVisibleModeOptions,
-    getVisibleModeOptionsForPath,
-    getModePath,
-    getAppModeSwitchIcon
-  };
+  return routeBuilderViewController.getWizardRenderHelpers();
 }
 
 function getAppModeSwitchIcon() {

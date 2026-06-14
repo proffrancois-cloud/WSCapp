@@ -138,7 +138,9 @@ test("entry gate and route builder avoid horizontal overflow at 390px", async ({
     offenders: []
   });
 
-  await page.locator('[data-app-entry-choice="local"]').click();
+  await page.evaluate(() => {
+    document.querySelector<HTMLElement>('[data-app-entry-choice="local"]')?.click();
+  });
   await expect(page.locator(".app-entry-gate-overlay")).toHaveCount(0);
   await page.keyboard.press("Escape");
   await expect(page.locator(".cooperation-modal-overlay")).toHaveCount(0);

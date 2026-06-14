@@ -79,18 +79,55 @@ function loadPlaywright() {
 async function runModeSmoke(page, sectionName, modeId, expectedText) {
   await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
   await chooseLocalRoute(page);
+  await page.waitForFunction(() => window.WSC_APP_READY === true && document.querySelector(".mode-choice-board"));
+
   await page.evaluate((targetSectionName) => {
     const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
-      .find((button) => (button.dataset.sectionTitle || button.textContent || "").match(targetSectionName));
-    if (sectionButton && sectionButton.getAttribute("aria-pressed") !== "true") {
+      .find((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName));
+    if (!sectionButton) {
+      throw new Error(`Could not find section chip for "${targetSectionName}".`);
+    }
+    if (sectionButton.getAttribute("aria-pressed") !== "true") {
       sectionButton.click();
     }
   }, sectionName);
-  await page.waitForTimeout(300);
-  await page.evaluate((targetModeId) => {
-    document.querySelector(`[data-pick-mode="${targetModeId}"]`)?.click();
+
+  await page.waitForFunction((targetSectionName) => {
+    return [...document.querySelectorAll("[data-toggle-mode-section]")]
+      .some((button) => (
+        (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName)
+        && button.getAttribute("aria-pressed") === "true"
+      )) && document.querySelector(".mode-choice-board.has-section-selection");
+  }, sectionName);
+
+  const modePath = await page.evaluate((targetModeId) => {
+    const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]`);
+    return modeButton?.dataset.pickModePath || modeButton?.closest("[data-mode-choice-path]")?.dataset.modeChoicePath || null;
   }, modeId);
-  await page.waitForTimeout(1000);
+  if (!modePath) {
+    throw new Error(`Could not find route-builder path for mode "${modeId}".`);
+  }
+
+  await page.evaluate((targetModePath) => {
+    const modeMenuButton = document.querySelector(`[data-toggle-mode-menu="${targetModePath}"]`);
+    if (!modeMenuButton) {
+      throw new Error(`Could not find mode menu button for "${targetModePath}".`);
+    }
+    modeMenuButton.click();
+  }, modePath);
+  await page.waitForFunction((targetModePath) => {
+    return document.querySelector(`[data-mode-choice-path="${targetModePath}"]`)?.classList.contains("is-open");
+  }, modePath);
+  await page.waitForTimeout(1300);
+
+  await page.evaluate((targetModeId) => {
+    const modeButton = document.querySelector(`[data-pick-mode="${targetModeId}"]:not([disabled])`);
+    if (!modeButton) {
+      throw new Error(`Could not find enabled mode card for "${targetModeId}".`);
+    }
+    modeButton.click();
+  }, modeId);
+  await page.waitForFunction(() => !document.querySelector("#experiencePanel")?.classList.contains("hidden"), null, { timeout: 8000 }).catch(() => {});
 
   return page.evaluate((text) => {
     const panel = document.querySelector("#experiencePanel");
@@ -108,14 +145,22 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
 }
 
 async function chooseLocalRoute(page) {
-  const localChoice = page.locator('[data-app-entry-choice="local"]');
-  if ((await localChoice.count()) > 0) {
-    await localChoice.click({ timeout: 40000 });
-  }
-  const cooperationClose = page.locator("[data-close-cooperation]").first();
-  if ((await cooperationClose.count()) > 0) {
-    await cooperationClose.click({ timeout: 40000 });
-  }
+  await page.waitForFunction(() => window.WSC_APP_READY === true, null, { timeout: 60000 });
+
+  await page.evaluate(() => {
+    document.querySelector('[data-app-entry-choice="local"]')?.click();
+  });
+
+  await page.waitForFunction(() => !document.querySelector(".app-entry-gate-overlay"), null, { timeout: 40000 });
+
+  await page.evaluate(() => {
+    document.querySelector("[data-close-cooperation]")?.click();
+  });
+  await page.waitForFunction(() => {
+    return !document.querySelector('[role="dialog"][aria-modal="true"]')
+      && !document.body.classList.contains("with-popup")
+      && !document.querySelector("#routeBuilder")?.inert;
+  }, null, { timeout: 40000 });
 }
 
 async function main() {
