@@ -31,6 +31,7 @@ const createRawContentController = window.WSC_CREATE_RAW_CONTENT_CONTROLLER;
 const createStudyGameController = window.WSC_CREATE_STUDY_GAME_CONTROLLER;
 const createArcadeGameController = window.WSC_CREATE_ARCADE_GAME_CONTROLLER;
 const createArcadeRenderController = window.WSC_CREATE_ARCADE_RENDER_CONTROLLER;
+const createArcadeRuntimeTimerController = window.WSC_CREATE_ARCADE_RUNTIME_TIMER_CONTROLLER;
 const createAlpacapardyBoardController = window.WSC_CREATE_ALPACAPARDY_BOARD_CONTROLLER;
 const createAlpacapardyController = window.WSC_CREATE_ALPACAPARDY_CONTROLLER;
 const createAlpacardsController = window.WSC_CREATE_ALPACARDS_CONTROLLER;
@@ -73,9 +74,6 @@ let subjectKnowledgeById = {};
 let learnSubjectKnowledgeById = {};
 let bigIdeaKnowledgeById = {};
 let wholeThemeKnowledge = null;
-let runTimerId = null;
-let raceTimerId = null;
-let relayAnswerTimerId = null;
 let jumpAnimationId = null;
 let mindMapOrbitAnimationId = null;
 let relayBuzzAudio = null;
@@ -1168,6 +1166,20 @@ const arcadeGameController = createArcadeGameController({
   }
 });
 
+const arcadeRuntimeTimerController = createArcadeRuntimeTimerController({
+  appState: state,
+  windowRef: window,
+  callbacks: {
+    finalizeSessionStats,
+    getRunReachedStage,
+    handleRelayTimeout,
+    refreshRunTimerDisplay,
+    render,
+    renderExperiencePreservingScroll,
+    resolveRaceQuestion
+  }
+});
+
 const alpaquizRenderController = createAlpaquizRenderController({
   appState: state,
   renderers: {
@@ -1618,24 +1630,15 @@ const appShellController = createAppShellController({
 init();
 
 function clearRunTimer() {
-  if (runTimerId) {
-    window.clearInterval(runTimerId);
-    runTimerId = null;
-  }
+  return arcadeRuntimeTimerController.clearRunTimer();
 }
 
 function clearRaceTimer() {
-  if (raceTimerId) {
-    window.clearInterval(raceTimerId);
-    raceTimerId = null;
-  }
+  return arcadeRuntimeTimerController.clearRaceTimer();
 }
 
 function clearRelayAnswerTimer() {
-  if (relayAnswerTimerId) {
-    window.clearInterval(relayAnswerTimerId);
-    relayAnswerTimerId = null;
-  }
+  return arcadeRuntimeTimerController.clearRelayAnswerTimer();
 }
 
 function clearJumpAnimation() {
@@ -3662,44 +3665,7 @@ function resetBowlPractice(...args) {
 }
 
 function syncExperienceTimers() {
-  if (
-    !state.experience ||
-    state.experience.type !== "run" ||
-    state.experience.unavailableReason ||
-    !state.experience.currentQuestion ||
-    state.experience.finished ||
-    state.experience.revealed
-  ) {
-    clearRunTimer();
-  } else if (!runTimerId) {
-    startRunTimer();
-  }
-
-  if (
-    !state.experience ||
-    state.experience.type !== "race" ||
-    state.experience.unavailableReason ||
-    !state.experience.currentQuestion ||
-    !state.experience.started ||
-    state.experience.finished ||
-    state.experience.revealed
-  ) {
-    clearRaceTimer();
-  } else if (!raceTimerId) {
-    startRaceTimer();
-  }
-
-  if (
-    !state.experience ||
-    state.experience.type !== "relay" ||
-    !state.experience.started ||
-    state.experience.revealed ||
-    !Number.isInteger(state.experience.buzzedTeamIndex)
-  ) {
-    clearRelayAnswerTimer();
-  } else if (!relayAnswerTimerId) {
-    startRelayAnswerTimer();
-  }
+  arcadeRuntimeTimerController.syncExperienceTimers();
 
   if (
     !state.experience ||
@@ -5833,90 +5799,15 @@ function getRaceQuestionDuration(index) {
 }
 
 function startRelayAnswerTimer() {
-  clearRelayAnswerTimer();
-
-  relayAnswerTimerId = window.setInterval(() => {
-    const experience = state.experience;
-    if (
-      !experience ||
-      experience.type !== "relay" ||
-      !experience.started ||
-      experience.revealed ||
-      !Number.isInteger(experience.buzzedTeamIndex)
-    ) {
-      clearRelayAnswerTimer();
-      return;
-    }
-
-    if (experience.answerTimeRemaining <= 1) {
-      experience.answerTimeRemaining = 0;
-      handleRelayTimeout();
-      return;
-    }
-
-    experience.answerTimeRemaining -= 1;
-    renderExperiencePreservingScroll();
-  }, 1000);
+  return arcadeRuntimeTimerController.startRelayAnswerTimer();
 }
 
 function startRaceTimer() {
-  clearRaceTimer();
-
-  raceTimerId = window.setInterval(() => {
-    const experience = state.experience;
-    if (!experience || experience.type !== "race" || experience.finished || experience.revealed) {
-      clearRaceTimer();
-      return;
-    }
-
-    if (experience.timeRemaining <= 1) {
-      experience.elapsedTime += 1;
-      experience.timeRemaining = 0;
-      resolveRaceQuestion(null, true);
-      return;
-    }
-
-    experience.elapsedTime += 1;
-    experience.timeRemaining -= 1;
-    renderExperiencePreservingScroll();
-  }, 1000);
+  return arcadeRuntimeTimerController.startRaceTimer();
 }
 
 function startRunTimer() {
-  clearRunTimer();
-
-  runTimerId = window.setInterval(() => {
-    const experience = state.experience;
-    if (
-      !experience ||
-      experience.type !== "run" ||
-      experience.unavailableReason ||
-      !experience.currentQuestion ||
-      experience.finished ||
-      experience.revealed
-    ) {
-      clearRunTimer();
-      return;
-    }
-
-    if (experience.timeRemaining <= 1) {
-      experience.timeRemaining = 0;
-      experience.failed = true;
-      experience.finished = true;
-      clearRunTimer();
-      finalizeSessionStats(experience.answers, experience.correctCount, {
-        type: "run",
-        stage: getRunReachedStage(experience)
-      });
-      render();
-      return;
-    }
-
-    experience.timeRemaining -= 1;
-    if (!refreshRunTimerDisplay(experience)) {
-      renderExperiencePreservingScroll();
-    }
-  }, 1000);
+  return arcadeRuntimeTimerController.startRunTimer();
 }
 
 function formatCountdown(...args) {
