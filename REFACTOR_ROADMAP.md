@@ -156,8 +156,7 @@ Current progress:
 - `src/app/legacy-live-room-controller.js` now owns legacy/live room access,
   lobby/session sync, heartbeat/subscription cleanup, live event reducers,
   chat, start/join/leave actions, and arcade-live action mechanics while
-  `app.js` keeps compatibility wrappers, public availability flags, and local
-  Alpacapardy board/render helper wiring.
+  `app.js` keeps compatibility wrappers and public availability flags.
 - `src/app/content-normalization-helpers.js` now owns raw-content section/entry
   normalization, support-field cleanup, subject and big-idea alias mapping,
   wrong-answer cleanup, and French-text fallback generation. Editorial
@@ -180,8 +179,10 @@ Current progress:
   and Jump action mechanics while `app.js` keeps their builders, renderers,
   timers, DOM patch helpers, and compatibility wrappers.
 - `src/app/alpacapardy-controller.js` now owns local Alpacapardy setup, team,
-  tile, focus, answer-resolution, and clue-timer mechanics while `app.js` keeps
-  board builders, renderer helper assembly, and compatibility wrappers.
+  tile, focus, answer-resolution, and clue-timer mechanics.
+- `src/app/alpacapardy-board-controller.js` now owns local Alpacapardy
+  board construction, setup options/defaults, standings/tile helpers, and
+  renderer-helper assembly while `app.js` keeps compatibility wrappers.
 - `src/app/modal-focus-service.js` now owns active dialog focus trapping,
   background inerting, and focus restoration while `app.js` keeps modal
   open/close policy.
@@ -273,13 +274,12 @@ missing local script files, duplicate script tags, consumers loaded before their
 `window.WSC_*` providers, and new main-app providers under `app/src` that are
 not loaded by `index.html`.
 
-Next app.js cleanup work:
+Follow-up app.js cleanup work:
 
-- extract the remaining Alpacapardy board/setup/render bridge into
-  `app/src/app/alpacapardy-board-controller.js`;
+- extract Relay/Alpaquiz renderer wiring or another focused game renderer slice;
 - keep compatibility wrappers in `app.js`;
-- let `test:classic-scripts` catch the new provider if the script tag is missing
-  or ordered incorrectly.
+- keep relying on `test:classic-scripts` to catch new providers if script tags
+  are missing or ordered incorrectly.
 
 ## Pass 6: Build Unification
 
