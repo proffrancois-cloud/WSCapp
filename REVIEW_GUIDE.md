@@ -230,6 +230,10 @@ Recent extractions reduce `app.js` without changing behavior:
   Scholar's Challenge action mechanics.
 - `arcade-game-controller.js`: local Race, Alpaca Run, Relay, and Jump action
   mechanics.
+- `alpacapardy-board-controller.js`: local Alpacapardy board construction,
+  setup options/defaults, standings/tile helpers, and renderer-helper bridge.
+- `alpacapardy-controller.js`: local Alpacapardy team/tile/focus/answer/timer
+  action mechanics.
 
 `app.js` still owns too much policy and rendering coordination. The current
 cleanup pattern is: extract mechanics into `app/src`, keep compatibility
@@ -403,8 +407,8 @@ Most important roadmap recommendations from the DOCX:
 
 ## Suggested Next Refactor Passes
 
-1. Extract the Alpacapardy board/setup/render bridge after the classic-script
-   dependency guard has landed.
+1. Extract the next focused game renderer slice, likely Relay/Alpaquiz or an
+   arcade renderer group.
 2. Add screenshot-based UI coverage before semantic CSS cleanup.
 3. Move remaining game board/render helper builders behind feature modules.
 4. Review Supabase RLS and realtime policy before expanding real multiplayer.

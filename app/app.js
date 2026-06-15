@@ -30,6 +30,7 @@ const createLegacyLiveRoomRenderer = window.WSC_CREATE_LEGACY_LIVE_ROOM_RENDERER
 const createRawContentController = window.WSC_CREATE_RAW_CONTENT_CONTROLLER;
 const createStudyGameController = window.WSC_CREATE_STUDY_GAME_CONTROLLER;
 const createArcadeGameController = window.WSC_CREATE_ARCADE_GAME_CONTROLLER;
+const createAlpacapardyBoardController = window.WSC_CREATE_ALPACAPARDY_BOARD_CONTROLLER;
 const createAlpacapardyController = window.WSC_CREATE_ALPACAPARDY_CONTROLLER;
 const createAlpacardsController = window.WSC_CREATE_ALPACARDS_CONTROLLER;
 const createAlpacaChannelController = window.WSC_CREATE_ALPACA_CHANNEL_CONTROLLER;
@@ -816,6 +817,7 @@ const state = appStateService.createInitialState({
 });
 
 const refs = appDomService.getAppRefs(document);
+let alpacapardyBoardController = null;
 let alpacapardyController = null;
 
 const authController = createAuthController({
@@ -933,6 +935,56 @@ const buildCaseController = createBuildCaseController({
     finalizeSessionStats,
     renderExperience,
     renderExperiencePreservingScroll
+  }
+});
+
+alpacapardyBoardController = createAlpacapardyBoardController({
+  appState: state,
+  data,
+  sectionById,
+  subjectById,
+  bigIdeaRoutes: BIG_IDEA_ROUTES,
+  constants: {
+    GAME_CONFIG
+  },
+  engines: {
+    alpacapardyEngine
+  },
+  renderers: {
+    alpacapardyRenderer
+  },
+  callbacks: {
+    escapeHtml,
+    getActiveSubjectCatalog,
+    getAlpacapardyLiveRenderContext,
+    getAssetValue,
+    getGamePromptLabel,
+    getGameplayAssetPath,
+    getGameplayReviewBadge,
+    getLensCardPluralLabel,
+    getQuestionsForRouteSelection,
+    getResultAssetPath,
+    getSectionCounts,
+    getSelectedSectionIds,
+    getSelectionQuestions,
+    getSubjectCounts,
+    getTargetLabel,
+    getTargetLabelForLens,
+    getThemedTeamLabel,
+    getTimerVisualState,
+    renderAssetImage,
+    renderBreakdowns,
+    renderCheckpointVisual,
+    renderConfiguredMascotAsset,
+    renderExperienceCloseButton,
+    renderGameNotes,
+    renderGameQuestionPopup,
+    renderJeopardyDecoration,
+    renderMetricCard,
+    renderOptionToken,
+    renderPanelTitle,
+    renderPopupQuestionTimerPanel,
+    shuffle
   }
 });
 
@@ -3170,22 +3222,7 @@ function buildRaceExperience() {
 }
 
 function buildJeopardyExperience() {
-  const teamCount = GAME_CONFIG.jeopardyDefaultTeams;
-  return {
-    type: "jeopardy",
-    title: "Alpacapardy",
-    playMode: "solo",
-    board: [],
-    active: null,
-    teams: createJeopardyTeams(teamCount),
-    activeTeamIndex: 0,
-    started: false,
-    setupTeamCount: teamCount,
-    setupCategoryIds: getDefaultJeopardySetupCategoryIds(),
-    answers: [],
-    chat: [],
-    finished: false
-  };
+  return alpacapardyBoardController.buildJeopardyExperience();
 }
 
 function buildRunExperience() {
@@ -5363,56 +5400,19 @@ function advanceRace(...args) {
 }
 
 function renderJeopardyExperience() {
-  return alpacapardyRenderer.renderExperience(state.experience, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardyExperience();
 }
 
 function renderJeopardyFocus(experience) {
-  return alpacapardyRenderer.renderFocus(experience, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardyFocus(experience);
 }
 
 function renderJeopardySetup(experience) {
-  return alpacapardyRenderer.renderSetup(experience, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardySetup(experience);
 }
 
 function getAlpacapardyRenderHelpers() {
-  return {
-    config: GAME_CONFIG,
-    selectionLens: state.selection.lens,
-    sectionById,
-    subjectById,
-    escapeHtml,
-    renderPanelTitle,
-    renderConfiguredMascotAsset,
-    renderGameQuestionPopup,
-    renderPopupQuestionTimerPanel,
-    renderCheckpointVisual,
-    renderGameNotes,
-    renderOptionToken,
-    renderJeopardyDecoration,
-    renderAssetImage,
-    renderExperienceCloseButton,
-    renderMetricCard,
-    renderBreakdowns,
-    getAssetValue,
-    getGameplayAssetPath,
-    getGameplayReviewBadge,
-    getGamePromptLabel,
-    getLensCardPluralLabel,
-    getTargetLabel,
-    getResultAssetPath,
-    getSetupOptions: getJeopardySetupOptions,
-    getStandings: getJeopardyStandings,
-    showInlinePlayMode: false,
-    setupPanelTitleOptions: state.ui.appShellMode === "online" ? { showReplay: false, hideSetupTitle: true } : {},
-    setupStartAttribute: state.ui.appShellMode === "online" ? "data-jeopardy-live-create" : "data-jeopardy-start",
-    setupStartLabel: state.ui.appShellMode === "online" ? "Create game" : "En route",
-    getTimerVisualState,
-    countTiles: countJeopardyTiles,
-    countDoneTiles: countJeopardyDoneTiles,
-    allTilesDone: allJeopardyTilesDone,
-    isActiveTile: isActiveJeopardyTile,
-    live: getAlpacapardyLiveRenderContext()
-  };
+  return alpacapardyBoardController.getAlpacapardyRenderHelpers();
 }
 
 function getAlpacapardyLiveRenderContext() {
@@ -5663,83 +5663,31 @@ async function leaveAlpacapardyLiveRoom(...args) {
 }
 
 function buildJeopardyBoard() {
-  const selectionQuestions = getSelectionQuestions();
-  const strategies = getJeopardyGroupingStrategies(selectionQuestions);
-
-  for (const strategy of strategies) {
-    const board = buildJeopardyBoardFromDefinitions(selectionQuestions, strategy.definitions, strategy.groupCount);
-    if (board.length >= GAME_CONFIG.jeopardyMinGroups) {
-      return board;
-    }
-  }
-
-  return buildFallbackJeopardyBoard(selectionQuestions);
+  return alpacapardyBoardController.buildJeopardyBoard();
 }
 
 function getJeopardySetupOptions() {
-  if (state.selection.lens === "subject") {
-    return getActiveSubjectCatalog().map((subject) => ({
-      id: subject.id,
-      title: subject.label,
-      mood: subject.mood || "wise",
-      asset: getAssetValue(["contexts", "targets", "subject", subject.id])
-    }));
-  }
-
-  if (state.selection.lens === "bigidea") {
-    return BIG_IDEA_ROUTES.map((route) => ({
-      id: route.id,
-      title: route.label,
-      mood: route.mood || "wise",
-      asset: getAssetValue(["contexts", "targets", "bigidea", route.id])
-    }));
-  }
-
-  return data.sections.map((section) => ({
-    id: section.id,
-    title: section.title,
-    mood: "determined",
-    asset: getAssetValue(["contexts", "targets", "section", section.id])
-  }));
+  return alpacapardyBoardController.getJeopardySetupOptions();
 }
 
 function getDefaultJeopardySetupCategoryIds() {
-  const options = getJeopardySetupOptions();
-  const selectedSectionIds = state.selection.lens === "section" ? getSelectedSectionIds() : [];
-  if (selectedSectionIds.length) {
-    const preferred = options.filter((option) => selectedSectionIds.includes(option.id));
-    const fallback = options.filter((option) => !selectedSectionIds.includes(option.id));
-    return preferred
-      .concat(fallback)
-      .slice(0, GAME_CONFIG.jeopardyMinGroups)
-      .map((option) => option.id);
-  }
-
-  const preferred = state.selection.targetId && state.selection.targetId !== "all"
-    ? options.filter((option) => option.id === state.selection.targetId)
-    : [];
-  const fallback = options.filter((option) => option.id !== state.selection.targetId);
-  return preferred
-    .concat(fallback)
-    .slice(0, GAME_CONFIG.jeopardyMinGroups)
-    .map((option) => option.id);
+  return alpacapardyBoardController.getDefaultJeopardySetupCategoryIds();
 }
 
 function getTargetSetupOptions() {
-  return getJeopardySetupOptions();
+  return alpacapardyBoardController.getTargetSetupOptions();
 }
 
 function getDefaultTargetSetupCategoryIds() {
-  return getDefaultJeopardySetupCategoryIds();
+  return alpacapardyBoardController.getDefaultTargetSetupCategoryIds();
 }
 
 function getSetupTargetHeading() {
-  return `Pick your targeted ${getLensCardPluralLabel(state.selection.lens)}`;
+  return alpacapardyBoardController.getSetupTargetHeading();
 }
 
 function getSetupTargetHelper(selectedCount) {
-  const minimum = GAME_CONFIG.jeopardyMinGroups;
-  return `${selectedCount} selected. Minimum ${minimum}.`;
+  return alpacapardyBoardController.getSetupTargetHelper(selectedCount);
 }
 
 function toggleSetupCategorySelection(...args) {
@@ -5767,102 +5715,31 @@ function startJeopardyGame() {
 }
 
 function buildConfiguredJeopardyBoard(categoryIds) {
-  return alpacapardyEngine.buildConfiguredBoard(categoryIds, {
-    values: GAME_CONFIG.jeopardyValues,
-    getQuestionsForCategory: (categoryId) => getQuestionsForRouteSelection(state.selection.lens, categoryId),
-    getCategoryLabel: (categoryId) => getTargetLabelForLens(state.selection.lens, categoryId),
-    selectionQuestions: getSelectionQuestions,
-    shuffle
-  });
+  return alpacapardyBoardController.buildConfiguredJeopardyBoard(categoryIds);
 }
 
 function pickQuestionsForJeopardyCategory(pool, usedQuestionIds) {
-  return alpacapardyEngine.pickQuestionsForCategory(pool, usedQuestionIds, {
-    values: GAME_CONFIG.jeopardyValues,
-    selectionQuestions: getSelectionQuestions,
-    shuffle
-  });
+  return alpacapardyBoardController.pickQuestionsForJeopardyCategory(pool, usedQuestionIds);
 }
 
 function getJeopardyGroupingStrategies(selectionQuestions) {
-  const strategies = [];
-
-  if (state.selection.lens === "section" && state.selection.targetId !== "all") {
-    strategies.push({
-      groupCount: GAME_CONFIG.jeopardyMinGroups,
-      definitions: getJeopardySourceTypeDefinitions()
-    });
-  }
-
-  if (state.selection.lens === "subject" && state.selection.targetId === "all") {
-    strategies.push({
-      groupCount: GAME_CONFIG.jeopardyMaxGroups,
-      definitions: getSubjectCounts(selectionQuestions)
-        .slice(0, GAME_CONFIG.jeopardyMaxGroups)
-        .map((entry) => ({
-          label: entry.label,
-          match: (question) => question.subjectIds.includes(entry.id)
-        }))
-    });
-  }
-
-  strategies.push({
-    groupCount: GAME_CONFIG.jeopardyMaxGroups,
-    definitions: getSectionCounts(selectionQuestions)
-      .slice(0, GAME_CONFIG.jeopardyMaxGroups)
-      .map((entry) => ({
-        label: entry.label,
-        match: (question) => question.sectionId === entry.id
-      }))
-  });
-
-  strategies.push({
-    groupCount: GAME_CONFIG.jeopardyMinGroups,
-    definitions: getJeopardySourceTypeDefinitions()
-  });
-
-  return strategies;
+  return alpacapardyBoardController.getJeopardyGroupingStrategies(selectionQuestions);
 }
 
 function getJeopardySourceTypeDefinitions() {
-  return [
-    {
-      label: "Core Ideas",
-      match: (question) => question.sourceType === "definition"
-    },
-    {
-      label: "Examples",
-      match: (question) => question.sourceType === "example"
-    },
-    {
-      label: "Must-Know Points",
-      match: (question) => question.sourceType === "point"
-    },
-    {
-      label: "Keywords",
-      match: (question) => question.sourceType === "keyword"
-    }
-  ];
+  return alpacapardyBoardController.getJeopardySourceTypeDefinitions();
 }
 
 function createJeopardyTile(question, index) {
-  return alpacapardyEngine.createTile(question, index, GAME_CONFIG.jeopardyValues);
+  return alpacapardyBoardController.createJeopardyTile(question, index);
 }
 
 function buildJeopardyBoardFromDefinitions(selectionQuestions, definitions, groupCount) {
-  return alpacapardyEngine.buildBoardFromDefinitions(selectionQuestions, definitions, groupCount, {
-    values: GAME_CONFIG.jeopardyValues,
-    shuffle
-  });
+  return alpacapardyBoardController.buildJeopardyBoardFromDefinitions(selectionQuestions, definitions, groupCount);
 }
 
 function buildFallbackJeopardyBoard(selectionQuestions) {
-  return alpacapardyEngine.buildFallbackBoard(selectionQuestions, {
-    values: GAME_CONFIG.jeopardyValues,
-    minGroups: GAME_CONFIG.jeopardyMinGroups,
-    maxGroups: GAME_CONFIG.jeopardyMaxGroups,
-    shuffle
-  });
+  return alpacapardyBoardController.buildFallbackJeopardyBoard(selectionQuestions);
 }
 
 function openJeopardyTile(groupIndex, tileIndex) {
@@ -5886,27 +5763,27 @@ function closeJeopardyFocus() {
 }
 
 function createJeopardyTeams(count = GAME_CONFIG.jeopardyDefaultTeams) {
-  return alpacapardyEngine.createTeams(count, getThemedTeamLabel);
+  return alpacapardyBoardController.createJeopardyTeams(count);
 }
 
 function getJeopardyActiveTeam(experience) {
-  return experience.teams[experience.activeTeamIndex] || experience.teams[0];
+  return alpacapardyBoardController.getJeopardyActiveTeam(experience);
 }
 
 function getJeopardyStandings(teams) {
-  return alpacapardyEngine.getStandings(teams);
+  return alpacapardyBoardController.getJeopardyStandings(teams);
 }
 
 function renderJeopardyTeams(experience) {
-  return alpacapardyRenderer.renderTeams(experience, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardyTeams(experience);
 }
 
 function renderJeopardyCategoryHeader(label) {
-  return alpacapardyRenderer.renderCategoryHeader(label, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardyCategoryHeader(label);
 }
 
 function renderJeopardyTileFace(tile) {
-  return alpacapardyRenderer.renderTileFace(tile, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardyTileFace(tile);
 }
 
 function startJeopardyTimer() {
@@ -5930,7 +5807,7 @@ function advanceJeopardyTeam() {
 }
 
 function renderJeopardyResults(experience) {
-  return alpacapardyRenderer.renderResults(experience, getAlpacapardyRenderHelpers());
+  return alpacapardyBoardController.renderJeopardyResults(experience);
 }
 
 function createRelayTeams(count = GAME_CONFIG.relayDefaultTeams) {
@@ -8629,25 +8506,19 @@ function pickQuestions(questions, count) {
 }
 
 function countJeopardyTiles(board) {
-  return alpacapardyEngine.countTiles(board);
+  return alpacapardyBoardController.countJeopardyTiles(board);
 }
 
 function countJeopardyDoneTiles(board) {
-  return alpacapardyEngine.countDoneTiles(board);
+  return alpacapardyBoardController.countJeopardyDoneTiles(board);
 }
 
 function allJeopardyTilesDone(board) {
-  return alpacapardyEngine.allTilesDone(board);
+  return alpacapardyBoardController.allJeopardyTilesDone(board);
 }
 
 function isActiveJeopardyTile(groupIndex, tileIndex) {
-  return Boolean(
-    state.experience &&
-      state.experience.type === "jeopardy" &&
-      state.experience.active &&
-      state.experience.active.groupIndex === groupIndex &&
-      state.experience.active.tileIndex === tileIndex
-  );
+  return alpacapardyBoardController.isActiveJeopardyTile(groupIndex, tileIndex);
 }
 
 function getAccuracy(answers) {
