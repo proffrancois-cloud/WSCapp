@@ -36,6 +36,7 @@ const createAlpacardsController = window.WSC_CREATE_ALPACARDS_CONTROLLER;
 const createAlpacaChannelController = window.WSC_CREATE_ALPACA_CHANNEL_CONTROLLER;
 const createBuildCaseController = window.WSC_CREATE_BUILD_CASE_CONTROLLER;
 const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
+const createAlpaquizRenderController = window.WSC_CREATE_ALPAQUIZ_RENDER_CONTROLLER;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const CAMPUS_PREVIEW_PUBLIC_ENABLED = true;
@@ -239,6 +240,7 @@ const authModalRenderer = window.WSC_AUTH_MODAL_RENDERER || null;
 const wizardRenderer = window.WSC_WIZARD_RENDERER || null;
 const alpaquizEngine = window.WSC_ALPAQUIZ_ENGINE || null;
 const alpaquizRenderer = window.WSC_ALPAQUIZ_RENDERER || null;
+const alpaquizRelayRenderer = window.WSC_ALPAQUIZ_RELAY_RENDERER || null;
 const alpacapardyEngine = window.WSC_ALPACAPARDY_ENGINE || null;
 const alpacapardyRenderer = window.WSC_ALPACAPARDY_RENDERER || null;
 const alpacapardyLive = window.WSC_ALPACAPARDY_LIVE || null;
@@ -1128,6 +1130,19 @@ const arcadeGameController = createArcadeGameController({
     renderExperience,
     syncRelayTeamBindings,
     updateJumpDom
+  }
+});
+
+const alpaquizRenderController = createAlpaquizRenderController({
+  appState: state,
+  renderers: {
+    quizRenderer: alpaquizRenderer,
+    relayRenderer: alpaquizRelayRenderer
+  },
+  callbacks: {
+    getQuizRenderHelpers: getAlpaquizRenderHelpers,
+    getRelayRenderHelpers,
+    renderTrainTipPopup
   }
 });
 
@@ -5121,10 +5136,7 @@ function buildQuizQuestionPlan(sectionIds, questionCount, selectedDifficulties =
 }
 
 function renderQuizExperience() {
-  return `
-    ${alpaquizRenderer.renderExperience(state.experience, getAlpaquizRenderHelpers())}
-    ${renderTrainTipPopup("quiz")}
-  `;
+  return alpaquizRenderController.renderQuizExperience();
 }
 
 function getAlpaquizRenderHelpers() {
@@ -5143,12 +5155,47 @@ function getAlpaquizRenderHelpers() {
   };
 }
 
+function getRelayRenderHelpers() {
+  return {
+    GAME_CONFIG,
+    escapeHtml,
+    getTargetLabel,
+    getQuestionSectionLabel: (question) => {
+      if (!question) {
+        return getTargetLabel();
+      }
+      return question.sectionId && sectionById[question.sectionId]
+        ? sectionById[question.sectionId].originalTitle
+        : (question.guidingSection || getTargetLabel());
+    },
+    renderPanelTitle,
+    renderConfiguredMascotAsset,
+    getGameplayAssetPath,
+    getGameplayReviewBadge,
+    getGamePromptLabel,
+    renderGameNotes,
+    renderQuestionSubjectPills,
+    renderGameQuestionPopup,
+    renderTargetSetupSelector,
+    renderCompactRaceTimerCard,
+    getTimerVisualState,
+    renderOptionToken,
+    renderCheckpointVisual,
+    formatRelayAwardedTeams,
+    renderMetricCard,
+    renderSelectedTargetBreakdown,
+    getResultAssetPath,
+    getAssetValue,
+    renderAssetImage
+  };
+}
+
 function renderQuizSetup(experience) {
-  return alpaquizRenderer.renderSetup(experience, getAlpaquizRenderHelpers());
+  return alpaquizRenderController.renderQuizSetup(experience);
 }
 
 function renderQuizQuestionPage(experience) {
-  return alpaquizRenderer.renderQuestionPage(experience, getAlpaquizRenderHelpers());
+  return alpaquizRenderController.renderQuizQuestionPage(experience);
 }
 
 function getQuizRemainingNotice(experience) {
@@ -5160,15 +5207,15 @@ function getQuizDifficultyResults(experience) {
 }
 
 function renderQuizResultsFooter(experience) {
-  return alpaquizRenderer.renderResultsFooter(experience, getAlpaquizRenderHelpers());
+  return alpaquizRenderController.renderQuizResultsFooter(experience);
 }
 
 function renderQuizQuestionCard(question, questionIndex, experience) {
-  return alpaquizRenderer.renderQuestionCard(question, questionIndex, experience, getAlpaquizRenderHelpers());
+  return alpaquizRenderController.renderQuizQuestionCard(question, questionIndex, experience);
 }
 
 function renderQuizQuestionFeedback(question, selectedIndex, isCorrect) {
-  return alpaquizRenderer.renderQuestionFeedback(question, selectedIndex, isCorrect, getAlpaquizRenderHelpers());
+  return alpaquizRenderController.renderQuizQuestionFeedback(question, selectedIndex, isCorrect);
 }
 
 function toggleQuizSection(...args) {
@@ -5833,272 +5880,12 @@ function syncRelayTeamBindings(experience) {
   }));
 }
 
-function getRelayStandings(teams) {
-  return teams.slice().sort((left, right) =>
-    right.score - left.score ||
-    right.correct - left.correct ||
-    left.wrong - right.wrong ||
-    left.label.localeCompare(right.label)
-  );
+function getRelayStandings(...args) {
+  return alpaquizRenderController.getRelayStandings(...args);
 }
 
 function renderRelayExperience() {
-  const experience = state.experience;
-  const question = experience.questions[experience.index];
-  const questionSectionLabel = question && question.sectionId && sectionById[question.sectionId]
-    ? sectionById[question.sectionId].originalTitle
-    : (question ? (question.guidingSection || getTargetLabel()) : getTargetLabel());
-  const buzzedTeam = Number.isInteger(experience.buzzedTeamIndex) ? experience.teams[experience.buzzedTeamIndex] : null;
-  const leader = getRelayStandings(experience.teams)[0];
-  const mascotMood = experience.revealed
-    ? (experience.lastCorrect ? "excited" : "sad")
-    : "thinking";
-
-  if (experience.finished) {
-    return renderRelayResults(experience);
-  }
-
-  if (experience.unavailableReason) {
-    return `
-      ${renderPanelTitle("Alpaquiz", "Buzz in first, claim the question, and move your team ahead.", "")}
-      <div class="mode-shell">
-        <article class="setup-card relay-setup-card">
-          <div class="setup-card-header">
-            ${renderConfiguredMascotAsset(
-              getGameplayAssetPath("launch", "relay"),
-              "thinking",
-              "medium",
-              { alt: "Relay unavailable alpaca" }
-            )}
-            <div>
-              <p class="challenge-label">Route update pending</p>
-              <h3>${escapeHtml(experience.unavailableReason)}</h3>
-            </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
-
-  return `
-    ${renderPanelTitle(
-      "Alpaquiz",
-      "Buzz first, claim the question, and move your team ahead.",
-      experience.started
-        ? `Route: ${getTargetLabel()} · Shared stop ${experience.index + 1} of ${experience.questions.length}`
-        : `Route setup · ${getTargetLabel()}`
-    )}
-    <div class="mode-shell">
-      <div class="mode-stats">
-        <span>Correct answers score +${GAME_CONFIG.relayCorrectPoints}. Wrong turns or timeouts give +${GAME_CONFIG.relayCorrectPoints} to every other team.</span>
-        <span>The first buzz takes control of the stop.</span>
-        <span>The buzzing team has ${GAME_CONFIG.relayAnswerTime} seconds to answer.</span>
-      </div>
-
-      ${!experience.started ? `
-        <section class="relay-team-shell">
-          ${renderRelayOverlay()}
-          <div class="relay-team-grid">
-            ${experience.teams.map((team, index) => renderRelayTeamCard(team, index, experience, leader, {
-              interactive: false,
-              popup: false
-            })).join("")}
-          </div>
-        </section>
-        <article class="setup-card relay-setup-card relay-inline-setup-card">
-          <div class="setup-card-header">
-            ${renderConfiguredMascotAsset(
-              getGameplayAssetPath("launch", "relay"),
-              "excited",
-              "medium",
-              { alt: "Relay launch alpaca" }
-            )}
-            <div>
-              <p class="challenge-label">Local multiplayer route</p>
-              <h3>Choose the team count, read the rules, and launch the shared route.</h3>
-            </div>
-          </div>
-
-          <div class="setup-block">
-            <strong>How many teams are playing?</strong>
-            <div class="setup-count-grid">
-              ${Array.from({ length: GAME_CONFIG.relayMaxTeams - GAME_CONFIG.relayMinTeams + 1 }, (_, offset) => {
-                const count = GAME_CONFIG.relayMinTeams + offset;
-                return `
-                  <button
-                    class="setup-count-button ${experience.teams.length === count ? "active" : ""}"
-                    type="button"
-                    data-relay-set-teams="${count}"
-                  >
-                    ${count} teams
-                  </button>
-                `;
-              }).join("")}
-            </div>
-          </div>
-
-          <div class="setup-block">
-            <strong>Team keys</strong>
-            <div class="setup-rule-list">
-              <p>${experience.teams.map((team) => `${team.label}: ${team.keyLabel}`).join(" · ")}</p>
-            </div>
-          </div>
-
-          ${renderTargetSetupSelector(experience, "relay-toggle-category", "race-target-selector", "race-target-grid", "race-target-button")}
-
-          <div class="panel-actions">
-            <button class="button primary" data-relay-start ${experience.setupCategoryIds.length < GAME_CONFIG.jeopardyMinGroups ? "disabled" : ""}>En route</button>
-          </div>
-        </article>
-      ` : renderGameQuestionPopup(`
-        ${renderRelayPopupTeamSection(experience, leader)}
-        <article class="challenge-card ${buzzedTeam || experience.revealed ? "relay-no-mascot" : ""}">
-          ${!buzzedTeam && !experience.revealed ? `<aside class="challenge-mascot">
-            ${renderConfiguredMascotAsset(
-              getGameplayAssetPath("question", "relay"),
-              mascotMood,
-              "large",
-              { alt: "Relay question alpaca", reviewBadge: getGameplayReviewBadge("question", "relay") }
-            )}
-            <span class="challenge-label">${escapeHtml(experience.revealed ? (experience.lastCorrect ? "shared checkpoint cleared" : "shared route interrupted") : getGamePromptLabel("relay", question))}</span>
-            ${renderGameNotes(question, "relay", {
-              index: experience.index,
-              total: experience.questions.length,
-              teamCount: experience.teams.length
-            })}
-          </aside>` : ""}
-
-          <div class="challenge-copy">
-            <div class="question-meta">
-              <span class="meta-pill section">${escapeHtml(questionSectionLabel)}</span>
-              ${renderQuestionSubjectPills(question)}
-            </div>
-            <h2>${escapeHtml(question.prompt)}</h2>
-
-            ${!buzzedTeam && !experience.revealed ? `
-              <div class="relay-buzz-banner">
-                <strong>Buzz for this stop</strong>
-                <p>The first team to hit its key takes control of this checkpoint.</p>
-              </div>
-            ` : ""}
-
-            ${buzzedTeam || experience.revealed ? `
-              <div class="relay-answer-status">
-                ${renderRelayBuzzWinner("status")}
-                <span>${buzzedTeam ? `${buzzedTeam.label} buzzed first and controls the stop.` : "Still in play."}</span>
-              </div>
-            ` : ""}
-
-            ${buzzedTeam && !experience.revealed ? `
-              <div class="relay-inline-timer">
-                ${renderCompactRaceTimerCard(
-                  "Answer timer",
-                  experience.answerTimeRemaining,
-                  GAME_CONFIG.relayAnswerTime,
-                  getTimerVisualState(experience.answerTimeRemaining, GAME_CONFIG.relayAnswerTime, {
-                    warningAt: 10,
-                    dangerAt: 5
-                  }),
-                  "relay"
-                )}
-              </div>
-            ` : ""}
-
-            <div class="options-grid answer-options-grid">
-              ${question.options.map((option, index) => {
-                let classes = "option-button";
-                const disabled = !buzzedTeam || experience.revealed;
-                if (experience.revealed) {
-                  if (index === question.answerIndex) {
-                    classes += " correct";
-                  } else if (index === experience.selectedIndex) {
-                    classes += " wrong";
-                  }
-                  classes += " disabled";
-                } else if (!buzzedTeam) {
-                  classes += " disabled awaiting-buzz";
-                }
-                return `
-                  <button class="${classes}" data-relay-option="${index}" ${disabled ? "disabled" : ""}>
-                    ${renderOptionToken(index)}
-                    <span>${escapeHtml(option)}</span>
-                  </button>
-                `;
-              }).join("")}
-            </div>
-          </div>
-        </article>
-        ${experience.revealed ? `
-          <article class="feedback-card relay-answer-popup ${experience.lastCorrect ? "correct" : "wrong"}">
-            ${renderCheckpointVisual(experience.lastCorrect ? "success" : "fail")}
-            <div>
-              <h3>${escapeHtml(experience.lastCorrect
-                ? `${buzzedTeam.label} clears the stop for ${GAME_CONFIG.relayCorrectPoints} points`
-                : experience.lastAwardedTeamLabels?.length
-                  ? `${formatRelayAwardedTeams(experience.lastAwardedTeamLabels)} ${experience.lastAwardedTeamLabels.length === 1 ? "takes" : "take"} the stop after ${buzzedTeam.label}'s ${experience.lastTimedOut ? "timeout" : "wrong turn"}`
-                  : `${buzzedTeam.label} loses the stop`)}
-              </h3>
-              <p>${escapeHtml(question.explanation)}</p>
-              <div class="feedback-actions">
-                <button class="button primary" data-relay-continue>${experience.index === experience.questions.length - 1 ? "Final Standing" : "Next shared stop"}</button>
-              </div>
-            </div>
-          </article>
-        ` : ""}
-      `, "relay", { showClose: false })}
-    </div>
-  `;
-}
-
-function renderRelayTeamCard(team, index, experience, leader, options = {}) {
-  const active = index === experience.buzzedTeamIndex;
-  const interactive = Boolean(options.interactive);
-  const popup = Boolean(options.popup);
-  const tag = interactive ? "button" : "div";
-  const action = interactive ? `data-relay-buzz="${index}"` : "";
-
-  return `
-    <${tag}
-      class="relay-team-card ${active ? "active" : ""} ${team.id === leader.id ? "leader" : ""} ${popup ? "popup" : ""}"
-      ${action}
-    >
-      ${active ? renderRelayBuzzWinner("card") : ""}
-      ${renderRelayTeamCardSkin()}
-      ${renderRelayKeycap(team.keyLabel)}
-      <span class="team-label">${escapeHtml(team.label)}</span>
-      <strong class="relay-score">${team.score} pts</strong>
-      <span class="relay-state">${team.correct} correct · ${team.wrong} wrong</span>
-    </${tag}>
-  `;
-}
-
-function renderRelayPopupTeamSection(experience, leader) {
-  const buzzed = Number.isInteger(experience.buzzedTeamIndex);
-  const visibleTeams = buzzed ? [experience.teams[experience.buzzedTeamIndex]] : experience.teams;
-
-  if (buzzed) {
-    return "";
-  }
-
-  return `
-    <section class="relay-popup-team-shell">
-      <div class="relay-popup-team-header">
-        <div>
-          <h3>Buzz in first to take the route</h3>
-        </div>
-        <button class="button secondary" type="button" data-replay-current>Take This Route Again</button>
-      </div>
-      <div class="relay-popup-team-grid">
-        ${visibleTeams.map((team) => {
-          const teamIndex = experience.teams.findIndex((entry) => entry.id === team.id);
-          return renderRelayTeamCard(team, teamIndex, experience, leader, {
-            interactive: !experience.revealed,
-            popup: true
-          });
-        }).join("")}
-      </div>
-    </section>
-  `;
+  return alpaquizRenderController.renderRelayExperience();
 }
 
 function startRelayRoute(...args) {
@@ -6154,97 +5941,7 @@ function removeRelayTeam(...args) {
 }
 
 function renderRelayResults(experience) {
-  const standings = getRelayStandings(experience.teams);
-  const winner = standings[0];
-  const resultVisual = renderConfiguredMascotAsset(
-    getResultAssetPath("relay", "success"),
-    "victory",
-    "large",
-    { alt: "Relay victory alpaca" }
-  );
-
-  return `
-    ${renderPanelTitle("Final Standing", "Top team on the path.", `Route: ${getTargetLabel()} · ${experience.teams.length} teams`)}
-    <article class="result-shell">
-      <div class="result-banner">
-        <div class="result-visual">${resultVisual}</div>
-        <div>
-          <p class="challenge-label">Leading team</p>
-          <h2>${escapeHtml(winner.label)}</h2>
-          <p>${escapeHtml(`${winner.score} points with ${winner.correct} cleared shared stops.`)}</p>
-        </div>
-      </div>
-
-      <div class="result-metrics">
-        ${renderMetricCard("Lead Team", winner.label)}
-        ${renderMetricCard("Teams", String(experience.teams.length))}
-        ${renderMetricCard("Final Score", String(winner.score))}
-        ${renderMetricCard("Stops Played", String(experience.questions.length))}
-      </div>
-
-      <div class="jeopardy-standings">
-        ${standings.map((team, index) => `
-          <article class="jeopardy-standing-card ${index === 0 ? "winner" : ""}">
-            <span class="team-label">${escapeHtml(team.label)}</span>
-            <strong>${team.score}</strong>
-            <span>${team.correct} correct · ${team.wrong} wrong</span>
-          </article>
-        `).join("")}
-      </div>
-
-      ${renderSelectedTargetBreakdown(experience.answers)}
-
-      <div class="result-actions">
-        <button class="button primary" data-replay-current>Take This Route Again</button>
-      </div>
-    </article>
-  `;
-}
-
-function renderRelayOverlay() {
-  const asset = getAssetValue(["multiplayer", "relayOverlay"]);
-  return renderAssetImage(
-    asset,
-    "Relay mode decoration",
-    "relay-overlay",
-    "relay-overlay-image"
-  );
-}
-
-function renderRelayTeamCardSkin() {
-  const asset = getAssetValue(["multiplayer", "teamCardSkin"]);
-  return renderAssetImage(
-    asset,
-    "Relay team card skin",
-    "relay-team-card-skin",
-    "relay-team-card-skin-image"
-  );
-}
-
-function renderRelayKeycap(label) {
-  const normalizedLabel = String(label || "").trim().toLowerCase();
-  const asset = getAssetValue(["multiplayer", "keycaps", normalizedLabel]);
-
-  if (!asset) {
-    return `<span class="relay-keycap">${escapeHtml(String(label || ""))}</span>`;
-  }
-
-  return renderAssetImage(
-    asset,
-    `${String(label || "").toUpperCase()} keycap`,
-    "relay-keycap",
-    "relay-keycap-image"
-  );
-}
-
-function renderRelayBuzzWinner(surface = "status") {
-  const asset = getAssetValue(["multiplayer", "buzzWinner"]);
-  return renderAssetImage(
-    asset,
-    "Buzz winner highlight",
-    `relay-buzz-winner relay-buzz-winner-${surface}`,
-    `relay-buzz-winner-image relay-buzz-winner-image-${surface}`
-  );
+  return alpaquizRenderController.renderRelayResults(experience);
 }
 
 function getRaceQuestionDuration(index) {
