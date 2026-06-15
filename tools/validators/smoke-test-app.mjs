@@ -81,6 +81,93 @@ function loadPlaywright() {
   throw new Error("Playwright is not available. Run `npx playwright --version` once or install Playwright to run smoke tests.");
 }
 
+async function installPlayableArcadeSmokeFixture(page) {
+  await page.addInitScript(() => {
+    const fixtureMarker = "__wscSmokeFullVoyageFixtureInstalled";
+    const sectionIds = ["were-all-in-this", "were-all-in-this-to-get-there"];
+    const questions = [
+      {
+        id: "smoke-fixture-full-voyage-level-4-were-all-in-this",
+        level: 4,
+        displayLevel: 400,
+        sectionId: "were-all-in-this",
+        sectionIds,
+        prompt: "Smoke fixture: why can a journey matter before arrival?",
+        correctAnswer: "Because the route can change choices, expectations, and what progress means",
+        wrongAnswers: [
+          "Because only the destination can create meaning",
+          "Because movement removes every delay automatically",
+          "Because routes never affect people or systems"
+        ],
+        explanation: "Smoke-only fixture question used to exercise level 400 local arcade flows.",
+        visibleCorrectExplanation: "The route itself can shape the meaning of arrival.",
+        visibleConnection: "Connects movement, delay, and progress inside the WSC theme.",
+        visibleTakeaway: "A path can be part of the outcome, not only a way to reach it.",
+        anchorReference: "Smoke fixture level 400",
+        targetReference: "We Are All in This to Get There",
+        guidingSectionPrimary: "We Are All in This to Get There",
+        guidingSectionSecondary: "",
+        sourceUrl: "",
+        sourceNote: "Validator-only smoke fixture"
+      },
+      {
+        id: "smoke-fixture-full-voyage-level-5-were-all-in-this",
+        level: 5,
+        displayLevel: 500,
+        sectionId: "were-all-in-this",
+        sectionIds,
+        prompt: "Smoke fixture: what makes progress hard to judge in this route?",
+        correctAnswer: "Visible signs of progress can hide unfinished work, delays, or costs",
+        wrongAnswers: [
+          "Every visible sign proves the journey is complete",
+          "Progress never depends on hidden work or tradeoffs",
+          "A route becomes simple once someone names the destination"
+        ],
+        explanation: "Smoke-only fixture question used to exercise level 500 local arcade flows.",
+        visibleCorrectExplanation: "Progress can look complete while important work is still unresolved.",
+        visibleConnection: "Connects performed progress with unfinished journeys.",
+        visibleTakeaway: "A strong answer checks what is still hidden or unresolved.",
+        anchorReference: "Smoke fixture level 500",
+        targetReference: "We Are All in This to Get There",
+        guidingSectionPrimary: "We Are All in This to Get There",
+        guidingSectionSecondary: "",
+        sourceUrl: "",
+        sourceNote: "Validator-only smoke fixture"
+      }
+    ];
+
+    function appendFixture(rawContentBank) {
+      if (!rawContentBank || typeof rawContentBank !== "object" || rawContentBank[fixtureMarker]) {
+        return rawContentBank;
+      }
+
+      const fullVoyageQuestions = Array.isArray(rawContentBank.fullVoyageQuestions)
+        ? rawContentBank.fullVoyageQuestions
+        : [];
+      const existingIds = new Set(fullVoyageQuestions.map((question) => question && question.id));
+      const missingQuestions = questions.filter((question) => !existingIds.has(question.id));
+      rawContentBank.fullVoyageQuestions = fullVoyageQuestions.concat(missingQuestions);
+      Object.defineProperty(rawContentBank, fixtureMarker, {
+        value: true,
+        enumerable: false,
+        configurable: true
+      });
+      return rawContentBank;
+    }
+
+    let rawContentBankValue = appendFixture(window.WSC_RAW_CONTENT_BANK);
+    Object.defineProperty(window, "WSC_RAW_CONTENT_BANK", {
+      configurable: true,
+      get() {
+        return rawContentBankValue;
+      },
+      set(nextValue) {
+        rawContentBankValue = appendFixture(nextValue);
+      }
+    });
+  });
+}
+
 async function runModeSmoke(page, sectionName, modeId, expectedText) {
   await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
   await chooseLocalRoute(page);
@@ -651,6 +738,7 @@ async function main() {
     const messages = [];
     page.on("console", (message) => messages.push({ type: message.type(), text: message.text() }));
     page.on("pageerror", (error) => messages.push({ type: "pageerror", text: error.message }));
+    await installPlayableArcadeSmokeFixture(page);
 
     await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
     await page.waitForSelector("#routeBuilder", { timeout: 30000 });
@@ -849,58 +937,50 @@ async function main() {
       failures.push("Quiz local flow was neither cleanly unavailable nor playable through submit/results");
     }
     if (
-      !race.raceFlow?.controlledUnavailable &&
-      (
-        !race.raceFlow?.started ||
-        race.raceFlow.optionCount < 2 ||
-        !race.raceFlow?.answered ||
-        !race.raceFlow?.feedbackVisible ||
-        !race.raceFlow?.advanced ||
-        (!race.raceFlow?.nextQuestionReady && !race.raceFlow?.summaryVisible)
-      )
+      race.raceFlow?.controlledUnavailable ||
+      !race.raceFlow?.started ||
+      race.raceFlow.optionCount < 2 ||
+      !race.raceFlow?.answered ||
+      !race.raceFlow?.feedbackVisible ||
+      !race.raceFlow?.advanced ||
+      (!race.raceFlow?.nextQuestionReady && !race.raceFlow?.summaryVisible)
     ) {
-      failures.push("Race local flow was neither cleanly unavailable nor playable through feedback/advance");
+      failures.push("Race local flow should be playable through feedback/advance with the smoke full-voyage fixture");
     }
     if (
-      !run.runFlow?.controlledUnavailable &&
-      (
-        !run.runFlow?.started ||
-        run.runFlow.optionCount < 2 ||
-        !run.runFlow?.answered ||
-        !run.runFlow?.feedbackVisible ||
-        !run.runFlow?.continued ||
-        (!run.runFlow?.nextQuestionReady && !run.runFlow?.summaryVisible)
-      )
+      run.runFlow?.controlledUnavailable ||
+      !run.runFlow?.started ||
+      run.runFlow.optionCount < 2 ||
+      !run.runFlow?.answered ||
+      !run.runFlow?.feedbackVisible ||
+      !run.runFlow?.continued ||
+      (!run.runFlow?.nextQuestionReady && !run.runFlow?.summaryVisible)
     ) {
-      failures.push("Run local flow was neither cleanly unavailable nor playable through feedback/continue");
+      failures.push("Run local flow should be playable through feedback/continue with the smoke full-voyage fixture");
     }
     if (
-      !relay.relayFlow?.controlledUnavailable &&
-      (
-        !relay.relayFlow?.started ||
-        !relay.relayFlow?.buzzed ||
-        relay.relayFlow.optionCount < 2 ||
-        !relay.relayFlow?.answered ||
-        !relay.relayFlow?.feedbackVisible ||
-        !relay.relayFlow?.continued ||
-        (!relay.relayFlow?.nextBuzzReady && !relay.relayFlow?.finalStandingVisible)
-      )
+      relay.relayFlow?.controlledUnavailable ||
+      !relay.relayFlow?.started ||
+      !relay.relayFlow?.buzzed ||
+      relay.relayFlow.optionCount < 2 ||
+      !relay.relayFlow?.answered ||
+      !relay.relayFlow?.feedbackVisible ||
+      !relay.relayFlow?.continued ||
+      (!relay.relayFlow?.nextBuzzReady && !relay.relayFlow?.finalStandingVisible)
     ) {
-      failures.push("Relay local flow was neither cleanly unavailable nor playable through buzz/feedback/continue");
+      failures.push("Relay local flow should be playable through buzz/feedback/continue with the smoke full-voyage fixture");
     }
     if (
-      !jump.jumpFlow?.controlledUnavailable &&
-      (
-        !jump.jumpFlow?.started ||
-        !jump.jumpFlow?.stageVisible ||
-        jump.jumpFlow.actionButtons < 2 ||
-        !jump.jumpFlow?.jumped ||
-        !jump.jumpFlow?.ducked ||
-        !jump.jumpFlow?.runnerPresent ||
-        !jump.jumpFlow?.obstaclePresent
-      )
+      jump.jumpFlow?.controlledUnavailable ||
+      !jump.jumpFlow?.started ||
+      !jump.jumpFlow?.stageVisible ||
+      jump.jumpFlow.actionButtons < 2 ||
+      !jump.jumpFlow?.jumped ||
+      !jump.jumpFlow?.ducked ||
+      !jump.jumpFlow?.runnerPresent ||
+      !jump.jumpFlow?.obstaclePresent
     ) {
-      failures.push("Jump local flow was neither cleanly unavailable nor responsive to jump/duck actions");
+      failures.push("Jump local flow should be playable and responsive to jump/duck actions with the smoke full-voyage fixture");
     }
     for (const [modeId, card] of Object.entries(unavailableTrainModes)) {
       if (!card.present || !card.disabled || !card.unavailableClass || !card.title.includes("available soon")) {
