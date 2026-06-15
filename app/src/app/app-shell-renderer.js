@@ -39,8 +39,12 @@
 
     const escapeHtml = requireFunction(helpers, "escapeHtml");
     const getPathOption = requireFunction(helpers, "getPathOption");
+    const getModePath = requireFunction(helpers, "getModePath");
+    const getModeAssetPath = requireFunction(helpers, "getModeAssetPath");
     const getModeOption = requireFunction(helpers, "getModeOption");
+    const getWizardCardAsset = requireFunction(helpers, "getWizardCardAsset");
     const normalizeLiveGameType = requireFunction(helpers, "normalizeLiveGameType");
+    const renderConfiguredMascotAsset = requireFunction(helpers, "renderConfiguredMascotAsset");
 
     const syncActiveModalFocus = requireFunction(callbacks, "syncActiveModalFocus");
     const isSignedIn = requireFunction(callbacks, "isSignedIn");
@@ -52,6 +56,7 @@
     const getDefaultStats = requireFunction(callbacks, "getDefaultStats");
     const getLiveGameLabel = requireFunction(callbacks, "getLiveGameLabel");
     const getSelectedSectionIds = requireFunction(callbacks, "getSelectedSectionIds");
+    const getSelectedSectionLabels = requireFunction(callbacks, "getSelectedSectionLabels");
     const getTargetLabel = requireFunction(callbacks, "getTargetLabel");
 
     function syncAppModeClasses() {
@@ -610,6 +615,118 @@
       syncActiveModalFocus();
     }
 
+    function renderGameQuestionPopup(content, modeClass = "", options = {}) {
+      const showClose = options.showClose !== false;
+      return `
+    <div class="question-popup-overlay ${escapeHtml(modeClass)}" role="dialog" aria-modal="true">
+      <div class="question-popup-window ${escapeHtml(modeClass)}">
+        ${showClose ? renderExperienceCloseButton("popup-close-button") : ""}
+        <div class="question-popup-stack">
+          ${content}
+        </div>
+      </div>
+    </div>
+  `;
+    }
+
+    function renderExperienceCloseButton(className = "popup-close-button") {
+      return `
+    <button class="${escapeHtml(className)}" type="button" data-close-experience aria-label="Leave route">
+      <span aria-hidden="true">×</span>
+    </button>
+  `;
+    }
+
+    function renderSelectedGuidingSectionSpans() {
+      const labels = getSelectedSectionLabels();
+
+      if (!labels.length) {
+        return "";
+      }
+
+      return `
+    <div class="panel-section-spans" aria-label="Selected guiding sections">
+      ${labels.map((label) => `<span>${escapeHtml(label)}</span>`).join("")}
+    </div>
+  `;
+    }
+
+    function renderPanelTitle(title, subtitle, metaLine, options = {}) {
+      const modesWithoutReplay = new Set(["mindmap", "rawcontent", "regularguide", "channel", "alpacard", "quiz", "writing", "bowl"]);
+      const showReplay = options.showReplay !== false && !modesWithoutReplay.has(state.selection.mode);
+      const isPlayMode = state.selection.path === "play";
+      const isLearnMode = state.selection.path === "learn";
+      const isTrainMode = state.selection.path === "train";
+      const sectionSpans = options.showSectionSpans === false
+        ? ""
+        : isLearnMode || isTrainMode
+          ? renderSelectedGuidingSectionSpans()
+          : "";
+      const showHubLink = isLearnMode || isPlayMode || isTrainMode;
+      return `
+    <div class="panel-title">
+      <div>
+        <h2>${options.titleHtml || escapeHtml(title)}</h2>
+        ${sectionSpans || (subtitle ? `<p>${escapeHtml(subtitle)}</p>` : "")}
+        ${metaLine ? `<p class="meta-line">${escapeHtml(metaLine)}</p>` : ""}
+      </div>
+      ${showReplay ? `
+        <div class="panel-actions">
+          <button class="button secondary" data-replay-current ${state.selection.mode ? "" : "disabled"}>Take This Route Again</button>
+          ${showHubLink ? `<button class="panel-hub-link" type="button" data-change-mode>Back to hub</button>` : ""}
+        </div>
+      ` : showHubLink ? `
+        <div class="panel-actions">
+          <button class="panel-hub-link" type="button" data-change-mode>Back to hub</button>
+        </div>
+      ` : ""}
+    </div>
+  `;
+    }
+
+    function renderLearnCardFooterNav(currentModeId) {
+      const pathId = getModePath(currentModeId) || state.selection.path || "learn";
+      const modeIds = pathId === "train"
+        ? ["writing", "buildcase", "bowl", "quiz"]
+        : ["mindmap", "rawcontent", "regularguide", "channel", "alpacard"];
+      const items = modeIds
+        .filter((modeId) => modeId !== currentModeId)
+        .map((modeId) => getModeOption(modeId))
+        .filter(Boolean);
+
+      if (!items.length) {
+        return "";
+      }
+
+      return `
+    <nav class="learn-card-footer-nav" aria-label="${escapeHtml(pathId === "train" ? "Train" : "Learn")} card navigation">
+      ${items.map((option) => `
+        <button
+          class="learn-footer-card-button ${option.unavailableReason ? "disabled unavailable" : ""}"
+          type="button"
+          data-pick-mode="${escapeHtml(option.id)}"
+          data-pick-mode-path="${escapeHtml(pathId)}"
+          title="${escapeHtml(option.title)}"
+          aria-label="Open ${escapeHtml(option.title)}"
+          ${option.unavailableReason ? "disabled" : ""}
+        >
+          ${renderConfiguredMascotAsset(
+            getWizardCardAsset(getModeAssetPath(option.id)),
+            option.mood,
+            "small",
+            {
+              alt: `${option.title} icon`,
+              slotClass: "learn-footer-card-slot",
+              imageClass: "learn-footer-card-image"
+            }
+          )}
+          <span>${escapeHtml(option.title)}</span>
+        </button>
+      `).join("")}
+    </nav>
+  `;
+    }
+
     return Object.freeze({
       syncAppModeClasses,
       renderInsights,
@@ -638,7 +755,12 @@
       renderResetPasswordForm,
       getAuthRenderContext,
       renderResourcesModal,
-      renderCooperationModal
+      renderCooperationModal,
+      renderGameQuestionPopup,
+      renderExperienceCloseButton,
+      renderSelectedGuidingSectionSpans,
+      renderPanelTitle,
+      renderLearnCardFooterNav
     });
   }
 
