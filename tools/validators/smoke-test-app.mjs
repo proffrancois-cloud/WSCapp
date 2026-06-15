@@ -586,6 +586,8 @@ async function completeLocalJumpFlow(page) {
 
   await page.waitForSelector("[data-jump-stage]", { timeout: 8000 });
   const stageVisible = await page.evaluate(() => Boolean(document.querySelector("[data-jump-runner]") && document.querySelector("[data-jump-obstacle]")));
+  const actionButtons = await page.evaluate(() => document.querySelectorAll("[data-jump-action]").length);
+  const livesBeforeCheckpoint = await getJumpLivesCount(page);
   const jumped = await clickFirstEnabled(page, '[data-jump-action="jump"]:not([disabled])');
   await page.waitForFunction(() => {
     return document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState === "jumping";
@@ -597,18 +599,175 @@ async function completeLocalJumpFlow(page) {
     return document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState === "ducking";
   }, null, { timeout: 3000 }).catch(() => {});
   const duckedState = await page.evaluate(() => document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState || "");
+  const checkpoint = await driveJumpUntilCheckpoint(page);
+  const checkpointAnswer = checkpoint.opened
+    ? await answerJumpCheckpoint(page, "wrong")
+    : { clicked: false, foundQuestion: false, pickedCorrect: null };
+  const checkpointFeedbackVisible = checkpointAnswer.clicked
+    ? await page.waitForSelector(".jump-question-card .feedback-card", { timeout: 8000 }).then(() => true).catch(() => false)
+    : false;
+  const livesAfterCheckpoint = await getJumpLivesCount(page);
+  const checkpointContinued = checkpointFeedbackVisible
+    ? await clickFirstEnabled(page, "[data-jump-continue]:not([disabled])")
+    : false;
+  const summary = checkpointContinued
+    ? await waitForJumpSummaryAfterCollisions(page)
+    : { visible: false, failed: false, panelText: "" };
 
-  return page.evaluate(({ started: didStart, stageVisible: didShowStage, jumped: didJump, jumpedState: afterJumpState, ducked: didDuck, duckedState: afterDuckState }) => ({
+  return page.evaluate(({ started: didStart, stageVisible: didShowStage, actionButtons: initialActionButtons, jumped: didJump, jumpedState: afterJumpState, ducked: didDuck, duckedState: afterDuckState, checkpoint, checkpointAnswer, checkpointFeedbackVisible, checkpointContinued, livesBeforeCheckpoint, livesAfterCheckpoint, summary }) => ({
     started: didStart,
     stageVisible: didShowStage,
-    actionButtons: document.querySelectorAll("[data-jump-action]").length,
+    actionButtons: initialActionButtons,
     jumped: didJump,
     jumpedState: afterJumpState,
     ducked: didDuck,
     duckedState: afterDuckState,
-    runnerPresent: Boolean(document.querySelector("[data-jump-runner]")),
-    obstaclePresent: Boolean(document.querySelector("[data-jump-obstacle]"))
-  }), { started, stageVisible, jumped, jumpedState, ducked, duckedState });
+    checkpointOpened: checkpoint.opened,
+    checkpointActionCount: checkpoint.actionCount,
+    checkpointQuestionFound: checkpointAnswer.foundQuestion,
+    checkpointAnswered: checkpointAnswer.clicked,
+    checkpointPickedWrong: checkpointAnswer.pickedCorrect === false,
+    checkpointFeedbackVisible,
+    checkpointContinued,
+    livesBeforeCheckpoint,
+    livesAfterCheckpoint,
+    lifeLostOnCheckpoint: livesAfterCheckpoint < livesBeforeCheckpoint,
+    summaryVisible: summary.visible,
+    summaryFailed: summary.failed,
+    summaryText: summary.panelText,
+    runnerPresent: didShowStage,
+    obstaclePresent: didShowStage
+  }), { started, stageVisible, actionButtons, jumped, jumpedState, ducked, duckedState, checkpoint, checkpointAnswer, checkpointFeedbackVisible, checkpointContinued, livesBeforeCheckpoint, livesAfterCheckpoint, summary });
+}
+
+async function driveJumpUntilCheckpoint(page, timeout = 30000) {
+  const startedAt = Date.now();
+  let actionCount = 0;
+  let lastActionAt = 0;
+
+  while (Date.now() - startedAt < timeout) {
+    const state = await page.evaluate(() => {
+      const obstacle = document.querySelector("[data-jump-obstacle]");
+      const rawLeft = obstacle?.style.left || "";
+      const left = Number.parseFloat(rawLeft.replace("%", ""));
+      return {
+        optionCount: document.querySelectorAll("[data-jump-option]:not([disabled])").length,
+        kind: obstacle?.dataset.jumpObstacleKind || "",
+        left: Number.isFinite(left) ? left : null,
+        runnerState: document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState || "",
+        stageVisible: Boolean(document.querySelector("[data-jump-stage]"))
+      };
+    });
+
+    if (state.optionCount > 0) {
+      return {
+        opened: true,
+        actionCount,
+        elapsedMs: Date.now() - startedAt
+      };
+    }
+
+    if (!state.stageVisible) {
+      break;
+    }
+
+    const canAct = Number.isFinite(state.left) && state.left <= 44 && state.left >= 24 && Date.now() - lastActionAt > 240;
+    if (canAct && state.kind === "ground" && state.runnerState !== "jumping") {
+      const clicked = await clickFirstEnabled(page, '[data-jump-action="jump"]:not([disabled])');
+      actionCount += clicked ? 1 : 0;
+      lastActionAt = Date.now();
+    }
+    if (canAct && state.kind === "flying" && state.runnerState !== "ducking") {
+      const clicked = await clickFirstEnabled(page, '[data-jump-action="duck"]:not([disabled])');
+      actionCount += clicked ? 1 : 0;
+      lastActionAt = Date.now();
+    }
+
+    await page.waitForTimeout(80);
+  }
+
+  return {
+    opened: false,
+    actionCount,
+    elapsedMs: Date.now() - startedAt
+  };
+}
+
+async function answerJumpCheckpoint(page, intent = "wrong") {
+  await page.waitForSelector("[data-jump-option]:not([disabled])", { timeout: 8000 });
+  return page.evaluate((answerIntent) => {
+    const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim().toLowerCase();
+    const prompt = document.querySelector(".popup-question-text")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    const candidates = [];
+    const raw = window.WSC_RAW_CONTENT_BANK || {};
+    for (const section of Object.values(raw.sections || {})) {
+      for (const entry of section.entries || []) {
+        for (const question of entry.quizQuestions || []) {
+          candidates.push(question);
+        }
+      }
+      for (const question of section.guideQuestions || []) {
+        candidates.push(question);
+      }
+    }
+    for (const question of raw.fullVoyageQuestions || []) {
+      candidates.push(question);
+    }
+
+    const match = candidates.find((question) => normalize(question.prompt) === normalize(prompt));
+    const correctAnswer = normalize(match?.correctAnswer);
+    const buttons = [...document.querySelectorAll("[data-jump-option]:not([disabled])")];
+    const getButtonAnswer = (button) => {
+      const spans = [...button.querySelectorAll("span")];
+      return normalize((spans.at(-1) || button).textContent);
+    };
+    const target = answerIntent === "correct"
+      ? buttons.find((button) => getButtonAnswer(button) === correctAnswer)
+      : buttons.find((button) => getButtonAnswer(button) !== correctAnswer);
+    const fallback = buttons[0] || null;
+    const button = target || fallback;
+    if (!button) {
+      return {
+        clicked: false,
+        foundQuestion: Boolean(match),
+        pickedCorrect: null,
+        prompt,
+        correctAnswer: match?.correctAnswer || "",
+        selectedAnswer: ""
+      };
+    }
+
+    const selectedAnswer = getButtonAnswer(button);
+    button.click();
+    return {
+      clicked: true,
+      foundQuestion: Boolean(match),
+      pickedCorrect: correctAnswer ? selectedAnswer === correctAnswer : null,
+      prompt,
+      correctAnswer: match?.correctAnswer || "",
+      selectedAnswer
+    };
+  }, intent);
+}
+
+async function getJumpLivesCount(page) {
+  return page.evaluate(() => document.querySelectorAll("[data-jump-lives] .race-life").length);
+}
+
+async function waitForJumpSummaryAfterCollisions(page, timeout = 30000) {
+  const visible = await page.waitForFunction(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    return panelText.includes("Questions") && panelText.includes("Distance") && panelText.includes("Take This Route Again");
+  }, null, { timeout }).then(() => true).catch(() => false);
+
+  return page.evaluate((isVisible) => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    return {
+      visible: isVisible,
+      failed: panelText.includes("Questions") && panelText.includes("0/"),
+      panelText: panelText.slice(0, 240)
+    };
+  }, visible);
 }
 
 async function clickEnabledModeCard(page, sectionName, modeId) {
@@ -742,6 +901,7 @@ async function main() {
 
     await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
     await page.waitForSelector("#routeBuilder", { timeout: 30000 });
+    await page.waitForFunction(() => window.WSC_APP_READY === true, null, { timeout: 60000 });
     const boot = await page.evaluate(() => {
       const raw = window.WSC_RAW_CONTENT_BANK || {};
       let entries = 0;
@@ -843,7 +1003,7 @@ async function main() {
     const race = await runModeSmoke(page, "We Are All in This to Get There", "race", "Survivalpaca");
     const run = await runModeSmoke(page, "We Are All in This to Get There", "run", "Alpaca Run");
     const relay = await runModeSmoke(page, "We Are All in This to Get There", "relay", "Alpaquiz");
-    const jump = await runModeSmoke(page, "We Are All in This to Get There", "jump", "Alpaca Jump");
+    const jump = await runModeSmoke(page, "We Are All in This to Get There", "jump", "Questions");
     const alpacapardy = await runModeSmoke(page, "We Are All in This to Get There", "jeopardy", "Alpacapardy");
     const unavailableTrainModes = await checkUnavailableTrainModeCards(page);
 
@@ -978,9 +1138,17 @@ async function main() {
       !jump.jumpFlow?.jumped ||
       !jump.jumpFlow?.ducked ||
       !jump.jumpFlow?.runnerPresent ||
-      !jump.jumpFlow?.obstaclePresent
+      !jump.jumpFlow?.obstaclePresent ||
+      !jump.jumpFlow?.checkpointOpened ||
+      !jump.jumpFlow?.checkpointQuestionFound ||
+      !jump.jumpFlow?.checkpointAnswered ||
+      !jump.jumpFlow?.checkpointPickedWrong ||
+      !jump.jumpFlow?.checkpointFeedbackVisible ||
+      !jump.jumpFlow?.checkpointContinued ||
+      !jump.jumpFlow?.lifeLostOnCheckpoint ||
+      !jump.jumpFlow?.summaryVisible
     ) {
-      failures.push("Jump local flow should be playable and responsive to jump/duck actions with the smoke full-voyage fixture");
+      failures.push("Jump local flow should be playable through movement, checkpoint answer, life loss, continue, and summary");
     }
     for (const [modeId, card] of Object.entries(unavailableTrainModes)) {
       if (!card.present || !card.disabled || !card.unavailableClass || !card.title.includes("available soon")) {
