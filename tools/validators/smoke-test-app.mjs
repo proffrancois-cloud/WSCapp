@@ -214,6 +214,9 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   const jumpFlow = modeId === "jump"
     ? await completeLocalJumpFlow(page)
     : null;
+  const mindmapFlow = modeId === "mindmap"
+    ? await completeLocalMindMapFlow(page)
+    : null;
 
   return page.evaluate(({ text, flows }) => {
     const panel = document.querySelector("#experiencePanel");
@@ -231,7 +234,8 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       raceFlow: flows.race,
       runFlow: flows.run,
       relayFlow: flows.relay,
-      jumpFlow: flows.jump
+      jumpFlow: flows.jump,
+      mindmapFlow: flows.mindmap
     };
   }, {
     text: expectedText,
@@ -241,7 +245,8 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       race: raceFlow,
       run: runFlow,
       relay: relayFlow,
-      jump: jumpFlow
+      jump: jumpFlow,
+      mindmap: mindmapFlow
     }
   });
 }
@@ -770,6 +775,63 @@ async function waitForJumpSummaryAfterCollisions(page, timeout = 30000) {
   }, visible);
 }
 
+async function completeLocalMindMapFlow(page) {
+  await page.waitForSelector("[data-mindmap-gallery-viewport]", { timeout: 8000 });
+  await page.waitForSelector("[data-mindmap-orbit-stage]", { timeout: 8000 });
+
+  const before = await page.evaluate(() => {
+    const firstNode = document.querySelector("[data-mindmap-orbit-entry]");
+    return {
+      viewportPresent: Boolean(document.querySelector("[data-mindmap-gallery-viewport]")),
+      stageCount: document.querySelectorAll("[data-mindmap-orbit-stage]").length,
+      slideCount: document.querySelectorAll("[data-mindmap-gallery-slide]").length,
+      orbitNodeCount: document.querySelectorAll("[data-mindmap-orbit-entry]").length,
+      navButtonCount: document.querySelectorAll("[data-mindmap-gallery-nav]").length,
+      firstNodeLeft: firstNode?.style.left || "",
+      firstNodeTop: firstNode?.style.top || "",
+      scrollLeft: document.querySelector("[data-mindmap-gallery-viewport]")?.scrollLeft || 0
+    };
+  });
+
+  await page.waitForTimeout(250);
+
+  const afterAnimation = await page.evaluate(() => {
+    const firstNode = document.querySelector("[data-mindmap-orbit-entry]");
+    return {
+      firstNodeLeft: firstNode?.style.left || "",
+      firstNodeTop: firstNode?.style.top || ""
+    };
+  });
+
+  let navigated = false;
+  if (before.navButtonCount > 0 && before.slideCount > 1) {
+    navigated = await page.evaluate(() => {
+      const next = document.querySelector('[data-mindmap-gallery-nav="next"]');
+      if (!next) {
+        return false;
+      }
+      next.click();
+      return true;
+    });
+    await page.waitForTimeout(450);
+  }
+
+  const afterNavigation = await page.evaluate(() => ({
+    scrollLeft: document.querySelector("[data-mindmap-gallery-viewport]")?.scrollLeft || 0,
+    entryPopupPresent: Boolean(document.querySelector("[data-mindmap-popup-window]")),
+    guidePopupPresent: Boolean(document.querySelector("[data-mindmap-guide-popup-window]"))
+  }));
+
+  return {
+    ...before,
+    orbitPositionUpdated: afterAnimation.firstNodeLeft !== before.firstNodeLeft || afterAnimation.firstNodeTop !== before.firstNodeTop,
+    navigated,
+    scrollAfterNavigation: afterNavigation.scrollLeft,
+    entryPopupPresent: afterNavigation.entryPopupPresent,
+    guidePopupPresent: afterNavigation.guidePopupPresent
+  };
+}
+
 async function clickEnabledModeCard(page, sectionName, modeId) {
   for (let attempt = 0; attempt < 3; attempt += 1) {
     await ensureSectionAndModeReady(page, sectionName, modeId);
@@ -999,6 +1061,7 @@ async function main() {
     const rawOverrideContent = await runModeSmoke(page, "The End is Nearish", "rawcontent", "When Power Is Supposed to Be Temporary");
     const alpacards = await runModeSmoke(page, "We Are All in This to Get There", "alpacard", "Alpacard");
     const channel = await runModeSmoke(page, "We Are All in This to Get There", "channel", "Alpaca Channel");
+    const mindmap = await runModeSmoke(page, "We Are All in This to Get There", "mindmap", "Mind Map");
     const quiz = await runModeSmoke(page, "We Are All in This to Get There", "quiz", "Scholar's Challenge");
     const race = await runModeSmoke(page, "We Are All in This to Get There", "race", "Survivalpaca");
     const run = await runModeSmoke(page, "We Are All in This to Get There", "run", "Alpaca Run");
@@ -1024,6 +1087,7 @@ async function main() {
         rawOverrideContent,
         alpacards,
         channel,
+        mindmap,
         quiz,
         race,
         run,
@@ -1071,6 +1135,14 @@ async function main() {
     }
     if (alpacards.alpacardImages < 1) {
       failures.push("alpacards smoke check did not render an alpacard image");
+    }
+    if (
+      !mindmap.mindmapFlow?.viewportPresent ||
+      mindmap.mindmapFlow.stageCount < 1 ||
+      mindmap.mindmapFlow.orbitNodeCount < 1 ||
+      mindmap.mindmapFlow.slideCount < 1
+    ) {
+      failures.push("Mind Map smoke check did not render gallery, orbit stage, and orbit nodes");
     }
     if (alpacapardy.jeopardyControls < 1) {
       failures.push("Alpacapardy smoke check did not render setup or board controls");
