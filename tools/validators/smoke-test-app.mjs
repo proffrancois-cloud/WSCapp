@@ -217,6 +217,9 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   const mindmapFlow = modeId === "mindmap"
     ? await completeLocalMindMapFlow(page)
     : null;
+  const regularGuideFlow = modeId === "regularguide"
+    ? await completeLocalRegularGuideFlow(page)
+    : null;
 
   return page.evaluate(({ text, flows }) => {
     const panel = document.querySelector("#experiencePanel");
@@ -235,7 +238,8 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       runFlow: flows.run,
       relayFlow: flows.relay,
       jumpFlow: flows.jump,
-      mindmapFlow: flows.mindmap
+      mindmapFlow: flows.mindmap,
+      regularGuideFlow: flows.regularGuide
     };
   }, {
     text: expectedText,
@@ -246,7 +250,8 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       run: runFlow,
       relay: relayFlow,
       jump: jumpFlow,
-      mindmap: mindmapFlow
+      mindmap: mindmapFlow,
+      regularGuide: regularGuideFlow
     }
   });
 }
@@ -832,6 +837,28 @@ async function completeLocalMindMapFlow(page) {
   };
 }
 
+async function completeLocalRegularGuideFlow(page) {
+  await page.waitForFunction(() => {
+    return Boolean(document.querySelector(".regular-guide-shell"))
+      || Boolean(document.querySelector(".regular-guide-document"))
+      || Boolean(document.querySelector(".raw-content-shell"));
+  }, null, { timeout: 8000 });
+
+  return page.evaluate(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    return {
+      shellPresent: Boolean(document.querySelector(".regular-guide-shell")),
+      documentPresent: Boolean(document.querySelector(".regular-guide-document")),
+      guideCards: document.querySelectorAll(".regular-guide-card").length,
+      questionBlockPresent: Boolean(document.querySelector(".regular-guide-question-block")),
+      navChipCount: document.querySelectorAll(".regular-guide-nav-chip").length,
+      sectionChannelButtonPresent: Boolean(document.querySelector(".guide-channel-link")),
+      fallbackEmpty: panelText.includes("No regular guide has been attached"),
+      panelText: panelText.slice(0, 240)
+    };
+  });
+}
+
 async function clickEnabledModeCard(page, sectionName, modeId) {
   for (let attempt = 0; attempt < 3; attempt += 1) {
     await ensureSectionAndModeReady(page, sectionName, modeId);
@@ -1059,6 +1086,7 @@ async function main() {
 
     const rawContent = await runModeSmoke(page, "We Are All in This to Get There", "rawcontent", "Raw Content");
     const rawOverrideContent = await runModeSmoke(page, "The End is Nearish", "rawcontent", "When Power Is Supposed to Be Temporary");
+    const regularGuide = await runModeSmoke(page, "We Are All in This to Get There", "regularguide", "Guide");
     const alpacards = await runModeSmoke(page, "We Are All in This to Get There", "alpacard", "Alpacard");
     const channel = await runModeSmoke(page, "We Are All in This to Get There", "channel", "Alpaca Channel");
     const mindmap = await runModeSmoke(page, "We Are All in This to Get There", "mindmap", "Mind Map");
@@ -1085,6 +1113,7 @@ async function main() {
       modes: {
         rawContent,
         rawOverrideContent,
+        regularGuide,
         alpacards,
         channel,
         mindmap,
@@ -1132,6 +1161,16 @@ async function main() {
     }
     if (rawContent.rawCards < 1) {
       failures.push("raw content smoke check did not render raw cards");
+    }
+    if (
+      !regularGuide.regularGuideFlow ||
+      (
+        !regularGuide.regularGuideFlow.shellPresent &&
+        !regularGuide.regularGuideFlow.documentPresent &&
+        !regularGuide.regularGuideFlow.fallbackEmpty
+      )
+    ) {
+      failures.push("Regular Guide smoke check did not render guide content or a controlled empty state");
     }
     if (alpacards.alpacardImages < 1) {
       failures.push("alpacards smoke check did not render an alpacard image");
