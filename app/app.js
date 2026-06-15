@@ -39,6 +39,7 @@ const createAlpacaChannelController = window.WSC_CREATE_ALPACA_CHANNEL_CONTROLLE
 const createBuildCaseController = window.WSC_CREATE_BUILD_CASE_CONTROLLER;
 const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
 const createAlpaquizRenderController = window.WSC_CREATE_ALPAQUIZ_RENDER_CONTROLLER;
+const arcadeJumpHelpers = window.WSC_ARCADE_JUMP_HELPERS;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const CAMPUS_PREVIEW_PUBLIC_ENABLED = true;
@@ -176,33 +177,6 @@ const LIVE_ALPACA_COLORS = Object.freeze([
 ]);
 const WIZARD_TOTAL_STEPS = 2;
 const DEFAULT_LENS_ID = "section";
-const JUMP_OBSTACLE_PATTERN = [
-  "ground",
-  "ground",
-  "flying",
-  "ground",
-  "ground",
-  "ground",
-  "flying",
-  "ground",
-  "flying",
-  "flying",
-  "ground",
-  "flying",
-  "ground",
-  "ground",
-  "flying",
-  "flying",
-  "ground",
-  "ground",
-  "ground",
-  "flying",
-  "ground",
-  "flying",
-  "ground",
-  "ground"
-];
-
 const DEEP_STRUCTURE_BIG_IDEAS = [
   "Visible vs Real",
   "Delayed Arrival",
@@ -3310,19 +3284,11 @@ function buildRunExperience() {
 }
 
 function createJumpObstacle(cursor = 0) {
-  return {
-    kind: JUMP_OBSTACLE_PATTERN[cursor % JUMP_OBSTACLE_PATTERN.length],
-    x: 106,
-    passed: false
-  };
+  return arcadeJumpHelpers.createJumpObstacle(cursor);
 }
 
 function createJumpCheckpointObstacle() {
-  return {
-    kind: "checkpoint",
-    x: 106,
-    passed: false
-  };
+  return arcadeJumpHelpers.createJumpCheckpointObstacle();
 }
 
 function buildJumpExperience() {
@@ -5919,15 +5885,11 @@ function getJumpQuestionValue(...args) {
 }
 
 function getJumpObstacleRequirement(experience) {
-  return 2 + getJumpQuestionLevel(experience.currentQuestion);
+  return arcadeJumpHelpers.getJumpObstacleRequirement(experience.currentQuestion, getJumpQuestionLevel);
 }
 
 function getJumpObstacleSpeed(experience) {
-  const progression = experience.index + Math.floor(experience.distance / 120);
-  return Math.min(
-    GAME_CONFIG.jumpMaxObstacleSpeed,
-    GAME_CONFIG.jumpObstacleSpeed + progression * GAME_CONFIG.jumpObstacleSpeedGain
-  );
+  return arcadeJumpHelpers.getJumpObstacleSpeed(experience, GAME_CONFIG);
 }
 
 function queueNextJumpObstacle(experience) {
@@ -6024,20 +5986,7 @@ function updateJumpFrame(experience, timestamp) {
 }
 
 function hasJumpCollision(experience) {
-  const obstacle = experience.obstacle;
-  if (!obstacle || obstacle.x < 18 || obstacle.x > 29) {
-    return false;
-  }
-
-  if (obstacle.kind === "checkpoint") {
-    return true;
-  }
-
-  if (obstacle.kind === "ground") {
-    return experience.runnerY < 52;
-  }
-
-  return !experience.ducking && experience.runnerY < 36;
+  return arcadeJumpHelpers.hasJumpCollision(experience);
 }
 
 function handleJumpObstacleHit(experience) {
