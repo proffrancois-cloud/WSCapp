@@ -112,8 +112,23 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   const alpacapardyFlow = modeId === "jeopardy"
     ? await completeLocalAlpacapardyFlow(page)
     : null;
+  const quizFlow = modeId === "quiz"
+    ? await completeLocalQuizFlow(page)
+    : null;
+  const raceFlow = modeId === "race"
+    ? await completeLocalRaceFlow(page)
+    : null;
+  const runFlow = modeId === "run"
+    ? await completeLocalRunFlow(page)
+    : null;
+  const relayFlow = modeId === "relay"
+    ? await completeLocalRelayFlow(page)
+    : null;
+  const jumpFlow = modeId === "jump"
+    ? await completeLocalJumpFlow(page)
+    : null;
 
-  return page.evaluate(({ text, alpacapardyFlow: flow }) => {
+  return page.evaluate(({ text, flows }) => {
     const panel = document.querySelector("#experiencePanel");
     const panelText = panel?.textContent?.replace(/\s+/g, " ").trim() || "";
     return {
@@ -124,9 +139,24 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
       alpacardImages: document.querySelectorAll(".alpacard-image").length,
       channelCards: document.querySelectorAll(".channel-card, .alpaca-channel-card, [data-channel-video]").length,
       jeopardyControls: document.querySelectorAll("[data-jeopardy-start], [data-jeopardy-open], [data-jeopardy-toggle-category]").length,
-      alpacapardyFlow: flow
+      alpacapardyFlow: flows.alpacapardy,
+      quizFlow: flows.quiz,
+      raceFlow: flows.race,
+      runFlow: flows.run,
+      relayFlow: flows.relay,
+      jumpFlow: flows.jump
     };
-  }, { text: expectedText, alpacapardyFlow });
+  }, {
+    text: expectedText,
+    flows: {
+      alpacapardy: alpacapardyFlow,
+      quiz: quizFlow,
+      race: raceFlow,
+      run: runFlow,
+      relay: relayFlow,
+      jump: jumpFlow
+    }
+  });
 }
 
 async function completeLocalAlpacapardyFlow(page) {
@@ -166,6 +196,332 @@ async function completeLocalAlpacapardyFlow(page) {
     doneTiles: document.querySelectorAll("[data-jeopardy-open].done").length,
     openTiles: document.querySelectorAll("[data-jeopardy-open]:not(.done)").length
   }), { initialTileCount: boardTilesBefore, focusOpened, answered });
+}
+
+async function completeLocalQuizFlow(page) {
+  await page.waitForFunction(() => {
+    return document.querySelector("[data-quiz-option]")
+      || document.querySelector(".quiz-warning")
+      || document.querySelector(".quiz-setup-card");
+  }, null, { timeout: 8000 });
+
+  const unavailable = await page.evaluate(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    return {
+      controlledUnavailable: Boolean(document.querySelector(".quiz-warning") || document.querySelector(".quiz-setup-card")),
+      missingDifficultyMessage: panelText.includes("questions for every difficulty") || panelText.includes("fixed 15-question quiz"),
+      panelText: panelText.slice(0, 240)
+    };
+  });
+  if (unavailable.controlledUnavailable || unavailable.missingDifficultyMessage) {
+    return {
+      controlledUnavailable: true,
+      unavailable,
+      questionCount: 0,
+      answeredCount: 0,
+      submitted: false,
+      resultsVisible: false,
+      resetVisible: false
+    };
+  }
+
+  const questionIndexes = await page.evaluate(() => {
+    return Array.from(new Set([...document.querySelectorAll("[data-quiz-question][data-quiz-option]")]
+      .map((button) => Number(button.dataset.quizQuestion))
+      .filter(Number.isInteger))).sort((left, right) => left - right);
+  });
+
+  for (const questionIndex of questionIndexes) {
+    const answered = await page.evaluate((targetQuestionIndex) => {
+      const option = document.querySelector(`[data-quiz-question="${targetQuestionIndex}"][data-quiz-option]:not([disabled])`);
+      if (!option) {
+        return false;
+      }
+      option.click();
+      return true;
+    }, questionIndex);
+    if (!answered) {
+      break;
+    }
+    await page.waitForTimeout(20);
+  }
+
+  await page.waitForSelector('[data-quiz-submit][data-quiz-incomplete="false"]:not([disabled])', { timeout: 8000 });
+  const submitted = await clickFirstEnabled(page, '[data-quiz-submit][data-quiz-incomplete="false"]:not([disabled])');
+  await page.waitForSelector(".quiz-results-footer", { timeout: 8000 });
+
+  return page.evaluate(({ questionCount, submitted: didSubmit }) => ({
+    controlledUnavailable: false,
+    questionCount,
+    answeredCount: document.querySelectorAll("[data-quiz-option].active").length,
+    submitted: didSubmit,
+    resultsVisible: Boolean(document.querySelector(".quiz-results-footer")),
+    resetVisible: Boolean(document.querySelector("[data-quiz-reset]"))
+  }), { questionCount: questionIndexes.length, submitted });
+}
+
+async function checkUnavailableTrainModeCards(page) {
+  await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
+  await chooseLocalRoute(page);
+  await page.waitForFunction(() => window.WSC_APP_READY === true && document.querySelector(".mode-choice-board"));
+  await ensureSectionAndModeReady(page, "We Are All in This to Get There", "quiz");
+
+  await page.evaluate(() => {
+    const modeMenuButton = document.querySelector('[data-toggle-mode-menu="train"]');
+    if (!modeMenuButton) {
+      throw new Error('Could not find train mode menu button.');
+    }
+    modeMenuButton.click();
+  });
+  await page.waitForFunction(() => document.querySelector('[data-mode-choice-path="train"]')?.classList.contains("is-open"));
+
+  return page.evaluate(() => {
+    const expected = ["writing", "buildcase", "bowl"];
+    return Object.fromEntries(expected.map((modeId) => {
+      const card = document.querySelector(`[data-pick-mode="${modeId}"][data-pick-mode-path="train"]`);
+      return [modeId, {
+        present: Boolean(card),
+        disabled: Boolean(card?.disabled),
+        unavailableClass: Boolean(card?.classList.contains("unavailable")),
+        title: card?.getAttribute("title") || "",
+        text: card?.textContent?.replace(/\s+/g, " ").trim() || ""
+      }];
+    }));
+  });
+}
+
+async function clickFirstEnabled(page, selector, timeout = 8000) {
+  await page.waitForSelector(selector, { timeout });
+  return page.evaluate((targetSelector) => {
+    const element = document.querySelector(targetSelector);
+    if (!element || element.disabled) {
+      return false;
+    }
+    element.click();
+    return true;
+  }, selector);
+}
+
+async function activateAllSetupOptions(page, selector) {
+  await page.waitForSelector(selector, { timeout: 8000 });
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    const clicked = await page.evaluate((targetSelector) => {
+      const inactive = [...document.querySelectorAll(targetSelector)]
+        .find((button) => button.getAttribute("aria-pressed") !== "true");
+      if (!inactive) {
+        return false;
+      }
+      inactive.click();
+      return true;
+    }, selector);
+    if (!clicked) {
+      return;
+    }
+    await page.waitForTimeout(50);
+  }
+}
+
+async function waitForModeStartOutcome(page, playableSelector) {
+  await page.waitForFunction((targetPlayableSelector) => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return Boolean(document.querySelector(targetPlayableSelector))
+      || panelText.includes("Route update pending")
+      || panelText.includes("complete raw-question ladder")
+      || panelText.includes("does not yet have");
+  }, playableSelector, { timeout: 8000 });
+}
+
+async function readControlledUnavailableState(page) {
+  return page.evaluate(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    return {
+      routeUpdatePending: panelText.includes("Route update pending"),
+      completeLadderMessage: panelText.includes("complete raw-question ladder") || panelText.includes("does not yet have"),
+      panelText: panelText.slice(0, 240)
+    };
+  });
+}
+
+async function completeLocalRaceFlow(page) {
+  await activateAllSetupOptions(page, "[data-race-toggle-category]");
+  const started = await clickFirstEnabled(page, "[data-race-start]:not([disabled])");
+  await waitForModeStartOutcome(page, "[data-race-option]:not([disabled])");
+  const unavailable = await readControlledUnavailableState(page);
+  if (unavailable.routeUpdatePending || unavailable.completeLadderMessage) {
+    return {
+      started,
+      controlledUnavailable: true,
+      unavailable,
+      optionCount: 0,
+      answered: false,
+      feedbackVisible: false,
+      advanced: false,
+      nextQuestionReady: false,
+      summaryVisible: false
+    };
+  }
+
+  await page.waitForSelector("[data-race-option]:not([disabled])", { timeout: 8000 });
+  const optionCount = await page.evaluate(() => document.querySelectorAll("[data-race-option]:not([disabled])").length);
+  const answered = await clickFirstEnabled(page, "[data-race-option]:not([disabled])");
+  await page.waitForSelector("[data-race-advance]:not([disabled])", { timeout: 8000 });
+  const feedbackVisible = await page.evaluate(() => Boolean(document.querySelector(".feedback-card")));
+  const advanced = await clickFirstEnabled(page, "[data-race-advance]:not([disabled])");
+  await page.waitForFunction(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return document.querySelector("[data-race-option]:not([disabled])") || panelText.includes("Journey Summary");
+  }, null, { timeout: 8000 });
+
+  return page.evaluate(({ started: didStart, optionCount: initialOptionCount, answered: didAnswer, feedbackVisible: didShowFeedback, advanced: didAdvance }) => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return {
+      started: didStart,
+      optionCount: initialOptionCount,
+      answered: didAnswer,
+      feedbackVisible: didShowFeedback,
+      advanced: didAdvance,
+      nextQuestionReady: Boolean(document.querySelector("[data-race-option]:not([disabled])")),
+      summaryVisible: panelText.includes("Journey Summary")
+    };
+  }, { started, optionCount, answered, feedbackVisible, advanced });
+}
+
+async function completeLocalRunFlow(page) {
+  await activateAllSetupOptions(page, "[data-run-toggle-category]");
+  const started = await clickFirstEnabled(page, "[data-run-start]:not([disabled])");
+  await waitForModeStartOutcome(page, "[data-run-option]:not([disabled])");
+  const unavailable = await readControlledUnavailableState(page);
+  if (unavailable.routeUpdatePending || unavailable.completeLadderMessage) {
+    return {
+      started,
+      controlledUnavailable: true,
+      unavailable,
+      optionCount: 0,
+      answered: false,
+      feedbackVisible: false,
+      continued: false,
+      nextQuestionReady: false,
+      summaryVisible: false
+    };
+  }
+
+  await page.waitForSelector("[data-run-option]:not([disabled])", { timeout: 8000 });
+  const optionCount = await page.evaluate(() => document.querySelectorAll("[data-run-option]:not([disabled])").length);
+  const answered = await clickFirstEnabled(page, "[data-run-option]:not([disabled])");
+  await page.waitForSelector("[data-run-continue]:not([disabled])", { timeout: 8000 });
+  const feedbackVisible = await page.evaluate(() => Boolean(document.querySelector(".feedback-card")));
+  const continued = await clickFirstEnabled(page, "[data-run-continue]:not([disabled])");
+  await page.waitForFunction(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return document.querySelector("[data-run-option]:not([disabled])") || panelText.includes("Journey Summary");
+  }, null, { timeout: 8000 });
+
+  return page.evaluate(({ started: didStart, optionCount: initialOptionCount, answered: didAnswer, feedbackVisible: didShowFeedback, continued: didContinue }) => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return {
+      started: didStart,
+      optionCount: initialOptionCount,
+      answered: didAnswer,
+      feedbackVisible: didShowFeedback,
+      continued: didContinue,
+      nextQuestionReady: Boolean(document.querySelector("[data-run-option]:not([disabled])")),
+      summaryVisible: panelText.includes("Journey Summary")
+    };
+  }, { started, optionCount, answered, feedbackVisible, continued });
+}
+
+async function completeLocalRelayFlow(page) {
+  await activateAllSetupOptions(page, "[data-relay-toggle-category]");
+  const started = await clickFirstEnabled(page, "[data-relay-start]:not([disabled])");
+  await waitForModeStartOutcome(page, "[data-relay-buzz]:not([disabled])");
+  const unavailable = await readControlledUnavailableState(page);
+  if (unavailable.routeUpdatePending || unavailable.completeLadderMessage) {
+    return {
+      started,
+      controlledUnavailable: true,
+      unavailable,
+      buzzed: false,
+      optionCount: 0,
+      answered: false,
+      feedbackVisible: false,
+      continued: false,
+      nextBuzzReady: false,
+      finalStandingVisible: false
+    };
+  }
+
+  await page.waitForSelector("[data-relay-buzz]:not([disabled])", { timeout: 8000 });
+  const buzzed = await clickFirstEnabled(page, "[data-relay-buzz]:not([disabled])");
+  await page.waitForSelector("[data-relay-option]:not([disabled])", { timeout: 8000 });
+  const optionCount = await page.evaluate(() => document.querySelectorAll("[data-relay-option]:not([disabled])").length);
+  const answered = await clickFirstEnabled(page, "[data-relay-option]:not([disabled])");
+  await page.waitForSelector("[data-relay-continue]:not([disabled])", { timeout: 8000 });
+  const feedbackVisible = await page.evaluate(() => Boolean(document.querySelector(".feedback-card")));
+  const continued = await clickFirstEnabled(page, "[data-relay-continue]:not([disabled])");
+  await page.waitForFunction(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return document.querySelector("[data-relay-buzz]:not([disabled])") || panelText.includes("Final Standing");
+  }, null, { timeout: 8000 });
+
+  return page.evaluate(({ started: didStart, buzzed: didBuzz, optionCount: initialOptionCount, answered: didAnswer, feedbackVisible: didShowFeedback, continued: didContinue }) => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return {
+      started: didStart,
+      buzzed: didBuzz,
+      optionCount: initialOptionCount,
+      answered: didAnswer,
+      feedbackVisible: didShowFeedback,
+      continued: didContinue,
+      nextBuzzReady: Boolean(document.querySelector("[data-relay-buzz]:not([disabled])")),
+      finalStandingVisible: panelText.includes("Final Standing")
+    };
+  }, { started, buzzed, optionCount, answered, feedbackVisible, continued });
+}
+
+async function completeLocalJumpFlow(page) {
+  await activateAllSetupOptions(page, "[data-jump-toggle-category]");
+  const started = await clickFirstEnabled(page, "[data-jump-start]:not([disabled])");
+  await waitForModeStartOutcome(page, "[data-jump-stage]");
+  const unavailable = await readControlledUnavailableState(page);
+  if (unavailable.routeUpdatePending || unavailable.completeLadderMessage) {
+    return {
+      started,
+      controlledUnavailable: true,
+      unavailable,
+      stageVisible: false,
+      actionButtons: 0,
+      jumped: false,
+      ducked: false,
+      runnerPresent: false,
+      obstaclePresent: false
+    };
+  }
+
+  await page.waitForSelector("[data-jump-stage]", { timeout: 8000 });
+  const stageVisible = await page.evaluate(() => Boolean(document.querySelector("[data-jump-runner]") && document.querySelector("[data-jump-obstacle]")));
+  const jumped = await clickFirstEnabled(page, '[data-jump-action="jump"]:not([disabled])');
+  await page.waitForFunction(() => {
+    return document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState === "jumping";
+  }, null, { timeout: 3000 }).catch(() => {});
+  const jumpedState = await page.evaluate(() => document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState || "");
+  await page.waitForTimeout(700);
+  const ducked = await clickFirstEnabled(page, '[data-jump-action="duck"]:not([disabled])');
+  await page.waitForFunction(() => {
+    return document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState === "ducking";
+  }, null, { timeout: 3000 }).catch(() => {});
+  const duckedState = await page.evaluate(() => document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState || "");
+
+  return page.evaluate(({ started: didStart, stageVisible: didShowStage, jumped: didJump, jumpedState: afterJumpState, ducked: didDuck, duckedState: afterDuckState }) => ({
+    started: didStart,
+    stageVisible: didShowStage,
+    actionButtons: document.querySelectorAll("[data-jump-action]").length,
+    jumped: didJump,
+    jumpedState: afterJumpState,
+    ducked: didDuck,
+    duckedState: afterDuckState,
+    runnerPresent: Boolean(document.querySelector("[data-jump-runner]")),
+    obstaclePresent: Boolean(document.querySelector("[data-jump-obstacle]"))
+  }), { started, stageVisible, jumped, jumpedState, ducked, duckedState });
 }
 
 async function clickEnabledModeCard(page, sectionName, modeId) {
@@ -396,7 +752,12 @@ async function main() {
     const alpacards = await runModeSmoke(page, "We Are All in This to Get There", "alpacard", "Alpacard");
     const channel = await runModeSmoke(page, "We Are All in This to Get There", "channel", "Alpaca Channel");
     const quiz = await runModeSmoke(page, "We Are All in This to Get There", "quiz", "Scholar's Challenge");
+    const race = await runModeSmoke(page, "We Are All in This to Get There", "race", "Survivalpaca");
+    const run = await runModeSmoke(page, "We Are All in This to Get There", "run", "Alpaca Run");
+    const relay = await runModeSmoke(page, "We Are All in This to Get There", "relay", "Alpaquiz");
+    const jump = await runModeSmoke(page, "We Are All in This to Get There", "jump", "Alpaca Jump");
     const alpacapardy = await runModeSmoke(page, "We Are All in This to Get There", "jeopardy", "Alpacapardy");
+    const unavailableTrainModes = await checkUnavailableTrainModeCards(page);
 
     await browser.close();
 
@@ -416,8 +777,13 @@ async function main() {
         alpacards,
         channel,
         quiz,
+        race,
+        run,
+        relay,
+        jump,
         alpacapardy
       },
+      unavailableTrainModes,
       severeConsoleMessages
     };
 
@@ -469,6 +835,77 @@ async function main() {
       alpacapardy.alpacapardyFlow.doneTiles < 1
     ) {
       failures.push("Alpacapardy local flow did not start, open a tile, answer, and return to the board");
+    }
+    if (
+      !quiz.quizFlow?.controlledUnavailable &&
+      (
+        quiz.quizFlow?.questionCount < 1 ||
+        quiz.quizFlow?.answeredCount !== quiz.quizFlow?.questionCount ||
+        !quiz.quizFlow?.submitted ||
+        !quiz.quizFlow?.resultsVisible ||
+        !quiz.quizFlow?.resetVisible
+      )
+    ) {
+      failures.push("Quiz local flow was neither cleanly unavailable nor playable through submit/results");
+    }
+    if (
+      !race.raceFlow?.controlledUnavailable &&
+      (
+        !race.raceFlow?.started ||
+        race.raceFlow.optionCount < 2 ||
+        !race.raceFlow?.answered ||
+        !race.raceFlow?.feedbackVisible ||
+        !race.raceFlow?.advanced ||
+        (!race.raceFlow?.nextQuestionReady && !race.raceFlow?.summaryVisible)
+      )
+    ) {
+      failures.push("Race local flow was neither cleanly unavailable nor playable through feedback/advance");
+    }
+    if (
+      !run.runFlow?.controlledUnavailable &&
+      (
+        !run.runFlow?.started ||
+        run.runFlow.optionCount < 2 ||
+        !run.runFlow?.answered ||
+        !run.runFlow?.feedbackVisible ||
+        !run.runFlow?.continued ||
+        (!run.runFlow?.nextQuestionReady && !run.runFlow?.summaryVisible)
+      )
+    ) {
+      failures.push("Run local flow was neither cleanly unavailable nor playable through feedback/continue");
+    }
+    if (
+      !relay.relayFlow?.controlledUnavailable &&
+      (
+        !relay.relayFlow?.started ||
+        !relay.relayFlow?.buzzed ||
+        relay.relayFlow.optionCount < 2 ||
+        !relay.relayFlow?.answered ||
+        !relay.relayFlow?.feedbackVisible ||
+        !relay.relayFlow?.continued ||
+        (!relay.relayFlow?.nextBuzzReady && !relay.relayFlow?.finalStandingVisible)
+      )
+    ) {
+      failures.push("Relay local flow was neither cleanly unavailable nor playable through buzz/feedback/continue");
+    }
+    if (
+      !jump.jumpFlow?.controlledUnavailable &&
+      (
+        !jump.jumpFlow?.started ||
+        !jump.jumpFlow?.stageVisible ||
+        jump.jumpFlow.actionButtons < 2 ||
+        !jump.jumpFlow?.jumped ||
+        !jump.jumpFlow?.ducked ||
+        !jump.jumpFlow?.runnerPresent ||
+        !jump.jumpFlow?.obstaclePresent
+      )
+    ) {
+      failures.push("Jump local flow was neither cleanly unavailable nor responsive to jump/duck actions");
+    }
+    for (const [modeId, card] of Object.entries(unavailableTrainModes)) {
+      if (!card.present || !card.disabled || !card.unavailableClass || !card.title.includes("available soon")) {
+        failures.push(`${modeId} public train card is not clearly disabled/unavailable`);
+      }
     }
     for (const [mode, check] of Object.entries(result.modes)) {
       if (check.experienceHidden || !check.containsExpectedText) {
