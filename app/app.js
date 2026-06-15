@@ -17,6 +17,7 @@ const appDomService = window.WSC_APP_DOM_SERVICE;
 const modalFocusService = window.WSC_MODAL_FOCUS_SERVICE || null;
 const createContentNormalizationHelpers = window.WSC_CREATE_CONTENT_NORMALIZATION_HELPERS;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
+const createRouteBuilderOptionsService = window.WSC_CREATE_ROUTE_BUILDER_OPTIONS_SERVICE;
 const createRouteBuilderViewController = window.WSC_CREATE_ROUTE_BUILDER_VIEW_CONTROLLER;
 const createRouteOrchestrationController = window.WSC_CREATE_ROUTE_ORCHESTRATION_CONTROLLER;
 const createAppShellRenderer = window.WSC_CREATE_APP_SHELL_RENDERER;
@@ -795,6 +796,7 @@ const state = appStateService.createInitialState({
 });
 
 const refs = appDomService.getAppRefs(document);
+let routeBuilderOptionsService = null;
 let arcadeJumpAnimationController = null;
 let mindMapController = null;
 let mindMapOrbitController = null;
@@ -802,6 +804,29 @@ let regularGuideController = null;
 let resultsRenderer = null;
 let alpacapardyBoardController = null;
 let alpacapardyController = null;
+
+routeBuilderOptionsService = createRouteBuilderOptionsService({
+  appState: state,
+  data,
+  constants: {
+    defaultLensId: DEFAULT_LENS_ID,
+    modeOptions: MODE_OPTIONS,
+    unavailableModeReasons: UNAVAILABLE_MODE_REASONS,
+    bigIdeaRoutes: BIG_IDEA_ROUTES,
+    learnSubjectRoutes: LEARN_SUBJECT_ROUTES
+  },
+  knowledge: {
+    getSectionKnowledgeById: () => sectionKnowledgeById,
+    getSubjectKnowledgeById: () => subjectKnowledgeById,
+    getLearnSubjectKnowledgeById: () => learnSubjectKnowledgeById,
+    getBigIdeaKnowledgeById: () => bigIdeaKnowledgeById,
+    getWholeThemeKnowledge: () => wholeThemeKnowledge
+  },
+  helpers: {
+    getQuestionsForRouteSelection,
+    isOnlineMode: appStateService.isOnlineMode
+  }
+});
 
 mindMapOrbitController = createMindMapOrbitController({
   appState: state,
@@ -2244,158 +2269,47 @@ function getWizardRenderHelpers() {
 }
 
 function getAppModeSwitchIcon() {
-  return appStateService.isOnlineMode(state)
-    ? "./app-icons/icon-local-transparent.png?v=20260520train"
-    : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
+  return routeBuilderOptionsService.getAppModeSwitchIcon();
 }
 
 function getVisibleModeOptions() {
-  return getVisibleModeOptionsForPath(state.selection.path || "learn");
+  return routeBuilderOptionsService.getVisibleModeOptions();
 }
 
 function getVisibleModeOptionsForPath(pathId) {
-  const options = MODE_OPTIONS[pathId] || [];
-  const visibleOptions = options.map((option) => getDecoratedModeOption(option));
-  if (pathId === "learn") {
-    return visibleOptions.filter((option) => (
-      option.id !== "slideshow"
-      && (option.id !== "regularguide" || state.selection.lens === DEFAULT_LENS_ID)
-    ));
-  }
-
-  return visibleOptions;
+  return routeBuilderOptionsService.getVisibleModeOptionsForPath(pathId);
 }
 
 function getModeUnavailableReason(modeId) {
-  return UNAVAILABLE_MODE_REASONS[modeId] || "";
+  return routeBuilderOptionsService.getModeUnavailableReason(modeId);
 }
 
 function isModeUnavailable(modeId) {
-  return Boolean(getModeUnavailableReason(modeId));
+  return routeBuilderOptionsService.isModeUnavailable(modeId);
 }
 
 function getDecoratedModeOption(option) {
-  if (!option || !isModeUnavailable(option.id)) {
-    return option;
-  }
-
-  return {
-    ...option,
-    meta: "Available soon",
-    unavailableReason: getModeUnavailableReason(option.id)
-  };
+  return routeBuilderOptionsService.getDecoratedModeOption(option);
 }
 
 function getModePath(modeId) {
-  if (!modeId) {
-    return null;
-  }
-
-  const pathId = Object.keys(MODE_OPTIONS).find((key) =>
-    (MODE_OPTIONS[key] || []).some((option) => option.id === modeId)
-  );
-  if (pathId) {
-    return pathId;
-  }
-
-  return null;
+  return routeBuilderOptionsService.getModePath(modeId);
 }
 
 function usesGranularLearnSubjects() {
-  return false;
+  return routeBuilderOptionsService.usesGranularLearnSubjects();
 }
 
 function getActiveSubjectCatalog() {
-  return usesGranularLearnSubjects() ? LEARN_SUBJECT_ROUTES : data.subjects;
+  return routeBuilderOptionsService.getActiveSubjectCatalog();
 }
 
 function getActiveSubjectKnowledgeMap() {
-  return usesGranularLearnSubjects() ? learnSubjectKnowledgeById : subjectKnowledgeById;
+  return routeBuilderOptionsService.getActiveSubjectKnowledgeMap();
 }
 
 function getTargetOptions() {
-  const totalQuestions = getQuestionsForRouteSelection(null, "all").length;
-  const totalKnowledgeItems = wholeThemeKnowledge ? wholeThemeKnowledge.knowledgeItemCount : 0;
-
-  if (state.selection.lens === "subject") {
-    const subjectCatalog = getActiveSubjectCatalog();
-    const subjectKnowledgeMap = getActiveSubjectKnowledgeMap();
-    const options = [
-      {
-        id: "all",
-        title: "All subjects",
-        description: "Review the whole theme across every subject lane.",
-        meta: `${totalQuestions} questions · ${totalKnowledgeItems} knowledge items · ${data.subjects.length} subjects`,
-        kicker: "Complete subject route",
-        mood: "happy"
-      }
-    ];
-
-    subjectCatalog.forEach((subject) => {
-      const subjectKnowledge = subjectKnowledgeMap[subject.id];
-      const questions = getQuestionsForRouteSelection("subject", subject.id);
-      const sectionCount = subjectKnowledge ? subjectKnowledge.sections.length : new Set(questions.map((question) => question.sectionId)).size;
-      const knowledgeCount = subjectKnowledge ? subjectKnowledge.knowledgeItemCount : 0;
-      const atomCount = subjectKnowledge ? subjectKnowledge.atoms.length : 0;
-      options.push({
-        id: subject.id,
-        title: subject.label,
-        description: subject.description,
-        meta: usesGranularLearnSubjects()
-          ? `${atomCount} subtopics · ${knowledgeCount} knowledge items · ${sectionCount} sections`
-          : `${questions.length} questions · ${knowledgeCount} knowledge items · ${sectionCount} sections`,
-        kicker: usesGranularLearnSubjects() ? "Study lane" : "Subject route",
-        mood: subject.mood || "wise"
-      });
-    });
-
-    return options;
-  }
-
-  if (state.selection.lens === "bigidea") {
-    const options = [
-      {
-        id: "all",
-        title: "All big ideas",
-        description: "Review the whole theme across every big idea route.",
-        meta: `${totalQuestions} questions · ${totalKnowledgeItems} knowledge items · ${BIG_IDEA_ROUTES.length} big ideas`,
-        kicker: "Complete big idea route",
-        mood: "happy"
-      }
-    ];
-
-    BIG_IDEA_ROUTES.forEach((route) => {
-      const knowledge = bigIdeaKnowledgeById[route.id];
-      options.push({
-        id: route.id,
-        title: route.label,
-        description: route.description,
-        meta: `${knowledge ? knowledge.entries.length : 0} raw entries · ${knowledge ? knowledge.sections.length : 0} sections · ${knowledge ? knowledge.questionCount : 0} questions`,
-        kicker: "Big idea route",
-        mood: route.mood || "wise"
-      });
-    });
-
-    return options;
-  }
-
-  const options = [];
-
-  data.sections.forEach((section) => {
-    const questions = getQuestionsForRouteSelection("section", section.id);
-    const subjectCount = new Set(questions.flatMap((question) => question.subjectIds)).size;
-    const knowledgeCount = sectionKnowledgeById[section.id] ? sectionKnowledgeById[section.id].knowledgeItemCount : 0;
-    options.push({
-      id: section.id,
-      title: section.title,
-      description: section.blurb,
-      meta: `${questions.length} questions · ${knowledgeCount} knowledge items · ${subjectCount} subjects`,
-      kicker: section.originalTitle,
-      mood: "determined"
-    });
-  });
-
-  return options;
+  return routeBuilderOptionsService.getTargetOptions();
 }
 
 function resetCurrentRouteAttempts() {
