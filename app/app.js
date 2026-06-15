@@ -41,6 +41,7 @@ const createAlpacaChannelController = window.WSC_CREATE_ALPACA_CHANNEL_CONTROLLE
 const createBuildCaseController = window.WSC_CREATE_BUILD_CASE_CONTROLLER;
 const createMindMapController = window.WSC_CREATE_MIND_MAP_CONTROLLER;
 const createMindMapOrbitController = window.WSC_CREATE_MIND_MAP_ORBIT_CONTROLLER;
+const createRegularGuideController = window.WSC_CREATE_REGULAR_GUIDE_CONTROLLER;
 const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
 const createAlpaquizRenderController = window.WSC_CREATE_ALPAQUIZ_RENDER_CONTROLLER;
 const arcadeJumpHelpers = window.WSC_ARCADE_JUMP_HELPERS;
@@ -797,6 +798,7 @@ const refs = appDomService.getAppRefs(document);
 let arcadeJumpAnimationController = null;
 let mindMapController = null;
 let mindMapOrbitController = null;
+let regularGuideController = null;
 let resultsRenderer = null;
 let alpacapardyBoardController = null;
 let alpacapardyController = null;
@@ -1136,6 +1138,36 @@ const rawContentController = createRawContentController({
     renderStats,
     saveRawMastery,
     syncPopupScrollLock
+  }
+});
+
+regularGuideController = createRegularGuideController({
+  appState: state,
+  data: {
+    importedRawContentBank: IMPORTED_RAW_CONTENT_BANK,
+    sectionById
+  },
+  renderers: {
+    regularGuideMode
+  },
+  helpers: {
+    escapeHtml,
+    getAlpacaChannelVideosForSection,
+    getApprovedRawContentSection,
+    getModeAssetPath,
+    getOrderedRawContentSections,
+    getRawContentScopeLabel,
+    getRawEntriesForSelection,
+    getRawQuizPageIndex,
+    getSectionGuideQuestions,
+    getSectionIdFromGuidingTitle,
+    getSelectedSectionIds,
+    getTargetLabel,
+    renderGuideQuizQuestion,
+    renderLearnCardFooterNav,
+    renderPanelTitle,
+    renderRawBackToTopButton,
+    renderSectionTransferTable
   }
 });
 
@@ -3914,100 +3946,43 @@ function renderMindMapEntryPopup() {
 }
 
 function buildRegularGuideExperience() {
-  return regularGuideMode.buildExperience(getTargetLabel(), getRegularGuidesForSelection());
+  return regularGuideController.buildExperience();
 }
 
 function getRegularGuideForSection(section) {
-  if (!section) {
-    return null;
-  }
-  const sectionId = section.id || getSectionIdFromGuidingTitle(section.guidingSection || section.title);
-  const guide = section.regularGuide || IMPORTED_RAW_CONTENT_BANK[sectionId]?.regularGuide || null;
-  return guide
-    ? {
-        ...guide,
-        sectionId,
-        sectionTitle: section.guidingSection || section.title || guide.title
-      }
-    : null;
+  return regularGuideController.getGuideForSection(section);
 }
 
 function getRegularGuidesForSelection() {
-  if (state.selection.lens !== "section") {
-    return [];
-  }
-
-  const sections = getOrderedRawContentSections();
-  const selectedSectionIds = getSelectedSectionIds();
-
-  if (selectedSectionIds.length) {
-    const selected = new Set(selectedSectionIds);
-    return sections
-      .filter((section) => selected.has(section.id))
-      .map(getRegularGuideForSection)
-      .filter(Boolean);
-  }
-
-  if (state.selection.targetId === "all") {
-    return sections.map(getRegularGuideForSection).filter(Boolean);
-  }
-
-  if (state.selection.lens === "section") {
-    const section = getApprovedRawContentSection(state.selection.targetId);
-    return [getRegularGuideForSection(section)].filter(Boolean);
-  }
-
-  const sectionIds = new Set(getRawEntriesForSelection().map((entry) => entry.sectionId).filter(Boolean));
-  return sections
-    .filter((section) => sectionIds.has(section.id))
-    .map(getRegularGuideForSection)
-    .filter(Boolean);
+  return regularGuideController.getGuidesForSelection();
 }
 
 function renderRegularGuideExperience() {
-  return regularGuideMode.renderExperience(state.experience, getRegularGuideRenderContext(), getRegularGuideRenderHelpers());
+  return regularGuideController.renderExperience();
 }
 
 function renderRegularGuideDocument(guide) {
-  return regularGuideMode.renderDocument(guide, getRegularGuideRenderHelpers());
+  return regularGuideController.renderDocument(guide);
 }
 
 function renderRegularGuideQuestionBlock(section) {
-  return regularGuideMode.renderQuestionBlock(section, getRegularGuideRenderContext(), getRegularGuideRenderHelpers());
+  return regularGuideController.renderQuestionBlock(section);
 }
 
 function renderRegularGuideNavigation(section) {
-  return regularGuideMode.renderNavigation(section, getRegularGuideRenderContext(), getRegularGuideRenderHelpers());
+  return regularGuideController.renderNavigation(section);
 }
 
 function renderGuideSectionChannelButton(sectionId) {
-  return regularGuideMode.renderSectionChannelButton(sectionId, getRegularGuideRenderContext(), getRegularGuideRenderHelpers());
+  return regularGuideController.renderSectionChannelButton(sectionId);
 }
 
 function getRegularGuideRenderContext() {
-  return {
-    importedRawContentBank: IMPORTED_RAW_CONTENT_BANK,
-    sectionById
-  };
+  return regularGuideController.getRenderContext();
 }
 
 function getRegularGuideRenderHelpers() {
-  return {
-    escapeHtml,
-    renderPanelTitle,
-    renderLearnCardFooterNav,
-    renderSectionTransferTable,
-    renderGuideQuizQuestion,
-    getRawQuizPageIndex,
-    renderRawBackToTopButton,
-    getRawContentScopeLabel,
-    getTargetLabel,
-    getSectionGuideQuestions,
-    getOrderedRawContentSections,
-    getRegularGuideForSection,
-    getAlpacaChannelVideosForSection,
-    getModeAssetPath
-  };
+  return regularGuideController.getRenderHelpers();
 }
 
 function getRawVisibleQuizQuestionItems(...args) {
