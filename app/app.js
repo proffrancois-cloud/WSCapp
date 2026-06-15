@@ -32,6 +32,7 @@ const createStudyGameController = window.WSC_CREATE_STUDY_GAME_CONTROLLER;
 const createArcadeGameController = window.WSC_CREATE_ARCADE_GAME_CONTROLLER;
 const createArcadeRenderController = window.WSC_CREATE_ARCADE_RENDER_CONTROLLER;
 const createArcadeRuntimeTimerController = window.WSC_CREATE_ARCADE_RUNTIME_TIMER_CONTROLLER;
+const createArcadeJumpAnimationController = window.WSC_CREATE_ARCADE_JUMP_ANIMATION_CONTROLLER;
 const createResultsRenderer = window.WSC_CREATE_RESULTS_RENDERER;
 const createAlpacapardyBoardController = window.WSC_CREATE_ALPACAPARDY_BOARD_CONTROLLER;
 const createAlpacapardyController = window.WSC_CREATE_ALPACAPARDY_CONTROLLER;
@@ -76,7 +77,6 @@ let subjectKnowledgeById = {};
 let learnSubjectKnowledgeById = {};
 let bigIdeaKnowledgeById = {};
 let wholeThemeKnowledge = null;
-let jumpAnimationId = null;
 let mindMapOrbitAnimationId = null;
 let relayBuzzAudio = null;
 let relayBuzzAudioSrc = null;
@@ -793,6 +793,7 @@ const state = appStateService.createInitialState({
 });
 
 const refs = appDomService.getAppRefs(document);
+let arcadeJumpAnimationController = null;
 let resultsRenderer = null;
 let alpacapardyBoardController = null;
 let alpacapardyController = null;
@@ -1153,6 +1154,23 @@ const arcadeRuntimeTimerController = createArcadeRuntimeTimerController({
     render,
     renderExperiencePreservingScroll,
     resolveRaceQuestion
+  }
+});
+
+arcadeJumpAnimationController = createArcadeJumpAnimationController({
+  windowRef: window,
+  constants: {
+    GAME_CONFIG
+  },
+  callbacks: {
+    getExperience: () => state.experience,
+    getJumpObstacleSpeed,
+    handleJumpObstacleHit,
+    hasJumpCollision,
+    openJumpCheckpoint,
+    queueNextJumpObstacle,
+    renderExperience,
+    updateJumpDom
   }
 });
 
@@ -1636,10 +1654,7 @@ function clearRelayAnswerTimer() {
 }
 
 function clearJumpAnimation() {
-  if (jumpAnimationId) {
-    window.cancelAnimationFrame(jumpAnimationId);
-    jumpAnimationId = null;
-  }
+  return arcadeJumpAnimationController.clearJumpAnimation();
 }
 
 function clearJeopardyTimer() {
@@ -3660,7 +3675,7 @@ function syncExperienceTimers() {
     state.experience.finished
   ) {
     clearJumpAnimation();
-  } else if (!jumpAnimationId) {
+  } else if (!arcadeJumpAnimationController.hasActiveJumpAnimation()) {
     startJumpAnimation();
   }
 }
@@ -5940,69 +5955,11 @@ function performJumpAction(...args) {
 }
 
 function startJumpAnimation() {
-  clearJumpAnimation();
-
-  const tick = (timestamp) => {
-    const experience = state.experience;
-    if (!experience || experience.type !== "jump" || experience.phase !== "running" || experience.finished) {
-      clearJumpAnimation();
-      return;
-    }
-
-    updateJumpFrame(experience, timestamp);
-    if (experience.phase === "running") {
-      jumpAnimationId = window.requestAnimationFrame(tick);
-    } else {
-      clearJumpAnimation();
-      renderExperience();
-    }
-  };
-
-  jumpAnimationId = window.requestAnimationFrame(tick);
+  return arcadeJumpAnimationController.startJumpAnimation();
 }
 
 function updateJumpFrame(experience, timestamp) {
-  const last = Number.isFinite(experience.lastFrameAt) ? experience.lastFrameAt : timestamp;
-  const delta = Math.min(34, Math.max(0, timestamp - last));
-  experience.lastFrameAt = timestamp;
-  experience.distance += delta * 0.016;
-
-  if (experience.runnerY > 0 || experience.runnerVelocity > 0) {
-    experience.runnerY = Math.max(0, experience.runnerY + (experience.runnerVelocity * delta));
-    experience.runnerVelocity -= GAME_CONFIG.jumpGravity * delta;
-    if (experience.runnerY <= 0) {
-      experience.runnerY = 0;
-      experience.runnerVelocity = 0;
-      if (experience.runnerState === "jumping") {
-        experience.runnerState = "running";
-      }
-    }
-  }
-
-  experience.obstacle.x -= getJumpObstacleSpeed(experience) * delta;
-
-  if (hasJumpCollision(experience)) {
-    if (experience.obstacle.kind === "checkpoint") {
-      openJumpCheckpoint(experience);
-    } else {
-      handleJumpObstacleHit(experience);
-    }
-    return;
-  }
-
-  if (experience.obstacle.x < 18 && !experience.obstacle.passed) {
-    experience.obstacle.passed = true;
-    if (experience.obstacle.kind !== "checkpoint") {
-      experience.obstaclesCleared += 1;
-    }
-    return;
-  }
-
-  if (experience.obstacle.x < -12) {
-    queueNextJumpObstacle(experience);
-  }
-
-  updateJumpDom(experience);
+  return arcadeJumpAnimationController.updateJumpFrame(experience, timestamp);
 }
 
 function hasJumpCollision(experience) {
