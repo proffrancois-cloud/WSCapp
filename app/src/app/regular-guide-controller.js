@@ -34,15 +34,18 @@
     const getRawContentScopeLabel = requireFunction(helpers, "getRawContentScopeLabel");
     const getRawEntriesForSelection = requireFunction(helpers, "getRawEntriesForSelection");
     const getRawQuizPageIndex = requireFunction(helpers, "getRawQuizPageIndex");
-    const getSectionGuideQuestions = requireFunction(helpers, "getSectionGuideQuestions");
+    const getRawQuizQuestionKey = requireFunction(helpers, "getRawQuizQuestionKey");
     const getSectionIdFromGuidingTitle = requireFunction(helpers, "getSectionIdFromGuidingTitle");
     const getSelectedSectionIds = requireFunction(helpers, "getSelectedSectionIds");
     const getTargetLabel = requireFunction(helpers, "getTargetLabel");
-    const renderGuideQuizQuestion = requireFunction(helpers, "renderGuideQuizQuestion");
     const renderLearnCardFooterNav = requireFunction(helpers, "renderLearnCardFooterNav");
+    const renderOptionToken = requireFunction(helpers, "renderOptionToken");
     const renderPanelTitle = requireFunction(helpers, "renderPanelTitle");
     const renderRawBackToTopButton = requireFunction(helpers, "renderRawBackToTopButton");
+    const renderRawQuizFeedback = requireFunction(helpers, "renderRawQuizFeedback");
+    const renderRawQuizOptionStateClass = requireFunction(helpers, "renderRawQuizOptionStateClass");
     const renderSectionTransferTable = requireFunction(helpers, "renderSectionTransferTable");
+    const stableShuffleByKey = requireFunction(helpers, "stableShuffleByKey");
 
     function buildExperience() {
       return regularGuideMode.buildExperience(getTargetLabel(), getGuidesForSelection());
@@ -115,6 +118,47 @@
       return regularGuideMode.renderSectionChannelButton(sectionId, getRenderContext(), getRenderHelpers());
     }
 
+    function getSectionGuideQuestions(section) {
+      return Array.isArray(section?.guideQuestions) ? section.guideQuestions : [];
+    }
+
+    function renderGuideQuizQuestion(question, section, questionIndex) {
+      const quizKey = getRawQuizQuestionKey(question);
+      const selectedIndex = state.ui.rawQuizSelections[quizKey];
+      const options = stableShuffleByKey([
+        {
+          text: question.correctAnswer,
+          correct: true
+        },
+        ...(question.wrongAnswers || []).map((answer) => ({
+          text: answer,
+          correct: false
+        }))
+      ].filter((option) => option.text), `${question.level}|${section.id}|${question.prompt}|${question.correctAnswer}`);
+      const selectedOption = Number.isInteger(selectedIndex) ? options[selectedIndex] : null;
+
+      return `
+        <article class="raw-quiz-card">
+          <p class="raw-quiz-prompt">${escapeHtml(question.prompt)}</p>
+          <div class="raw-quiz-options">
+            ${options.map((option, index) => `
+              <button
+                class="raw-quiz-option ${renderRawQuizOptionStateClass(option, index, selectedIndex)}"
+                type="button"
+                data-raw-quiz-option="${index}"
+                data-raw-quiz-key="${escapeHtml(quizKey)}"
+                aria-pressed="${selectedIndex === index ? "true" : "false"}"
+              >
+                ${renderOptionToken(index)}
+                <span>${escapeHtml(option.text)}</span>
+              </button>
+            `).join("")}
+          </div>
+          ${renderRawQuizFeedback(question, selectedOption)}
+        </article>
+      `;
+    }
+
     function getRenderContext() {
       return {
         importedRawContentBank,
@@ -149,9 +193,11 @@
       getRenderHelpers,
       renderDocument,
       renderExperience,
+      renderGuideQuizQuestion,
       renderNavigation,
       renderQuestionBlock,
-      renderSectionChannelButton
+      renderSectionChannelButton,
+      getSectionGuideQuestions
     };
   }
 
