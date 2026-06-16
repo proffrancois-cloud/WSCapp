@@ -76,14 +76,18 @@ order:
 5. learn mode renderers;
 6. UI renderers;
 7. play engines and renderers;
-8. `src/app/wsc-app-composition-root.js`;
-9. `app/app.js`;
-10. `pwa.js`.
+8. `src/app/app-runtime-compatibility-facade.js`;
+9. `src/app/wsc-app-composition-root.js`;
+10. `app/app.js`;
+11. `pwa.js`.
 
 The main app does not use a bundler. Most modules are classic browser scripts
 that attach APIs to `window.WSC_*`. `src/app/wsc-app-composition-root.js`
 assembles those globals into the running app. `app/app.js` is now only the
 small bootstrap file that creates `window.WSC_APP` and calls `app.init()`.
+`src/app/app-runtime-compatibility-facade.js` sits between feature controllers
+and the composition root as a transitional compatibility layer for old
+callback names.
 
 ## `app.js`
 
@@ -94,13 +98,17 @@ small bootstrap file that creates `window.WSC_APP` and calls `app.init()`.
 file does not regress into a god file.
 
 The former app orchestration has moved into
-`src/app/wsc-app-composition-root.js`. That file is still intentionally a
-large transitional composition root: it wires the classic-script controllers,
-keeps compatibility wrappers for existing callers, and is the next file to
-continue shrinking. Static app config, selection context, experience factories,
-knowledge hydration, game prompts, game results, game audio, relay-team
-bindings, app-action validation, and visual asset rendering have already been
-moved behind dedicated services. `progress-storage-controller.js` now also owns
+`src/app/wsc-app-composition-root.js`. That file is now a smaller transitional
+composition root: it creates the app closure, wires the classic-script
+controllers, creates one runtime compatibility facade, and exposes `init()`.
+The mechanical pass-through wrappers that used to bloat the root now live in
+`src/app/app-runtime-compatibility-facade.js`. `npm run
+test:composition-root-budget` enforces a hard `3500` line budget for the root.
+
+Static app config, selection context, experience factories, knowledge
+hydration, game prompts, game results, game audio, relay-team bindings,
+app-action validation, and visual asset rendering have already been moved
+behind dedicated services. `progress-storage-controller.js` now also owns
 remote progress persistence mechanics, while `regular-guide-controller.js` owns
 guide quiz question rendering. Jump animation, collision aftermath, checkpoint
 state, and DOM patching now live in `arcade-jump-animation-controller.js`.

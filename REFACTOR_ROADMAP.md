@@ -201,6 +201,10 @@ Current progress:
   composition root: it creates the mutable app closure, wires the existing
   `window.WSC_*` controllers together, and exposes `init()` to the tiny
   `app/app.js` boot file.
+- `src/app/app-runtime-compatibility-facade.js` now owns mechanical
+  pass-through wrappers for old callback/action names. The composition root
+  creates one facade and passes facade methods to controllers instead of
+  carrying hundreds of wrapper functions locally.
 - `src/app/app-config.js` now owns static app catalogs and constants such as
   route options, game config, live-room constants, review badges, train tips,
   subject routes, and public online flags.
@@ -234,6 +238,9 @@ Current progress:
   addition to the animation loop.
 - `tools/validators/check-app-js-budget.mjs` now enforces the boot-file budget
   through `npm run test:app-js-budget` and `npm run verify`.
+- `tools/validators/check-composition-root-budget.mjs` now enforces the
+  transitional composition-root budget through `npm run
+  test:composition-root-budget` and `npm run verify`.
 
 Acceptance per extraction:
 
@@ -260,6 +267,21 @@ bounded controllers and explicit contracts.
 | Below 5k lines with modules, typed contracts, and focused tests | Low-Medium | `app.js` becomes orchestration/bootstrap rather than business/rendering logic. |
 | Bootstrap-only file under 300 lines with an enforced budget | Medium-Low | The old god-file risk is contained, but the composition root and global script contracts still require review. |
 | True Low | Low | Requires explicit imports, typed public contracts, focused unit tests, browser journey coverage, and much less dependence on `window.WSC_*` script order. |
+
+### Composition Root Risk Targets
+
+`src/app/wsc-app-composition-root.js` is now the active closure/wiring risk. It
+has moved below the first budget by pushing mechanical compatibility wrappers
+into `src/app/app-runtime-compatibility-facade.js`, but it still knows too much
+about controller construction order.
+
+| Composition root state | Target risk | Meaning |
+| --- | --- | --- |
+| Above 3500 lines | Medium-High | Too much compatibility and wiring noise remains in one closure. |
+| Below 3500 lines with facade and passing verify | Medium-Low | Mechanical wrappers are contained, but the root still directly creates most controllers. |
+| Below 2500 lines | Medium-Low | Controller construction starts splitting by domain. |
+| Below 1500 lines | Low-Medium | Lifecycle/timers and render registries are no longer root concerns. |
+| 500-900 lines | Low | The root is mostly dependency collection, controller creation, and `init()` exposure. |
 
 Highest-value next extractions from the architecture analysis:
 
