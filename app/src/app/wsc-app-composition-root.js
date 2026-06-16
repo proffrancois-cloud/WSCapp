@@ -62,6 +62,8 @@ const createRegularGuideController = window.WSC_CREATE_REGULAR_GUIDE_CONTROLLER;
 const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
 const createAppActionRegistry = window.WSC_CREATE_APP_ACTION_REGISTRY;
 const createAppRuntimeCompatibilityFacade = window.WSC_CREATE_APP_RUNTIME_COMPATIBILITY_FACADE;
+const createAppLearnRuntime = window.WSC_CREATE_APP_LEARN_RUNTIME;
+const createAppShellRuntime = window.WSC_CREATE_APP_SHELL_RUNTIME;
 const createAlpaquizRenderController = window.WSC_CREATE_ALPAQUIZ_RENDER_CONTROLLER;
 const arcadeJumpHelpers = window.WSC_ARCADE_JUMP_HELPERS;
 const appConfig = window.WSC_APP_CONFIG;
@@ -299,6 +301,9 @@ let arcadeJumpAnimationController = null;
 let mindMapController = null;
 let mindMapOrbitController = null;
 let regularGuideController = null;
+let rawContentController = null;
+let alpacardsController = null;
+let alpacaChannelController = null;
 let resultsRenderer = null;
 let alpacapardyBoardController = null;
 let alpacapardyController = null;
@@ -306,6 +311,10 @@ let trainPracticeController = null;
 let learnSlideshowController = null;
 let gameQuestionPlanningController = null;
 let experienceFactoryController = null;
+let appActions = null;
+let appEventRouter = null;
+let appShellRenderer = null;
+let appShellController = null;
 
 const runtimeCompatibilityFacade = createAppRuntimeCompatibilityFacade({
   appState: state,
@@ -577,56 +586,128 @@ routeBuilderOptionsService = createRouteBuilderOptionsService({
   }
 });
 
-mindMapOrbitController = createMindMapOrbitController({
+({
+  mindMapOrbitController,
+  mindMapController,
+  alpacardsController,
+  alpacaChannelController,
+  learnSlideshowController,
+  rawContentController,
+  regularGuideController
+} = createAppLearnRuntime({
   appState: state,
   refs,
+  documentRef: document,
   windowRef: window,
-  documentRef: document
-});
-
-mindMapController = createMindMapController({
-  appState: state,
+  factories: {
+    createMindMapOrbitController,
+    createMindMapController,
+    createAlpacardsController,
+    createAlpacaChannelController,
+    createLearnSlideshowController,
+    createRawContentController,
+    createRegularGuideController
+  },
   data: {
+    theme: data.theme,
+    insights: data.insights,
     sections: data.sections,
     sectionById,
-    bigIdeaRoutes: BIG_IDEA_ROUTES
+    subjectById,
+    knowledgeBank,
+    alpacaChannelCatalog,
+    bigIdeaRoutes: BIG_IDEA_ROUTES,
+    learnSubjectRoutes: LEARN_SUBJECT_ROUTES,
+    bigIdeaRouteById,
+    learnSubjectRouteById,
+    importedRawContentBank: IMPORTED_RAW_CONTENT_BANK,
+    getAlpacards: () => window.WSC_ALPACARDS
+  },
+  services: {
+    rawContentService,
+    appVideoService
   },
   renderers: {
-    mindMapMode
+    mindMapMode,
+    alpacardsMode,
+    alpacaChannelMode,
+    rawContentMode,
+    rawContentEntryRenderer,
+    rawContentQuizRenderer,
+    rawContentMediaLightbox,
+    rawContentVisualAssets,
+    rawContentTransferTable,
+    rawContentMastery,
+    regularGuideMode
+  },
+  knowledge: {
+    getSectionKnowledgeById: () => knowledgeRuntimeController.getSectionKnowledgeById(),
+    getBigIdeaKnowledgeById: () => knowledgeRuntimeController.getBigIdeaKnowledgeById()
   },
   helpers: {
+    compareOfficialSectionOrder,
     compareRawEntriesByOfficialOrder,
+    entryMatchesLearnSubjectRoute,
     escapeHtml,
     findBigIdeaRouteIdByLabel,
     findLearnSubjectRouteIdByLabel,
     getActiveSubjectCatalog,
+    getActiveSubjectKnowledgeMap,
+    getAlpacaChannelVideosForEntry,
+    getAlpacaChannelVideosForSection,
     getApprovedRawContentSection,
+    getAssetValue,
+    getEmbeddableVideo,
+    getKnowledgeContext,
     getLensLabel,
+    getModeAssetPath,
+    getOrderedRawContentSections,
+    getRawContentScopeLabel,
     getRawEntriesForRouteSelection,
     getRawEntriesForSelection,
     getRawEntryMasteryKey,
+    getRawQuizPageIndex,
+    getRawQuizQuestionKey,
     getRegularGuideForSection,
+    getSectionIdFromGuidingTitle,
     getSelectedSectionIds,
+    getSelectedSectionLabels,
+    getSelectionQuestions,
+    getTargetAssetPath,
     getTargetLabel,
     getTargetLabelForLens,
+    getVideoPreview,
+    mapRawEntriesWithSection,
+    normalizeKnowledgeKey,
     normalizeSectionId,
     renderAlpacaList,
+    renderConfiguredMascotAsset,
     renderLearnCardFooterNav,
+    renderOptionToken,
     renderPanelTitle,
+    renderRawBackToTopButton,
     renderRawMasteryToggle,
     renderRawMediaLightbox,
+    renderRawQuizFeedback,
+    renderRawQuizOptionStateClass,
     renderRawQuizPager,
     renderRawStudentAssets,
     renderRegularGuideDocument,
     renderRegularGuideQuestionBlock,
+    renderSectionTransferTable,
     renderTextWithBreaks,
+    shuffle,
+    stableShuffleByKey,
     usesGranularLearnSubjects
   },
   callbacks: {
+    render,
     renderExperience,
+    renderStats,
+    saveRawMastery,
     syncPopupScrollLock
   }
-});
+}));
 
 const authController = createAuthController({
   appState: state,
@@ -645,66 +726,6 @@ const authController = createAuthController({
     renderStats,
     renderExperience,
     resetLiveState: resetAlpacapardyLiveState
-  }
-});
-
-const alpacardsController = createAlpacardsController({
-  appState: state,
-  refs,
-  data: {
-    getCards: () => window.WSC_ALPACARDS
-  },
-  renderers: {
-    alpacardsMode
-  },
-  helpers: {
-    escapeHtml,
-    getSelectedSectionIds,
-    getSelectionQuestions,
-    getTargetLabel,
-    normalizeSectionId,
-    renderLearnCardFooterNav,
-    renderPanelTitle,
-    shuffle
-  },
-  callbacks: {
-    renderExperience
-  }
-});
-
-const alpacaChannelController = createAlpacaChannelController({
-  appState: state,
-  data: {
-    alpacaChannelCatalog,
-    sectionById,
-    subjectById,
-    bigIdeaRouteById,
-    learnSubjectRouteById
-  },
-  services: {
-    videoService: appVideoService
-  },
-  renderers: {
-    alpacaChannelMode
-  },
-  helpers: {
-    escapeHtml,
-    getApprovedRawContentSection,
-    getModeAssetPath,
-    getRawEntriesForSelection,
-    getSectionIdFromGuidingTitle,
-    getSelectedSectionIds,
-    getSelectedSectionLabels,
-    getTargetLabel,
-    mapRawEntriesWithSection,
-    normalizeKnowledgeKey,
-    normalizeSectionId,
-    renderConfiguredMascotAsset,
-    renderLearnCardFooterNav,
-    renderPanelTitle
-  },
-  callbacks: {
-    renderExperience
   }
 });
 
@@ -772,39 +793,6 @@ const buildCaseController = createBuildCaseController({
     finalizeSessionStats,
     renderExperience,
     renderExperiencePreservingScroll
-  }
-});
-
-learnSlideshowController = createLearnSlideshowController({
-  appState: state,
-  data: {
-    theme: data.theme,
-    insights: data.insights,
-    sections: data.sections,
-    sectionById,
-    knowledgeBank,
-    bigIdeaRoutes: BIG_IDEA_ROUTES
-  },
-  helpers: {
-    escapeHtml,
-    getActiveSubjectCatalog,
-    getActiveSubjectKnowledgeMap,
-    getAssetValue,
-    getBigIdeaKnowledgeById: () => bigIdeaKnowledgeById,
-    getKnowledgeContext,
-    getPrimaryTargetAssetPath: getTargetAssetPath,
-    getSectionKnowledgeById: () => sectionKnowledgeById,
-    getSelectionQuestions,
-    getTargetLabel,
-    normalizeKnowledgeKey,
-    renderAlpacaList,
-    renderConfiguredMascotAsset,
-    renderPanelTitle,
-    usesGranularLearnSubjects
-  },
-  callbacks: {
-    render,
-    renderExperience
   }
 });
 
@@ -943,95 +931,6 @@ const gameLaunchController = createGameLaunchController({
     clearDebateSpinTimer,
     clearDebateRevealTimer
   ]
-});
-
-const rawContentController = createRawContentController({
-  appState: state,
-  refs,
-  documentRef: document,
-  windowRef: window,
-  services: {
-    rawContentService,
-    appVideoService
-  },
-  renderers: {
-    rawContentMode,
-    rawContentEntryRenderer,
-    rawContentQuizRenderer,
-    rawContentMediaLightbox,
-    rawContentVisualAssets,
-    rawContentTransferTable,
-    rawContentMastery
-  },
-  data: {
-    IMPORTED_RAW_CONTENT_BANK,
-    sectionById,
-    subjectById,
-    bigIdeaRouteById,
-    learnSubjectRouteById,
-    BIG_IDEA_ROUTES,
-    LEARN_SUBJECT_ROUTES
-  },
-  helpers: {
-    escapeHtml,
-    compareOfficialSectionOrder,
-    compareRawEntriesByOfficialOrder,
-    entryMatchesLearnSubjectRoute,
-    getAlpacaChannelVideosForEntry,
-    getAssetValue,
-    getEmbeddableVideo,
-    getModeAssetPath,
-    getSectionIdFromGuidingTitle,
-    getSelectedSectionIds,
-    getTargetLabel,
-    getTargetLabelForLens,
-    getVideoPreview,
-    normalizeKnowledgeKey,
-    renderAlpacaList,
-    renderLearnCardFooterNav,
-    renderOptionToken,
-    renderPanelTitle,
-    usesGranularLearnSubjects
-  },
-  callbacks: {
-    renderExperience,
-    renderStats,
-    saveRawMastery,
-    syncPopupScrollLock
-  }
-});
-
-regularGuideController = createRegularGuideController({
-  appState: state,
-  data: {
-    importedRawContentBank: IMPORTED_RAW_CONTENT_BANK,
-    sectionById
-  },
-  renderers: {
-    regularGuideMode
-  },
-  helpers: {
-    escapeHtml,
-    getAlpacaChannelVideosForSection,
-    getApprovedRawContentSection,
-    getModeAssetPath,
-    getOrderedRawContentSections,
-    getRawContentScopeLabel,
-    getRawEntriesForSelection,
-    getRawQuizPageIndex,
-    getRawQuizQuestionKey,
-    getSectionIdFromGuidingTitle,
-    getSelectedSectionIds,
-    getTargetLabel,
-    renderLearnCardFooterNav,
-    renderOptionToken,
-    renderPanelTitle,
-    renderRawBackToTopButton,
-    renderRawQuizFeedback,
-    renderRawQuizOptionStateClass,
-    renderSectionTransferTable,
-    stableShuffleByKey
-  }
 });
 
 const studyGameController = createStudyGameController({
@@ -1372,161 +1271,31 @@ const routeOrchestrationController = createRouteOrchestrationController({
   }
 });
 
-const appActions = createAppActionRegistry({
-  actions: {
-    closeHeroMenu,
-    syncAuthChrome,
-    syncPopupScrollLock,
-    renderAuthModal,
-    clearAuthNotice,
-    signOutOfAlpaccount,
-    openAlpacaOnlineCampus,
-    chooseAppEntryMode,
-    renderCooperationModal,
-    switchToLocalMode,
-    refreshAlpacapardyLiveLobby,
-    returnToAlpacaOnlineHub,
-    chooseOnlineGameType,
-    createSelectedLiveGameRoom,
-    selectLiveRunSetupColor,
-    startSelectedLiveGame,
-    selectLiveAlpacaColor,
-    answerSelectedLiveGame,
-    advanceSelectedLiveGame,
-    buzzSelectedLiveGame,
-    navigateLiveWaitingVideo,
-    renderResourcesModal,
-    toggleHeroMenu,
-    canDismissAuthModal,
-    choosePath,
-    chooseLens,
-    chooseTarget,
-    toggleModeChoiceSection,
-    toggleModeChoiceMenu,
-    continueTargetSelection,
-    chooseMode,
-    closeTrainTip,
-    clearFrom,
-    goToWizardStep,
-    openRawConnection,
-    openGuideSection,
-    openSectionChannel,
-    rememberRawQuestionGallerySlide,
-    selectRawQuizOption,
-    shiftRawQuizPage,
-    toggleRawMastery,
-    selectRawAssetPoint,
-    openRawMediaLightboxFromTrigger,
-    shiftRawMediaLightbox,
-    closeRawMediaLightbox,
-    openMindMapEntry,
-    navigateMindMapGallery,
-    openMindMapGuide,
-    closeMindMapEntry,
-    closeMindMapGuide,
-    launchExperience,
-    navigateSlide,
-    navigateAlpacaChannel,
-    navigateAlpacard,
-    setAlpacardIndex,
-    flipAlpacard,
-    shuffleAlpacard,
-    toggleQuizSection,
-    selectAllQuizSections,
-    setQuizQuestionCount,
-    toggleQuizDifficulty,
-    startQuizRoute,
-    answerQuizQuestion,
-    submitQuizRoute,
-    resetQuizRoute,
-    nextWritingPrompt,
-    setWritingPhase,
-    startBowlPractice,
-    answerBowlQuestion,
-    advanceBowlQuestion,
-    resetBowlPractice,
-    answerRaceQuestion,
-    startRaceRoute,
-    toggleRaceSetupCategory,
-    advanceRace,
-    startJumpRoute,
-    toggleJumpSetupCategory,
-    performJumpAction,
-    answerJumpQuestion,
-    continueJumpRoute,
-    startBuildCaseRoute,
-    showNextDebateTopic,
-    startDebateConversation,
-    toggleDebateSideSpin,
-    returnToDebateTopic,
-    resetDebateSpinForCurrentTopic,
-    renderExperience,
-    toggleDebateSuggestion,
-    submitDebateRound,
-    advanceDebateRound,
-    chooseBuildCaseCamp,
-    toggleBuildCaseSupport,
-    confirmBuildCaseSupports,
-    chooseBuildCaseRebuttal,
-    advanceBuildCaseRound,
-    setJeopardyPlayMode,
-    createAlpacapardyLiveRoom,
-    joinAlpacapardyLiveRoom,
-    leaveAlpacapardyLiveRoom,
-    startAlpacapardyLiveGame,
-    openJeopardyTile,
-    answerJeopardyQuestion,
-    setJeopardyTeamCount,
-    toggleJeopardySetupCategory,
-    startJeopardyGame,
-    closeJeopardyFocus,
-    chooseJeopardyTeam,
-    addJeopardyTeam,
-    removeJeopardyTeam,
-    advanceJeopardyTeam,
-    answerRelayQuestion,
-    startRelayRoute,
-    toggleRelaySetupCategory,
-    setRelayTeamCount,
-    setRelayQuestionCount,
-    advanceRelayQuestion,
-    addRelayTeam,
-    removeRelayTeam,
-    buzzRelayTeam,
-    answerRunQuestion,
-    toggleRunSetupCategory,
-    startRunRoute,
-    continueRun,
-    resetCurrentRouteAttempts,
-    changeGuidingSections,
-    changeModeSelection,
-    closeCurrentExperience,
-    joinAlpacapardyLiveRoomByCode,
-    sendAlpacapardyLiveChat,
-    submitAuthForm,
-    getActiveMindMapEntryBundle
-  }
-});
-
-const appEventRouter = createAppEventRouter({
+({
+  appActions,
+  appEventRouter,
+  appShellRenderer,
+  appShellController
+} = createAppShellRuntime({
   appState: state,
   refs,
-  alpacapardyLiveSupabaseService,
-  windowRef: window,
   documentRef: document,
-  actions: appActions
-});
-
-const RESOURCE_LINKS = window.WSC_APP_SHELL_RESOURCE_LINKS || [];
-
-const appShellRenderer = createAppShellRenderer({
-  appState: state,
-  refs,
-  appDomService,
-  appStateService,
-  appEntryService,
-  onlineModeController,
-  authModalRenderer,
+  windowRef: window,
+  factories: {
+    createAppActionRegistry,
+    createAppEventRouter,
+    createAppShellRenderer,
+    createAppShellController
+  },
+  services: {
+    appDomService,
+    appStateService,
+    appEntryService,
+    onlineModeController,
+    modalFocusService,
+    authModalRenderer,
+    alpacapardyLiveSupabaseService
+  },
   constants: {
     ASSET_CACHE_VERSION,
     DISCORD_INVITE_URL,
@@ -1534,7 +1303,8 @@ const appShellRenderer = createAppShellRenderer({
     WSC_ROUND_OPTIONS,
     LIVE_GAME_ORDER,
     ALPACA_RUN_ROUTE,
-    RESOURCE_LINKS,
+    DEFAULT_LENS_ID,
+    RESOURCE_LINKS: window.WSC_APP_SHELL_RESOURCE_LINKS || [],
     insights: data.insights
   },
   helpers: {
@@ -1559,9 +1329,23 @@ const appShellRenderer = createAppShellRenderer({
     getLiveGameLabel,
     getSelectedSectionIds,
     getSelectedSectionLabels,
-    getTargetLabel
+    getTargetLabel,
+    renderSummary,
+    renderWizard,
+    renderLiveOverlayMount,
+    renderExperience,
+    resetAlpacapardyLiveState,
+    canAccessLegacyLiveRooms,
+    getLegacyLiveRoomsDisabledMessage,
+    buildJeopardyExperience,
+    refreshAlpacapardyLiveLobby
+  },
+  actions: {
+    ...runtimeCompatibilityFacade,
+    goToWizardStep,
+    setJeopardyPlayMode
   }
-});
+}));
 
 resultsRenderer = createResultsRenderer({
   appState: state,
@@ -1614,30 +1398,6 @@ trainPracticeController = createTrainPracticeController({
   },
   callbacks: {
     renderExperience
-  }
-});
-
-const appShellController = createAppShellController({
-  appState: state,
-  refs,
-  appStateService,
-  appShellRenderer,
-  onlineModeController,
-  modalFocusService,
-  documentRef: document,
-  constants: {
-    DEFAULT_LENS_ID
-  },
-  callbacks: {
-    renderSummary,
-    renderWizard,
-    renderLiveOverlayMount,
-    renderExperience,
-    resetAlpacapardyLiveState,
-    canAccessLegacyLiveRooms,
-    getLegacyLiveRoomsDisabledMessage,
-    buildJeopardyExperience,
-    refreshAlpacapardyLiveLobby
   }
 });
 

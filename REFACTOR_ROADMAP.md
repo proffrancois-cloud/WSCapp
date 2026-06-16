@@ -205,6 +205,11 @@ Current progress:
   pass-through wrappers for old callback/action names. The composition root
   creates one facade and passes facade methods to controllers instead of
   carrying hundreds of wrapper functions locally.
+- `src/app/app-learn-runtime.js` now owns learn-domain controller construction:
+  slideshow, mind map, Alpacards, Alpaca Channel, Raw Content, and regular
+  guide.
+- `src/app/app-shell-runtime.js` now owns app-shell controller construction:
+  action registry, event router, shell renderer, and shell controller.
 - `src/app/app-config.js` now owns static app catalogs and constants such as
   route options, game config, live-room constants, review badges, train tips,
   subject routes, and public online flags.
@@ -279,7 +284,7 @@ about controller construction order.
 | --- | --- | --- |
 | Above 3500 lines | Medium-High | Too much compatibility and wiring noise remains in one closure. |
 | Below 3500 lines with facade and passing verify | Medium-Low | Mechanical wrappers are contained, but the root still directly creates most controllers. |
-| Below 2500 lines | Medium-Low | Controller construction starts splitting by domain. |
+| Below 2500 lines with domain runtime builders | Medium-Low | Learn and app-shell construction are now split by domain, but timers, play wiring, and online wiring still need further containment. |
 | Below 1500 lines | Low-Medium | Lifecycle/timers and render registries are no longer root concerns. |
 | 500-900 lines | Low | The root is mostly dependency collection, controller creation, and `init()` exposure. |
 
