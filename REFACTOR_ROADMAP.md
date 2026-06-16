@@ -83,8 +83,10 @@ Recommended order:
 7. game launch orchestration;
 8. live/online orchestration.
 
-Each module should own mechanics, while `app.js` temporarily owns policy and
-coordination.
+Each module should own mechanics. This pass has now closed `app/app.js` as a
+bootstrap-only file; the remaining classic-script coordination risk lives in
+`src/app/wsc-app-composition-root.js` and should be reduced by moving bounded
+responsibilities into controllers rather than by re-growing `app.js`.
 
 Current progress:
 
@@ -195,6 +197,25 @@ Current progress:
 - `src/features/alpaca-campus-3d/campus-network-guardrails.ts` now owns
   movement delta/heartbeat decisions, payload-size helpers, network value
   sanitization, and remote-player caps for the 3D campus preview.
+- `src/app/wsc-app-composition-root.js` now owns the classic-script
+  composition root: it creates the mutable app closure, wires the existing
+  `window.WSC_*` controllers together, and exposes `init()` to the tiny
+  `app/app.js` boot file.
+- `src/app/app-config.js` now owns static app catalogs and constants such as
+  route options, game config, live-room constants, review badges, train tips,
+  subject routes, and public online flags.
+- `src/app/selection-context-service.js` now owns selected section, target,
+  path, lens, and mode label helpers used by the route builder and renderers.
+- `src/app/experience-factory-controller.js` now owns default experience object
+  creation for quiz, race, run, jump, relay, raw content, and unavailable modes.
+- `src/app/game-results-service.js` now owns accuracy, streak, performance
+  rating, best-stat, and session-finalization helpers.
+- `src/app/game-audio-service.js` now owns relay-buzz preload/playback state.
+- `src/app/visual-asset-renderer.js` now owns asset image rendering, configured
+  mascot/hero/checkpoint/race visuals, review badges, avatars, and visual asset
+  path/version helpers.
+- `tools/validators/check-app-js-budget.mjs` now enforces the boot-file budget
+  through `npm run test:app-js-budget` and `npm run verify`.
 
 Acceptance per extraction:
 
@@ -206,25 +227,29 @@ Acceptance per extraction:
 
 ### `app.js` Risk Targets
 
-The architecture analysis DOCX identifies `app/app.js` as the top severity and
-likelihood risk until it is small enough to review by responsibility instead of
-by scrolling through one giant file. The targets below are review gates, not
-automatic safety guarantees. After the app-shell controller extraction,
-`app.js` is just under 10.0k lines, so it has crossed the first Medium-risk
-size gate while still needing more responsibility cleanup.
+The architecture analysis DOCX identified `app/app.js` as the top severity and
+likelihood risk while it contained business logic, rendering helpers, event
+actions, startup, and controller wiring in one place. That specific file is now
+closed as a bootstrap-only entrypoint, with a validator enforcing the budget.
+The targets below remain useful as review gates, but the active risk has moved
+to `src/app/wsc-app-composition-root.js`, which should keep shrinking behind
+bounded controllers and explicit contracts.
 
 | `app.js` state | Target risk | Meaning |
 | --- | --- | --- |
 | Above 10k lines | High | Still a god file. Reviewers should assume hidden coupling, fragile globals, and high regression likelihood. |
 | Below 10k lines with passing smoke/build/typecheck gates | Medium | Responsibilities are visible enough for targeted review, but script-order and untyped contracts still matter. |
 | Below 5k lines with modules, typed contracts, and focused tests | Low-Medium | `app.js` becomes orchestration/bootstrap rather than business/rendering logic. |
+| Bootstrap-only file under 300 lines with an enforced budget | Medium-Low | The old god-file risk is contained, but the composition root and global script contracts still require review. |
 | True Low | Low | Requires explicit imports, typed public contracts, focused unit tests, browser journey coverage, and much less dependence on `window.WSC_*` script order. |
 
 Highest-value next extractions from the architecture analysis:
 
-- route render orchestration and timer lifecycle;
-- mode-specific renderers that can move behind feature modules;
-- remaining game-specific board/render helper builders that can move behind
+- remaining composition-root action registration into smaller action maps;
+- timer lifecycle and route render policy that still depends on shared closure
+  state;
+- mode-specific renderers that can continue moving behind feature modules;
+- remaining game-specific DOM patch helper builders that can move behind
   feature modules after current smoke coverage is broadened;
 - continue from the new classic-script dependency map toward explicit module
   imports only after the browser-script boundaries are stable.

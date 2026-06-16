@@ -76,47 +76,30 @@ order:
 5. learn mode renderers;
 6. UI renderers;
 7. play engines and renderers;
-8. `app/app.js`;
-9. `pwa.js`.
+8. `src/app/wsc-app-composition-root.js`;
+9. `app/app.js`;
+10. `pwa.js`.
 
 The main app does not use a bundler. Most modules are classic browser scripts
-that attach APIs to `window.WSC_*`. `app/app.js` then reads those globals.
+that attach APIs to `window.WSC_*`. `src/app/wsc-app-composition-root.js`
+assembles those globals into the running app. `app/app.js` is now only the
+small bootstrap file that creates `window.WSC_APP` and calls `app.init()`.
 
 ## `app.js`
 
-`app/app.js` is the main orchestrator and remains the highest-risk file. After
-the legacy live-room renderer/controller, content-normalization helper, app
-event-router, raw-content controller, study-game controller, arcade-game
-controller, Alpacards controller/renderer bridge, Alpaca Channel/video
-controller, and Debate Lab/Build Case controller extractions, plus the
-route-builder view controller, app-shell renderer, and app-shell controller
-extractions, it is just under 10.0k lines, down from the roughly
-19.2k-line state described in the
-architecture analysis DOCX. It has crossed the first size gate for Medium-risk
-review, but it is still too broad for a true low-risk browser script. It owns
-or coordinates:
+`app/app.js` is now a bootstrap-only file. It reads
+`window.WSC_CREATE_APP`, creates the app with the browser `window` and
+`document`, stores the instance on `window.WSC_APP`, and calls `app.init()`.
+`npm run test:app-js-budget` enforces a hard `1000` line budget so this
+file does not regress into a god file.
 
-- global app state and DOM ref consumers;
-- app entry gate and local/online mode selection;
-- central event listener binding, with click/input/submit/keydown/wheel/touch
-  dispatch now routed through `app-event-router.js`;
-- wizard navigation and route selection;
-- mode and experience orchestration;
-- raw-content normalization startup wiring;
-- auth and Alpaccount UI flow through the extracted auth controller;
-- progress, stats, and local storage integration through the extracted
-  progress-storage controller;
-- learn/play/train mode bridges;
-- live Alpacapardy room wrappers plus local Alpacapardy board/action
-  compatibility calls through extracted controllers;
-- timers and cleanup for games and overlays.
-
-`app.js` is functional, but it is still a god file. Future work should extract
-small behavioral seams while keeping compatibility wrappers. The next risk
-target is to move below 8k lines with passing smoke/build/typecheck gates; true
-low risk requires explicit imports, typed contracts, focused unit tests,
-browser journey coverage, and much less dependence on `window.WSC_*` script
-order.
+The former app orchestration has moved into
+`src/app/wsc-app-composition-root.js`. That file is still intentionally a
+large transitional composition root: it wires the classic-script controllers,
+keeps compatibility wrappers for existing callers, and is the next file to
+continue shrinking. Static app config, selection context, experience factories,
+game results, game audio, and visual asset rendering have already been moved
+behind dedicated services.
 
 ## Stylesheets
 
