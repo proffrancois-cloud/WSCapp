@@ -21,6 +21,7 @@ const appStateService = window.WSC_APP_STATE_SERVICE;
 const appDomService = window.WSC_APP_DOM_SERVICE;
 const modalFocusService = window.WSC_MODAL_FOCUS_SERVICE || null;
 const createContentNormalizationHelpers = window.WSC_CREATE_CONTENT_NORMALIZATION_HELPERS;
+const createKnowledgeRuntimeController = window.WSC_CREATE_KNOWLEDGE_RUNTIME_CONTROLLER;
 const createSelectionContextService = window.WSC_CREATE_SELECTION_CONTEXT_SERVICE;
 const routeBuilderController = window.WSC_ROUTE_BUILDER_CONTROLLER;
 const createRouteBuilderOptionsService = window.WSC_CREATE_ROUTE_BUILDER_OPTIONS_SERVICE;
@@ -44,6 +45,8 @@ const createArcadeRuntimeTimerController = window.WSC_CREATE_ARCADE_RUNTIME_TIME
 const createArcadeJumpAnimationController = window.WSC_CREATE_ARCADE_JUMP_ANIMATION_CONTROLLER;
 const createGameResultsService = window.WSC_CREATE_GAME_RESULTS_SERVICE;
 const createGameAudioService = window.WSC_CREATE_GAME_AUDIO_SERVICE;
+const createGamePromptPresenter = window.WSC_CREATE_GAME_PROMPT_PRESENTER;
+const createRelayTeamService = window.WSC_CREATE_RELAY_TEAM_SERVICE;
 const createVisualAssetRenderer = window.WSC_CREATE_VISUAL_ASSET_RENDERER;
 const createResultsRenderer = window.WSC_CREATE_RESULTS_RENDERER;
 const createAlpacapardyBoardController = window.WSC_CREATE_ALPACAPARDY_BOARD_CONTROLLER;
@@ -57,6 +60,7 @@ const createMindMapController = window.WSC_CREATE_MIND_MAP_CONTROLLER;
 const createMindMapOrbitController = window.WSC_CREATE_MIND_MAP_ORBIT_CONTROLLER;
 const createRegularGuideController = window.WSC_CREATE_REGULAR_GUIDE_CONTROLLER;
 const createAppEventRouter = window.WSC_CREATE_APP_EVENT_ROUTER;
+const createAppActionRegistry = window.WSC_CREATE_APP_ACTION_REGISTRY;
 const createAlpaquizRenderController = window.WSC_CREATE_ALPAQUIZ_RENDER_CONTROLLER;
 const arcadeJumpHelpers = window.WSC_ARCADE_JUMP_HELPERS;
 const appConfig = window.WSC_APP_CONFIG;
@@ -95,13 +99,29 @@ const {
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
 const sectionById = Object.fromEntries(data.sections.map((section) => [section.id, section]));
 const subjectById = Object.fromEntries(data.subjects.map((subject) => [subject.id, subject]));
-let sectionKnowledgeById = {};
-let subjectKnowledgeById = {};
-let learnSubjectKnowledgeById = {};
-let bigIdeaKnowledgeById = {};
-let wholeThemeKnowledge = null;
-
 const sectionIdService = window.WSC_SECTION_IDS || {};
+const knowledgeRuntimeController = createKnowledgeRuntimeController({
+  getAppState: () => state,
+  data,
+  knowledgeBank,
+  sectionIdService,
+  sectionById,
+  subjectById,
+  constants: {
+    deepStructureBigIdeas: DEEP_STRUCTURE_BIG_IDEAS,
+    bigIdeaRoutePresets: BIG_IDEA_ROUTE_PRESETS,
+    learnSubjectRoutes: LEARN_SUBJECT_ROUTES
+  },
+  getBigIdeaRoutes: () => BIG_IDEA_ROUTES,
+  helpers: {
+    countRawQuizQuestions,
+    getRawEntriesForRouteSelection,
+    getQuestionsForRouteSelection,
+    getOrderedRawContentSections,
+    mapRawEntriesWithSection,
+    getActiveSubjectKnowledgeMap
+  }
+});
 const appAssetService = window.WSC_ASSET_SERVICE || null;
 const appStorageService = window.WSC_STORAGE_SERVICE || null;
 const appProgressService = window.WSC_PROGRESS_SERVICE || null;
@@ -131,55 +151,20 @@ const alpacapardyLive = window.WSC_ALPACAPARDY_LIVE || null;
 const alpacapardyLiveSupabaseService = window.WSC_ALPACAPARDY_LIVE_SUPABASE_SERVICE || null;
 
 function normalizeSectionId(sectionId) {
-  return sectionIdService.toRuntimeId
-    ? sectionIdService.toRuntimeId(sectionId)
-    : String(sectionId || "").trim();
+  return knowledgeRuntimeController.normalizeSectionId(sectionId);
 }
-
-const OFFICIAL_SECTION_ORDER_IDS = data.sections.map((section) => section.id);
-const OFFICIAL_SECTION_ORDER_BY_ID = Object.fromEntries(
-  OFFICIAL_SECTION_ORDER_IDS.map((sectionId, index) => [sectionId, index])
-);
 
 // The WSC site sequence is the source of truth. Raw imports may arrive alphabetized.
 function getOfficialSectionOrder(sectionOrId) {
-  const sectionId = typeof sectionOrId === "string"
-    ? normalizeSectionId(sectionOrId)
-    : normalizeSectionId(
-        sectionOrId?.sectionId ||
-        sectionOrId?.id ||
-        getSectionIdFromGuidingTitle(sectionOrId?.guidingSection || sectionOrId?.sectionTitle || sectionOrId?.title || "")
-      );
-
-  return Number.isInteger(OFFICIAL_SECTION_ORDER_BY_ID[sectionId])
-    ? OFFICIAL_SECTION_ORDER_BY_ID[sectionId]
-    : Number.MAX_SAFE_INTEGER;
+  return knowledgeRuntimeController.getOfficialSectionOrder(sectionOrId);
 }
 
 function compareOfficialSectionOrder(left, right) {
-  const orderDelta = getOfficialSectionOrder(left) - getOfficialSectionOrder(right);
-  if (orderDelta !== 0) {
-    return orderDelta;
-  }
-
-  const leftLabel = left?.sectionTitle || left?.guidingSection || left?.title || "";
-  const rightLabel = right?.sectionTitle || right?.guidingSection || right?.title || "";
-  return leftLabel.localeCompare(rightLabel);
+  return knowledgeRuntimeController.compareOfficialSectionOrder(left, right);
 }
 
 function compareRawEntriesByOfficialOrder(left, right) {
-  const sectionDelta = compareOfficialSectionOrder(left, right);
-  if (sectionDelta !== 0) {
-    return sectionDelta;
-  }
-
-  const leftIndex = Number.isFinite(left?.entryIndex) ? left.entryIndex : Number.MAX_SAFE_INTEGER;
-  const rightIndex = Number.isFinite(right?.entryIndex) ? right.entryIndex : Number.MAX_SAFE_INTEGER;
-  if (leftIndex !== rightIndex) {
-    return leftIndex - rightIndex;
-  }
-
-  return String(left?.title || "").localeCompare(String(right?.title || ""));
+  return knowledgeRuntimeController.compareRawEntriesByOfficialOrder(left, right);
 }
 
 const rawContentOverrides = window.WSC_RAW_CONTENT_OVERRIDES || {};
@@ -241,6 +226,8 @@ const state = appStateService.createInitialState({
 const refs = appDomService.getAppRefs(document);
 let gameResultsService = null;
 let gameAudioService = null;
+let gamePromptPresenter = null;
+let relayTeamService = null;
 let visualAssetRenderer = null;
 const selectionContextService = createSelectionContextService({
   appState: state,
@@ -270,6 +257,27 @@ gameAudioService = createGameAudioService({
   windowRef: window,
   helpers: {
     getAssetValue
+  }
+});
+gamePromptPresenter = createGamePromptPresenter({
+  sectionById,
+  subjectById,
+  constants: {
+    GAME_CONFIG
+  },
+  helpers: {
+    escapeHtml,
+    formatCountdown,
+    getQuestionSubjectLabels
+  }
+});
+relayTeamService = createRelayTeamService({
+  constants: {
+    GAME_CONFIG,
+    RELAY_KEY_LAYOUTS
+  },
+  helpers: {
+    getThemedTeamLabel
   }
 });
 visualAssetRenderer = createVisualAssetRenderer({
@@ -309,11 +317,11 @@ routeBuilderOptionsService = createRouteBuilderOptionsService({
     learnSubjectRoutes: LEARN_SUBJECT_ROUTES
   },
   knowledge: {
-    getSectionKnowledgeById: () => sectionKnowledgeById,
-    getSubjectKnowledgeById: () => subjectKnowledgeById,
-    getLearnSubjectKnowledgeById: () => learnSubjectKnowledgeById,
-    getBigIdeaKnowledgeById: () => bigIdeaKnowledgeById,
-    getWholeThemeKnowledge: () => wholeThemeKnowledge
+    getSectionKnowledgeById: () => knowledgeRuntimeController.getSectionKnowledgeById(),
+    getSubjectKnowledgeById: () => knowledgeRuntimeController.getSubjectKnowledgeById(),
+    getLearnSubjectKnowledgeById: () => knowledgeRuntimeController.getLearnSubjectKnowledgeById(),
+    getBigIdeaKnowledgeById: () => knowledgeRuntimeController.getBigIdeaKnowledgeById(),
+    getWholeThemeKnowledge: () => knowledgeRuntimeController.getWholeThemeKnowledge()
   },
   helpers: {
     getQuestionsForRouteSelection,
@@ -495,8 +503,6 @@ const buildCaseController = createBuildCaseController({
     buildCaseRoundCount: GAME_CONFIG.buildCaseRoundCount
   },
   helpers: {
-    buildChoiceSet,
-    buildSingleChoiceSet,
     escapeHtml,
     getAssetValue,
     getBestStreakFromAnswers,
@@ -512,8 +518,7 @@ const buildCaseController = createBuildCaseController({
     renderPanelTitle,
     shortenTrainText,
     shuffle,
-    slugifyBigIdea,
-    splitArgumentFragments
+    slugifyBigIdea
   },
   callbacks: {
     finalizeSessionStats,
@@ -766,15 +771,18 @@ regularGuideController = createRegularGuideController({
     getRawContentScopeLabel,
     getRawEntriesForSelection,
     getRawQuizPageIndex,
-    getSectionGuideQuestions,
+    getRawQuizQuestionKey,
     getSectionIdFromGuidingTitle,
     getSelectedSectionIds,
     getTargetLabel,
-    renderGuideQuizQuestion,
     renderLearnCardFooterNav,
+    renderOptionToken,
     renderPanelTitle,
     renderRawBackToTopButton,
-    renderSectionTransferTable
+    renderRawQuizFeedback,
+    renderRawQuizOptionStateClass,
+    renderSectionTransferTable,
+    stableShuffleByKey
   }
 });
 
@@ -851,19 +859,32 @@ const arcadeRuntimeTimerController = createArcadeRuntimeTimerController({
 });
 
 arcadeJumpAnimationController = createArcadeJumpAnimationController({
+  appState: state,
+  refs,
+  domService: appDomService,
   windowRef: window,
   constants: {
     GAME_CONFIG
   },
+  helpers: {
+    getJumpRunnerState
+  },
+  renderers: {
+    renderJumpLives,
+    renderJumpObstacle,
+    renderJumpRunner
+  },
   callbacks: {
+    createJumpCheckpointObstacle,
+    createJumpObstacle,
+    finalizeSessionStats,
     getExperience: () => state.experience,
+    getBestStreakFromAnswers,
+    getJumpObstacleRequirement,
     getJumpObstacleSpeed,
-    handleJumpObstacleHit,
     hasJumpCollision,
-    openJumpCheckpoint,
-    queueNextJumpObstacle,
+    render,
     renderExperience,
-    updateJumpDom
   }
 });
 
@@ -1103,12 +1124,7 @@ const routeOrchestrationController = createRouteOrchestrationController({
   }
 });
 
-const appEventRouter = createAppEventRouter({
-  appState: state,
-  refs,
-  alpacapardyLiveSupabaseService,
-  windowRef: window,
-  documentRef: document,
+const appActions = createAppActionRegistry({
   actions: {
     closeHeroMenu,
     syncAuthChrome,
@@ -1242,6 +1258,15 @@ const appEventRouter = createAppEventRouter({
     submitAuthForm,
     getActiveMindMapEntryBundle
   }
+});
+
+const appEventRouter = createAppEventRouter({
+  appState: state,
+  refs,
+  alpacapardyLiveSupabaseService,
+  windowRef: window,
+  documentRef: document,
+  actions: appActions
 });
 
 const RESOURCE_LINKS = window.WSC_APP_SHELL_RESOURCE_LINKS || [];
@@ -2386,89 +2411,6 @@ function buildRelayExperience() {
   return experienceFactoryController.buildRelayExperience();
 }
 
-function splitArgumentFragments(...texts) {
-  const fragments = [];
-
-  texts.forEach((text) => {
-    if (!text) {
-      return;
-    }
-
-    String(text)
-      .replace(/\s+/g, " ")
-      .split(/(?<=[.!?])\s+/)
-      .map((fragment) => fragment.trim())
-      .filter(Boolean)
-      .forEach((fragment) => {
-        const normalized = fragment.replace(/^[-*]\s*/, "").trim();
-        if (!normalized) {
-          return;
-        }
-
-        const shortened = normalized.length > 168
-          ? `${normalized.slice(0, 165).trimEnd()}...`
-          : normalized;
-
-        if (!fragments.includes(shortened)) {
-          fragments.push(shortened);
-        }
-      });
-  });
-
-  return fragments;
-}
-
-function buildChoiceSet(correctTexts, distractorTexts, fallbackCorrect, fallbackDistractor, correctCount = 2, totalOptions = 4) {
-  const correct = splitArgumentFragments(...correctTexts).slice(0, correctCount);
-  const distractors = splitArgumentFragments(...distractorTexts)
-    .filter((text) => !correct.includes(text))
-    .slice(0, Math.max(0, totalOptions - correctCount));
-
-  while (correct.length < correctCount) {
-    const fallback = fallbackCorrect[correct.length] || fallbackCorrect[fallbackCorrect.length - 1];
-    if (fallback && !correct.includes(fallback)) {
-      correct.push(fallback);
-    } else {
-      break;
-    }
-  }
-
-  while (distractors.length < Math.max(0, totalOptions - correctCount)) {
-    const fallback = fallbackDistractor[distractors.length] || fallbackDistractor[fallbackDistractor.length - 1];
-    if (fallback && !correct.includes(fallback) && !distractors.includes(fallback)) {
-      distractors.push(fallback);
-    } else {
-      break;
-    }
-  }
-
-  return shuffle([
-    ...correct.map((text) => ({ text, correct: true })),
-    ...distractors.map((text) => ({ text, correct: false }))
-  ]).slice(0, totalOptions);
-}
-
-function buildSingleChoiceSet(correctText, distractorTexts, fallbackCorrect, fallbackDistractor, totalOptions = 3) {
-  const correct = splitArgumentFragments(correctText)[0] || fallbackCorrect;
-  const distractors = splitArgumentFragments(...distractorTexts)
-    .filter((text) => text !== correct)
-    .slice(0, Math.max(0, totalOptions - 1));
-
-  while (distractors.length < Math.max(0, totalOptions - 1)) {
-    const fallback = fallbackDistractor[distractors.length] || fallbackDistractor[fallbackDistractor.length - 1];
-    if (fallback && fallback !== correct && !distractors.includes(fallback)) {
-      distractors.push(fallback);
-    } else {
-      break;
-    }
-  }
-
-  return shuffle([
-    { text: correct, correct: true },
-    ...distractors.map((text) => ({ text, correct: false }))
-  ]).slice(0, totalOptions);
-}
-
 function buildBuildCaseExperience() {
   return buildCaseController.buildExperience();
 }
@@ -2693,7 +2635,7 @@ function getRawVisibleQuizQuestionItems(...args) {
 }
 
 function getSectionGuideQuestions(section) {
-  return Array.isArray(section?.guideQuestions) ? section.guideQuestions : [];
+  return regularGuideController.getSectionGuideQuestions(section);
 }
 
 function renderSectionTransferTable(...args) {
@@ -2713,40 +2655,7 @@ function renderRawQuizFeedback(...args) {
 }
 
 function renderGuideQuizQuestion(question, section, questionIndex) {
-  const quizKey = getRawQuizQuestionKey(question);
-  const selectedIndex = state.ui.rawQuizSelections[quizKey];
-  const options = stableShuffleByKey([
-    {
-      text: question.correctAnswer,
-      correct: true
-    },
-    ...(question.wrongAnswers || []).map((answer) => ({
-      text: answer,
-      correct: false
-    }))
-  ].filter((option) => option.text), `${question.level}|${section.id}|${question.prompt}|${question.correctAnswer}`);
-  const selectedOption = Number.isInteger(selectedIndex) ? options[selectedIndex] : null;
-
-  return `
-    <article class="raw-quiz-card">
-      <p class="raw-quiz-prompt">${escapeHtml(question.prompt)}</p>
-      <div class="raw-quiz-options">
-        ${options.map((option, index) => `
-          <button
-            class="raw-quiz-option ${renderRawQuizOptionStateClass(option, index, selectedIndex)}"
-            type="button"
-            data-raw-quiz-option="${index}"
-            data-raw-quiz-key="${escapeHtml(quizKey)}"
-            aria-pressed="${selectedIndex === index ? "true" : "false"}"
-          >
-            ${renderOptionToken(index)}
-            <span>${escapeHtml(option.text)}</span>
-          </button>
-        `).join("")}
-      </div>
-      ${renderRawQuizFeedback(question, selectedOption)}
-    </article>
-  `;
+  return regularGuideController.renderGuideQuizQuestion(question, section, questionIndex);
 }
 
 function renderRawContentExperience(...args) {
@@ -3604,26 +3513,11 @@ function renderJeopardyResults(experience) {
 }
 
 function createRelayTeams(count = GAME_CONFIG.relayDefaultTeams) {
-  const bindings = RELAY_KEY_LAYOUTS[count];
-  return bindings.map((binding, index) => ({
-    id: `relay-team-${index + 1}`,
-    label: getThemedTeamLabel(index),
-    key: binding.key,
-    keyLabel: binding.label,
-    score: 0,
-    correct: 0,
-    wrong: 0
-  }));
+  return relayTeamService.createRelayTeams(count);
 }
 
 function syncRelayTeamBindings(experience) {
-  const bindings = RELAY_KEY_LAYOUTS[experience.teams.length];
-  experience.teams = experience.teams.map((team, index) => ({
-    ...team,
-    label: `Team ${index + 1}`,
-    key: bindings[index].key,
-    keyLabel: bindings[index].label
-  }));
+  return relayTeamService.syncRelayTeamBindings(experience);
 }
 
 function getRelayStandings(...args) {
@@ -3823,14 +3717,7 @@ function getJumpObstacleSpeed(experience) {
 }
 
 function queueNextJumpObstacle(experience) {
-  const requiredObstacles = getJumpObstacleRequirement(experience);
-  if (experience.obstaclesCleared >= requiredObstacles) {
-    experience.obstacle = createJumpCheckpointObstacle();
-    return;
-  }
-
-  experience.obstacleCursor += 1;
-  experience.obstacle = createJumpObstacle(experience.obstacleCursor);
+  return arcadeJumpAnimationController.queueNextJumpObstacle(experience);
 }
 
 function renderJumpQuestionOverlay(...args) {
@@ -3862,96 +3749,15 @@ function hasJumpCollision(experience) {
 }
 
 function handleJumpObstacleHit(experience) {
-  experience.lives = Math.max(0, experience.lives - 1);
-  experience.ducking = false;
-  experience.runnerY = 0;
-  experience.runnerVelocity = 0;
-  experience.runnerState = "hurting";
-  experience.lastFrameAt = null;
-
-  if (experience.lives <= 0) {
-    experience.failed = true;
-    experience.finished = true;
-    finalizeSessionStats(experience.answers, getBestStreakFromAnswers(experience.answers), {
-      type: "jump",
-      score: experience.score,
-      distance: experience.distance
-    });
-    clearJumpAnimation();
-    render();
-    return;
-  }
-
-  experience.obstacleCursor += 1;
-  experience.obstacle = createJumpObstacle(experience.obstacleCursor);
-  renderExperience();
-  window.setTimeout(() => {
-    if (state.experience && state.experience.type === "jump" && state.experience.phase === "running") {
-      state.experience.runnerState = "running";
-      updateJumpDom(state.experience);
-    }
-  }, 2000);
+  return arcadeJumpAnimationController.handleJumpObstacleHit(experience);
 }
 
 function openJumpCheckpoint(experience) {
-  experience.phase = "question";
-  experience.ducking = false;
-  experience.runnerY = 0;
-  experience.runnerVelocity = 0;
-  experience.runnerState = "running";
-  experience.lastFrameAt = null;
+  return arcadeJumpAnimationController.openJumpCheckpoint(experience);
 }
 
 function updateJumpDom(experience) {
-  if (!refs.experiencePanel || !experience || experience.type !== "jump") {
-    return;
-  }
-
-  const runner = refs.experiencePanel.querySelector("[data-jump-runner]");
-  if (runner) {
-    const runnerState = getJumpRunnerState(experience);
-    if (runner.dataset.jumpRunnerState !== runnerState) {
-      runner.dataset.jumpRunnerState = runnerState;
-      appDomService.setTrustedHtml(
-        runner,
-        appDomService.trustedHtml(renderJumpRunner(experience), "jump-runner")
-      );
-    }
-    runner.style.transform = `translateY(-${Math.max(0, experience.runnerY)}px)`;
-    runner.classList.toggle("state-ducking", runnerState === "ducking");
-    runner.classList.toggle("state-jumping", runnerState === "jumping");
-    runner.classList.toggle("state-hurting", runnerState === "hurting");
-    runner.classList.toggle("state-running", runnerState === "running");
-  }
-
-  const obstacle = refs.experiencePanel.querySelector("[data-jump-obstacle]");
-  if (obstacle && experience.obstacle) {
-    const obstacleKind = experience.obstacle.kind;
-    if (obstacle.dataset.jumpObstacleKind !== obstacleKind) {
-      obstacle.dataset.jumpObstacleKind = obstacleKind;
-      appDomService.setTrustedHtml(
-        obstacle,
-        appDomService.trustedHtml(renderJumpObstacle(experience.obstacle), "jump-obstacle")
-      );
-    }
-    obstacle.style.left = `${experience.obstacle.x}%`;
-    obstacle.classList.toggle("ground", obstacleKind === "ground");
-    obstacle.classList.toggle("flying", obstacleKind === "flying");
-    obstacle.classList.toggle("checkpoint", obstacleKind === "checkpoint");
-  }
-
-  const distance = refs.experiencePanel.querySelector("[data-jump-distance]");
-  if (distance) {
-    distance.textContent = `${Math.round(experience.distance)}m`;
-  }
-
-  const lives = refs.experiencePanel.querySelector("[data-jump-lives]");
-  if (lives) {
-    appDomService.setTrustedHtml(
-      lives,
-      appDomService.trustedHtml(renderJumpLives(experience.lives), "jump-lives")
-    );
-  }
+  return arcadeJumpAnimationController.updateJumpDom(experience);
 }
 
 function answerJumpQuestion(...args) {
@@ -4039,562 +3845,99 @@ function buildRawGameQuestionsFromEntries(entries) {
 }
 
 function getSectionCounts(questions) {
-  const counts = {};
-  questions.forEach((question) => {
-    counts[question.sectionId] = (counts[question.sectionId] || 0) + 1;
-  });
-
-  return Object.keys(counts)
-    .map((id) => ({
-      id,
-      label: sectionById[id].title,
-      count: counts[id]
-    }))
-    .sort((left, right) => right.count - left.count);
+  return gamePromptPresenter.getSectionCounts(questions);
 }
 
 function getSubjectCounts(questions) {
-  const counts = {};
-  questions.forEach((question) => {
-    question.subjectIds.forEach((subjectId) => {
-      counts[subjectId] = (counts[subjectId] || 0) + 1;
-    });
-  });
-
-  return Object.keys(counts)
-    .map((id) => ({
-      id,
-      label: subjectById[id].label,
-      count: counts[id]
-    }))
-    .sort((left, right) => right.count - left.count);
+  return gamePromptPresenter.getSubjectCounts(questions);
 }
 
 function hydrateKnowledgeBank() {
-  const sections = Array.isArray(knowledgeBank.sections) ? knowledgeBank.sections : [];
-  sectionKnowledgeById = {};
-
-  sections.forEach((bankSection) => {
-    const sectionId = getSectionIdFromGuidingTitle(bankSection.guiding_section);
-    if (!sectionId) {
-      return;
-    }
-    sectionKnowledgeById[sectionId] = normalizeBankSection(bankSection, sectionId);
-  });
-
-  subjectKnowledgeById = Object.fromEntries(
-    data.subjects.map((subject) => [subject.id, buildSubjectKnowledge(subject.id)])
-  );
-  learnSubjectKnowledgeById = Object.fromEntries(
-    LEARN_SUBJECT_ROUTES.map((route) => [route.id, buildLearnSubjectRouteKnowledge(route)])
-  );
-  bigIdeaKnowledgeById = Object.fromEntries(
-    BIG_IDEA_ROUTES.map((route) => [route.id, buildBigIdeaKnowledge(route)])
-  );
-  wholeThemeKnowledge = buildWholeThemeKnowledge();
+  return knowledgeRuntimeController.hydrateKnowledgeBank();
 }
 
 function normalizeKnowledgeKey(value) {
-  return String(value || "")
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[’']/g, "")
-    .replace(/&/g, "and")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
+  return knowledgeRuntimeController.normalizeKnowledgeKey(value);
 }
 
 function slugifyBigIdea(label) {
-  return normalizeKnowledgeKey(label).replace(/\s+/g, "-");
+  return knowledgeRuntimeController.slugifyBigIdea(label);
 }
 
 function buildBigIdeaRoutes(rawSections) {
-  const counts = new Map();
-
-  Object.values(rawSections || {}).forEach((section) => {
-    (section.entries || []).forEach((entry) => {
-      (entry.bigIdeas || []).forEach((bigIdea) => {
-        counts.set(bigIdea, (counts.get(bigIdea) || 0) + 1);
-      });
-    });
-  });
-
-  const orderedLabels = [
-    ...DEEP_STRUCTURE_BIG_IDEAS.filter((label) => counts.has(label)),
-    ...Array.from(counts.keys())
-      .filter((label) => !DEEP_STRUCTURE_BIG_IDEAS.includes(label))
-      .sort((left, right) => (counts.get(right) || 0) - (counts.get(left) || 0) || left.localeCompare(right))
-  ];
-
-  return orderedLabels
-    .map((label) => {
-      const id = slugifyBigIdea(label);
-      const preset = BIG_IDEA_ROUTE_PRESETS[id] || {};
-      return {
-        id,
-        label,
-        description: preset.description || `${label} as a route through the 2026 theme.`,
-        mood: preset.mood || "wise"
-      };
-    });
+  return knowledgeRuntimeController.buildBigIdeaRoutes(rawSections);
 }
 
 function getSectionIdFromGuidingTitle(title) {
-  const normalizedTitle = normalizeKnowledgeKey(title);
-  const matchingSection = data.sections.find((section) => normalizeKnowledgeKey(section.originalTitle) === normalizedTitle);
-  return matchingSection ? matchingSection.id : null;
+  return knowledgeRuntimeController.getSectionIdFromGuidingTitle(title);
 }
 
 function normalizeBankSection(bankSection, sectionId) {
-  const mappedSection = sectionById[sectionId];
-  const atoms = (bankSection.content_atoms || []).map((atom, index) => ({
-    id: `${sectionId}-atom-${index + 1}`,
-    sectionId,
-    sectionTitle: mappedSection.title,
-    sectionOriginalTitle: mappedSection.originalTitle,
-    subtopic: atom.subtopic,
-    coreIdea: atom.core_idea,
-    mustKnowPoints: atom.must_know_points || [],
-    examples: atom.examples || [],
-    debateAngles: atom.debate_angles || [],
-    keywords: atom.keywords || [],
-    possibleQuestionTypes: atom.possible_question_types || [],
-    goodForModes: atom.good_for_modes || [],
-    difficulty: atom.difficulty || "mixed"
-  }));
-
-  return {
-    type: "section",
-    sectionId,
-    title: mappedSection.title,
-    originalTitle: mappedSection.originalTitle,
-    summary: bankSection.section_summary,
-    officialSubjects: bankSection.official_subjects || [],
-    overlayCategories: bankSection.overlay_categories || [],
-    atoms,
-    questionCount: countRawQuizQuestions(getRawEntriesForRouteSelection("section", sectionId)),
-    knowledgeItemCount: countKnowledgeItems(atoms)
-  };
+  return knowledgeRuntimeController.normalizeBankSection(bankSection, sectionId);
 }
 
 function buildSubjectKnowledge(subjectId) {
-  const subject = subjectById[subjectId];
-  const normalizedSubject = normalizeKnowledgeKey(subject.label);
-  const sections = data.sections
-    .map((section) => sectionKnowledgeById[section.id])
-    .filter(Boolean)
-    .filter((section) => section.officialSubjects.some((label) => normalizeKnowledgeKey(label) === normalizedSubject));
-
-  const atoms = sections.flatMap((section) =>
-    section.atoms.map((atom) => ({
-      ...atom,
-      sourceSectionTitle: section.title,
-      sourceSectionOriginalTitle: section.originalTitle,
-      sourceSectionSummary: section.summary
-    }))
-  );
-
-  return {
-    type: "subject",
-    subjectId,
-    label: subject.label,
-    description: subject.description,
-    sections,
-    atoms,
-    questionCount: getQuestionsForRouteSelection("subject", subjectId).length,
-    knowledgeItemCount: countKnowledgeItems(atoms)
-  };
+  return knowledgeRuntimeController.buildSubjectKnowledge(subjectId);
 }
 
 function buildLearnSubjectRouteKnowledge(route) {
-  const sections = data.sections
-    .map((section) => sectionKnowledgeById[section.id])
-    .filter(Boolean)
-    .map((section) => {
-      const matchedAtoms = section.atoms.filter((atom) => atomMatchesLearnSubjectRoute(atom, section, route));
-      if (!matchedAtoms.length) {
-        return null;
-      }
-
-      return {
-        ...section,
-        atoms: matchedAtoms
-      };
-    })
-    .filter(Boolean);
-
-  const atoms = sections.flatMap((section) =>
-    section.atoms.map((atom) => ({
-      ...atom,
-      sourceSectionTitle: section.title,
-      sourceSectionOriginalTitle: section.originalTitle,
-      sourceSectionSummary: section.summary
-    }))
-  );
-
-  const matchedSectionIds = new Set(sections.map((section) => section.sectionId));
-  const questionCount = countRawQuizQuestions(
-    getOrderedRawContentSections().flatMap((rawSection) => {
-      const sectionId = rawSection.id || getSectionIdFromGuidingTitle(rawSection.guidingSection || rawSection.title);
-      if (!matchedSectionIds.has(sectionId)) {
-        return [];
-      }
-      const entries = (rawSection.entries || []).filter((entry) => entryMatchesLearnSubjectRoute(entry, sectionId, route));
-      return mapRawEntriesWithSection(rawSection, entries);
-    })
-  );
-
-  return {
-    type: "subject",
-    subjectId: route.id,
-    label: route.label,
-    description: route.description,
-    sections,
-    atoms,
-    questionCount,
-    knowledgeItemCount: countKnowledgeItems(atoms)
-  };
+  return knowledgeRuntimeController.buildLearnSubjectRouteKnowledge(route);
 }
 
 function buildBigIdeaKnowledge(route) {
-  const matchingEntries = [];
-  const sectionMap = new Map();
-
-  getOrderedRawContentSections().forEach((rawSection) => {
-    const matching = (rawSection.entries || []).filter((entry) => (entry.bigIdeas || []).includes(route.label));
-    if (!matching.length) {
-      return;
-    }
-
-    const sectionId = rawSection.id || getSectionIdFromGuidingTitle(rawSection.guidingSection || rawSection.title);
-    const sectionRecord = sectionId ? sectionById[sectionId] : null;
-    const knowledgeSection = sectionId ? sectionKnowledgeById[sectionId] : null;
-
-    if (sectionId && !sectionMap.has(sectionId)) {
-      sectionMap.set(sectionId, {
-        sectionId,
-        title: sectionRecord ? sectionRecord.title : rawSection.guidingSection || rawSection.title,
-        originalTitle: sectionRecord ? sectionRecord.originalTitle : rawSection.guidingSection || rawSection.title,
-        summary: knowledgeSection ? knowledgeSection.summary : "",
-        entryCount: matching.length
-      });
-    }
-
-    matching.forEach((entry) => {
-      matchingEntries.push({
-        ...entry,
-        sectionId,
-        sectionTitle: sectionRecord ? sectionRecord.title : rawSection.guidingSection || rawSection.title,
-        sectionOriginalTitle: sectionRecord ? sectionRecord.originalTitle : rawSection.guidingSection || rawSection.title,
-        sourceFile: rawSection.sourceFile || rawSection.title
-      });
-    });
-  });
-
-  const sections = Array.from(sectionMap.values()).sort(compareOfficialSectionOrder);
-  matchingEntries.sort(compareRawEntriesByOfficialOrder);
-  const questionCount = countRawQuizQuestions(matchingEntries);
-  const knowledgeItemCount = matchingEntries.reduce((sum, entry) => {
-    return sum + 1 + (entry.examples || []).length + (entry.subjects || []).length + (entry.bigIdeas || []).length;
-  }, 0);
-
-  return {
-    type: "bigidea",
-    bigIdeaId: route.id,
-    label: route.label,
-    description: route.description,
-    sections,
-    entries: matchingEntries,
-    questionCount,
-    knowledgeItemCount
-  };
+  return knowledgeRuntimeController.buildBigIdeaKnowledge(route);
 }
 
 function atomMatchesLearnSubjectRoute(atom, section, route) {
-  const haystack = normalizeKnowledgeKey(
-    [
-      atom.subtopic,
-      atom.coreIdea,
-      atom.mustKnowPoints.join(" "),
-      atom.examples.join(" "),
-      atom.debateAngles.join(" "),
-      atom.keywords.join(" "),
-      section.title,
-      section.originalTitle,
-      section.summary,
-      section.officialSubjects.join(" "),
-      section.overlayCategories.join(" ")
-    ].join(" ")
-  );
-
-  const keywordMatch = (route.keywords || []).some((keyword) => haystack.includes(normalizeKnowledgeKey(keyword)));
-  const overlayMatch = (route.overlayCategories || []).some((category) =>
-    section.overlayCategories.some((label) => normalizeKnowledgeKey(label) === normalizeKnowledgeKey(category))
-  );
-
-  return keywordMatch || overlayMatch;
+  return knowledgeRuntimeController.atomMatchesLearnSubjectRoute(atom, section, route);
 }
 
 function entryMatchesLearnSubjectRoute(entry, sectionId, route) {
-  const knowledgeSection = sectionId ? sectionKnowledgeById[sectionId] : null;
-  const haystack = normalizeKnowledgeKey(
-    [
-      entry.title,
-      entry.rawOfficialText,
-      entry.studentExplanation,
-      entry.whyItMatters,
-      entry.takeaway,
-      (entry.examples || []).join(" "),
-      (entry.subjects || []).join(" "),
-      (entry.bigIdeas || []).join(" "),
-      knowledgeSection ? knowledgeSection.title : "",
-      knowledgeSection ? knowledgeSection.originalTitle : "",
-      knowledgeSection ? knowledgeSection.summary : "",
-      knowledgeSection ? knowledgeSection.officialSubjects.join(" ") : "",
-      knowledgeSection ? knowledgeSection.overlayCategories.join(" ") : ""
-    ].join(" ")
-  );
-
-  const keywordMatch = (route.keywords || []).some((keyword) => haystack.includes(normalizeKnowledgeKey(keyword)));
-  const overlayMatch = (route.overlayCategories || []).some((category) =>
-    knowledgeSection && knowledgeSection.overlayCategories.some((label) => normalizeKnowledgeKey(label) === normalizeKnowledgeKey(category))
-  );
-
-  return keywordMatch || overlayMatch;
+  return knowledgeRuntimeController.entryMatchesLearnSubjectRoute(entry, sectionId, route);
 }
 
 function buildWholeThemeKnowledge() {
-  const sections = data.sections.map((section) => sectionKnowledgeById[section.id]).filter(Boolean);
-  const atoms = sections.flatMap((section) =>
-    section.atoms.map((atom) => ({
-      ...atom,
-      sourceSectionTitle: section.title,
-      sourceSectionOriginalTitle: section.originalTitle,
-      sourceSectionSummary: section.summary
-    }))
-  );
-
-  return {
-    type: "whole-theme",
-    sections,
-    atoms,
-    questionCount: countRawQuizQuestions(getRawEntriesForRouteSelection(null, "all")),
-    knowledgeItemCount: countKnowledgeItems(atoms)
-  };
+  return knowledgeRuntimeController.buildWholeThemeKnowledge();
 }
 
 function getKnowledgeContext() {
-  if (!knowledgeBank.sections || !knowledgeBank.sections.length) {
-    return null;
-  }
-
-  if (state.selection.targetId === "all") {
-    return wholeThemeKnowledge;
-  }
-
-  if (state.selection.lens === "subject") {
-    return getActiveSubjectKnowledgeMap()[state.selection.targetId] || null;
-  }
-
-  if (state.selection.lens === "bigidea") {
-    return bigIdeaKnowledgeById[state.selection.targetId] || null;
-  }
-
-  return sectionKnowledgeById[state.selection.targetId] || null;
+  return knowledgeRuntimeController.getKnowledgeContext();
 }
 
 function countKnowledgeItems(atoms) {
-  return atoms.reduce(
-    (sum, atom) =>
-      sum +
-      atom.mustKnowPoints.length +
-      atom.examples.length +
-      atom.debateAngles.length +
-      atom.keywords.length,
-    0
-  );
+  return knowledgeRuntimeController.countKnowledgeItems(atoms);
 }
 
 function getQuestionCueMood(question, fallbackMood) {
-  return question && question.cueMood ? question.cueMood : fallbackMood;
+  return gamePromptPresenter.getQuestionCueMood(question, fallbackMood);
 }
 
 function getGameMascotMood(mode, question, context, fallbackMood) {
-  const baseMood = getQuestionCueMood(question, fallbackMood);
-
-  if (mode === "race") {
-    if (context.index >= context.total - 3) {
-      return "excited";
-    }
-    if (context.timeRemaining <= 5 || context.lives === 1) {
-      return "determined";
-    }
-    if (context.streak >= 3) {
-      return "happy";
-    }
-    return baseMood;
-  }
-
-  if (mode === "alpacapardy") {
-    if (context.value >= 400) {
-      return "determined";
-    }
-    return baseMood;
-  }
-
-  if (mode === "run") {
-    if (context.stage >= context.total - 2) {
-      return "excited";
-    }
-    if (context.timeRemaining <= 30) {
-      return "determined";
-    }
-    return baseMood;
-  }
-
-  if (mode === "jump") {
-    if (context.lives <= 1) {
-      return "determined";
-    }
-    return baseMood;
-  }
-
-  if (mode === "relay") {
-    if (context.teamCount >= 4) {
-      return "excited";
-    }
-    if (context.index >= context.total - 3) {
-      return "determined";
-    }
-    return baseMood;
-  }
-
-  return baseMood;
+  return gamePromptPresenter.getGameMascotMood(mode, question, context, fallbackMood);
 }
 
 function getQuestionTypeLabel(question) {
-  const labels = {
-    definition: "core idea recall",
-    example: "example match",
-    point: "must-know point",
-    keyword: "keyword recall"
-  };
-
-  return labels[question && question.sourceType] || "theme checkpoint";
+  return gamePromptPresenter.getQuestionTypeLabel(question);
 }
 
 function getGamePromptLabel(mode, question) {
-  const prefix = {
-    race: "This stop decides the run",
-    alpacapardy: "Think before you move",
-    run: "Answer to move forward",
-    jump: "Answer to keep jumping",
-    relay: "Buzz in when you know it"
-  };
-
-  return `${prefix[mode] || "theme prompt"} · ${getQuestionTypeLabel(question)}`;
+  return gamePromptPresenter.getGamePromptLabel(mode, question);
 }
 
 function getQuestionAnchorLine(question) {
-  if (!question || !Array.isArray(question.anchors)) {
-    return null;
-  }
-
-  return question.anchors.find((anchor) => anchor && !anchor.startsWith("Focus:")) || null;
+  return gamePromptPresenter.getQuestionAnchorLine(question);
 }
 
 function getQuestionTypeHint(question) {
-  const hints = {
-    definition: "Look for the cleanest core idea, not just a nearby example.",
-    example: "Match the subtopic to the clearest concrete example.",
-    point: "Find the statement that sounds like a real WSC takeaway.",
-    keyword: "Lock onto the exact vocabulary tied to this lane."
-  };
-
-  return hints[question && question.sourceType] || "Compare the four options for the tightest thematic fit.";
+  return gamePromptPresenter.getQuestionTypeHint(question);
 }
 
 function pushUniqueNote(notes, note) {
-  if (!note || notes.includes(note)) {
-    return;
-  }
-
-  notes.push(note);
+  return gamePromptPresenter.pushUniqueNote(notes, note);
 }
 
 function renderGameNotes(question, mode, context) {
-  const notes = [];
-  const section = question ? sectionById[question.sectionId] : null;
-  const subjectLabels = getQuestionSubjectLabels(question);
-
-  if (mode === "race") {
-    pushUniqueNote(notes, `Pressure stop ${context.index + 1}`);
-    pushUniqueNote(notes, `Current level: ${context.level}`);
-    pushUniqueNote(notes, `Chances remaining: ${context.lives} · ${context.timeRemaining}s on the clock`);
-    if (context.index >= context.total - 3) {
-      pushUniqueNote(notes, "Final stretch: every mistake can end the run.");
-    } else if (context.streak >= 3) {
-      pushUniqueNote(notes, `Pressure streak live: ${context.streak} correct in a row.`);
-    } else {
-      pushUniqueNote(notes, "Answer fast, but still choose the cleanest thematic match.");
-    }
-  } else if (mode === "alpacapardy") {
-    pushUniqueNote(notes, `Board stop ${Math.min(context.cleared + 1, context.total)} of ${context.total} · ${context.value} points`);
-    pushUniqueNote(
-      notes,
-      context.value >= 400
-        ? "High-value clue: slow down and separate near-matches carefully."
-        : "Lower-value clue: use it to lock the category pattern early."
-    );
-  } else if (mode === "run") {
-    pushUniqueNote(notes, `Travel leg ${context.stage + 1} of ${context.total} · ${formatCountdown(context.timeRemaining)} left`);
-    pushUniqueNote(notes, `You are here: ${context.currentStop}`);
-    pushUniqueNote(notes, `Next stop: ${context.nextStop}`);
-  } else if (mode === "jump") {
-    pushUniqueNote(notes, `Desert question ${context.index + 1} of ${context.total} · ${context.value} level`);
-    pushUniqueNote(notes, `${context.lives} lives left`);
-    pushUniqueNote(notes, `Distance: ${Math.round(context.distance)}m`);
-  } else if (mode === "relay") {
-    pushUniqueNote(notes, `Shared stop ${context.index + 1} of ${context.total}`);
-    pushUniqueNote(notes, `${context.teamCount} teams are live on the same keyboard.`);
-    pushUniqueNote(notes, `Buzz first, then answer within ${GAME_CONFIG.relayAnswerTime} seconds.`);
-    pushUniqueNote(notes, "A wrong turn or timeout gives the points to every other team.");
-  }
-
-  if (question && question.sourceSubtopic) {
-    pushUniqueNote(notes, `Focus: ${question.sourceSubtopic}`);
-  } else if (question) {
-    pushUniqueNote(notes, `Focus: ${section.title}`);
-  }
-
-  const anchorLine = getQuestionAnchorLine(question);
-  if (anchorLine) {
-    pushUniqueNote(notes, anchorLine);
-  } else if (section) {
-    pushUniqueNote(notes, section.angle);
-  }
-
-  if (question) {
-    pushUniqueNote(notes, getQuestionTypeHint(question));
-  }
-
-  if (question && !anchorLine) {
-    pushUniqueNote(notes, subjectLabels.length ? `Subjects: ${subjectLabels.join(", ")}` : null);
-  } else if (question) {
-    pushUniqueNote(notes, section ? section.blurb : null);
-  }
-
-  return `
-    <div class="game-note-list">
-      ${notes.slice(0, 4).map((note) => `
-        <div class="game-note-item">
-          <span class="alpaca-bullet" aria-hidden="true"></span>
-          <span>${escapeHtml(note)}</span>
-        </div>
-      `).join("")}
-    </div>
-  `;
+  return gamePromptPresenter.renderGameNotes(question, mode, context);
 }
 
 function buildWholeThemeDeck(knowledge) {
@@ -4808,28 +4151,14 @@ function saveProgressLocally() {
 }
 
 async function saveAlpacaProgress() {
-  const client = getSupabaseClient();
-  const user = state.auth.session && state.auth.session.user;
-  if (!client || !user || isAnonymousUser(user)) {
-    return;
-  }
-
-  try {
-    if (supabaseProfileService?.upsertProgress) {
-      await supabaseProfileService.upsertProgress(client, user.id, state.stats, state.rawMastery);
-    } else {
-      await client
-        .from("alpaca_progress")
-        .upsert({
-          user_id: user.id,
-          game_stats: state.stats,
-          raw_mastered_entries: state.rawMastery,
-          updated_at: new Date().toISOString()
-        }, { onConflict: "user_id" });
-    }
-  } catch (_error) {
-    // Local progress remains available if the Supabase progress table is not installed yet.
-  }
+  return progressStorageController.saveRemoteProgress({
+    client: getSupabaseClient(),
+    user: state.auth.session && state.auth.session.user,
+    stats: state.stats,
+    rawMastery: state.rawMastery,
+    profileService: supabaseProfileService,
+    isAnonymousUser
+  });
 }
 
 function getAssetValue(path, fallback = null) {

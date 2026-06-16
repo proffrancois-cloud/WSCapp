@@ -214,6 +214,24 @@ Current progress:
 - `src/app/visual-asset-renderer.js` now owns asset image rendering, configured
   mascot/hero/checkpoint/race visuals, review badges, avatars, and visual asset
   path/version helpers.
+- `src/app/knowledge-runtime-controller.js` now owns knowledge-bank hydration,
+  official section ordering, subject/big-idea knowledge maps, route matching,
+  and knowledge context lookup.
+- `src/app/game-prompt-presenter.js` now owns game prompt labels, mascot mood,
+  game notes, and question section/subject counts.
+- `src/app/relay-team-service.js` now owns local Relay team creation and
+  keyboard-binding synchronization.
+- `src/app/app-action-registry.js` now owns the canonical event-router action
+  map and fails fast when a routed action is missing.
+- `src/app/build-case-controller.js` now owns Debate Lab choice-set helpers
+  instead of receiving those one-off helpers from the composition root.
+- `src/app/regular-guide-controller.js` now owns guide quiz question rendering
+  and guide question lookup.
+- `src/app/progress-storage-controller.js` now owns best-effort remote progress
+  persistence mechanics in addition to local storage wrappers.
+- `src/app/arcade-jump-animation-controller.js` now owns Jump obstacle
+  queuing, collision-hit handling, checkpoint state, and DOM patching in
+  addition to the animation loop.
 - `tools/validators/check-app-js-budget.mjs` now enforces the boot-file budget
   through `npm run test:app-js-budget` and `npm run verify`.
 
@@ -245,7 +263,6 @@ bounded controllers and explicit contracts.
 
 Highest-value next extractions from the architecture analysis:
 
-- remaining composition-root action registration into smaller action maps;
 - timer lifecycle and route render policy that still depends on shared closure
   state;
 - mode-specific renderers that can continue moving behind feature modules;

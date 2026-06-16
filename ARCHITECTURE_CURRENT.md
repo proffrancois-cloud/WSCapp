@@ -98,8 +98,12 @@ The former app orchestration has moved into
 large transitional composition root: it wires the classic-script controllers,
 keeps compatibility wrappers for existing callers, and is the next file to
 continue shrinking. Static app config, selection context, experience factories,
-game results, game audio, and visual asset rendering have already been moved
-behind dedicated services.
+knowledge hydration, game prompts, game results, game audio, relay-team
+bindings, app-action validation, and visual asset rendering have already been
+moved behind dedicated services. `progress-storage-controller.js` now also owns
+remote progress persistence mechanics, while `regular-guide-controller.js` owns
+guide quiz question rendering. Jump animation, collision aftermath, checkpoint
+state, and DOM patching now live in `arcade-jump-animation-controller.js`.
 
 ## Stylesheets
 

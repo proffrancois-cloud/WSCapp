@@ -127,6 +127,38 @@
       };
     }
 
+    async function saveRemoteProgress({
+      client,
+      user,
+      stats,
+      rawMastery,
+      profileService = null,
+      isAnonymousUser = () => false
+    } = {}) {
+      if (!client || !user || isAnonymousUser(user)) {
+        return { ok: false, skipped: true };
+      }
+
+      try {
+        if (profileService?.upsertProgress) {
+          await profileService.upsertProgress(client, user.id, stats, rawMastery);
+        } else {
+          await client
+            .from("alpaca_progress")
+            .upsert({
+              user_id: user.id,
+              game_stats: stats,
+              raw_mastered_entries: rawMastery,
+              updated_at: new Date().toISOString()
+            }, { onConflict: "user_id" });
+        }
+        return { ok: true, skipped: false };
+      } catch (error) {
+        // Local progress remains available if the Supabase progress table is not installed yet.
+        return { ok: false, skipped: false, error: String(error?.message || error) };
+      }
+    }
+
     return Object.freeze({
       STORAGE_KEYS,
       getDefaultStats,
@@ -135,7 +167,8 @@
       loadStats,
       loadRawMastery,
       loadGuestAlpacaName,
-      saveLocalProgress
+      saveLocalProgress,
+      saveRemoteProgress
     });
   }
 

@@ -27,8 +27,6 @@
     const sectionById = data.sectionById || {};
     const buildCaseRoundCount = Number(constants.buildCaseRoundCount) || 5;
 
-    const buildChoiceSet = requiredFunction(helpers, "buildChoiceSet");
-    const buildSingleChoiceSet = requiredFunction(helpers, "buildSingleChoiceSet");
     const escapeHtml = requiredFunction(helpers, "escapeHtml");
     const getAssetValue = requiredFunction(helpers, "getAssetValue");
     const getBestStreakFromAnswers = requiredFunction(helpers, "getBestStreakFromAnswers");
@@ -45,7 +43,6 @@
     const shortenTrainText = requiredFunction(helpers, "shortenTrainText");
     const shuffle = requiredFunction(helpers, "shuffle");
     const slugifyBigIdea = requiredFunction(helpers, "slugifyBigIdea");
-    const splitArgumentFragments = requiredFunction(helpers, "splitArgumentFragments");
 
     const finalizeSessionStats = requiredFunction(callbacks, "finalizeSessionStats");
     const renderExperience = requiredFunction(callbacks, "renderExperience");
@@ -53,6 +50,89 @@
 
     let debateSpinTimerId = null;
     let debateRevealTimerId = null;
+
+    function splitArgumentFragments(...texts) {
+      const fragments = [];
+
+      texts.forEach((text) => {
+        if (!text) {
+          return;
+        }
+
+        String(text)
+          .replace(/\s+/g, " ")
+          .split(/(?<=[.!?])\s+/)
+          .map((fragment) => fragment.trim())
+          .filter(Boolean)
+          .forEach((fragment) => {
+            const normalized = fragment.replace(/^[-*]\s*/, "").trim();
+            if (!normalized) {
+              return;
+            }
+
+            const shortened = normalized.length > 168
+              ? `${normalized.slice(0, 165).trimEnd()}...`
+              : normalized;
+
+            if (!fragments.includes(shortened)) {
+              fragments.push(shortened);
+            }
+          });
+      });
+
+      return fragments;
+    }
+
+    function buildChoiceSet(correctTexts, distractorTexts, fallbackCorrect, fallbackDistractor, correctCount = 2, totalOptions = 4) {
+      const correct = splitArgumentFragments(...correctTexts).slice(0, correctCount);
+      const distractors = splitArgumentFragments(...distractorTexts)
+        .filter((text) => !correct.includes(text))
+        .slice(0, Math.max(0, totalOptions - correctCount));
+
+      while (correct.length < correctCount) {
+        const fallback = fallbackCorrect[correct.length] || fallbackCorrect[fallbackCorrect.length - 1];
+        if (fallback && !correct.includes(fallback)) {
+          correct.push(fallback);
+        } else {
+          break;
+        }
+      }
+
+      while (distractors.length < Math.max(0, totalOptions - correctCount)) {
+        const fallback = fallbackDistractor[distractors.length] || fallbackDistractor[fallbackDistractor.length - 1];
+        if (fallback && !correct.includes(fallback) && !distractors.includes(fallback)) {
+          distractors.push(fallback);
+        } else {
+          break;
+        }
+      }
+
+      return shuffle([
+        ...correct.map((text) => ({ text, correct: true })),
+        ...distractors.map((text) => ({ text, correct: false }))
+      ]).slice(0, totalOptions);
+    }
+
+    function buildSingleChoiceSet(correctText, distractorTexts, fallbackCorrect, fallbackDistractor, totalOptions = 3) {
+      const correct = splitArgumentFragments(correctText)[0] || fallbackCorrect;
+      const distractors = splitArgumentFragments(...distractorTexts)
+        .filter((text) => text !== correct)
+        .slice(0, Math.max(0, totalOptions - 1));
+
+      while (distractors.length < Math.max(0, totalOptions - 1)) {
+        const fallback = fallbackDistractor[distractors.length] || fallbackDistractor[fallbackDistractor.length - 1];
+        if (fallback && fallback !== correct && !distractors.includes(fallback)) {
+          distractors.push(fallback);
+        } else {
+          break;
+        }
+      }
+
+      return shuffle([
+        { text: correct, correct: true },
+        ...distractors.map((text) => ({ text, correct: false }))
+      ]).slice(0, totalOptions);
+    }
 
     function clearSpinTimer() {
       if (debateSpinTimerId) {
