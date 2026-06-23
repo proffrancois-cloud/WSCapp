@@ -210,6 +210,9 @@ Current progress:
   guide.
 - `src/app/app-shell-runtime.js` now owns app-shell controller construction:
   action registry, event router, shell renderer, and shell controller.
+- `src/app/app-lifecycle-runtime.js` now owns startup tasks, global listener
+  registration, app-ready marking, and the shared timer/Jump-animation sync
+  hook used after experience renders.
 - `src/app/app-config.js` now owns static app catalogs and constants such as
   route options, game config, live-room constants, review badges, train tips,
   subject routes, and public online flags.
@@ -285,7 +288,8 @@ about controller construction order.
 | Above 3500 lines | Medium-High | Too much compatibility and wiring noise remains in one closure. |
 | Below 3500 lines with facade and passing verify | Medium-Low | Mechanical wrappers are contained, but the root still directly creates most controllers. |
 | Below 2500 lines with domain runtime builders | Medium-Low | Learn and app-shell construction are now split by domain, but timers, play wiring, and online wiring still need further containment. |
-| Below 1500 lines | Low-Medium | Lifecycle/timers and render registries are no longer root concerns. |
+| Below 1800 lines with lifecycle runtime | Low-Medium | Startup/listeners and cross-controller timer sync are no longer root concerns, but play and online wiring still need containment. |
+| Below 1500 lines | Low-Medium | Render registries and remaining domain builders are no longer root concerns. |
 | 500-900 lines | Low | The root is mostly dependency collection, controller creation, and `init()` exposure. |
 
 Highest-value next extractions from the architecture analysis:

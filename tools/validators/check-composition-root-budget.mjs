@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 const repoRoot = resolve(import.meta.dirname, "../..");
 const compositionRootPath = resolve(repoRoot, "app/src/app/wsc-app-composition-root.js");
-const maxLines = 2500;
+const maxLines = 1800;
 const lineCount = readFileSync(compositionRootPath, "utf8").split(/\r?\n/).length;
 
 const report = {

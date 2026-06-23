@@ -76,8 +76,8 @@ order:
 5. learn mode renderers;
 6. UI renderers;
 7. play engines and renderers;
-8. domain runtime builders such as `src/app/app-learn-runtime.js` and
-   `src/app/app-shell-runtime.js`;
+8. domain runtime builders such as `src/app/app-learn-runtime.js`,
+   `src/app/app-shell-runtime.js`, and `src/app/app-lifecycle-runtime.js`;
 9. `src/app/app-runtime-compatibility-facade.js`;
 10. `src/app/wsc-app-composition-root.js`;
 11. `app/app.js`;
@@ -87,8 +87,9 @@ The main app does not use a bundler. Most modules are classic browser scripts
 that attach APIs to `window.WSC_*`. `src/app/wsc-app-composition-root.js`
 assembles those globals into the running app. `app/app.js` is now only the
 small bootstrap file that creates `window.WSC_APP` and calls `app.init()`.
-`src/app/app-learn-runtime.js` and `src/app/app-shell-runtime.js` now group
-controller construction by domain before the composition root creates the app.
+`src/app/app-learn-runtime.js`, `src/app/app-shell-runtime.js`, and
+`src/app/app-lifecycle-runtime.js` now group controller construction and app
+lifecycle mechanics by domain before the composition root creates the app.
 `src/app/app-runtime-compatibility-facade.js` sits between feature controllers
 and the composition root as a transitional compatibility layer for old callback
 names.
@@ -107,13 +108,16 @@ composition root: it creates the app closure, wires the classic-script
 controllers, creates one runtime compatibility facade, and exposes `init()`.
 The mechanical pass-through wrappers that used to bloat the root now live in
 `src/app/app-runtime-compatibility-facade.js`. `npm run
-test:composition-root-budget` enforces a hard `2500` line budget for the root.
+test:composition-root-budget` enforces a hard `1800` line budget for the root.
 
 The root no longer constructs every controller directly. Learn-mode wiring now
 lives in `src/app/app-learn-runtime.js`, which creates the slideshow, mind map,
 Alpacards, Alpaca Channel, Raw Content, and regular-guide controllers. App
 shell wiring now lives in `src/app/app-shell-runtime.js`, which creates the
 action registry, event router, shell renderer, and shell controller.
+Lifecycle wiring now lives in `src/app/app-lifecycle-runtime.js`, which owns
+startup tasks, global listener registration, app-ready marking, and the
+cross-controller timer/Jump-animation sync hook.
 
 Static app config, selection context, experience factories, knowledge
 hydration, game prompts, game results, game audio, relay-team bindings,

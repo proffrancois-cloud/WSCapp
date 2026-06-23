@@ -64,6 +64,7 @@ const createAppActionRegistry = window.WSC_CREATE_APP_ACTION_REGISTRY;
 const createAppRuntimeCompatibilityFacade = window.WSC_CREATE_APP_RUNTIME_COMPATIBILITY_FACADE;
 const createAppLearnRuntime = window.WSC_CREATE_APP_LEARN_RUNTIME;
 const createAppShellRuntime = window.WSC_CREATE_APP_SHELL_RUNTIME;
+const createAppLifecycleRuntime = window.WSC_CREATE_APP_LIFECYCLE_RUNTIME;
 const createAlpaquizRenderController = window.WSC_CREATE_ALPAQUIZ_RENDER_CONTROLLER;
 const arcadeJumpHelpers = window.WSC_ARCADE_JUMP_HELPERS;
 const appConfig = window.WSC_APP_CONFIG;
@@ -1035,6 +1036,35 @@ arcadeJumpAnimationController = createArcadeJumpAnimationController({
   }
 });
 
+const appLifecycleRuntime = createAppLifecycleRuntime({
+  appState: state,
+  refs,
+  documentRef: document,
+  windowRef: window,
+  bootstrapService: appBootstrapService,
+  domService: appDomService,
+  controllers: {
+    arcadeRuntimeTimerController,
+    arcadeJumpAnimationController
+  },
+  callbacks: {
+    hydrateKnowledgeBank,
+    preloadExperienceAudio,
+    setupSupabaseAuth,
+    renderHeroVisual,
+    renderInsights,
+    render,
+    handleClick,
+    handleInput,
+    handleSubmit,
+    handleKeyDown,
+    handleMindMapGalleryWheel,
+    handleTouchStart,
+    handleTouchEnd,
+    syncRadialMindMapScroll
+  }
+});
+
 const alpaquizRenderController = createAlpaquizRenderController({
   appState: state,
   renderers: {
@@ -1142,7 +1172,7 @@ const modeRuntimeController = createModeRuntimeController({
   },
   callbacks: {
     stopMindMapOrbitAnimation,
-    syncExperienceTimers,
+    syncExperienceTimers: appLifecycleRuntime.syncExperienceTimers,
     syncPopupScrollLock,
     syncRadialMindMapScroll,
     syncMindMapOrbitAnimation,
@@ -1401,40 +1431,7 @@ trainPracticeController = createTrainPracticeController({
   }
 });
 
-init();
-
-function init() {
-  const startupTasks = [
-    hydrateKnowledgeBank,
-    preloadExperienceAudio,
-    setupSupabaseAuth,
-    () => {
-      if (refs.heroMascot) {
-        appDomService.setHtml(refs.heroMascot, renderHeroVisual());
-      }
-    },
-    renderInsights,
-    render
-  ];
-  const eventBindings = [
-    { target: document, type: "click", handler: handleClick },
-    { target: document, type: "input", handler: handleInput },
-    { target: document, type: "submit", handler: handleSubmit },
-    { target: document, type: "keydown", handler: handleKeyDown },
-    { target: document, type: "wheel", handler: handleMindMapGalleryWheel, options: { passive: false } },
-    { target: document, type: "touchstart", handler: handleTouchStart, options: { passive: true } },
-    { target: document, type: "touchend", handler: handleTouchEnd, options: { passive: true } },
-    { target: window, type: "resize", handler: syncRadialMindMapScroll }
-  ];
-
-  appBootstrapService.runStartupTasks(startupTasks);
-  appBootstrapService.markAppReady({
-    windowTarget: window,
-    flagName: "WSC_APP_READY",
-    eventName: "wsc:app-ready"
-  });
-  appBootstrapService.registerEventListeners(eventBindings);
-}
+appLifecycleRuntime.init();
 
 function renderStats() {
   return appShellController.renderStats();
@@ -1503,21 +1500,6 @@ function getThemedTeamLabel(index) {
 
 function getQuestionSubjectLabels(question) {
   return gameQuestionPlanningController.getQuestionSubjectLabels(question);
-}
-
-function syncExperienceTimers() {
-  arcadeRuntimeTimerController.syncExperienceTimers();
-
-  if (
-    !state.experience ||
-    state.experience.type !== "jump" ||
-    state.experience.phase !== "running" ||
-    state.experience.finished
-  ) {
-    clearJumpAnimation();
-  } else if (!arcadeJumpAnimationController.hasActiveJumpAnimation()) {
-    startJumpAnimation();
-  }
 }
 
 function getRawEntriesForRouteSelection(...args) {
@@ -1731,7 +1713,7 @@ function escapeHtml(value) {
 
 
     return Object.freeze({
-      init
+      init: appLifecycleRuntime.init
     });
   }
 
