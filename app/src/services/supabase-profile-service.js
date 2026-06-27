@@ -26,9 +26,19 @@
       }, { onConflict: "user_id" });
   }
 
+  function checkAlpacaNameAvailability(client, alpacaName) {
+    return client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
+  }
+
+  function resolveAlpacaLogin(client, alpacaName) {
+    return client.rpc("resolve_alpaca_login", { p_alpaca_name: alpacaName });
+  }
+
   window.WSC_SUPABASE_PROFILE_SERVICE = Object.freeze({
     fetchProfile,
     fetchProgress,
-    upsertProgress
+    upsertProgress,
+    checkAlpacaNameAvailability,
+    resolveAlpacaLogin
   });
 }());

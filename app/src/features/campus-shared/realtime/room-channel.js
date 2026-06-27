@@ -12,14 +12,6 @@
     seatReleased: "campus3d.seat.released"
   });
 
-  const NETWORK_LIMITS = Object.freeze({
-    movementPayloadBytes: 384,
-    presencePayloadBytes: 1024,
-    chatPayloadBytes: 1024,
-    objectPayloadBytes: 2048,
-    maxRenderedRemotePlayers: 24
-  });
-
   function createClientId() {
     const random = Math.random().toString(36).slice(2, 10);
     return `campus-${Date.now().toString(36)}-${random}`;
@@ -34,45 +26,6 @@
       .slice(0, 64) || "room";
   }
 
-  function getPayloadByteSize(payload) {
-    try {
-      const json = JSON.stringify(payload);
-      if (typeof json !== "string") {
-        return 0;
-      }
-      if (typeof TextEncoder !== "undefined") {
-        return new TextEncoder().encode(json).byteLength;
-      }
-      return json.length;
-    } catch (_error) {
-      return Number.POSITIVE_INFINITY;
-    }
-  }
-
-  function isPayloadWithinByteLimit(payload, maxBytes) {
-    return getPayloadByteSize(payload) <= maxBytes;
-  }
-
-  function getBroadcastPayloadLimit(event) {
-    if (event === EVENTS.move || event === EVENTS.legacyMove || event === EVENTS.avatar || event === EVENTS.legacyAvatar) {
-      return NETWORK_LIMITS.movementPayloadBytes;
-    }
-    if (event === EVENTS.chat) {
-      return NETWORK_LIMITS.chatPayloadBytes;
-    }
-    return NETWORK_LIMITS.objectPayloadBytes;
-  }
-
-  function createPayloadTooLargeResult(event, payload, maxBytes) {
-    return {
-      ok: false,
-      reason: "payload-too-large",
-      event,
-      bytes: getPayloadByteSize(payload),
-      maxBytes
-    };
-  }
-
   function flattenPresenceState(presenceState, localClientId) {
     const rows = Object.values(presenceState || {})
       .flat()
@@ -85,7 +38,7 @@
         byUserId.set(userId, presence);
       }
     });
-    return Array.from(byUserId.values()).slice(0, NETWORK_LIMITS.maxRenderedRemotePlayers);
+    return Array.from(byUserId.values());
   }
 
   function createCampusRoomChannel({ client, roomId, localPlayer, handlers = {} }) {
@@ -122,6 +75,8 @@
         title: localPlayer.title || "",
         level: localPlayer.level || 1,
         xp: localPlayer.xp || 0,
+        x: Number(localPlayer.x) || 640,
+        y: Number(localPlayer.y) || 560,
         status: "online",
         onlineAt: new Date().toISOString(),
         onlineAtMs: nowMs,
@@ -166,11 +121,7 @@
       if (!subscribed) {
         return null;
       }
-      const payload = getPresencePayload(extra);
-      if (!isPayloadWithinByteLimit(payload, NETWORK_LIMITS.presencePayloadBytes)) {
-        return createPayloadTooLargeResult("presence", payload, NETWORK_LIMITS.presencePayloadBytes);
-      }
-      return channel.track(payload);
+      return channel.track(getPresencePayload(extra));
     }
 
     function send(event, payload) {
@@ -178,7 +129,7 @@
         return Promise.resolve(null);
       }
       const sentAtMs = Date.now();
-      const outbound = {
+      return channel.send({
         type: "broadcast",
         event,
         payload: {
@@ -191,12 +142,7 @@
           sentAtMs,
           ...payload
         }
-      };
-      const maxBytes = getBroadcastPayloadLimit(event);
-      if (!isPayloadWithinByteLimit(outbound.payload, maxBytes)) {
-        return Promise.resolve(createPayloadTooLargeResult(event, outbound.payload, maxBytes));
-      }
-      return channel.send(outbound);
+      });
     }
 
     function sendMovement(command) {
@@ -247,11 +193,8 @@
 
   window.WSC_ALPACA_CAMPUS_REALTIME = Object.freeze({
     EVENTS,
-    NETWORK_LIMITS,
     createClientId,
     createCampusRoomChannel,
-    flattenPresenceState,
-    getPayloadByteSize,
-    isPayloadWithinByteLimit
+    flattenPresenceState
   });
 }());

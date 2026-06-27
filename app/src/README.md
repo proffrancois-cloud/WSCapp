@@ -8,39 +8,21 @@ The app still boots through `app/index.html` and `app/app.js`, but new engine pi
 
 ```text
 src/
-  app/
-    app-entry-service.js # Owns app entry labels, online campus URL, and mode switch button metadata.
-    online-mode-controller.js # Names the public 3D campus preview path separately from legacy live game rooms.
-    app-bootstrap-service.js # Owns startup task execution, app-ready signaling, and global listener registration mechanics.
-    app-state-service.js # Owns initial state factories and small selectors while app.js keeps state ownership.
-    app-dom-service.js # Owns app DOM refs, trusted HTML boundaries, escaping, template parsing, and dynamic body mounts.
-    modal-focus-service.js # Owns active dialog focus trapping, inert background siblings, and focus restoration.
-    route-builder-controller.js # Owns route-builder selection mutations while app.js keeps timers/render/launch policy.
-    auth-controller.js # Owns Alpaccount session, profile/progress loading, auth form actions, and sign-out orchestration.
-    progress-storage-controller.js # Owns local stats/raw mastery/guest-name persistence, normalization, and save-failure reporting.
-    game-launch-controller.js # Owns selected-mode launch, unavailable-mode launch, route-attempt reset, and close cleanup mechanics.
-    mode-runtime-controller.js # Owns experience-panel render dispatch and shared render lifecycle mechanics.
-    raw-content-controller.js # Owns Raw Content payloads, quiz/mastery state, visual asset selection, and media-lightbox orchestration.
-    study-game-controller.js # Owns local Writing, Bowl, and Alpaquiz action/state mechanics.
-    arcade-game-controller.js # Owns local Race, Run, Relay, and Jump action/state mechanics.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/
     asset-service.js     # Resolves configured image/audio asset paths for UI, modes, games, and results.
-    storage-service.js   # Wraps localStorage JSON/text reads and non-throwing writes for progress and future local state.
+    storage-service.js   # Wraps localStorage JSON reads/writes for progress and future local state.
     progress-service.js  # Owns default stat shape and progress/raw-mastery normalization.
     video-service.js     # Owns YouTube embed/preview URLs, video URL normalization, and channel video extraction.
     game-question-service.js # Owns shared game-question pools, required levels, reusable question patterns, and unavailable-route wording.
     auth-service.js      # Owns low-level Alpaccount helpers: name normalization, redirect URL, config checks, Supabase client creation.
-    supabase-profile-service.js # Owns Alpaccount profile/progress table calls.
+    supabase-profile-service.js # Owns Alpaccount table/RPC names for profile, progress, name availability, and login lookup.
     alpacapardy-live-supabase-service.js # Owns future Supabase table calls for Alpacapardy live rooms, players, events, and snapshots.
     raw-content-service.js # Owns raw-content section lookup, route filtering, entry mapping, payloads, and mastery key counts.
   ui/
     auth-modal-renderer.js # Owns Alpaccount modal HTML while app.js keeps submit/click orchestration.
     wizard-renderer.js # Owns route-builder wizard HTML while app.js keeps selection actions.
-  features/
-    alpaca-campus-3d/
-      campus-network-guardrails.ts # Owns movement delta/heartbeat decisions, payload byte helpers, network field sanitization, and remote-player caps.
   modes/
     learn/
       mindmap/

@@ -194,7 +194,7 @@
                 ${multiplayerLocked ? "Multiplayer · Available soon" : "Multiplayer"}
               </button>
             </div>
-            ${multiplayerLocked ? `<p class="setup-helper">${helpers.escapeHtml(live.disabledReason || "Legacy live rooms are disabled in this public build.")}</p>` : ""}
+            ${multiplayerLocked ? `<p class="setup-helper">Available soon. Live multiplayer is currently limited to the admin test accounts.</p>` : ""}
           </div>` : ""}
 
           ${helpers.showInlinePlayMode && isMultiplayer ? renderLiveLobby(experience, helpers) : ""}

@@ -36,12 +36,7 @@ const publicContentEntries = [
 ];
 
 const runtimeScriptDirs = [
-  "src/app",
-  "src/services",
-  "src/theme",
-  "src/ui",
-  "src/modes",
-  "src/features/campus-shared"
+  "src"
 ];
 
 const publicAssetDirs = [
@@ -136,6 +131,24 @@ function assertNoNestedOutputCopies() {
   }
 }
 
+function removeLocalMetadataFiles(dir) {
+  if (!existsSync(dir)) {
+    return;
+  }
+
+  readdirSync(dir, { withFileTypes: true }).forEach((entry) => {
+    const absolutePath = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      removeLocalMetadataFiles(absolutePath);
+      return;
+    }
+
+    if (entry.isFile() && entry.name === ".DS_Store") {
+      rmSync(absolutePath, { force: true });
+    }
+  });
+}
+
 if (!existsSync(campusDistRoot)) {
   throw new Error("Missing dist-3d. Run vite build before prepare-github-pages.");
 }
@@ -159,6 +172,8 @@ if (existsSync(campusCustomPropsRoot)) {
     }
   });
 }
+
+removeLocalMetadataFiles(publicDistRoot);
 
 writeFileSync(join(publicDistRoot, ".gitignore"), "*\n");
 

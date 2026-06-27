@@ -49,7 +49,7 @@
     }
 
     if (context.mode === "forgot") {
-      return "Enter your email and we will send a password reset link.";
+      return "Enter your alpaca name or email and we will send a password reset email.";
     }
 
     if (context.mode === "reset") {
@@ -121,8 +121,8 @@
     return `
       <form class="alpaccount-form" data-auth-form="login">
         <label class="auth-field">
-          <span>Email address</span>
-          <input name="email" type="email" autocomplete="email" required />
+          <span>Alpaca name or email</span>
+          <input name="identifier" type="text" autocomplete="username" required />
         </label>
         <label class="auth-field">
           <span>Password</span>
@@ -133,7 +133,6 @@
           <button class="button secondary" type="button" data-auth-mode="signup">Create an Alpaccount</button>
         </div>
         <button class="auth-text-button" type="button" data-auth-mode="forgot">I forgot my password</button>
-        <p class="auth-helper auth-trust-copy">Use your email to connect. Alpaca names are not looked up during sign-in, so the app does not reveal whether a name exists.</p>
       </form>
     `;
   }
@@ -175,7 +174,6 @@
           </select>
         </label>
         <p class="auth-helper">Examples: None yet, Regional Round, Global Round, or Tournament of Champions.</p>
-        <p class="auth-helper auth-trust-copy">Email is used for sign-in, password reset links, and syncing progress. Profile fields personalize WSCapp screens; avoid private details you would not want visible inside the app.</p>
         <div class="panel-actions auth-actions">
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Create Alpaccount</button>
           <button class="button secondary" type="button" data-auth-mode="login">Back to login</button>
@@ -188,8 +186,8 @@
     return `
       <form class="alpaccount-form" data-auth-form="forgot">
         <label class="auth-field">
-          <span>Email address</span>
-          <input name="email" type="email" autocomplete="email" required />
+          <span>Alpaca name or email</span>
+          <input name="identifier" type="text" autocomplete="username" required />
         </label>
         <div class="panel-actions auth-actions">
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Send reset email</button>

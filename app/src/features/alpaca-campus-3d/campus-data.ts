@@ -160,10 +160,6 @@ declare global {
       url?: string;
       publishableKey?: string;
     };
-    WSC_STORAGE_SERVICE?: {
-      getJson?: <T>(key: string, fallback: T) => T;
-      setJson?: (key: string, value: unknown) => { ok: boolean; key?: string; error?: string };
-    };
     supabase?: {
       createClient?: (url: string, key: string) => unknown;
     };

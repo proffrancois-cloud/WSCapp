@@ -108,7 +108,7 @@
     return context.pathOptions.map((option) => {
       const active = context.selection.path === option.id;
       return `
-        <button class="choice-card wizard-choice-card ${active ? "active" : ""}" type="button" data-pick-path="${option.id}">
+        <button class="choice-card wizard-choice-card ${active ? "active" : ""}" data-pick-path="${option.id}">
           <div class="card-top">
             ${helpers.renderConfiguredMascotAsset(
               helpers.getWizardCardAsset(helpers.getAssetValue(["contexts", "paths", option.id])),
@@ -140,7 +140,7 @@
       const active = context.selection.lens === option.id;
       const fallbackMood = option.id === "subject" ? "wise" : "happy";
       return `
-        <button class="choice-card wizard-choice-card ${active ? "active" : ""}" type="button" data-pick-lens="${option.id}">
+        <button class="choice-card wizard-choice-card ${active ? "active" : ""}" data-pick-lens="${option.id}">
           <div class="card-top">
             ${helpers.renderConfiguredMascotAsset(
               helpers.getWizardCardAsset(helpers.getAssetValue(["contexts", "lenses", option.id])),
@@ -211,7 +211,7 @@
       const pathId = helpers.getModePath(option.id) || context.selection.path || "learn";
       const active = context.selection.mode === option.id;
       return `
-        <button class="mode-card wizard-choice-card ${active ? "active" : ""}" type="button" data-pick-mode="${option.id}" data-pick-mode-path="${pathId}">
+        <button class="mode-card wizard-choice-card ${active ? "active" : ""}" data-pick-mode="${option.id}" data-pick-mode-path="${pathId}">
           <div class="card-top">
             ${helpers.renderConfiguredMascotAsset(
               helpers.getWizardCardAsset(helpers.getModeAssetPath(option.id)),
@@ -256,19 +256,16 @@
 
   function renderHubModeSwitch(context, helpers) {
     const switchTarget = context.ui.appShellMode === "online" ? "local" : "online";
-    const label = switchTarget === "online" ? "Explore preview" : "Study solo";
+    const label = switchTarget === "online" ? "Join online" : "Stay solo";
     const icon = helpers.getAppModeSwitchIcon
       ? helpers.getAppModeSwitchIcon()
       : helpers.getAssetValue(["contexts", "paths", "play"]);
-    const actionAttribute = switchTarget === "online"
-      ? "data-open-alpaca-online-campus"
-      : "data-open-app-entry-gate";
 
     return `
       <button
         class="hub-mode-switch"
         type="button"
-        ${actionAttribute}
+        data-open-app-entry-gate
         aria-label="${helpers.escapeHtml(label)}"
         title="${helpers.escapeHtml(label)}"
       >
@@ -369,7 +366,6 @@
     return `
       <button
         class="mode-card wizard-choice-card ${active ? "active" : ""} ${disabled ? "disabled" : ""} ${unavailable ? "unavailable" : ""}"
-        type="button"
         data-pick-mode="${option.id}"
         data-pick-mode-path="${pathId}"
         ${disabled ? "disabled" : ""}

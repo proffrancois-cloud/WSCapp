@@ -1,6 +1,4 @@
 import {
-  ArrowDown,
-  ArrowUp,
   BookOpen,
   Camera,
   DoorOpen,
@@ -12,9 +10,6 @@ import {
   MessageCircle,
   Monitor,
   Play,
-  RefreshCcw,
-  RotateCcw,
-  RotateCw,
   Send,
   Sun,
   Users,
@@ -23,15 +18,15 @@ import {
   ZoomIn,
   ZoomOut
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import type { FormEvent, ReactElement } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { CSSProperties, FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactElement } from "react";
 import { CampusScene, getPlayerAvatarBaseHeight } from "./CampusScene";
 import {
   getCampusDebugZoneDraftKey,
   getNearestActionItem,
-  avatarOptions,
   DEFAULT_ONLINE_ALPACA_NAME,
   type CampusLaunchMode,
+  type CampusChatMessage,
   type CampusDebugSelection,
   type CampusDebugZoneKind,
   useCampusStore
@@ -60,7 +55,6 @@ import {
 } from "./content-surfaces";
 import { ROOM_MANIFEST_ROOM_IDS, type RoomManifestRoomId } from "./room-manifest";
 import { getCampusMapRoom, type CampusMapObject } from "./map-source";
-import { ensureCampusContentLoaded } from "./campus-runtime-loader";
 
 const roomIcons: Record<string, typeof DoorOpen> = {
   "campus-courtyard": MapPin,
@@ -119,38 +113,174 @@ function getAlpacardPanelData(content: WorldContentCard | null): AlpacardPanelDa
   return value && typeof value === "object" ? value as AlpacardPanelData : null;
 }
 
+function getSurfaceForItem(
+  roomId: string,
+  item: CampusItem | null | undefined
+): CampusContentSurface | null {
+  if (!item || !isFirstSliceRoomId(roomId)) {
+    return null;
+  }
+
+  return getContentSurfacesForRoom(roomId as FirstFiveContentRoomId).find((surface) => surface.itemId === item.id) || null;
+}
+
+function getChatBubbleStyle(message: CampusChatMessage): CSSProperties {
+  return {
+    "--campus3d-chat-color": message.avatarWool,
+    "--campus3d-chat-accent": message.avatarAccent
+  } as CSSProperties;
+}
+
+const LOOK_JOYSTICK_RADIUS = 24;
+const LOOK_JOYSTICK_KEY_RATIO = 0.72;
+const LOOK_JOYSTICK_MAX_YAW = Math.PI / 4;
+const LOOK_JOYSTICK_MAX_VERTICAL = 0.52;
+
+type LookJoystickPosition = {
+  x: number;
+  y: number;
+};
+
+function clampLookJoystickPosition(position: LookJoystickPosition): LookJoystickPosition {
+  const length = Math.hypot(position.x, position.y);
+
+  if (length <= LOOK_JOYSTICK_RADIUS || length === 0) {
+    return position;
+  }
+
+  const ratio = LOOK_JOYSTICK_RADIUS / length;
+  return {
+    x: position.x * ratio,
+    y: position.y * ratio
+  };
+}
+
 function ViewControls(): ReactElement {
   const viewSettings = useCampusStore((state) => state.viewSettings);
-  const highDetailEnabled = useCampusStore((state) => state.highDetailEnabled);
   const nudgeViewSettings = useCampusStore((state) => state.nudgeViewSettings);
   const setViewLight = useCampusStore((state) => state.setViewLight);
-  const setHighDetailEnabled = useCampusStore((state) => state.setHighDetailEnabled);
-  const resetViewSettings = useCampusStore((state) => state.resetViewSettings);
+  const setViewLook = useCampusStore((state) => state.setViewLook);
+  const activePointerIdRef = useRef<number | null>(null);
+  const [joystickPosition, setJoystickPosition] = useState<LookJoystickPosition>({ x: 0, y: 0 });
+  const [isJoystickActive, setIsJoystickActive] = useState(false);
+
+  function commitJoystickPosition(position: LookJoystickPosition) {
+    const clamped = clampLookJoystickPosition(position);
+    setJoystickPosition(clamped);
+    setViewLook({
+      yaw: (clamped.x / LOOK_JOYSTICK_RADIUS) * LOOK_JOYSTICK_MAX_YAW,
+      height: (-clamped.y / LOOK_JOYSTICK_RADIUS) * LOOK_JOYSTICK_MAX_VERTICAL
+    });
+  }
+
+  function updateJoystickFromPointer(event: ReactPointerEvent<HTMLButtonElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    commitJoystickPosition({
+      x: event.clientX - rect.left - rect.width / 2,
+      y: event.clientY - rect.top - rect.height / 2
+    });
+  }
+
+  function resetJoystick() {
+    activePointerIdRef.current = null;
+    setIsJoystickActive(false);
+    setJoystickPosition({ x: 0, y: 0 });
+    setViewLook({ yaw: 0, height: 0 });
+  }
+
+  function onJoystickPointerDown(event: ReactPointerEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    activePointerIdRef.current = event.pointerId;
+    setIsJoystickActive(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+    updateJoystickFromPointer(event);
+  }
+
+  function onJoystickPointerMove(event: ReactPointerEvent<HTMLButtonElement>) {
+    if (activePointerIdRef.current !== event.pointerId) {
+      return;
+    }
+
+    updateJoystickFromPointer(event);
+  }
+
+  function onJoystickPointerRelease(event: ReactPointerEvent<HTMLButtonElement>) {
+    if (activePointerIdRef.current !== event.pointerId) {
+      return;
+    }
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    resetJoystick();
+  }
+
+  function onJoystickKeyDown(event: ReactKeyboardEvent<HTMLButtonElement>) {
+    const offset = LOOK_JOYSTICK_RADIUS * LOOK_JOYSTICK_KEY_RATIO;
+    const positions: Record<string, LookJoystickPosition> = {
+      ArrowLeft: { x: -offset, y: 0 },
+      ArrowRight: { x: offset, y: 0 },
+      ArrowUp: { x: 0, y: -offset },
+      ArrowDown: { x: 0, y: offset }
+    };
+    const position = positions[event.key];
+
+    if (!position) {
+      return;
+    }
+
+    event.preventDefault();
+    setIsJoystickActive(true);
+    commitJoystickPosition(position);
+  }
+
+  function onJoystickKeyUp(event: ReactKeyboardEvent<HTMLButtonElement>) {
+    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+    resetJoystick();
+  }
+
+  const joystickStyle = {
+    "--campus3d-look-x": `${joystickPosition.x}px`,
+    "--campus3d-look-y": `${joystickPosition.y}px`
+  } as CSSProperties;
 
   return (
-    <section className="campus3d-view-controls" aria-label="Camera and light controls">
-      <Camera className="campus3d-view-icon" size={16} aria-hidden="true" />
-      <button type="button" onClick={() => nudgeViewSettings({ yaw: -Math.PI / 12 })} aria-label="Rotate camera left" title="Rotate camera left">
-        <RotateCcw size={16} aria-hidden="true" />
+    <section className="campus3d-view-controls" aria-label="Camera controls">
+      <button
+        type="button"
+        className={`campus3d-look-joystick${isJoystickActive ? " is-active" : ""}`}
+        style={joystickStyle}
+        onPointerDown={onJoystickPointerDown}
+        onPointerMove={onJoystickPointerMove}
+        onPointerUp={onJoystickPointerRelease}
+        onPointerCancel={onJoystickPointerRelease}
+        onLostPointerCapture={resetJoystick}
+        onBlur={resetJoystick}
+        onKeyDown={onJoystickKeyDown}
+        onKeyUp={onJoystickKeyUp}
+        aria-label="Look around"
+        title="Look around"
+      >
+        <span className="campus3d-look-joystick-rings" aria-hidden="true" />
+        <span className="campus3d-look-joystick-knob" aria-hidden="true">
+          <Camera size={14} />
+        </span>
       </button>
-      <button type="button" onClick={() => nudgeViewSettings({ yaw: Math.PI / 12 })} aria-label="Rotate camera right" title="Rotate camera right">
-        <RotateCw size={16} aria-hidden="true" />
-      </button>
-      <button type="button" onClick={() => nudgeViewSettings({ distance: -0.14 })} aria-label="Move camera closer" title="Move camera closer">
-        <ZoomIn size={16} aria-hidden="true" />
-      </button>
-      <button type="button" onClick={() => nudgeViewSettings({ distance: 0.14 })} aria-label="Move camera farther" title="Move camera farther">
-        <ZoomOut size={16} aria-hidden="true" />
-      </button>
-      <button type="button" onClick={() => nudgeViewSettings({ height: 0.72 })} aria-label="Raise camera" title="Raise camera">
-        <ArrowUp size={16} aria-hidden="true" />
-      </button>
-      <button type="button" onClick={() => nudgeViewSettings({ height: -0.72 })} aria-label="Lower camera" title="Lower camera">
-        <ArrowDown size={16} aria-hidden="true" />
-      </button>
-      <button type="button" onClick={resetViewSettings} aria-label="Reset camera" title="Reset camera">
-        <RefreshCcw size={16} aria-hidden="true" />
-      </button>
+
+      <div className="campus3d-zoom-controls" aria-label="Zoom controls">
+        <button type="button" onClick={() => nudgeViewSettings({ distance: -0.12 })} aria-label="Zoom in" title="Zoom in">
+          <ZoomIn size={16} aria-hidden="true" />
+        </button>
+        <button type="button" onClick={() => nudgeViewSettings({ distance: 0.12 })} aria-label="Zoom out" title="Zoom out">
+          <ZoomOut size={16} aria-hidden="true" />
+        </button>
+      </div>
+
       <label className="campus3d-light-slider" title="Scene light">
         <Sun size={15} aria-hidden="true" />
         <input
@@ -163,46 +293,12 @@ function ViewControls(): ReactElement {
           aria-label="Scene light"
         />
       </label>
-      <label className="campus3d-detail-toggle" title="Load high-detail campus props">
-        <input
-          type="checkbox"
-          checked={highDetailEnabled}
-          onChange={(event) => setHighDetailEnabled(event.currentTarget.checked)}
-          aria-label="High detail"
-        />
-        <span>High detail</span>
-      </label>
     </section>
   );
 }
 
-function getSurfaceForItem(
-  roomId: string,
-  item: CampusItem | null | undefined
-): CampusContentSurface | null {
-  if (!item || !isFirstSliceRoomId(roomId)) {
-    return null;
-  }
-
-  return getContentSurfacesForRoom(roomId as FirstFiveContentRoomId).find((surface) => surface.itemId === item.id) || null;
-}
-
 export function Campus3DApp(): ReactElement {
   const campusMode = useCampusStore((state) => state.campusMode);
-  const setCampusMode = useCampusStore((state) => state.setCampusMode);
-
-  useEffect(() => {
-    if (campusMode) {
-      return;
-    }
-
-    const requestedMode = new URLSearchParams(window.location.search).get("mode");
-    if (requestedMode === "multiplayer" || requestedMode === "online") {
-      setCampusMode("multiplayer");
-    } else if (requestedMode === "local") {
-      setCampusMode("local");
-    }
-  }, [campusMode, setCampusMode]);
 
   if (!campusMode) {
     return <Campus3DModeGate />;
@@ -288,13 +384,13 @@ function CampusChat(): ReactElement {
   return (
     <section className="campus3d-chat" aria-label={campusMode === "multiplayer" ? "Room chat" : "Local chat"}>
       <div className="campus3d-chat-float-rail" aria-live="polite">
-        {chatMessages.map((message, index) => (
+        {chatMessages.map((message) => (
           <article
             key={message.id}
             className={`campus3d-chat-float${message.isLocal ? " is-local" : ""}`}
-            style={{ animationDelay: `${Math.min(index, 4) * 70}ms` }}
+            style={getChatBubbleStyle(message)}
           >
-            <strong>{message.displayName}</strong>
+            <strong>{message.alpacaName || message.displayName}</strong>
             <span>{message.message}</span>
           </article>
         ))}
@@ -328,13 +424,11 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
   const openPanel = useCampusStore((state) => state.openPanel);
   const claimedSeatId = useCampusStore((state) => state.claimedSeatId);
   const setRoom = useCampusStore((state) => state.setRoom);
-  const chooseAvatar = useCampusStore((state) => state.chooseAvatar);
   const closePanel = useCampusStore((state) => state.closePanel);
   const openItemPanel = useCampusStore((state) => state.openItemPanel);
   const room = getRoom(roomId);
   const visibleRooms = useMemo(() => orderFirstSliceRooms(rooms), [rooms]);
   const nearestItem = useMemo(() => getNearestActionItem(room, localPlayer), [room, localPlayer.x, localPlayer.y]);
-  const [, setContentReadyRevision] = useState(0);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -347,36 +441,13 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [closePanel]);
 
-  useEffect(() => {
-    const openedItem = openPanel?.item;
-    if (!openedItem || window.WSC_CAMPUS_CONTENT_READY) {
-      return undefined;
-    }
-
-    let cancelled = false;
-    void ensureCampusContentLoaded().then((ready) => {
-      if (cancelled || !ready) {
-        return;
-      }
-
-      setContentReadyRevision((revision) => revision + 1);
-      const currentPanel = useCampusStore.getState().openPanel;
-      if (currentPanel?.item && currentPanel.item.id === openedItem.id) {
-        useCampusStore.getState().openItemPanel(currentPanel.item);
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [openPanel?.item?.id]);
-
   return (
     <main className="campus3d-shell" aria-label="Alpaca Campus 3D">
       <CampusScene />
       <CampusDebugPanel />
       <CampusDebugEditorPanel />
       <CampusChat />
+      <ViewControls />
 
       <header className="campus3d-topbar" aria-label="Campus status">
         <div className="campus3d-room-title">
@@ -385,7 +456,6 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
           <p>{room.subtitle || "WSC live campus"}</p>
         </div>
         <div className="campus3d-status-cluster">
-          <ViewControls />
           <span className="campus3d-status-pill">
             <Users size={16} aria-hidden="true" />
             {remotePlayers.length + 1}
@@ -413,21 +483,6 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
           );
         })}
       </nav>
-
-      <section className="campus3d-avatar-dock" aria-label="Alpaca selection">
-        {avatarOptions.map((avatar) => (
-          <button
-            key={avatar.id}
-            type="button"
-            className={avatar.id === localPlayer.avatar.id ? "is-active" : ""}
-            onClick={() => chooseAvatar(avatar)}
-            aria-label={avatar.name}
-            title={avatar.name}
-          >
-            <span style={{ background: avatar.wool }} />
-          </button>
-        ))}
-      </section>
 
       {nearestItem ? (
         <div className="campus3d-action-pill">

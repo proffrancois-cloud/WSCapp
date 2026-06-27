@@ -1,5 +1,4 @@
 import type { CampusPoint } from "./campus-data";
-import { toCampusPublicUrl } from "./public-url";
 import libraryRococoWallpaperSrc from "../../../assets/campus-3d/materials/library-wallpaper-rococo/wallpaper-rococo-landscape.jpg?url";
 import artEaselSrc from "../../../assets/campus-3d/props/assetsraw/art-easel.glb?url";
 import artHolderSrc from "../../../assets/campus-3d/props/assetsraw/art-holder.glb?url";
@@ -77,16 +76,16 @@ import tableSrc from "../../../assets/campus-3d/props/assetsraw/table.glb?url";
 import televisionModernSrc from "../../../assets/campus-3d/props/assetsraw/television-modern.glb?url";
 
 const DATA_SCALE = 1.65;
-const PUBLIC_RAW_ASSET_ROOT = toCampusPublicUrl("assets/campus-3d/props/assetsraw");
+const PUBLIC_RAW_ASSET_ROOT = "/assets/campus-3d/props/assetsraw";
 const PUBLIC_CASTLE_ROOT = `${PUBLIC_RAW_ASSET_ROOT}/kenney-castle`;
 const PUBLIC_MINI_ARCADE_ROOT = `${PUBLIC_RAW_ASSET_ROOT}/kenney-mini-arcade`;
 const PUBLIC_MINI_SKATE_ROOT = `${PUBLIC_RAW_ASSET_ROOT}/kenney-mini-skate`;
 const PUBLIC_PLATFORMER_ROOT = `${PUBLIC_RAW_ASSET_ROOT}/kenney-platformer`;
 const PUBLIC_RETRO_URBAN_ROOT = `${PUBLIC_RAW_ASSET_ROOT}/kenney-retro-urban`;
-const PUBLIC_CUSTOM_ROOT = toCampusPublicUrl("assets/campus-3d/props/custom");
+const PUBLIC_CUSTOM_ROOT = "/assets/campus-3d/props/custom";
 
 export const LOBBY_INFORMATION_ALPACA_ASSET_POINT: CampusPoint = point(950, 238);
-export const CAMPUS_ORNATE_FRAME_TEXTURE_SRC = toCampusPublicUrl("assets/campus-3d/frames/ornate-gold-frame-alpha.png?v=2");
+export const CAMPUS_ORNATE_FRAME_TEXTURE_SRC = "/assets/campus-3d/frames/ornate-gold-frame-alpha.png?v=2";
 export const CAMPUS_LIBRARY_ROCOCO_WALLPAPER_TEXTURE_SRC = libraryRococoWallpaperSrc;
 
 export const RAW_ENVIRONMENT_ASSETS = {
@@ -247,7 +246,6 @@ export const RAW_ENVIRONMENT_ASSETS = {
 
 export type EnvironmentAssetKey = keyof typeof RAW_ENVIRONMENT_ASSETS;
 export type EnvironmentAssetScale = number | [number, number, number];
-export type EnvironmentAssetLoadTier = "critical" | "deferred" | "highDetail";
 export type CampusWallFramePlacement = {
   id: string;
   roomId: string;
@@ -308,25 +306,7 @@ export type EnvironmentAssetPlacement = {
   openOnClick?: boolean;
   openAngle?: number;
   openDirection?: 1 | -1;
-  loadTier?: EnvironmentAssetLoadTier;
 };
-
-export const HIGH_DETAIL_ENVIRONMENT_ASSET_KEYS = new Set<EnvironmentAssetKey>([
-  "customAlhambraPattern",
-  "customAlhambraStudy",
-  "customAntiqueWoodenPedestalStandTypeA",
-  "customArabMajlis",
-  "customChambordCourtyard",
-  "customFinePersianEsfahanCarpet",
-  "customMasjidAlAqsaDomeOfTheRock",
-  "customOldWoodenDoor",
-  "customOrientalFountain",
-  "customOttomanPillowAndCarpets"
-]);
-
-export function getEnvironmentAssetLoadTier(placement: EnvironmentAssetPlacement): EnvironmentAssetLoadTier {
-  return placement.loadTier || (HIGH_DETAIL_ENVIRONMENT_ASSET_KEYS.has(placement.asset) ? "highDetail" : "critical");
-}
 
 function point(x: number, y: number): CampusPoint {
   return { x: Math.round(x * DATA_SCALE), y: Math.round(y * DATA_SCALE) };

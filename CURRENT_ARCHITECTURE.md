@@ -31,8 +31,7 @@ WSC/
 app/
   index.html                        # browser entry point; loads generated runtime + extracted modules + app.js
   app.js                            # current orchestration/event wiring; still large, but reduced
-  styles.css                        # ordered stylesheet import index
-  styles-*.css                      # split app shell, route, learn/play/live/raw, and late override chunks
+  styles.css                        # current global UI/game styles
   pwa.js                            # PWA install/service-worker registration behavior
   service-worker.js                 # offline/cache layer
   manifest.webmanifest              # PWA manifest
@@ -274,8 +273,6 @@ npm run theme:build-question-bank
 npm run theme:validate
 npm run theme:build-runtime
 npm run theme:compare
-npm run theme:compare:strict
-npm run theme:compare:legacy-audit
 npm run theme:refresh
 npm run test:theme
 npm run test:smoke

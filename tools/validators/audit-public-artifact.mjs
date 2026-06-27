@@ -20,7 +20,7 @@ const requiredPaths = [
   "generated/current-runtime/content/alpacards.js",
   "content/debate/debate-lab-data.js",
   "content/debate/debate-judge-instructions.pdf",
-  "src/app/app-entry-service.js",
+  "src/app-lifecycle-controller.js",
   "src/ui/wizard-renderer.js",
   "src/features/campus-shared/data/rooms.js",
   "alpaca-campus-3d/index.html"

@@ -35,6 +35,7 @@ import {
 import { roomManifests, type RoomManifestRoomId } from "./room-manifest";
 import {
   PLAYER_ALPACA_MODEL_SRC,
+  PLAYER_ALPACA_TEXTURES,
   getPlayerAlpacaTextureSrc
 } from "./avatar-assets";
 import lobbyFloorBaseColorSrc from "../../../assets/campus-3d/materials/medievaltiles-red/base-color.webp?url";
@@ -53,7 +54,6 @@ import {
   CAMPUS_LIBRARY_ROCOCO_WALLPAPER_TEXTURE_SRC,
   LOBBY_INFORMATION_ALPACA_ASSET_POINT,
   RAW_ENVIRONMENT_ASSETS,
-  getEnvironmentAssetLoadTier,
   getCampusWallFramePlacements,
   getCampusWallWallpaperPlacements,
   type CampusWallFramePlacement,
@@ -61,6 +61,7 @@ import {
 } from "./environment-assets";
 import {
   getCampusMapDecorativePlacements,
+  getCampusMapRoom,
   isCampusMapDecoratedObject,
   isCampusMapDecoratedRoom,
   isCampusMapFullEnvironmentModelRoom,
@@ -68,16 +69,22 @@ import {
   type EnvironmentAssetPlacement
 } from "./map-source";
 
-declare global {
-  interface Window {
-    WSC_CAMPUS_3D_FRAME_COUNT?: number;
-    WSC_CAMPUS_3D_READY?: boolean;
-  }
-}
-
 const WORLD_SCALE = 0.012;
 const DESIGN_COORDINATE_SCALE = 1.65;
 const PLAYER_HEIGHT = 0.78;
+const CAMERA_BASE_HEIGHT = PLAYER_HEIGHT * 2;
+const CAMERA_BASE_BACK_DISTANCE = PLAYER_HEIGHT * 1.32;
+const CAMERA_LOOK_AHEAD_DISTANCE = PLAYER_HEIGHT * 0.68;
+const CAMERA_LOOK_TARGET_HEIGHT = PLAYER_HEIGHT * 0.82;
+const CAMERA_POSITION_DAMPING = 12;
+const CAMERA_LOOK_DAMPING = 16;
+const CAMERA_HEADING_DAMPING = 14;
+const CAMERA_FOV = 58;
+const CAMERA_NEAR = 0.04;
+const CAMERA_FAR = 80;
+const CAMERA_ROOM_EDGE_INSET = 42;
+const CAMERA_BLOCKER_PADDING = 34;
+const CAMERA_BLOCKER_MARGIN = 28;
 const PLAYER_AVATAR_BASE_HEIGHT = 0.3;
 const LIBRARY_PLAYER_AVATAR_BASE_HEIGHT = 0;
 const DEBATE_ROOM_BASE_SURFACE_HEIGHT = 0.77;
@@ -231,12 +238,177 @@ function getRectDistance(
   return Math.hypot(dx, dy);
 }
 
-function isRingZone(zone: CampusZone): zone is CampusZone & { shape: "ring"; radius: number } {
-  return zone.shape === "ring" && typeof zone.radius === "number";
+function isRingZone(zone: CampusZone | undefined): zone is CampusZone & { shape: "ring"; radius: number } {
+  return zone?.shape === "ring" && typeof zone.radius === "number";
 }
 
-function isPathZone(zone: CampusZone): zone is CampusZone & { shape: "path"; points: CampusPoint[] } {
-  return zone.shape === "path" && Array.isArray(zone.points) && zone.points.length >= 2;
+function isPathZone(zone: CampusZone | undefined): zone is CampusZone & { shape: "path"; points: CampusPoint[] } {
+  return zone?.shape === "path" && Array.isArray(zone.points) && zone.points.length >= 2;
+}
+
+type CameraBlockingRect = {
+  id: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+function clampValue(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
+function getPointDistance(left: CampusPoint, right: CampusPoint): number {
+  return Math.hypot(right.x - left.x, right.y - left.y);
+}
+
+function isRectCameraBlocker(zone: CampusZone | undefined): zone is CampusZone & CameraBlockingRect {
+  if (!zone) {
+    return false;
+  }
+
+  return !isRingZone(zone) && !isPathZone(zone);
+}
+
+function expandCameraRect(rect: CameraBlockingRect, padding: number): CameraBlockingRect {
+  return {
+    id: rect.id,
+    x: rect.x - padding,
+    y: rect.y - padding,
+    width: rect.width + padding * 2,
+    height: rect.height + padding * 2
+  };
+}
+
+function getCameraRoomBounds(room: CampusRoom): CameraBlockingRect {
+  return room.walkBounds || {
+    id: "world",
+    x: 0,
+    y: 0,
+    width: room.world.width,
+    height: room.world.height
+  };
+}
+
+function clampCameraToRoomBounds(room: CampusRoom, point: CampusPoint): CampusPoint {
+  const bounds = getCameraRoomBounds(room);
+  const inset = Math.max(0, Math.min(CAMERA_ROOM_EDGE_INSET, bounds.width / 2 - 1, bounds.height / 2 - 1));
+  const minX = bounds.x + inset;
+  const maxX = bounds.x + bounds.width - inset;
+  const minY = bounds.y + inset;
+  const maxY = bounds.y + bounds.height - inset;
+
+  if (minX > maxX || minY > maxY) {
+    return {
+      x: bounds.x + bounds.width / 2,
+      y: bounds.y + bounds.height / 2
+    };
+  }
+
+  return {
+    x: clampValue(point.x, minX, maxX),
+    y: clampValue(point.y, minY, maxY)
+  };
+}
+
+function getSegmentRectEntryRatio(
+  start: CampusPoint,
+  end: CampusPoint,
+  rect: CameraBlockingRect
+): number | null {
+  const deltaX = end.x - start.x;
+  const deltaY = end.y - start.y;
+  let tMin = 0;
+  let tMax = 1;
+
+  function updateAxis(startValue: number, delta: number, min: number, max: number): boolean {
+    if (Math.abs(delta) < 0.000001) {
+      return startValue >= min && startValue <= max;
+    }
+
+    let near = (min - startValue) / delta;
+    let far = (max - startValue) / delta;
+
+    if (near > far) {
+      const previousNear = near;
+      near = far;
+      far = previousNear;
+    }
+
+    tMin = Math.max(tMin, near);
+    tMax = Math.min(tMax, far);
+    return tMin <= tMax;
+  }
+
+  if (!updateAxis(start.x, deltaX, rect.x, rect.x + rect.width)) {
+    return null;
+  }
+
+  if (!updateAxis(start.y, deltaY, rect.y, rect.y + rect.height)) {
+    return null;
+  }
+
+  if (tMax < 0 || tMin > 1) {
+    return null;
+  }
+
+  return clampValue(tMin, 0, 1);
+}
+
+function getCameraBlockingRects(room: CampusRoom): CameraBlockingRect[] {
+  const mapRoom = getCampusMapRoom(room);
+  const seenIds = new Set<string>();
+  const rects: CameraBlockingRect[] = [];
+
+  function addRect(zone: CampusZone | undefined) {
+    if (!isRectCameraBlocker(zone) || seenIds.has(zone.id)) {
+      return;
+    }
+
+    seenIds.add(zone.id);
+    rects.push(zone);
+  }
+
+  (room.blockedZones || []).forEach(addRect);
+  mapRoom.objects.forEach((object) => addRect(object.collisionBox));
+  return rects;
+}
+
+function resolveCameraWorldPoint(
+  room: CampusRoom,
+  origin: CampusPoint,
+  desired: CampusPoint,
+  blockers: CameraBlockingRect[],
+  padding = CAMERA_BLOCKER_PADDING,
+  margin = CAMERA_BLOCKER_MARGIN
+): CampusPoint {
+  const boundedDesired = clampCameraToRoomBounds(room, desired);
+  let nearestEntryRatio = 1;
+
+  blockers.forEach((blocker) => {
+    const expanded = expandCameraRect(blocker, padding);
+    if (isPointInRect(origin, expanded)) {
+      return;
+    }
+
+    const entryRatio = getSegmentRectEntryRatio(origin, boundedDesired, expanded);
+    if (entryRatio !== null && entryRatio > 0.0001 && entryRatio < nearestEntryRatio) {
+      nearestEntryRatio = entryRatio;
+    }
+  });
+
+  if (nearestEntryRatio >= 1) {
+    return boundedDesired;
+  }
+
+  const distance = getPointDistance(origin, boundedDesired);
+  const marginRatio = distance > 0 ? Math.min(0.35, margin / distance) : 0;
+  const safeRatio = Math.max(0, nearestEntryRatio - marginRatio);
+
+  return clampCameraToRoomBounds(room, {
+    x: origin.x + (boundedDesired.x - origin.x) * safeRatio,
+    y: origin.y + (boundedDesired.y - origin.y) * safeRatio
+  });
 }
 
 function getRingZoneRadii(zone: CampusZone): { innerRadius: number; outerRadius: number } {
@@ -528,17 +700,10 @@ function getPortalPose(room: CampusRoom, item: CampusItem): { position: [number,
 
 export function CampusScene(): ReactElement {
   const light = useCampusStore((state) => state.viewSettings.light);
-  const highDetailEnabled = useCampusStore((state) => state.highDetailEnabled);
-  const shadowMapSize = highDetailEnabled ? 2048 : 1024;
 
   return (
     <div className="campus3d-canvas">
-      <Canvas
-        dpr={[1, highDetailEnabled ? 1.5 : 1.25]}
-        shadows={{ type: PCFShadowMap }}
-        camera={{ position: [7, 7, 10], fov: 45, near: 0.1, far: 100 }}
-      >
-        <CampusReadyMarker />
+      <Canvas shadows={{ type: PCFShadowMap }} camera={{ position: [7, 7, 10], fov: 45, near: 0.1, far: 100 }}>
         <RendererClippingSettings />
         <color attach="background" args={["#e8ece4"]} />
         <ambientLight intensity={0.72 * light} />
@@ -546,7 +711,7 @@ export function CampusScene(): ReactElement {
           position={[6, 10, 5]}
           intensity={1.55 * light}
           castShadow
-          shadow-mapSize={[shadowMapSize, shadowMapSize]}
+          shadow-mapSize={[2048, 2048]}
         />
         <Physics gravity={[0, -9.81, 0]}>
           <CampusWorld />
@@ -554,34 +719,6 @@ export function CampusScene(): ReactElement {
       </Canvas>
     </div>
   );
-}
-
-function CampusReadyMarker(): null {
-  const frameCountRef = useRef(0);
-
-  useEffect(() => {
-    frameCountRef.current = 0;
-    window.WSC_CAMPUS_3D_FRAME_COUNT = 0;
-    window.WSC_CAMPUS_3D_READY = false;
-    document.getElementById("alpaca-campus-3d-root")?.removeAttribute("data-campus-ready");
-
-    return () => {
-      window.WSC_CAMPUS_3D_READY = false;
-      document.getElementById("alpaca-campus-3d-root")?.removeAttribute("data-campus-ready");
-    };
-  }, []);
-
-  useFrame(() => {
-    frameCountRef.current += 1;
-    window.WSC_CAMPUS_3D_FRAME_COUNT = frameCountRef.current;
-
-    if (frameCountRef.current === 3) {
-      window.WSC_CAMPUS_3D_READY = true;
-      document.getElementById("alpaca-campus-3d-root")?.setAttribute("data-campus-ready", "true");
-    }
-  });
-
-  return null;
 }
 
 function RendererClippingSettings(): null {
@@ -1037,88 +1174,12 @@ function LobbyDoorMaterial(): ReactElement {
 
 function EnvironmentAssetProps({ room }: { room: CampusRoom }): ReactElement {
   const placements = getCampusMapDecorativePlacements(room.id);
-  const highDetailEnabled = useCampusStore((state) => state.highDetailEnabled);
-  const [deferredReady, setDeferredReady] = useState(false);
-
-  useEffect(() => {
-    setDeferredReady(false);
-    if (highDetailEnabled) {
-      return undefined;
-    }
-
-    const idleCallback = window.requestIdleCallback;
-    if (idleCallback) {
-      const id = idleCallback(() => setDeferredReady(true), { timeout: 1500 });
-      return () => window.cancelIdleCallback?.(id);
-    }
-
-    const timerId = window.setTimeout(() => setDeferredReady(true), 900);
-    return () => window.clearTimeout(timerId);
-  }, [highDetailEnabled, room.id]);
 
   return (
     <group>
-      {placements.map((placement) => {
-        const tier = getEnvironmentAssetLoadTier(placement);
-        const shouldRenderAsset = tier === "critical"
-          || (tier === "deferred" && (deferredReady || highDetailEnabled))
-          || (tier === "highDetail" && highDetailEnabled);
-
-        return shouldRenderAsset ? (
-          <EnvironmentAssetProp key={placement.id} room={room} placement={placement} />
-        ) : (
-          <EnvironmentAssetPlaceholder key={placement.id} room={room} placement={placement} />
-        );
-      })}
-    </group>
-  );
-}
-
-function EnvironmentAssetPlaceholder({
-  room,
-  placement
-}: {
-  room: CampusRoom;
-  placement: EnvironmentAssetPlacement;
-}): ReactElement | null {
-  const openItemPanel = useCampusStore((state) => state.openItemPanel);
-  const linkedPortal = useMemo(
-    () => placement.portalId ? (room.portals || []).find((item) => item.id === placement.portalId) || null : null,
-    [placement.portalId, room.portals]
-  );
-
-  if (placement.asset === "customChambordCourtyard") {
-    return null;
-  }
-
-  const [x, , z] = worldToScene(room, placement.point, placement.height ?? 0.02);
-  const portalWidth = linkedPortal ? Math.max(0.55, linkedPortal.width * WORLD_SCALE) : 0.72;
-  const portalDepth = linkedPortal ? Math.max(0.12, linkedPortal.height * WORLD_SCALE * 0.12) : 0.72;
-  const isCarpet = placement.asset === "customFinePersianEsfahanCarpet";
-  const height = isCarpet ? 0.018 : linkedPortal ? 0.9 : 0.34;
-
-  return (
-    <group
-      position={[x, placement.height ?? 0.02, z]}
-      rotation={[placement.rotationX ?? 0, placement.rotationY ?? 0, placement.rotationZ ?? 0]}
-      onPointerDown={linkedPortal ? (event) => {
-        event.stopPropagation();
-        openItemPanel(linkedPortal);
-      } : undefined}
-    >
-      <mesh castShadow={!isCarpet} receiveShadow>
-        <boxGeometry args={[
-          isCarpet ? 0.95 : portalWidth,
-          height,
-          isCarpet ? 0.62 : portalDepth
-        ]} />
-        <meshStandardMaterial
-          color={linkedPortal ? "#a47a43" : isCarpet ? "#8f4b3f" : "#d4c5a8"}
-          roughness={0.88}
-          transparent
-          opacity={linkedPortal ? 0.86 : 0.68}
-        />
-      </mesh>
+      {placements.map((placement) => (
+        <EnvironmentAssetProp key={placement.id} room={room} placement={placement} />
+      ))}
     </group>
   );
 }
@@ -2085,6 +2146,10 @@ function selectDebugTargetAtReference(room: CampusRoom): void {
   window.console.log(`[campus-debug] no selectable target near x=${Math.round(point.x)} y=${Math.round(point.y)}`);
 }
 
+useGLTF.preload(PLAYER_ALPACA_MODEL_SRC);
+useTexture.preload(CAMPUS_ORNATE_FRAME_TEXTURE_SRC);
+Object.values(PLAYER_ALPACA_TEXTURES).forEach((src) => useTexture.preload(src));
+
 function KeyboardDriver({ room }: { room: CampusRoom }): null {
   const keysRef = useRef<Record<string, boolean>>({});
 
@@ -2210,43 +2275,102 @@ function FollowCamera({ room }: { room: CampusRoom }): null {
   const viewSettings = useCampusStore((state) => state.viewSettings);
   const targetRef = useRef(new Vector3());
   const desiredRef = useRef(new Vector3());
+  const playerPositionRef = useRef(new Vector3());
+  const lastPlayerPositionRef = useRef<Vector3 | null>(null);
+  const headingRef = useRef(new Vector3(0, 0, -1));
+  const movementDirectionRef = useRef(new Vector3());
+  const smoothedLookAtRef = useRef(new Vector3());
+  const snapCameraRef = useRef(true);
   const { camera } = useThree();
-  const cameraDefaults = getCameraDefaults(room);
+  const cameraBlockers = useMemo(() => getCameraBlockingRects(room), [room]);
 
   useEffect(() => {
-    if (!cameraDefaults) {
-      return;
-    }
-
     if ("fov" in camera && "near" in camera && "far" in camera) {
-      camera.fov = cameraDefaults.fov;
-      camera.near = cameraDefaults.near;
-      camera.far = cameraDefaults.far;
+      camera.fov = CAMERA_FOV;
+      camera.near = CAMERA_NEAR;
+      camera.far = CAMERA_FAR;
       camera.updateProjectionMatrix();
     }
-  }, [camera, cameraDefaults]);
+  }, [camera]);
 
-  useFrame(() => {
-    const [x, , z] = worldToScene(room, localPlayer, PLAYER_HEIGHT);
-    const followOffset = cameraDefaults?.followOffset || [6.4, 6.2, 8.2];
-    const lookAtOffset = cameraDefaults?.lookAtOffset || [0, 0.78, 0];
-    const damping = cameraDefaults?.damping || 0.075;
-    const scaledOffsetX = followOffset[0] * viewSettings.distance;
-    const scaledOffsetZ = followOffset[2] * viewSettings.distance;
+  useEffect(() => {
+    headingRef.current.set(0, 0, -1);
+    lastPlayerPositionRef.current = null;
+    snapCameraRef.current = true;
+  }, [room.id]);
+
+  useFrame((_state, delta) => {
+    const playerBaseHeight = getPlayerAvatarBaseHeight(room, localPlayer);
+    const [x, y, z] = worldToScene(room, localPlayer, playerBaseHeight);
+    const lastPlayerPosition = lastPlayerPositionRef.current;
+
+    playerPositionRef.current.set(x, y, z);
+    if (lastPlayerPosition) {
+      const moveX = playerPositionRef.current.x - lastPlayerPosition.x;
+      const moveZ = playerPositionRef.current.z - lastPlayerPosition.z;
+      const movementLength = Math.hypot(moveX, moveZ);
+
+      if (movementLength > 0.00025) {
+        movementDirectionRef.current.set(moveX / movementLength, 0, moveZ / movementLength);
+        headingRef.current
+          .lerp(movementDirectionRef.current, 1 - Math.exp(-CAMERA_HEADING_DAMPING * delta))
+          .normalize();
+      }
+
+      lastPlayerPosition.copy(playerPositionRef.current);
+    } else {
+      lastPlayerPositionRef.current = playerPositionRef.current.clone();
+    }
+
     const yawCos = Math.cos(viewSettings.yaw);
     const yawSin = Math.sin(viewSettings.yaw);
-    const rotatedOffsetX = scaledOffsetX * yawCos - scaledOffsetZ * yawSin;
-    const rotatedOffsetZ = scaledOffsetX * yawSin + scaledOffsetZ * yawCos;
+    const heading = headingRef.current;
+    const lookForwardX = heading.x * yawCos - heading.z * yawSin;
+    const lookForwardZ = heading.x * yawSin + heading.z * yawCos;
+    const cameraDistance = CAMERA_BASE_BACK_DISTANCE * viewSettings.distance;
+    const cameraHeight = y + CAMERA_BASE_HEIGHT + Math.max(0, viewSettings.distance - 1) * 0.22;
+    const targetHeight = y + CAMERA_LOOK_TARGET_HEIGHT + viewSettings.height;
 
-    targetRef.current.set(x, PLAYER_HEIGHT, z);
-    targetRef.current.add(new Vector3(lookAtOffset[0], lookAtOffset[1], lookAtOffset[2]));
     desiredRef.current.set(
-      x + rotatedOffsetX,
-      Math.max(1.15, followOffset[1] + viewSettings.height),
-      z + rotatedOffsetZ
+      x - lookForwardX * cameraDistance,
+      Math.max(y + PLAYER_HEIGHT * 1.18, cameraHeight),
+      z - lookForwardZ * cameraDistance
     );
-    camera.position.lerp(desiredRef.current, damping);
-    camera.lookAt(targetRef.current);
+
+    targetRef.current.set(
+      x + lookForwardX * CAMERA_LOOK_AHEAD_DISTANCE,
+      targetHeight,
+      z + lookForwardZ * CAMERA_LOOK_AHEAD_DISTANCE
+    );
+
+    const safeCameraWorld = resolveCameraWorldPoint(
+      room,
+      localPlayer,
+      sceneToWorld(room, desiredRef.current),
+      cameraBlockers
+    );
+    const [safeCameraX, , safeCameraZ] = worldToScene(room, safeCameraWorld, desiredRef.current.y);
+    desiredRef.current.set(safeCameraX, desiredRef.current.y, safeCameraZ);
+
+    const safeTargetWorld = resolveCameraWorldPoint(
+      room,
+      localPlayer,
+      sceneToWorld(room, targetRef.current),
+      cameraBlockers,
+      8,
+      8
+    );
+    const [safeTargetX, , safeTargetZ] = worldToScene(room, safeTargetWorld, targetRef.current.y);
+    targetRef.current.set(safeTargetX, targetRef.current.y, safeTargetZ);
+
+    const shouldSnap = snapCameraRef.current;
+    const positionAlpha = shouldSnap ? 1 : 1 - Math.exp(-CAMERA_POSITION_DAMPING * delta);
+    const lookAlpha = shouldSnap ? 1 : 1 - Math.exp(-CAMERA_LOOK_DAMPING * delta);
+
+    camera.position.lerp(desiredRef.current, positionAlpha);
+    smoothedLookAtRef.current.lerp(targetRef.current, lookAlpha);
+    camera.lookAt(smoothedLookAtRef.current);
+    snapCameraRef.current = false;
   });
 
   return null;
@@ -2254,17 +2378,7 @@ function FollowCamera({ room }: { room: CampusRoom }): null {
 
 function LocalAvatar({ room }: { room: CampusRoom }): ReactElement {
   const player = useCampusStore((state) => state.localPlayer);
-  const modelEnabled = useDeferredAvatarModelEnabled(`${room.id}:${player.avatar.textureId}:${player.seatId || ""}`);
-
-  if (!modelEnabled) {
-    return <AlpacaAvatarProxy room={room} player={player} />;
-  }
-
-  return (
-    <Suspense fallback={<AlpacaAvatarProxy room={room} player={player} />}>
-      <AlpacaAvatarMesh room={room} player={player} />
-    </Suspense>
-  );
+  return <AlpacaAvatarMesh room={room} player={player} />;
 }
 
 function RemoteAvatars({ room }: { room: CampusRoom }): ReactElement {
@@ -2273,65 +2387,9 @@ function RemoteAvatars({ room }: { room: CampusRoom }): ReactElement {
   return (
     <>
       {players.map((player) => (
-        <RemoteAvatar key={player.clientId} room={room} player={player} />
+        <AlpacaAvatarMesh key={player.clientId} room={room} player={player} />
       ))}
     </>
-  );
-}
-
-function RemoteAvatar({ room, player }: { room: CampusRoom; player: CampusPlayer }): ReactElement {
-  const modelEnabled = useDeferredAvatarModelEnabled(`${room.id}:${player.clientId}:${player.avatar.textureId}:${player.seatId || ""}`);
-
-  if (!modelEnabled) {
-    return <AlpacaAvatarProxy room={room} player={player} />;
-  }
-
-  return (
-    <Suspense fallback={<AlpacaAvatarProxy room={room} player={player} />}>
-      <AlpacaAvatarMesh room={room} player={player} />
-    </Suspense>
-  );
-}
-
-function useDeferredAvatarModelEnabled(resetKey: string): boolean {
-  const [modelEnabled, setModelEnabled] = useState(false);
-
-  useEffect(() => {
-    setModelEnabled(false);
-    const idleCallback = window.requestIdleCallback;
-    if (idleCallback) {
-      const id = idleCallback(() => setModelEnabled(true), { timeout: 1800 });
-      return () => window.cancelIdleCallback?.(id);
-    }
-
-    const timerId = window.setTimeout(() => setModelEnabled(true), 1200);
-    return () => window.clearTimeout(timerId);
-  }, [resetKey]);
-
-  return modelEnabled;
-}
-
-function AlpacaAvatarProxy({
-  room,
-  player
-}: {
-  room: CampusRoom;
-  player: CampusPlayer;
-}): ReactElement {
-  const [x, y, z] = worldToScene(room, player, getPlayerAvatarBaseHeight(room, player));
-  const isSitting = Boolean(player.seatId);
-
-  return (
-    <group position={[x, y, z]} rotation={[0, Math.PI, 0]}>
-      <mesh position={[0, 0.34, 0]} castShadow receiveShadow>
-        <cylinderGeometry args={[0.18, 0.22, isSitting ? 0.28 : 0.38, 14]} />
-        <meshStandardMaterial color={player.avatar.wool || "#d8c0a2"} roughness={0.82} />
-      </mesh>
-      <mesh position={[0, 0.68, -0.02]} castShadow receiveShadow>
-        <sphereGeometry args={[0.22, 16, 12]} />
-        <meshStandardMaterial color={player.avatar.wool || "#d8c0a2"} roughness={0.78} />
-      </mesh>
-    </group>
   );
 }
 

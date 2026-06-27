@@ -208,8 +208,8 @@ export type CampusPresencePayload = {
   alpacaName: string;
   avatar: CampusAvatarSnapshot;
   status: CampusPresenceStatus;
-  x?: number;
-  y?: number;
+  x: number;
+  y: number;
   targetX?: number;
   targetY?: number;
   facing?: CampusAvatarFacing;
