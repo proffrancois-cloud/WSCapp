@@ -1,6 +1,5 @@
 import {
   BookOpen,
-  Camera,
   DoorOpen,
   ExternalLink,
   Gamepad2,
@@ -11,15 +10,12 @@ import {
   Monitor,
   Play,
   Send,
-  Sun,
   Users,
   Wifi,
-  X,
-  ZoomIn,
-  ZoomOut
+  X
 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties, FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactElement } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties, FormEvent, ReactElement } from "react";
 import { CampusScene, getPlayerAvatarBaseHeight } from "./CampusScene";
 import {
   getCampusDebugZoneDraftKey,
@@ -129,172 +125,6 @@ function getChatBubbleStyle(message: CampusChatMessage): CSSProperties {
     "--campus3d-chat-color": message.avatarWool,
     "--campus3d-chat-accent": message.avatarAccent
   } as CSSProperties;
-}
-
-const LOOK_JOYSTICK_RADIUS = 24;
-const LOOK_JOYSTICK_KEY_RATIO = 0.72;
-const LOOK_JOYSTICK_MAX_YAW = Math.PI / 4;
-const LOOK_JOYSTICK_MAX_VERTICAL = 0.52;
-
-type LookJoystickPosition = {
-  x: number;
-  y: number;
-};
-
-function clampLookJoystickPosition(position: LookJoystickPosition): LookJoystickPosition {
-  const length = Math.hypot(position.x, position.y);
-
-  if (length <= LOOK_JOYSTICK_RADIUS || length === 0) {
-    return position;
-  }
-
-  const ratio = LOOK_JOYSTICK_RADIUS / length;
-  return {
-    x: position.x * ratio,
-    y: position.y * ratio
-  };
-}
-
-function ViewControls(): ReactElement {
-  const viewSettings = useCampusStore((state) => state.viewSettings);
-  const nudgeViewSettings = useCampusStore((state) => state.nudgeViewSettings);
-  const setViewLight = useCampusStore((state) => state.setViewLight);
-  const setViewLook = useCampusStore((state) => state.setViewLook);
-  const activePointerIdRef = useRef<number | null>(null);
-  const [joystickPosition, setJoystickPosition] = useState<LookJoystickPosition>({ x: 0, y: 0 });
-  const [isJoystickActive, setIsJoystickActive] = useState(false);
-
-  function commitJoystickPosition(position: LookJoystickPosition) {
-    const clamped = clampLookJoystickPosition(position);
-    setJoystickPosition(clamped);
-    setViewLook({
-      yaw: (clamped.x / LOOK_JOYSTICK_RADIUS) * LOOK_JOYSTICK_MAX_YAW,
-      height: (-clamped.y / LOOK_JOYSTICK_RADIUS) * LOOK_JOYSTICK_MAX_VERTICAL
-    });
-  }
-
-  function updateJoystickFromPointer(event: ReactPointerEvent<HTMLButtonElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    commitJoystickPosition({
-      x: event.clientX - rect.left - rect.width / 2,
-      y: event.clientY - rect.top - rect.height / 2
-    });
-  }
-
-  function resetJoystick() {
-    activePointerIdRef.current = null;
-    setIsJoystickActive(false);
-    setJoystickPosition({ x: 0, y: 0 });
-    setViewLook({ yaw: 0, height: 0 });
-  }
-
-  function onJoystickPointerDown(event: ReactPointerEvent<HTMLButtonElement>) {
-    event.preventDefault();
-    activePointerIdRef.current = event.pointerId;
-    setIsJoystickActive(true);
-    event.currentTarget.setPointerCapture(event.pointerId);
-    updateJoystickFromPointer(event);
-  }
-
-  function onJoystickPointerMove(event: ReactPointerEvent<HTMLButtonElement>) {
-    if (activePointerIdRef.current !== event.pointerId) {
-      return;
-    }
-
-    updateJoystickFromPointer(event);
-  }
-
-  function onJoystickPointerRelease(event: ReactPointerEvent<HTMLButtonElement>) {
-    if (activePointerIdRef.current !== event.pointerId) {
-      return;
-    }
-
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-
-    resetJoystick();
-  }
-
-  function onJoystickKeyDown(event: ReactKeyboardEvent<HTMLButtonElement>) {
-    const offset = LOOK_JOYSTICK_RADIUS * LOOK_JOYSTICK_KEY_RATIO;
-    const positions: Record<string, LookJoystickPosition> = {
-      ArrowLeft: { x: -offset, y: 0 },
-      ArrowRight: { x: offset, y: 0 },
-      ArrowUp: { x: 0, y: -offset },
-      ArrowDown: { x: 0, y: offset }
-    };
-    const position = positions[event.key];
-
-    if (!position) {
-      return;
-    }
-
-    event.preventDefault();
-    setIsJoystickActive(true);
-    commitJoystickPosition(position);
-  }
-
-  function onJoystickKeyUp(event: ReactKeyboardEvent<HTMLButtonElement>) {
-    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) {
-      return;
-    }
-
-    event.preventDefault();
-    resetJoystick();
-  }
-
-  const joystickStyle = {
-    "--campus3d-look-x": `${joystickPosition.x}px`,
-    "--campus3d-look-y": `${joystickPosition.y}px`
-  } as CSSProperties;
-
-  return (
-    <section className="campus3d-view-controls" aria-label="Camera controls">
-      <button
-        type="button"
-        className={`campus3d-look-joystick${isJoystickActive ? " is-active" : ""}`}
-        style={joystickStyle}
-        onPointerDown={onJoystickPointerDown}
-        onPointerMove={onJoystickPointerMove}
-        onPointerUp={onJoystickPointerRelease}
-        onPointerCancel={onJoystickPointerRelease}
-        onLostPointerCapture={resetJoystick}
-        onBlur={resetJoystick}
-        onKeyDown={onJoystickKeyDown}
-        onKeyUp={onJoystickKeyUp}
-        aria-label="Look around"
-        title="Look around"
-      >
-        <span className="campus3d-look-joystick-rings" aria-hidden="true" />
-        <span className="campus3d-look-joystick-knob" aria-hidden="true">
-          <Camera size={14} />
-        </span>
-      </button>
-
-      <div className="campus3d-zoom-controls" aria-label="Zoom controls">
-        <button type="button" onClick={() => nudgeViewSettings({ distance: -0.12 })} aria-label="Zoom in" title="Zoom in">
-          <ZoomIn size={16} aria-hidden="true" />
-        </button>
-        <button type="button" onClick={() => nudgeViewSettings({ distance: 0.12 })} aria-label="Zoom out" title="Zoom out">
-          <ZoomOut size={16} aria-hidden="true" />
-        </button>
-      </div>
-
-      <label className="campus3d-light-slider" title="Scene light">
-        <Sun size={15} aria-hidden="true" />
-        <input
-          type="range"
-          min="0.45"
-          max="1.85"
-          step="0.05"
-          value={viewSettings.light}
-          onChange={(event) => setViewLight(event.currentTarget.valueAsNumber)}
-          aria-label="Scene light"
-        />
-      </label>
-    </section>
-  );
 }
 
 export function Campus3DApp(): ReactElement {
@@ -447,7 +277,6 @@ function Campus3DRuntime({ realtimeEnabled }: { realtimeEnabled: boolean }): Rea
       <CampusDebugPanel />
       <CampusDebugEditorPanel />
       <CampusChat />
-      <ViewControls />
 
       <header className="campus3d-topbar" aria-label="Campus status">
         <div className="campus3d-room-title">

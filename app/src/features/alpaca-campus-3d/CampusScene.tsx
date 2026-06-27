@@ -1,8 +1,9 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Text, useGLTF, useTexture } from "@react-three/drei";
 import { Physics, RigidBody } from "@react-three/rapier";
+import { Camera, Sun, ZoomIn, ZoomOut } from "lucide-react";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import type { ReactElement } from "react";
+import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, ReactElement } from "react";
 import { Box3, ClampToEdgeWrapping, DoubleSide, Group, Mesh, MeshStandardMaterial, PCFShadowMap, Plane, RepeatWrapping, SRGBColorSpace, Vector3, type Material, type Texture } from "three";
 import { type CampusItem, type CampusPoint, type CampusRoom, type CampusZone, createSittingZoneSeat, getRoom } from "./campus-data";
 import {
@@ -85,6 +86,10 @@ const CAMERA_FAR = 80;
 const CAMERA_ROOM_EDGE_INSET = 42;
 const CAMERA_BLOCKER_PADDING = 34;
 const CAMERA_BLOCKER_MARGIN = 28;
+const LOOK_JOYSTICK_RADIUS = 24;
+const LOOK_JOYSTICK_KEY_RATIO = 0.72;
+const LOOK_JOYSTICK_MAX_YAW = Math.PI / 4;
+const LOOK_JOYSTICK_MAX_VERTICAL = 0.52;
 const PLAYER_AVATAR_BASE_HEIGHT = 0.3;
 const LIBRARY_PLAYER_AVATAR_BASE_HEIGHT = 0;
 const DEBATE_ROOM_BASE_SURFACE_HEIGHT = 0.77;
@@ -121,6 +126,144 @@ const LIBRARY_FLOOR_TEXTURES = {
 const TRANSPARENT_PIXEL_TEXTURE_SRC = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 const ORNATE_BOOK_MESH_PATTERN = /(?:black|burgundy|green|navy|brown|tan|red)_leather/i;
 const ORNATE_BOOK_COLORS = ["#c79a2f", "#102a56", "#123d2d", "#641d24"] as const;
+const CAMERA_CONTROL_STYLES = `
+.campus3d-view-controls {
+  position: absolute;
+  z-index: 9;
+  top: clamp(104px, 20vh, 154px);
+  right: 16px;
+  display: grid;
+  grid-template-columns: 64px 32px minmax(86px, 1fr);
+  align-items: center;
+  gap: 8px;
+  width: min(248px, calc(100vw - 32px));
+  padding: 8px;
+  border: 1px solid rgba(27, 37, 45, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 252, 244, 0.92);
+  box-shadow: 0 6px 12px rgba(27, 37, 45, 0.16);
+  backdrop-filter: blur(14px);
+  pointer-events: auto;
+}
+
+.campus3d-look-joystick {
+  --campus3d-look-x: 0px;
+  --campus3d-look-y: 0px;
+  position: relative;
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(36, 79, 89, 0.28);
+  border-radius: 50%;
+  color: #244f59;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 250, 240, 0.98), rgba(232, 236, 228, 0.92) 72%),
+    #f8f0df;
+  touch-action: none;
+}
+
+.campus3d-look-joystick:hover,
+.campus3d-look-joystick:focus-visible {
+  border-color: #244f59;
+  outline: none;
+}
+
+.campus3d-look-joystick.is-active {
+  cursor: grabbing;
+}
+
+.campus3d-look-joystick-rings {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(36, 79, 89, 0.2);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 12px rgba(36, 79, 89, 0.04),
+    inset 0 0 0 23px rgba(36, 79, 89, 0.08);
+}
+
+.campus3d-look-joystick-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fffaf0;
+  background: #244f59;
+  box-shadow: 0 4px 8px rgba(27, 37, 45, 0.22);
+  transform: translate(
+    calc(-50% + var(--campus3d-look-x)),
+    calc(-50% + var(--campus3d-look-y))
+  );
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 160ms ease-out;
+}
+
+.campus3d-look-joystick.is-active .campus3d-look-joystick-knob {
+  background: #6f1d1b;
+  transition: none;
+}
+
+.campus3d-zoom-controls {
+  display: grid;
+  gap: 5px;
+}
+
+.campus3d-zoom-controls button {
+  display: grid;
+  width: 32px;
+  height: 29px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: #244f59;
+  background: #f8f0df;
+}
+
+.campus3d-zoom-controls button:hover,
+.campus3d-zoom-controls button:focus-visible {
+  color: #fffaf0;
+  background: #244f59;
+  outline: none;
+}
+
+.campus3d-light-slider {
+  display: grid;
+  grid-template-columns: 15px minmax(72px, 1fr);
+  align-items: center;
+  gap: 6px;
+  color: #244f59;
+}
+
+.campus3d-light-slider input {
+  width: 86px;
+  accent-color: #244f59;
+}
+
+@media (max-width: 760px) {
+  .campus3d-view-controls {
+    right: 12px;
+    grid-template-columns: 64px 32px;
+    width: min(124px, calc(100vw - 24px));
+  }
+
+  .campus3d-light-slider {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .campus3d-look-joystick-knob {
+    transition: none;
+  }
+}
+`;
 type AvatarWalkUniforms = {
   uWalkTime: { value: number };
   uWalkStrength: { value: number };
