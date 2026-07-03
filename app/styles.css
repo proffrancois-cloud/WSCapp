@@ -14443,6 +14443,30 @@ body.is-online-mode .section-heading {
   background: rgba(63, 167, 255, 0.24);
 }
 
+.campus2d-debug-zone.is-editor-zone {
+  border-width: 3px;
+}
+
+.campus2d-debug-zone.is-selected {
+  background: color-mix(in srgb, currentColor 38%, transparent);
+  box-shadow: 0 0 0 3px rgba(255, 248, 220, 0.72), inset 0 0 0 1px rgba(18, 10, 7, 0.36);
+}
+
+.campus2d-debug-zone-handle {
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(20, 12, 7, 0.78);
+  border-radius: 50%;
+  background: #fff8dc;
+}
+
+.campus2d-root.is-zone-editing .campus2d-viewport {
+  cursor: crosshair;
+}
+
 .campus2d-debug-panel {
   position: absolute;
   z-index: 35;
@@ -14474,6 +14498,94 @@ body.is-online-mode .section-heading {
 .campus2d-debug-line {
   white-space: normal;
   overflow-wrap: anywhere;
+}
+
+.campus2d-debug-controls,
+.campus2d-debug-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.campus2d-debug-check {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  min-height: 28px;
+}
+
+.campus2d-debug-checkbox {
+  width: 15px;
+  height: 15px;
+  accent-color: #ffe39a;
+}
+
+.campus2d-debug-select,
+.campus2d-zone-field input,
+.campus2d-debug-button {
+  min-height: 28px;
+  border: 1px solid rgba(255, 238, 188, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 248, 220, 0.12);
+  color: #fff7dc;
+  font: inherit;
+}
+
+.campus2d-debug-select {
+  max-width: 150px;
+  padding: 0 8px;
+}
+
+.campus2d-zone-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(54px, 1fr));
+  gap: 5px;
+}
+
+.campus2d-zone-fields[hidden],
+.campus2d-debug-actions[hidden],
+.campus2d-zone-selection[hidden] {
+  display: none;
+}
+
+.campus2d-zone-field {
+  display: grid;
+  gap: 2px;
+}
+
+.campus2d-zone-field span {
+  color: #ffe39a;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+
+.campus2d-zone-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 0 5px;
+}
+
+.campus2d-debug-button {
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.campus2d-debug-button:disabled,
+.campus2d-zone-field input:disabled,
+.campus2d-debug-select:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.campus2d-debug-button.is-danger {
+  border-color: rgba(255, 111, 111, 0.38);
+  color: #ffd2d2;
+}
+
+.campus2d-debug-status {
+  min-height: 1em;
+  color: #d7f7c5;
 }
 
 .campus2d-popup-layer {

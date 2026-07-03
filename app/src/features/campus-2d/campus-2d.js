@@ -1,9 +1,19 @@
 (function () {
   const STORAGE_COLOR_KEY = "wscCampus2dAlpacaColor";
   const STORAGE_ROOM_KEY = "wscCampus2dRoom";
+  const STORAGE_DEV_ZONES_KEY = "wscCampus2dDevZones";
   const CHAT_TTL_MS = 7600;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
+  const MIN_DEV_ZONE_SIZE = 12;
+  const DEV_ZONE_TYPES = ["blocked", "seat", "behind", "portal"];
+  const DEV_ZONE_FIELDS = ["x", "y", "width", "height"];
+  const DEV_ZONE_CONFIG = Object.freeze({
+    blocked: { key: "blockedZones", label: "pink blocked", className: "blocked" },
+    seat: { key: "seats", label: "yellow seat", className: "seat" },
+    behind: { key: "behindZones", label: "purple behind", className: "behind" },
+    portal: { key: "portals", label: "blue portal", className: "portal" }
+  });
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -37,10 +47,12 @@
     return point.x >= 0 && point.x <= room.width && point.y >= 0 && point.y <= room.height;
   }
 
-  function getWalkability(room, point) {
+  function getWalkability(room, point, zones = {}) {
     const inBounds = isPointInRoom(room, point);
-    const inBlockedZone = isPointInZones(point, room.blockedZones || []);
-    const inSeat = (room.seats || []).some((seat) => isPointInRect(point, seat.zone));
+    const blockedZones = zones.blockedZones || room.blockedZones || [];
+    const seats = zones.seats || room.seats || [];
+    const inBlockedZone = isPointInZones(point, blockedZones);
+    const inSeat = seats.some((seat) => isPointInRect(point, seat.zone));
     return {
       inBounds,
       inBlockedZone,
@@ -49,8 +61,8 @@
     };
   }
 
-  function isWalkable(room, point) {
-    return getWalkability(room, point).walkable;
+  function isWalkable(room, point, zones = {}) {
+    return getWalkability(room, point, zones).walkable;
   }
 
   function safeStorageGet(key) {
@@ -65,6 +77,26 @@
     try {
       window.localStorage.setItem(key, value);
     } catch (_error) {}
+  }
+
+  function safeStorageRemove(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (_error) {}
+  }
+
+  function roundNumber(value) {
+    return Math.round(Number(value) || 0);
+  }
+
+  function cloneRect(rect, fallbackId = "zone") {
+    return {
+      id: String(rect?.id || fallbackId),
+      x: roundNumber(rect?.x),
+      y: roundNumber(rect?.y),
+      width: Math.max(MIN_DEV_ZONE_SIZE, roundNumber(rect?.width)),
+      height: Math.max(MIN_DEV_ZONE_SIZE, roundNumber(rect?.height))
+    };
   }
 
   function createEl(tagName, className, attributes = {}) {
@@ -202,7 +234,13 @@
     let camera = { scale: 1, x: 0, y: 0 };
     let activeTarget = null;
     let debugEnabled = false;
+    let zoneEditorEnabled = false;
+    let selectedZoneType = "blocked";
+    let selectedZoneId = null;
+    let zoneEditGesture = null;
+    let devZoneData = loadDevZoneData();
     let debugMousePoint = null;
+    let debugStatusText = "";
     let destroyed = false;
     const keys = new Set();
     const remotePlayers = new Map();
@@ -271,12 +309,85 @@
     const debugRoom = createEl("span", "campus2d-debug-line");
     const debugMouse = createEl("span", "campus2d-debug-line");
     const debugCounts = createEl("span", "campus2d-debug-line");
+    const debugControls = createEl("div", "campus2d-debug-controls");
+    const zoneEditorToggle = createEl("input", "campus2d-debug-checkbox", {
+      type: "checkbox",
+      "data-campus2d-zone-edit-toggle": ""
+    });
+    const zoneEditorLabel = createEl("label", "campus2d-debug-check");
+    const zoneTypeSelect = createEl("select", "campus2d-debug-select", {
+      "aria-label": "Zone type",
+      "data-campus2d-zone-type": ""
+    });
+    const zoneSelectionLabel = createEl("span", "campus2d-debug-line campus2d-zone-selection");
+    const zoneFieldGrid = createEl("div", "campus2d-zone-fields");
+    const zoneFieldInputs = {};
+    const debugActions = createEl("div", "campus2d-debug-actions");
+    const deleteZoneButton = createEl("button", "campus2d-debug-button", {
+      type: "button",
+      "data-campus2d-zone-delete": ""
+    });
+    const saveZonesButton = createEl("button", "campus2d-debug-button", {
+      type: "button",
+      "data-campus2d-zone-save": ""
+    });
+    const copyPatchButton = createEl("button", "campus2d-debug-button", {
+      type: "button",
+      "data-campus2d-zone-copy": ""
+    });
+    const exportJsonButton = createEl("button", "campus2d-debug-button", {
+      type: "button",
+      "data-campus2d-zone-export": ""
+    });
+    const resetZonesButton = createEl("button", "campus2d-debug-button is-danger", {
+      type: "button",
+      "data-campus2d-zone-reset": ""
+    });
+    const debugStatus = createEl("span", "campus2d-debug-status");
     const localElement = createPlayerElement(localPlayer, true);
 
     gamesButton.textContent = "Games";
     chatButton.textContent = "Send";
     debugTitle.textContent = "Dev";
-    debugPanel.append(debugTitle, debugRoom, debugMouse, debugCounts);
+    zoneEditorLabel.append(zoneEditorToggle, document.createTextNode("Edit zones"));
+    DEV_ZONE_TYPES.forEach((type) => {
+      const option = createEl("option", "");
+      option.value = type;
+      option.textContent = DEV_ZONE_CONFIG[type].label;
+      zoneTypeSelect.append(option);
+    });
+    DEV_ZONE_FIELDS.forEach((field) => {
+      const label = createEl("label", "campus2d-zone-field");
+      const text = createEl("span", "");
+      const input = createEl("input", "", {
+        type: "number",
+        step: "1",
+        min: "0",
+        "data-campus2d-zone-field": field
+      });
+      text.textContent = field === "width" ? "w" : field === "height" ? "h" : field;
+      zoneFieldInputs[field] = input;
+      label.append(text, input);
+      zoneFieldGrid.append(label);
+    });
+    deleteZoneButton.textContent = "Delete";
+    saveZonesButton.textContent = "Save";
+    copyPatchButton.textContent = "Copy patch";
+    exportJsonButton.textContent = "Export JSON";
+    resetZonesButton.textContent = "Reset room";
+    debugControls.append(zoneEditorLabel, zoneTypeSelect);
+    debugActions.append(deleteZoneButton, saveZonesButton, copyPatchButton, exportJsonButton, resetZonesButton);
+    debugPanel.append(
+      debugTitle,
+      debugRoom,
+      debugMouse,
+      debugCounts,
+      debugControls,
+      zoneSelectionLabel,
+      zoneFieldGrid,
+      debugActions,
+      debugStatus
+    );
     chatForm.append(chatInput, chatButton);
     hud.append(roomTitle, statusPill, palette, gamesButton);
     world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
@@ -337,6 +448,258 @@
       };
     }
 
+    function getZoneConfig(type = selectedZoneType) {
+      return DEV_ZONE_CONFIG[type] || DEV_ZONE_CONFIG.blocked;
+    }
+
+    function getZoneRect(type, zone) {
+      return type === "seat" || type === "portal" ? zone?.zone : zone;
+    }
+
+    function createZoneItem(type, rect, existing = {}) {
+      const nextRect = cloneRect(rect, existing.id || `${room.id}-${type}`);
+      if (type === "seat") {
+        return {
+          ...existing,
+          id: nextRect.id,
+          zone: nextRect,
+          x: nextRect.x + (nextRect.width / 2),
+          y: nextRect.y + (nextRect.height / 2)
+        };
+      }
+      if (type === "portal") {
+        const fallbackRoomId = room.id === manifest.defaultRoomId ? manifest.rooms[1]?.id : manifest.defaultRoomId;
+        return {
+          ...existing,
+          id: nextRect.id,
+          targetRoomId: existing.targetRoomId || fallbackRoomId || room.id,
+          targetSpawnId: existing.targetSpawnId || room.id,
+          zone: nextRect
+        };
+      }
+      return { ...existing, ...nextRect };
+    }
+
+    function cloneZoneItem(type, zone, fallbackId) {
+      return createZoneItem(type, cloneRect(getZoneRect(type, zone), zone?.id || fallbackId), zone || {});
+    }
+
+    function cloneZoneItems(type, zones = []) {
+      return zones.map((zone, index) => cloneZoneItem(type, zone, `${room.id}-${type}-${index + 1}`));
+    }
+
+    function loadDevZoneData() {
+      try {
+        const parsed = JSON.parse(safeStorageGet(STORAGE_DEV_ZONES_KEY) || "{}");
+        if (parsed && typeof parsed === "object") {
+          return {
+            schema: "wsc.campus2d.devZones.v1",
+            rooms: parsed.rooms && typeof parsed.rooms === "object" ? parsed.rooms : {}
+          };
+        }
+      } catch (_error) {}
+      return { schema: "wsc.campus2d.devZones.v1", rooms: {} };
+    }
+
+    function getRoomBaseZones(targetRoom = room) {
+      return {
+        blockedZones: cloneZoneItems("blocked", targetRoom.blockedZones || []),
+        seats: cloneZoneItems("seat", targetRoom.seats || []),
+        behindZones: cloneZoneItems("behind", targetRoom.behindZones || []),
+        portals: cloneZoneItems("portal", targetRoom.portals || [])
+      };
+    }
+
+    function normalizeRoomOverride(targetRoom, override = {}) {
+      const base = getRoomBaseZones(targetRoom);
+      return {
+        blockedZones: cloneZoneItems("blocked", Array.isArray(override.blockedZones) ? override.blockedZones : base.blockedZones),
+        seats: cloneZoneItems("seat", Array.isArray(override.seats) ? override.seats : base.seats),
+        behindZones: cloneZoneItems("behind", Array.isArray(override.behindZones) ? override.behindZones : base.behindZones),
+        portals: cloneZoneItems("portal", Array.isArray(override.portals) ? override.portals : base.portals)
+      };
+    }
+
+    function getRoomOverride(roomId = room.id) {
+      return devZoneData.rooms?.[roomId] || null;
+    }
+
+    function ensureRoomOverride(targetRoom = room) {
+      if (!devZoneData.rooms) {
+        devZoneData.rooms = {};
+      }
+      const normalized = normalizeRoomOverride(targetRoom, devZoneData.rooms[targetRoom.id]);
+      devZoneData.rooms[targetRoom.id] = normalized;
+      return normalized;
+    }
+
+    function getEffectiveZones(targetRoom = room) {
+      const override = getRoomOverride(targetRoom.id);
+      return override ? normalizeRoomOverride(targetRoom, override) : getRoomBaseZones(targetRoom);
+    }
+
+    function getEditableZones(type = selectedZoneType) {
+      const override = ensureRoomOverride(room);
+      const key = getZoneConfig(type).key;
+      if (!Array.isArray(override[key])) {
+        override[key] = [];
+      }
+      return override[key];
+    }
+
+    function getSelectedZone() {
+      if (!selectedZoneId) {
+        return null;
+      }
+      return getEditableZones(selectedZoneType).find((zone) => zone.id === selectedZoneId) || null;
+    }
+
+    function setDebugStatus(message) {
+      debugStatusText = message || "";
+      debugStatus.textContent = debugStatusText;
+    }
+
+    function saveDevZones(message = "Saved to localStorage") {
+      devZoneData.schema = "wsc.campus2d.devZones.v1";
+      devZoneData.updatedAt = new Date().toISOString();
+      if (!Object.keys(devZoneData.rooms || {}).length) {
+        safeStorageRemove(STORAGE_DEV_ZONES_KEY);
+      } else {
+        safeStorageSet(STORAGE_DEV_ZONES_KEY, JSON.stringify(devZoneData));
+      }
+      setDebugStatus(message);
+    }
+
+    function createZoneId(type) {
+      const zones = getEditableZones(type);
+      let index = zones.length + 1;
+      let id = `${room.id}-${type}-${index}`;
+      const ids = new Set(zones.map((zone) => zone.id));
+      while (ids.has(id)) {
+        index += 1;
+        id = `${room.id}-${type}-${index}`;
+      }
+      return id;
+    }
+
+    function clampRectToRoom(rect) {
+      const width = clamp(roundNumber(rect.width), MIN_DEV_ZONE_SIZE, room.width);
+      const height = clamp(roundNumber(rect.height), MIN_DEV_ZONE_SIZE, room.height);
+      return {
+        id: rect.id,
+        x: clamp(roundNumber(rect.x), 0, Math.max(0, room.width - width)),
+        y: clamp(roundNumber(rect.y), 0, Math.max(0, room.height - height)),
+        width,
+        height
+      };
+    }
+
+    function updateZoneItemRect(type, zone, rect) {
+      const next = createZoneItem(type, clampRectToRoom({ ...getZoneRect(type, zone), ...rect }), zone);
+      Object.keys(zone).forEach((key) => delete zone[key]);
+      Object.assign(zone, next);
+    }
+
+    function buildDragRect(startPoint, endPoint) {
+      const left = clamp(Math.min(startPoint.x, endPoint.x), 0, room.width);
+      const top = clamp(Math.min(startPoint.y, endPoint.y), 0, room.height);
+      const right = clamp(Math.max(startPoint.x, endPoint.x), 0, room.width);
+      const bottom = clamp(Math.max(startPoint.y, endPoint.y), 0, room.height);
+      return clampRectToRoom({
+        x: left,
+        y: top,
+        width: Math.max(MIN_DEV_ZONE_SIZE, right - left),
+        height: Math.max(MIN_DEV_ZONE_SIZE, bottom - top)
+      });
+    }
+
+    function isResizeHandleHit(point, zone) {
+      const rect = getZoneRect(selectedZoneType, zone);
+      return Math.abs(point.x - (rect.x + rect.width)) <= 18 &&
+        Math.abs(point.y - (rect.y + rect.height)) <= 18;
+    }
+
+    function findZoneAtPoint(point, type = selectedZoneType) {
+      const zones = getEditableZones(type);
+      for (let index = zones.length - 1; index >= 0; index -= 1) {
+        if (isPointInRect(point, getZoneRect(type, zones[index]))) {
+          return zones[index];
+        }
+      }
+      return null;
+    }
+
+    function formatRectForManifest(type, zone, indent = "        ") {
+      const rect = getZoneRect(type, zone);
+      if (type === "seat") {
+        return `${indent}seat("${zone.id}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
+      }
+      if (type === "portal") {
+        return `${indent}portal("${zone.id}", "${zone.targetRoomId}", "${zone.targetSpawnId}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
+      }
+      return `${indent}rect("${zone.id}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
+    }
+
+    function buildManifestPatchText() {
+      const zones = getEffectiveZones(room);
+      return [
+        `// ${room.title} (${room.id}) zone patch`,
+        `// Paste these arrays into the ${room.id} room in app/src/features/campus-2d/manifest.js.`,
+        "blockedZones: [",
+        ...zones.blockedZones.map((zone, index) => `${formatRectForManifest("blocked", zone)}${index < zones.blockedZones.length - 1 ? "," : ""}`),
+        "      ],",
+        "behindZones: [",
+        ...zones.behindZones.map((zone, index) => `${formatRectForManifest("behind", zone)}${index < zones.behindZones.length - 1 ? "," : ""}`),
+        "      ],",
+        "seats: [",
+        ...zones.seats.map((zone, index) => `${formatRectForManifest("seat", zone)}${index < zones.seats.length - 1 ? "," : ""}`),
+        "      ],",
+        "portals: [",
+        ...zones.portals.map((zone, index) => `${formatRectForManifest("portal", zone)}${index < zones.portals.length - 1 ? "," : ""}`),
+        "      ]"
+      ].join("\n");
+    }
+
+    function buildZoneExportPayload() {
+      const zones = getEffectiveZones(room);
+      return {
+        schema: "wsc.campus2d.devZones.v1",
+        roomId: room.id,
+        title: room.title,
+        ...zones,
+        exportedAt: new Date().toISOString()
+      };
+    }
+
+    async function copyText(text) {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const fallback = createEl("textarea", "");
+      fallback.value = text;
+      fallback.setAttribute("readonly", "");
+      fallback.style.position = "fixed";
+      fallback.style.left = "-9999px";
+      document.body.append(fallback);
+      fallback.select();
+      document.execCommand("copy");
+      fallback.remove();
+    }
+
+    function exportZoneJson() {
+      const payload = JSON.stringify(buildZoneExportPayload(), null, 2);
+      const blob = new Blob([payload], { type: "application/json" });
+      const link = createEl("a", "");
+      link.href = URL.createObjectURL(blob);
+      link.download = `campus2d-${room.id}-zones.json`;
+      document.body.append(link);
+      link.click();
+      URL.revokeObjectURL(link.href);
+      link.remove();
+      setDebugStatus("Exported JSON");
+    }
+
     function renderPalette() {
       palette.replaceChildren(...manifest.colors.map((color) => {
         const button = createEl("button", "campus2d-color-swatch", {
@@ -367,7 +730,8 @@
     }
 
     function renderPortals() {
-      portalsLayer.replaceChildren(...(room.portals || []).map((entry) => {
+      const zones = getEffectiveZones(room);
+      portalsLayer.replaceChildren(...zones.portals.map((entry) => {
         const targetRoom = getRoom(entry.targetRoomId);
         const button = createEl("button", "campus2d-portal", {
           type: "button",
@@ -383,7 +747,8 @@
     }
 
     function renderSeats() {
-      seatsLayer.replaceChildren(...(room.seats || []).map((seat) => {
+      const zones = getEffectiveZones(room);
+      seatsLayer.replaceChildren(...zones.seats.map((seat) => {
         const button = createEl("button", "campus2d-seat", {
           type: "button",
           "data-campus2d-seat": seat.id,
@@ -397,12 +762,24 @@
       }));
     }
 
-    function createDebugZone(rect, type) {
-      const zone = createEl("span", `campus2d-debug-zone is-${type}`);
+    function createDebugZone(rect, type, options = {}) {
+      const zone = createEl("span", [
+        "campus2d-debug-zone",
+        `is-${type}`,
+        options.editor ? "is-editor-zone" : "",
+        options.selected ? "is-selected" : ""
+      ].filter(Boolean).join(" "));
       zone.style.left = `${rect.x}px`;
       zone.style.top = `${rect.y}px`;
       zone.style.width = `${rect.width}px`;
       zone.style.height = `${rect.height}px`;
+      if (options.id) {
+        zone.dataset.campus2dZoneId = options.id;
+        zone.title = options.id;
+      }
+      if (options.selected) {
+        zone.append(createEl("span", "campus2d-debug-zone-handle"));
+      }
       return zone;
     }
 
@@ -411,22 +788,70 @@
         debugLayer.replaceChildren();
         return;
       }
+      const activeZones = getEffectiveZones(room);
       const zones = [
-        ...(room.blockedZones || []).map((zone) => createDebugZone(zone, "blocked")),
-        ...(room.seats || []).map((seat) => createDebugZone(seat.zone, "seat")),
-        ...(room.behindZones || []).map((zone) => createDebugZone(zone, "behind")),
-        ...(room.portals || []).map((entry) => createDebugZone(entry.zone, "portal"))
+        ...activeZones.blockedZones.map((zone) => createDebugZone(zone, "blocked", {
+          editor: zoneEditorEnabled,
+          id: zone.id,
+          selected: selectedZoneType === "blocked" && zone.id === selectedZoneId
+        })),
+        ...activeZones.seats.map((seat) => createDebugZone(seat.zone, "seat", {
+          editor: zoneEditorEnabled,
+          id: seat.id,
+          selected: selectedZoneType === "seat" && seat.id === selectedZoneId
+        })),
+        ...activeZones.behindZones.map((zone) => createDebugZone(zone, "behind", {
+          editor: zoneEditorEnabled,
+          id: zone.id,
+          selected: selectedZoneType === "behind" && zone.id === selectedZoneId
+        })),
+        ...activeZones.portals.map((entry) => createDebugZone(entry.zone, "portal", {
+          editor: zoneEditorEnabled,
+          id: entry.id,
+          selected: selectedZoneType === "portal" && entry.id === selectedZoneId
+        }))
       ];
       debugLayer.replaceChildren(...zones);
+    }
+
+    function renderDebugControls() {
+      const selectedZone = getSelectedZone();
+      const selectedRect = selectedZone ? getZoneRect(selectedZoneType, selectedZone) : null;
+      zoneEditorToggle.checked = zoneEditorEnabled;
+      zoneTypeSelect.value = selectedZoneType;
+      zoneFieldGrid.hidden = !zoneEditorEnabled;
+      debugActions.hidden = !zoneEditorEnabled;
+      zoneSelectionLabel.hidden = !zoneEditorEnabled;
+      zoneTypeSelect.disabled = !zoneEditorEnabled;
+      if (!zoneEditorEnabled) {
+        zoneSelectionLabel.textContent = "Zone editor off";
+      } else {
+        zoneSelectionLabel.textContent = selectedZone
+          ? `${getZoneConfig(selectedZoneType).label} ${selectedZone.id}`
+          : `Drag to create ${getZoneConfig(selectedZoneType).label}`;
+      }
+      DEV_ZONE_FIELDS.forEach((field) => {
+        const input = zoneFieldInputs[field];
+        input.disabled = !zoneEditorEnabled || !selectedRect;
+        input.value = selectedRect ? selectedRect[field] : "";
+        input.max = field === "x" || field === "width" ? room.width : room.height;
+      });
+      deleteZoneButton.disabled = !zoneEditorEnabled || !selectedZone;
+      saveZonesButton.disabled = !zoneEditorEnabled;
+      copyPatchButton.disabled = false;
+      exportJsonButton.disabled = false;
+      resetZonesButton.disabled = !getRoomOverride(room.id);
+      debugStatus.textContent = debugStatusText;
     }
 
     function updateDebugPanel() {
       if (!debugEnabled) {
         return;
       }
+      const activeZones = getEffectiveZones(room);
       const mouse = debugMousePoint
         ? (() => {
-          const walkability = getWalkability(room, debugMousePoint);
+          const walkability = getWalkability(room, debugMousePoint, activeZones);
           const status = !walkability.inBounds
             ? "outside map"
             : (walkability.inBlockedZone
@@ -439,23 +864,44 @@
       debugMouse.textContent = mouse;
       debugCounts.textContent = [
         "whole image walkable",
-        `pink blocked ${room.blockedZones?.length || 0}`,
-        `yellow ${room.seats?.length || 0}`,
-        `blue ${room.portals?.length || 0}`,
-        `purple behind ${room.behindZones?.length || 0}`
+        `pink blocked ${activeZones.blockedZones.length}`,
+        `yellow ${activeZones.seats.length}`,
+        `blue ${activeZones.portals.length}`,
+        `purple behind ${activeZones.behindZones.length}`
       ].join(" / ");
+      renderDebugControls();
     }
 
     function setDebugEnabled(value) {
       debugEnabled = Boolean(value);
+      if (!debugEnabled) {
+        zoneEditorEnabled = false;
+        zoneEditGesture = null;
+      }
       root.classList.toggle("is-debug", debugEnabled);
+      root.classList.toggle("is-zone-editing", debugEnabled && zoneEditorEnabled);
       debugPanel.hidden = !debugEnabled;
       renderDebugOverlay();
       updateDebugPanel();
     }
 
+    function setZoneEditorEnabled(value) {
+      zoneEditorEnabled = Boolean(value);
+      if (zoneEditorEnabled) {
+        ensureRoomOverride(room);
+        setDebugStatus("Zone editor ready");
+      } else {
+        selectedZoneId = null;
+        zoneEditGesture = null;
+      }
+      root.classList.toggle("is-zone-editing", debugEnabled && zoneEditorEnabled);
+      renderDebugOverlay();
+      updateDebugPanel();
+    }
+
     function renderBehindZones() {
-      behindLayer.replaceChildren(...(room.behindZones || []).map((zone) => {
+      const zones = getEffectiveZones(room);
+      behindLayer.replaceChildren(...zones.behindZones.map((zone) => {
         const overlay = createEl("span", "campus2d-behind-zone", { "aria-hidden": "true" });
         overlay.style.left = `${zone.x}px`;
         overlay.style.top = `${zone.y}px`;
@@ -529,6 +975,8 @@
       localPlayer.moving = false;
       localPlayer.seatId = null;
       activeTarget = null;
+      selectedZoneId = null;
+      zoneEditGesture = null;
       debugMousePoint = null;
       remotePlayers.clear();
       renderRoom();
@@ -591,12 +1039,13 @@
         x: clamp(nextX, 0, room.width),
         y: clamp(nextY, 0, room.height)
       };
-      if (isWalkable(room, nextPoint)) {
+      const activeZones = getEffectiveZones(room);
+      if (isWalkable(room, nextPoint, activeZones)) {
         localPlayer.x = nextPoint.x;
         localPlayer.y = nextPoint.y;
-      } else if (isWalkable(room, { x: nextPoint.x, y: localPlayer.y })) {
+      } else if (isWalkable(room, { x: nextPoint.x, y: localPlayer.y }, activeZones)) {
         localPlayer.x = nextPoint.x;
-      } else if (isWalkable(room, { x: localPlayer.x, y: nextPoint.y })) {
+      } else if (isWalkable(room, { x: localPlayer.x, y: nextPoint.y }, activeZones)) {
         localPlayer.y = nextPoint.y;
       } else {
         activeTarget = null;
@@ -933,8 +1382,139 @@
       root.querySelector("[data-campus2d-popup]")?.remove();
     }
 
+    function clampPointToRoom(point) {
+      return {
+        x: clamp(point.x, 0, room.width),
+        y: clamp(point.y, 0, room.height)
+      };
+    }
+
+    function updateZoneFromGesture(point) {
+      if (!zoneEditGesture) {
+        return;
+      }
+      const zone = getEditableZones(zoneEditGesture.type).find((entry) => entry.id === zoneEditGesture.zoneId);
+      if (!zone) {
+        return;
+      }
+      const current = clampPointToRoom(point);
+      const dx = current.x - zoneEditGesture.startPoint.x;
+      const dy = current.y - zoneEditGesture.startPoint.y;
+      const startRect = zoneEditGesture.startRect;
+      if (zoneEditGesture.mode === "move") {
+        updateZoneItemRect(zoneEditGesture.type, zone, {
+          x: startRect.x + dx,
+          y: startRect.y + dy,
+          width: startRect.width,
+          height: startRect.height
+        });
+      } else if (zoneEditGesture.mode === "resize") {
+        updateZoneItemRect(zoneEditGesture.type, zone, {
+          x: startRect.x,
+          y: startRect.y,
+          width: startRect.width + dx,
+          height: startRect.height + dy
+        });
+      } else {
+        updateZoneItemRect(zoneEditGesture.type, zone, buildDragRect(zoneEditGesture.startPoint, current));
+      }
+      renderRoom();
+    }
+
+    function handleZoneEditorPointerDown(event) {
+      event.preventDefault();
+      closePlayerCard();
+      closeGameLauncher();
+      ensureRoomOverride(room);
+      const point = clampPointToRoom(screenToWorld(event.clientX, event.clientY));
+      const hit = findZoneAtPoint(point, selectedZoneType);
+      if (hit) {
+        const hitRect = getZoneRect(selectedZoneType, hit);
+        selectedZoneId = hit.id;
+        zoneEditGesture = {
+          pointerId: event.pointerId,
+          type: selectedZoneType,
+          zoneId: hit.id,
+          mode: isResizeHandleHit(point, hit) ? "resize" : "move",
+          startPoint: point,
+          startRect: { ...hitRect }
+        };
+      } else {
+        const rect = clampRectToRoom({
+          id: createZoneId(selectedZoneType),
+          x: point.x,
+          y: point.y,
+          width: MIN_DEV_ZONE_SIZE,
+          height: MIN_DEV_ZONE_SIZE
+        });
+        const zone = createZoneItem(selectedZoneType, rect);
+        getEditableZones(selectedZoneType).push(zone);
+        selectedZoneId = zone.id;
+        zoneEditGesture = {
+          pointerId: event.pointerId,
+          type: selectedZoneType,
+          zoneId: zone.id,
+          mode: "create",
+          startPoint: point,
+          startRect: { ...rect }
+        };
+      }
+      viewport.setPointerCapture?.(event.pointerId);
+      renderRoom();
+    }
+
+    function handleZoneEditorPointerUp(event) {
+      if (!zoneEditGesture || zoneEditGesture.pointerId !== event.pointerId) {
+        return;
+      }
+      updateZoneFromGesture(screenToWorld(event.clientX, event.clientY));
+      zoneEditGesture = null;
+      viewport.releasePointerCapture?.(event.pointerId);
+      saveDevZones("Saved locally");
+      renderRoom();
+    }
+
+    function deleteSelectedZone() {
+      const zones = getEditableZones(selectedZoneType);
+      const index = zones.findIndex((zone) => zone.id === selectedZoneId);
+      if (index < 0) {
+        return;
+      }
+      zones.splice(index, 1);
+      selectedZoneId = null;
+      saveDevZones("Deleted zone");
+      renderRoom();
+    }
+
+    function resetCurrentRoomZones() {
+      if (!devZoneData.rooms?.[room.id]) {
+        return;
+      }
+      delete devZoneData.rooms[room.id];
+      selectedZoneId = null;
+      zoneEditGesture = null;
+      saveDevZones("Reset room");
+      renderRoom();
+    }
+
+    function applySelectedZoneField(field, rawValue) {
+      const zone = getSelectedZone();
+      if (!zone) {
+        return;
+      }
+      const value = roundNumber(rawValue);
+      updateZoneItemRect(selectedZoneType, zone, { ...getZoneRect(selectedZoneType, zone), [field]: value });
+      saveDevZones("Saved locally");
+      renderRoom();
+    }
+
     function handleKeyDown(event) {
       if (event.key === "Escape") {
+        if (zoneEditGesture) {
+          zoneEditGesture = null;
+          renderRoom();
+          return;
+        }
         closePlayerCard();
         closeGameLauncher();
         return;
@@ -970,23 +1550,36 @@
       if (event.target.closest("[data-campus2d-ui], [data-campus2d-avatar], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
         return;
       }
+      if (debugEnabled && zoneEditorEnabled) {
+        handleZoneEditorPointerDown(event);
+        return;
+      }
       const point = screenToWorld(event.clientX, event.clientY);
-      if (isWalkable(room, point)) {
+      if (isWalkable(room, point, getEffectiveZones(room))) {
         localPlayer.seatId = null;
         activeTarget = point;
       }
     }
 
     function handlePointerMove(event) {
+      const point = screenToWorld(event.clientX, event.clientY);
+      if (zoneEditGesture && zoneEditGesture.pointerId === event.pointerId) {
+        event.preventDefault();
+        updateZoneFromGesture(point);
+        return;
+      }
       if (!debugEnabled) {
         return;
       }
-      const point = screenToWorld(event.clientX, event.clientY);
       debugMousePoint = {
         x: clamp(point.x, 0, room.width),
         y: clamp(point.y, 0, room.height)
       };
       updateDebugPanel();
+    }
+
+    function handlePointerUp(event) {
+      handleZoneEditorPointerUp(event);
     }
 
     function handleRootClick(event) {
@@ -1024,7 +1617,7 @@
 
       const portalButton = event.target.closest("[data-campus2d-portal]");
       if (portalButton) {
-        const portal = (room.portals || []).find((entry) => entry.id === portalButton.dataset.campus2dPortal);
+        const portal = getEffectiveZones(room).portals.find((entry) => entry.id === portalButton.dataset.campus2dPortal);
         if (portal) {
           localPlayer.seatId = null;
           activeTarget = null;
@@ -1035,7 +1628,7 @@
 
       const seatButton = event.target.closest("[data-campus2d-seat]");
       if (seatButton) {
-        const seat = (room.seats || []).find((entry) => entry.id === seatButton.dataset.campus2dSeat);
+        const seat = getEffectiveZones(room).seats.find((entry) => entry.id === seatButton.dataset.campus2dSeat);
         if (seat) {
           sitAtSeat(seat);
         }
@@ -1063,6 +1656,26 @@
       }
     }
 
+    function handleZoneEditorToggle() {
+      setZoneEditorEnabled(zoneEditorToggle.checked);
+    }
+
+    function handleZoneTypeChange() {
+      selectedZoneType = DEV_ZONE_TYPES.includes(zoneTypeSelect.value) ? zoneTypeSelect.value : "blocked";
+      selectedZoneId = null;
+      renderDebugOverlay();
+      updateDebugPanel();
+    }
+
+    async function handleCopyPatch() {
+      try {
+        await copyText(buildManifestPatchText());
+        setDebugStatus("Copied manifest patch");
+      } catch (_error) {
+        setDebugStatus("Copy failed");
+      }
+    }
+
     function handleChatSubmit(event) {
       event.preventDefault();
       sendChat(chatInput.value);
@@ -1087,8 +1700,22 @@
     window.addEventListener("resize", updateCamera);
     viewport.addEventListener("pointerdown", handlePointerDown);
     viewport.addEventListener("pointermove", handlePointerMove);
+    viewport.addEventListener("pointerup", handlePointerUp);
+    viewport.addEventListener("pointercancel", handlePointerUp);
     root.addEventListener("click", handleRootClick);
     chatForm.addEventListener("submit", handleChatSubmit);
+    zoneEditorToggle.addEventListener("change", handleZoneEditorToggle);
+    zoneTypeSelect.addEventListener("change", handleZoneTypeChange);
+    DEV_ZONE_FIELDS.forEach((field) => {
+      zoneFieldInputs[field].addEventListener("change", (event) => {
+        applySelectedZoneField(field, event.target.value);
+      });
+    });
+    deleteZoneButton.addEventListener("click", deleteSelectedZone);
+    saveZonesButton.addEventListener("click", () => saveDevZones("Saved locally"));
+    copyPatchButton.addEventListener("click", handleCopyPatch);
+    exportJsonButton.addEventListener("click", exportZoneJson);
+    resetZonesButton.addEventListener("click", resetCurrentRoomZones);
     animationFrameId = window.requestAnimationFrame(loop);
 
     return {
@@ -1100,6 +1727,8 @@
         window.removeEventListener("resize", updateCamera);
         viewport.removeEventListener("pointerdown", handlePointerDown);
         viewport.removeEventListener("pointermove", handlePointerMove);
+        viewport.removeEventListener("pointerup", handlePointerUp);
+        viewport.removeEventListener("pointercancel", handlePointerUp);
         channel?.destroy();
         mountNode.replaceChildren();
       },

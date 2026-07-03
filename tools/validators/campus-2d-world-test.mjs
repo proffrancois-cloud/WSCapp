@@ -153,6 +153,10 @@ for (const runtimeNeedle of [
   "data-campus2d-portal",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
+  "wscCampus2dDevZones",
+  "data-campus2d-zone-edit-toggle",
+  "data-campus2d-zone-copy",
+  "Copy patch",
   "whole image walkable",
   "setDebugEnabled(!debugEnabled)",
   "is-sitting"
@@ -189,10 +193,13 @@ if (!styles.includes(".campus2d-root")) {
 for (const styleNeedle of [
   ".campus2d-portal",
   ".campus2d-debug-panel",
+  ".campus2d-debug-controls",
   ".campus2d-debug-zone.is-blocked",
+  ".campus2d-debug-zone.is-selected",
   ".campus2d-debug-zone.is-seat",
   ".campus2d-debug-zone.is-behind",
-  ".campus2d-debug-zone.is-portal"
+  ".campus2d-debug-zone.is-portal",
+  ".campus2d-zone-fields"
 ]) {
   if (!styles.includes(styleNeedle)) {
     failures.push(`Campus 2D styles are missing ${styleNeedle}.`);
