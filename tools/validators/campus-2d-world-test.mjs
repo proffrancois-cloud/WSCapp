@@ -118,6 +118,12 @@ if (!manifest) {
   if ((courtyard?.behindZones || []).length < 15) {
     failures.push("Courtyard must include annotated behind zones.");
   }
+  if ((courtyard?.blockedZones || []).length < 120) {
+    failures.push("Courtyard must include the precise exported pink blocked zones.");
+  }
+  if (!courtyard?.portals?.some((portal) => portal.id === "courtyard-portal-2")) {
+    failures.push("Courtyard must include the second exported portal zone.");
+  }
   if ((courtyard?.seats || []).length < 15) {
     failures.push("Courtyard must include annotated sitting squares.");
   }
@@ -151,10 +157,16 @@ if (!appJs.includes("renderOnlineHomeGameGrid")) {
 const campusRuntime = readApp("src/features/campus-2d/campus-2d.js");
 for (const runtimeNeedle of [
   "data-campus2d-portal",
+  "campus2d-side-panel",
+  "sidePanel.append(hud, chatForm)",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
   "wscCampus2dDevZones",
-  "data-campus2d-zone-edit-toggle",
+  "data-campus2d-zone-copy-selected",
+  "data-campus2d-zone-paste",
+  "findAnyZoneAtPoint",
+  "Copy selected",
+  "Paste",
   "data-campus2d-zone-copy",
   "Copy patch",
   "whole image walkable",
@@ -167,6 +179,9 @@ for (const runtimeNeedle of [
 }
 if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
   failures.push("Campus 2D portals must be click-driven, not automatic walk-through triggers.");
+}
+if (/Reset room|data-campus2d-zone-reset|resetCurrentRoomZones/.test(campusRuntime)) {
+  failures.push("Campus 2D dev zone editor must not expose a Reset room action.");
 }
 for (const forbiddenWalkingMask of [
   /room\.walkZones/,
@@ -191,6 +206,7 @@ if (!styles.includes(".campus2d-root")) {
   failures.push("Campus 2D styles are missing.");
 }
 for (const styleNeedle of [
+  ".campus2d-side-panel",
   ".campus2d-portal",
   ".campus2d-debug-panel",
   ".campus2d-debug-controls",
@@ -204,6 +220,18 @@ for (const styleNeedle of [
   if (!styles.includes(styleNeedle)) {
     failures.push(`Campus 2D styles are missing ${styleNeedle}.`);
   }
+}
+if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-side-width\)/i.test(styles)) {
+  failures.push("Campus 2D multiplayer controls must live beside the room in a side rail layout.");
+}
+if (!/\.campus2d-side-panel\s*\{[^}]*background:\s*#030303/i.test(styles)) {
+  failures.push("Campus 2D side controls must sit in the black side panel.");
+}
+if (/\.campus2d-hud\s*\{[^}]*position:\s*absolute/i.test(styles)) {
+  failures.push("Campus 2D HUD must not overlay the room viewport.");
+}
+if (/\.campus2d-chat-form\s*\{[^}]*position:\s*absolute/i.test(styles)) {
+  failures.push("Campus 2D chat form must not overlay the bottom of the room viewport.");
 }
 if (!/\.campus2d-entities\s*\{[^}]*pointer-events:\s*none/i.test(styles)) {
   failures.push("Campus 2D entity layer must not intercept seat or portal clicks.");

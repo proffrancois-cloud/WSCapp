@@ -6,6 +6,7 @@
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
   const MIN_DEV_ZONE_SIZE = 12;
+  const DEV_ZONE_PASTE_OFFSET = 16;
   const DEV_ZONE_TYPES = ["blocked", "seat", "behind", "portal"];
   const DEV_ZONE_FIELDS = ["x", "y", "width", "height"];
   const DEV_ZONE_CONFIG = Object.freeze({
@@ -237,6 +238,7 @@
     let zoneEditorEnabled = false;
     let selectedZoneType = "blocked";
     let selectedZoneId = null;
+    let copiedZone = null;
     let zoneEditGesture = null;
     let devZoneData = loadDevZoneData();
     let debugMousePoint = null;
@@ -277,6 +279,10 @@
     const seatsLayer = createEl("div", "campus2d-seats");
     const behindLayer = createEl("div", "campus2d-behind-layer");
     const debugLayer = createEl("div", "campus2d-debug-layer", { "aria-hidden": "true" });
+    const sidePanel = createEl("aside", "campus2d-side-panel", {
+      "aria-label": "Multiplayer controls",
+      "data-campus2d-ui": ""
+    });
     const hud = createEl("div", "campus2d-hud", { "data-campus2d-ui": "" });
     const roomTitle = createEl("strong", "campus2d-room-title");
     const statusPill = createEl("span", "campus2d-status-pill");
@@ -310,11 +316,6 @@
     const debugMouse = createEl("span", "campus2d-debug-line");
     const debugCounts = createEl("span", "campus2d-debug-line");
     const debugControls = createEl("div", "campus2d-debug-controls");
-    const zoneEditorToggle = createEl("input", "campus2d-debug-checkbox", {
-      type: "checkbox",
-      "data-campus2d-zone-edit-toggle": ""
-    });
-    const zoneEditorLabel = createEl("label", "campus2d-debug-check");
     const zoneTypeSelect = createEl("select", "campus2d-debug-select", {
       "aria-label": "Zone type",
       "data-campus2d-zone-type": ""
@@ -326,6 +327,14 @@
     const deleteZoneButton = createEl("button", "campus2d-debug-button", {
       type: "button",
       "data-campus2d-zone-delete": ""
+    });
+    const copySelectedButton = createEl("button", "campus2d-debug-button", {
+      type: "button",
+      "data-campus2d-zone-copy-selected": ""
+    });
+    const pasteZoneButton = createEl("button", "campus2d-debug-button", {
+      type: "button",
+      "data-campus2d-zone-paste": ""
     });
     const saveZonesButton = createEl("button", "campus2d-debug-button", {
       type: "button",
@@ -339,17 +348,12 @@
       type: "button",
       "data-campus2d-zone-export": ""
     });
-    const resetZonesButton = createEl("button", "campus2d-debug-button is-danger", {
-      type: "button",
-      "data-campus2d-zone-reset": ""
-    });
     const debugStatus = createEl("span", "campus2d-debug-status");
     const localElement = createPlayerElement(localPlayer, true);
 
     gamesButton.textContent = "Games";
     chatButton.textContent = "Send";
     debugTitle.textContent = "Dev";
-    zoneEditorLabel.append(zoneEditorToggle, document.createTextNode("Edit zones"));
     DEV_ZONE_TYPES.forEach((type) => {
       const option = createEl("option", "");
       option.value = type;
@@ -371,12 +375,13 @@
       zoneFieldGrid.append(label);
     });
     deleteZoneButton.textContent = "Delete";
+    copySelectedButton.textContent = "Copy selected zone";
+    pasteZoneButton.textContent = "Paste";
     saveZonesButton.textContent = "Save";
     copyPatchButton.textContent = "Copy patch";
     exportJsonButton.textContent = "Export JSON";
-    resetZonesButton.textContent = "Reset room";
-    debugControls.append(zoneEditorLabel, zoneTypeSelect);
-    debugActions.append(deleteZoneButton, saveZonesButton, copyPatchButton, exportJsonButton, resetZonesButton);
+    debugControls.append(zoneTypeSelect);
+    debugActions.append(copySelectedButton, pasteZoneButton, deleteZoneButton, saveZonesButton, copyPatchButton, exportJsonButton);
     debugPanel.append(
       debugTitle,
       debugRoom,
@@ -390,10 +395,11 @@
     );
     chatForm.append(chatInput, chatButton);
     hud.append(roomTitle, statusPill, palette, gamesButton);
+    sidePanel.append(hud, chatForm);
     world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
-    root.append(viewport, hud, debugPanel, chatForm);
+    root.append(viewport, sidePanel, debugPanel);
     mountNode.replaceChildren(root);
 
     function createPlayerElement(player, isLocal) {
@@ -613,8 +619,8 @@
       });
     }
 
-    function isResizeHandleHit(point, zone) {
-      const rect = getZoneRect(selectedZoneType, zone);
+    function isResizeHandleHit(point, type, zone) {
+      const rect = getZoneRect(type, zone);
       return Math.abs(point.x - (rect.x + rect.width)) <= 18 &&
         Math.abs(point.y - (rect.y + rect.height)) <= 18;
     }
@@ -627,6 +633,32 @@
         }
       }
       return null;
+    }
+
+    function findAnyZoneAtPoint(point) {
+      for (const type of ["portal", "behind", "seat", "blocked"]) {
+        const zone = findZoneAtPoint(point, type);
+        if (zone) {
+          return { type, zone };
+        }
+      }
+      return null;
+    }
+
+    function getOffsetPasteRect(rect) {
+      const maxX = Math.max(0, room.width - rect.width);
+      const maxY = Math.max(0, room.height - rect.height);
+      const x = rect.x + DEV_ZONE_PASTE_OFFSET <= maxX
+        ? rect.x + DEV_ZONE_PASTE_OFFSET
+        : Math.max(0, rect.x - DEV_ZONE_PASTE_OFFSET);
+      const y = rect.y + DEV_ZONE_PASTE_OFFSET <= maxY
+        ? rect.y + DEV_ZONE_PASTE_OFFSET
+        : Math.max(0, rect.y - DEV_ZONE_PASTE_OFFSET);
+      return {
+        ...rect,
+        x,
+        y
+      };
     }
 
     function formatRectForManifest(type, zone, indent = "        ") {
@@ -817,7 +849,6 @@
     function renderDebugControls() {
       const selectedZone = getSelectedZone();
       const selectedRect = selectedZone ? getZoneRect(selectedZoneType, selectedZone) : null;
-      zoneEditorToggle.checked = zoneEditorEnabled;
       zoneTypeSelect.value = selectedZoneType;
       zoneFieldGrid.hidden = !zoneEditorEnabled;
       debugActions.hidden = !zoneEditorEnabled;
@@ -837,10 +868,11 @@
         input.max = field === "x" || field === "width" ? room.width : room.height;
       });
       deleteZoneButton.disabled = !zoneEditorEnabled || !selectedZone;
+      copySelectedButton.disabled = !zoneEditorEnabled || !selectedZone;
+      pasteZoneButton.disabled = !zoneEditorEnabled || !copiedZone;
       saveZonesButton.disabled = !zoneEditorEnabled;
       copyPatchButton.disabled = false;
       exportJsonButton.disabled = false;
-      resetZonesButton.disabled = !getRoomOverride(room.id);
       debugStatus.textContent = debugStatusText;
     }
 
@@ -874,10 +906,20 @@
 
     function setDebugEnabled(value) {
       debugEnabled = Boolean(value);
-      if (!debugEnabled) {
-        zoneEditorEnabled = false;
+      zoneEditorEnabled = debugEnabled;
+      activeTarget = null;
+      keys.clear();
+      localPlayer.moving = false;
+      if (debugEnabled) {
+        ensureRoomOverride(room);
+        closePlayerCard();
+        closeGameLauncher();
+        setDebugStatus("Zone editor ready");
+      } else {
         zoneEditGesture = null;
+        selectedZoneId = null;
       }
+      updatePlayerElement(localElement, localPlayer, performance.now());
       root.classList.toggle("is-debug", debugEnabled);
       root.classList.toggle("is-zone-editing", debugEnabled && zoneEditorEnabled);
       debugPanel.hidden = !debugEnabled;
@@ -1004,6 +1046,12 @@
     }
 
     function stepMovement(deltaSeconds, nowMs) {
+      if (debugEnabled) {
+        activeTarget = null;
+        localPlayer.moving = false;
+        updatePlayerElement(localElement, localPlayer, nowMs);
+        return;
+      }
       const keyboardVector = getKeyboardVector();
       let vector = keyboardVector;
       if (!vector.x && !vector.y && activeTarget) {
@@ -1427,15 +1475,16 @@
       closeGameLauncher();
       ensureRoomOverride(room);
       const point = clampPointToRoom(screenToWorld(event.clientX, event.clientY));
-      const hit = findZoneAtPoint(point, selectedZoneType);
+      const hit = findAnyZoneAtPoint(point);
       if (hit) {
-        const hitRect = getZoneRect(selectedZoneType, hit);
-        selectedZoneId = hit.id;
+        const hitRect = getZoneRect(hit.type, hit.zone);
+        selectedZoneType = hit.type;
+        selectedZoneId = hit.zone.id;
         zoneEditGesture = {
           pointerId: event.pointerId,
-          type: selectedZoneType,
-          zoneId: hit.id,
-          mode: isResizeHandleHit(point, hit) ? "resize" : "move",
+          type: hit.type,
+          zoneId: hit.zone.id,
+          mode: isResizeHandleHit(point, hit.type, hit.zone) ? "resize" : "move",
           startPoint: point,
           startRect: { ...hitRect }
         };
@@ -1486,14 +1535,34 @@
       renderRoom();
     }
 
-    function resetCurrentRoomZones() {
-      if (!devZoneData.rooms?.[room.id]) {
+    function copySelectedZone() {
+      const zone = getSelectedZone();
+      if (!zone) {
         return;
       }
-      delete devZoneData.rooms[room.id];
-      selectedZoneId = null;
-      zoneEditGesture = null;
-      saveDevZones("Reset room");
+      copiedZone = {
+        type: selectedZoneType,
+        zone: cloneZoneItem(selectedZoneType, zone)
+      };
+      setDebugStatus("Copied selected zone");
+      updateDebugPanel();
+    }
+
+    function pasteCopiedZone() {
+      if (!copiedZone) {
+        return;
+      }
+      const type = copiedZone.type;
+      const sourceRect = getZoneRect(type, copiedZone.zone);
+      const rect = clampRectToRoom({
+        ...getOffsetPasteRect(sourceRect),
+        id: createZoneId(type)
+      });
+      const zone = createZoneItem(type, rect, copiedZone.zone);
+      getEditableZones(type).push(zone);
+      selectedZoneType = type;
+      selectedZoneId = zone.id;
+      saveDevZones("Pasted zone");
       renderRoom();
     }
 
@@ -1530,6 +1599,10 @@
       if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
         return;
       }
+      if (debugEnabled) {
+        event.preventDefault();
+        return;
+      }
       if (root.querySelector("[data-campus2d-popup]")) {
         return;
       }
@@ -1547,11 +1620,13 @@
     }
 
     function handlePointerDown(event) {
-      if (event.target.closest("[data-campus2d-ui], [data-campus2d-avatar], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
+      if (debugEnabled) {
+        if (!event.target.closest("[data-campus2d-ui]") && zoneEditorEnabled) {
+          handleZoneEditorPointerDown(event);
+        }
         return;
       }
-      if (debugEnabled && zoneEditorEnabled) {
-        handleZoneEditorPointerDown(event);
+      if (event.target.closest("[data-campus2d-ui], [data-campus2d-avatar], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
         return;
       }
       const point = screenToWorld(event.clientX, event.clientY);
@@ -1583,6 +1658,14 @@
     }
 
     function handleRootClick(event) {
+      if (debugEnabled) {
+        if (!debugPanel.contains(event.target)) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        return;
+      }
+
       const avatarButton = event.target.closest("[data-campus2d-avatar]");
       if (avatarButton) {
         openPlayerCard(getPlayerByClientId(avatarButton.dataset.campus2dAvatar));
@@ -1656,10 +1739,6 @@
       }
     }
 
-    function handleZoneEditorToggle() {
-      setZoneEditorEnabled(zoneEditorToggle.checked);
-    }
-
     function handleZoneTypeChange() {
       selectedZoneType = DEV_ZONE_TYPES.includes(zoneTypeSelect.value) ? zoneTypeSelect.value : "blocked";
       selectedZoneId = null;
@@ -1704,7 +1783,6 @@
     viewport.addEventListener("pointercancel", handlePointerUp);
     root.addEventListener("click", handleRootClick);
     chatForm.addEventListener("submit", handleChatSubmit);
-    zoneEditorToggle.addEventListener("change", handleZoneEditorToggle);
     zoneTypeSelect.addEventListener("change", handleZoneTypeChange);
     DEV_ZONE_FIELDS.forEach((field) => {
       zoneFieldInputs[field].addEventListener("change", (event) => {
@@ -1712,10 +1790,11 @@
       });
     });
     deleteZoneButton.addEventListener("click", deleteSelectedZone);
+    copySelectedButton.addEventListener("click", copySelectedZone);
+    pasteZoneButton.addEventListener("click", pasteCopiedZone);
     saveZonesButton.addEventListener("click", () => saveDevZones("Saved locally"));
     copyPatchButton.addEventListener("click", handleCopyPatch);
     exportJsonButton.addEventListener("click", exportZoneJson);
-    resetZonesButton.addEventListener("click", resetCurrentRoomZones);
     animationFrameId = window.requestAnimationFrame(loop);
 
     return {
