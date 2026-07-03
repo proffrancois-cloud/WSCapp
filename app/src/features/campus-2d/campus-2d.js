@@ -33,15 +33,19 @@
     return zones.some((zone) => isPointInRect(point, zone));
   }
 
+  function isPointInRoom(room, point) {
+    return point.x >= 0 && point.x <= room.width && point.y >= 0 && point.y <= room.height;
+  }
+
   function getWalkability(room, point) {
-    const inWalkZone = isPointInZones(point, room.walkZones || []);
+    const inBounds = isPointInRoom(room, point);
     const inBlockedZone = isPointInZones(point, room.blockedZones || []);
     const inSeat = (room.seats || []).some((seat) => isPointInRect(point, seat.zone));
     return {
-      inWalkZone,
+      inBounds,
       inBlockedZone,
       inSeat,
-      walkable: inSeat || (inWalkZone && !inBlockedZone)
+      walkable: inBounds && (inSeat || !inBlockedZone)
     };
   }
 
@@ -408,8 +412,6 @@
         return;
       }
       const zones = [
-        createDebugZone({ x: 0, y: 0, width: room.width, height: room.height }, "limit"),
-        ...(room.walkZones || []).map((zone) => createDebugZone(zone, "walk")),
         ...(room.blockedZones || []).map((zone) => createDebugZone(zone, "blocked")),
         ...(room.seats || []).map((seat) => createDebugZone(seat.zone, "seat")),
         ...(room.behindZones || []).map((zone) => createDebugZone(zone, "behind")),
@@ -425,17 +427,19 @@
       const mouse = debugMousePoint
         ? (() => {
           const walkability = getWalkability(room, debugMousePoint);
-          const status = walkability.walkable
-            ? "walkable"
-            : (walkability.inBlockedZone ? "blocked" : "outside walk zone");
+          const status = !walkability.inBounds
+            ? "outside map"
+            : (walkability.inBlockedZone
+              ? "blocked"
+              : (walkability.inSeat ? "sitting zone" : "walkable"));
           return `Mouse x ${Math.round(debugMousePoint.x)}, y ${Math.round(debugMousePoint.y)} - ${status}`;
         })()
         : "Mouse outside map";
       debugRoom.textContent = `Room ${room.title}`;
       debugMouse.textContent = mouse;
       debugCounts.textContent = [
-        `pink limits: outside green + blocked ${room.blockedZones?.length || 0}`,
-        `green walk ${room.walkZones?.length || 0}`,
+        "whole image walkable",
+        `pink blocked ${room.blockedZones?.length || 0}`,
         `yellow ${room.seats?.length || 0}`,
         `blue ${room.portals?.length || 0}`,
         `purple behind ${room.behindZones?.length || 0}`
@@ -587,7 +591,6 @@
         x: clamp(nextX, 0, room.width),
         y: clamp(nextY, 0, room.height)
       };
-
       if (isWalkable(room, nextPoint)) {
         localPlayer.x = nextPoint.x;
         localPlayer.y = nextPoint.y;

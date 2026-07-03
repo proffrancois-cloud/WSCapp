@@ -153,7 +153,7 @@ for (const runtimeNeedle of [
   "data-campus2d-portal",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
-  "outside walk zone",
+  "whole image walkable",
   "setDebugEnabled(!debugEnabled)",
   "is-sitting"
 ]) {
@@ -163,6 +163,20 @@ for (const runtimeNeedle of [
 }
 if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
   failures.push("Campus 2D portals must be click-driven, not automatic walk-through triggers.");
+}
+for (const forbiddenWalkingMask of [
+  /room\.walkZones/,
+  /\bwalkZones\b/,
+  /\brestrictToWalkZones\b/,
+  /outside walk zone/,
+  /green walk/,
+  /data-campus2d-zone-restrict-toggle/,
+  /Restrict to walk zones/
+]) {
+  if (forbiddenWalkingMask.test(campusRuntime)) {
+    failures.push("Campus 2D movement must treat the whole room PNG as walkable instead of using green walking masks.");
+    break;
+  }
 }
 
 const styles = readApp("styles.css");
@@ -175,8 +189,6 @@ if (!styles.includes(".campus2d-root")) {
 for (const styleNeedle of [
   ".campus2d-portal",
   ".campus2d-debug-panel",
-  ".campus2d-debug-zone.is-limit",
-  ".campus2d-debug-zone.is-walk",
   ".campus2d-debug-zone.is-blocked",
   ".campus2d-debug-zone.is-seat",
   ".campus2d-debug-zone.is-behind",
