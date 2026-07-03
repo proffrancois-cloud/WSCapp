@@ -101,6 +101,9 @@ if (!manifest) {
   if (!lobby?.portals?.some((portal) => portal.targetRoomId === "debate-lab")) {
     failures.push("Lobby must have a portal to Debate Lab.");
   }
+  if (!lobby?.gameZones?.some((zone) => zone.mode === "game")) {
+    failures.push("Lobby must include an orange game zone for the game launcher.");
+  }
   if ((lobby?.behindZones || []).length < 5) {
     failures.push("Lobby must include annotated behind zones.");
   }
@@ -113,6 +116,9 @@ if (!manifest) {
   }
   if ((library?.seats || []).length < 30) {
     failures.push("Library must include annotated sitting squares.");
+  }
+  if (!library?.gameZones?.some((zone) => zone.mode === "learn")) {
+    failures.push("Library must include an orange learn game zone.");
   }
   const courtyard = manifest.roomsById?.courtyard;
   if ((courtyard?.behindZones || []).length < 15) {
@@ -127,9 +133,15 @@ if (!manifest) {
   if ((courtyard?.seats || []).length < 15) {
     failures.push("Courtyard must include annotated sitting squares.");
   }
+  if (!courtyard?.gameZones?.some((zone) => zone.mode === "learn")) {
+    failures.push("Courtyard must include an orange learn game zone.");
+  }
   const debateLab = manifest.roomsById?.["debate-lab"];
   if ((debateLab?.seats || []).length < 60) {
     failures.push("Debate Lab must include annotated sitting squares.");
+  }
+  if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
+    failures.push("Debate Lab must include an orange train game zone.");
   }
 }
 
@@ -164,6 +176,10 @@ for (const runtimeNeedle of [
   "wscCampus2dDevZones",
   "data-campus2d-zone-copy-selected",
   "data-campus2d-zone-paste",
+  "data-campus2d-game-zone",
+  "gameZones",
+  "orange game",
+  "activateGameZone",
   "findAnyZoneAtPoint",
   "Copy selected",
   "Paste",
@@ -171,11 +187,21 @@ for (const runtimeNeedle of [
   "Copy patch",
   "whole image walkable",
   "setDebugEnabled(!debugEnabled)",
+  "ALPACA_COLLISION_RADIUS",
+  "isPointBlockedByPlayers",
+  "canPlayerStandAt",
+  "getSeatOccupant",
   "is-sitting"
 ]) {
   if (!campusRuntime.includes(runtimeNeedle)) {
     failures.push(`Campus 2D runtime is missing ${runtimeNeedle}.`);
   }
+}
+if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
+  failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
+}
+if (!/function\s+sitAtSeat[\s\S]*getSeatOccupant\(seat\)[\s\S]*is sitting there/.test(campusRuntime)) {
+  failures.push("Campus 2D seats must reject sitting when another alpaca already occupies the spot.");
 }
 if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
   failures.push("Campus 2D portals must be click-driven, not automatic walk-through triggers.");
@@ -215,6 +241,8 @@ for (const styleNeedle of [
   ".campus2d-debug-zone.is-seat",
   ".campus2d-debug-zone.is-behind",
   ".campus2d-debug-zone.is-portal",
+  ".campus2d-debug-zone.is-game",
+  ".campus2d-game-zone",
   ".campus2d-zone-fields"
 ]) {
   if (!styles.includes(styleNeedle)) {

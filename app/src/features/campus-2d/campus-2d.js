@@ -5,15 +5,18 @@
   const CHAT_TTL_MS = 7600;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
+  const ALPACA_COLLISION_RADIUS = 28;
+  const ALPACA_COLLISION_DISTANCE = ALPACA_COLLISION_RADIUS * 2;
   const MIN_DEV_ZONE_SIZE = 12;
   const DEV_ZONE_PASTE_OFFSET = 16;
-  const DEV_ZONE_TYPES = ["blocked", "seat", "behind", "portal"];
+  const DEV_ZONE_TYPES = ["blocked", "seat", "behind", "portal", "game"];
   const DEV_ZONE_FIELDS = ["x", "y", "width", "height"];
   const DEV_ZONE_CONFIG = Object.freeze({
     blocked: { key: "blockedZones", label: "pink blocked", className: "blocked" },
     seat: { key: "seats", label: "yellow seat", className: "seat" },
     behind: { key: "behindZones", label: "purple behind", className: "behind" },
-    portal: { key: "portals", label: "blue portal", className: "portal" }
+    portal: { key: "portals", label: "blue portal", className: "portal" },
+    game: { key: "gameZones", label: "orange game", className: "game" }
   });
 
   function clamp(value, min, max) {
@@ -64,6 +67,10 @@
 
   function isWalkable(room, point, zones = {}) {
     return getWalkability(room, point, zones).walkable;
+  }
+
+  function getPointDistance(left, right) {
+    return Math.hypot(left.x - right.x, left.y - right.y);
   }
 
   function safeStorageGet(key) {
@@ -459,7 +466,7 @@
     }
 
     function getZoneRect(type, zone) {
-      return type === "seat" || type === "portal" ? zone?.zone : zone;
+      return type === "seat" || type === "portal" || type === "game" ? zone?.zone : zone;
     }
 
     function createZoneItem(type, rect, existing = {}) {
@@ -480,6 +487,15 @@
           id: nextRect.id,
           targetRoomId: existing.targetRoomId || fallbackRoomId || room.id,
           targetSpawnId: existing.targetSpawnId || room.id,
+          zone: nextRect
+        };
+      }
+      if (type === "game") {
+        return {
+          ...existing,
+          id: nextRect.id,
+          mode: existing.mode || existing.kind || "game",
+          label: existing.label || "Game zone",
           zone: nextRect
         };
       }
@@ -512,7 +528,8 @@
         blockedZones: cloneZoneItems("blocked", targetRoom.blockedZones || []),
         seats: cloneZoneItems("seat", targetRoom.seats || []),
         behindZones: cloneZoneItems("behind", targetRoom.behindZones || []),
-        portals: cloneZoneItems("portal", targetRoom.portals || [])
+        portals: cloneZoneItems("portal", targetRoom.portals || []),
+        gameZones: cloneZoneItems("game", targetRoom.gameZones || [])
       };
     }
 
@@ -522,7 +539,8 @@
         blockedZones: cloneZoneItems("blocked", Array.isArray(override.blockedZones) ? override.blockedZones : base.blockedZones),
         seats: cloneZoneItems("seat", Array.isArray(override.seats) ? override.seats : base.seats),
         behindZones: cloneZoneItems("behind", Array.isArray(override.behindZones) ? override.behindZones : base.behindZones),
-        portals: cloneZoneItems("portal", Array.isArray(override.portals) ? override.portals : base.portals)
+        portals: cloneZoneItems("portal", Array.isArray(override.portals) ? override.portals : base.portals),
+        gameZones: cloneZoneItems("game", Array.isArray(override.gameZones) ? override.gameZones : base.gameZones)
       };
     }
 
@@ -636,7 +654,7 @@
     }
 
     function findAnyZoneAtPoint(point) {
-      for (const type of ["portal", "behind", "seat", "blocked"]) {
+      for (const type of ["game", "portal", "behind", "seat", "blocked"]) {
         const zone = findZoneAtPoint(point, type);
         if (zone) {
           return { type, zone };
@@ -669,6 +687,9 @@
       if (type === "portal") {
         return `${indent}portal("${zone.id}", "${zone.targetRoomId}", "${zone.targetSpawnId}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
       }
+      if (type === "game") {
+        return `${indent}gameZone("${zone.id}", "${zone.mode || "game"}", "${zone.label || "Game zone"}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
+      }
       return `${indent}rect("${zone.id}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
     }
 
@@ -688,6 +709,9 @@
         "      ],",
         "portals: [",
         ...zones.portals.map((zone, index) => `${formatRectForManifest("portal", zone)}${index < zones.portals.length - 1 ? "," : ""}`),
+        "      ],",
+        "gameZones: [",
+        ...zones.gameZones.map((zone, index) => `${formatRectForManifest("game", zone)}${index < zones.gameZones.length - 1 ? "," : ""}`),
         "      ]"
       ].join("\n");
     }
@@ -747,18 +771,59 @@
     }
 
     function renderHotspots() {
-      hotspotsLayer.replaceChildren(...(room.hotspots || []).map((hotspot) => {
-        const button = createEl("button", "campus2d-hotspot", {
+      hotspotsLayer.replaceChildren(...getClickableGameZones().map((entry) => {
+        const button = createEl("button", "campus2d-hotspot campus2d-game-zone", {
           type: "button",
-          "data-campus2d-hotspot": hotspot.id,
-          "aria-label": hotspot.label || hotspot.kind
+          "data-campus2d-game-zone": entry.id,
+          "data-campus2d-hotspot": entry.id,
+          "aria-label": entry.label || entry.mode || "Game zone"
         });
-        button.style.left = `${hotspot.zone.x}px`;
-        button.style.top = `${hotspot.zone.y}px`;
-        button.style.width = `${hotspot.zone.width}px`;
-        button.style.height = `${hotspot.zone.height}px`;
+        button.style.left = `${entry.zone.x}px`;
+        button.style.top = `${entry.zone.y}px`;
+        button.style.width = `${entry.zone.width}px`;
+        button.style.height = `${entry.zone.height}px`;
         return button;
       }));
+    }
+
+    function getLegacyHotspotMode(hotspot) {
+      if (hotspot.kind === "games") {
+        return "game";
+      }
+      if (hotspot.kind === "lesson") {
+        return "learn";
+      }
+      return hotspot.kind || "game";
+    }
+
+    function getClickableGameZones() {
+      const zones = getEffectiveZones(room).gameZones || [];
+      const ids = new Set(zones.map((zone) => zone.id));
+      const legacyZones = (room.hotspots || [])
+        .filter((hotspot) => !ids.has(hotspot.id))
+        .map((hotspot) => createZoneItem("game", hotspot.zone, {
+          id: hotspot.id,
+          mode: getLegacyHotspotMode(hotspot),
+          label: hotspot.label || "Game zone"
+        }));
+      return [...zones, ...legacyZones];
+    }
+
+    function activateGameZone(entry) {
+      const mode = entry.mode || entry.kind || "game";
+      if (mode === "game" || mode === "games") {
+        openGameLauncher();
+        return;
+      }
+      const handled = options.onCampusZoneAction?.({
+        roomId: room.id,
+        zoneId: entry.id,
+        mode,
+        label: entry.label || ""
+      });
+      if (!handled) {
+        showBubble(localElement, `${entry.label || mode} coming soon`);
+      }
     }
 
     function renderPortals() {
@@ -841,6 +906,11 @@
           editor: zoneEditorEnabled,
           id: entry.id,
           selected: selectedZoneType === "portal" && entry.id === selectedZoneId
+        })),
+        ...activeZones.gameZones.map((entry) => createDebugZone(entry.zone, "game", {
+          editor: zoneEditorEnabled,
+          id: entry.id,
+          selected: selectedZoneType === "game" && entry.id === selectedZoneId
         }))
       ];
       debugLayer.replaceChildren(...zones);
@@ -899,6 +969,7 @@
         `pink blocked ${activeZones.blockedZones.length}`,
         `yellow ${activeZones.seats.length}`,
         `blue ${activeZones.portals.length}`,
+        `orange game ${activeZones.gameZones.length}`,
         `purple behind ${activeZones.behindZones.length}`
       ].join(" / ");
       renderDebugControls();
@@ -1033,7 +1104,67 @@
       };
     }
 
+    function getPlayerPoint(player) {
+      const x = Number(player?.x);
+      const y = Number(player?.y);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) {
+        return null;
+      }
+      return { x, y };
+    }
+
+    function isPointBlockedByPlayers(point, originPoint = null) {
+      for (const player of remotePlayers.values()) {
+        if (player.roomId && player.roomId !== room.id) {
+          continue;
+        }
+        const playerPoint = getPlayerPoint(player);
+        if (!playerPoint) {
+          continue;
+        }
+        const nextDistance = getPointDistance(point, playerPoint);
+        if (nextDistance >= ALPACA_COLLISION_DISTANCE) {
+          continue;
+        }
+        if (originPoint) {
+          const currentDistance = getPointDistance(originPoint, playerPoint);
+          if (currentDistance < ALPACA_COLLISION_DISTANCE && nextDistance > currentDistance + 0.5) {
+            continue;
+          }
+        }
+        return true;
+      }
+      return false;
+    }
+
+    function canPlayerStandAt(point, zones = getEffectiveZones(room), originPoint = null) {
+      return isWalkable(room, point, zones) && !isPointBlockedByPlayers(point, originPoint);
+    }
+
+    function getSeatOccupant(seat) {
+      const seatPoint = { x: seat.x, y: seat.y };
+      for (const player of remotePlayers.values()) {
+        if (player.roomId && player.roomId !== room.id) {
+          continue;
+        }
+        if (player.seatId === seat.id) {
+          return player;
+        }
+        const playerPoint = getPlayerPoint(player);
+        if (playerPoint && getPointDistance(seatPoint, playerPoint) < ALPACA_COLLISION_DISTANCE) {
+          return player;
+        }
+      }
+      return null;
+    }
+
     function sitAtSeat(seat, nowMs = performance.now()) {
+      const occupant = getSeatOccupant(seat);
+      if (occupant) {
+        activeTarget = null;
+        showBubble(localElement, `${occupant.displayName || "Someone"} is sitting there`);
+        return;
+      }
       localPlayer.x = seat.x;
       localPlayer.y = seat.y;
       localPlayer.direction = seat.direction || "down";
@@ -1087,20 +1218,21 @@
         x: clamp(nextX, 0, room.width),
         y: clamp(nextY, 0, room.height)
       };
+      const currentPoint = { x: localPlayer.x, y: localPlayer.y };
       const activeZones = getEffectiveZones(room);
-      if (isWalkable(room, nextPoint, activeZones)) {
+      if (canPlayerStandAt(nextPoint, activeZones, currentPoint)) {
         localPlayer.x = nextPoint.x;
         localPlayer.y = nextPoint.y;
-      } else if (isWalkable(room, { x: nextPoint.x, y: localPlayer.y }, activeZones)) {
+      } else if (canPlayerStandAt({ x: nextPoint.x, y: localPlayer.y }, activeZones, currentPoint)) {
         localPlayer.x = nextPoint.x;
-      } else if (isWalkable(room, { x: localPlayer.x, y: nextPoint.y }, activeZones)) {
+      } else if (canPlayerStandAt({ x: localPlayer.x, y: nextPoint.y }, activeZones, currentPoint)) {
         localPlayer.y = nextPoint.y;
       } else {
         activeTarget = null;
       }
 
       localPlayer.direction = normalizeDirection(normalized, localPlayer.direction);
-      localPlayer.moving = true;
+      localPlayer.moving = getPointDistance(currentPoint, localPlayer) > 0.01;
       updatePlayerElement(localElement, localPlayer, nowMs);
       updateCamera();
       publishMovement(false);
@@ -1630,7 +1762,7 @@
         return;
       }
       const point = screenToWorld(event.clientX, event.clientY);
-      if (isWalkable(room, point, getEffectiveZones(room))) {
+      if (canPlayerStandAt(point, getEffectiveZones(room))) {
         localPlayer.seatId = null;
         activeTarget = point;
       }
@@ -1725,6 +1857,15 @@
 
       if (event.target.closest("[data-campus2d-popup-close]") || event.target.matches("[data-campus2d-popup]")) {
         closeGameLauncher();
+        return;
+      }
+
+      const gameZoneButton = event.target.closest("[data-campus2d-game-zone]");
+      if (gameZoneButton) {
+        const gameZone = getClickableGameZones().find((entry) => entry.id === gameZoneButton.dataset.campus2dGameZone);
+        if (gameZone) {
+          activateGameZone(gameZone);
+        }
         return;
       }
 

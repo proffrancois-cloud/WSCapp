@@ -17,6 +17,10 @@
     return { id, kind, label, zone: rect(id, x, y, width, height) };
   }
 
+  function gameZone(id, mode, label, x, y, width, height) {
+    return { id, mode, label, zone: rect(id, x, y, width, height) };
+  }
+
   function seat(id, x, y, width, height) {
     return { id, zone: rect(id, x, y, width, height), x: x + (width / 2), y: y + (height / 2) };
   }
@@ -115,6 +119,9 @@
       ],
       hotspots: [
         hotspot("lobby-games", "games", "Games", 465, 480, 250, 195)
+      ],
+      gameZones: [
+        gameZone("lobby-games", "game", "Games", 465, 480, 250, 195)
       ],
       behindZones: [
         rect("lobby-left-door-awning", 32, 446, 209, 146),
@@ -284,6 +291,9 @@
       hotspots: [
         hotspot("courtyard-board", "lesson", "Courtyard board", 690, 170, 290, 230)
       ],
+      gameZones: [
+        gameZone("courtyard-board", "learn", "Courtyard board", 690, 170, 290, 230)
+      ],
       behindZones: [
         rect("courtyard-top-left-tree", 63, 148, 107, 53),
         rect("courtyard-board-roof", 680, 156, 259, 115),
@@ -362,6 +372,9 @@
       ],
       hotspots: [
         hotspot("library-alpacards", "lesson", "Library lessons", 720, 845, 390, 270)
+      ],
+      gameZones: [
+        gameZone("library-alpacards", "learn", "Library lessons", 720, 845, 390, 270)
       ],
       behindZones: [
         rect("library-front-desk-left-lamp", 453, 231, 40, 60),
@@ -460,6 +473,9 @@
       ],
       hotspots: [
         hotspot("debate-board", "lesson", "Debate board", 390, 30, 405, 175)
+      ],
+      gameZones: [
+        gameZone("debate-board", "train", "Debate board", 390, 30, 405, 175)
       ],
       behindZones: [],
       seats: [

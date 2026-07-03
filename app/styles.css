@@ -14440,6 +14440,13 @@ body.is-online-mode .section-heading {
   background: rgba(255, 217, 126, 0.34);
 }
 
+.campus2d-game-zone:hover::after,
+.campus2d-game-zone:focus-visible::after {
+  border-color: rgba(255, 154, 43, 0.92);
+  background: rgba(255, 132, 32, 0.28);
+  box-shadow: 0 0 0 8px rgba(255, 132, 32, 0.14), 0 0 24px rgba(255, 154, 43, 0.46);
+}
+
 .campus2d-debug-zone {
   position: absolute;
   display: block;
@@ -14468,6 +14475,11 @@ body.is-online-mode .section-heading {
 .campus2d-debug-zone.is-portal {
   color: #3fa7ff;
   background: rgba(63, 167, 255, 0.24);
+}
+
+.campus2d-debug-zone.is-game {
+  color: #ff8a24;
+  background: rgba(255, 138, 36, 0.26);
 }
 
 .campus2d-debug-zone.is-editor-zone {
