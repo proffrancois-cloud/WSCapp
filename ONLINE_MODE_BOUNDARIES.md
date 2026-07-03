@@ -1,44 +1,35 @@
 # Online Mode Boundaries
 
-WSCapp currently has two different online concepts. They should not be treated
-as the same system during refactors.
+WSCapp now has one public online entry and one live-game subsystem.
 
-## Public Path: 3D Campus Preview
+## Public Entry: 2D Campus
 
-This is the user-facing `3D Campus Preview / Explore preview` path.
+- Entry path: the main app Online choice.
+- Runtime: classic browser scripts under `app/src/features/campus-2d/`.
+- First room: Lobby.
+- Movement: arrow keys and click/tap-to-move.
+- Realtime model: Supabase Realtime presence/broadcast per 2D room.
+- Game launcher: the existing online game cards are reused inside the campus
+  popup.
 
-- Entry point: `app/src/app/online-mode-controller.js`
-- Backward-compatible URL source: `app/src/app/app-entry-service.js`
-- Runtime URL: `./alpaca-campus-3d/?mode=multiplayer`
-- Default visible alpaca name: `Devalpacca`
-- Login requirement: none
-- Product status: public preview, not a persisted MMO world
-- Current realtime model: experimental 3D campus presence, movement, seat
-  events, and chat through Supabase Realtime channels
+The public online entry must stay inside the main app so GitHub Pages and
+Vercel deploy the same runtime.
 
-This path must keep working on GitHub Pages under `/WSCapp/`.
+## Live Game Rooms
 
-## Legacy/Future Path: Live Game Room Mechanics
+Live game creation, join, chat, and event persistence still use the existing
+Alpacapardy/live-game services:
 
-This is the older main-app live room system for Alpacapardy and arcade-style
-live games. It is not the public `Explore preview` destination.
-It is disabled in public builds until the Supabase RPC/RLS path is reviewed.
+- `app/src/services/alpacapardy-live-supabase-service.js`
+- `app/src/modes/play/live-session-service.js`
+- `app/src/modes/play/alpacapardy/alpacapardy-live.js`
+- `app/supabase/alpacapardy_live.sql`
 
-- Main orchestration still lives in `app/app.js`.
-- Supabase table helpers live in
-  `app/src/services/alpacapardy-live-supabase-service.js`.
-- Transport-neutral reducers/helpers live under `app/src/modes/play/`.
-- SQL setup lives in `app/supabase/alpacapardy_live.sql`.
-- This path may require authenticated or anonymous Supabase sessions when a
-  user creates or joins a live room.
-- Public flag: `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED = false`
-
-Treat this as legacy/future MMO game-room work until it is extracted behind a
-clear live-room controller and backed by reviewed Supabase RLS/persistence.
+The 2D campus is the social shell. A selected game card can still switch into
+the existing live-game room UI.
 
 ## Refactor Rule
 
-Do not add login gating, room-table assumptions, or legacy Alpacapardy live-room
-state to the 3D campus launcher. If live game rooms are revived, wire them
-through a separately named live-room controller and keep the public campus entry
-as `3D Campus Preview`.
+Keep room presence/chat ephemeral in the campus. Keep durable game state in the
+live-game subsystem. Do not add a second game-room database model for campus
+movement.

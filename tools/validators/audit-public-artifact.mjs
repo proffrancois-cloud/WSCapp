@@ -22,8 +22,14 @@ const requiredPaths = [
   "content/debate/debate-judge-instructions.pdf",
   "src/app-lifecycle-controller.js",
   "src/ui/wizard-renderer.js",
-  "src/features/campus-shared/data/rooms.js",
-  "alpaca-campus-3d/index.html"
+  "src/features/campus-2d/manifest.js",
+  "src/features/campus-2d/realtime.js",
+  "src/features/campus-2d/campus-2d.js",
+  "assets/campus-2d/lobby.png",
+  "assets/campus-2d/courtyard.png",
+  "assets/campus-2d/library.png",
+  "assets/campus-2d/debate-lab.png",
+  "assets/campus-2d/alpaca-sprite.png"
 ];
 
 const forbiddenPathPatterns = [
@@ -42,7 +48,10 @@ const forbiddenPathPatterns = [
   /^\.playwright-cli(?:\/|$)/,
   /^coverage\//,
   /^test-results\//,
+  /^alpaca-campus-3d\//,
+  /^assets\/campus-3d\//,
   /^src\/features\/alpaca-campus-3d\//,
+  /^src\/features\/campus-shared\//,
   /^src\/.*\.(?:ts|tsx|md)$/,
   /\.sql$/,
   /\.map$/,

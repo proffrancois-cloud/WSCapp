@@ -1,13 +1,13 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { dirname, relative, resolve } from "node:path";
+import { relative, resolve } from "node:path";
 
 const repoRoot = resolve(import.meta.dirname, "../..");
 const appRoot = resolve(repoRoot, "app");
 const indexPath = resolve(appRoot, "index.html");
-const campusRuntimeLoaderPath = resolve(appRoot, "src/features/alpaca-campus-3d/campus-runtime-loader.ts");
 
 const mainProviderRoots = [
   "src/app",
+  "src/features/campus-2d",
   "src/services",
   "src/modes",
   "src/ui",
@@ -17,10 +17,6 @@ const mainProviderRoots = [
 const allowedExternalGlobals = new Set([
   "WSC_DESKTOP_APP",
   "WSC_PWA_RESET_VERSION"
-]);
-
-const campusOptionalGlobals = new Set([
-  "WSC_ALPACA_CAMPUS_ROOMS"
 ]);
 
 const inlineProviders = new Set([
@@ -53,16 +49,6 @@ function listLocalScriptsFromIndex() {
   return Array.from(html.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/g), (match) => match[1])
     .filter((scriptPath) => !isRemoteScript(scriptPath))
     .map(normalizeScriptPath);
-}
-
-function listCampusContentScripts() {
-  const source = readFileSync(campusRuntimeLoaderPath, "utf8");
-  const arrayMatch = source.match(/const\s+CAMPUS_CONTENT_SCRIPT_PATHS\s*=\s*\[([\s\S]*?)\]\s+as\s+const/);
-  if (!arrayMatch) {
-    throw new Error("Could not find CAMPUS_CONTENT_SCRIPT_PATHS in campus-runtime-loader.ts.");
-  }
-
-  return Array.from(arrayMatch[1].matchAll(/["']([^"']+\.js)["']/g), (match) => match[1]);
 }
 
 function walkJsFiles(relativeDir) {
@@ -207,11 +193,7 @@ function validateMainProviderCoverage(scriptPaths) {
 }
 
 const mainScripts = listLocalScriptsFromIndex();
-const campusScripts = listCampusContentScripts();
 const mainOrderReport = validateScriptOrder("main-index", mainScripts);
-const campusOrderReport = validateScriptOrder("campus-content-loader", campusScripts, {
-  allowedMissingGlobals: campusOptionalGlobals
-});
 const uncoveredMainProviders = validateMainProviderCoverage(mainScripts);
 
 const appScriptIndex = mainScripts.indexOf("app.js");
@@ -230,15 +212,6 @@ const report = {
     failureCount: mainOrderReport.failures.length,
     failures: mainOrderReport.failures
   },
-  campus: {
-    label: campusOrderReport.label,
-    scriptCount: campusOrderReport.scriptCount,
-    providerCount: campusOrderReport.providerCount,
-    duplicateCount: campusOrderReport.duplicates.length,
-    missingFileCount: campusOrderReport.missingFiles.length,
-    failureCount: campusOrderReport.failures.length,
-    failures: campusOrderReport.failures
-  },
   uncoveredMainProviders
 };
 
@@ -246,7 +219,6 @@ console.log(JSON.stringify(report, null, 2));
 
 if (
   mainOrderReport.failures.length ||
-  campusOrderReport.failures.length ||
   uncoveredMainProviders.length
 ) {
   process.exitCode = 1;

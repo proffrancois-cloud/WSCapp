@@ -11,15 +11,11 @@
   "packageManager": "npm@11.12.1",
   "scripts": {
     "serve": "python3 -m http.server 4173",
-    "dev:3d": "vite --host 127.0.0.1",
-    "build:3d": "vite build",
-    "build:pages": "VITE_BASE=/WSCapp/ vite build && node ../tools/deployment/prepare-github-pages.mjs --target=pages",
-    "build:vercel": "VITE_BASE=/ vite build && node ../tools/deployment/prepare-github-pages.mjs --target=vercel",
+    "build:pages": "node ../tools/deployment/prepare-github-pages.mjs --target=pages",
+    "build:vercel": "node ../tools/deployment/prepare-github-pages.mjs --target=vercel",
     "audit:pages": "node ../tools/validators/audit-public-artifact.mjs dist-pages",
     "audit:vercel": "node ../tools/validators/audit-public-artifact.mjs dist-vercel",
-    "verify": "npm run test:node-version && npm run typecheck:3d && npm run test:theme && npm run test:smoke && npm run build:pages && npm run audit:pages",
-    "preview:3d": "vite preview --host 127.0.0.1",
-    "typecheck:3d": "tsc --noEmit -p tsconfig.json",
+    "verify": "npm run test:node-version && npm run test:classic-scripts && npm run test:campus2d && npm run test:theme && npm run test:smoke && npm run build:pages && npm run audit:pages",
     "theme:extract": "node ../tools/generators/extract-current-2026-theme.mjs",
     "theme:build-question-bank": "node ../tools/generators/build-question-bank-from-theme.mjs ../content/themes/2026",
     "theme:validate": "node ../tools/validators/validate-theme.mjs ../content/themes/2026",
@@ -34,6 +30,7 @@
     "test:theme": "npm run theme:validate && npm run theme:compare && npm run theme:check-runtime",
     "verify:vercel": "npm run build:vercel && npm run audit:vercel",
     "test:classic-scripts": "node ../tools/validators/classic-script-dependency-map-test.mjs",
+    "test:campus2d": "node ../tools/validators/campus-2d-world-test.mjs",
     "test:smoke": "node ../tools/validators/smoke-test-app.mjs",
     "test:auth-privacy": "node ../tools/validators/auth-privacy-test.mjs",
     "test:storage-failure": "node ../tools/validators/storage-failure-test.mjs",
@@ -41,12 +38,7 @@
     "test:html-boundary": "node ../tools/validators/html-boundary-test.mjs",
     "test:html-sinks": "node ../tools/validators/html-sink-guard.mjs",
     "test:css-imports": "node ../tools/validators/css-import-graph-test.mjs",
-    "test:campus-network": "node ../tools/validators/campus-network-guardrails-test.mjs",
-    "test:campus-assets": "node ../tools/validators/campus-asset-manifest-test.mjs",
-    "optimize:campus-glbs": "node ../tools/assets/optimize-campus-glbs.mjs",
     "test:a11y-smoke": "playwright test e2e/modal-mobile.spec.ts",
-    "test:campus-smoke": "playwright test e2e/campus-preview.spec.ts",
-    "test:campus-performance": "playwright test e2e/campus-performance.spec.ts",
     "desktop:dev": "electron .",
     "desktop:pack": "electron-builder --dir",
     "desktop:mac": "electron-builder --mac dmg zip",
@@ -55,13 +47,9 @@
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^24.10.1",
-    "@types/react": "^19.2.15",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
     "electron": "^30.0.0",
     "electron-builder": "^24.13.3",
-    "typescript": "^6.0.3",
-    "vite": "^8.0.14"
+    "typescript": "^6.0.3"
   },
   "build": {
     "appId": "org.worldscholarscup.study.routes",
@@ -84,7 +72,6 @@
       "manifest.webmanifest",
       "service-worker.js",
       "pwa.js",
-      "alpaca-campus-3d/**/*",
       "src/**/*",
       "generated/**/*",
       "assets/**/*",
@@ -107,15 +94,5 @@
         "portable"
       ]
     }
-  },
-  "dependencies": {
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.6.1",
-    "@react-three/rapier": "^2.2.0",
-    "lucide-react": "^1.16.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "three": "^0.184.0",
-    "zustand": "^5.0.13"
   }
 }

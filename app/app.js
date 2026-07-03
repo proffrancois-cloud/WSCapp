@@ -47,6 +47,8 @@ let wholeThemeKnowledge = null;
 let mindMapOrbitAnimationId = null;
 let relayBuzzAudio = null;
 let relayBuzzAudioSrc = null;
+let campus2dController = null;
+let campus2dMountElement = null;
 
 const GAME_CONFIG = {
   raceLives: 3,
@@ -4040,6 +4042,7 @@ function render() {
   renderAppEntryGate();
   renderSummary();
   renderWizard();
+  syncCampus2DOnlineMount();
   renderLiveOverlayMount();
   renderExperience();
   renderCooperationModal();
@@ -4279,7 +4282,7 @@ function openAlpacaOnlineHub() {
   state.ui.appShellMode = "online";
   state.ui.cooperationOpen = false;
   state.ui.wizardTransition = "forward";
-  state.live.onlineView = "hub";
+  state.live.onlineView = "campus";
   state.selection.path = "play";
   state.selection.lens = DEFAULT_LENS_ID;
   state.selection.targetIds = [];
@@ -4288,7 +4291,6 @@ function openAlpacaOnlineHub() {
   state.experience = buildJeopardyExperience();
   state.experience.playMode = "multiplayer";
   render();
-  refreshAlpacapardyLiveLobby();
   refs.routeBuilder && refs.routeBuilder.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -4296,7 +4298,7 @@ function returnToAlpacaOnlineHub() {
   if (state.live.currentSession) {
     return;
   }
-  state.live.onlineView = "hub";
+  state.live.onlineView = "campus";
   state.live.selectedGameType = "alpacapardy";
   state.live.arcadeState = null;
   state.live.error = "";
@@ -4472,6 +4474,9 @@ function renderWizard() {
     if (refs.wizardRailMount) {
       refs.wizardRailMount.innerHTML = "";
     }
+    if (isAlpacaOnlineCampusView() && refs.wizardSteps.querySelector("[data-campus2d-shell]")) {
+      return;
+    }
     refs.wizardSteps.innerHTML = renderAlpacaOnlineHub();
     return;
   }
@@ -4498,6 +4503,10 @@ function renderAlpacaOnlineHub() {
   const canStart = getAlpacapardyLiveRenderContext().canStart;
   const onGamePage = Boolean(currentSession || state.live.onlineView === "game");
 
+  if (!onGamePage) {
+    return renderCampus2DOnlineShell();
+  }
+
   return `
     <section class="online-hub-shell ${onGamePage ? "online-hub-shell-game" : "online-hub-shell-home"}">
       <aside class="online-hub-column online-hub-left">
@@ -4520,6 +4529,71 @@ function getLiveOverlayRenderContext() {
   const isHost = getAlpacapardyLiveIdentityContext().isHost;
   const canStart = getAlpacapardyLiveRenderContext().canStart;
   return { currentSession, roomPlayers, isHost, canStart, busy };
+}
+
+function isAlpacaOnlineCampusView() {
+  return Boolean(
+    state.ui.appShellMode === "online" &&
+    !state.live.currentSession &&
+    state.live.onlineView !== "game"
+  );
+}
+
+function renderCampus2DOnlineShell() {
+  return `
+    <section class="campus2d-online-shell" data-campus2d-shell>
+      <div id="campus2dMount" class="campus2d-mount" data-campus2d-mount></div>
+    </section>
+  `;
+}
+
+function getCampus2DIdentity() {
+  const user = state.auth.session?.user || null;
+  return {
+    userId: user?.id || null,
+    displayName: getLiveDisplayName()
+  };
+}
+
+function destroyCampus2DOnlineMount() {
+  if (campus2dController?.destroy) {
+    campus2dController.destroy();
+  }
+  campus2dController = null;
+  campus2dMountElement = null;
+}
+
+function syncCampus2DOnlineMount() {
+  if (!isAlpacaOnlineCampusView()) {
+    destroyCampus2DOnlineMount();
+    return;
+  }
+
+  const mount = document.querySelector("[data-campus2d-mount]");
+  if (!mount) {
+    destroyCampus2DOnlineMount();
+    return;
+  }
+
+  if (campus2dController && campus2dMountElement === mount) {
+    return;
+  }
+
+  destroyCampus2DOnlineMount();
+
+  if (!window.WSC_CAMPUS_2D?.mount) {
+    mount.textContent = "Campus 2D is loading.";
+    return;
+  }
+
+  campus2dMountElement = mount;
+  campus2dController = window.WSC_CAMPUS_2D.mount({
+    mount,
+    client: getSupabaseClient(),
+    identity: getCampus2DIdentity(),
+    getGameLauncherHtml: renderOnlineHomeGameGrid,
+    onGameChoice: chooseOnlineGameType
+  });
 }
 
 function getLiveOverlayMount() {
@@ -4692,7 +4766,7 @@ function renderOnlineCreateGamePanel({ currentSession, roomPlayers, isHost, canS
           <p class="challenge-label">${currentSession ? "Live room" : "Create a game"}</p>
           <h2>${escapeHtml(getLiveGameLabel(currentGameType))}</h2>
         </div>
-        ${currentSession ? "" : `<button class="button secondary small online-return-hub-button" type="button" data-online-return-hub>Return to hub</button>`}
+        ${currentSession ? "" : `<button class="button secondary small online-return-hub-button" type="button" data-online-return-hub>Return to campus</button>`}
       </div>
       ${state.live.error ? `<p class="live-lobby-error">${escapeHtml(state.live.error)}</p>` : ""}
       ${renderSelectedOnlineGameBody({ currentSession, roomPlayers, isHost, canStart, busy })}

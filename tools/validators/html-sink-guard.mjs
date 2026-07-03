@@ -5,7 +5,6 @@ const repoRoot = resolve(import.meta.dirname, "../..");
 const scanEntries = [
   "app/app.js",
   "app/index.html",
-  "app/alpaca-campus-3d",
   "app/src"
 ];
 
@@ -14,7 +13,6 @@ const approvedSinkFiles = new Set([
 ]);
 
 const ignoredDirNames = new Set([
-  "dist-3d",
   "dist-pages",
   "dist-vercel",
   "node_modules",

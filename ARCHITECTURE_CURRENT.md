@@ -5,8 +5,8 @@ This document describes the current GitHub state of WSCapp at commit
 
 ## Runtime Shape
 
-WSCapp is currently a static web app with a modern React/TypeScript 3D campus
-mounted beside an older vanilla JavaScript main app.
+WSCapp is currently a static web app with a vanilla JavaScript main app and an
+embedded 2D Online campus runtime.
 
 The repo-controlled build/runtime policy is Node.js `24.x`. The root `.nvmrc`,
 `.node-version`, root package metadata, app package metadata, GitHub workflows,
@@ -23,9 +23,8 @@ WSCapp/
   vercel.json                  Vercel config, outputDirectory: app/dist-vercel
 ```
 
-GitHub Pages runs a Vite build for the 3D campus, then creates
-`app/dist-pages/` from an explicit runtime allowlist and overlays the built 3D
-campus. Future Vercel builds use the same artifact path pattern through
+GitHub Pages creates `app/dist-pages/` from an explicit runtime allowlist.
+Future Vercel builds use the same artifact path pattern through
 `app/dist-vercel/`; this repo change does not deploy Vercel by itself.
 
 ## Content Flow
@@ -182,50 +181,31 @@ Important groups:
   Raw Content renderers.
 - `src/modes/play/`: Alpaquiz, Alpacapardy, and transport-neutral live session
   logic.
-- `src/features/campus-shared/`: browser-script data/realtime bridges shared
-  by the 3D campus.
+- `src/features/campus-2d/`: embedded Online campus manifest, DOM runtime,
+  input/collision loop, and Supabase Realtime presence bridge.
 
 The current pattern is useful for incremental extraction, but the target should
 eventually be true module imports and typed interfaces.
 
-## 3D Campus
+## 2D Campus
 
-The 3D campus is a separate React/TypeScript/Vite app rooted at
-`app/alpaca-campus-3d/index.html`.
+The Online entry now stays inside the classic app and mounts a small 2D campus
+runtime under `app/src/features/campus-2d/`.
 
 Key pieces:
 
-- `app/vite.config.ts`: builds only the campus entry into `app/dist-3d/`, with
-  React, React/Zustand, Three, and general vendor chunks.
-- `src/features/alpaca-campus-3d/main.tsx`: mounts React into
-  `#alpaca-campus-3d-root`.
-- `Campus3DApp.tsx`: mode gate, UI shell, chat, controls, panels, room dock, and
-  realtime hook wiring.
-- `CampusScene.tsx`: Three.js/React Three Fiber scene, avatar, rooms, objects,
-  camera, movement, collision, seats, and interactions.
-- `campus-store.ts`: Zustand state for room, player, remote players, chat,
-  seats, panels, debug state, camera settings, and pending realtime events.
-- `use-campus-realtime.ts`: Supabase Realtime presence/broadcast bridge.
-- `public-url.ts`: fixes public asset URLs under `/` and `/WSCapp/`.
+- `manifest.js`: room images, dimensions, spawn points, portals, walk zones,
+  blocked zones, hotspots, sprite metadata, and color palette.
+- `realtime.js`: Supabase Realtime room presence and broadcast events using the
+  `campus2d.realtime.v1` schema.
+- `campus-2d.js`: DOM renderer, camera, arrow-key/click movement, collision,
+  portal changes, chat bubbles, color selection, and Games popup.
+- `app/assets/campus-2d/`: Lobby, Courtyard, Library, Debate Lab, and alpaca
+  sprite PNGs.
 
-The campus can launch in local or multiplayer mode. GitHub's main app opens it
-with `./alpaca-campus-3d/?mode=multiplayer`, which auto-selects multiplayer.
-That public path is named `3D Campus Preview` in
-`ONLINE_MODE_BOUNDARIES.md` and `online-mode-controller.js` because it is not
-yet a persisted MMO experience.
-
-The older main-app Alpaca Online/live room screens are separate legacy/future
-live game room mechanics. Their rendering now lives in
-`legacy-live-room-renderer.js`, and their access, lobby/session sync, live
-event reducers, chat, and start/join/leave actions now live in
-`legacy-live-room-controller.js`. Local Alpacapardy setup, team, tile, focus,
-answer-resolution, and clue-timer mechanics now live in
-`alpacapardy-controller.js`; board construction, setup-option selection, tile
-counting, standings helpers, and renderer-helper assembly now live in
-`alpacapardy-board-controller.js`. `app.js` keeps compatibility wrappers. These
-screens are not the public
-`Explore preview` destination, and `LEGACY_LIVE_ROOMS_PUBLIC_ENABLED` keeps
-them disabled in public builds.
+The existing animated online game cards remain in `app/app.js` and
+`app/styles.css`. The 2D campus opens those cards inside an in-world popup, then
+selected cards switch into the existing live-game room UI.
 
 ## Supabase And Realtime
 
@@ -244,9 +224,9 @@ Alpaccount sign-in and password reset are email-only. The client no longer
 performs alpaca-name-to-email lookup, and `alpaccounts.sql` drops the old
 `resolve_alpaca_login(text)` RPC.
 
-The 3D campus currently uses Supabase Realtime presence/broadcast channels for
-room state, movement, seat events, and chat. That is not yet a persisted MMO
-world model.
+The 2D campus uses Supabase Realtime presence/broadcast channels for room
+presence, movement, avatar color, and chat. That is not a persisted MMO world
+model.
 
 ## Deployment
 
@@ -263,15 +243,13 @@ GitHub Pages:
 - `.github/workflows/pages.yml` runs `npm ci` and `npm run build:pages`.
 - The Pages build job has read-only repository permissions; only the deploy job
   gets `pages: write` and `id-token: write`.
-- `VITE_BASE=/${repository}/` ensures Vite output works under `/WSCapp/`.
-- `prepare-github-pages.mjs` copies only allowlisted runtime files, overlays
-  the built 3D campus, and prunes unused heavy custom 3D props.
+- `prepare-github-pages.mjs` copies only allowlisted runtime files and assets.
 - `audit-public-artifact.mjs` checks artifacts for forbidden source/config/SQL
   files before they are treated as publishable.
 - `css-import-graph-test.mjs` checks the ordered main-app stylesheet graph in
   source and in built Pages/Vercel artifacts.
 - `classic-script-dependency-map-test.mjs` checks the classic browser-script
-  dependency graph for the main app and the campus content loader.
+  dependency graph for the main app, including the 2D campus scripts.
 
 Pull requests and `codex/**` branches run `.github/workflows/verify.yml`, which
 installs dependencies, installs Playwright Chromium for future browser tests,
@@ -347,13 +325,10 @@ tests without deploying anything.
   centralized in `arcade-game-controller.js`; `app.js` still owns their
   builders, renderers, timers, DOM patch helpers, and compatibility wrappers.
 - Browser storage writes go through safe helpers. Main-app progress uses
-  `storage-service.js` and `progress-storage-controller.js`; the 3D campus
-  avatar uses `browser-storage.ts`.
-- 3D campus realtime now applies network guardrails through
-  `campus-network-guardrails.ts` and `room-channel.js`: movement frames omit
-  avatar/display-name blobs, small deltas are throttled, idle heartbeat is
-  explicit, payload byte limits are checked, and rendered remote players are
-  capped.
+  `storage-service.js` and `progress-storage-controller.js`; the 2D campus
+  stores only lightweight room/color preferences in localStorage.
+- 2D campus realtime keeps movement, chat, avatar color, and presence
+  ephemeral. Durable game state stays in the existing live-game services.
 - HTML string rendering is now routed through `app-dom-service.js`. Direct
   `innerHTML`/`outerHTML`/`insertAdjacentHTML`/React `dangerouslySetInnerHTML`
   use outside that service is blocked by `npm run test:html-sinks`.
@@ -394,7 +369,7 @@ from a large script-driven app.
 Short term: keep the hybrid architecture stable.
 
 - Main app stays vanilla JavaScript plus extracted browser-script modules.
-- 3D campus stays React/TypeScript/Vite.
+- 2D campus stays embedded in the classic app runtime.
 - Do not migrate the full app to React yet.
 - Refactor by small no-behavior-change extractions.
 

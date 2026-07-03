@@ -5,7 +5,6 @@ import { fileURLToPath } from "node:url";
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(scriptDir, "../..");
 const appRoot = join(repoRoot, "app");
-const campusDistRoot = join(appRoot, "dist-3d");
 const targetName = getTargetName();
 const publicDistRoot = join(appRoot, targetName === "vercel" ? "dist-vercel" : "dist-pages");
 
@@ -43,28 +42,6 @@ const publicAssetDirs = [
   "app-icons",
   "assets"
 ];
-
-const requiredCampusCustomProps = new Set([
-  "alhambra-pattern-ii.glb",
-  "alhambra-study-ii.glb",
-  "anime-classroom.glb",
-  "antique-wooden-pedestal-stand-type-a.glb",
-  "arab-majlis.glb",
-  "church-bench.glb",
-  "cour-du-chateau-de-chambord.glb",
-  "debatelab.glb",
-  "fine-persian-esfahan-carpet.glb",
-  "long-table.glb",
-  "masjid-al-aqsa-dome-of-the-rock.glb",
-  "middle-aged-ottoman-table.glb",
-  "old-wooden-door.glb",
-  "oriental-fountain.glb",
-  "ottoman-pillow-and-carpets.glb",
-  "reception-desk.glb",
-  "school-locker.glb",
-  "sm-door.glb",
-  "whiteboard.glb"
-]);
 
 function getTargetName() {
   const targetArg = process.argv.find((arg) => arg.startsWith("--target="));
@@ -149,29 +126,11 @@ function removeLocalMetadataFiles(dir) {
   });
 }
 
-if (!existsSync(campusDistRoot)) {
-  throw new Error("Missing dist-3d. Run vite build before prepare-github-pages.");
-}
-
 rmSync(publicDistRoot, { recursive: true, force: true });
 mkdirSync(publicDistRoot, { recursive: true });
 
 copyRuntimeAllowlist();
 assertNoNestedOutputCopies();
-
-rmSync(join(publicDistRoot, "assets", "campus-3d"), { recursive: true, force: true });
-rmSync(join(publicDistRoot, "alpaca-campus-3d"), { recursive: true, force: true });
-cpSync(join(campusDistRoot, "alpaca-campus-3d"), join(publicDistRoot, "alpaca-campus-3d"), { recursive: true });
-cpSync(join(campusDistRoot, "assets"), join(publicDistRoot, "assets"), { recursive: true });
-
-const campusCustomPropsRoot = join(publicDistRoot, "assets", "campus-3d", "props", "custom");
-if (existsSync(campusCustomPropsRoot)) {
-  readdirSync(campusCustomPropsRoot).forEach((fileName) => {
-    if (!requiredCampusCustomProps.has(fileName)) {
-      rmSync(join(campusCustomPropsRoot, fileName), { recursive: true, force: true });
-    }
-  });
-}
 
 removeLocalMetadataFiles(publicDistRoot);
 

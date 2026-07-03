@@ -84,9 +84,9 @@
       }
 
       started = true;
+      bindEventListeners();
       runStartupTasks();
       markReady();
-      bindEventListeners();
     }
 
     function clearIntervalTimer(name) {

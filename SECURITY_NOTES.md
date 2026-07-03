@@ -39,9 +39,9 @@ enables RLS and grants authenticated users access to their own profile data.
 It enables RLS and currently gates live-room access through authenticated users
 and the admin-tester helper policies in that script.
 
-The 3D campus currently uses Supabase Realtime presence/broadcast for online
-campus state. Presence and broadcast data should be treated as live session
-messages, not persisted authoritative MMO state.
+The 2D campus uses Supabase Realtime presence/broadcast for online campus
+state. Presence and broadcast data should be treated as live session messages,
+not persisted authoritative MMO state.
 
 ## Current Client Behavior
 
@@ -54,17 +54,18 @@ longer resolves alpaca names to email addresses, and the SQL setup drops
 preflight name-availability response; duplicate or invalid account data is
 reported with generic wording.
 
-The 3D campus multiplayer entry does not force Alpaccount login. The visible
-default online alpaca identity remains `Devalpacca` in the main app entry card.
+The 2D campus multiplayer entry can run with the existing authenticated or
+anonymous Supabase session path used by live games. The visible default online
+alpaca identity remains `Devalpacca` in the main app entry card.
 
-Legacy live Alpacapardy room features are disabled in the public app through
-`LEGACY_LIVE_ROOMS_PUBLIC_ENABLED = false`. They remain separate from the
-public 3D campus launcher and should stay closed until their RPC/RLS,
-persistence, and moderation design is reviewed.
+Live Alpacapardy and arcade room features remain separate from 2D campus
+presence. Their RPC/RLS, persistence, and moderation design must be reviewed
+before making new durable multiplayer claims.
 
 Browser storage writes are non-fatal. If local progress cannot be saved, the
 app keeps running and can show a local-progress warning on the entry surface.
-The 3D campus avatar preference uses the same safe browser-storage boundary.
+The 2D campus room/color preferences use the same safe browser-storage
+boundary.
 
 Future Vercel artifacts are configured with baseline static headers in
 `vercel.json`: CSP, `X-Content-Type-Options`, `Referrer-Policy`,
