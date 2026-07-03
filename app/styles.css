@@ -13969,15 +13969,47 @@ body.is-online-mode .section-heading {
 
 .campus2d-entities,
 .campus2d-hotspots,
+.campus2d-portals,
 .campus2d-seats,
-.campus2d-behind-layer {
+.campus2d-behind-layer,
+.campus2d-debug-layer {
   position: absolute;
   inset: 0;
+}
+
+.campus2d-hotspots {
+  z-index: 4;
+  pointer-events: none;
+}
+
+.campus2d-portals {
+  z-index: 5;
+  pointer-events: none;
+}
+
+.campus2d-seats {
+  z-index: 6;
+  pointer-events: none;
+}
+
+.campus2d-entities {
+  z-index: 100;
+  pointer-events: none;
 }
 
 .campus2d-behind-layer {
   pointer-events: none;
   z-index: 12000;
+}
+
+.campus2d-debug-layer {
+  display: none;
+  pointer-events: none;
+  z-index: 13000;
+}
+
+.campus2d-root.is-debug .campus2d-debug-layer {
+  display: block;
 }
 
 .campus2d-behind-zone {
@@ -13989,17 +14021,17 @@ body.is-online-mode .section-heading {
 
 .campus2d-player {
   --campus2d-color: #f7ead0;
-  --campus2d-filter: none;
   --campus2d-sprite-x: 50%;
   --campus2d-sprite-y: 0%;
   --campus2d-flip: 1;
+  --campus2d-step-flip-scale: 0.985;
   position: absolute;
   left: 0;
   top: 0;
-  width: 82px;
-  height: 112px;
-  margin-left: -41px;
-  margin-top: -94px;
+  width: 41px;
+  height: 56px;
+  margin-left: -20.5px;
+  margin-top: -47px;
   display: grid;
   justify-items: center;
   align-items: end;
@@ -14007,23 +14039,43 @@ body.is-online-mode .section-heading {
   will-change: transform;
 }
 
+.campus2d-player.is-sitting .campus2d-avatar {
+  height: 44px;
+  transform: scaleX(var(--campus2d-flip)) translateY(4px) scaleY(0.9);
+}
+
 .campus2d-avatar {
-  width: 82px;
-  height: 98px;
+  width: 41px;
+  height: 49px;
   display: block;
   background-repeat: no-repeat;
   background-size: 300% 400%;
   background-position: var(--campus2d-sprite-x) var(--campus2d-sprite-y);
-  filter: var(--campus2d-filter) drop-shadow(0 8px 9px rgba(15, 9, 2, 0.42));
+  filter: drop-shadow(0 4px 5px rgba(15, 9, 2, 0.38));
   image-rendering: pixelated;
   transform: scaleX(var(--campus2d-flip));
   transform-origin: center bottom;
 }
 
+.campus2d-player.is-moving .campus2d-avatar {
+  animation: campus2d-in-place-step 520ms ease-in-out infinite;
+}
+
+@keyframes campus2d-in-place-step {
+  0%,
+  100% {
+    transform: scaleX(var(--campus2d-flip)) scaleY(1);
+  }
+
+  50% {
+    transform: scaleX(var(--campus2d-step-flip-scale)) scaleY(1.012);
+  }
+}
+
 .campus2d-name {
   position: absolute;
   left: 50%;
-  top: 92px;
+  top: 46px;
   transform: translateX(-50%);
   max-width: 130px;
   padding: 3px 8px;
@@ -14048,7 +14100,7 @@ body.is-online-mode .section-heading {
 .campus2d-chat-bubble {
   position: absolute;
   left: 50%;
-  bottom: 112px;
+  bottom: 56px;
   width: max-content;
   max-width: 220px;
   transform: translate(-50%, 8px);
@@ -14109,6 +14161,7 @@ body.is-online-mode .section-heading {
 
 .campus2d-palette {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 7px;
   margin-left: auto;
@@ -14195,6 +14248,24 @@ body.is-online-mode .section-heading {
   border-radius: 999px;
   background: rgba(255, 214, 112, 0.01);
   cursor: pointer;
+  pointer-events: auto;
+}
+
+.campus2d-portal {
+  position: absolute;
+  border: 1px solid rgba(63, 164, 255, 0);
+  border-radius: 8px;
+  background: rgba(63, 164, 255, 0);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.campus2d-portal:hover,
+.campus2d-portal:focus-visible {
+  border-color: rgba(92, 183, 255, 0.9);
+  background: rgba(54, 143, 255, 0.2);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(23, 74, 138, 0.24);
 }
 
 .campus2d-seat {
@@ -14203,6 +14274,7 @@ body.is-online-mode .section-heading {
   border-radius: 5px;
   background: rgba(255, 220, 62, 0);
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .campus2d-seat:hover,
@@ -14229,6 +14301,67 @@ body.is-online-mode .section-heading {
 .campus2d-hotspot:hover::after,
 .campus2d-hotspot:focus-visible::after {
   background: rgba(255, 217, 126, 0.34);
+}
+
+.campus2d-debug-zone {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.campus2d-debug-zone.is-blocked {
+  color: #ff3fcf;
+  background: rgba(255, 63, 207, 0.22);
+}
+
+.campus2d-debug-zone.is-seat {
+  color: #ffef3f;
+  background: rgba(255, 239, 63, 0.28);
+}
+
+.campus2d-debug-zone.is-behind {
+  color: #38f66d;
+  background: rgba(56, 246, 109, 0.2);
+}
+
+.campus2d-debug-zone.is-portal {
+  color: #3fa7ff;
+  background: rgba(63, 167, 255, 0.24);
+}
+
+.campus2d-debug-panel {
+  position: absolute;
+  z-index: 35;
+  top: 76px;
+  right: 14px;
+  width: min(320px, calc(100% - 28px));
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 238, 188, 0.32);
+  border-radius: 12px;
+  background: rgba(18, 14, 10, 0.86);
+  color: #fff7dc;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+}
+
+.campus2d-debug-panel[hidden] {
+  display: none;
+}
+
+.campus2d-debug-title {
+  color: #ffe39a;
+  font-size: 0.82rem;
+}
+
+.campus2d-debug-line {
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .campus2d-popup-layer {
@@ -14317,19 +14450,27 @@ body.is-online-mode .section-heading {
   }
 
   .campus2d-player {
-    width: 68px;
-    height: 94px;
-    margin-left: -34px;
-    margin-top: -80px;
+    width: 34px;
+    height: 47px;
+    margin-left: -17px;
+    margin-top: -40px;
   }
 
   .campus2d-avatar {
-    width: 68px;
-    height: 82px;
+    width: 34px;
+    height: 41px;
+  }
+
+  .campus2d-player.is-sitting .campus2d-avatar {
+    height: 37px;
   }
 
   .campus2d-name {
-    top: 78px;
+    top: 39px;
+  }
+
+  .campus2d-debug-panel {
+    top: 128px;
   }
 }
 

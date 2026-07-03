@@ -30,12 +30,16 @@
   }
 
   const colors = [
-    { id: "cream", label: "Cream", hex: "#f7ead0", filter: "sepia(0.08) saturate(0.95) brightness(1.08)" },
-    { id: "gold", label: "Gold", hex: "#f2bf4d", filter: "sepia(0.45) saturate(1.55) hue-rotate(348deg) brightness(1.04)" },
-    { id: "rose", label: "Rose", hex: "#f18d9b", filter: "sepia(0.22) saturate(1.9) hue-rotate(300deg) brightness(1.03)" },
-    { id: "mint", label: "Mint", hex: "#7ccfb1", filter: "sepia(0.18) saturate(1.65) hue-rotate(96deg) brightness(1.05)" },
-    { id: "sky", label: "Sky", hex: "#73addf", filter: "sepia(0.12) saturate(1.85) hue-rotate(168deg) brightness(1.03)" },
-    { id: "cocoa", label: "Cocoa", hex: "#9a6a42", filter: "sepia(0.65) saturate(1.35) hue-rotate(352deg) brightness(0.86)" }
+    { id: "cream", label: "Cream", hex: "#f1d8ad", asset: `${ASSET_ROOT}/alpaca-sprite-cream.png` },
+    { id: "cinnamon", label: "Cinnamon", hex: "#c87535", asset: `${ASSET_ROOT}/alpaca-sprite-cinnamon.png` },
+    { id: "gold", label: "Gold", hex: "#f0bd42", asset: `${ASSET_ROOT}/alpaca-sprite-gold.png` },
+    { id: "rose", label: "Rose", hex: "#ec8499", asset: `${ASSET_ROOT}/alpaca-sprite-rose.png` },
+    { id: "mint", label: "Mint", hex: "#6fc8aa", asset: `${ASSET_ROOT}/alpaca-sprite-mint.png` },
+    { id: "sky", label: "Sky", hex: "#68a9e3", asset: `${ASSET_ROOT}/alpaca-sprite-sky.png` },
+    { id: "lavender", label: "Lavender", hex: "#a78be8", asset: `${ASSET_ROOT}/alpaca-sprite-lavender.png` },
+    { id: "teal", label: "Teal", hex: "#2ba6a0", asset: `${ASSET_ROOT}/alpaca-sprite-teal.png` },
+    { id: "cocoa", label: "Cocoa", hex: "#8a5a38", asset: `${ASSET_ROOT}/alpaca-sprite-cocoa.png` },
+    { id: "plum", label: "Plum", hex: "#7b4b91", asset: `${ASSET_ROOT}/alpaca-sprite-plum.png` }
   ];
 
   const rooms = [

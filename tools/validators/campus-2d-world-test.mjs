@@ -71,6 +71,21 @@ if (!manifest) {
   failures.push("WSC_CAMPUS_2D_MANIFEST was not registered.");
 } else {
   const roomIds = new Set((manifest.rooms || []).map((room) => room.id));
+  for (const color of manifest.colors || []) {
+    if (!color.asset) {
+      failures.push(`Campus 2D color ${color.id} is missing an alpaca sprite asset.`);
+      continue;
+    }
+    const relativePath = color.asset.replace(/^\.\//, "");
+    if (!existsSync(resolve(appRoot, relativePath))) {
+      failures.push(`Campus 2D color ${color.id} references missing asset ${relativePath}.`);
+      continue;
+    }
+    const actual = readPngSize(relativePath);
+    if (actual && (actual.width !== expectedAssets["assets/campus-2d/alpaca-sprite.png"].width || actual.height !== expectedAssets["assets/campus-2d/alpaca-sprite.png"].height)) {
+      failures.push(`Campus 2D color ${color.id} sprite should match alpaca-sprite.png dimensions; received ${actual.width}x${actual.height}.`);
+    }
+  }
   for (const roomId of ["lobby", "courtyard", "library", "debate-lab"]) {
     if (!roomIds.has(roomId)) {
       failures.push(`Campus 2D manifest is missing room ${roomId}.`);
@@ -133,6 +148,21 @@ if (!appJs.includes("window.WSC_CAMPUS_2D.mount")) {
 if (!appJs.includes("renderOnlineHomeGameGrid")) {
   failures.push("Online game card grid renderer must remain available.");
 }
+const campusRuntime = readApp("src/features/campus-2d/campus-2d.js");
+for (const runtimeNeedle of [
+  "data-campus2d-portal",
+  "campus2d-debug-panel",
+  "campus2d-debug-zone",
+  "setDebugEnabled(!debugEnabled)",
+  "is-sitting"
+]) {
+  if (!campusRuntime.includes(runtimeNeedle)) {
+    failures.push(`Campus 2D runtime is missing ${runtimeNeedle}.`);
+  }
+}
+if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
+  failures.push("Campus 2D portals must be click-driven, not automatic walk-through triggers.");
+}
 
 const styles = readApp("styles.css");
 if (!styles.includes(".online-glow-card")) {
@@ -140,6 +170,33 @@ if (!styles.includes(".online-glow-card")) {
 }
 if (!styles.includes(".campus2d-root")) {
   failures.push("Campus 2D styles are missing.");
+}
+for (const styleNeedle of [
+  ".campus2d-portal",
+  ".campus2d-debug-panel",
+  ".campus2d-debug-zone.is-blocked",
+  ".campus2d-debug-zone.is-seat",
+  ".campus2d-debug-zone.is-behind",
+  ".campus2d-debug-zone.is-portal"
+]) {
+  if (!styles.includes(styleNeedle)) {
+    failures.push(`Campus 2D styles are missing ${styleNeedle}.`);
+  }
+}
+if (!/\.campus2d-entities\s*\{[^}]*pointer-events:\s*none/i.test(styles)) {
+  failures.push("Campus 2D entity layer must not intercept seat or portal clicks.");
+}
+for (const layerSelector of [".campus2d-hotspots", ".campus2d-portals", ".campus2d-seats"]) {
+  const escaped = layerSelector.replace(".", "\\.");
+  if (!new RegExp(`${escaped}\\s*\\{[^}]*pointer-events:\\s*none`, "i").test(styles)) {
+    failures.push(`Campus 2D layer ${layerSelector} must pass through empty-space clicks.`);
+  }
+}
+for (const buttonSelector of [".campus2d-hotspot", ".campus2d-portal", ".campus2d-seat"]) {
+  const escaped = buttonSelector.replace(".", "\\.");
+  if (!new RegExp(`${escaped}\\s*\\{[^}]*pointer-events:\\s*auto`, "i").test(styles)) {
+    failures.push(`Campus 2D button ${buttonSelector} must remain clickable.`);
+  }
 }
 
 const packageJson = JSON.parse(readApp("package.json"));

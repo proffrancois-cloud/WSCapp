@@ -4,7 +4,6 @@
   const CHAT_TTL_MS = 7600;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
-  const PORTAL_COOLDOWN_MS = 650;
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -64,6 +63,10 @@
     return element;
   }
 
+  function isTextEntryTarget(target) {
+    return Boolean(target?.closest?.("input, textarea, select, [contenteditable='true']"));
+  }
+
   function getColor(manifest, colorId) {
     return manifest.colors.find((color) => color.id === colorId) || manifest.colors[0];
   }
@@ -78,16 +81,16 @@
     return fallback;
   }
 
-  function getFrame(direction, moving, nowMs) {
-    const index = moving ? Math.floor(nowMs / 150) % 3 : 1;
+  function getFrame(direction) {
+    const index = 1;
     if (direction === "up") {
       return { col: index, row: 2, flip: 1 };
     }
     if (direction === "left") {
-      return { col: index, row: 1, flip: -1 };
+      return { col: index, row: 1, flip: 1 };
     }
     if (direction === "right") {
-      return { col: index, row: 1, flip: 1 };
+      return { col: index, row: 1, flip: -1 };
     }
     return { col: index, row: 0, flip: 1 };
   }
@@ -117,12 +120,12 @@
     let channel = null;
     let animationFrameId = 0;
     let lastFrameAt = performance.now();
-    let lastPortalAt = 0;
     let lastMoveSentAt = 0;
     let lastPresenceSentAt = 0;
     let camera = { scale: 1, x: 0, y: 0 };
     let activeTarget = null;
-    let pendingSeatId = null;
+    let debugEnabled = false;
+    let debugMousePoint = null;
     let destroyed = false;
     const keys = new Set();
     const remotePlayers = new Map();
@@ -153,8 +156,10 @@
     });
     const entitiesLayer = createEl("div", "campus2d-entities");
     const hotspotsLayer = createEl("div", "campus2d-hotspots");
+    const portalsLayer = createEl("div", "campus2d-portals");
     const seatsLayer = createEl("div", "campus2d-seats");
     const behindLayer = createEl("div", "campus2d-behind-layer");
+    const debugLayer = createEl("div", "campus2d-debug-layer", { "aria-hidden": "true" });
     const hud = createEl("div", "campus2d-hud", { "data-campus2d-ui": "" });
     const roomTitle = createEl("strong", "campus2d-room-title");
     const statusPill = createEl("span", "campus2d-status-pill");
@@ -179,16 +184,26 @@
       "aria-label": "Send message",
       title: "Send"
     });
+    const debugPanel = createEl("aside", "campus2d-debug-panel", {
+      "data-campus2d-ui": "",
+      hidden: ""
+    });
+    const debugTitle = createEl("strong", "campus2d-debug-title");
+    const debugRoom = createEl("span", "campus2d-debug-line");
+    const debugMouse = createEl("span", "campus2d-debug-line");
+    const debugCounts = createEl("span", "campus2d-debug-line");
     const localElement = createPlayerElement(localPlayer, true);
 
     gamesButton.textContent = "Games";
     chatButton.textContent = "Send";
+    debugTitle.textContent = "Dev";
+    debugPanel.append(debugTitle, debugRoom, debugMouse, debugCounts);
     chatForm.append(chatInput, chatButton);
     hud.append(roomTitle, statusPill, palette, gamesButton);
-    world.append(mapImage, hotspotsLayer, seatsLayer, entitiesLayer, behindLayer);
+    world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
-    root.append(viewport, hud, chatForm);
+    root.append(viewport, hud, debugPanel, chatForm);
     mountNode.replaceChildren(root);
 
     function createPlayerElement(player, isLocal) {
@@ -209,14 +224,20 @@
 
     function updatePlayerElement(element, player, nowMs) {
       const color = getColor(manifest, player.colorId);
-      const frame = getFrame(player.direction, player.moving, nowMs);
+      const frame = getFrame(player.direction);
+      const avatar = element._campus2d?.avatar;
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));
       element.style.setProperty("--campus2d-color", color.hex);
-      element.style.setProperty("--campus2d-filter", color.filter);
       element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
       element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
       element.style.setProperty("--campus2d-flip", String(frame.flip));
+      element.style.setProperty("--campus2d-step-flip-scale", String(frame.flip * 0.985));
+      if (avatar) {
+        avatar.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
+      }
+      element.classList.toggle("is-moving", Boolean(player.moving) && !player.seatId);
+      element.classList.toggle("is-sitting", Boolean(player.seatId) && !player.moving);
       if (element._campus2d?.name) {
         element._campus2d.name.textContent = player.displayName || "Guest";
       }
@@ -256,6 +277,22 @@
       }));
     }
 
+    function renderPortals() {
+      portalsLayer.replaceChildren(...(room.portals || []).map((entry) => {
+        const targetRoom = getRoom(entry.targetRoomId);
+        const button = createEl("button", "campus2d-portal", {
+          type: "button",
+          "data-campus2d-portal": entry.id,
+          "aria-label": `Go to ${targetRoom?.title || entry.targetRoomId}`
+        });
+        button.style.left = `${entry.zone.x}px`;
+        button.style.top = `${entry.zone.y}px`;
+        button.style.width = `${entry.zone.width}px`;
+        button.style.height = `${entry.zone.height}px`;
+        return button;
+      }));
+    }
+
     function renderSeats() {
       seatsLayer.replaceChildren(...(room.seats || []).map((seat) => {
         const button = createEl("button", "campus2d-seat", {
@@ -269,6 +306,54 @@
         button.style.height = `${seat.zone.height}px`;
         return button;
       }));
+    }
+
+    function createDebugZone(rect, type) {
+      const zone = createEl("span", `campus2d-debug-zone is-${type}`);
+      zone.style.left = `${rect.x}px`;
+      zone.style.top = `${rect.y}px`;
+      zone.style.width = `${rect.width}px`;
+      zone.style.height = `${rect.height}px`;
+      return zone;
+    }
+
+    function renderDebugOverlay() {
+      if (!debugEnabled) {
+        debugLayer.replaceChildren();
+        return;
+      }
+      const zones = [
+        ...(room.blockedZones || []).map((zone) => createDebugZone(zone, "blocked")),
+        ...(room.seats || []).map((seat) => createDebugZone(seat.zone, "seat")),
+        ...(room.behindZones || []).map((zone) => createDebugZone(zone, "behind")),
+        ...(room.portals || []).map((entry) => createDebugZone(entry.zone, "portal"))
+      ];
+      debugLayer.replaceChildren(...zones);
+    }
+
+    function updateDebugPanel() {
+      if (!debugEnabled) {
+        return;
+      }
+      const mouse = debugMousePoint
+        ? `Mouse x ${Math.round(debugMousePoint.x)}, y ${Math.round(debugMousePoint.y)}`
+        : "Mouse outside map";
+      debugRoom.textContent = `Room ${room.title}`;
+      debugMouse.textContent = mouse;
+      debugCounts.textContent = [
+        `pink ${room.blockedZones?.length || 0}`,
+        `yellow ${room.seats?.length || 0}`,
+        `green ${room.behindZones?.length || 0}`,
+        `blue ${room.portals?.length || 0}`
+      ].join(" / ");
+    }
+
+    function setDebugEnabled(value) {
+      debugEnabled = Boolean(value);
+      root.classList.toggle("is-debug", debugEnabled);
+      debugPanel.hidden = !debugEnabled;
+      renderDebugOverlay();
+      updateDebugPanel();
     }
 
     function renderBehindZones() {
@@ -295,8 +380,11 @@
       safeStorageSet(STORAGE_ROOM_KEY, room.id);
       renderPalette();
       renderHotspots();
+      renderPortals();
       renderSeats();
       renderBehindZones();
+      renderDebugOverlay();
+      updateDebugPanel();
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderRemotePlayers();
       updateCamera();
@@ -342,24 +430,12 @@
       localPlayer.direction = "down";
       localPlayer.moving = false;
       localPlayer.seatId = null;
-      pendingSeatId = null;
       activeTarget = null;
+      debugMousePoint = null;
       remotePlayers.clear();
       renderRoom();
       connectRealtime();
       publishPresence(true);
-    }
-
-    function tryPortal(nowMs) {
-      if (nowMs - lastPortalAt < PORTAL_COOLDOWN_MS) {
-        return;
-      }
-      const portal = (room.portals || []).find((entry) => isPointInRect(localPlayer, entry.zone));
-      if (!portal) {
-        return;
-      }
-      lastPortalAt = nowMs;
-      setRoom(portal.targetRoomId, portal.targetSpawnId);
     }
 
     function getKeyboardVector() {
@@ -367,6 +443,18 @@
         x: (keys.has("ArrowRight") ? 1 : 0) - (keys.has("ArrowLeft") ? 1 : 0),
         y: (keys.has("ArrowDown") ? 1 : 0) - (keys.has("ArrowUp") ? 1 : 0)
       };
+    }
+
+    function sitAtSeat(seat, nowMs = performance.now()) {
+      localPlayer.x = seat.x;
+      localPlayer.y = seat.y;
+      localPlayer.direction = seat.direction || "down";
+      localPlayer.moving = false;
+      localPlayer.seatId = seat.id;
+      activeTarget = null;
+      updatePlayerElement(localElement, localPlayer, nowMs);
+      updateCamera();
+      publishMovement(true);
     }
 
     function stepMovement(deltaSeconds, nowMs) {
@@ -395,7 +483,6 @@
 
       if (keyboardVector.x || keyboardVector.y) {
         localPlayer.seatId = null;
-        pendingSeatId = null;
       }
 
       const normalized = { x: vector.x / length, y: vector.y / length };
@@ -410,14 +497,6 @@
       if (isWalkable(room, nextPoint)) {
         localPlayer.x = nextPoint.x;
         localPlayer.y = nextPoint.y;
-        const reachedSeat = pendingSeatId && (room.seats || []).find((seat) => seat.id === pendingSeatId);
-        if (reachedSeat && Math.hypot(reachedSeat.x - localPlayer.x, reachedSeat.y - localPlayer.y) <= MOVE_EPSILON + 2) {
-          localPlayer.x = reachedSeat.x;
-          localPlayer.y = reachedSeat.y;
-          localPlayer.seatId = reachedSeat.id;
-          pendingSeatId = null;
-          activeTarget = null;
-        }
       } else if (isWalkable(room, { x: nextPoint.x, y: localPlayer.y })) {
         localPlayer.x = nextPoint.x;
       } else if (isWalkable(room, { x: localPlayer.x, y: nextPoint.y })) {
@@ -431,7 +510,6 @@
       updatePlayerElement(localElement, localPlayer, nowMs);
       updateCamera();
       publishMovement(false);
-      tryPortal(nowMs);
     }
 
     function loop(nowMs) {
@@ -681,13 +759,21 @@
     }
 
     function handleKeyDown(event) {
+      if (event.key?.toLowerCase() === "d") {
+        if (isTextEntryTarget(event.target)) {
+          return;
+        }
+        event.preventDefault();
+        setDebugEnabled(!debugEnabled);
+        return;
+      }
       if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
         return;
       }
       if (root.querySelector("[data-campus2d-popup]")) {
         return;
       }
-      if (event.target.closest("input, textarea, select, [contenteditable='true']")) {
+      if (isTextEntryTarget(event.target)) {
         return;
       }
       event.preventDefault();
@@ -701,13 +787,26 @@
     }
 
     function handlePointerDown(event) {
-      if (event.target.closest("[data-campus2d-ui], [data-campus2d-hotspot]")) {
+      if (event.target.closest("[data-campus2d-ui], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
         return;
       }
       const point = screenToWorld(event.clientX, event.clientY);
       if (isWalkable(room, point)) {
+        localPlayer.seatId = null;
         activeTarget = point;
       }
+    }
+
+    function handlePointerMove(event) {
+      if (!debugEnabled) {
+        return;
+      }
+      const point = screenToWorld(event.clientX, event.clientY);
+      debugMousePoint = {
+        x: clamp(point.x, 0, room.width),
+        y: clamp(point.y, 0, room.height)
+      };
+      updateDebugPanel();
     }
 
     function handleRootClick(event) {
@@ -731,12 +830,22 @@
         return;
       }
 
+      const portalButton = event.target.closest("[data-campus2d-portal]");
+      if (portalButton) {
+        const portal = (room.portals || []).find((entry) => entry.id === portalButton.dataset.campus2dPortal);
+        if (portal) {
+          localPlayer.seatId = null;
+          activeTarget = null;
+          setRoom(portal.targetRoomId, portal.targetSpawnId);
+        }
+        return;
+      }
+
       const seatButton = event.target.closest("[data-campus2d-seat]");
       if (seatButton) {
         const seat = (room.seats || []).find((entry) => entry.id === seatButton.dataset.campus2dSeat);
         if (seat) {
-          activeTarget = { x: seat.x, y: seat.y };
-          pendingSeatId = seat.id;
+          sitAtSeat(seat);
         }
         return;
       }
@@ -776,6 +885,7 @@
     window.addEventListener("keyup", handleKeyUp);
     window.addEventListener("resize", updateCamera);
     viewport.addEventListener("pointerdown", handlePointerDown);
+    viewport.addEventListener("pointermove", handlePointerMove);
     root.addEventListener("click", handleRootClick);
     chatForm.addEventListener("submit", handleChatSubmit);
     animationFrameId = window.requestAnimationFrame(loop);
@@ -787,6 +897,8 @@
         window.removeEventListener("keydown", handleKeyDown);
         window.removeEventListener("keyup", handleKeyUp);
         window.removeEventListener("resize", updateCamera);
+        viewport.removeEventListener("pointerdown", handlePointerDown);
+        viewport.removeEventListener("pointermove", handlePointerMove);
         channel?.destroy();
         mountNode.replaceChildren();
       },
