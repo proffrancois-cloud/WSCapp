@@ -153,6 +153,7 @@ for (const runtimeNeedle of [
   "data-campus2d-portal",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
+  "outside walk zone",
   "setDebugEnabled(!debugEnabled)",
   "is-sitting"
 ]) {
@@ -174,6 +175,8 @@ if (!styles.includes(".campus2d-root")) {
 for (const styleNeedle of [
   ".campus2d-portal",
   ".campus2d-debug-panel",
+  ".campus2d-debug-zone.is-limit",
+  ".campus2d-debug-zone.is-walk",
   ".campus2d-debug-zone.is-blocked",
   ".campus2d-debug-zone.is-seat",
   ".campus2d-debug-zone.is-behind",

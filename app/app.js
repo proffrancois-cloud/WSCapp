@@ -4549,9 +4549,12 @@ function renderCampus2DOnlineShell() {
 
 function getCampus2DIdentity() {
   const user = state.auth.session?.user || null;
+  const profile = state.auth.profile || {};
   return {
     userId: user?.id || null,
-    displayName: getLiveDisplayName()
+    displayName: getLiveDisplayName(),
+    schoolName: profile.school_name || "",
+    createdAt: profile.created_at || user?.created_at || null
   };
 }
 
@@ -4576,6 +4579,7 @@ function syncCampus2DOnlineMount() {
   }
 
   if (campus2dController && campus2dMountElement === mount) {
+    campus2dController.setIdentity?.(getCampus2DIdentity());
     return;
   }
 
@@ -4594,6 +4598,10 @@ function syncCampus2DOnlineMount() {
     getGameLauncherHtml: renderOnlineHomeGameGrid,
     onGameChoice: chooseOnlineGameType
   });
+}
+
+function syncCampus2DOnlineIdentity() {
+  campus2dController?.setIdentity?.(getCampus2DIdentity());
 }
 
 function getLiveOverlayMount() {
@@ -6774,6 +6782,7 @@ function syncAuthChrome() {
   renderSessionControls();
   renderAppEntryGate();
   renderAuthModal();
+  syncCampus2DOnlineIdentity();
   if (state.experience?.type === "jeopardy") {
     renderExperience();
   }
@@ -6885,7 +6894,7 @@ async function loadAlpacaProfile() {
     ? await supabaseProfileService.fetchProfile(client, user.id)
     : await client
         .from("alpaca_profiles")
-        .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round")
+        .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,created_at")
         .eq("id", user.id)
         .maybeSingle();
 

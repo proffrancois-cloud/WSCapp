@@ -29,11 +29,24 @@
       point.y <= rect.y + rect.height;
   }
 
-  function isWalkable(room, point) {
-    const inWalkZone = (room.walkZones || []).some((zone) => isPointInRect(point, zone));
-    const inBlockedZone = (room.blockedZones || []).some((zone) => isPointInRect(point, zone));
+  function isPointInZones(point, zones = []) {
+    return zones.some((zone) => isPointInRect(point, zone));
+  }
+
+  function getWalkability(room, point) {
+    const inWalkZone = isPointInZones(point, room.walkZones || []);
+    const inBlockedZone = isPointInZones(point, room.blockedZones || []);
     const inSeat = (room.seats || []).some((seat) => isPointInRect(point, seat.zone));
-    return inSeat || (inWalkZone && !inBlockedZone);
+    return {
+      inWalkZone,
+      inBlockedZone,
+      inSeat,
+      walkable: inSeat || (inWalkZone && !inBlockedZone)
+    };
+  }
+
+  function isWalkable(room, point) {
+    return getWalkability(room, point).walkable;
   }
 
   function safeStorageGet(key) {
@@ -99,6 +112,66 @@
     return count <= 1 ? "0%" : `${(index / (count - 1)) * 100}%`;
   }
 
+  function pluralize(value, unit) {
+    return `${value} ${unit}${value === 1 ? "" : "s"}`;
+  }
+
+  function addMonths(date, months) {
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth() + months;
+    const day = date.getUTCDate();
+    const result = new Date(Date.UTC(
+      year,
+      month,
+      1,
+      date.getUTCHours(),
+      date.getUTCMinutes(),
+      date.getUTCSeconds(),
+      date.getUTCMilliseconds()
+    ));
+    const lastDayOfMonth = new Date(Date.UTC(result.getUTCFullYear(), result.getUTCMonth() + 1, 0)).getUTCDate();
+    result.setUTCDate(Math.min(day, lastDayOfMonth));
+    return result;
+  }
+
+  function getAccountAgeParts(createdAt, now = new Date()) {
+    const created = new Date(createdAt);
+    if (Number.isNaN(created.getTime())) {
+      return null;
+    }
+    const end = now < created ? created : now;
+    const totalDays = Math.floor((end.getTime() - created.getTime()) / 86400000);
+    let years = 0;
+    while (addMonths(created, (years + 1) * 12) <= end) {
+      years += 1;
+    }
+    let months = 0;
+    while (addMonths(created, years * 12 + months + 1) <= end) {
+      months += 1;
+    }
+    const anchor = addMonths(created, years * 12 + months);
+    const days = Math.floor((end.getTime() - anchor.getTime()) / 86400000);
+    return { years, months, days, totalDays };
+  }
+
+  function formatAccountAge(createdAt) {
+    const age = getAccountAgeParts(createdAt);
+    if (!age) {
+      return "Unknown";
+    }
+    if (age.years > 0) {
+      return [
+        pluralize(age.years, "year"),
+        pluralize(age.months, "month"),
+        pluralize(age.days, "day")
+      ].join(", ");
+    }
+    if (age.months >= 3) {
+      return `${pluralize(age.months, "month")}, ${pluralize(age.days, "day")}`;
+    }
+    return pluralize(age.totalDays, "day");
+  }
+
   function mount(options) {
     const manifest = getManifest();
     if (!manifest || !options?.mount) {
@@ -136,6 +209,8 @@
       clientId: localClientId,
       userId: identity.userId || null,
       displayName: identity.displayName || "Guest",
+      schoolName: identity.schoolName || "",
+      createdAt: identity.createdAt || null,
       roomId: room.id,
       x: spawn.x,
       y: spawn.y,
@@ -209,9 +284,11 @@
     function createPlayerElement(player, isLocal) {
       const element = createEl("div", `campus2d-player${isLocal ? " is-local" : ""}`);
       const bubble = createEl("span", "campus2d-chat-bubble");
-      const avatar = createEl("span", "campus2d-avatar", {
+      const avatar = createEl("button", "campus2d-avatar", {
+        type: "button",
         role: "img",
-        "aria-label": `${player.displayName || "Alpaca"} avatar`
+        "aria-label": `${player.displayName || "Alpaca"} avatar card`,
+        "data-campus2d-avatar": player.clientId
       });
       const name = createEl("span", "campus2d-name");
       avatar.style.backgroundImage = `url("${manifest.sprite.asset}")`;
@@ -235,6 +312,7 @@
       element.style.setProperty("--campus2d-step-flip-scale", String(frame.flip * 0.985));
       if (avatar) {
         avatar.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
+        avatar.setAttribute("aria-label", `${player.displayName || "Alpaca"} avatar card`);
       }
       element.classList.toggle("is-moving", Boolean(player.moving) && !player.seatId);
       element.classList.toggle("is-sitting", Boolean(player.seatId) && !player.moving);
@@ -248,6 +326,13 @@
       root.dataset.realtimeStatus = value.toLowerCase();
     }
 
+    function getPlayerProfilePayload(player) {
+      return {
+        schoolName: player.schoolName || "",
+        createdAt: player.createdAt || null
+      };
+    }
+
     function renderPalette() {
       palette.replaceChildren(...manifest.colors.map((color) => {
         const button = createEl("button", "campus2d-color-swatch", {
@@ -256,7 +341,7 @@
           "aria-label": color.label,
           "data-campus2d-color": color.id
         });
-        button.style.setProperty("--swatch", color.hex);
+        button.style.setProperty("--swatch", color.swatch || color.hex);
         button.classList.toggle("is-active", color.id === localPlayer.colorId);
         return button;
       }));
@@ -323,6 +408,8 @@
         return;
       }
       const zones = [
+        createDebugZone({ x: 0, y: 0, width: room.width, height: room.height }, "limit"),
+        ...(room.walkZones || []).map((zone) => createDebugZone(zone, "walk")),
         ...(room.blockedZones || []).map((zone) => createDebugZone(zone, "blocked")),
         ...(room.seats || []).map((seat) => createDebugZone(seat.zone, "seat")),
         ...(room.behindZones || []).map((zone) => createDebugZone(zone, "behind")),
@@ -336,15 +423,22 @@
         return;
       }
       const mouse = debugMousePoint
-        ? `Mouse x ${Math.round(debugMousePoint.x)}, y ${Math.round(debugMousePoint.y)}`
+        ? (() => {
+          const walkability = getWalkability(room, debugMousePoint);
+          const status = walkability.walkable
+            ? "walkable"
+            : (walkability.inBlockedZone ? "blocked" : "outside walk zone");
+          return `Mouse x ${Math.round(debugMousePoint.x)}, y ${Math.round(debugMousePoint.y)} - ${status}`;
+        })()
         : "Mouse outside map";
       debugRoom.textContent = `Room ${room.title}`;
       debugMouse.textContent = mouse;
       debugCounts.textContent = [
-        `pink ${room.blockedZones?.length || 0}`,
+        `pink limits: outside green + blocked ${room.blockedZones?.length || 0}`,
+        `green walk ${room.walkZones?.length || 0}`,
         `yellow ${room.seats?.length || 0}`,
-        `green ${room.behindZones?.length || 0}`,
-        `blue ${room.portals?.length || 0}`
+        `blue ${room.portals?.length || 0}`,
+        `purple behind ${room.behindZones?.length || 0}`
       ].join(" / ");
     }
 
@@ -544,7 +638,8 @@
         colorId: localPlayer.colorId,
         displayName: localPlayer.displayName,
         roomId: room.id,
-        seatId: localPlayer.seatId || null
+        seatId: localPlayer.seatId || null,
+        ...getPlayerProfilePayload(localPlayer)
       });
     }
 
@@ -561,7 +656,8 @@
           direction: localPlayer.direction,
           colorId: localPlayer.colorId,
           displayName: localPlayer.displayName,
-          seatId: localPlayer.seatId || null
+          seatId: localPlayer.seatId || null,
+          ...getPlayerProfilePayload(localPlayer)
         });
       }
       publishPresence(force);
@@ -622,6 +718,8 @@
             direction: presence.direction || "down",
             colorId: presence.colorId || manifest.colors[0].id,
             seatId: presence.seatId || null,
+            schoolName: presence.schoolName || "",
+            createdAt: presence.createdAt || null,
             moving: false
           });
         });
@@ -650,6 +748,8 @@
         direction: payload.direction || previous.direction || "down",
         colorId: payload.colorId || previous.colorId || manifest.colors[0].id,
         seatId: payload.seatId || previous.seatId || null,
+        schoolName: payload.schoolName || previous.schoolName || "",
+        createdAt: payload.createdAt || previous.createdAt || null,
         moving: Boolean(previous.x !== payload.x || previous.y !== payload.y)
       };
       remotePlayers.set(payload.clientId, next);
@@ -677,6 +777,77 @@
         }
         updatePlayerElement(element, player, performance.now());
       });
+    }
+
+    function closePlayerCard() {
+      root.querySelector("[data-campus2d-id-card]")?.remove();
+    }
+
+    function getPlayerByClientId(clientId) {
+      if (clientId === localPlayer.clientId) {
+        return localPlayer;
+      }
+      return remotePlayers.get(clientId) || null;
+    }
+
+    function applyAvatarPreview(element, player) {
+      const color = getColor(manifest, player.colorId);
+      const frame = getFrame(player.direction);
+      element.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
+      element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
+      element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
+      element.style.setProperty("--campus2d-flip", String(frame.flip));
+    }
+
+    function createIdCardField(label, value) {
+      const row = createEl("div", "campus2d-id-field");
+      const labelElement = createEl("span", "campus2d-id-label");
+      const valueElement = createEl("strong", "campus2d-id-value");
+      labelElement.textContent = label;
+      valueElement.textContent = value || "Unknown";
+      row.append(labelElement, valueElement);
+      return row;
+    }
+
+    function openPlayerCard(player) {
+      if (!player) {
+        return;
+      }
+      closeGameLauncher();
+      closePlayerCard();
+      const layer = createEl("div", "campus2d-id-layer", {
+        "data-campus2d-id-card": "",
+        "data-campus2d-ui": ""
+      });
+      const card = createEl("section", "campus2d-id-card", {
+        role: "dialog",
+        "aria-modal": "true",
+        "aria-label": "Alpaca ID card"
+      });
+      const preview = createEl("span", "campus2d-id-avatar", { "aria-hidden": "true" });
+      const details = createEl("div", "campus2d-id-details");
+      const header = createEl("div", "campus2d-id-header");
+      const eyebrow = createEl("span", "campus2d-id-eyebrow");
+      const closeButton = createEl("button", "campus2d-id-close", {
+        type: "button",
+        "aria-label": "Close alpaca ID card",
+        "data-campus2d-id-close": ""
+      });
+
+      eyebrow.textContent = "Alpaca ID";
+      closeButton.textContent = "Close";
+      header.append(eyebrow, closeButton);
+      details.append(
+        header,
+        createIdCardField("Name", player.displayName || "Guest"),
+        createIdCardField("School", player.schoolName || "Unknown school"),
+        createIdCardField("Account age", formatAccountAge(player.createdAt))
+      );
+      applyAvatarPreview(preview, player);
+      card.append(preview, details);
+      layer.append(card);
+      root.append(layer);
+      closeButton.focus({ preventScroll: true });
     }
 
     function showBubble(playerElement, message) {
@@ -708,6 +879,7 @@
         colorId: localPlayer.colorId,
         displayName: localPlayer.displayName,
         seatId: localPlayer.seatId || null,
+        ...getPlayerProfilePayload(localPlayer),
         message: text
       });
       publishPresence(true);
@@ -759,6 +931,11 @@
     }
 
     function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        closePlayerCard();
+        closeGameLauncher();
+        return;
+      }
       if (event.key?.toLowerCase() === "d") {
         if (isTextEntryTarget(event.target)) {
           return;
@@ -787,7 +964,7 @@
     }
 
     function handlePointerDown(event) {
-      if (event.target.closest("[data-campus2d-ui], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
+      if (event.target.closest("[data-campus2d-ui], [data-campus2d-avatar], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
         return;
       }
       const point = screenToWorld(event.clientX, event.clientY);
@@ -810,6 +987,17 @@
     }
 
     function handleRootClick(event) {
+      const avatarButton = event.target.closest("[data-campus2d-avatar]");
+      if (avatarButton) {
+        openPlayerCard(getPlayerByClientId(avatarButton.dataset.campus2dAvatar));
+        return;
+      }
+
+      if (event.target.closest("[data-campus2d-id-close]") || event.target.matches("[data-campus2d-id-card]")) {
+        closePlayerCard();
+        return;
+      }
+
       const colorButton = event.target.closest("[data-campus2d-color]");
       if (colorButton) {
         const colorId = colorButton.dataset.campus2dColor;
@@ -823,7 +1011,8 @@
             y: localPlayer.y,
             direction: localPlayer.direction,
             colorId,
-            displayName: localPlayer.displayName
+            displayName: localPlayer.displayName,
+            ...getPlayerProfilePayload(localPlayer)
           });
           publishPresence(true);
         }
@@ -878,6 +1067,15 @@
       chatInput.focus({ preventScroll: true });
     }
 
+    function setIdentity(nextIdentity = {}) {
+      localPlayer.userId = nextIdentity.userId || null;
+      localPlayer.displayName = nextIdentity.displayName || "Guest";
+      localPlayer.schoolName = nextIdentity.schoolName || "";
+      localPlayer.createdAt = nextIdentity.createdAt || null;
+      updatePlayerElement(localElement, localPlayer, performance.now());
+      publishPresence(true);
+    }
+
     renderRoom();
     root.focus({ preventScroll: true });
     connectRealtime();
@@ -902,6 +1100,7 @@
         channel?.destroy();
         mountNode.replaceChildren();
       },
+      setIdentity,
       setRoom,
       openGameLauncher
     };

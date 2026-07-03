@@ -2,7 +2,7 @@
   function fetchProfile(client, userId) {
     return client
       .from("alpaca_profiles")
-      .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round")
+      .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,created_at")
       .eq("id", userId)
       .maybeSingle();
   }

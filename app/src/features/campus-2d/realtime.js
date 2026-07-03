@@ -57,6 +57,8 @@
         y: Number(localPlayer.y) || 0,
         direction: localPlayer.direction || "down",
         colorId: localPlayer.colorId || "cream",
+        schoolName: localPlayer.schoolName || "",
+        createdAt: localPlayer.createdAt || null,
         updatedAtMs: nowMs,
         ...extra
       };

@@ -29,17 +29,51 @@
     return boxes.map((box, index) => seat(`${prefix}-${index + 1}`, box[0], box[1], box[2], box[3]));
   }
 
+  function alpacaColor(id, label, hex, swatch = hex) {
+    return { id, label, hex, swatch, asset: `${ASSET_ROOT}/alpaca-sprite-${id}.png` };
+  }
+
   const colors = [
-    { id: "cream", label: "Cream", hex: "#f1d8ad", asset: `${ASSET_ROOT}/alpaca-sprite-cream.png` },
-    { id: "cinnamon", label: "Cinnamon", hex: "#c87535", asset: `${ASSET_ROOT}/alpaca-sprite-cinnamon.png` },
-    { id: "gold", label: "Gold", hex: "#f0bd42", asset: `${ASSET_ROOT}/alpaca-sprite-gold.png` },
-    { id: "rose", label: "Rose", hex: "#ec8499", asset: `${ASSET_ROOT}/alpaca-sprite-rose.png` },
-    { id: "mint", label: "Mint", hex: "#6fc8aa", asset: `${ASSET_ROOT}/alpaca-sprite-mint.png` },
-    { id: "sky", label: "Sky", hex: "#68a9e3", asset: `${ASSET_ROOT}/alpaca-sprite-sky.png` },
-    { id: "lavender", label: "Lavender", hex: "#a78be8", asset: `${ASSET_ROOT}/alpaca-sprite-lavender.png` },
-    { id: "teal", label: "Teal", hex: "#2ba6a0", asset: `${ASSET_ROOT}/alpaca-sprite-teal.png` },
-    { id: "cocoa", label: "Cocoa", hex: "#8a5a38", asset: `${ASSET_ROOT}/alpaca-sprite-cocoa.png` },
-    { id: "plum", label: "Plum", hex: "#7b4b91", asset: `${ASSET_ROOT}/alpaca-sprite-plum.png` }
+    alpacaColor("cream", "Cream", "#f1d8ad"),
+    alpacaColor("white", "White", "#f8f4ea"),
+    alpacaColor("pearl", "Pearl", "#efe7d8"),
+    alpacaColor("silver", "Silver", "#c8c5bd"),
+    alpacaColor("gray", "Gray", "#888784"),
+    alpacaColor("charcoal", "Charcoal", "#424140"),
+    alpacaColor("black", "Black", "#242220"),
+    alpacaColor("cinnamon", "Cinnamon", "#c87535"),
+    alpacaColor("caramel", "Caramel", "#d6954f"),
+    alpacaColor("cocoa", "Cocoa", "#8a5a38"),
+    alpacaColor("gold", "Gold", "#f0bd42"),
+    alpacaColor("lemon", "Lemon", "#f7e35e"),
+    alpacaColor("orange", "Orange", "#f18530"),
+    alpacaColor("coral", "Coral", "#ef6f61"),
+    alpacaColor("red", "Red", "#d83b36"),
+    alpacaColor("rose", "Rose", "#ec8499"),
+    alpacaColor("hot-pink", "Hot pink", "#ff4fb3"),
+    alpacaColor("magenta", "Magenta", "#c546d8"),
+    alpacaColor("lavender", "Lavender", "#a78be8"),
+    alpacaColor("violet", "Violet", "#7b61ff"),
+    alpacaColor("plum", "Plum", "#7b4b91"),
+    alpacaColor("mint", "Mint", "#6fc8aa"),
+    alpacaColor("lime", "Lime", "#a3df48"),
+    alpacaColor("emerald", "Emerald", "#3faf6f"),
+    alpacaColor("teal", "Teal", "#2ba6a0"),
+    alpacaColor("cyan", "Cyan", "#3ac7df"),
+    alpacaColor("sky", "Sky", "#68a9e3"),
+    alpacaColor("royal", "Royal", "#466bd9"),
+    alpacaColor("navy", "Navy", "#243f87"),
+    alpacaColor("rainbow", "Rainbow", "#42c96f", "linear-gradient(135deg, #ff4444, #ffb13b, #f5ef48, #42c96f, #34a2ff, #8b5cff, #ff4fb3)"),
+    alpacaColor("pastel-rainbow", "Pastel rainbow", "#b7e9ff", "linear-gradient(135deg, #ffd6e8, #fff3a8, #c8ffd6, #b7e9ff, #d9c5ff)"),
+    alpacaColor("neon-rainbow", "Neon rainbow", "#28f3a5", "conic-gradient(from 20deg, #00fff0, #44ff00, #fff600, #ff8c00, #ff00f5, #6236ff, #00fff0)"),
+    alpacaColor("stars", "Stars", "#5f7be7", "radial-gradient(circle at 30% 28%, #fff7ba 0 9%, transparent 10%), radial-gradient(circle at 67% 64%, #fff7ba 0 7%, transparent 8%), #5f7be7"),
+    alpacaColor("midnight-stars", "Midnight stars", "#171c45", "radial-gradient(circle at 32% 30%, #fff8d6 0 9%, transparent 10%), radial-gradient(circle at 68% 62%, #fff8d6 0 7%, transparent 8%), #171c45"),
+    alpacaColor("galaxy", "Galaxy", "#20104d", "radial-gradient(circle at 30% 28%, #fff7d8 0 6%, transparent 7%), linear-gradient(135deg, #20104d, #7434c7, #0b8bd6)"),
+    alpacaColor("confetti", "Confetti", "#ff4fb3", "linear-gradient(135deg, #ff4fb3 0 18%, #f7e35e 18% 36%, #42c96f 36% 54%, #3ac7df 54% 72%, #7b61ff 72% 100%)"),
+    alpacaColor("sparkle-gold", "Sparkle gold", "#e5ac2f", "radial-gradient(circle at 31% 28%, #fff8d6 0 10%, transparent 11%), radial-gradient(circle at 67% 67%, #fff8d6 0 7%, transparent 8%), #e5ac2f"),
+    alpacaColor("candy-stripes", "Candy stripes", "#ff78b8", "repeating-linear-gradient(135deg, #ff78b8 0 7px, #fff5ee 7px 14px)"),
+    alpacaColor("fire", "Fire", "#ff6b22", "linear-gradient(180deg, #fff064, #ff8a24, #c3222a)"),
+    alpacaColor("ice", "Ice", "#7dd8ef", "linear-gradient(135deg, #f3fdff, #7dd8ef, #c7f5ff)")
   ];
 
   const rooms = [
