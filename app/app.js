@@ -4594,9 +4594,7 @@ function syncCampus2DOnlineMount() {
   campus2dController = window.WSC_CAMPUS_2D.mount({
     mount,
     client: getSupabaseClient(),
-    identity: getCampus2DIdentity(),
-    getGameLauncherHtml: renderOnlineHomeGameGrid,
-    onGameChoice: chooseOnlineGameType
+    identity: getCampus2DIdentity()
   });
 }
 

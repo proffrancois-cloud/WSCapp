@@ -219,7 +219,7 @@
   function mount(options) {
     const manifest = getManifest();
     if (!manifest || !options?.mount) {
-      return { destroy() {}, setRoom() {}, openGameLauncher() {} };
+      return { destroy() {}, setRoom() {} };
     }
 
     const mountNode = options.mount;
@@ -250,6 +250,7 @@
     let devZoneData = loadDevZoneData();
     let debugMousePoint = null;
     let debugStatusText = "";
+    let paletteOpen = false;
     let destroyed = false;
     const keys = new Set();
     const remotePlayers = new Map();
@@ -291,16 +292,28 @@
       "data-campus2d-ui": ""
     });
     const hud = createEl("div", "campus2d-hud", { "data-campus2d-ui": "" });
+    const playerCard = createEl("section", "campus2d-player-card", {
+      "aria-label": "Your alpaca card"
+    });
+    const playerSummary = createEl("div", "campus2d-player-summary");
+    const playerAvatarButton = createEl("button", "campus2d-profile-avatar", {
+      type: "button",
+      title: "Choose alpaca color",
+      "aria-label": "Choose alpaca color",
+      "aria-expanded": "false",
+      "data-campus2d-color-toggle": ""
+    });
+    const playerDetails = createEl("div", "campus2d-profile-details");
+    const playerName = createEl("strong", "campus2d-profile-name");
+    const playerSchool = createEl("span", "campus2d-profile-school");
+    const playerAge = createEl("span", "campus2d-profile-age");
+    const roomMeta = createEl("div", "campus2d-room-meta");
     const roomTitle = createEl("strong", "campus2d-room-title");
     const statusPill = createEl("span", "campus2d-status-pill");
     const palette = createEl("div", "campus2d-palette", {
       "aria-label": "Choose alpaca color",
-      role: "group"
-    });
-    const gamesButton = createEl("button", "campus2d-icon-button campus2d-games-button", {
-      type: "button",
-      title: "Games",
-      "aria-label": "Open games"
+      role: "group",
+      hidden: ""
     });
     const chatForm = createEl("form", "campus2d-chat-form", { "data-campus2d-ui": "" });
     const chatInput = createEl("input", "campus2d-chat-input", {
@@ -358,7 +371,6 @@
     const debugStatus = createEl("span", "campus2d-debug-status");
     const localElement = createPlayerElement(localPlayer, true);
 
-    gamesButton.textContent = "Games";
     chatButton.textContent = "Send";
     debugTitle.textContent = "Dev";
     DEV_ZONE_TYPES.forEach((type) => {
@@ -401,12 +413,16 @@
       debugStatus
     );
     chatForm.append(chatInput, chatButton);
-    hud.append(roomTitle, statusPill, palette, gamesButton);
+    playerDetails.append(playerName, playerSchool, playerAge);
+    playerSummary.append(playerAvatarButton, playerDetails);
+    playerCard.append(playerSummary, palette);
+    roomMeta.append(roomTitle, statusPill);
+    hud.append(playerCard, roomMeta);
     sidePanel.append(hud, chatForm);
     world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
-    root.append(viewport, sidePanel, debugPanel);
+    root.append(sidePanel, viewport, debugPanel);
     mountNode.replaceChildren(root);
 
     function createPlayerElement(player, isLocal) {
@@ -452,6 +468,25 @@
     function setStatus(value) {
       statusPill.textContent = value;
       root.dataset.realtimeStatus = value.toLowerCase();
+    }
+
+    function setPaletteOpen(value) {
+      paletteOpen = Boolean(value);
+      palette.hidden = !paletteOpen;
+      playerCard.classList.toggle("is-palette-open", paletteOpen);
+      playerAvatarButton.setAttribute("aria-expanded", String(paletteOpen));
+    }
+
+    function renderLocalCard() {
+      const color = getColor(manifest, localPlayer.colorId);
+      playerCard.style.setProperty("--campus2d-color", color.hex);
+      playerName.textContent = localPlayer.displayName || "Guest";
+      playerSchool.textContent = localPlayer.schoolName || "Unknown school";
+      playerAge.textContent = `Age ${formatAccountAge(localPlayer.createdAt)}`;
+      playerAvatarButton.title = `${color.label} alpaca. Choose color`;
+      playerAvatarButton.setAttribute("aria-label", `${color.label} alpaca. Choose color`);
+      applyAvatarPreview(playerAvatarButton, localPlayer);
+      setPaletteOpen(paletteOpen);
     }
 
     function getPlayerProfilePayload(player) {
@@ -768,6 +803,7 @@
         button.classList.toggle("is-active", color.id === localPlayer.colorId);
         return button;
       }));
+      setPaletteOpen(paletteOpen);
     }
 
     function renderHotspots() {
@@ -811,10 +847,6 @@
 
     function activateGameZone(entry) {
       const mode = entry.mode || entry.kind || "game";
-      if (mode === "game" || mode === "games") {
-        openGameLauncher();
-        return;
-      }
       const handled = options.onCampusZoneAction?.({
         roomId: room.id,
         zoneId: entry.id,
@@ -984,7 +1016,6 @@
       if (debugEnabled) {
         ensureRoomOverride(room);
         closePlayerCard();
-        closeGameLauncher();
         setDebugStatus("Zone editor ready");
       } else {
         zoneEditGesture = null;
@@ -1036,6 +1067,7 @@
       mapImage.height = room.height;
       safeStorageSet(STORAGE_ROOM_KEY, room.id);
       renderPalette();
+      renderLocalCard();
       renderHotspots();
       renderPortals();
       renderSeats();
@@ -1445,7 +1477,6 @@
       if (!player) {
         return;
       }
-      closeGameLauncher();
       closePlayerCard();
       const layer = createEl("div", "campus2d-id-layer", {
         "data-campus2d-id-card": "",
@@ -1517,51 +1548,6 @@
       publishPresence(true);
     }
 
-    function openGameLauncher() {
-      closeGameLauncher();
-      const overlay = createEl("div", "campus2d-popup-layer", { "data-campus2d-popup": "", "data-campus2d-ui": "" });
-      const dialog = createEl("section", "campus2d-popup", {
-        role: "dialog",
-        "aria-modal": "true",
-        "aria-label": "Choose a live game"
-      });
-      const header = createEl("header", "campus2d-popup-header");
-      const title = createEl("h2", "");
-      const closeButton = createEl("button", "campus2d-popup-close", {
-        type: "button",
-        "aria-label": "Close games",
-        "data-campus2d-popup-close": ""
-      });
-      const body = createEl("div", "campus2d-popup-body");
-      title.textContent = "Alpaca Online";
-      closeButton.textContent = "Close";
-      header.append(title, closeButton);
-      const html = typeof options.getGameLauncherHtml === "function" ? options.getGameLauncherHtml() : "";
-      if (html) {
-        const range = document.createRange();
-        range.selectNode(document.body);
-        body.replaceChildren(range.createContextualFragment(html));
-      }
-      body.addEventListener("click", (event) => {
-        const choice = event.target.closest("[data-online-game-choice]");
-        if (!choice) {
-          return;
-        }
-        event.preventDefault();
-        event.stopPropagation();
-        closeGameLauncher();
-        options.onGameChoice?.(choice.dataset.onlineGameChoice);
-      });
-      dialog.append(header, body);
-      overlay.append(dialog);
-      root.append(overlay);
-      closeButton.focus({ preventScroll: true });
-    }
-
-    function closeGameLauncher() {
-      root.querySelector("[data-campus2d-popup]")?.remove();
-    }
-
     function clampPointToRoom(point) {
       return {
         x: clamp(point.x, 0, room.width),
@@ -1604,7 +1590,6 @@
     function handleZoneEditorPointerDown(event) {
       event.preventDefault();
       closePlayerCard();
-      closeGameLauncher();
       ensureRoomOverride(room);
       const point = clampPointToRoom(screenToWorld(event.clientX, event.clientY));
       const hit = findAnyZoneAtPoint(point);
@@ -1717,7 +1702,6 @@
           return;
         }
         closePlayerCard();
-        closeGameLauncher();
         return;
       }
       if (event.key?.toLowerCase() === "d") {
@@ -1733,9 +1717,6 @@
       }
       if (debugEnabled) {
         event.preventDefault();
-        return;
-      }
-      if (root.querySelector("[data-campus2d-popup]")) {
         return;
       }
       if (isTextEntryTarget(event.target)) {
@@ -1815,7 +1796,9 @@
         if (colorIds.has(colorId)) {
           localPlayer.colorId = colorId;
           safeStorageSet(STORAGE_COLOR_KEY, colorId);
+          setPaletteOpen(false);
           renderPalette();
+          renderLocalCard();
           updatePlayerElement(localElement, localPlayer, performance.now());
           channel?.sendAvatar({
             x: localPlayer.x,
@@ -1827,6 +1810,11 @@
           });
           publishPresence(true);
         }
+        return;
+      }
+
+      if (event.target.closest("[data-campus2d-color-toggle]")) {
+        setPaletteOpen(!paletteOpen);
         return;
       }
 
@@ -1850,16 +1838,6 @@
         return;
       }
 
-      if (event.target.closest(".campus2d-games-button")) {
-        openGameLauncher();
-        return;
-      }
-
-      if (event.target.closest("[data-campus2d-popup-close]") || event.target.matches("[data-campus2d-popup]")) {
-        closeGameLauncher();
-        return;
-      }
-
       const gameZoneButton = event.target.closest("[data-campus2d-game-zone]");
       if (gameZoneButton) {
         const gameZone = getClickableGameZones().find((entry) => entry.id === gameZoneButton.dataset.campus2dGameZone);
@@ -1872,9 +1850,7 @@
       const hotspotButton = event.target.closest("[data-campus2d-hotspot]");
       if (hotspotButton) {
         const hotspot = (room.hotspots || []).find((entry) => entry.id === hotspotButton.dataset.campus2dHotspot);
-        if (hotspot?.kind === "games") {
-          openGameLauncher();
-        } else if (hotspot) {
+        if (hotspot) {
           showBubble(localElement, `${hotspot.label} coming soon`);
         }
       }
@@ -1909,6 +1885,7 @@
       localPlayer.schoolName = nextIdentity.schoolName || "";
       localPlayer.createdAt = nextIdentity.createdAt || null;
       updatePlayerElement(localElement, localPlayer, performance.now());
+      renderLocalCard();
       publishPresence(true);
     }
 
@@ -1953,8 +1930,7 @@
         mountNode.replaceChildren();
       },
       setIdentity,
-      setRoom,
-      openGameLauncher
+      setRoom
     };
   }
 

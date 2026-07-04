@@ -185,6 +185,8 @@ const campusRuntime = readApp("src/features/campus-2d/campus-2d.js");
 for (const runtimeNeedle of [
   "data-campus2d-portal",
   "campus2d-side-panel",
+  "campus2d-player-card",
+  "data-campus2d-color-toggle",
   "sidePanel.append(hud, chatForm)",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
@@ -248,6 +250,8 @@ if (!styles.includes(".campus2d-root")) {
 }
 for (const styleNeedle of [
   ".campus2d-side-panel",
+  ".campus2d-player-card",
+  ".campus2d-profile-avatar",
   ".campus2d-portal",
   ".campus2d-debug-panel",
   ".campus2d-debug-controls",
@@ -264,17 +268,26 @@ for (const styleNeedle of [
     failures.push(`Campus 2D styles are missing ${styleNeedle}.`);
   }
 }
-if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-side-width\)/i.test(styles)) {
-  failures.push("Campus 2D multiplayer controls must live beside the room in a side rail layout.");
+if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)/i.test(styles)) {
+  failures.push("Campus 2D multiplayer controls must live in the left side rail beside the room.");
+}
+if (!/\.campus2d-root\.is-debug\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-debug-width\)/i.test(styles)) {
+  failures.push("Campus 2D dev mode must reserve a right-side debug column instead of overlaying the room.");
 }
 if (!/\.campus2d-side-panel\s*\{[^}]*background:\s*#030303/i.test(styles)) {
   failures.push("Campus 2D side controls must sit in the black side panel.");
+}
+if (!/\.campus2d-chat-form\s*\{[^}]*position:\s*sticky/i.test(styles)) {
+  failures.push("Campus 2D message form must stay anchored in the side panel.");
 }
 if (/\.campus2d-hud\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D HUD must not overlay the room viewport.");
 }
 if (/\.campus2d-chat-form\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D chat form must not overlay the bottom of the room viewport.");
+}
+if (/openGameLauncher|campus2d-games-button|getGameLauncherHtml|data-campus2d-popup/.test(campusRuntime)) {
+  failures.push("Campus 2D must not expose the old generic live-game launcher.");
 }
 if (!/\.campus2d-entities\s*\{[^}]*pointer-events:\s*none/i.test(styles)) {
   failures.push("Campus 2D entity layer must not intercept seat or portal clicks.");
