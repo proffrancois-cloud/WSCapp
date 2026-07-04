@@ -11,7 +11,7 @@ const expectedAssets = {
   "assets/campus-2d/courtyard.png": { width: 1023, height: 1537 },
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
-  "assets/campus-2d/library-laptops.png": { width: 677, height: 1746 },
+  "assets/campus-2d/library-laptops.png": { width: 1746, height: 677 },
   "assets/campus-2d/alpaca-sprite.png": { width: 1024, height: 3072 }
 };
 
@@ -196,7 +196,7 @@ if (!manifest) {
   if (readPngColorType("assets/campus-2d/library-laptops.png") !== 6) {
     failures.push("Library laptops asset must have an alpha channel so the checkerboard background does not render.");
   }
-  expectManifestEntry(library, "decorations", "library-laptops", { asset: "./assets/campus-2d/library-laptops.png", x: 45, y: 535, width: 120, height: 310 });
+  expectManifestEntry(library, "decorations", "library-laptops", { asset: "./assets/campus-2d/library-laptops.png", x: 80, y: 760, width: 360, height: 140 });
   expectManifestEntry(library, "npcs", "library-instructions-npc", { x: 586, y: 233, direction: "down", colorId: "red" });
   expectZoneRect(library, "blockedZones", "library-blocked-45", { x: 175, y: 291, width: 117, height: 27 });
   expectZoneRect(library, "blockedZones", "library-blocked-46", { x: 124, y: 335, width: 30, height: 77 });
@@ -275,6 +275,12 @@ for (const scriptPath of [
 if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf("app.js")) {
   failures.push("Campus 2D runtime must load before app.js.");
 }
+if (indexHtml.includes("20260524coop2")) {
+  failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
+}
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260704campus2d"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 4 Campus 2D visibility update.");
+}
 
 const appJs = readApp("app.js");
 if (!appJs.includes("window.WSC_CAMPUS_2D.mount")) {
@@ -291,6 +297,8 @@ for (const runtimeNeedle of [
   "campus2d-player-card",
   "campus2d-decorations",
   "campus2d-decoration",
+  "campus2d-npcs",
+  "npcsLayer.append(element)",
   "renderDecorations",
   "renderNpcs",
   "online-glow-card",
@@ -436,6 +444,7 @@ for (const styleNeedle of [
   ".campus2d-controls-panel",
   ".campus2d-decorations",
   ".campus2d-decoration",
+  ".campus2d-npcs",
   ".campus2d-player-card",
   ".campus2d-player.is-npc",
   ".campus2d-profile-avatar",

@@ -384,6 +384,7 @@
     const portalsLayer = createEl("div", "campus2d-portals");
     const seatsLayer = createEl("div", "campus2d-seats");
     const behindLayer = createEl("div", "campus2d-behind-layer");
+    const npcsLayer = createEl("div", "campus2d-npcs");
     const debugLayer = createEl("div", "campus2d-debug-layer", { "aria-hidden": "true" });
     const backgroundMusic = new Audio(BACKGROUND_MUSIC_SRC);
     const sidePanel = createEl("aside", "campus2d-side-panel", {
@@ -638,7 +639,7 @@
     sidePanel.append(hud);
     controlsPanel.append(controlsHeader, debugPanel, chatForm);
     controlsPanel.insertBefore(settingsPanel, debugPanel);
-    world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
+    world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
     root.append(sidePanel, viewport, controlsPanel);
@@ -1481,7 +1482,7 @@
           moving: false
         }, false, true);
         npcElements.set(entry.id, element);
-        entitiesLayer.append(element);
+        npcsLayer.append(element);
       });
     }
 

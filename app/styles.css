@@ -14052,13 +14052,14 @@ body.is-campus2d-view .wizard-steps {
 .campus2d-portals,
 .campus2d-seats,
 .campus2d-behind-layer,
+.campus2d-npcs,
 .campus2d-debug-layer {
   position: absolute;
   inset: 0;
 }
 
 .campus2d-decorations {
-  z-index: 3;
+  z-index: 90;
   pointer-events: none;
 }
 
@@ -14072,7 +14073,8 @@ body.is-campus2d-view .wizard-steps {
   filter:
     brightness(var(--campus2d-map-brightness))
     contrast(var(--campus2d-map-contrast))
-    saturate(var(--campus2d-map-saturation));
+    saturate(var(--campus2d-map-saturation))
+    drop-shadow(0 8px 10px rgba(20, 12, 3, 0.28));
   transition: filter 180ms ease;
 }
 
@@ -14099,6 +14101,11 @@ body.is-campus2d-view .wizard-steps {
 .campus2d-behind-layer {
   pointer-events: none;
   z-index: 12000;
+}
+
+.campus2d-npcs {
+  z-index: 12150;
+  pointer-events: none;
 }
 
 .campus2d-debug-layer {
@@ -14147,6 +14154,9 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-player.is-npc .campus2d-avatar {
+  filter:
+    drop-shadow(0 4px 5px rgba(15, 9, 2, 0.38))
+    drop-shadow(0 0 9px rgba(216, 59, 54, 0.58));
   pointer-events: none;
 }
 

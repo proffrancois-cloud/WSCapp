@@ -510,7 +510,7 @@
         hotspot("library-alpacards", "lesson", "Library lessons", 720, 845, 390, 270)
       ],
       decorations: [
-        decoration("library-laptops", `${ASSET_ROOT}/library-laptops.png`, 45, 535, 120, 310)
+        decoration("library-laptops", `${ASSET_ROOT}/library-laptops.png`, 80, 760, 360, 140)
       ],
       npcs: [
         npc("library-instructions-npc", "Instructions", 586, 233, "down", "red")
