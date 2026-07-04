@@ -200,8 +200,20 @@
     return fallback;
   }
 
-  function getFrame(direction) {
+  function getFrame(direction, isSitting = false) {
     const index = 1;
+    if (isSitting) {
+      if (direction === "up") {
+        return { col: index, row: 7, flip: 1 };
+      }
+      if (direction === "left") {
+        return { col: index, row: 5, flip: 1 };
+      }
+      if (direction === "right") {
+        return { col: index, row: 6, flip: 1 };
+      }
+      return { col: index, row: 4, flip: 1 };
+    }
     if (direction === "up") {
       return { col: index, row: 2, flip: 1 };
     }
@@ -617,7 +629,8 @@
 
     function updatePlayerElement(element, player, nowMs) {
       const color = getColor(manifest, player.colorId);
-      const frame = getFrame(player.direction);
+      const isSitting = Boolean(player.seatId) && !player.moving;
+      const frame = getFrame(player.direction, isSitting);
       const avatar = element._campus2d?.avatar;
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));
@@ -631,7 +644,7 @@
         avatar.setAttribute("aria-label", `${player.displayName || "Alpaca"} avatar card`);
       }
       element.classList.toggle("is-moving", Boolean(player.moving) && !player.seatId);
-      element.classList.toggle("is-sitting", Boolean(player.seatId) && !player.moving);
+      element.classList.toggle("is-sitting", isSitting);
       if (element._campus2d?.name) {
         element._campus2d.name.textContent = player.displayName || "Guest";
       }
@@ -1886,7 +1899,7 @@
 
     function applyAvatarPreview(element, player) {
       const color = getColor(manifest, player.colorId);
-      const frame = getFrame(player.direction);
+      const frame = getFrame(player.direction, Boolean(player.seatId) && !player.moving);
       element.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
       element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
       element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));

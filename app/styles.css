@@ -14124,8 +14124,7 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-player.is-sitting .campus2d-avatar {
-  height: 44px;
-  transform: scaleX(var(--campus2d-flip)) translateY(4px) scaleY(0.9);
+  transform: scaleX(var(--campus2d-flip));
 }
 
 .campus2d-avatar {
@@ -14137,7 +14136,7 @@ body.is-campus2d-view .wizard-steps {
   appearance: none;
   background-repeat: no-repeat;
   background-color: transparent;
-  background-size: 300% 400%;
+  background-size: 300% 800%;
   background-position: var(--campus2d-sprite-x) var(--campus2d-sprite-y);
   cursor: pointer;
   filter: drop-shadow(0 4px 5px rgba(15, 9, 2, 0.38));
@@ -14251,7 +14250,7 @@ body.is-campus2d-view .wizard-steps {
   justify-self: center;
   display: block;
   background-repeat: no-repeat;
-  background-size: 300% 400%;
+  background-size: 300% 800%;
   background-position: var(--campus2d-sprite-x) var(--campus2d-sprite-y);
   image-rendering: pixelated;
   filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.32));
@@ -14348,7 +14347,7 @@ body.is-campus2d-view .wizard-steps {
   appearance: none;
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: 300% 400%;
+  background-size: 300% 800%;
   background-position: var(--campus2d-sprite-x) var(--campus2d-sprite-y);
   cursor: pointer;
   filter: drop-shadow(0 10px 16px rgba(29, 18, 12, 0.34));
@@ -14968,7 +14967,7 @@ body.is-campus2d-view .wizard-steps {
   }
 
   .campus2d-player.is-sitting .campus2d-avatar {
-    height: 37px;
+    height: 41px;
   }
 
   .campus2d-name {

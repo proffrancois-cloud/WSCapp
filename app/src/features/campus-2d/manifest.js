@@ -664,7 +664,7 @@
         rect("debate-lab-behind-23", 1077, 1132, 45, 31),
         rect("debate-lab-behind-24", 1040, 293, 34, 19)
       ],
-      seats: seatsFacing("down", [
+      seats: seatsFacing("up", [
         seat("debate-left-table-1", 108, 299, 33, 35),
         seat("debate-left-table-2", 163, 299, 32, 35),
         seat("debate-left-table-3", 216, 299, 32, 34),
@@ -746,9 +746,9 @@
     sprite: {
       asset: `${ASSET_ROOT}/alpaca-sprite.png`,
       width: 1024,
-      height: 1536,
+      height: 3072,
       columns: 3,
-      rows: 4
+      rows: 8
     },
     defaultRoomId: "lobby",
     colors,

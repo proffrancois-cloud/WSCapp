@@ -11,7 +11,7 @@ const expectedAssets = {
   "assets/campus-2d/courtyard.png": { width: 1023, height: 1537 },
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
-  "assets/campus-2d/alpaca-sprite.png": { width: 1024, height: 1536 }
+  "assets/campus-2d/alpaca-sprite.png": { width: 1024, height: 3072 }
 };
 
 const forbiddenPaths = [
@@ -215,9 +215,12 @@ if (!manifest) {
   if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
     failures.push("Debate Lab must include an orange train game zone.");
   }
-  const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "down");
+  const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "up");
   if (wrongDebateSeats.length) {
-    failures.push(`Debate Lab blue seats and dragon stools should face down; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
+    failures.push(`Debate Lab blue seats and dragon stools should face up; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
+  }
+  if (manifest.sprite?.height !== 3072 || manifest.sprite?.rows !== 8) {
+    failures.push("Campus 2D alpaca sprite sheet must expose four dedicated sitting rows, for 8 total rows at 1024x3072.");
   }
 }
 
@@ -275,6 +278,11 @@ for (const runtimeNeedle of [
   "whole image walkable",
   "setDebugEnabled(!debugEnabled)",
   "ALPACA_COLLISION_RADIUS",
+  "getFrame(direction, isSitting = false)",
+  "row: 4",
+  "row: 5",
+  "row: 6",
+  "row: 7",
   "isPointBlockedByPlayers",
   "canPlayerStandAt",
   "getSeatZones",
@@ -307,6 +315,9 @@ if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerS
 if (!/function\s+sitAtSeat[\s\S]*getSeatOccupant\(seat\)[\s\S]*is sitting there/.test(campusRuntime)) {
   failures.push("Campus 2D seats must reject sitting when another alpaca already occupies the spot.");
 }
+if (!/function\s+updatePlayerElement[\s\S]*const\s+isSitting\s*=\s*Boolean\(player\.seatId\)\s*&&\s*!player\.moving[\s\S]*getFrame\(player\.direction,\s*isSitting\)/.test(campusRuntime)) {
+  failures.push("Campus 2D seated alpacas must render dedicated sitting direction frames.");
+}
 if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
   failures.push("Campus 2D portals must be click-driven, not automatic walk-through triggers.");
 }
@@ -334,6 +345,12 @@ if (!styles.includes(".online-glow-card")) {
 }
 if (!styles.includes(".campus2d-root")) {
   failures.push("Campus 2D styles are missing.");
+}
+if ((styles.match(/background-size:\s*300%\s+800%/g) || []).length < 3) {
+  failures.push("Campus 2D sprite styles must use the expanded 8-row alpaca sprite sheet.");
+}
+if (/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*scaleY/i.test(styles)) {
+  failures.push("Campus 2D sitting visuals must use dedicated frames, not squashed standing sprites.");
 }
 for (const styleNeedle of [
   ".campus2d-side-panel",
