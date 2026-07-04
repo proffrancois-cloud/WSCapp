@@ -185,9 +185,15 @@ const campusRuntime = readApp("src/features/campus-2d/campus-2d.js");
 for (const runtimeNeedle of [
   "data-campus2d-portal",
   "campus2d-side-panel",
+  "campus2d-controls-panel",
   "campus2d-player-card",
+  "online-glow-card",
+  "campus2d-profile-art",
   "data-campus2d-color-toggle",
-  "sidePanel.append(hud, chatForm)",
+  "controlsPanel.append(controlsHeader, debugPanel, chatForm)",
+  "sidePanel.append(hud)",
+  "campus2d-connected-count",
+  "updateConnectedCount",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
   "wscCampus2dDevZones",
@@ -207,12 +213,21 @@ for (const runtimeNeedle of [
   "ALPACA_COLLISION_RADIUS",
   "isPointBlockedByPlayers",
   "canPlayerStandAt",
+  "getSeatZones",
   "getSeatOccupant",
+  "findSeatExitPoint",
+  "standUpFromSeat",
   "is-sitting"
 ]) {
   if (!campusRuntime.includes(runtimeNeedle)) {
     failures.push(`Campus 2D runtime is missing ${runtimeNeedle}.`);
   }
+}
+if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRuntime)) {
+  failures.push("Campus 2D yellow seat zones must be non-walkable, not regular walking areas.");
+}
+if (!/function\s+stepMovement[\s\S]*standUpFromSeat\(normalized,\s*activeZones\)/.test(campusRuntime)) {
+  failures.push("Campus 2D movement must push seated alpacas out of yellow zones before walking.");
 }
 if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
   failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
@@ -250,8 +265,11 @@ if (!styles.includes(".campus2d-root")) {
 }
 for (const styleNeedle of [
   ".campus2d-side-panel",
+  ".campus2d-controls-panel",
   ".campus2d-player-card",
   ".campus2d-profile-avatar",
+  ".campus2d-profile-art",
+  ".campus2d-connected-count",
   ".campus2d-portal",
   ".campus2d-debug-panel",
   ".campus2d-debug-controls",
@@ -268,17 +286,20 @@ for (const styleNeedle of [
     failures.push(`Campus 2D styles are missing ${styleNeedle}.`);
   }
 }
-if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)/i.test(styles)) {
-  failures.push("Campus 2D multiplayer controls must live in the left side rail beside the room.");
+if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-controls-width\)/i.test(styles)) {
+  failures.push("Campus 2D layout must reserve left ID, center world, and right controls columns.");
 }
-if (!/\.campus2d-root\.is-debug\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-debug-width\)/i.test(styles)) {
-  failures.push("Campus 2D dev mode must reserve a right-side debug column instead of overlaying the room.");
+if (!/\.campus2d-root\.is-debug\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-controls-width\)/i.test(styles)) {
+  failures.push("Campus 2D dev mode must stay inside the right controls column instead of overlaying the room.");
 }
 if (!/\.campus2d-side-panel\s*\{[^}]*background:\s*#030303/i.test(styles)) {
-  failures.push("Campus 2D side controls must sit in the black side panel.");
+  failures.push("Campus 2D user ID card must sit in the black left side panel.");
+}
+if (!/\.campus2d-controls-panel\s*\{[^}]*background:\s*#030303/i.test(styles)) {
+  failures.push("Campus 2D message and dev controls must sit in the black right side panel.");
 }
 if (!/\.campus2d-chat-form\s*\{[^}]*position:\s*sticky/i.test(styles)) {
-  failures.push("Campus 2D message form must stay anchored in the side panel.");
+  failures.push("Campus 2D message form must stay anchored in the right controls panel.");
 }
 if (/\.campus2d-hud\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D HUD must not overlay the room viewport.");

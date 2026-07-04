@@ -9,6 +9,17 @@
   const ALPACA_COLLISION_DISTANCE = ALPACA_COLLISION_RADIUS * 2;
   const MIN_DEV_ZONE_SIZE = 12;
   const DEV_ZONE_PASTE_OFFSET = 16;
+  const SEAT_EXIT_OFFSETS = [8, 16, 28, 44, 64, 96, 128];
+  const SEAT_EXIT_DIRECTIONS = Object.freeze([
+    Object.freeze({ x: 1, y: 0 }),
+    Object.freeze({ x: -1, y: 0 }),
+    Object.freeze({ x: 0, y: 1 }),
+    Object.freeze({ x: 0, y: -1 }),
+    Object.freeze({ x: Math.SQRT1_2, y: Math.SQRT1_2 }),
+    Object.freeze({ x: -Math.SQRT1_2, y: Math.SQRT1_2 }),
+    Object.freeze({ x: Math.SQRT1_2, y: -Math.SQRT1_2 }),
+    Object.freeze({ x: -Math.SQRT1_2, y: -Math.SQRT1_2 })
+  ]);
   const DEV_ZONE_TYPES = ["blocked", "seat", "behind", "portal", "game"];
   const DEV_ZONE_FIELDS = ["x", "y", "width", "height"];
   const DEV_ZONE_CONFIG = Object.freeze({
@@ -47,6 +58,10 @@
     return zones.some((zone) => isPointInRect(point, zone));
   }
 
+  function getSeatZones(seats = []) {
+    return seats.map((seat) => seat?.zone).filter(Boolean);
+  }
+
   function isPointInRoom(room, point) {
     return point.x >= 0 && point.x <= room.width && point.y >= 0 && point.y <= room.height;
   }
@@ -56,12 +71,12 @@
     const blockedZones = zones.blockedZones || room.blockedZones || [];
     const seats = zones.seats || room.seats || [];
     const inBlockedZone = isPointInZones(point, blockedZones);
-    const inSeat = seats.some((seat) => isPointInRect(point, seat.zone));
+    const inSeat = isPointInZones(point, getSeatZones(seats));
     return {
       inBounds,
       inBlockedZone,
       inSeat,
-      walkable: inBounds && (inSeat || !inBlockedZone)
+      walkable: inBounds && !inBlockedZone && !inSeat
     };
   }
 
@@ -288,14 +303,29 @@
     const behindLayer = createEl("div", "campus2d-behind-layer");
     const debugLayer = createEl("div", "campus2d-debug-layer", { "aria-hidden": "true" });
     const sidePanel = createEl("aside", "campus2d-side-panel", {
-      "aria-label": "Multiplayer controls",
+      "aria-label": "Your alpaca ID",
       "data-campus2d-ui": ""
     });
+    const controlsPanel = createEl("aside", "campus2d-controls-panel", {
+      "aria-label": "Multiplayer messages",
+      "data-campus2d-ui": ""
+    });
+    const controlsHeader = createEl("div", "campus2d-controls-header");
+    const connectedCount = createEl("strong", "campus2d-connected-count", {
+      "aria-live": "polite"
+    });
     const hud = createEl("div", "campus2d-hud", { "data-campus2d-ui": "" });
-    const playerCard = createEl("section", "campus2d-player-card", {
+    const playerCard = createEl("section", "campus2d-player-card online-glow-card", {
       "aria-label": "Your alpaca card"
     });
-    const playerSummary = createEl("div", "campus2d-player-summary");
+    const playerCardContainer = createEl("span", "online-card-container noselect");
+    const playerCardCanvas = createEl("span", "online-card-canvas");
+    const playerCardFrame = createEl("span", "online-card-frame");
+    const playerCardContent = createEl("span", "card-content");
+    const playerCardGlare = createEl("span", "card-glare", { "aria-hidden": "true" });
+    const playerCyberLines = createEl("span", "cyber-lines", { "aria-hidden": "true" });
+    const playerPrompt = createEl("span", "online-card-prompt");
+    const playerArt = createEl("span", "online-card-art campus2d-profile-art");
     const playerAvatarButton = createEl("button", "campus2d-profile-avatar", {
       type: "button",
       title: "Choose alpaca color",
@@ -303,10 +333,18 @@
       "aria-expanded": "false",
       "data-campus2d-color-toggle": ""
     });
-    const playerDetails = createEl("div", "campus2d-profile-details");
-    const playerName = createEl("strong", "campus2d-profile-name");
+    const playerDetails = createEl("div", "subtitle campus2d-profile-details");
+    const playerName = createEl("strong", "title campus2d-profile-name");
+    const playerSchoolField = createEl("span", "campus2d-profile-field");
+    const playerSchoolLabel = createEl("span", "campus2d-profile-label");
     const playerSchool = createEl("span", "campus2d-profile-school");
+    const playerAgeField = createEl("span", "campus2d-profile-field");
+    const playerAgeLabel = createEl("span", "campus2d-profile-label");
     const playerAge = createEl("span", "campus2d-profile-age");
+    const playerGlowingElements = createEl("span", "glowing-elements", { "aria-hidden": "true" });
+    const playerParticles = createEl("span", "card-particles", { "aria-hidden": "true" });
+    const playerCorners = createEl("span", "corner-elements", { "aria-hidden": "true" });
+    const playerScanLine = createEl("span", "scan-line", { "aria-hidden": "true" });
     const roomMeta = createEl("div", "campus2d-room-meta");
     const roomTitle = createEl("strong", "campus2d-room-title");
     const statusPill = createEl("span", "campus2d-status-pill");
@@ -371,8 +409,24 @@
     const debugStatus = createEl("span", "campus2d-debug-status");
     const localElement = createPlayerElement(localPlayer, true);
 
+    playerPrompt.textContent = "Alpaca ID";
+    playerSchoolLabel.textContent = "School";
+    playerAgeLabel.textContent = "Account age";
     chatButton.textContent = "Send";
     debugTitle.textContent = "Dev";
+    Array.from({ length: 9 }, (_value, index) => {
+      playerCardCanvas.append(createEl("span", `tracker tr-${index + 1}`, { "aria-hidden": "true" }));
+    });
+    Array.from({ length: 4 }).forEach(() => {
+      playerCyberLines.append(createEl("span", ""));
+      playerCorners.append(createEl("span", ""));
+    });
+    ["glow-1", "glow-2", "glow-3"].forEach((className) => {
+      playerGlowingElements.append(createEl("span", className));
+    });
+    Array.from({ length: 6 }).forEach(() => {
+      playerParticles.append(createEl("span", ""));
+    });
     DEV_ZONE_TYPES.forEach((type) => {
       const option = createEl("option", "");
       option.value = type;
@@ -413,16 +467,36 @@
       debugStatus
     );
     chatForm.append(chatInput, chatButton);
-    playerDetails.append(playerName, playerSchool, playerAge);
-    playerSummary.append(playerAvatarButton, playerDetails);
-    playerCard.append(playerSummary, palette);
+    playerArt.append(playerAvatarButton);
+    playerSchoolField.append(playerSchoolLabel, playerSchool);
+    playerAgeField.append(playerAgeLabel, playerAge);
+    playerDetails.append(playerSchoolField, playerAgeField);
+    playerCardContent.append(
+      playerCardGlare,
+      playerCyberLines,
+      playerPrompt,
+      playerArt,
+      playerName,
+      playerGlowingElements,
+      playerDetails,
+      palette,
+      playerParticles,
+      playerCorners,
+      playerScanLine
+    );
+    playerCardFrame.append(playerCardContent);
+    playerCardCanvas.append(playerCardFrame);
+    playerCardContainer.append(playerCardCanvas);
+    playerCard.append(playerCardContainer);
     roomMeta.append(roomTitle, statusPill);
-    hud.append(playerCard, roomMeta);
-    sidePanel.append(hud, chatForm);
+    controlsHeader.append(connectedCount, roomMeta);
+    hud.append(playerCard);
+    sidePanel.append(hud);
+    controlsPanel.append(controlsHeader, debugPanel, chatForm);
     world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
-    root.append(sidePanel, viewport, debugPanel);
+    root.append(sidePanel, viewport, controlsPanel);
     mountNode.replaceChildren(root);
 
     function createPlayerElement(player, isLocal) {
@@ -482,11 +556,16 @@
       playerCard.style.setProperty("--campus2d-color", color.hex);
       playerName.textContent = localPlayer.displayName || "Guest";
       playerSchool.textContent = localPlayer.schoolName || "Unknown school";
-      playerAge.textContent = `Age ${formatAccountAge(localPlayer.createdAt)}`;
+      playerAge.textContent = formatAccountAge(localPlayer.createdAt);
       playerAvatarButton.title = `${color.label} alpaca. Choose color`;
       playerAvatarButton.setAttribute("aria-label", `${color.label} alpaca. Choose color`);
       applyAvatarPreview(playerAvatarButton, localPlayer);
       setPaletteOpen(paletteOpen);
+    }
+
+    function updateConnectedCount() {
+      const count = remotePlayers.size + 1;
+      connectedCount.textContent = `${count} ${count === 1 ? "alpaca" : "alpacas"} connected`;
     }
 
     function getPlayerProfilePayload(player) {
@@ -988,9 +1067,9 @@
           const walkability = getWalkability(room, debugMousePoint, activeZones);
           const status = !walkability.inBounds
             ? "outside map"
-            : (walkability.inBlockedZone
-              ? "blocked"
-              : (walkability.inSeat ? "sitting zone" : "walkable"));
+            : (walkability.inSeat
+              ? "sitting-only zone"
+              : (walkability.inBlockedZone ? "blocked" : "walkable"));
           return `Mouse x ${Math.round(debugMousePoint.x)}, y ${Math.round(debugMousePoint.y)} - ${status}`;
         })()
         : "Mouse outside map";
@@ -1076,6 +1155,7 @@
       updateDebugPanel();
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderRemotePlayers();
+      updateConnectedCount();
       updateCamera();
     }
 
@@ -1124,6 +1204,8 @@
       zoneEditGesture = null;
       debugMousePoint = null;
       remotePlayers.clear();
+      remoteElements.forEach((element) => element.remove());
+      remoteElements.clear();
       renderRoom();
       connectRealtime();
       publishPresence(true);
@@ -1171,6 +1253,108 @@
 
     function canPlayerStandAt(point, zones = getEffectiveZones(room), originPoint = null) {
       return isWalkable(room, point, zones) && !isPointBlockedByPlayers(point, originPoint);
+    }
+
+    function getNormalizedVector(vector, fallback = { x: 0, y: 1 }) {
+      const x = Number(vector?.x) || 0;
+      const y = Number(vector?.y) || 0;
+      const length = Math.hypot(x, y);
+      if (length > 0.001) {
+        return { x: x / length, y: y / length };
+      }
+      return fallback;
+    }
+
+    function getSeatCenter(seat) {
+      const rect = seat?.zone;
+      return {
+        x: Number.isFinite(Number(seat?.x)) ? Number(seat.x) : rect.x + (rect.width / 2),
+        y: Number.isFinite(Number(seat?.y)) ? Number(seat.y) : rect.y + (rect.height / 2)
+      };
+    }
+
+    function getSeatExitDirections(vector) {
+      const normalized = getNormalizedVector(vector);
+      return [...SEAT_EXIT_DIRECTIONS].sort((left, right) => {
+        const leftScore = (left.x * normalized.x) + (left.y * normalized.y);
+        const rightScore = (right.x * normalized.x) + (right.y * normalized.y);
+        return rightScore - leftScore;
+      });
+    }
+
+    function getDistanceToSeatEdge(center, rect, direction) {
+      const xDistance = direction.x > 0
+        ? ((rect.x + rect.width) - center.x) / direction.x
+        : (direction.x < 0 ? (rect.x - center.x) / direction.x : Infinity);
+      const yDistance = direction.y > 0
+        ? ((rect.y + rect.height) - center.y) / direction.y
+        : (direction.y < 0 ? (rect.y - center.y) / direction.y : Infinity);
+      const distance = Math.min(xDistance, yDistance);
+      return Number.isFinite(distance) ? Math.max(0, distance) : 0;
+    }
+
+    function findSeatExitPoint(seat, vector, zones = getEffectiveZones(room)) {
+      const rect = seat?.zone;
+      if (!rect) {
+        return null;
+      }
+      const center = getSeatCenter(seat);
+      const originPoint = { x: localPlayer.x, y: localPlayer.y };
+      const directions = getSeatExitDirections(vector);
+      for (const offset of SEAT_EXIT_OFFSETS) {
+        for (const direction of directions) {
+          const edgeDistance = getDistanceToSeatEdge(center, rect, direction);
+          const candidate = clampPointToRoom({
+            x: center.x + (direction.x * (edgeDistance + offset)),
+            y: center.y + (direction.y * (edgeDistance + offset))
+          });
+          if (isPointInRect(candidate, rect)) {
+            continue;
+          }
+          if (canPlayerStandAt(candidate, zones, originPoint)) {
+            return candidate;
+          }
+        }
+      }
+      return null;
+    }
+
+    function getCurrentSeat(zones = getEffectiveZones(room)) {
+      const seats = zones.seats || [];
+      if (localPlayer.seatId) {
+        const explicitSeat = seats.find((seat) => seat.id === localPlayer.seatId);
+        if (explicitSeat) {
+          return explicitSeat;
+        }
+      }
+      const playerPoint = { x: localPlayer.x, y: localPlayer.y };
+      return seats.find((seat) => seat?.zone && isPointInRect(playerPoint, seat.zone)) || null;
+    }
+
+    function standUpFromSeat(vector, zones = getEffectiveZones(room)) {
+      const seat = getCurrentSeat(zones);
+      if (!localPlayer.seatId && !seat) {
+        return true;
+      }
+      const previousSeatId = localPlayer.seatId;
+      localPlayer.seatId = null;
+      if (!seat?.zone) {
+        return true;
+      }
+      const playerPoint = { x: localPlayer.x, y: localPlayer.y };
+      if (!isPointInRect(playerPoint, seat.zone)) {
+        return true;
+      }
+      const exitPoint = findSeatExitPoint(seat, vector, zones);
+      if (!exitPoint) {
+        localPlayer.seatId = previousSeatId || seat.id;
+        return false;
+      }
+      localPlayer.x = exitPoint.x;
+      localPlayer.y = exitPoint.y;
+      localPlayer.direction = normalizeDirection(getNormalizedVector(vector), localPlayer.direction);
+      localPlayer.moving = false;
+      return true;
     }
 
     function getSeatOccupant(seat) {
@@ -1238,11 +1422,15 @@
         return;
       }
 
-      if (keyboardVector.x || keyboardVector.y) {
-        localPlayer.seatId = null;
+      const normalized = { x: vector.x / length, y: vector.y / length };
+      const activeZones = getEffectiveZones(room);
+      if (!standUpFromSeat(normalized, activeZones)) {
+        activeTarget = null;
+        localPlayer.moving = false;
+        updatePlayerElement(localElement, localPlayer, nowMs);
+        return;
       }
 
-      const normalized = { x: vector.x / length, y: vector.y / length };
       const distance = MOVE_SPEED * deltaSeconds;
       const nextX = localPlayer.x + normalized.x * distance;
       const nextY = localPlayer.y + normalized.y * distance;
@@ -1251,7 +1439,6 @@
         y: clamp(nextY, 0, room.height)
       };
       const currentPoint = { x: localPlayer.x, y: localPlayer.y };
-      const activeZones = getEffectiveZones(room);
       if (canPlayerStandAt(nextPoint, activeZones, currentPoint)) {
         localPlayer.x = nextPoint.x;
         localPlayer.y = nextPoint.y;
@@ -1395,6 +1582,7 @@
         }
       });
       renderRemotePlayers();
+      updateConnectedCount();
     }
 
     function receiveRemoteMovement(payload) {
@@ -1418,6 +1606,7 @@
       };
       remotePlayers.set(payload.clientId, next);
       renderRemotePlayers();
+      updateConnectedCount();
     }
 
     function receiveRemoteChat(payload) {
@@ -1743,8 +1932,11 @@
         return;
       }
       const point = screenToWorld(event.clientX, event.clientY);
-      if (canPlayerStandAt(point, getEffectiveZones(room))) {
-        localPlayer.seatId = null;
+      const activeZones = getEffectiveZones(room);
+      if (canPlayerStandAt(point, activeZones)) {
+        if (!standUpFromSeat({ x: point.x - localPlayer.x, y: point.y - localPlayer.y }, activeZones)) {
+          return;
+        }
         activeTarget = point;
       }
     }
