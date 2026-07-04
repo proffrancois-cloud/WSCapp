@@ -1347,7 +1347,7 @@
       }
       const exitPoint = findSeatExitPoint(seat, vector, zones);
       if (!exitPoint) {
-        localPlayer.seatId = previousSeatId || seat.id;
+        localPlayer.seatId = previousSeatId;
         return false;
       }
       localPlayer.x = exitPoint.x;
