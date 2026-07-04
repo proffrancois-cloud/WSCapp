@@ -94,7 +94,7 @@ if (!manifest) {
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 24, portals: 3, gameZones: 1, behindZones: 22, seats: 7 },
     courtyard: { blockedZones: 124, portals: 2, gameZones: 1, behindZones: 41, seats: 18 },
-    library: { blockedZones: 42, portals: 1, gameZones: 5, behindZones: 36, seats: 33 },
+    library: { blockedZones: 42, portals: 1, gameZones: 5, behindZones: 36, seats: 34 },
     "debate-lab": { blockedZones: 51, portals: 1, gameZones: 1, behindZones: 24, seats: 71 }
   };
   for (const [roomId, expectedCounts] of Object.entries(expectedRoomZoneCounts)) {
@@ -104,6 +104,28 @@ if (!manifest) {
       if (actualCount !== expectedCount) {
         failures.push(`${roomId} ${key} should match the exported count ${expectedCount}; received ${actualCount}.`);
       }
+    }
+  }
+  function seatsByPrefix(room, prefix) {
+    return (room?.seats || []).filter((seat) => seat.id.startsWith(prefix));
+  }
+  function expectSeatDirection(room, seatId, direction) {
+    const seat = (room?.seats || []).find((entry) => entry.id === seatId);
+    if (!seat) {
+      failures.push(`Campus 2D manifest is missing seat ${seatId}.`);
+    } else if (seat.direction !== direction) {
+      failures.push(`Seat ${seatId} should face ${direction}; received ${seat.direction || "down"}.`);
+    }
+  }
+  function expectSeatPrefixDirection(room, prefix, direction) {
+    const seats = seatsByPrefix(room, prefix);
+    if (!seats.length) {
+      failures.push(`Campus 2D manifest is missing seats with prefix ${prefix}.`);
+      return;
+    }
+    const wrongSeats = seats.filter((seat) => seat.direction !== direction);
+    if (wrongSeats.length) {
+      failures.push(`Seats ${prefix}* should face ${direction}; wrong ids: ${wrongSeats.map((seat) => seat.id).join(", ")}.`);
     }
   }
   const lobby = manifest.roomsById?.lobby;
@@ -135,6 +157,17 @@ if (!manifest) {
   if (!library?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Library must include an orange learn game zone.");
   }
+  if (seatsByPrefix(library, "library-lounge-left").length !== 3) {
+    failures.push("Library left green couch must include three sitting areas.");
+  }
+  expectSeatPrefixDirection(library, "library-lounge-top", "down");
+  expectSeatPrefixDirection(library, "library-lounge-left", "right");
+  expectSeatPrefixDirection(library, "library-lounge-right", "left");
+  expectSeatPrefixDirection(library, "library-table-top", "down");
+  expectSeatPrefixDirection(library, "library-table-left", "right");
+  expectSeatPrefixDirection(library, "library-table-right", "left");
+  expectSeatPrefixDirection(library, "library-table-bottom", "up");
+  expectSeatPrefixDirection(library, "library-classroom", "up");
   const courtyard = manifest.roomsById?.courtyard;
   if ((courtyard?.behindZones || []).length < 15) {
     failures.push("Courtyard must include annotated behind zones.");
@@ -151,12 +184,21 @@ if (!manifest) {
   if (!courtyard?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Courtyard must include an orange learn game zone.");
   }
+  expectSeatPrefixDirection(courtyard, "courtyard-class-benches", "up");
+  expectSeatPrefixDirection(courtyard, "courtyard-class-stools", "up");
+  expectSeatDirection(courtyard, "courtyard-seat-16", "up");
+  expectSeatDirection(courtyard, "courtyard-seat-17", "up");
+  expectSeatDirection(courtyard, "courtyard-seat-18", "up");
   const debateLab = manifest.roomsById?.["debate-lab"];
   if ((debateLab?.seats || []).length < 60) {
     failures.push("Debate Lab must include annotated sitting squares.");
   }
   if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
     failures.push("Debate Lab must include an orange train game zone.");
+  }
+  const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "up");
+  if (wrongDebateSeats.length) {
+    failures.push(`Debate Lab blue seats and dragon stools should face up; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
   }
 }
 

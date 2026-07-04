@@ -21,8 +21,16 @@
     return { id, mode, label, zone: rect(id, x, y, width, height) };
   }
 
-  function seat(id, x, y, width, height) {
-    return { id, zone: rect(id, x, y, width, height), x: x + (width / 2), y: y + (height / 2) };
+  function seat(id, x, y, width, height, direction) {
+    const entry = { id, zone: rect(id, x, y, width, height), x: x + (width / 2), y: y + (height / 2) };
+    if (direction) {
+      entry.direction = direction;
+    }
+    return entry;
+  }
+
+  function seatsFacing(direction, seats) {
+    return seats.map((entry) => ({ ...entry, direction }));
   }
 
   function rects(prefix, boxes) {
@@ -368,24 +376,26 @@
         rect("courtyard-behind-44", 723, 932, 48, 35)
       ],
       seats: [
-        seat("courtyard-class-benches-1", 681, 400, 32, 36),
-        seat("courtyard-class-benches-2", 769, 402, 33, 34),
-        seat("courtyard-class-benches-3", 857, 405, 38, 32),
-        seat("courtyard-class-stools-1", 687, 470, 36, 36),
-        seat("courtyard-class-stools-2", 738, 470, 37, 37),
-        seat("courtyard-class-stools-3", 789, 466, 38, 38),
-        seat("courtyard-class-stools-4", 841, 467, 39, 37),
-        seat("courtyard-class-stools-5", 894, 468, 38, 36),
-        seat("courtyard-class-stools-6", 685, 517, 38, 37),
-        seat("courtyard-class-stools-7", 737, 518, 38, 36),
-        seat("courtyard-class-stools-8", 789, 517, 38, 37),
-        seat("courtyard-class-stools-9", 842, 518, 39, 37),
-        seat("courtyard-class-stools-10", 893, 518, 38, 37),
+        ...seatsFacing("up", [
+          seat("courtyard-class-benches-1", 681, 400, 32, 36),
+          seat("courtyard-class-benches-2", 769, 402, 33, 34),
+          seat("courtyard-class-benches-3", 857, 405, 38, 32),
+          seat("courtyard-class-stools-1", 687, 470, 36, 36),
+          seat("courtyard-class-stools-2", 738, 470, 37, 37),
+          seat("courtyard-class-stools-3", 789, 466, 38, 38),
+          seat("courtyard-class-stools-4", 841, 467, 39, 37),
+          seat("courtyard-class-stools-5", 894, 468, 38, 36),
+          seat("courtyard-class-stools-6", 685, 517, 38, 37),
+          seat("courtyard-class-stools-7", 737, 518, 38, 36),
+          seat("courtyard-class-stools-8", 789, 517, 38, 37),
+          seat("courtyard-class-stools-9", 842, 518, 39, 37),
+          seat("courtyard-class-stools-10", 893, 518, 38, 37),
+          seat("courtyard-seat-16", 714, 400, 34, 33),
+          seat("courtyard-seat-17", 806, 403, 32, 34),
+          seat("courtyard-seat-18", 887, 406, 38, 30)
+        ]),
         seat("courtyard-left-swing", 661, 1312, 36, 22),
-        seat("courtyard-right-swing", 850, 1311, 36, 23),
-        seat("courtyard-seat-16", 714, 400, 34, 33),
-        seat("courtyard-seat-17", 806, 403, 32, 34),
-        seat("courtyard-seat-18", 887, 406, 38, 30)
+        seat("courtyard-right-swing", 850, 1311, 36, 23)
       ]
     },
     {
@@ -500,39 +510,54 @@
         rect("library-behind-37", 169, 1019, 44, 12)
       ],
       seats: [
-        seat("library-lounge-top-1", 174, 289, 28, 27),
-        seat("library-lounge-top-2", 204, 290, 29, 27),
-        seat("library-lounge-top-3", 235, 290, 28, 27),
-        seat("library-lounge-top-4", 265, 289, 28, 28),
-        seat("library-lounge-left-1", 126, 336, 32, 32),
-        seat("library-lounge-left-2", 126, 376, 32, 32),
-        seat("library-lounge-right-1", 309, 341, 32, 32),
-        seat("library-lounge-right-2", 309, 380, 32, 32),
-        seat("library-table-top-1", 170, 1019, 43, 42),
-        seat("library-table-top-2", 233, 1018, 44, 43),
-        seat("library-table-top-3", 292, 1019, 43, 42),
-        seat("library-table-left-1", 106, 1080, 45, 44),
-        seat("library-table-left-2", 107, 1135, 43, 42),
-        seat("library-table-right-1", 353, 1080, 44, 43),
-        seat("library-table-right-2", 353, 1135, 44, 43),
-        seat("library-table-bottom-1", 170, 1184, 44, 43),
-        seat("library-table-bottom-2", 232, 1184, 44, 43),
-        seat("library-table-bottom-3", 292, 1185, 43, 42),
-        seat("library-classroom-a1", 745, 1029, 43, 43),
-        seat("library-classroom-a2", 802, 1029, 44, 43),
-        seat("library-classroom-a3", 861, 1030, 44, 43),
-        seat("library-classroom-a4", 922, 1029, 44, 43),
-        seat("library-classroom-a5", 980, 1029, 44, 43),
-        seat("library-classroom-b1", 744, 1102, 44, 43),
-        seat("library-classroom-b2", 803, 1101, 43, 43),
-        seat("library-classroom-b3", 861, 1102, 44, 42),
-        seat("library-classroom-b4", 921, 1101, 43, 43),
-        seat("library-classroom-b5", 980, 1101, 43, 43),
-        seat("library-classroom-c1", 744, 1178, 44, 43),
-        seat("library-classroom-c2", 802, 1177, 44, 43),
-        seat("library-classroom-c3", 862, 1176, 44, 43),
-        seat("library-classroom-c4", 921, 1173, 44, 43),
-        seat("library-classroom-c5", 979, 1173, 44, 43)
+        ...seatsFacing("down", [
+          seat("library-lounge-top-1", 174, 289, 28, 27),
+          seat("library-lounge-top-2", 204, 290, 29, 27),
+          seat("library-lounge-top-3", 235, 290, 28, 27),
+          seat("library-lounge-top-4", 265, 289, 28, 28)
+        ]),
+        ...seatsFacing("right", [
+          seat("library-lounge-left-1", 126, 336, 32, 32),
+          seat("library-lounge-left-2", 126, 376, 32, 32),
+          seat("library-lounge-left-3", 126, 416, 32, 32)
+        ]),
+        ...seatsFacing("left", [
+          seat("library-lounge-right-1", 309, 341, 32, 32),
+          seat("library-lounge-right-2", 309, 380, 32, 32)
+        ]),
+        ...seatsFacing("down", [
+          seat("library-table-top-1", 170, 1019, 43, 42),
+          seat("library-table-top-2", 233, 1018, 44, 43),
+          seat("library-table-top-3", 292, 1019, 43, 42)
+        ]),
+        ...seatsFacing("right", [
+          seat("library-table-left-1", 106, 1080, 45, 44),
+          seat("library-table-left-2", 107, 1135, 43, 42)
+        ]),
+        ...seatsFacing("left", [
+          seat("library-table-right-1", 353, 1080, 44, 43),
+          seat("library-table-right-2", 353, 1135, 44, 43)
+        ]),
+        ...seatsFacing("up", [
+          seat("library-table-bottom-1", 170, 1184, 44, 43),
+          seat("library-table-bottom-2", 232, 1184, 44, 43),
+          seat("library-table-bottom-3", 292, 1185, 43, 42),
+          seat("library-classroom-a1", 745, 1029, 43, 43),
+          seat("library-classroom-a2", 802, 1029, 44, 43),
+          seat("library-classroom-a3", 861, 1030, 44, 43),
+          seat("library-classroom-a4", 922, 1029, 44, 43),
+          seat("library-classroom-a5", 980, 1029, 44, 43),
+          seat("library-classroom-b1", 744, 1102, 44, 43),
+          seat("library-classroom-b2", 803, 1101, 43, 43),
+          seat("library-classroom-b3", 861, 1102, 44, 42),
+          seat("library-classroom-b4", 921, 1101, 43, 43),
+          seat("library-classroom-b5", 980, 1101, 43, 43),
+          seat("library-classroom-c1", 744, 1178, 44, 43),
+          seat("library-classroom-c2", 802, 1177, 44, 43),
+          seat("library-classroom-c3", 862, 1176, 44, 43),
+          seat("library-classroom-c4", 921, 1173, 44, 43),
+          seat("library-classroom-c5", 979, 1173, 44, 43)
+        ])
       ]
     },
     {
@@ -639,7 +664,7 @@
         rect("debate-lab-behind-23", 1077, 1132, 45, 31),
         rect("debate-lab-behind-24", 1040, 293, 34, 19)
       ],
-      seats: [
+      seats: seatsFacing("up", [
         seat("debate-left-table-1", 108, 299, 33, 35),
         seat("debate-left-table-2", 163, 299, 32, 35),
         seat("debate-left-table-3", 216, 299, 32, 34),
@@ -711,7 +736,7 @@
         seat("debate-right-audience-d6", 883, 1016, 40, 22),
         seat("debate-right-audience-d7", 928, 1015, 40, 22),
         seat("debate-right-audience-d8", 970, 1015, 40, 23)
-      ]
+      ])
     }
   ];
 
