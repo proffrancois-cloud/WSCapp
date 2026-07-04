@@ -93,7 +93,7 @@ if (!manifest) {
   }
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 24, portals: 3, gameZones: 1, behindZones: 22, seats: 7 },
-    courtyard: { blockedZones: 124, portals: 2, gameZones: 1, behindZones: 41, seats: 18 },
+    courtyard: { blockedZones: 132, portals: 2, gameZones: 2, behindZones: 49, seats: 18 },
     library: { blockedZones: 48, portals: 1, gameZones: 5, behindZones: 37, seats: 33 },
     "debate-lab": { blockedZones: 51, portals: 1, gameZones: 1, behindZones: 24, seats: 71 }
   };
@@ -191,7 +191,7 @@ if (!manifest) {
   if ((courtyard?.behindZones || []).length < 15) {
     failures.push("Courtyard must include annotated behind zones.");
   }
-  if ((courtyard?.blockedZones || []).length < 120) {
+  if ((courtyard?.blockedZones || []).length < 132) {
     failures.push("Courtyard must include the precise exported pink blocked zones.");
   }
   if (!courtyard?.portals?.some((portal) => portal.id === "courtyard-portal-2")) {
@@ -203,6 +203,12 @@ if (!manifest) {
   if (!courtyard?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Courtyard must include an orange learn game zone.");
   }
+  if (!courtyard?.gameZones?.some((zone) => zone.id === "courtyard-game-2" && zone.mode === "game")) {
+    failures.push("Courtyard must include the exported orange game zone.");
+  }
+  expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-126", { x: 141, y: 949, width: 12, height: 19 });
+  expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-134", { x: 665, y: 276, width: 22, height: 23 });
+  expectZoneRect(courtyard, "behindZones", "courtyard-behind-53", { x: 946, y: 615, width: 12, height: 65 });
   expectSeatPrefixDirection(courtyard, "courtyard-class-benches", "up");
   expectSeatPrefixDirection(courtyard, "courtyard-class-stools", "up");
   expectSeatDirection(courtyard, "courtyard-seat-16", "up");
