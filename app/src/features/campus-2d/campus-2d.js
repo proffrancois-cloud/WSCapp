@@ -9,6 +9,7 @@
   const ALPACA_COLLISION_DISTANCE = ALPACA_COLLISION_RADIUS * 2;
   const MIN_DEV_ZONE_SIZE = 12;
   const DEV_ZONE_PASTE_OFFSET = 16;
+  const PLAYER_CARD_TILT_MAX_DEGREES = 9;
   const SEAT_EXIT_OFFSETS = [8, 16, 28, 44, 64, 96, 128];
   const SEAT_EXIT_DIRECTIONS = Object.freeze([
     Object.freeze({ x: 1, y: 0 }),
@@ -566,6 +567,29 @@
     function updateConnectedCount() {
       const count = remotePlayers.size + 1;
       connectedCount.textContent = `${count} ${count === 1 ? "alpaca" : "alpacas"} connected`;
+    }
+
+    function updatePlayerCardTilt(event) {
+      if (event.pointerType === "touch") {
+        return;
+      }
+      const rect = playerCard.getBoundingClientRect();
+      if (!rect.width || !rect.height) {
+        return;
+      }
+      const xRatio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+      const yRatio = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+      const rotateX = (0.5 - yRatio) * PLAYER_CARD_TILT_MAX_DEGREES * 2;
+      const rotateY = (xRatio - 0.5) * PLAYER_CARD_TILT_MAX_DEGREES * 2;
+      playerCard.style.setProperty("--campus2d-card-rotate-x", `${rotateX.toFixed(2)}deg`);
+      playerCard.style.setProperty("--campus2d-card-rotate-y", `${rotateY.toFixed(2)}deg`);
+      playerCard.classList.add("is-pointer-tilting");
+    }
+
+    function resetPlayerCardTilt() {
+      playerCard.classList.remove("is-pointer-tilting");
+      playerCard.style.removeProperty("--campus2d-card-rotate-x");
+      playerCard.style.removeProperty("--campus2d-card-rotate-y");
     }
 
     function getPlayerProfilePayload(player) {
@@ -2091,6 +2115,9 @@
     viewport.addEventListener("pointermove", handlePointerMove);
     viewport.addEventListener("pointerup", handlePointerUp);
     viewport.addEventListener("pointercancel", handlePointerUp);
+    playerCard.addEventListener("pointermove", updatePlayerCardTilt);
+    playerCard.addEventListener("pointerleave", resetPlayerCardTilt);
+    playerCard.addEventListener("pointercancel", resetPlayerCardTilt);
     root.addEventListener("click", handleRootClick);
     chatForm.addEventListener("submit", handleChatSubmit);
     zoneTypeSelect.addEventListener("change", handleZoneTypeChange);
@@ -2118,6 +2145,9 @@
         viewport.removeEventListener("pointermove", handlePointerMove);
         viewport.removeEventListener("pointerup", handlePointerUp);
         viewport.removeEventListener("pointercancel", handlePointerUp);
+        playerCard.removeEventListener("pointermove", updatePlayerCardTilt);
+        playerCard.removeEventListener("pointerleave", resetPlayerCardTilt);
+        playerCard.removeEventListener("pointercancel", resetPlayerCardTilt);
         channel?.destroy();
         mountNode.replaceChildren();
       },

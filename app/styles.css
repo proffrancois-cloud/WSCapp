@@ -15310,6 +15310,13 @@ body.is-online-mode .campus2d-player-card.online-glow-card:focus-within .online-
   filter: saturate(1.08) brightness(1.03);
 }
 
+body.is-online-mode .campus2d-player-card.online-glow-card.is-pointer-tilting .online-card-frame {
+  transform:
+    rotateX(var(--campus2d-card-rotate-x, 0deg))
+    rotateY(var(--campus2d-card-rotate-y, 0deg))
+    translateY(-5px);
+}
+
 body.is-online-mode .campus2d-player-card .online-card-canvas .tracker {
   pointer-events: none;
 }
