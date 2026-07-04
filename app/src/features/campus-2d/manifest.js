@@ -467,7 +467,7 @@
         rect("library-blocked-13", 52, 481, 28, 33),
         rect("library-blocked-14", 195, 351, 75, 68),
         rect("library-blocked-15", 340, 323, 12, 105),
-        rect("library-blocked-16", 308, 412, 41, 26),
+        rect("library-blocked-16", 308, 412, 41, 30),
         rect("library-blocked-17", 304, 328, 41, 12),
         rect("library-blocked-18", 165, 282, 12, 34),
         rect("library-blocked-19", 169, 279, 124, 12),
@@ -498,10 +498,9 @@
         rect("library-blocked-44", 382, 922, 69, 21),
         rect("library-blocked-45", 175, 291, 117, 27),
         rect("library-blocked-46", 124, 335, 30, 77),
-        rect("library-blocked-47", 310, 340, 30, 77),
         rect("library-blocked-74", 745, 185, 30, 47),
-        rect("library-blocked-75", 792, 143, 282, 84),
-        rect("library-blocked-76", 1098, 168, 21, 66)
+        rect("library-blocked-75", 792, 143, 361, 84),
+        rect("library-blocked-47", 73, 544, 40, 247)
       ],
       portals: [
         portal("library-to-lobby", "lobby", "library", 505, 1290, 149, 51)
@@ -509,9 +508,7 @@
       hotspots: [
         hotspot("library-alpacards", "lesson", "Library lessons", 720, 845, 390, 270)
       ],
-      decorations: [
-        decoration("library-laptops", `${ASSET_ROOT}/library-laptops.png`, 80, 760, 360, 140)
-      ],
+      decorations: [],
       npcs: [
         npc("library-instructions-npc", "Instructions", 586, 233, "down", "red")
       ],
@@ -520,7 +517,11 @@
         gameZone("library-game-2", "game", "Game zone", 89, 893, 306, 58),
         gameZone("library-game-3", "game", "Game zone", 792, 302, 295, 60),
         gameZone("library-game-4", "game", "Game zone", 794, 436, 295, 60),
-        gameZone("library-game-5", "game", "Game zone", 792, 572, 295, 60)
+        gameZone("library-game-5", "game", "Game zone", 792, 572, 295, 60),
+        gameZone("library-game-6", "game", "Game zone", 82, 574, 24, 31),
+        gameZone("library-game-7", "game", "Game zone", 81, 628, 25, 32),
+        gameZone("library-game-8", "game", "Game zone", 80, 684, 28, 26),
+        gameZone("library-game-9", "game", "Game zone", 80, 740, 27, 25)
       ],
       behindZones: [
         rect("library-front-desk-left-lamp", 462, 240, 21, 46),
@@ -562,47 +563,45 @@
         rect("library-behind-39", 766, 816, 238, 12)
       ],
       seats: [
-        ...seatsFacing("down", [
-          seat("library-lounge-top-1", 174, 289, 28, 27),
-          seat("library-lounge-top-2", 204, 290, 29, 27),
-          seat("library-lounge-top-3", 235, 290, 28, 27),
-          seat("library-lounge-top-4", 265, 289, 28, 28),
-          seat("library-table-top-2", 171, 1031, 37, 31),
-          seat("library-table-top-3", 235, 1032, 36, 29),
-          seat("library-seat-34", 299, 1033, 28, 28)
-        ]),
-        ...seatsFacing("right", [
-          seat("library-lounge-left-1", 126, 336, 32, 32),
-          seat("library-lounge-left-2", 126, 376, 32, 32),
-          seat("library-table-left-1", 111, 1088, 34, 31),
-          seat("library-table-left-2", 112, 1142, 33, 33)
-        ]),
-        ...seatsFacing("left", [
-          seat("library-lounge-right-1", 309, 341, 32, 32),
-          seat("library-lounge-right-2", 309, 380, 32, 32),
-          seat("library-table-right-1", 360, 1087, 39, 31),
-          seat("library-table-right-2", 363, 1139, 32, 35)
-        ]),
-        ...seatsFacing("up", [
-          seat("library-table-bottom-1", 235, 1189, 33, 36),
-          seat("library-table-bottom-2", 297, 1188, 33, 37),
-          seat("library-table-bottom-3", 174, 1190, 36, 36),
-          seat("library-classroom-a1", 749, 1035, 35, 45),
-          seat("library-seat-20", 986, 1038, 35, 45),
-          seat("library-seat-21", 927, 1039, 35, 45),
-          seat("library-seat-22", 864, 1038, 35, 45),
-          seat("library-seat-23", 809, 1037, 35, 45),
-          seat("library-seat-24", 987, 1110, 35, 45),
-          seat("library-seat-25", 926, 1110, 35, 45),
-          seat("library-seat-26", 868, 1112, 35, 45),
-          seat("library-seat-27", 806, 1109, 35, 45),
-          seat("library-seat-28", 749, 1111, 35, 45),
-          seat("library-seat-29", 749, 1183, 35, 45),
-          seat("library-seat-30", 809, 1184, 35, 45),
-          seat("library-seat-31", 870, 1185, 35, 45),
-          seat("library-seat-32", 925, 1182, 35, 45),
-          seat("library-seat-33", 985, 1184, 35, 44)
-        ])
+        seat("library-lounge-top-1", 174, 289, 28, 27, "down"),
+        seat("library-lounge-top-2", 204, 290, 29, 27, "down"),
+        seat("library-lounge-top-3", 235, 290, 28, 27, "down"),
+        seat("library-lounge-top-4", 265, 289, 28, 28, "down"),
+        seat("library-lounge-left-1", 126, 336, 27, 24, "right"),
+        seat("library-lounge-left-2", 127, 389, 26, 21, "right"),
+        seat("library-lounge-right-1", 309, 341, 31, 22, "left"),
+        seat("library-lounge-right-2", 308, 364, 32, 22, "left"),
+        seat("library-table-top-2", 171, 1031, 37, 31, "down"),
+        seat("library-table-top-3", 235, 1032, 36, 29, "down"),
+        seat("library-table-left-1", 111, 1088, 34, 31, "right"),
+        seat("library-table-left-2", 112, 1142, 33, 33, "right"),
+        seat("library-table-right-1", 360, 1087, 39, 31, "left"),
+        seat("library-table-right-2", 363, 1139, 32, 35, "left"),
+        seat("library-table-bottom-1", 235, 1189, 33, 36, "up"),
+        seat("library-table-bottom-2", 297, 1188, 33, 37, "up"),
+        seat("library-table-bottom-3", 174, 1190, 36, 36, "up"),
+        seat("library-classroom-a1", 749, 1035, 35, 45, "up"),
+        seat("library-seat-20", 986, 1038, 35, 45, "up"),
+        seat("library-seat-21", 927, 1039, 35, 45, "up"),
+        seat("library-seat-22", 864, 1038, 35, 45, "up"),
+        seat("library-seat-23", 809, 1037, 35, 45, "up"),
+        seat("library-seat-24", 987, 1110, 35, 45, "up"),
+        seat("library-seat-25", 926, 1110, 35, 45, "up"),
+        seat("library-seat-26", 868, 1112, 35, 45, "up"),
+        seat("library-seat-27", 806, 1109, 35, 45, "up"),
+        seat("library-seat-28", 749, 1111, 35, 45, "up"),
+        seat("library-seat-29", 749, 1183, 35, 45, "up"),
+        seat("library-seat-30", 809, 1184, 35, 45, "up"),
+        seat("library-seat-31", 870, 1185, 35, 45, "up"),
+        seat("library-seat-32", 925, 1182, 35, 45, "up"),
+        seat("library-seat-33", 985, 1184, 35, 44, "up"),
+        seat("library-seat-34", 299, 1033, 28, 28, "down"),
+        seat("library-seat-35", 127, 362, 27, 24, "right"),
+        seat("library-seat-36", 309, 389, 31, 22, "left"),
+        seat("library-seat-37", 119, 585, 18, 17, "down"),
+        seat("library-seat-38", 118, 637, 19, 20, "down"),
+        seat("library-seat-39", 119, 690, 19, 20, "down"),
+        seat("library-seat-40", 121, 745, 18, 18, "down")
       ]
     },
     {

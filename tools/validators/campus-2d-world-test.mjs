@@ -11,7 +11,6 @@ const expectedAssets = {
   "assets/campus-2d/courtyard.png": { width: 1023, height: 1537 },
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
-  "assets/campus-2d/library-laptops.png": { width: 1746, height: 677 },
   "assets/campus-2d/alpaca-sprite.png": { width: 2387, height: 3072 }
 };
 
@@ -40,11 +39,6 @@ function readPngSize(relativePath) {
     width: buffer.readUInt32BE(16),
     height: buffer.readUInt32BE(20)
   };
-}
-
-function readPngColorType(relativePath) {
-  const buffer = readFileSync(resolve(appRoot, relativePath));
-  return buffer[25];
 }
 
 for (const [relativePath, expected] of Object.entries(expectedAssets)) {
@@ -100,7 +94,7 @@ if (!manifest) {
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 27, portals: 3, gameZones: 1, behindZones: 24, seats: 7 },
     courtyard: { blockedZones: 131, portals: 2, gameZones: 2, behindZones: 58, seats: 18 },
-    library: { blockedZones: 48, portals: 1, gameZones: 5, behindZones: 37, seats: 33 },
+    library: { blockedZones: 47, portals: 1, gameZones: 9, behindZones: 37, seats: 39 },
     "debate-lab": { blockedZones: 60, portals: 1, gameZones: 1, behindZones: 20, seats: 71 }
   };
   for (const [roomId, expectedCounts] of Object.entries(expectedRoomZoneCounts)) {
@@ -193,16 +187,18 @@ if (!manifest) {
   if (!library?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Library must include an orange learn game zone.");
   }
-  if (readPngColorType("assets/campus-2d/library-laptops.png") !== 6) {
-    failures.push("Library laptops asset must have an alpha channel so the checkerboard background does not render.");
+  if ((library?.decorations || []).some((entry) => entry.id === "library-laptops" || String(entry.asset || "").includes("library-laptops"))) {
+    failures.push("Library must not render the duplicate laptop/computer-station PNG decoration.");
   }
-  expectManifestEntry(library, "decorations", "library-laptops", { asset: "./assets/campus-2d/library-laptops.png", x: 80, y: 760, width: 360, height: 140 });
   expectManifestEntry(library, "npcs", "library-instructions-npc", { x: 586, y: 233, direction: "down", colorId: "red" });
   expectZoneRect(library, "blockedZones", "library-blocked-45", { x: 175, y: 291, width: 117, height: 27 });
   expectZoneRect(library, "blockedZones", "library-blocked-46", { x: 124, y: 335, width: 30, height: 77 });
-  expectZoneRect(library, "blockedZones", "library-blocked-47", { x: 310, y: 340, width: 30, height: 77 });
-  if (seatsByPrefix(library, "library-lounge-left").length !== 2) {
-    failures.push("Library left green couch must match the export with two sitting areas.");
+  expectZoneRect(library, "blockedZones", "library-blocked-47", { x: 73, y: 544, width: 40, height: 247 });
+  expectZoneRect(library, "blockedZones", "library-blocked-75", { x: 792, y: 143, width: 361, height: 84 });
+  for (const gameZoneId of ["library-game-6", "library-game-7", "library-game-8", "library-game-9"]) {
+    if (!library?.gameZones?.some((zone) => zone.id === gameZoneId)) {
+      failures.push(`Library export is missing ${gameZoneId}.`);
+    }
   }
   expectSeatPrefixDirection(library, "library-lounge-top", "down");
   expectSeatPrefixDirection(library, "library-lounge-left", "right");
@@ -212,6 +208,12 @@ if (!manifest) {
   expectSeatPrefixDirection(library, "library-table-right", "left");
   expectSeatPrefixDirection(library, "library-table-bottom", "up");
   expectSeatDirection(library, "library-seat-34", "down");
+  expectSeatDirection(library, "library-seat-35", "right");
+  expectSeatDirection(library, "library-seat-36", "left");
+  expectSeatDirection(library, "library-seat-37", "down");
+  expectSeatDirection(library, "library-seat-38", "down");
+  expectSeatDirection(library, "library-seat-39", "down");
+  expectSeatDirection(library, "library-seat-40", "down");
   expectSeatDirection(library, "library-classroom-a1", "up");
   for (let seatIndex = 20; seatIndex <= 33; seatIndex += 1) {
     expectSeatDirection(library, `library-seat-${seatIndex}`, "up");
