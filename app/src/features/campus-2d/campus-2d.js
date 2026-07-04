@@ -11,6 +11,9 @@
   });
   const CHAT_TTL_MS = 10000;
   const CHAT_STACK_LIMIT = 10;
+  const WALK_FRAME_COLUMNS = 7;
+  const WALK_IDLE_FRAME = 3;
+  const WALK_FRAME_MS = 115;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
   const ALPACA_COLLISION_RADIUS = 28;
@@ -218,28 +221,32 @@
     return fallback;
   }
 
-  function getFrame(direction, isSitting = false) {
-    const index = 1;
+  function getWalkFrameColumn(nowMs) {
+    return Math.floor(nowMs / WALK_FRAME_MS) % WALK_FRAME_COLUMNS;
+  }
+
+  function getFrame(direction, isSitting = false, isMoving = false, nowMs = 0) {
+    const index = isMoving ? getWalkFrameColumn(nowMs) : WALK_IDLE_FRAME;
     if (isSitting) {
       if (direction === "up") {
-        return { col: 1, row: 7, flip: 1 };
+        return { col: WALK_IDLE_FRAME, row: 7, flip: 1 };
       }
       if (direction === "left") {
-        return { col: 1, row: 5, flip: 1 };
+        return { col: WALK_IDLE_FRAME, row: 5, flip: 1 };
       }
       if (direction === "right") {
-        return { col: 1, row: 6, flip: 1 };
+        return { col: WALK_IDLE_FRAME, row: 6, flip: 1 };
       }
-      return { col: 1, row: 4, flip: 1 };
+      return { col: WALK_IDLE_FRAME, row: 4, flip: 1 };
     }
     if (direction === "up") {
       return { col: index, row: 2, flip: 1 };
     }
     if (direction === "left") {
-      return { col: index, row: 1, flip: 1 };
+      return { col: index, row: 1, flip: -1 };
     }
     if (direction === "right") {
-      return { col: index, row: 1, flip: -1 };
+      return { col: index, row: 1, flip: 1 };
     }
     return { col: index, row: 0, flip: 1 };
   }
@@ -672,7 +679,7 @@
       const color = getColor(manifest, player.colorId);
       const isSitting = Boolean(player.seatId) && !player.moving;
       const isMoving = Boolean(player.moving) && !player.seatId;
-      const frame = getFrame(player.direction, isSitting);
+      const frame = getFrame(player.direction, isSitting, isMoving, nowMs);
       const avatar = element._campus2d?.avatar;
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));

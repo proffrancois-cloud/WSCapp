@@ -12,7 +12,7 @@ const expectedAssets = {
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
   "assets/campus-2d/library-laptops.png": { width: 1746, height: 677 },
-  "assets/campus-2d/alpaca-sprite.png": { width: 1024, height: 3072 }
+  "assets/campus-2d/alpaca-sprite.png": { width: 2387, height: 3072 }
 };
 
 const forbiddenPaths = [
@@ -257,8 +257,8 @@ if (!manifest) {
   if (wrongDebateSeats.length) {
     failures.push(`Debate Lab blue seats and dragon stools should face up; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
   }
-  if (manifest.sprite?.height !== 3072 || manifest.sprite?.rows !== 8) {
-    failures.push("Campus 2D alpaca sprite sheet must expose four dedicated sitting rows, for 8 total rows at 1024x3072.");
+  if (manifest.sprite?.width !== 2387 || manifest.sprite?.height !== 3072 || manifest.sprite?.columns !== 7 || manifest.sprite?.rows !== 8) {
+    failures.push("Campus 2D alpaca sprite sheet must expose seven walk frames and four dedicated sitting rows, for 7x8 frames at 2387x3072.");
   }
 }
 
@@ -332,7 +332,9 @@ for (const runtimeNeedle of [
   "whole image walkable",
   "setDebugEnabled(!debugEnabled)",
   "ALPACA_COLLISION_RADIUS",
-  "getFrame(direction, isSitting = false)",
+  "WALK_FRAME_COLUMNS",
+  "getWalkFrameColumn",
+  "getFrame(direction, isSitting = false, isMoving = false, nowMs = 0)",
   "row: 4",
   "row: 5",
   "row: 6",
@@ -381,8 +383,11 @@ if (!/const\s+CHAT_STACK_LIMIT\s*=\s*10/.test(campusRuntime)) {
 if (!/function\s+showBubble[\s\S]*chatStack\.append\(bubble\)[\s\S]*chatStack\.children\.length\s*>\s*CHAT_STACK_LIMIT/.test(campusRuntime)) {
   failures.push("Campus 2D chat bubbles must stack new messages instead of replacing the previous one.");
 }
-if (/WALK_FRAME_COLUMNS|getWalkFrameColumn/.test(campusRuntime)) {
-  failures.push("Campus 2D walking alpacas must keep the main body on the visible neutral sprite frame.");
+if (!/const\s+WALK_FRAME_COLUMNS\s*=\s*7/.test(campusRuntime)) {
+  failures.push("Campus 2D walking alpacas must use the seven-frame PNG walk strip.");
+}
+if (!/function\s+getFrame\(direction,\s*isSitting\s*=\s*false,\s*isMoving\s*=\s*false,\s*nowMs\s*=\s*0\)[\s\S]*isMoving\s*\?\s*getWalkFrameColumn\(nowMs\)\s*:\s*WALK_IDLE_FRAME/.test(campusRuntime)) {
+  failures.push("Campus 2D walking alpacas must animate by switching sprite columns only while moving.");
 }
 if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
   failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
@@ -390,7 +395,7 @@ if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerS
 if (!/function\s+sitAtSeat[\s\S]*getSeatOccupant\(seat\)[\s\S]*is sitting there/.test(campusRuntime)) {
   failures.push("Campus 2D seats must reject sitting when another alpaca already occupies the spot.");
 }
-if (!/function\s+updatePlayerElement[\s\S]*const\s+isSitting\s*=\s*Boolean\(player\.seatId\)\s*&&\s*!player\.moving[\s\S]*getFrame\(player\.direction,\s*isSitting\)/.test(campusRuntime)) {
+if (!/function\s+updatePlayerElement[\s\S]*const\s+isSitting\s*=\s*Boolean\(player\.seatId\)\s*&&\s*!player\.moving[\s\S]*const\s+isMoving\s*=\s*Boolean\(player\.moving\)\s*&&\s*!player\.seatId[\s\S]*getFrame\(player\.direction,\s*isSitting,\s*isMoving,\s*nowMs\)/.test(campusRuntime)) {
   failures.push("Campus 2D seated alpacas must render dedicated sitting direction frames.");
 }
 if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
@@ -424,20 +429,14 @@ if (!styles.includes(".online-glow-card")) {
 if (!styles.includes(".campus2d-root")) {
   failures.push("Campus 2D styles are missing.");
 }
-if ((styles.match(/background-size:\s*300%\s+800%/g) || []).length < 3) {
-  failures.push("Campus 2D sprite styles must use the expanded 8-row alpaca sprite sheet.");
+if ((styles.match(/background-size:\s*700%\s+800%/g) || []).length < 3) {
+  failures.push("Campus 2D sprite styles must use the expanded seven-frame, 8-row alpaca sprite sheet.");
 }
 if (/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*scaleY/i.test(styles)) {
   failures.push("Campus 2D sitting visuals must use dedicated frames, not squashed standing sprites.");
 }
-if (!/\.campus2d-player\.is-moving\s+\.campus2d-avatar::before[\s\S]*campus2d-leg-step-left/i.test(styles)) {
-  failures.push("Campus 2D moving alpacas must animate only the left leg overlay.");
-}
-if (!/\.campus2d-player\.is-moving\s+\.campus2d-avatar::after[\s\S]*campus2d-leg-step-right/i.test(styles)) {
-  failures.push("Campus 2D moving alpacas must animate only the right leg overlay.");
-}
-if (/campus2d-in-place-step|campus2d-soft-walk|\.campus2d-player\.is-moving\s+\.campus2d-avatar\s*\{[^}]*animation/i.test(styles)) {
-  failures.push("Campus 2D walk animation must not move the whole body/head.");
+if (/campus2d-leg-step|campus2d-in-place-step|campus2d-soft-walk|\.campus2d-player\.is-moving\s+\.campus2d-avatar(::before|::after)?\s*\{[^}]*animation/i.test(styles)) {
+  failures.push("Campus 2D walk animation must come from the PNG sprite frames, not CSS overlays or body/head movement.");
 }
 for (const styleNeedle of [
   ".campus2d-side-panel",

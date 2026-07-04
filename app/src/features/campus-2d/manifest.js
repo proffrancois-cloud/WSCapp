@@ -799,9 +799,9 @@
     assetRoot: ASSET_ROOT,
     sprite: {
       asset: `${ASSET_ROOT}/alpaca-sprite.png`,
-      width: 1024,
+      width: 2387,
       height: 3072,
-      columns: 3,
+      columns: 7,
       rows: 8
     },
     defaultRoomId: "lobby",
