@@ -11,6 +11,7 @@ const expectedAssets = {
   "assets/campus-2d/courtyard.png": { width: 1023, height: 1537 },
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
+  "assets/campus-2d/library-laptops.png": { width: 677, height: 1746 },
   "assets/campus-2d/alpaca-sprite.png": { width: 1024, height: 3072 }
 };
 
@@ -39,6 +40,11 @@ function readPngSize(relativePath) {
     width: buffer.readUInt32BE(16),
     height: buffer.readUInt32BE(20)
   };
+}
+
+function readPngColorType(relativePath) {
+  const buffer = readFileSync(resolve(appRoot, relativePath));
+  return buffer[25];
 }
 
 for (const [relativePath, expected] of Object.entries(expectedAssets)) {
@@ -92,10 +98,10 @@ if (!manifest) {
     }
   }
   const expectedRoomZoneCounts = {
-    lobby: { blockedZones: 24, portals: 3, gameZones: 1, behindZones: 22, seats: 7 },
-    courtyard: { blockedZones: 132, portals: 2, gameZones: 2, behindZones: 49, seats: 18 },
+    lobby: { blockedZones: 27, portals: 3, gameZones: 1, behindZones: 24, seats: 7 },
+    courtyard: { blockedZones: 131, portals: 2, gameZones: 2, behindZones: 58, seats: 18 },
     library: { blockedZones: 48, portals: 1, gameZones: 5, behindZones: 37, seats: 33 },
-    "debate-lab": { blockedZones: 51, portals: 1, gameZones: 1, behindZones: 24, seats: 71 }
+    "debate-lab": { blockedZones: 60, portals: 1, gameZones: 1, behindZones: 20, seats: 71 }
   };
   for (const [roomId, expectedCounts] of Object.entries(expectedRoomZoneCounts)) {
     const room = manifest.roomsById?.[roomId];
@@ -134,9 +140,22 @@ if (!manifest) {
       failures.push(`Campus 2D manifest is missing ${key} zone ${zoneId}.`);
       return;
     }
+    const rect = zone.zone || zone;
     for (const [field, expectedValue] of Object.entries(expected)) {
-      if (zone[field] !== expectedValue) {
-        failures.push(`${zoneId} ${field} should be ${expectedValue}; received ${zone[field]}.`);
+      if (rect[field] !== expectedValue) {
+        failures.push(`${zoneId} ${field} should be ${expectedValue}; received ${rect[field]}.`);
+      }
+    }
+  }
+  function expectManifestEntry(room, key, entryId, expected) {
+    const entry = room?.[key]?.find((candidate) => candidate.id === entryId);
+    if (!entry) {
+      failures.push(`Campus 2D manifest is missing ${key} entry ${entryId}.`);
+      return;
+    }
+    for (const [field, expectedValue] of Object.entries(expected)) {
+      if (entry[field] !== expectedValue) {
+        failures.push(`${entryId} ${field} should be ${expectedValue}; received ${entry[field]}.`);
       }
     }
   }
@@ -153,6 +172,11 @@ if (!manifest) {
   if (!lobby?.gameZones?.some((zone) => zone.mode === "game")) {
     failures.push("Lobby must include an orange game zone for the game launcher.");
   }
+  if ((lobby?.hotspots || []).some((zone) => zone.id === "lobby-games")) {
+    failures.push("Lobby must not keep the old invisible lobby-games hotspot around x593 y576.");
+  }
+  expectZoneRect(lobby, "gameZones", "lobby-game-2", { x: 877, y: 120, width: 183, height: 97 });
+  expectManifestEntry(lobby, "npcs", "lobby-instructions-npc", { x: 578, y: 285, direction: "down", colorId: "red" });
   if ((lobby?.behindZones || []).length < 5) {
     failures.push("Lobby must include annotated behind zones.");
   }
@@ -169,6 +193,11 @@ if (!manifest) {
   if (!library?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Library must include an orange learn game zone.");
   }
+  if (readPngColorType("assets/campus-2d/library-laptops.png") !== 6) {
+    failures.push("Library laptops asset must have an alpha channel so the checkerboard background does not render.");
+  }
+  expectManifestEntry(library, "decorations", "library-laptops", { asset: "./assets/campus-2d/library-laptops.png", x: 45, y: 535, width: 120, height: 310 });
+  expectManifestEntry(library, "npcs", "library-instructions-npc", { x: 586, y: 233, direction: "down", colorId: "red" });
   expectZoneRect(library, "blockedZones", "library-blocked-45", { x: 175, y: 291, width: 117, height: 27 });
   expectZoneRect(library, "blockedZones", "library-blocked-46", { x: 124, y: 335, width: 30, height: 77 });
   expectZoneRect(library, "blockedZones", "library-blocked-47", { x: 310, y: 340, width: 30, height: 77 });
@@ -191,7 +220,7 @@ if (!manifest) {
   if ((courtyard?.behindZones || []).length < 15) {
     failures.push("Courtyard must include annotated behind zones.");
   }
-  if ((courtyard?.blockedZones || []).length < 132) {
+  if ((courtyard?.blockedZones || []).length < 131) {
     failures.push("Courtyard must include the precise exported pink blocked zones.");
   }
   if (!courtyard?.portals?.some((portal) => portal.id === "courtyard-portal-2")) {
@@ -209,6 +238,7 @@ if (!manifest) {
   expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-126", { x: 141, y: 949, width: 12, height: 19 });
   expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-134", { x: 665, y: 276, width: 22, height: 23 });
   expectZoneRect(courtyard, "behindZones", "courtyard-behind-53", { x: 946, y: 615, width: 12, height: 65 });
+  expectZoneRect(courtyard, "behindZones", "courtyard-behind-63", { x: 354, y: 920, width: 36, height: 12 });
   expectSeatPrefixDirection(courtyard, "courtyard-class-benches", "up");
   expectSeatPrefixDirection(courtyard, "courtyard-class-stools", "up");
   expectSeatDirection(courtyard, "courtyard-seat-16", "up");
@@ -221,6 +251,8 @@ if (!manifest) {
   if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
     failures.push("Debate Lab must include an orange train game zone.");
   }
+  expectZoneRect(debateLab, "blockedZones", "debate-lab-blocked-62", { x: 1036, y: 297, width: 30, height: 18 });
+  expectZoneRect(debateLab, "behindZones", "debate-lab-behind-26", { x: 829, y: 434, width: 14, height: 19 });
   const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "up");
   if (wrongDebateSeats.length) {
     failures.push(`Debate Lab blue seats and dragon stools should face up; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
@@ -257,6 +289,10 @@ for (const runtimeNeedle of [
   "campus2d-side-panel",
   "campus2d-controls-panel",
   "campus2d-player-card",
+  "campus2d-decorations",
+  "campus2d-decoration",
+  "renderDecorations",
+  "renderNpcs",
   "online-glow-card",
   "campus2d-profile-art",
   "data-campus2d-color-toggle",
@@ -277,6 +313,7 @@ for (const runtimeNeedle of [
   "gameZones",
   "orange game",
   "activateGameZone",
+  "if (zones.length)",
   "findAnyZoneAtPoint",
   "Copy selected",
   "Paste",
@@ -351,6 +388,9 @@ if (!/function\s+updatePlayerElement[\s\S]*const\s+isSitting\s*=\s*Boolean\(play
 if (/function\s+tryPortal|tryPortal\(/.test(campusRuntime)) {
   failures.push("Campus 2D portals must be click-driven, not automatic walk-through triggers.");
 }
+if (!/function\s+getClickableGameZones[\s\S]*if\s*\(zones\.length\)\s*\{\s*return\s+zones;\s*\}/.test(campusRuntime)) {
+  failures.push("Campus 2D game-zone clicks must prefer explicit orange zones so old hotspots cannot become undeletable click targets.");
+}
 if (/Reset room|data-campus2d-zone-reset|resetCurrentRoomZones/.test(campusRuntime)) {
   failures.push("Campus 2D dev zone editor must not expose a Reset room action.");
 }
@@ -394,7 +434,10 @@ if (/campus2d-in-place-step|campus2d-soft-walk|\.campus2d-player\.is-moving\s+\.
 for (const styleNeedle of [
   ".campus2d-side-panel",
   ".campus2d-controls-panel",
+  ".campus2d-decorations",
+  ".campus2d-decoration",
   ".campus2d-player-card",
+  ".campus2d-player.is-npc",
   ".campus2d-profile-avatar",
   ".campus2d-profile-art",
   ".campus2d-player-card.online-glow-card.is-pointer-tilting",

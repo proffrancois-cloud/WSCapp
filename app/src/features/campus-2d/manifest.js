@@ -21,6 +21,14 @@
     return { id, mode, label, zone: rect(id, x, y, width, height) };
   }
 
+  function npc(id, label, x, y, direction = "down", colorId = "red") {
+    return { id, label, x, y, direction, colorId };
+  }
+
+  function decoration(id, asset, x, y, width, height) {
+    return { id, asset, x, y, width, height };
+  }
+
   function seat(id, x, y, width, height, direction) {
     const entry = { id, zone: rect(id, x, y, width, height), x: x + (width / 2), y: y + (height / 2) };
     if (direction) {
@@ -119,31 +127,35 @@
         rect("lobby-bottom-left-shop", 0, 993, 395, 291),
         rect("lobby-bottom-gate-roof", 997, 922, 136, 29),
         rect("lobby-bottom-right-shop", 753, 995, 430, 287),
-        rect("lobby-blocked-12", 336, 1122, 485, 85),
+        rect("lobby-blocked-12", 336, 1244, 485, 85),
         rect("lobby-blocked-13", 41, 921, 120, 34),
         rect("lobby-blocked-15", 325, 920, 36, 32),
-        rect("lobby-blocked-14", 215, 924, 97, 28),
+        rect("lobby-blocked-14", 217, 914, 94, 36),
         rect("lobby-blocked-16", 843, 918, 97, 28),
         rect("lobby-blocked-17", 791, 919, 36, 32),
         rect("lobby-blocked-18", 0, 624, 240, 82),
         rect("lobby-blocked-19", 1145, 158, 38, 874),
-        rect("lobby-blocked-20", 788, 246, 31, 54),
+        rect("lobby-blocked-20", 1109, 229, 31, 54),
         rect("lobby-blocked-21", 418, 364, 311, 39),
         rect("lobby-blocked-22", 722, 363, 33, 23),
         rect("lobby-blocked-23", 401, 361, 33, 23),
         rect("lobby-blocked-24", 20, 245, 51, 61),
-        rect("lobby-blocked-25", 92, 239, 68, 58)
+        rect("lobby-blocked-25", 92, 239, 68, 58),
+        rect("lobby-blocked-26", 660, 1122, 186, 207),
+        rect("lobby-blocked-27", 292, 1122, 186, 207),
+        rect("lobby-blocked-28", 788, 253, 33, 49)
       ],
       portals: [
-        portal("lobby-to-courtyard", "courtyard", "lobby", 479, 1142, 180, 70),
+        portal("lobby-to-courtyard", "courtyard", "lobby", 479, 1142, 178, 160),
         portal("lobby-to-library", "library", "lobby", 62, 581, 104, 117),
         portal("lobby-to-debate", "debate-lab", "lobby", 1005, 576, 113, 118)
       ],
-      hotspots: [
-        hotspot("lobby-games", "games", "Games", 465, 480, 250, 195)
+      hotspots: [],
+      npcs: [
+        npc("lobby-instructions-npc", "Instructions", 578, 285, "down", "red")
       ],
       gameZones: [
-        gameZone("lobby-games", "game", "Games", 493, 627, 158, 129)
+        gameZone("lobby-game-2", "game", "Game zone", 877, 120, 183, 97)
       ],
       behindZones: [
         rect("lobby-right-door-awning", 970, 460, 213, 192),
@@ -152,7 +164,7 @@
         rect("lobby-bottom-left-lamp", 321, 862, 40, 55),
         rect("lobby-bottom-right-lamp", 787, 863, 39, 60),
         rect("lobby-bottom-right-plant-bed", 1008, 891, 28, 42),
-        rect("lobby-behind-8", 440, 1059, 257, 76),
+        rect("lobby-behind-8", 440, 1059, 257, 81),
         rect("lobby-behind-9", 675, 1043, 25, 36),
         rect("lobby-behind-10", 442, 1043, 23, 50),
         rect("lobby-behind-11", 52, 869, 36, 65),
@@ -167,16 +179,18 @@
         rect("lobby-behind-20", 1094, 897, 35, 33),
         rect("lobby-behind-21", 0, 457, 198, 179),
         rect("lobby-behind-22", 856, 979, 283, 39),
-        rect("lobby-behind-23", 36, 980, 268, 38)
+        rect("lobby-behind-23", 36, 980, 268, 38),
+        rect("lobby-behind-24", 971, 450, 13, 33),
+        rect("lobby-behind-25", 181, 449, 14, 39)
       ],
       seats: [
-        seat("lobby-board-seat-1", 882, 248, 49, 48),
-        seat("lobby-board-seat-2", 946, 248, 48, 48),
-        seat("lobby-board-seat-3", 1009, 248, 48, 48),
-        seat("lobby-left-bench-1", 214, 891, 48, 48),
-        seat("lobby-left-bench-2", 263, 890, 49, 49),
+        seat("lobby-board-seat-1", 893, 256, 44, 29),
+        seat("lobby-left-bench-1", 224, 897, 33, 37),
+        seat("lobby-left-bench-2", 264, 899, 35, 35),
         seat("lobby-right-bench-1", 842, 900, 47, 47),
-        seat("lobby-right-bench-2", 891, 899, 49, 48)
+        seat("lobby-right-bench-2", 891, 899, 49, 48),
+        seat("lobby-seat-6", 951, 257, 44, 29),
+        seat("lobby-seat-7", 1017, 256, 44, 29)
       ]
     },
     {
@@ -259,7 +273,6 @@
         rect("courtyard-left-swing-base", 624, 1308, 111, 56),
         rect("courtyard-right-swing-base", 813, 1307, 111, 57),
         rect("courtyard-bottom-left-bamboo", 53, 1372, 68, 54),
-        rect("courtyard-bottom-right-bamboo", 903, 1348, 59, 52),
         rect("courtyard-blocked-65", 233, 1284, 43, 20),
         rect("courtyard-blocked-66", 818, 1028, 34, 59),
         rect("courtyard-blocked-67", 739, 1111, 62, 13),
@@ -344,7 +357,7 @@
       behindZones: [
         rect("courtyard-top-left-tree", 57, 167, 107, 43),
         rect("courtyard-board-roof", 680, 156, 259, 115),
-        rect("courtyard-top-right-bamboo", 577, 266, 68, 70),
+        rect("courtyard-top-right-bamboo", 577, 280, 12, 74),
         rect("courtyard-right-bamboo-upper", 901, 604, 12, 65),
         rect("courtyard-right-bamboo-mid", 895, 729, 69, 66),
         rect("courtyard-center-bamboo-lower", 426, 819, 67, 70),
@@ -355,8 +368,7 @@
         rect("courtyard-bottom-left-bamboo", 61, 1322, 13, 53),
         rect("courtyard-bottom-center-tree", 404, 1333, 31, 43),
         rect("courtyard-bottom-gate-roof", 420, 1386, 154, 68),
-        rect("courtyard-bottom-center-shrub", 653, 1398, 37, 46),
-        rect("courtyard-bottom-right-bamboo", 903, 1348, 59, 52),
+        rect("courtyard-bottom-right-bamboo", 911, 1367, 12, 52),
         rect("courtyard-behind-20", 662, 147, 292, 12),
         rect("courtyard-behind-21", 670, 126, 275, 17),
         rect("courtyard-behind-22", 61, 128, 91, 66),
@@ -390,7 +402,17 @@
         rect("courtyard-behind-50", 918, 592, 12, 65),
         rect("courtyard-behind-51", 931, 620, 12, 65),
         rect("courtyard-behind-52", 939, 602, 12, 65),
-        rect("courtyard-behind-53", 946, 615, 12, 65)
+        rect("courtyard-behind-53", 946, 615, 12, 65),
+        rect("courtyard-behind-54", 594, 263, 12, 74),
+        rect("courtyard-behind-55", 610, 267, 12, 74),
+        rect("courtyard-behind-56", 626, 279, 12, 74),
+        rect("courtyard-behind-57", 928, 1355, 12, 52),
+        rect("courtyard-behind-58", 946, 1362, 12, 52),
+        rect("courtyard-behind-59", 645, 1411, 50, 25),
+        rect("courtyard-behind-60", 659, 1396, 23, 18),
+        rect("courtyard-behind-61", 324, 930, 79, 26),
+        rect("courtyard-behind-62", 352, 959, 43, 12),
+        rect("courtyard-behind-63", 354, 920, 36, 12)
       ],
       seats: [
         ...seatsFacing("up", [
@@ -486,6 +508,12 @@
       ],
       hotspots: [
         hotspot("library-alpacards", "lesson", "Library lessons", 720, 845, 390, 270)
+      ],
+      decorations: [
+        decoration("library-laptops", `${ASSET_ROOT}/library-laptops.png`, 45, 535, 120, 310)
+      ],
+      npcs: [
+        npc("library-instructions-npc", "Instructions", 586, 233, "down", "red")
       ],
       gameZones: [
         gameZone("library-alpacards", "learn", "Library lessons", 791, 838, 184, 95),
@@ -595,10 +623,10 @@
       ],
       blockedZones: [
         rect("debate-stage", 485, 473, 23, 91),
-        rect("debate-left-table", 95, 325, 168, 87),
+        rect("debate-left-table", 95, 323, 168, 87),
         rect("debate-right-table", 913, 324, 169, 87),
-        rect("debate-left-upper-lamp", 320, 430, 36, 50),
-        rect("debate-right-upper-lamp", 817, 428, 36, 50),
+        rect("debate-left-upper-lamp", 329, 450, 18, 25),
+        rect("debate-right-upper-lamp", 825, 448, 22, 24),
         rect("debate-left-mid-plant", 402, 662, 38, 41),
         rect("debate-right-mid-plant", 734, 662, 41, 44),
         rect("debate-left-audience-row-1", 160, 780, 350, 42),
@@ -625,15 +653,15 @@
         rect("debate-lab-blocked-31", 325, 189, 29, 44),
         rect("debate-lab-blocked-32", 297, 186, 31, 40),
         rect("debate-lab-blocked-33", 823, 170, 26, 62),
-        rect("debate-lab-blocked-34", 0, 115, 34, 1031),
+        rect("debate-lab-blocked-34", 4, 115, 34, 1031),
         rect("debate-lab-blocked-35", 23, 543, 85, 178),
         rect("debate-lab-blocked-36", 852, 185, 22, 41),
-        rect("debate-lab-blocked-37", 869, 224, 293, 22),
-        rect("debate-lab-blocked-38", 1143, 0, 39, 1149),
+        rect("debate-lab-blocked-37", 871, 230, 251, 12),
+        rect("debate-lab-blocked-38", 1143, 1, 39, 1149),
         rect("debate-lab-blocked-39", 1065, 565, 117, 157),
         rect("debate-lab-blocked-40", 679, 583, 24, 28),
         rect("debate-lab-blocked-41", 467, 584, 22, 24),
-        rect("debate-lab-blocked-42", 548, 630, 71, 76),
+        rect("debate-lab-blocked-42", 551, 630, 71, 76),
         rect("debate-lab-blocked-43", 0, 93, 1182, 97),
         rect("debate-lab-blocked-44", 147, 181, 67, 27),
         rect("debate-lab-blocked-45", 28, 180, 49, 26),
@@ -644,7 +672,16 @@
         rect("debate-lab-blocked-50", 7, 1172, 521, 97),
         rect("debate-lab-blocked-51", 638, 1174, 544, 96),
         rect("debate-lab-blocked-52", 1104, 225, 20, 253),
-        rect("debate-lab-blocked-53", 1087, 463, 28, 24)
+        rect("debate-lab-blocked-53", 1087, 463, 28, 24),
+        rect("debate-lab-blocked-54", 109, 292, 32, 17),
+        rect("debate-lab-blocked-55", 163, 293, 31, 19),
+        rect("debate-lab-blocked-56", 215, 293, 32, 18),
+        rect("debate-lab-blocked-57", 877, 222, 15, 12),
+        rect("debate-lab-blocked-58", 1089, 222, 12, 12),
+        rect("debate-lab-blocked-59", 1105, 171, 32, 37),
+        rect("debate-lab-blocked-60", 924, 293, 36, 19),
+        rect("debate-lab-blocked-61", 980, 294, 32, 21),
+        rect("debate-lab-blocked-62", 1036, 297, 30, 18)
       ],
       portals: [
         portal("debate-to-lobby", "lobby", "debate", 518, 1198, 130, 132)
@@ -656,9 +693,6 @@
         gameZone("debate-board", "train", "Debate board", 390, 30, 405, 175)
       ],
       behindZones: [
-        rect("debate-lab-behind-1", 110, 293, 30, 24),
-        rect("debate-lab-behind-2", 161, 294, 32, 23),
-        rect("debate-lab-behind-3", 216, 295, 28, 24),
         rect("debate-lab-behind-4", 470, 569, 16, 18),
         rect("debate-lab-behind-5", 682, 565, 20, 20),
         rect("debate-lab-behind-6", 736, 610, 34, 66),
@@ -666,8 +700,6 @@
         rect("debate-lab-behind-8", 748, 596, 12, 78),
         rect("debate-lab-behind-9", 413, 593, 12, 78),
         rect("debate-lab-behind-10", 405, 612, 31, 67),
-        rect("debate-lab-behind-11", 927, 292, 29, 20),
-        rect("debate-lab-behind-12", 981, 293, 34, 19),
         rect("debate-lab-behind-13", 1098, 796, 43, 71),
         rect("debate-lab-behind-14", 1110, 777, 12, 31),
         rect("debate-lab-behind-15", 30, 792, 51, 84),
@@ -679,81 +711,86 @@
         rect("debate-lab-behind-21", 460, 1159, 29, 43),
         rect("debate-lab-behind-22", 59, 1129, 45, 31),
         rect("debate-lab-behind-23", 1077, 1132, 45, 31),
-        rect("debate-lab-behind-24", 1040, 293, 34, 19)
+        rect("debate-lab-behind-25", 333, 433, 14, 14),
+        rect("debate-lab-behind-26", 829, 434, 14, 19)
       ],
-      seats: seatsFacing("up", [
-        seat("debate-left-table-1", 108, 299, 33, 35),
-        seat("debate-left-table-2", 163, 299, 32, 35),
-        seat("debate-left-table-3", 216, 299, 32, 34),
-        seat("debate-right-table-1", 925, 299, 33, 35),
-        seat("debate-right-table-2", 980, 299, 33, 35),
-        seat("debate-right-table-3", 1036, 303, 32, 34),
-        seat("debate-center-seat", 564, 634, 40, 47),
-        seat("debate-left-audience-a1", 169, 757, 38, 23),
-        seat("debate-left-audience-a2", 210, 757, 38, 23),
-        seat("debate-left-audience-a3", 250, 757, 40, 23),
-        seat("debate-left-audience-a4", 291, 757, 40, 23),
-        seat("debate-left-audience-a5", 334, 758, 40, 22),
-        seat("debate-left-audience-a6", 380, 758, 39, 23),
-        seat("debate-left-audience-a7", 423, 757, 40, 23),
-        seat("debate-left-audience-a8", 469, 758, 40, 23),
-        seat("debate-left-audience-b1", 169, 841, 38, 22),
-        seat("debate-left-audience-b2", 210, 841, 38, 22),
-        seat("debate-left-audience-b3", 250, 841, 40, 23),
-        seat("debate-left-audience-b4", 294, 841, 39, 24),
-        seat("debate-left-audience-b5", 335, 841, 39, 24),
-        seat("debate-left-audience-b6", 380, 843, 40, 22),
-        seat("debate-left-audience-b7", 424, 842, 39, 22),
-        seat("debate-left-audience-b8", 469, 841, 39, 22),
-        seat("debate-left-audience-c1", 168, 925, 40, 23),
-        seat("debate-left-audience-c2", 209, 926, 39, 22),
-        seat("debate-left-audience-c3", 251, 926, 39, 22),
-        seat("debate-left-audience-c4", 293, 925, 40, 23),
-        seat("debate-left-audience-c5", 335, 927, 40, 22),
-        seat("debate-left-audience-c6", 380, 926, 40, 22),
-        seat("debate-left-audience-c7", 423, 927, 40, 22),
-        seat("debate-left-audience-c8", 468, 928, 40, 22),
-        seat("debate-left-audience-d1", 166, 1012, 40, 23),
-        seat("debate-left-audience-d2", 208, 1012, 40, 22),
-        seat("debate-left-audience-d3", 250, 1012, 40, 22),
-        seat("debate-left-audience-d4", 294, 1012, 39, 23),
-        seat("debate-left-audience-d5", 336, 1011, 40, 23),
-        seat("debate-left-audience-d6", 380, 1012, 40, 23),
-        seat("debate-left-audience-d7", 423, 1012, 40, 23),
-        seat("debate-left-audience-d8", 468, 1012, 40, 22),
-        seat("debate-right-audience-a1", 657, 756, 40, 23),
-        seat("debate-right-audience-a2", 702, 758, 40, 22),
-        seat("debate-right-audience-a3", 748, 758, 38, 19),
-        seat("debate-right-audience-a4", 793, 758, 40, 23),
-        seat("debate-right-audience-a5", 838, 758, 40, 23),
-        seat("debate-right-audience-a6", 881, 758, 40, 23),
-        seat("debate-right-audience-a7", 925, 758, 40, 23),
-        seat("debate-right-audience-a8", 971, 758, 40, 23),
-        seat("debate-right-audience-b1", 658, 845, 39, 22),
-        seat("debate-right-audience-b2", 702, 846, 40, 22),
-        seat("debate-right-audience-b3", 748, 845, 39, 22),
-        seat("debate-right-audience-b4", 793, 846, 39, 22),
-        seat("debate-right-audience-b5", 837, 844, 40, 23),
-        seat("debate-right-audience-b6", 883, 845, 40, 22),
-        seat("debate-right-audience-b7", 927, 845, 40, 22),
-        seat("debate-right-audience-b8", 971, 845, 39, 22),
-        seat("debate-right-audience-c1", 658, 930, 40, 22),
-        seat("debate-right-audience-c2", 702, 931, 40, 22),
-        seat("debate-right-audience-c3", 747, 929, 40, 23),
-        seat("debate-right-audience-c4", 792, 930, 40, 22),
-        seat("debate-right-audience-c5", 838, 930, 40, 22),
-        seat("debate-right-audience-c6", 883, 929, 40, 22),
-        seat("debate-right-audience-c7", 928, 928, 39, 22),
-        seat("debate-right-audience-c8", 970, 928, 39, 22),
-        seat("debate-right-audience-d1", 659, 1015, 40, 22),
-        seat("debate-right-audience-d2", 702, 1015, 40, 22),
-        seat("debate-right-audience-d3", 745, 1015, 40, 23),
-        seat("debate-right-audience-d4", 793, 1016, 39, 22),
-        seat("debate-right-audience-d5", 838, 1016, 40, 22),
-        seat("debate-right-audience-d6", 883, 1016, 40, 22),
-        seat("debate-right-audience-d7", 928, 1015, 40, 22),
-        seat("debate-right-audience-d8", 970, 1015, 40, 23)
-      ])
+      seats: [
+        ...seatsFacing("up", [
+          seat("debate-left-table-1", 109, 310, 32, 16),
+          seat("debate-left-table-2", 163, 313, 33, 13),
+          seat("debate-left-table-3", 215, 311, 34, 15),
+          seat("debate-right-table-1", 925, 315, 34, 16),
+          seat("debate-right-table-2", 981, 318, 31, 14),
+          seat("debate-right-table-3", 1036, 316, 32, 15)
+        ]),
+        ...seatsFacing("up", [
+          seat("debate-center-seat", 569, 638, 38, 35),
+          seat("debate-left-audience-a1", 169, 757, 38, 23),
+          seat("debate-left-audience-a2", 210, 757, 38, 23),
+          seat("debate-left-audience-a3", 250, 757, 40, 23),
+          seat("debate-left-audience-a4", 291, 757, 40, 23),
+          seat("debate-left-audience-a5", 334, 758, 40, 22),
+          seat("debate-left-audience-a6", 380, 758, 39, 23),
+          seat("debate-left-audience-a7", 423, 757, 40, 23),
+          seat("debate-left-audience-a8", 469, 758, 40, 23),
+          seat("debate-left-audience-b1", 169, 841, 38, 22),
+          seat("debate-left-audience-b2", 210, 841, 38, 22),
+          seat("debate-left-audience-b3", 250, 841, 40, 23),
+          seat("debate-left-audience-b4", 294, 841, 39, 24),
+          seat("debate-left-audience-b5", 335, 841, 39, 24),
+          seat("debate-left-audience-b6", 380, 843, 40, 22),
+          seat("debate-left-audience-b7", 424, 842, 39, 22),
+          seat("debate-left-audience-b8", 469, 841, 39, 22),
+          seat("debate-left-audience-c1", 168, 925, 40, 23),
+          seat("debate-left-audience-c2", 209, 926, 39, 22),
+          seat("debate-left-audience-c3", 251, 926, 39, 22),
+          seat("debate-left-audience-c4", 293, 925, 40, 23),
+          seat("debate-left-audience-c5", 335, 927, 40, 22),
+          seat("debate-left-audience-c6", 380, 926, 40, 22),
+          seat("debate-left-audience-c7", 423, 927, 40, 22),
+          seat("debate-left-audience-c8", 468, 928, 40, 22),
+          seat("debate-left-audience-d1", 166, 1012, 40, 23),
+          seat("debate-left-audience-d2", 208, 1012, 40, 22),
+          seat("debate-left-audience-d3", 250, 1012, 40, 22),
+          seat("debate-left-audience-d4", 294, 1012, 39, 23),
+          seat("debate-left-audience-d5", 336, 1011, 40, 23),
+          seat("debate-left-audience-d6", 380, 1012, 40, 23),
+          seat("debate-left-audience-d7", 423, 1012, 40, 23),
+          seat("debate-left-audience-d8", 468, 1012, 40, 22),
+          seat("debate-right-audience-a1", 657, 756, 40, 23),
+          seat("debate-right-audience-a2", 702, 758, 40, 22),
+          seat("debate-right-audience-a3", 748, 758, 38, 19),
+          seat("debate-right-audience-a4", 793, 758, 40, 23),
+          seat("debate-right-audience-a5", 838, 758, 40, 23),
+          seat("debate-right-audience-a6", 881, 758, 40, 23),
+          seat("debate-right-audience-a7", 925, 758, 40, 23),
+          seat("debate-right-audience-a8", 971, 758, 40, 23),
+          seat("debate-right-audience-b1", 658, 845, 39, 22),
+          seat("debate-right-audience-b2", 702, 846, 40, 22),
+          seat("debate-right-audience-b3", 748, 845, 39, 22),
+          seat("debate-right-audience-b4", 793, 846, 39, 22),
+          seat("debate-right-audience-b5", 837, 844, 40, 23),
+          seat("debate-right-audience-b6", 883, 845, 40, 22),
+          seat("debate-right-audience-b7", 927, 845, 40, 22),
+          seat("debate-right-audience-b8", 971, 845, 39, 22),
+          seat("debate-right-audience-c1", 658, 930, 40, 22),
+          seat("debate-right-audience-c2", 702, 931, 40, 22),
+          seat("debate-right-audience-c3", 747, 929, 40, 23),
+          seat("debate-right-audience-c4", 792, 930, 40, 22),
+          seat("debate-right-audience-c5", 838, 930, 40, 22),
+          seat("debate-right-audience-c6", 883, 929, 40, 22),
+          seat("debate-right-audience-c7", 928, 928, 39, 22),
+          seat("debate-right-audience-c8", 970, 928, 39, 22),
+          seat("debate-right-audience-d1", 659, 1015, 40, 22),
+          seat("debate-right-audience-d2", 702, 1015, 40, 22),
+          seat("debate-right-audience-d3", 745, 1015, 40, 23),
+          seat("debate-right-audience-d4", 793, 1016, 39, 22),
+          seat("debate-right-audience-d5", 838, 1016, 40, 22),
+          seat("debate-right-audience-d6", 883, 1016, 40, 22),
+          seat("debate-right-audience-d7", 928, 1015, 40, 22),
+          seat("debate-right-audience-d8", 970, 1015, 40, 23)
+        ])
+      ]
     }
   ];
 

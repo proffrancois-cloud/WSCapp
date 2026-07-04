@@ -351,6 +351,7 @@
     const keys = new Set();
     const remotePlayers = new Map();
     const remoteElements = new Map();
+    const npcElements = new Map();
 
     const spawn = room.spawnPoints.default;
     const localPlayer = {
@@ -377,6 +378,7 @@
       alt: "",
       draggable: "false"
     });
+    const decorationsLayer = createEl("div", "campus2d-decorations");
     const entitiesLayer = createEl("div", "campus2d-entities");
     const hotspotsLayer = createEl("div", "campus2d-hotspots");
     const portalsLayer = createEl("div", "campus2d-portals");
@@ -636,23 +638,26 @@
     sidePanel.append(hud);
     controlsPanel.append(controlsHeader, debugPanel, chatForm);
     controlsPanel.insertBefore(settingsPanel, debugPanel);
-    world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
+    world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
     root.append(sidePanel, viewport, controlsPanel);
     mountNode.replaceChildren(root);
 
-    function createPlayerElement(player, isLocal) {
-      const element = createEl("div", `campus2d-player${isLocal ? " is-local" : ""}`);
+    function createPlayerElement(player, isLocal, isNpc = false) {
+      const element = createEl("div", `campus2d-player${isLocal ? " is-local" : ""}${isNpc ? " is-npc" : ""}`);
       const chatStack = createEl("div", "campus2d-chat-stack", {
         "aria-live": "polite"
       });
-      const avatar = createEl("button", "campus2d-avatar", {
-        type: "button",
+      const avatarAttrs = {
         role: "img",
-        "aria-label": `${player.displayName || "Alpaca"} avatar card`,
-        "data-campus2d-avatar": player.clientId
-      });
+        "aria-label": `${player.displayName || "Alpaca"} avatar card`
+      };
+      if (!isNpc) {
+        avatarAttrs.type = "button";
+        avatarAttrs["data-campus2d-avatar"] = player.clientId;
+      }
+      const avatar = createEl(isNpc ? "span" : "button", "campus2d-avatar", avatarAttrs);
       const name = createEl("span", "campus2d-name");
       avatar.style.backgroundImage = `url("${manifest.sprite.asset}")`;
       name.textContent = player.displayName || "Guest";
@@ -1212,6 +1217,9 @@
 
     function getClickableGameZones() {
       const zones = getEffectiveZones(room).gameZones || [];
+      if (zones.length) {
+        return zones;
+      }
       const ids = new Set(zones.map((zone) => zone.id));
       const legacyZones = (room.hotspots || [])
         .filter((hotspot) => !ids.has(hotspot.id))
@@ -1220,7 +1228,7 @@
           mode: getLegacyHotspotMode(hotspot),
           label: hotspot.label || "Game zone"
         }));
-      return [...zones, ...legacyZones];
+      return legacyZones;
     }
 
     function activateGameZone(entry) {
@@ -1443,6 +1451,40 @@
       }));
     }
 
+    function renderDecorations() {
+      decorationsLayer.replaceChildren(...(room.decorations || []).map((entry) => {
+        const image = createEl("img", "campus2d-decoration", {
+          alt: "",
+          draggable: "false"
+        });
+        image.src = entry.asset;
+        image.style.left = `${entry.x}px`;
+        image.style.top = `${entry.y}px`;
+        image.style.width = `${entry.width}px`;
+        image.style.height = `${entry.height}px`;
+        image.style.zIndex = String(entry.zIndex || Math.round(entry.y + entry.height));
+        return image;
+      }));
+    }
+
+    function renderNpcs() {
+      npcElements.forEach((element) => element.remove());
+      npcElements.clear();
+      (room.npcs || []).forEach((entry) => {
+        const element = createPlayerElement({
+          clientId: entry.id,
+          displayName: entry.label || "NPC",
+          x: entry.x,
+          y: entry.y,
+          direction: entry.direction || "down",
+          colorId: entry.colorId || "red",
+          moving: false
+        }, false, true);
+        npcElements.set(entry.id, element);
+        entitiesLayer.append(element);
+      });
+    }
+
     function renderRoom() {
       roomTitle.textContent = room.title;
       mapImage.src = room.asset;
@@ -1453,6 +1495,8 @@
       safeStorageSet(STORAGE_ROOM_KEY, room.id);
       renderPalette();
       renderLocalCard();
+      renderDecorations();
+      renderNpcs();
       renderHotspots();
       renderPortals();
       renderSeats();
