@@ -94,7 +94,7 @@ if (!manifest) {
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 24, portals: 3, gameZones: 1, behindZones: 22, seats: 7 },
     courtyard: { blockedZones: 124, portals: 2, gameZones: 1, behindZones: 41, seats: 18 },
-    library: { blockedZones: 42, portals: 1, gameZones: 5, behindZones: 36, seats: 34 },
+    library: { blockedZones: 43, portals: 1, gameZones: 5, behindZones: 36, seats: 34 },
     "debate-lab": { blockedZones: 51, portals: 1, gameZones: 1, behindZones: 24, seats: 71 }
   };
   for (const [roomId, expectedCounts] of Object.entries(expectedRoomZoneCounts)) {
@@ -156,6 +156,10 @@ if (!manifest) {
   }
   if (!library?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Library must include an orange learn game zone.");
+  }
+  const libraryLeftLaptops = library?.blockedZones?.find((zone) => zone.id === "library-left-laptops");
+  if (!libraryLeftLaptops || libraryLeftLaptops.x !== 39 || libraryLeftLaptops.y !== 544 || libraryLeftLaptops.width !== 99 || libraryLeftLaptops.height !== 256) {
+    failures.push("Library must include the rotated left laptop desk as a blocked x-limit at 39,544 sized 99x256.");
   }
   if (seatsByPrefix(library, "library-lounge-left").length !== 3) {
     failures.push("Library left green couch must include three sitting areas.");

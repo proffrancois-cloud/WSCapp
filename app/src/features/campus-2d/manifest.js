@@ -456,7 +456,8 @@
         rect("library-blocked-41", 698, 920, 33, 65),
         rect("library-blocked-42", 1049, 920, 33, 67),
         rect("library-blocked-43", 696, 926, 386, 24),
-        rect("library-blocked-44", 382, 922, 69, 21)
+        rect("library-blocked-44", 382, 922, 69, 21),
+        rect("library-left-laptops", 39, 544, 99, 256)
       ],
       portals: [
         portal("library-to-lobby", "lobby", "library", 505, 1290, 149, 51)
