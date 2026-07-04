@@ -266,6 +266,7 @@ for (const runtimeNeedle of [
   "wscCampus2dDevZones",
   "data-campus2d-zone-copy-selected",
   "data-campus2d-zone-paste",
+  "data-campus2d-seat-direction",
   "data-campus2d-game-zone",
   "gameZones",
   "orange game",
@@ -273,6 +274,8 @@ for (const runtimeNeedle of [
   "findAnyZoneAtPoint",
   "Copy selected",
   "Paste",
+  "CHAT_STACK_LIMIT",
+  "campus2d-chat-stack",
   "data-campus2d-zone-copy",
   "Copy patch",
   "whole image walkable",
@@ -303,11 +306,29 @@ if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRunt
 if (!/function\s+stepMovement[\s\S]*standUpFromSeat\(normalized,\s*activeZones\)/.test(campusRuntime)) {
   failures.push("Campus 2D movement must push seated alpacas out of yellow zones before walking.");
 }
-if (!/function\s+getSeatDirection[\s\S]*baseSeats\.find[\s\S]*targetRoom\?\.id\s*===\s*"debate-lab"\s*\?\s*"down"\s*:\s*null/.test(campusRuntime)) {
-  failures.push("Campus 2D Dev/localStorage seat overrides must inherit manifest seat facing, with Debate Lab seats defaulting down.");
+if (!/function\s+getSeatDirection[\s\S]*baseSeats\.find[\s\S]*return\s+null/.test(campusRuntime)) {
+  failures.push("Campus 2D Dev/localStorage seat overrides must inherit manifest seat facing without adding room-specific guesses.");
+}
+if (/targetRoom\?\.id\s*===\s*"debate-lab"\s*\?\s*"down"\s*:\s*null/.test(campusRuntime)) {
+  failures.push("Campus 2D Dev/localStorage seat overrides must not force Debate Lab seats to face down.");
+}
+if (!/function\s+createZoneItem[\s\S]*type\s*===\s*"seat"[\s\S]*selectedSeatDirection[\s\S]*seat\.direction\s*=\s*direction/.test(campusRuntime)) {
+  failures.push("Campus 2D Dev seat editor must assign the chosen facing direction to new yellow seat zones.");
+}
+if (!/function\s+handleSeatDirectionChange[\s\S]*zone\.direction\s*=\s*selectedSeatDirection[\s\S]*saveDevZones\("Saved locally"\)/.test(campusRuntime)) {
+  failures.push("Campus 2D Dev seat direction control must save the selected facing direction.");
 }
 if (!/function\s+formatRectForManifest[\s\S]*type\s*===\s*"seat"[\s\S]*directionArg[\s\S]*zone\.direction/.test(campusRuntime)) {
   failures.push("Campus 2D zone patch export must preserve seat facing direction.");
+}
+if (!/const\s+CHAT_TTL_MS\s*=\s*10000/.test(campusRuntime)) {
+  failures.push("Campus 2D chat bubbles must stay visible for 10 seconds.");
+}
+if (!/const\s+CHAT_STACK_LIMIT\s*=\s*10/.test(campusRuntime)) {
+  failures.push("Campus 2D chat bubbles must keep the last 10 messages.");
+}
+if (!/function\s+showBubble[\s\S]*chatStack\.append\(bubble\)[\s\S]*chatStack\.children\.length\s*>\s*CHAT_STACK_LIMIT/.test(campusRuntime)) {
+  failures.push("Campus 2D chat bubbles must stack new messages instead of replacing the previous one.");
 }
 if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
   failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
@@ -370,11 +391,19 @@ for (const styleNeedle of [
   ".campus2d-debug-zone.is-portal",
   ".campus2d-debug-zone.is-game",
   ".campus2d-game-zone",
-  ".campus2d-zone-fields"
+  ".campus2d-zone-fields",
+  ".campus2d-zone-direction",
+  ".campus2d-chat-stack"
 ]) {
   if (!styles.includes(styleNeedle)) {
     failures.push(`Campus 2D styles are missing ${styleNeedle}.`);
   }
+}
+if (!/\.campus2d-chat-bubble\s*\{[^}]*background:\s*color-mix\(in srgb,\s*var\(--campus2d-color\)/i.test(styles)) {
+  failures.push("Campus 2D world chat bubbles must use the speaking alpaca color.");
+}
+if (!/\.campus2d-chat-bubble\s*\{[^}]*color:\s*var\(--campus2d-bubble-text/.test(styles)) {
+  failures.push("Campus 2D world chat bubbles must set readable text on alpaca-colored bubbles.");
 }
 if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*var\(--campus2d-side-width\)\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-controls-width\)/i.test(styles)) {
   failures.push("Campus 2D layout must reserve left ID, center world, and right controls columns.");

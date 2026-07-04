@@ -14192,31 +14192,43 @@ body.is-campus2d-view .wizard-steps {
   background: color-mix(in srgb, var(--campus2d-color) 22%, rgba(22, 17, 11, 0.76));
 }
 
-.campus2d-chat-bubble {
+.campus2d-chat-stack {
   position: absolute;
   left: 50%;
   bottom: 56px;
+  z-index: 4;
   width: max-content;
-  max-width: 220px;
-  transform: translate(-50%, 8px);
+  max-width: min(260px, 42vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.campus2d-chat-bubble {
+  max-width: 100%;
   padding: 8px 10px;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--campus2d-color) 48%, rgba(44, 27, 9, 0.2));
-  background: color-mix(in srgb, var(--campus2d-color) 18%, rgba(255, 250, 235, 0.95));
-  color: #2e2316;
+  border: 1px solid color-mix(in srgb, var(--campus2d-color) 52%, rgba(255, 248, 223, 0.64));
+  background: color-mix(in srgb, var(--campus2d-color) 84%, rgba(255, 248, 223, 0.16));
+  color: var(--campus2d-bubble-text, #22160a);
   font-size: 0.78rem;
   font-weight: 800;
   line-height: 1.25;
   text-align: center;
+  overflow-wrap: anywhere;
   opacity: 0;
-  pointer-events: none;
+  transform: translateY(8px);
   transition: opacity 160ms ease, transform 160ms ease;
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.24);
 }
 
 .campus2d-chat-bubble.is-visible {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
 }
 
 .campus2d-id-layer {
@@ -14792,6 +14804,16 @@ body.is-campus2d-view .wizard-steps {
   min-height: 28px;
 }
 
+.campus2d-zone-direction {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  min-height: 28px;
+  color: #ffe39a;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+
 .campus2d-debug-checkbox {
   width: 15px;
   height: 15px;
@@ -14822,6 +14844,7 @@ body.is-campus2d-view .wizard-steps {
 
 .campus2d-zone-fields[hidden],
 .campus2d-debug-actions[hidden],
+.campus2d-zone-direction[hidden],
 .campus2d-zone-selection[hidden] {
   display: none;
 }

@@ -9,7 +9,8 @@
     volume: 16,
     muted: false
   });
-  const CHAT_TTL_MS = 7600;
+  const CHAT_TTL_MS = 10000;
+  const CHAT_STACK_LIMIT = 10;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
   const ALPACA_COLLISION_RADIUS = 28;
@@ -30,6 +31,7 @@
   ]);
   const DEV_ZONE_TYPES = ["blocked", "seat", "behind", "portal", "game"];
   const DEV_ZONE_FIELDS = ["x", "y", "width", "height"];
+  const SEAT_DIRECTIONS = ["down", "up", "left", "right"];
   const DEV_ZONE_CONFIG = Object.freeze({
     blocked: { key: "blockedZones", label: "pink blocked", className: "blocked" },
     seat: { key: "seats", label: "yellow seat", className: "seat" },
@@ -48,6 +50,10 @@
 
   function getRealtimeApi() {
     return window.WSC_CAMPUS_2D_REALTIME || null;
+  }
+
+  function normalizeSeatDirection(direction, fallback = "down") {
+    return SEAT_DIRECTIONS.includes(direction) ? direction : fallback;
   }
 
   function getRoom(roomId) {
@@ -190,6 +196,18 @@
     return manifest.colors.find((color) => color.id === colorId) || manifest.colors[0];
   }
 
+  function getReadableTextColor(hex) {
+    const value = String(hex || "").replace("#", "");
+    if (!/^[0-9a-f]{6}$/i.test(value)) {
+      return "#22160a";
+    }
+    const red = parseInt(value.slice(0, 2), 16) / 255;
+    const green = parseInt(value.slice(2, 4), 16) / 255;
+    const blue = parseInt(value.slice(4, 6), 16) / 255;
+    const luminance = (0.2126 * red) + (0.7152 * green) + (0.0722 * blue);
+    return luminance < 0.48 ? "#fff9e8" : "#22160a";
+  }
+
   function normalizeDirection(vector, fallback = "down") {
     if (Math.abs(vector.x) > Math.abs(vector.y)) {
       return vector.x < 0 ? "left" : "right";
@@ -322,6 +340,7 @@
     let copiedZone = null;
     let zoneEditGesture = null;
     let devZoneData = loadDevZoneData();
+    let selectedSeatDirection = "down";
     let debugMousePoint = null;
     let debugStatusText = "";
     let paletteOpen = false;
@@ -475,6 +494,12 @@
       "aria-label": "Zone type",
       "data-campus2d-zone-type": ""
     });
+    const seatDirectionControl = createEl("label", "campus2d-zone-direction");
+    const seatDirectionLabel = createEl("span", "");
+    const seatDirectionSelect = createEl("select", "campus2d-debug-select", {
+      "aria-label": "Seat facing direction",
+      "data-campus2d-seat-direction": ""
+    });
     const zoneSelectionLabel = createEl("span", "campus2d-debug-line campus2d-zone-selection");
     const zoneFieldGrid = createEl("div", "campus2d-zone-fields");
     const zoneFieldInputs = {};
@@ -536,6 +561,14 @@
       option.textContent = DEV_ZONE_CONFIG[type].label;
       zoneTypeSelect.append(option);
     });
+    SEAT_DIRECTIONS.forEach((direction) => {
+      const option = createEl("option", "");
+      option.value = direction;
+      option.textContent = direction;
+      seatDirectionSelect.append(option);
+    });
+    seatDirectionLabel.textContent = "Facing";
+    seatDirectionControl.append(seatDirectionLabel, seatDirectionSelect);
     DEV_ZONE_FIELDS.forEach((field) => {
       const label = createEl("label", "campus2d-zone-field");
       const text = createEl("span", "");
@@ -556,7 +589,7 @@
     saveZonesButton.textContent = "Save";
     copyPatchButton.textContent = "Copy patch";
     exportJsonButton.textContent = "Export JSON";
-    debugControls.append(zoneTypeSelect);
+    debugControls.append(zoneTypeSelect, seatDirectionControl);
     debugActions.append(copySelectedButton, pasteZoneButton, deleteZoneButton, saveZonesButton, copyPatchButton, exportJsonButton);
     debugPanel.append(
       debugTitle,
@@ -611,7 +644,9 @@
 
     function createPlayerElement(player, isLocal) {
       const element = createEl("div", `campus2d-player${isLocal ? " is-local" : ""}`);
-      const bubble = createEl("span", "campus2d-chat-bubble");
+      const chatStack = createEl("div", "campus2d-chat-stack", {
+        "aria-live": "polite"
+      });
       const avatar = createEl("button", "campus2d-avatar", {
         type: "button",
         role: "img",
@@ -621,8 +656,8 @@
       const name = createEl("span", "campus2d-name");
       avatar.style.backgroundImage = `url("${manifest.sprite.asset}")`;
       name.textContent = player.displayName || "Guest";
-      element.append(bubble, avatar, name);
-      element._campus2d = { bubble, avatar, name };
+      element.append(chatStack, avatar, name);
+      element._campus2d = { chatStack, avatar, name };
       updatePlayerElement(element, player, performance.now());
       return element;
     }
@@ -635,6 +670,7 @@
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));
       element.style.setProperty("--campus2d-color", color.hex);
+      element.style.setProperty("--campus2d-bubble-text", getReadableTextColor(color.hex));
       element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
       element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
       element.style.setProperty("--campus2d-flip", String(frame.flip));
@@ -821,13 +857,22 @@
     function createZoneItem(type, rect, existing = {}) {
       const nextRect = cloneRect(rect, existing.id || `${room.id}-${type}`);
       if (type === "seat") {
-        return {
+        const direction = existing.direction
+          ? normalizeSeatDirection(existing.direction, selectedSeatDirection)
+          : (existing.id ? null : selectedSeatDirection);
+        const seat = {
           ...existing,
           id: nextRect.id,
           zone: nextRect,
           x: nextRect.x + (nextRect.width / 2),
           y: nextRect.y + (nextRect.height / 2)
         };
+        if (direction) {
+          seat.direction = direction;
+        } else {
+          delete seat.direction;
+        }
+        return seat;
       }
       if (type === "portal") {
         const fallbackRoomId = room.id === manifest.defaultRoomId ? manifest.rooms[1]?.id : manifest.defaultRoomId;
@@ -859,7 +904,7 @@
       if (baseSeat?.direction) {
         return baseSeat.direction;
       }
-      return targetRoom?.id === "debate-lab" ? "down" : null;
+      return null;
     }
 
     function applySeatDirections(targetRoom, seats, baseSeats = targetRoom?.seats || []) {
@@ -1284,16 +1329,23 @@
     function renderDebugControls() {
       const selectedZone = getSelectedZone();
       const selectedRect = selectedZone ? getZoneRect(selectedZoneType, selectedZone) : null;
+      const isSeatZone = selectedZoneType === "seat";
+      const currentSeatDirection = isSeatZone && selectedZone
+        ? normalizeSeatDirection(selectedZone.direction, selectedSeatDirection)
+        : selectedSeatDirection;
       zoneTypeSelect.value = selectedZoneType;
+      seatDirectionSelect.value = currentSeatDirection;
       zoneFieldGrid.hidden = !zoneEditorEnabled;
       debugActions.hidden = !zoneEditorEnabled;
       zoneSelectionLabel.hidden = !zoneEditorEnabled;
+      seatDirectionControl.hidden = !zoneEditorEnabled || !isSeatZone;
       zoneTypeSelect.disabled = !zoneEditorEnabled;
+      seatDirectionSelect.disabled = !zoneEditorEnabled || !isSeatZone;
       if (!zoneEditorEnabled) {
         zoneSelectionLabel.textContent = "Zone editor off";
       } else {
         zoneSelectionLabel.textContent = selectedZone
-          ? `${getZoneConfig(selectedZoneType).label} ${selectedZone.id}`
+          ? `${getZoneConfig(selectedZoneType).label} ${selectedZone.id}${isSeatZone ? ` facing ${currentSeatDirection}` : ""}`
           : `Drag to create ${getZoneConfig(selectedZoneType).label}`;
       }
       DEV_ZONE_FIELDS.forEach((field) => {
@@ -1958,17 +2010,19 @@
 
     function showBubble(playerElement, message) {
       const text = String(message || "").trim().slice(0, 140);
-      const bubble = playerElement?._campus2d?.bubble;
-      if (!bubble || !text) {
+      const chatStack = playerElement?._campus2d?.chatStack;
+      if (!chatStack || !text) {
         return;
       }
+      const bubble = createEl("span", "campus2d-chat-bubble is-visible");
       bubble.textContent = text;
-      bubble.classList.add("is-visible");
+      chatStack.append(bubble);
+      while (chatStack.children.length > CHAT_STACK_LIMIT) {
+        chatStack.firstElementChild?.remove();
+      }
       window.setTimeout(() => {
-        if (bubble.textContent === text) {
-          bubble.classList.remove("is-visible");
-          bubble.textContent = "";
-        }
+        bubble.classList.remove("is-visible");
+        window.setTimeout(() => bubble.remove(), 180);
       }, CHAT_TTL_MS);
     }
 
@@ -2040,6 +2094,9 @@
         const hitRect = getZoneRect(hit.type, hit.zone);
         selectedZoneType = hit.type;
         selectedZoneId = hit.zone.id;
+        if (hit.type === "seat") {
+          selectedSeatDirection = normalizeSeatDirection(hit.zone.direction, selectedSeatDirection);
+        }
         zoneEditGesture = {
           pointerId: event.pointerId,
           type: hit.type,
@@ -2122,6 +2179,9 @@
       getEditableZones(type).push(zone);
       selectedZoneType = type;
       selectedZoneId = zone.id;
+      if (type === "seat") {
+        selectedSeatDirection = normalizeSeatDirection(zone.direction, selectedSeatDirection);
+      }
       saveDevZones("Pasted zone");
       renderRoom();
     }
@@ -2135,6 +2195,18 @@
       updateZoneItemRect(selectedZoneType, zone, { ...getZoneRect(selectedZoneType, zone), [field]: value });
       saveDevZones("Saved locally");
       renderRoom();
+    }
+
+    function handleSeatDirectionChange() {
+      selectedSeatDirection = normalizeSeatDirection(seatDirectionSelect.value, selectedSeatDirection);
+      const zone = selectedZoneType === "seat" ? getSelectedZone() : null;
+      if (zone) {
+        zone.direction = selectedSeatDirection;
+        saveDevZones("Saved locally");
+        renderRoom();
+        return;
+      }
+      updateDebugPanel();
     }
 
     function handleKeyDown(event) {
@@ -2358,6 +2430,7 @@
     volumeInput.addEventListener("input", handleVolumeInput);
     muteButton.addEventListener("click", handleMuteClick);
     zoneTypeSelect.addEventListener("change", handleZoneTypeChange);
+    seatDirectionSelect.addEventListener("change", handleSeatDirectionChange);
     DEV_ZONE_FIELDS.forEach((field) => {
       zoneFieldInputs[field].addEventListener("change", (event) => {
         applySelectedZoneField(field, event.target.value);
@@ -2388,6 +2461,7 @@
         playerCard.removeEventListener("pointermove", updatePlayerCardTilt);
         playerCard.removeEventListener("pointerleave", resetPlayerCardTilt);
         playerCard.removeEventListener("pointercancel", resetPlayerCardTilt);
+        seatDirectionSelect.removeEventListener("change", handleSeatDirectionChange);
         channel?.destroy();
         backgroundMusic.pause();
         backgroundMusic.src = "";
