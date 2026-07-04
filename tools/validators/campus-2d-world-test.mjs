@@ -94,7 +94,7 @@ if (!manifest) {
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 24, portals: 3, gameZones: 1, behindZones: 22, seats: 7 },
     courtyard: { blockedZones: 124, portals: 2, gameZones: 1, behindZones: 41, seats: 18 },
-    library: { blockedZones: 43, portals: 1, gameZones: 5, behindZones: 36, seats: 34 },
+    library: { blockedZones: 48, portals: 1, gameZones: 5, behindZones: 37, seats: 33 },
     "debate-lab": { blockedZones: 51, portals: 1, gameZones: 1, behindZones: 24, seats: 71 }
   };
   for (const [roomId, expectedCounts] of Object.entries(expectedRoomZoneCounts)) {
@@ -128,6 +128,18 @@ if (!manifest) {
       failures.push(`Seats ${prefix}* should face ${direction}; wrong ids: ${wrongSeats.map((seat) => seat.id).join(", ")}.`);
     }
   }
+  function expectZoneRect(room, key, zoneId, expected) {
+    const zone = room?.[key]?.find((entry) => entry.id === zoneId);
+    if (!zone) {
+      failures.push(`Campus 2D manifest is missing ${key} zone ${zoneId}.`);
+      return;
+    }
+    for (const [field, expectedValue] of Object.entries(expected)) {
+      if (zone[field] !== expectedValue) {
+        failures.push(`${zoneId} ${field} should be ${expectedValue}; received ${zone[field]}.`);
+      }
+    }
+  }
   const lobby = manifest.roomsById?.lobby;
   if (!lobby?.portals?.some((portal) => portal.targetRoomId === "courtyard")) {
     failures.push("Lobby must have a portal to Courtyard.");
@@ -157,12 +169,11 @@ if (!manifest) {
   if (!library?.gameZones?.some((zone) => zone.mode === "learn")) {
     failures.push("Library must include an orange learn game zone.");
   }
-  const libraryLeftLaptops = library?.blockedZones?.find((zone) => zone.id === "library-left-laptops");
-  if (!libraryLeftLaptops || libraryLeftLaptops.x !== 39 || libraryLeftLaptops.y !== 544 || libraryLeftLaptops.width !== 99 || libraryLeftLaptops.height !== 256) {
-    failures.push("Library must include the rotated left laptop desk as a blocked x-limit at 39,544 sized 99x256.");
-  }
-  if (seatsByPrefix(library, "library-lounge-left").length !== 3) {
-    failures.push("Library left green couch must include three sitting areas.");
+  expectZoneRect(library, "blockedZones", "library-blocked-45", { x: 175, y: 291, width: 117, height: 27 });
+  expectZoneRect(library, "blockedZones", "library-blocked-46", { x: 124, y: 335, width: 30, height: 77 });
+  expectZoneRect(library, "blockedZones", "library-blocked-47", { x: 310, y: 340, width: 30, height: 77 });
+  if (seatsByPrefix(library, "library-lounge-left").length !== 2) {
+    failures.push("Library left green couch must match the export with two sitting areas.");
   }
   expectSeatPrefixDirection(library, "library-lounge-top", "down");
   expectSeatPrefixDirection(library, "library-lounge-left", "right");
@@ -171,7 +182,11 @@ if (!manifest) {
   expectSeatPrefixDirection(library, "library-table-left", "right");
   expectSeatPrefixDirection(library, "library-table-right", "left");
   expectSeatPrefixDirection(library, "library-table-bottom", "up");
-  expectSeatPrefixDirection(library, "library-classroom", "up");
+  expectSeatDirection(library, "library-seat-34", "down");
+  expectSeatDirection(library, "library-classroom-a1", "up");
+  for (let seatIndex = 20; seatIndex <= 33; seatIndex += 1) {
+    expectSeatDirection(library, `library-seat-${seatIndex}`, "up");
+  }
   const courtyard = manifest.roomsById?.courtyard;
   if ((courtyard?.behindZones || []).length < 15) {
     failures.push("Courtyard must include annotated behind zones.");
