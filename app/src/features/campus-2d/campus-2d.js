@@ -2,6 +2,13 @@
   const STORAGE_COLOR_KEY = "wscCampus2dAlpacaColor";
   const STORAGE_ROOM_KEY = "wscCampus2dRoom";
   const STORAGE_DEV_ZONES_KEY = "wscCampus2dDevZones";
+  const STORAGE_SETTINGS_KEY = "wscCampus2dSettings";
+  const BACKGROUND_MUSIC_SRC = "./assets/campus-2d/audio/alpaca-campus-lofi-loop-3min-less-bass.mp3";
+  const DEFAULT_SETTINGS = Object.freeze({
+    tone: 0,
+    volume: 16,
+    muted: false
+  });
   const CHAT_TTL_MS = 7600;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
@@ -107,6 +114,45 @@
     try {
       window.localStorage.removeItem(key);
     } catch (_error) {}
+  }
+
+  function readNumberSetting(value, fallback, min, max) {
+    const number = Number(value);
+    return Number.isFinite(number) ? clamp(Math.round(number), min, max) : fallback;
+  }
+
+  function normalizeCampusSettings(value = {}) {
+    const settings = value && typeof value === "object" ? value : {};
+    return {
+      tone: readNumberSetting(settings.tone, DEFAULT_SETTINGS.tone, -35, 35),
+      volume: readNumberSetting(settings.volume, DEFAULT_SETTINGS.volume, 0, 100),
+      muted: Boolean(settings.muted)
+    };
+  }
+
+  function loadCampusSettings() {
+    try {
+      return normalizeCampusSettings(JSON.parse(safeStorageGet(STORAGE_SETTINGS_KEY) || "{}"));
+    } catch (_error) {
+      return normalizeCampusSettings();
+    }
+  }
+
+  function formatToneLabel(tone) {
+    if (tone > 0) {
+      return `+${tone}% brighter`;
+    }
+    if (tone < 0) {
+      return `${Math.abs(tone)}% darker`;
+    }
+    return "Normal";
+  }
+
+  function formatVolumeLabel(settings) {
+    if (settings.muted || settings.volume <= 0) {
+      return "Muted";
+    }
+    return `${settings.volume}%`;
   }
 
   function roundNumber(value) {
@@ -267,6 +313,9 @@
     let debugMousePoint = null;
     let debugStatusText = "";
     let paletteOpen = false;
+    let campusSettings = loadCampusSettings();
+    let settingsHighlightTimer = 0;
+    let backgroundMusicBlocked = false;
     let destroyed = false;
     const keys = new Set();
     const remotePlayers = new Map();
@@ -303,6 +352,7 @@
     const seatsLayer = createEl("div", "campus2d-seats");
     const behindLayer = createEl("div", "campus2d-behind-layer");
     const debugLayer = createEl("div", "campus2d-debug-layer", { "aria-hidden": "true" });
+    const backgroundMusic = new Audio(BACKGROUND_MUSIC_SRC);
     const sidePanel = createEl("aside", "campus2d-side-panel", {
       "aria-label": "Your alpaca ID",
       "data-campus2d-ui": ""
@@ -349,6 +399,40 @@
     const roomMeta = createEl("div", "campus2d-room-meta");
     const roomTitle = createEl("strong", "campus2d-room-title");
     const statusPill = createEl("span", "campus2d-status-pill");
+    const settingsPanel = createEl("section", "campus2d-settings-panel", {
+      "aria-label": "Campus settings",
+      "data-campus2d-ui": "",
+      tabindex: "-1"
+    });
+    const settingsHeader = createEl("div", "campus2d-settings-header");
+    const settingsTitle = createEl("strong", "campus2d-settings-title");
+    const muteButton = createEl("button", "campus2d-mute-button", {
+      type: "button",
+      "aria-pressed": "false",
+      "data-campus2d-mute": ""
+    });
+    const toneControl = createEl("label", "campus2d-setting-control");
+    const toneLabelRow = createEl("span", "campus2d-setting-row");
+    const toneLabel = createEl("span", "campus2d-setting-label");
+    const toneValue = createEl("span", "campus2d-setting-value", { "aria-live": "polite" });
+    const toneInput = createEl("input", "campus2d-slider", {
+      type: "range",
+      min: "-35",
+      max: "35",
+      step: "1",
+      "data-campus2d-tone": ""
+    });
+    const volumeControl = createEl("label", "campus2d-setting-control");
+    const volumeLabelRow = createEl("span", "campus2d-setting-row");
+    const volumeLabel = createEl("span", "campus2d-setting-label");
+    const volumeValue = createEl("span", "campus2d-setting-value", { "aria-live": "polite" });
+    const volumeInput = createEl("input", "campus2d-slider", {
+      type: "range",
+      min: "0",
+      max: "100",
+      step: "1",
+      "data-campus2d-volume": ""
+    });
     const palette = createEl("div", "campus2d-palette", {
       "aria-label": "Choose alpaca color",
       role: "group",
@@ -410,9 +494,15 @@
     const debugStatus = createEl("span", "campus2d-debug-status");
     const localElement = createPlayerElement(localPlayer, true);
 
+    backgroundMusic.loop = true;
+    backgroundMusic.preload = "auto";
+    backgroundMusic.setAttribute("playsinline", "");
     playerPrompt.textContent = "Alpaca ID";
     playerSchoolLabel.textContent = "School";
     playerAgeLabel.textContent = "Account age";
+    settingsTitle.textContent = "Settings";
+    toneLabel.textContent = "Display tone";
+    volumeLabel.textContent = "Music";
     chatButton.textContent = "Send";
     debugTitle.textContent = "Dev";
     Array.from({ length: 9 }, (_value, index) => {
@@ -467,6 +557,12 @@
       debugActions,
       debugStatus
     );
+    settingsHeader.append(settingsTitle, muteButton);
+    toneLabelRow.append(toneLabel, toneValue);
+    toneControl.append(toneLabelRow, toneInput);
+    volumeLabelRow.append(volumeLabel, volumeValue);
+    volumeControl.append(volumeLabelRow, volumeInput);
+    settingsPanel.append(settingsHeader, toneControl, volumeControl);
     chatForm.append(chatInput, chatButton);
     playerArt.append(playerAvatarButton);
     playerSchoolField.append(playerSchoolLabel, playerSchool);
@@ -494,6 +590,7 @@
     hud.append(playerCard);
     sidePanel.append(hud);
     controlsPanel.append(controlsHeader, debugPanel, chatForm);
+    controlsPanel.insertBefore(settingsPanel, debugPanel);
     world.append(mapImage, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world);
@@ -567,6 +664,107 @@
     function updateConnectedCount() {
       const count = remotePlayers.size + 1;
       connectedCount.textContent = `${count} ${count === 1 ? "alpaca" : "alpacas"} connected`;
+    }
+
+    function saveCampusSettings() {
+      safeStorageSet(STORAGE_SETTINGS_KEY, JSON.stringify(campusSettings));
+    }
+
+    function applyBackgroundMusicSettings() {
+      backgroundMusic.volume = clamp(campusSettings.volume, 0, 100) / 100;
+      backgroundMusic.muted = campusSettings.muted || campusSettings.volume <= 0;
+    }
+
+    function syncBackgroundMusicPlayback() {
+      applyBackgroundMusicSettings();
+      if (destroyed || campusSettings.muted || campusSettings.volume <= 0) {
+        backgroundMusic.pause();
+        return;
+      }
+      if (!backgroundMusic.paused) {
+        return;
+      }
+      const playRequest = backgroundMusic.play();
+      if (playRequest?.catch) {
+        playRequest
+          .then(() => {
+            backgroundMusicBlocked = false;
+          })
+          .catch(() => {
+            backgroundMusicBlocked = true;
+          });
+      }
+    }
+
+    function applyCampusSettings() {
+      const tone = clamp(campusSettings.tone, -35, 35);
+      const brightness = clamp(1 + (tone / 100), 0.65, 1.35);
+      const contrast = tone >= 0
+        ? clamp(1 + (tone / 240), 1, 1.15)
+        : clamp(1 + (tone / 280), 0.88, 1);
+      const saturation = tone >= 0
+        ? clamp(1 + (tone / 260), 1, 1.14)
+        : clamp(1 + (tone / 320), 0.88, 1);
+      root.style.setProperty("--campus2d-map-brightness", brightness.toFixed(2));
+      root.style.setProperty("--campus2d-map-contrast", contrast.toFixed(2));
+      root.style.setProperty("--campus2d-map-saturation", saturation.toFixed(2));
+      toneInput.value = String(campusSettings.tone);
+      volumeInput.value = String(campusSettings.volume);
+      toneValue.textContent = formatToneLabel(campusSettings.tone);
+      volumeValue.textContent = formatVolumeLabel(campusSettings);
+      muteButton.textContent = campusSettings.muted || campusSettings.volume <= 0 ? "Unmute" : "Mute";
+      muteButton.title = campusSettings.muted || campusSettings.volume <= 0 ? "Turn music back on" : "Mute music";
+      muteButton.setAttribute("aria-pressed", String(campusSettings.muted || campusSettings.volume <= 0));
+      syncBackgroundMusicPlayback();
+    }
+
+    function updateCampusSettings(patch) {
+      campusSettings = normalizeCampusSettings({ ...campusSettings, ...patch });
+      saveCampusSettings();
+      applyCampusSettings();
+    }
+
+    function openSettingsPanel() {
+      settingsPanel.scrollIntoView({ block: "nearest" });
+      settingsPanel.focus({ preventScroll: true });
+      window.clearTimeout(settingsHighlightTimer);
+      settingsPanel.classList.add("is-highlighted");
+      settingsHighlightTimer = window.setTimeout(() => {
+        settingsPanel.classList.remove("is-highlighted");
+      }, 1200);
+    }
+
+    function handleOpenSettingsEvent() {
+      openSettingsPanel();
+    }
+
+    function handleAudioUnlock() {
+      if (backgroundMusicBlocked || backgroundMusic.paused) {
+        syncBackgroundMusicPlayback();
+      }
+    }
+
+    function handleToneInput(event) {
+      updateCampusSettings({ tone: event.target.value });
+    }
+
+    function handleVolumeInput(event) {
+      const volume = readNumberSetting(event.target.value, DEFAULT_SETTINGS.volume, 0, 100);
+      updateCampusSettings({
+        volume,
+        muted: volume <= 0 ? true : false
+      });
+    }
+
+    function handleMuteClick() {
+      if (campusSettings.muted || campusSettings.volume <= 0) {
+        updateCampusSettings({
+          muted: false,
+          volume: campusSettings.volume > 0 ? campusSettings.volume : DEFAULT_SETTINGS.volume
+        });
+        return;
+      }
+      updateCampusSettings({ muted: true });
     }
 
     function updatePlayerCardTilt(event) {
@@ -2106,11 +2304,15 @@
     }
 
     renderRoom();
+    applyCampusSettings();
     root.focus({ preventScroll: true });
     connectRealtime();
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
     window.addEventListener("resize", updateCamera);
+    window.addEventListener("pointerdown", handleAudioUnlock, { passive: true });
+    window.addEventListener("keydown", handleAudioUnlock);
+    window.addEventListener("wsc-campus-settings-open", handleOpenSettingsEvent);
     viewport.addEventListener("pointerdown", handlePointerDown);
     viewport.addEventListener("pointermove", handlePointerMove);
     viewport.addEventListener("pointerup", handlePointerUp);
@@ -2120,6 +2322,9 @@
     playerCard.addEventListener("pointercancel", resetPlayerCardTilt);
     root.addEventListener("click", handleRootClick);
     chatForm.addEventListener("submit", handleChatSubmit);
+    toneInput.addEventListener("input", handleToneInput);
+    volumeInput.addEventListener("input", handleVolumeInput);
+    muteButton.addEventListener("click", handleMuteClick);
     zoneTypeSelect.addEventListener("change", handleZoneTypeChange);
     DEV_ZONE_FIELDS.forEach((field) => {
       zoneFieldInputs[field].addEventListener("change", (event) => {
@@ -2141,6 +2346,9 @@
         window.removeEventListener("keydown", handleKeyDown);
         window.removeEventListener("keyup", handleKeyUp);
         window.removeEventListener("resize", updateCamera);
+        window.removeEventListener("pointerdown", handleAudioUnlock);
+        window.removeEventListener("keydown", handleAudioUnlock);
+        window.removeEventListener("wsc-campus-settings-open", handleOpenSettingsEvent);
         viewport.removeEventListener("pointerdown", handlePointerDown);
         viewport.removeEventListener("pointermove", handlePointerMove);
         viewport.removeEventListener("pointerup", handlePointerUp);
@@ -2149,10 +2357,14 @@
         playerCard.removeEventListener("pointerleave", resetPlayerCardTilt);
         playerCard.removeEventListener("pointercancel", resetPlayerCardTilt);
         channel?.destroy();
+        backgroundMusic.pause();
+        backgroundMusic.src = "";
+        window.clearTimeout(settingsHighlightTimer);
         mountNode.replaceChildren();
       },
       setIdentity,
-      setRoom
+      setRoom,
+      openSettings: openSettingsPanel
     };
   }
 

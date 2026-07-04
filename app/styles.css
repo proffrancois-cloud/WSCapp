@@ -13931,6 +13931,9 @@ body.is-online-mode .section-heading {
 .campus2d-root {
   --campus2d-side-width: clamp(236px, 22vw, 330px);
   --campus2d-controls-width: clamp(220px, 20vw, 300px);
+  --campus2d-map-brightness: 1;
+  --campus2d-map-contrast: 1;
+  --campus2d-map-saturation: 1;
   position: relative;
   display: grid;
   grid-template-columns: var(--campus2d-side-width) minmax(0, 1fr) var(--campus2d-controls-width);
@@ -14014,6 +14017,11 @@ body.is-online-mode .section-heading {
   user-select: none;
   -webkit-user-drag: none;
   image-rendering: auto;
+  filter:
+    brightness(var(--campus2d-map-brightness))
+    contrast(var(--campus2d-map-contrast))
+    saturate(var(--campus2d-map-saturation));
+  transition: filter 180ms ease;
 }
 
 .campus2d-entities,
@@ -14066,6 +14074,11 @@ body.is-online-mode .section-heading {
   display: block;
   background-repeat: no-repeat;
   image-rendering: auto;
+  filter:
+    brightness(var(--campus2d-map-brightness))
+    contrast(var(--campus2d-map-contrast))
+    saturate(var(--campus2d-map-saturation));
+  transition: filter 180ms ease;
 }
 
 .campus2d-player {
@@ -14417,6 +14430,82 @@ body.is-online-mode .section-heading {
 
 .campus2d-status-pill {
   color: #ffe6ac;
+}
+
+.campus2d-settings-panel {
+  display: grid;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 232, 172, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 247, 223, 0.09);
+  color: #fff7df;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.campus2d-settings-panel:focus-visible,
+.campus2d-settings-panel.is-highlighted {
+  outline: 0;
+  border-color: rgba(255, 231, 158, 0.82);
+  background: rgba(255, 247, 223, 0.14);
+  box-shadow: 0 0 0 3px rgba(238, 170, 58, 0.18);
+}
+
+.campus2d-settings-header,
+.campus2d-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.campus2d-settings-title,
+.campus2d-setting-label {
+  color: #ffe6ac;
+  font-size: 0.78rem;
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.campus2d-setting-value {
+  color: rgba(255, 248, 223, 0.82);
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.campus2d-setting-control {
+  display: grid;
+  gap: 7px;
+}
+
+.campus2d-slider {
+  width: 100%;
+  min-width: 0;
+  accent-color: #ffd782;
+}
+
+.campus2d-mute-button {
+  min-height: 28px;
+  padding: 0 9px;
+  border: 1px solid rgba(255, 232, 172, 0.36);
+  border-radius: 8px;
+  background: rgba(255, 247, 223, 0.1);
+  color: #fff7df;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.campus2d-mute-button:hover,
+.campus2d-mute-button:focus-visible {
+  outline: 0;
+  border-color: rgba(255, 248, 223, 0.82);
+  background: rgba(255, 247, 223, 0.18);
 }
 
 .campus2d-palette {
@@ -14822,6 +14911,26 @@ body.is-online-mode .section-heading {
   .campus2d-chat-submit {
     min-height: 34px;
     padding: 0 10px;
+  }
+
+  .campus2d-settings-panel {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .campus2d-settings-header,
+  .campus2d-setting-row {
+    gap: 6px;
+  }
+
+  .campus2d-settings-title,
+  .campus2d-setting-label {
+    font-size: 0.7rem;
+  }
+
+  .campus2d-setting-value,
+  .campus2d-mute-button {
+    font-size: 0.64rem;
   }
 
   .campus2d-player {
@@ -20163,6 +20272,24 @@ body.is-local-mode.with-popup .question-popup-overlay {
   height: 100dvh !important;
   align-items: center !important;
   justify-items: center !important;
+}
+
+body .hero-links > button.hero-link-icon.hero-settings-icon {
+  display: none !important;
+}
+
+body.is-campus2d-view .hero-links > button.hero-link-icon.hero-settings-icon {
+  display: flex !important;
+}
+
+body.is-campus2d-view .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translate(34px, 332px) scale(1) rotate(0deg) !important;
+}
+
+body .hero-links > button.hero-link-icon.hero-settings-icon::after {
+  content: "Settings" !important;
 }
 
 @media (max-width: 760px) {

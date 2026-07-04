@@ -2650,6 +2650,17 @@ function handleClick(event) {
     return;
   }
 
+  const openCampusSettings = event.target.closest("[data-open-campus-settings]");
+  if (openCampusSettings) {
+    closeHeroMenu();
+    if (campus2dController?.openSettings) {
+      campus2dController.openSettings();
+    } else {
+      window.dispatchEvent(new CustomEvent("wsc-campus-settings-open"));
+    }
+    return;
+  }
+
   const heroMenuButton = event.target.closest("[data-toggle-hero-menu]");
   if (heroMenuButton) {
     toggleHeroMenu(heroMenuButton);
@@ -4037,6 +4048,7 @@ function openSectionChannel(sectionId) {
 function render() {
   document.body.classList.toggle("is-online-mode", state.ui.appShellMode === "online");
   document.body.classList.toggle("is-local-mode", state.ui.appShellMode === "local");
+  document.body.classList.toggle("is-campus2d-view", isAlpacaOnlineCampusView());
   renderStats();
   renderSessionControls();
   renderAppEntryGate();
