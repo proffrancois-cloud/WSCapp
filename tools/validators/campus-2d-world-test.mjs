@@ -91,6 +91,21 @@ if (!manifest) {
       failures.push(`Campus 2D manifest is missing room ${roomId}.`);
     }
   }
+  const expectedRoomZoneCounts = {
+    lobby: { blockedZones: 24, portals: 3, gameZones: 1, behindZones: 22, seats: 7 },
+    courtyard: { blockedZones: 124, portals: 2, gameZones: 1, behindZones: 41, seats: 18 },
+    library: { blockedZones: 42, portals: 1, gameZones: 5, behindZones: 36, seats: 33 },
+    "debate-lab": { blockedZones: 51, portals: 1, gameZones: 1, behindZones: 24, seats: 71 }
+  };
+  for (const [roomId, expectedCounts] of Object.entries(expectedRoomZoneCounts)) {
+    const room = manifest.roomsById?.[roomId];
+    for (const [key, expectedCount] of Object.entries(expectedCounts)) {
+      const actualCount = room?.[key]?.length || 0;
+      if (actualCount !== expectedCount) {
+        failures.push(`${roomId} ${key} should match the exported count ${expectedCount}; received ${actualCount}.`);
+      }
+    }
+  }
   const lobby = manifest.roomsById?.lobby;
   if (!lobby?.portals?.some((portal) => portal.targetRoomId === "courtyard")) {
     failures.push("Lobby must have a portal to Courtyard.");
