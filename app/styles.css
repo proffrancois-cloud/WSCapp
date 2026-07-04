@@ -14108,7 +14108,6 @@ body.is-campus2d-view .wizard-steps {
   --campus2d-sprite-x: 50%;
   --campus2d-sprite-y: 0%;
   --campus2d-flip: 1;
-  --campus2d-step-flip-scale: 0.985;
   position: absolute;
   left: 0;
   top: 0;
@@ -14128,6 +14127,7 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-avatar {
+  position: relative;
   width: 41px;
   height: 49px;
   display: block;
@@ -14146,31 +14146,66 @@ body.is-campus2d-view .wizard-steps {
   transform-origin: center bottom;
 }
 
+.campus2d-avatar::before,
+.campus2d-avatar::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: 4px;
+  width: 6px;
+  height: 8px;
+  display: none;
+  border-radius: 4px 4px 3px 3px;
+  background: color-mix(in srgb, var(--campus2d-color) 58%, #4b2b15);
+  box-shadow: inset 0 -2px 0 rgba(35, 20, 11, 0.72);
+  pointer-events: none;
+}
+
+.campus2d-avatar::before {
+  left: 14px;
+}
+
+.campus2d-avatar::after {
+  right: 14px;
+}
+
 .campus2d-avatar:focus-visible {
   outline: 2px solid rgba(255, 248, 223, 0.95);
   outline-offset: 3px;
 }
 
-.campus2d-player.is-moving .campus2d-avatar {
-  animation: campus2d-soft-walk 580ms steps(4, end) infinite;
+.campus2d-player.is-moving .campus2d-avatar::before,
+.campus2d-player.is-moving .campus2d-avatar::after {
+  display: block;
 }
 
-@keyframes campus2d-soft-walk {
+.campus2d-player.is-moving .campus2d-avatar::before {
+  animation: campus2d-leg-step-left 320ms steps(2, end) infinite;
+}
+
+.campus2d-player.is-moving .campus2d-avatar::after {
+  animation: campus2d-leg-step-right 320ms steps(2, end) infinite;
+}
+
+@keyframes campus2d-leg-step-left {
   0%,
   100% {
-    transform: scaleX(var(--campus2d-flip)) translateY(0) rotate(0deg) scaleY(1);
-  }
-
-  25% {
-    transform: scaleX(var(--campus2d-flip)) translateY(-1px) rotate(-0.8deg) scaleY(1.006);
+    transform: translate(0, 0);
   }
 
   50% {
-    transform: scaleX(var(--campus2d-flip)) translateY(0) rotate(0deg) scaleY(1);
+    transform: translate(1px, -2px);
+  }
+}
+
+@keyframes campus2d-leg-step-right {
+  0%,
+  100% {
+    transform: translate(0, -2px);
   }
 
-  75% {
-    transform: scaleX(var(--campus2d-flip)) translateY(-1px) rotate(0.8deg) scaleY(1.006);
+  50% {
+    transform: translate(-1px, 0);
   }
 }
 

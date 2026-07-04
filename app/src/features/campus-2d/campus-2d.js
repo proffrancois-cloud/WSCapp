@@ -11,8 +11,6 @@
   });
   const CHAT_TTL_MS = 10000;
   const CHAT_STACK_LIMIT = 10;
-  const WALK_FRAME_MS = 145;
-  const WALK_FRAME_COLUMNS = [0, 1, 2, 1];
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
   const ALPACA_COLLISION_RADIUS = 28;
@@ -220,13 +218,8 @@
     return fallback;
   }
 
-  function getWalkFrameColumn(nowMs) {
-    const frameIndex = Math.floor((Number(nowMs) || 0) / WALK_FRAME_MS) % WALK_FRAME_COLUMNS.length;
-    return WALK_FRAME_COLUMNS[frameIndex];
-  }
-
-  function getFrame(direction, isSitting = false, isMoving = false, nowMs = 0) {
-    const index = isMoving ? getWalkFrameColumn(nowMs) : 1;
+  function getFrame(direction, isSitting = false) {
+    const index = 1;
     if (isSitting) {
       if (direction === "up") {
         return { col: 1, row: 7, flip: 1 };
@@ -673,7 +666,7 @@
       const color = getColor(manifest, player.colorId);
       const isSitting = Boolean(player.seatId) && !player.moving;
       const isMoving = Boolean(player.moving) && !player.seatId;
-      const frame = getFrame(player.direction, isSitting, isMoving, nowMs);
+      const frame = getFrame(player.direction, isSitting);
       const avatar = element._campus2d?.avatar;
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));
@@ -682,7 +675,6 @@
       element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
       element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
       element.style.setProperty("--campus2d-flip", String(frame.flip));
-      element.style.setProperty("--campus2d-step-flip-scale", String(frame.flip * 0.985));
       if (avatar) {
         avatar.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
         avatar.setAttribute("aria-label", `${player.displayName || "Alpaca"} avatar card`);
