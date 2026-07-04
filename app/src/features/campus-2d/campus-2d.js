@@ -11,6 +11,8 @@
   });
   const CHAT_TTL_MS = 10000;
   const CHAT_STACK_LIMIT = 10;
+  const WALK_FRAME_MS = 145;
+  const WALK_FRAME_COLUMNS = [0, 1, 2, 1];
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
   const ALPACA_COLLISION_RADIUS = 28;
@@ -218,19 +220,24 @@
     return fallback;
   }
 
-  function getFrame(direction, isSitting = false) {
-    const index = 1;
+  function getWalkFrameColumn(nowMs) {
+    const frameIndex = Math.floor((Number(nowMs) || 0) / WALK_FRAME_MS) % WALK_FRAME_COLUMNS.length;
+    return WALK_FRAME_COLUMNS[frameIndex];
+  }
+
+  function getFrame(direction, isSitting = false, isMoving = false, nowMs = 0) {
+    const index = isMoving ? getWalkFrameColumn(nowMs) : 1;
     if (isSitting) {
       if (direction === "up") {
-        return { col: index, row: 7, flip: 1 };
+        return { col: 1, row: 7, flip: 1 };
       }
       if (direction === "left") {
-        return { col: index, row: 5, flip: 1 };
+        return { col: 1, row: 5, flip: 1 };
       }
       if (direction === "right") {
-        return { col: index, row: 6, flip: 1 };
+        return { col: 1, row: 6, flip: 1 };
       }
-      return { col: index, row: 4, flip: 1 };
+      return { col: 1, row: 4, flip: 1 };
     }
     if (direction === "up") {
       return { col: index, row: 2, flip: 1 };
@@ -665,7 +672,8 @@
     function updatePlayerElement(element, player, nowMs) {
       const color = getColor(manifest, player.colorId);
       const isSitting = Boolean(player.seatId) && !player.moving;
-      const frame = getFrame(player.direction, isSitting);
+      const isMoving = Boolean(player.moving) && !player.seatId;
+      const frame = getFrame(player.direction, isSitting, isMoving, nowMs);
       const avatar = element._campus2d?.avatar;
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));
@@ -679,7 +687,7 @@
         avatar.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
         avatar.setAttribute("aria-label", `${player.displayName || "Alpaca"} avatar card`);
       }
-      element.classList.toggle("is-moving", Boolean(player.moving) && !player.seatId);
+      element.classList.toggle("is-moving", isMoving);
       element.classList.toggle("is-sitting", isSitting);
       if (element._campus2d?.name) {
         element._campus2d.name.textContent = player.displayName || "Guest";
