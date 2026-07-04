@@ -838,6 +838,24 @@
       return { ...existing, ...nextRect };
     }
 
+    function getSeatDirection(targetRoom, seat, baseSeats = targetRoom?.seats || []) {
+      if (seat?.direction) {
+        return seat.direction;
+      }
+      const baseSeat = baseSeats.find((entry) => entry.id === seat?.id);
+      if (baseSeat?.direction) {
+        return baseSeat.direction;
+      }
+      return targetRoom?.id === "debate-lab" ? "down" : null;
+    }
+
+    function applySeatDirections(targetRoom, seats, baseSeats = targetRoom?.seats || []) {
+      return seats.map((seat) => {
+        const direction = getSeatDirection(targetRoom, seat, baseSeats);
+        return direction ? { ...seat, direction } : seat;
+      });
+    }
+
     function cloneZoneItem(type, zone, fallbackId) {
       return createZoneItem(type, cloneRect(getZoneRect(type, zone), zone?.id || fallbackId), zone || {});
     }
@@ -862,7 +880,7 @@
     function getRoomBaseZones(targetRoom = room) {
       return {
         blockedZones: cloneZoneItems("blocked", targetRoom.blockedZones || []),
-        seats: cloneZoneItems("seat", targetRoom.seats || []),
+        seats: applySeatDirections(targetRoom, cloneZoneItems("seat", targetRoom.seats || [])),
         behindZones: cloneZoneItems("behind", targetRoom.behindZones || []),
         portals: cloneZoneItems("portal", targetRoom.portals || []),
         gameZones: cloneZoneItems("game", targetRoom.gameZones || [])
@@ -873,7 +891,7 @@
       const base = getRoomBaseZones(targetRoom);
       return {
         blockedZones: cloneZoneItems("blocked", Array.isArray(override.blockedZones) ? override.blockedZones : base.blockedZones),
-        seats: cloneZoneItems("seat", Array.isArray(override.seats) ? override.seats : base.seats),
+        seats: applySeatDirections(targetRoom, cloneZoneItems("seat", Array.isArray(override.seats) ? override.seats : base.seats), base.seats),
         behindZones: cloneZoneItems("behind", Array.isArray(override.behindZones) ? override.behindZones : base.behindZones),
         portals: cloneZoneItems("portal", Array.isArray(override.portals) ? override.portals : base.portals),
         gameZones: cloneZoneItems("game", Array.isArray(override.gameZones) ? override.gameZones : base.gameZones)
@@ -1018,7 +1036,8 @@
     function formatRectForManifest(type, zone, indent = "        ") {
       const rect = getZoneRect(type, zone);
       if (type === "seat") {
-        return `${indent}seat("${zone.id}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
+        const directionArg = zone.direction ? `, "${zone.direction}"` : "";
+        return `${indent}seat("${zone.id}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height}${directionArg})`;
       }
       if (type === "portal") {
         return `${indent}portal("${zone.id}", "${zone.targetRoomId}", "${zone.targetSpawnId}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;

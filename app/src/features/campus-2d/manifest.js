@@ -664,7 +664,7 @@
         rect("debate-lab-behind-23", 1077, 1132, 45, 31),
         rect("debate-lab-behind-24", 1040, 293, 34, 19)
       ],
-      seats: seatsFacing("up", [
+      seats: seatsFacing("down", [
         seat("debate-left-table-1", 108, 299, 33, 35),
         seat("debate-left-table-2", 163, 299, 32, 35),
         seat("debate-left-table-3", 216, 299, 32, 34),

@@ -196,9 +196,9 @@ if (!manifest) {
   if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
     failures.push("Debate Lab must include an orange train game zone.");
   }
-  const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "up");
+  const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "down");
   if (wrongDebateSeats.length) {
-    failures.push(`Debate Lab blue seats and dragon stools should face up; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
+    failures.push(`Debate Lab blue seats and dragon stools should face down; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
   }
 }
 
@@ -259,6 +259,8 @@ for (const runtimeNeedle of [
   "isPointBlockedByPlayers",
   "canPlayerStandAt",
   "getSeatZones",
+  "getSeatDirection",
+  "applySeatDirections",
   "getSeatOccupant",
   "findSeatExitPoint",
   "standUpFromSeat",
@@ -273,6 +275,12 @@ if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRunt
 }
 if (!/function\s+stepMovement[\s\S]*standUpFromSeat\(normalized,\s*activeZones\)/.test(campusRuntime)) {
   failures.push("Campus 2D movement must push seated alpacas out of yellow zones before walking.");
+}
+if (!/function\s+getSeatDirection[\s\S]*baseSeats\.find[\s\S]*targetRoom\?\.id\s*===\s*"debate-lab"\s*\?\s*"down"\s*:\s*null/.test(campusRuntime)) {
+  failures.push("Campus 2D Dev/localStorage seat overrides must inherit manifest seat facing, with Debate Lab seats defaulting down.");
+}
+if (!/function\s+formatRectForManifest[\s\S]*type\s*===\s*"seat"[\s\S]*directionArg[\s\S]*zone\.direction/.test(campusRuntime)) {
+  failures.push("Campus 2D zone patch export must preserve seat facing direction.");
 }
 if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
   failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
