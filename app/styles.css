@@ -13915,6 +13915,28 @@ body.is-online-mode .section-heading {
   display: none;
 }
 
+body.is-campus2d-view .layout {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.is-campus2d-view .layout::before {
+  display: none !important;
+}
+
+body.is-campus2d-view .wizard.card-panel,
+body.is-campus2d-view .wizard.card-panel:hover,
+body.is-campus2d-view .wizard.card-panel:focus-within {
+  border-radius: 0 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+body.is-campus2d-view .wizard-steps {
+  gap: 0 !important;
+  margin-top: 0 !important;
+}
+
 .campus2d-online-shell {
   width: 100%;
   min-height: min(86vh, 940px);
