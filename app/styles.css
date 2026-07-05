@@ -20631,6 +20631,16 @@ body .hero-links > button.hero-link-icon.hero-settings-icon::after {
   justify-content: center;
 }
 
+.library-campus-card-grid-three {
+  grid-template-columns: repeat(3, minmax(190px, 260px));
+  justify-content: center;
+}
+
+.library-campus-card-grid-four {
+  grid-template-columns: repeat(4, minmax(158px, 224px));
+  justify-content: center;
+}
+
 .library-campus-card-grid-sections {
   grid-template-columns: repeat(auto-fit, minmax(156px, 1fr));
 }
@@ -20984,12 +20994,160 @@ body.is-online-mode .library-campus-window-channel .library-section-id-card .lib
   font-size: clamp(0.58rem, 0.66vw, 0.7rem);
 }
 
+.library-campus-theme-courtyard {
+  --campus-modal-accent: #bde86a;
+  --campus-modal-accent-rgb: 189, 232, 106;
+  --campus-modal-overlay-bg:
+    radial-gradient(circle at 18% 12%, rgba(189, 232, 106, 0.2), transparent 28%),
+    radial-gradient(circle at 80% 24%, rgba(255, 214, 98, 0.14), transparent 26%),
+    rgba(12, 24, 13, 0.66);
+  --campus-modal-window-bg:
+    radial-gradient(circle at 18% 14%, rgba(241, 255, 199, 0.2), transparent 26%),
+    radial-gradient(circle at 80% 28%, rgba(189, 232, 106, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(50, 91, 49, 0.98), rgba(45, 45, 25, 0.98));
+  --campus-card-bg:
+    radial-gradient(circle at 18% 14%, rgba(241, 255, 199, 0.2), transparent 26%),
+    radial-gradient(circle at 80% 28%, rgba(189, 232, 106, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(54, 99, 50, 0.98), rgba(52, 42, 24, 0.98));
+  --campus-card-text: #fffbe9;
+}
+
+.library-campus-theme-debate {
+  --campus-modal-accent: #f0c64b;
+  --campus-modal-accent-rgb: 240, 198, 75;
+  --campus-modal-overlay-bg:
+    radial-gradient(circle at 18% 12%, rgba(240, 198, 75, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(82, 126, 207, 0.18), transparent 28%),
+    rgba(11, 15, 30, 0.68);
+  --campus-modal-window-bg:
+    radial-gradient(circle at 18% 14%, rgba(255, 234, 178, 0.18), transparent 26%),
+    radial-gradient(circle at 82% 26%, rgba(82, 126, 207, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(55, 39, 58, 0.98), rgba(25, 32, 62, 0.98));
+  --campus-card-bg:
+    radial-gradient(circle at 18% 14%, rgba(255, 234, 178, 0.18), transparent 26%),
+    radial-gradient(circle at 82% 28%, rgba(82, 126, 207, 0.2), transparent 30%),
+    linear-gradient(145deg, rgba(83, 41, 45, 0.98), rgba(28, 36, 72, 0.98));
+  --campus-card-text: #fff8e8;
+}
+
+.library-campus-overlay.library-campus-theme-courtyard,
+.library-campus-overlay.library-campus-theme-debate {
+  background: var(--campus-modal-overlay-bg);
+}
+
+.library-campus-window.library-campus-theme-courtyard,
+.library-campus-window.library-campus-theme-debate,
+.library-experience-window.library-campus-theme-courtyard,
+.library-experience-window.library-campus-theme-debate {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.5);
+  background: var(--campus-modal-window-bg);
+  color: var(--campus-card-text);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.14),
+    inset 0 0 42px rgba(var(--campus-modal-accent-rgb), 0.1),
+    0 34px 76px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(var(--campus-modal-accent-rgb), 0.2);
+}
+
+.library-campus-theme-courtyard .library-campus-heading .challenge-label,
+.library-campus-theme-courtyard .library-experience-title .online-card-prompt,
+.library-campus-theme-debate .library-campus-heading .challenge-label,
+.library-campus-theme-debate .library-experience-title .online-card-prompt {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.42);
+  color: var(--campus-modal-accent);
+}
+
+.library-campus-theme-courtyard .library-campus-heading h3,
+.library-campus-theme-courtyard .library-experience-title h3,
+.library-campus-theme-debate .library-campus-heading h3,
+.library-campus-theme-debate .library-experience-title h3 {
+  color: var(--campus-card-text);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .library-id-choice-card .card-content,
+body.is-online-mode .library-campus-theme-debate .library-id-choice-card .card-content {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.5);
+  background: var(--campus-card-bg);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.15),
+    inset 0 0 34px rgba(var(--campus-modal-accent-rgb), 0.09),
+    0 18px 34px rgba(20, 21, 18, 0.24),
+    0 0 22px rgba(var(--campus-modal-accent-rgb), 0.18);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .online-card-prompt,
+body.is-online-mode .library-campus-theme-courtyard .online-glow-card .subtitle .highlight,
+body.is-online-mode .library-campus-theme-debate .online-card-prompt,
+body.is-online-mode .library-campus-theme-debate .online-glow-card .subtitle .highlight {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.4);
+  color: var(--campus-modal-accent);
+  background: rgba(var(--campus-modal-accent-rgb), 0.08);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .online-card-art,
+body.is-online-mode .library-campus-theme-debate .online-card-art {
+  background:
+    radial-gradient(circle, rgba(255, 250, 238, 0.92), rgba(var(--campus-modal-accent-rgb), 0.22) 62%, transparent 63%);
+  box-shadow:
+    0 0 26px rgba(var(--campus-modal-accent-rgb), 0.32),
+    inset 0 0 18px rgba(255, 246, 210, 0.35);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .campus-activity-id-card .online-card-art,
+body.is-online-mode .library-campus-theme-debate .campus-activity-id-card .online-card-art {
+  width: clamp(96px, 7.8vw, 132px);
+  height: clamp(96px, 7.8vw, 132px);
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 248, 225, 0.18), rgba(var(--campus-modal-accent-rgb), 0.18) 44%, rgba(27, 30, 24, 0.66) 68%, transparent 69%);
+  box-shadow:
+    0 0 28px rgba(var(--campus-modal-accent-rgb), 0.32),
+    inset 0 0 22px rgba(0, 0, 0, 0.2);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .campus-activity-id-card .online-card-image,
+body.is-online-mode .library-campus-theme-courtyard .campus-activity-id-card .online-card-image-slot .asset-image,
+body.is-online-mode .library-campus-theme-debate .campus-activity-id-card .online-card-image,
+body.is-online-mode .library-campus-theme-debate .campus-activity-id-card .online-card-image-slot .asset-image {
+  filter:
+    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.34))
+    drop-shadow(0 0 7px rgba(255, 246, 210, 0.34));
+}
+
+body.is-online-mode .library-campus-theme-courtyard .online-glow-card .title,
+body.is-online-mode .library-campus-theme-debate .online-glow-card .title {
+  color: var(--campus-card-text);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .online-glow-card .cyber-lines span,
+body.is-online-mode .library-campus-theme-debate .online-glow-card .cyber-lines span {
+  background: linear-gradient(90deg, transparent, rgba(var(--campus-modal-accent-rgb), 0.46), transparent);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .online-glow-card .glowing-elements span,
+body.is-online-mode .library-campus-theme-courtyard .online-glow-card .card-particles span,
+body.is-online-mode .library-campus-theme-debate .online-glow-card .glowing-elements span,
+body.is-online-mode .library-campus-theme-debate .online-glow-card .card-particles span,
+.library-campus-theme-courtyard .library-experience-chrome .glowing-elements span,
+.library-campus-theme-courtyard .library-experience-chrome .card-particles span,
+.library-campus-theme-debate .library-experience-chrome .glowing-elements span,
+.library-campus-theme-debate .library-experience-chrome .card-particles span {
+  background: var(--campus-modal-accent);
+  box-shadow: 0 0 12px rgba(var(--campus-modal-accent-rgb), 0.7);
+}
+
+body.is-online-mode .library-campus-theme-courtyard .online-glow-card .corner-elements span,
+body.is-online-mode .library-campus-theme-debate .online-glow-card .corner-elements span {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.58);
+}
+
 @media (max-width: 760px) {
   .library-campus-overlay {
     padding: 10px;
   }
 
   .library-campus-card-grid-two,
+  .library-campus-card-grid-three,
+  .library-campus-card-grid-four,
   .library-campus-card-grid-sections,
   .library-campus-card-grid-resources {
     grid-template-columns: 1fr;

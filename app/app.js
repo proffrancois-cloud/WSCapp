@@ -7,16 +7,14 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260705librarypopups";
+const ASSET_CACHE_VERSION = "20260705campusgames";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
-  writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
-  buildcase: "Debate Lab is available soon. We are keeping it closed for this public build.",
-  bowl: "Scholar's Bowl is available soon. We are keeping it closed for this public build."
+  writing: "Collaborative Writing is available soon. We are keeping it closed for this public build."
 });
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
 const MULTIPLAYER_ALLOWED_EMAILS = new Set([
@@ -2476,6 +2474,74 @@ const LIBRARY_GUIDE_RESOURCES = Object.freeze([
     logo: "./assets/library-guides/ready-scholar-one.png"
   }
 ]);
+
+const CAMPUS_ACTIVITY_MENU_CONFIGS = Object.freeze({
+  "courtyard-board-games": {
+    theme: "courtyard",
+    prompt: "Courtyard",
+    title: "Choose a game",
+    gridClass: "library-campus-card-grid-two",
+    modes: [
+      { modeId: "jeopardy", label: "Alpacapardy" },
+      { modeId: "relay", label: "AlpaQuiz" }
+    ]
+  },
+  "courtyard-maze-games": {
+    theme: "courtyard",
+    prompt: "Courtyard",
+    title: "Choose a maze game",
+    gridClass: "library-campus-card-grid-four",
+    modes: [
+      { modeId: "jump", label: "Alpaca Jump" },
+      { modeId: "race", label: "Survivalpaca" },
+      { modeId: "relay", label: "AlpaQuiz" },
+      { modeId: "run", label: "Alpaca Run" }
+    ]
+  },
+  "courtyard-track-games": {
+    theme: "courtyard",
+    prompt: "Track",
+    title: "Choose a track game",
+    gridClass: "library-campus-card-grid-two",
+    modes: [
+      { modeId: "jump", label: "Alpaca Jump" },
+      { modeId: "run", label: "Alpaca Run" }
+    ]
+  },
+  "courtyard-swing-games": {
+    theme: "courtyard",
+    prompt: "Swings",
+    title: "Choose a swing game",
+    gridClass: "library-campus-card-grid-two",
+    modes: [
+      { modeId: "relay", label: "AlpaQuiz" },
+      { modeId: "race", label: "Survivalpaca" }
+    ]
+  },
+  "debate-board-training": {
+    theme: "debate",
+    prompt: "Debate Lab",
+    title: "Choose a tournament tool",
+    gridClass: "library-campus-card-grid-three",
+    modes: [
+      { modeId: "buildcase", label: "DebateLab" },
+      { modeId: "quiz", label: "Scholar's Challenge" },
+      { modeId: "bowl", label: "Scholar's Bowl" }
+    ]
+  }
+});
+
+const CAMPUS_ACTIVITY_ZONE_TYPES = Object.freeze({
+  courtyard: new Map([
+    ["courtyard-board", "courtyard-board-games"],
+    ["courtyard-game-2", "courtyard-maze-games"],
+    ["courtyard-track-games", "courtyard-track-games"],
+    ["courtyard-swings-games", "courtyard-swing-games"]
+  ]),
+  "debate-lab": new Map([
+    ["debate-board", "debate-board-training"]
+  ])
+});
 
 const appLifecycleController = window.WSC_APP_LIFECYCLE_CONTROLLER.create({
   window,
@@ -7554,15 +7620,17 @@ function renderLibraryCampusModal() {
 
 function renderLibraryCampusMenu(type) {
   const config = getLibraryCampusMenuConfig(type);
+  const theme = config.theme || "library";
+  const prompt = config.prompt || "Library";
   return `
-    <div class="auth-modal-overlay library-campus-overlay" data-close-library-menu role="dialog" aria-modal="true" aria-labelledby="libraryCampusMenuTitle">
-      <div class="auth-modal-window library-campus-window library-campus-window-${escapeHtml(type)}" data-library-menu-window>
+    <div class="auth-modal-overlay library-campus-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-menu role="dialog" aria-modal="true" aria-labelledby="libraryCampusMenuTitle">
+      <div class="auth-modal-window library-campus-window library-campus-window-${escapeHtml(type)} library-campus-theme-${escapeHtml(theme)}" data-library-menu-window>
         <button class="popup-close-button" type="button" data-close-library-menu aria-label="Close library menu">
           <span aria-hidden="true">×</span>
         </button>
         <div class="auth-modal-stack library-campus-stack">
           <div class="library-campus-heading">
-            <p class="challenge-label">Library</p>
+            <p class="challenge-label">${escapeHtml(prompt)}</p>
             <h3 id="libraryCampusMenuTitle">${escapeHtml(config.title)}</h3>
           </div>
           <div class="library-campus-card-grid ${escapeHtml(config.gridClass)}">
@@ -7575,8 +7643,22 @@ function renderLibraryCampusMenu(type) {
 }
 
 function getLibraryCampusMenuConfig(type) {
+  const campusConfig = CAMPUS_ACTIVITY_MENU_CONFIGS[type];
+  if (campusConfig) {
+    return {
+      ...campusConfig,
+      content: campusConfig.modes.map((mode) => renderLibraryModeChoiceCard(mode.modeId, mode.label, {
+        prompt: campusConfig.prompt,
+        meta: mode.meta || "All guiding sections",
+        className: "library-mode-id-card campus-activity-id-card"
+      })).join("")
+    };
+  }
+
   if (type === "channel") {
     return {
+      theme: "library",
+      prompt: "Library",
       title: "Choose the canal",
       gridClass: "library-campus-card-grid-sections",
       content: renderLibraryChannelSectionCards()
@@ -7585,6 +7667,8 @@ function getLibraryCampusMenuConfig(type) {
 
   if (type === "study-tools") {
     return {
+      theme: "library",
+      prompt: "Library",
       title: "Choose a study tool",
       gridClass: "library-campus-card-grid-two",
       content: [
@@ -7596,6 +7680,8 @@ function getLibraryCampusMenuConfig(type) {
 
   if (type === "resources") {
     return {
+      theme: "library",
+      prompt: "Library",
       title: "Choose a guide",
       gridClass: "library-campus-card-grid-resources",
       content: LIBRARY_GUIDE_RESOURCES.map(renderLibraryGuideResourceCard).join("")
@@ -7603,6 +7689,8 @@ function getLibraryCampusMenuConfig(type) {
   }
 
   return {
+    theme: "library",
+    prompt: "Library",
     title: "Choose a library resource",
     gridClass: "library-campus-card-grid-two",
     content: [
@@ -7612,15 +7700,16 @@ function getLibraryCampusMenuConfig(type) {
   };
 }
 
-function renderLibraryModeChoiceCard(modeId, label) {
+function renderLibraryModeChoiceCard(modeId, label, options = {}) {
   const option = getModeOption(modeId) || { title: label, mood: "wise" };
   const title = label || option.title || modeId;
+  const defaultMeta = modeId === "alpacard" || modeId === "mindmap" ? "All guiding sections" : "All resources";
   return renderLibraryIdChoiceCard({
     actionAttribute: `data-library-launch-mode="${escapeHtml(modeId)}"`,
-    prompt: "Library",
+    prompt: options.prompt || "Library",
     title,
-    meta: modeId === "alpacard" || modeId === "mindmap" ? "All guiding sections" : "All resources",
-    className: "library-mode-id-card",
+    meta: options.meta || defaultMeta,
+    className: options.className || "library-mode-id-card",
     mediaHtml: renderConfiguredMascotAsset(
       getModeAssetPath(modeId),
       option.mood || "wise",
@@ -7731,6 +7820,9 @@ function renderLibraryExperienceViewer() {
   const modeId = state.selection.mode || state.experience?.type || "";
   const option = getModeOption(modeId) || { title: state.experience?.title || "Library" };
   const title = option.title || state.experience?.title || "Library";
+  const sourceConfig = getLibraryCampusMenuConfig(state.ui.libraryExperience?.returnMenuType);
+  const theme = sourceConfig.theme || "library";
+  const prompt = sourceConfig.prompt || "Library";
   const selectedLabels = getSelectedSectionLabels();
   const scope = selectedLabels.length === 1 ? selectedLabels[0] : "All guiding sections";
   const canBack = Boolean(state.ui.libraryExperience?.returnMenuType);
@@ -7741,8 +7833,8 @@ function renderLibraryExperienceViewer() {
   ].filter(Boolean).join(" ");
 
   return `
-    <div class="auth-modal-overlay library-campus-overlay library-experience-overlay" data-close-library-experience role="dialog" aria-modal="true" aria-labelledby="libraryExperienceTitle">
-      <div class="auth-modal-window library-experience-window" data-library-experience-window>
+    <div class="auth-modal-overlay library-campus-overlay library-experience-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-experience role="dialog" aria-modal="true" aria-labelledby="libraryExperienceTitle">
+      <div class="auth-modal-window library-experience-window library-campus-theme-${escapeHtml(theme)}" data-library-experience-window>
         <button class="popup-close-button" type="button" data-close-library-experience aria-label="Close library experience">
           <span aria-hidden="true">×</span>
         </button>
@@ -7753,7 +7845,7 @@ function renderLibraryExperienceViewer() {
           <div class="library-experience-top">
             ${canBack ? `<button class="button secondary small library-back-button" type="button" data-library-experience-back>Back</button>` : `<span></span>`}
             <div class="library-experience-title">
-              <span class="online-card-prompt">Library</span>
+              <span class="online-card-prompt">${escapeHtml(prompt)}</span>
               <h3 id="libraryExperienceTitle">${escapeHtml(title)}</h3>
               <p>${escapeHtml(scope)}</p>
             </div>
@@ -7800,31 +7892,41 @@ function renderLibraryResourceViewer(resource) {
 
 function handleCampus2DZoneAction(action) {
   const zoneId = action?.zoneId || "";
-  if (action?.roomId !== "library") {
-    return false;
+  const roomId = action?.roomId || "";
+
+  if (roomId === "library") {
+    if (LIBRARY_SHELF_ZONE_IDS.has(zoneId)) {
+      openLibraryCampusMenu("shelves");
+      return true;
+    }
+
+    if (zoneId === "library-alpacards") {
+      openLibraryCampusMenu("channel");
+      return true;
+    }
+
+    if (zoneId === "library-game-2") {
+      openLibraryCampusMenu("study-tools");
+      return true;
+    }
+
+    if (LIBRARY_COMPUTER_ZONE_IDS.has(zoneId)) {
+      openLibraryCampusMenu("resources");
+      return true;
+    }
   }
 
-  if (LIBRARY_SHELF_ZONE_IDS.has(zoneId)) {
-    openLibraryCampusMenu("shelves");
-    return true;
-  }
-
-  if (zoneId === "library-alpacards") {
-    openLibraryCampusMenu("channel");
-    return true;
-  }
-
-  if (zoneId === "library-game-2") {
-    openLibraryCampusMenu("study-tools");
-    return true;
-  }
-
-  if (LIBRARY_COMPUTER_ZONE_IDS.has(zoneId)) {
-    openLibraryCampusMenu("resources");
+  const campusMenuType = getCampusActivityMenuType(roomId, zoneId);
+  if (campusMenuType) {
+    openLibraryCampusMenu(campusMenuType);
     return true;
   }
 
   return false;
+}
+
+function getCampusActivityMenuType(roomId, zoneId) {
+  return CAMPUS_ACTIVITY_ZONE_TYPES[roomId]?.get(zoneId) || null;
 }
 
 function openLibraryCampusMenu(type) {
@@ -7887,7 +7989,7 @@ function launchLibraryMode(modeId, sectionIds = getOrderedSectionIds()) {
   state.ui.rawQuizPages = {};
   state.ui.rawMediaLightbox = null;
   state.ui.rawMediaSwipeStartX = null;
-  state.selection.path = "learn";
+  state.selection.path = getModePath(modeId) || "learn";
   state.selection.lens = DEFAULT_LENS_ID;
   state.selection.targetIds = selectedSectionIds;
   state.selection.targetId = selectedSectionIds[0];

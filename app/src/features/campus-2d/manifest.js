@@ -355,8 +355,10 @@
         hotspot("courtyard-board", "lesson", "Courtyard board", 690, 170, 290, 230)
       ],
       gameZones: [
-        gameZone("courtyard-board", "learn", "Courtyard board", 698, 173, 222, 161),
-        gameZone("courtyard-game-2", "game", "Game zone", 253, 667, 33, 51)
+        gameZone("courtyard-board", "play", "Choose Alpacapardy or AlpaQuiz", 698, 173, 222, 161),
+        gameZone("courtyard-game-2", "play", "Choose maze arcade game", 253, 667, 33, 51),
+        gameZone("courtyard-track-games", "play", "Choose Alpaca Jump or Alpaca Run", 128, 1194, 178, 82),
+        gameZone("courtyard-swings-games", "play", "Choose AlpaQuiz or Survivalpaca", 715, 1216, 112, 108)
       ],
       behindZones: [
         rect("courtyard-top-left-tree", 57, 167, 107, 43),
@@ -708,7 +710,7 @@
         hotspot("debate-board", "lesson", "Debate board", 390, 30, 405, 175)
       ],
       gameZones: [
-        gameZone("debate-board", "train", "Debate board", 390, 30, 405, 175)
+        gameZone("debate-board", "train", "Choose DebateLab, Scholar's Challenge, or Scholar's Bowl", 390, 30, 405, 175)
       ],
       behindZones: [
         rect("debate-lab-behind-4", 470, 569, 16, 18),

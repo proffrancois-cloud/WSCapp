@@ -165,6 +165,7 @@
       "jump": "./assets/Alpacajump/gameicone.png",
       "relay": "./assets/mascot/library/final-pack/Buzz.png",
       "buildcase": "./assets/mascot/library/final-pack/DebateLab.png",
+      "bowl": "./assets/mascot/library/final-pack/schalorsbowl.png",
       "race": "./assets/mascot/library/final-pack/Courir.png"
     },
     "targets": {

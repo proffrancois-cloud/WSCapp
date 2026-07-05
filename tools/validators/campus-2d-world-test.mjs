@@ -93,7 +93,7 @@ if (!manifest) {
   }
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 27, portals: 3, gameZones: 1, behindZones: 24, seats: 7 },
-    courtyard: { blockedZones: 131, portals: 2, gameZones: 2, behindZones: 58, seats: 18 },
+    courtyard: { blockedZones: 131, portals: 2, gameZones: 4, behindZones: 58, seats: 18 },
     library: { blockedZones: 47, portals: 1, gameZones: 9, behindZones: 37, seats: 39 },
     "debate-lab": { blockedZones: 60, portals: 1, gameZones: 1, behindZones: 20, seats: 71 }
   };
@@ -231,12 +231,14 @@ if (!manifest) {
   if ((courtyard?.seats || []).length < 15) {
     failures.push("Courtyard must include annotated sitting squares.");
   }
-  if (!courtyard?.gameZones?.some((zone) => zone.mode === "learn")) {
-    failures.push("Courtyard must include an orange learn game zone.");
+  if (!courtyard?.gameZones?.some((zone) => zone.id === "courtyard-board" && zone.mode === "play")) {
+    failures.push("Courtyard board must open the courtyard game selection popup.");
   }
-  if (!courtyard?.gameZones?.some((zone) => zone.id === "courtyard-game-2" && zone.mode === "game")) {
-    failures.push("Courtyard must include the exported orange game zone.");
+  if (!courtyard?.gameZones?.some((zone) => zone.id === "courtyard-game-2" && zone.mode === "play")) {
+    failures.push("Courtyard maze must open the four-game selection popup.");
   }
+  expectZoneRect(courtyard, "gameZones", "courtyard-track-games", { x: 128, y: 1194, width: 178, height: 82 });
+  expectZoneRect(courtyard, "gameZones", "courtyard-swings-games", { x: 715, y: 1216, width: 112, height: 108 });
   expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-126", { x: 141, y: 949, width: 12, height: 19 });
   expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-134", { x: 665, y: 276, width: 22, height: 23 });
   expectZoneRect(courtyard, "behindZones", "courtyard-behind-53", { x: 946, y: 615, width: 12, height: 65 });
@@ -280,8 +282,8 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705librarypopups"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 Library cache reset.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campusgames"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus game-zone reset.");
 }
 
 const appJs = readApp("app.js");
