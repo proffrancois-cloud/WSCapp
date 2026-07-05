@@ -7,10 +7,11 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260705campuspalette";
+const ASSET_CACHE_VERSION = "20260706lobbybehind";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
+const PWAA_PWAA_SHARED_DOC_URL = "https://docs.google.com/document/d/1H75m6OHX7YDKzI_F1yixmGGuHtUR5iiZrjlVBKiSxh8/edit?tab=t.lhrbuhopvqws";
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
@@ -134,6 +135,7 @@ const LIVE_GAME_TYPES = Object.freeze({
   }
 });
 const LIVE_GAME_ORDER = ["alpacapardy", "run", "quiz", "race", "alpaquiz"];
+const MULTIPLAYER_GAME_MODE_IDS = new Set(["jeopardy", "run", "jump", "relay", "race", "quiz", "buildcase", "bowl"]);
 const LIVE_SYNC_INTERVAL_MS = 900;
 const LIVE_ALPACA_COLORS = Object.freeze([
   { id: "cream", label: "Cream", hex: "#f7ead0", filter: "sepia(0.08) saturate(0.95)" },
@@ -2337,8 +2339,10 @@ const state = {
     openModeChoicePath: null,
     libraryMenu: null,
     libraryResource: null,
+    libraryEmbeddedDoc: null,
     librarySectionPicker: null,
     libraryExperience: null,
+    multiplayerGameChoice: null,
     rawMediaLightbox: null,
     rawMediaSwipeStartX: null
   },
@@ -2466,7 +2470,14 @@ const LIBRARY_GUIDE_RESOURCES = Object.freeze([
     id: "pwaa-pwaa-revolution",
     label: "PwaaPwaaRevolution",
     url: "https://pwaapwaarevolution.pwaaapwaarevolution.workers.dev/#",
-    logo: "./assets/library-guides/pwaa-pwaa-revolution.png"
+    logo: "./assets/library-guides/pwaa-pwaa-revolution.png",
+    embeddedDocs: [
+      {
+        id: "pwaa-pwaa-shared-doc",
+        label: "Shared Docs",
+        url: PWAA_PWAA_SHARED_DOC_URL
+      }
+    ]
   },
   {
     id: "ready-scholar-one",
@@ -2704,6 +2715,12 @@ function handleClick(event) {
     return;
   }
 
+  const multiplayerGameAudience = event.target.closest("[data-multiplayer-game-audience]");
+  if (multiplayerGameAudience) {
+    chooseMultiplayerGameAudience(multiplayerGameAudience.dataset.multiplayerGameAudience);
+    return;
+  }
+
   const liveCreateGame = event.target.closest("[data-live-create-game]");
   if (liveCreateGame) {
     createSelectedLiveGameRoom();
@@ -2797,6 +2814,27 @@ function handleClick(event) {
     return;
   }
 
+  const closeLibraryEmbeddedDoc = event.target.closest("[data-close-library-embedded-doc]");
+  if (closeLibraryEmbeddedDoc && (!event.target.closest("[data-library-embedded-doc-window]") || event.target.closest(".library-inline-close"))) {
+    event.preventDefault();
+    closeLibraryEmbeddedDocViewer();
+    return;
+  }
+
+  const libraryEmbeddedDocBack = event.target.closest("[data-library-embedded-doc-back]");
+  if (libraryEmbeddedDocBack) {
+    event.preventDefault();
+    closeLibraryEmbeddedDocViewer();
+    return;
+  }
+
+  const libraryResourceDoc = event.target.closest("[data-library-resource-doc]");
+  if (libraryResourceDoc) {
+    event.preventDefault();
+    openLibraryEmbeddedDoc(libraryResourceDoc.dataset.libraryResourceDoc);
+    return;
+  }
+
   const closeLibraryResource = event.target.closest("[data-close-library-resource]");
   if (closeLibraryResource && (!event.target.closest("[data-library-resource-window]") || event.target.closest(".popup-close-button, .library-inline-close"))) {
     event.preventDefault();
@@ -2829,6 +2867,13 @@ function handleClick(event) {
   if (closeLibrarySectionPicker && (!event.target.closest("[data-library-section-picker-window]") || event.target.closest(".popup-close-button, .library-inline-close"))) {
     event.preventDefault();
     closeLibrarySectionPickerPanel();
+    return;
+  }
+
+  const closeMultiplayerChoice = event.target.closest("[data-close-multiplayer-choice]");
+  if (closeMultiplayerChoice && (!event.target.closest("[data-multiplayer-choice-window]") || event.target.closest(".popup-close-button, .library-inline-close, .button"))) {
+    event.preventDefault();
+    closeMultiplayerGameChoice();
     return;
   }
 
@@ -3562,6 +3607,12 @@ function handleSubmit(event) {
 }
 
 function handleKeyDown(event) {
+  if (state.ui.libraryEmbeddedDoc && event.key === "Escape") {
+    event.preventDefault();
+    closeLibraryEmbeddedDocViewer();
+    return;
+  }
+
   if (state.ui.libraryResource && event.key === "Escape") {
     event.preventDefault();
     closeLibraryResourceViewer();
@@ -3577,6 +3628,12 @@ function handleKeyDown(event) {
   if (state.ui.librarySectionPicker && event.key === "Escape") {
     event.preventDefault();
     closeLibrarySectionPickerPanel();
+    return;
+  }
+
+  if (state.ui.multiplayerGameChoice && event.key === "Escape") {
+    event.preventDefault();
+    closeMultiplayerGameChoice();
     return;
   }
 
@@ -4502,6 +4559,7 @@ function switchToLocalMode() {
   state.ui.appEntryGateOpen = false;
   state.ui.appShellMode = "local";
   state.ui.cooperationOpen = true;
+  state.ui.multiplayerGameChoice = null;
   resetAlpacapardyLiveState();
   state.experience = null;
   state.selection.path = null;
@@ -4517,6 +4575,7 @@ function openAlpacaOnlineHub() {
   state.ui.appEntryGateOpen = false;
   state.ui.appShellMode = "online";
   state.ui.cooperationOpen = false;
+  state.ui.multiplayerGameChoice = null;
   state.ui.wizardTransition = "forward";
   state.live.onlineView = "campus";
   state.selection.path = "play";
@@ -4538,6 +4597,7 @@ function returnToAlpacaOnlineHub() {
   state.live.selectedGameType = "alpacapardy";
   state.live.arcadeState = null;
   state.live.error = "";
+  state.ui.multiplayerGameChoice = null;
   if (!state.experience || state.experience.type !== "jeopardy") {
     state.experience = buildJeopardyExperience();
     state.experience.playMode = "multiplayer";
@@ -5922,9 +5982,18 @@ function createEmptyArcadeState(gameType) {
 
 function chooseOnlineGameType(gameType) {
   const normalized = normalizeLiveGameType(gameType);
+  const modeId = LIVE_GAME_TYPES[normalized]?.modeId || "jeopardy";
+  openMultiplayerGameChoice(modeId, { gameType: normalized, source: "online" });
+}
+
+function setupConnectedOnlineGameType(gameType) {
+  const normalized = normalizeLiveGameType(gameType);
   if (state.live.currentSession) {
     return;
   }
+  state.ui.appEntryGateOpen = false;
+  state.ui.appShellMode = "online";
+  state.ui.cooperationOpen = false;
   state.live.selectedGameType = normalized;
   state.live.onlineView = "game";
   state.live.arcadeState = normalized === "alpacapardy" ? null : createEmptyArcadeState(normalized);
@@ -6981,7 +7050,7 @@ function hasActiveQuestionPopup() {
     return true;
   }
 
-  if (state.ui.libraryMenu || state.ui.libraryResource || state.ui.librarySectionPicker || state.ui.libraryExperience) {
+  if (state.ui.libraryMenu || state.ui.libraryResource || state.ui.libraryEmbeddedDoc || state.ui.librarySectionPicker || state.ui.libraryExperience || state.ui.multiplayerGameChoice) {
     return true;
   }
 
@@ -7034,8 +7103,10 @@ function syncPopupScrollLock() {
     (!campusActivityInline && (
       state.ui.libraryMenu ||
       state.ui.libraryResource ||
+      state.ui.libraryEmbeddedDoc ||
       state.ui.librarySectionPicker ||
-      state.ui.libraryExperience
+      state.ui.libraryExperience ||
+      state.ui.multiplayerGameChoice
     )) ||
     state.ui.rawMediaLightbox ||
     state.live.launchCountdownText ||
@@ -7645,12 +7716,23 @@ function getLibraryCampusInlineMount() {
 function renderLibraryCampusModal() {
   const inlineMount = getLibraryCampusInlineMount();
   const modalMount = getLibraryCampusModalMount();
-  const mount = inlineMount || modalMount;
-  if (inlineMount) {
+  const shouldUseModalMount = Boolean(
+    state.ui.libraryExperience &&
+    MULTIPLAYER_GAME_MODE_IDS.has(state.ui.libraryExperience.modeId)
+  );
+  const mount = shouldUseModalMount ? modalMount : (inlineMount || modalMount);
+  if (inlineMount && shouldUseModalMount) {
+    inlineMount.innerHTML = "";
+  } else if (inlineMount) {
     modalMount.innerHTML = "";
   }
   if (state.ui.libraryExperience && state.experience) {
     mount.innerHTML = renderLibraryExperienceViewer();
+    return;
+  }
+
+  if (state.ui.multiplayerGameChoice) {
+    mount.innerHTML = renderMultiplayerGameChoice(state.ui.multiplayerGameChoice);
     return;
   }
 
@@ -7693,6 +7775,97 @@ function renderLibraryCampusMenu(type) {
         </div>
       </div>
     </div>
+  `;
+}
+
+function renderMultiplayerGameChoice(choice) {
+  const modeId = choice.modeId || "";
+  const option = getModeOption(modeId) || { title: getLiveGameLabel(choice.gameType), mood: "determined" };
+  const title = option.title || getLiveGameLabel(choice.gameType) || "this game";
+  const sourceConfig = getLibraryCampusMenuConfig(choice.returnMenuType);
+  const theme = sourceConfig.theme || "courtyard";
+  const hasConnectedSetup = Boolean(choice.gameType || getConnectedLiveGameTypeForMode(modeId));
+  const connectedReview = Boolean(choice.connectedReview && !hasConnectedSetup);
+
+  return `
+    <div class="auth-modal-overlay library-campus-overlay multiplayer-choice-overlay library-campus-theme-${escapeHtml(theme)}" data-close-multiplayer-choice data-campus2d-ui role="dialog" aria-modal="true" aria-labelledby="multiplayerChoiceTitle">
+      <div class="auth-modal-window library-campus-window multiplayer-choice-window library-campus-theme-${escapeHtml(theme)}" data-multiplayer-choice-window data-campus2d-ui>
+        <button class="popup-close-button" type="button" data-close-multiplayer-choice aria-label="Close multiplayer choice">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="auth-modal-stack library-campus-stack multiplayer-choice-stack">
+          <div class="library-campus-heading multiplayer-choice-heading">
+            <p class="challenge-label">Multiplayer</p>
+            <h3 id="multiplayerChoiceTitle">${escapeHtml(connectedReview ? `${title} connected setup` : `Play ${title}`)}</h3>
+            <p class="multiplayer-choice-copy">${escapeHtml(connectedReview
+              ? "Connected play for this game needs a rules and sync review before it can open as a live room."
+              : "Choose whether this round stays on your own screen or uses a connected room.")}</p>
+          </div>
+          ${connectedReview ? renderMultiplayerConnectedReview(choice, title, option) : `
+            <div class="multiplayer-choice-grid">
+              ${renderMultiplayerAudienceCard({
+                audience: "alone",
+                title: "Alone",
+                body: "Normal local game",
+                modeId,
+                mood: option.mood || "determined"
+              })}
+              ${renderMultiplayerAudienceCard({
+                audience: "connected",
+                title: "With another alpaca connected",
+                body: hasConnectedSetup ? "Live room setup" : "Review setup first",
+                modeId,
+                mood: "excited"
+              })}
+            </div>
+          `}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderMultiplayerConnectedReview(choice, title, option) {
+  return `
+    <div class="multiplayer-choice-review">
+      ${renderConfiguredMascotAsset(
+        getModeAssetPath(choice.modeId),
+        option.mood || "thinking",
+        "medium",
+        {
+          alt: `${title} connected setup alpaca`,
+          slotClass: "multiplayer-choice-mascot-slot",
+          imageClass: "multiplayer-choice-mascot"
+        }
+      )}
+      <div class="panel-actions">
+        <button class="button primary" type="button" data-multiplayer-game-audience="alone">Play Alone</button>
+        <button class="button secondary" type="button" data-close-multiplayer-choice>Back</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderMultiplayerAudienceCard({ audience, title, body, modeId, mood }) {
+  return `
+    <button class="multiplayer-choice-card" type="button" data-multiplayer-game-audience="${escapeHtml(audience)}">
+      <span class="multiplayer-choice-art">
+        ${renderConfiguredMascotAsset(
+          getModeAssetPath(modeId),
+          mood,
+          "small",
+          {
+            alt: `${title} alpaca`,
+            slotClass: "multiplayer-choice-mascot-slot",
+            imageClass: "multiplayer-choice-mascot"
+          }
+        )}
+      </span>
+      <span class="multiplayer-choice-text">
+        <strong>${escapeHtml(title)}</strong>
+        <span>${escapeHtml(body)}</span>
+      </span>
+    </button>
   `;
 }
 
@@ -7815,6 +7988,7 @@ function renderLibraryInlineTopbar({
   title,
   scope = "",
   logo = "",
+  extraActionsHtml = "",
   backAttribute = "",
   closeAttribute = "",
   closeLabel = "Close",
@@ -7836,6 +8010,7 @@ function renderLibraryInlineTopbar({
         ${scope ? `<span class="library-inline-scope">${escapeHtml(scope)}</span>` : ""}
       </div>
       <div class="library-inline-actions">
+        ${extraActionsHtml}
         ${backHtml}
         <button class="library-inline-close" type="button" ${closeAttribute} aria-label="${escapeHtml(closeLabel)}">
           <span aria-hidden="true">×</span>
@@ -7958,6 +8133,75 @@ function renderLibraryExperienceViewer() {
   `;
 }
 
+function renderLibraryResourceDocActions(resource) {
+  const docs = Array.isArray(resource?.embeddedDocs) ? resource.embeddedDocs : [];
+  if (!docs.length) {
+    return "";
+  }
+
+  return docs.map((doc) => `
+    <button
+      class="library-inline-action library-inline-doc-action"
+      type="button"
+      data-library-resource-doc="${escapeHtml(doc.id || doc.url || "")}"
+    >${escapeHtml(doc.label || "Shared Docs")}</button>
+  `).join("");
+}
+
+function getLibraryResourceEmbeddedDoc(resource, docId) {
+  const docs = Array.isArray(resource?.embeddedDocs) ? resource.embeddedDocs : [];
+  return docs.find((doc) => String(doc.id || doc.url || "") === String(docId || "")) || null;
+}
+
+function getEmbeddableGoogleDocUrl(url) {
+  try {
+    const parsedUrl = new URL(url, window.location.href);
+    const pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+    if (parsedUrl.hostname === "docs.google.com" && pathParts[0] === "document" && pathParts[1] === "d" && pathParts[2]) {
+      const previewUrl = new URL(`/document/d/${pathParts[2]}/preview`, parsedUrl.origin);
+      const tabId = parsedUrl.searchParams.get("tab");
+      if (tabId) {
+        previewUrl.searchParams.set("tab", tabId);
+      }
+      return previewUrl.toString();
+    }
+  } catch (error) {
+    return url;
+  }
+
+  return url;
+}
+
+function renderLibraryEmbeddedDocOverlay(doc) {
+  if (!doc) {
+    return "";
+  }
+
+  const title = doc.label || "Shared Docs";
+  const embedUrl = doc.embedUrl || getEmbeddableGoogleDocUrl(doc.url);
+  return `
+    <div class="library-embedded-doc-overlay" data-close-library-embedded-doc role="dialog" aria-modal="true" aria-labelledby="libraryEmbeddedDocTitle">
+      <div class="library-embedded-doc-window" data-library-embedded-doc-window>
+        ${renderLibraryInlineTopbar({
+          title,
+          backAttribute: "data-library-embedded-doc-back",
+          closeAttribute: "data-close-library-embedded-doc",
+          closeLabel: "Close shared docs",
+          titleId: "libraryEmbeddedDocTitle"
+        })}
+        <iframe
+          class="library-embedded-doc-iframe"
+          src="${escapeHtml(embedUrl)}"
+          title="${escapeHtml(title)}"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="clipboard-write; fullscreen; web-share"
+        ></iframe>
+      </div>
+    </div>
+  `;
+}
+
 function renderLibraryResourceViewer(resource) {
   return `
     <div class="auth-modal-overlay library-campus-overlay library-resource-overlay" data-close-library-resource role="dialog" aria-modal="true" aria-labelledby="libraryResourceViewerTitle">
@@ -7966,6 +8210,7 @@ function renderLibraryResourceViewer(resource) {
           ${renderLibraryInlineTopbar({
             title: resource.label,
             logo: resource.logo,
+            extraActionsHtml: renderLibraryResourceDocActions(resource),
             backAttribute: "data-library-resource-back",
             closeAttribute: "data-close-library-resource",
             closeLabel: "Close embedded resource",
@@ -7979,6 +8224,7 @@ function renderLibraryResourceViewer(resource) {
             referrerpolicy="strict-origin-when-cross-origin"
             allow="clipboard-write; fullscreen; web-share"
           ></iframe>
+          ${renderLibraryEmbeddedDocOverlay(state.ui.libraryEmbeddedDoc)}
         </div>
       </div>
     </div>
@@ -8027,14 +8273,17 @@ function getCampusActivityMenuType(roomId, zoneId) {
 function openLibraryCampusMenu(type) {
   state.ui.libraryMenu = { type };
   state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
   state.ui.librarySectionPicker = null;
   state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
   syncPopupScrollLock();
   renderLibraryCampusModal();
 }
 
 function closeLibraryCampusMenu() {
   state.ui.libraryMenu = null;
+  state.ui.libraryEmbeddedDoc = null;
   syncPopupScrollLock();
   renderLibraryCampusModal();
 }
@@ -8047,32 +8296,188 @@ function openLibraryGuideResource(resourceId) {
 
   state.ui.libraryMenu = null;
   state.ui.libraryResource = resource;
+  state.ui.libraryEmbeddedDoc = null;
   state.ui.librarySectionPicker = null;
   state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
   syncPopupScrollLock();
   renderLibraryCampusModal();
 }
 
 function closeLibraryResourceViewer() {
   state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.multiplayerGameChoice = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function openLibraryEmbeddedDoc(docId) {
+  const doc = getLibraryResourceEmbeddedDoc(state.ui.libraryResource, docId);
+  if (!doc) {
+    return;
+  }
+
+  state.ui.libraryEmbeddedDoc = doc;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function closeLibraryEmbeddedDocViewer() {
+  state.ui.libraryEmbeddedDoc = null;
   syncPopupScrollLock();
   renderLibraryCampusModal();
 }
 
 function returnToLibraryResourceMenu() {
   state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
   state.ui.librarySectionPicker = null;
+  state.ui.multiplayerGameChoice = null;
   state.ui.libraryMenu = { type: "resources" };
   syncPopupScrollLock();
   renderLibraryCampusModal();
 }
 
 function chooseLibraryMode(modeId) {
+  if (shouldAskMultiplayerGameAudience(modeId)) {
+    openMultiplayerGameChoice(modeId);
+    return;
+  }
+
   if (isLibraryLearnMode(modeId)) {
     openLibrarySectionPicker(modeId);
     return;
   }
   launchLibraryMode(modeId);
+}
+
+function shouldAskMultiplayerGameAudience(modeId) {
+  return Boolean(
+    state.ui.appShellMode === "online" &&
+    !state.live.currentSession &&
+    MULTIPLAYER_GAME_MODE_IDS.has(modeId)
+  );
+}
+
+function getConnectedLiveGameTypeForMode(modeId) {
+  const match = Object.values(LIVE_GAME_TYPES).find((game) => game.modeId === modeId);
+  return match?.gameType || null;
+}
+
+function openMultiplayerGameChoice(modeId, options = {}) {
+  if (!modeId || !MULTIPLAYER_GAME_MODE_IDS.has(modeId)) {
+    return;
+  }
+
+  const returnMenuType = options.returnMenuType ||
+    state.ui.libraryMenu?.type ||
+    state.ui.librarySectionPicker?.returnMenuType ||
+    state.ui.libraryExperience?.returnMenuType ||
+    null;
+  const sectionIds = (Array.isArray(options.sectionIds) && options.sectionIds.length ? options.sectionIds : getOrderedSectionIds())
+    .map((sectionId) => normalizeSectionId(sectionId))
+    .filter((sectionId) => sectionById[sectionId]);
+  const connectedGameType = options.gameType || getConnectedLiveGameTypeForMode(modeId);
+
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = {
+    modeId,
+    gameType: connectedGameType,
+    returnMenuType,
+    sectionIds,
+    source: options.source || "campus",
+    connectedReview: Boolean(options.connectedReview)
+  };
+  state.experience = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function closeMultiplayerGameChoice() {
+  const returnMenuType = state.ui.multiplayerGameChoice?.returnMenuType || null;
+  state.ui.multiplayerGameChoice = null;
+  state.ui.libraryMenu = returnMenuType ? { type: returnMenuType } : null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function chooseMultiplayerGameAudience(audience) {
+  const choice = state.ui.multiplayerGameChoice;
+  if (!choice) {
+    return;
+  }
+
+  if (audience === "alone") {
+    launchMultiplayerGameAlone(choice);
+    return;
+  }
+
+  if (audience === "connected") {
+    launchMultiplayerGameConnected(choice);
+  }
+}
+
+function launchMultiplayerGameAlone(choice) {
+  const modeId = choice.modeId;
+  const sectionIds = Array.isArray(choice.sectionIds) && choice.sectionIds.length ? choice.sectionIds : getOrderedSectionIds();
+
+  clearJeopardyTimer();
+  clearExperienceTimers();
+  resetAlpacapardyLiveState();
+  closeHeroMenu();
+  state.ui.appEntryGateOpen = false;
+  state.ui.appShellMode = "local";
+  state.ui.cooperationOpen = false;
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
+  state.ui.wizardTransition = "forward";
+  state.ui.rawQuizSelections = {};
+  state.ui.rawQuizPages = {};
+  state.ui.rawMediaLightbox = null;
+  state.ui.rawMediaSwipeStartX = null;
+  state.live.error = "";
+  state.selection.path = getModePath(modeId) || "play";
+  state.selection.lens = DEFAULT_LENS_ID;
+  state.selection.targetIds = sectionIds;
+  state.selection.targetId = sectionIds[0] || null;
+  state.selection.mode = modeId;
+  state.experience = isModeUnavailable(modeId)
+    ? buildUnavailableModeExperience(modeId)
+    : buildExperienceForMode(modeId);
+  render();
+  refs.experiencePanel?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function launchMultiplayerGameConnected(choice) {
+  const gameType = choice.gameType || getConnectedLiveGameTypeForMode(choice.modeId);
+  if (!gameType) {
+    state.ui.multiplayerGameChoice = {
+      ...choice,
+      connectedReview: true
+    };
+    renderLibraryCampusModal();
+    return;
+  }
+
+  state.ui.multiplayerGameChoice = null;
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.appEntryGateOpen = false;
+  state.ui.appShellMode = "online";
+  state.ui.cooperationOpen = false;
+  state.experience = null;
+  setupConnectedOnlineGameType(gameType);
 }
 
 function isLibraryLearnMode(modeId) {
@@ -8088,7 +8493,9 @@ function openLibrarySectionPicker(modeId) {
 
   state.ui.libraryMenu = null;
   state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
   state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
   state.ui.librarySectionPicker = {
     modeId,
     returnMenuType,
@@ -8150,7 +8557,9 @@ function launchLibraryMode(modeId, sectionIds = getOrderedSectionIds(), returnMe
   closeHeroMenu();
   state.ui.libraryMenu = null;
   state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
   state.ui.librarySectionPicker = null;
+  state.ui.multiplayerGameChoice = null;
   state.ui.libraryExperience = { modeId, returnMenuType };
   state.ui.appEntryGateOpen = false;
   state.ui.cooperationOpen = false;

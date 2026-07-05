@@ -173,7 +173,6 @@
         rect("lobby-behind-12", 100, 883, 23, 65),
         rect("lobby-behind-13", 128, 893, 23, 50),
         rect("lobby-behind-14", 218, 899, 95, 26),
-        rect("lobby-behind-15", 842, 901, 99, 20),
         rect("lobby-behind-16", 182, 515, 56, 147),
         rect("lobby-behind-17", 1081, 869, 34, 62),
         rect("lobby-behind-18", 1041, 884, 23, 47),

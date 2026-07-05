@@ -45,6 +45,11 @@
     portal: { key: "portals", label: "blue portal", className: "portal" },
     game: { key: "gameZones", label: "orange game", className: "game" }
   });
+  const RETIRED_DEV_ZONE_IDS = Object.freeze({
+    lobby: Object.freeze({
+      behindZones: new Set(["lobby-behind-15"])
+    })
+  });
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -976,13 +981,45 @@
       try {
         const parsed = JSON.parse(safeStorageGet(STORAGE_DEV_ZONES_KEY) || "{}");
         if (parsed && typeof parsed === "object") {
-          return {
+          const data = {
             schema: "wsc.campus2d.devZones.v1",
             rooms: parsed.rooms && typeof parsed.rooms === "object" ? parsed.rooms : {}
           };
+          if (removeRetiredDevZones(data)) {
+            safeStorageSet(STORAGE_DEV_ZONES_KEY, JSON.stringify(data));
+          }
+          return data;
         }
       } catch (_error) {}
       return { schema: "wsc.campus2d.devZones.v1", rooms: {} };
+    }
+
+    function isRetiredDevZone(roomId, key, zone) {
+      return Boolean(RETIRED_DEV_ZONE_IDS[roomId]?.[key]?.has(zone?.id));
+    }
+
+    function filterRetiredDevZones(roomId, key, zones = []) {
+      return zones.filter((zone) => !isRetiredDevZone(roomId, key, zone));
+    }
+
+    function removeRetiredDevZones(data) {
+      let changed = false;
+      Object.entries(data.rooms || {}).forEach(([roomId, roomData]) => {
+        if (!roomData || typeof roomData !== "object") {
+          return;
+        }
+        Object.keys(RETIRED_DEV_ZONE_IDS[roomId] || {}).forEach((key) => {
+          if (!Array.isArray(roomData[key])) {
+            return;
+          }
+          const filtered = filterRetiredDevZones(roomId, key, roomData[key]);
+          if (filtered.length !== roomData[key].length) {
+            roomData[key] = filtered;
+            changed = true;
+          }
+        });
+      });
+      return changed;
     }
 
     function getRoomBaseZones(targetRoom = room) {
@@ -998,11 +1035,11 @@
     function normalizeRoomOverride(targetRoom, override = {}) {
       const base = getRoomBaseZones(targetRoom);
       return {
-        blockedZones: cloneZoneItems("blocked", Array.isArray(override.blockedZones) ? override.blockedZones : base.blockedZones),
-        seats: applySeatDirections(targetRoom, cloneZoneItems("seat", Array.isArray(override.seats) ? override.seats : base.seats), base.seats),
-        behindZones: cloneZoneItems("behind", Array.isArray(override.behindZones) ? override.behindZones : base.behindZones),
-        portals: cloneZoneItems("portal", Array.isArray(override.portals) ? override.portals : base.portals),
-        gameZones: cloneZoneItems("game", Array.isArray(override.gameZones) ? override.gameZones : base.gameZones)
+        blockedZones: cloneZoneItems("blocked", filterRetiredDevZones(targetRoom.id, "blockedZones", Array.isArray(override.blockedZones) ? override.blockedZones : base.blockedZones)),
+        seats: applySeatDirections(targetRoom, cloneZoneItems("seat", filterRetiredDevZones(targetRoom.id, "seats", Array.isArray(override.seats) ? override.seats : base.seats)), base.seats),
+        behindZones: cloneZoneItems("behind", filterRetiredDevZones(targetRoom.id, "behindZones", Array.isArray(override.behindZones) ? override.behindZones : base.behindZones)),
+        portals: cloneZoneItems("portal", filterRetiredDevZones(targetRoom.id, "portals", Array.isArray(override.portals) ? override.portals : base.portals)),
+        gameZones: cloneZoneItems("game", filterRetiredDevZones(targetRoom.id, "gameZones", Array.isArray(override.gameZones) ? override.gameZones : base.gameZones))
       };
     }
 
@@ -2153,12 +2190,15 @@
       const viewportHeight = viewport.clientHeight || 1;
       const screenX = (npc.x * camera.scale) + camera.x;
       const screenY = (npc.y * camera.scale) + camera.y;
-      const cardWidth = Math.min(430, Math.max(260, viewportWidth - 24));
+      const textOnly = card.classList.contains("is-text-only");
+      const maxDialogueWidth = textOnly ? 560 : 430;
+      const minDialogueWidth = textOnly ? 300 : 260;
+      const cardWidth = Math.min(maxDialogueWidth, Math.max(minDialogueWidth, viewportWidth - 24));
       card.style.width = `${cardWidth}px`;
 
-      const prefersRight = screenX < viewportWidth * 0.54;
       const cardHeight = card.offsetHeight || 260;
-      let left = prefersRight ? screenX + 30 : screenX - cardWidth - 30;
+      const prefersRight = screenX < viewportWidth * 0.54;
+      let left = textOnly ? screenX - (cardWidth / 2) : (prefersRight ? screenX + 30 : screenX - cardWidth - 30);
       left = clamp(left, 12, Math.max(12, viewportWidth - cardWidth - 12));
 
       let top = screenY - cardHeight - 22;
@@ -2185,12 +2225,14 @@
       if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
         textElement.textContent = text;
         cursorElement.hidden = true;
+        updateNpcDialoguePosition();
         return;
       }
 
       const tick = () => {
         index = Math.min(graphemes.length, index + NPC_DIALOGUE_CHARS_PER_TICK);
         textElement.textContent = graphemes.slice(0, index).join("");
+        updateNpcDialoguePosition();
         if (index >= graphemes.length) {
           cursorElement.hidden = true;
           npcTypingTimer = 0;
@@ -2215,9 +2257,26 @@
 
       closePlayerCard();
       closeNpcDialogue();
-      if (npcElement) {
-        showBubble(npcElement, message);
-      }
+      const card = createEl("section", "campus2d-npc-dialogue is-text-only", {
+        role: "dialog",
+        "aria-live": "polite",
+        "aria-label": getNpcDialogueTitle(npc),
+        "data-campus2d-ui": ""
+      });
+      const textBox = createEl("p", "campus2d-npc-dialogue-text");
+      const copy = createEl("span", "campus2d-npc-dialogue-copy");
+      const cursor = createEl("span", "campus2d-npc-dialogue-cursor", { "aria-hidden": "true" });
+      textBox.append(copy, cursor);
+      card.append(textBox);
+      activeNpcDialogue = { card, npc };
+      npcDialogueLayer.hidden = false;
+      npcDialogueLayer.replaceChildren(card);
+      updateNpcDialoguePosition();
+      window.requestAnimationFrame(() => {
+        card.classList.add("is-visible");
+        updateNpcDialoguePosition();
+      });
+      typeNpcDialogueText(copy, cursor, message);
     }
 
     function showBubble(playerElement, message) {

@@ -93,7 +93,7 @@ if (!manifest) {
     }
   }
   const expectedRoomZoneCounts = {
-    lobby: { blockedZones: 27, portals: 3, gameZones: 0, behindZones: 24, seats: 7 },
+    lobby: { blockedZones: 27, portals: 3, gameZones: 0, behindZones: 23, seats: 7 },
     courtyard: { blockedZones: 131, portals: 2, gameZones: 4, behindZones: 58, seats: 18 },
     library: { blockedZones: 47, portals: 1, gameZones: 9, behindZones: 37, seats: 39 },
     "debate-lab": { blockedZones: 60, portals: 1, gameZones: 1, behindZones: 20, seats: 71 }
@@ -169,6 +169,9 @@ if (!manifest) {
   }
   if ((lobby?.gameZones || []).some((zone) => zone.id === "lobby-game-2" || zone.mode === "game")) {
     failures.push("Lobby spawn area must not expose a clickable game zone.");
+  }
+  if ((lobby?.behindZones || []).some((zone) => zone.id === "lobby-behind-15")) {
+    failures.push("Lobby must not keep the removed purple behind zone lobby-behind-15.");
   }
   expectManifestEntry(lobby, "npcs", "lobby-instructions-npc", { x: 578, y: 285, direction: "down", colorId: "red" });
   if ((lobby?.behindZones || []).length < 5) {
@@ -282,10 +285,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campuspalette"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus panel reset.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706lobbybehind"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the lobby behind-zone cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campuspalette")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706lobbybehind")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 
@@ -305,6 +308,10 @@ for (const appNeedle of [
   "data-library-section-confirm",
   "renderLibraryCampusSectionPicker",
   "renderLibraryInlineTopbar",
+  "PWAA_PWAA_SHARED_DOC_URL",
+  "libraryEmbeddedDoc",
+  "data-library-resource-doc",
+  "renderLibraryEmbeddedDocOverlay",
   "library-inline-game-shell"
 ]) {
   if (!appJs.includes(appNeedle)) {
@@ -336,7 +343,8 @@ for (const runtimeNeedle of [
   "activityPanel.append(activityMount, debugPanel)",
   "viewport.append(world, chatForm, npcDialogueLayer)",
   "updateShellHeight",
-  "showBubble(npcElement, message)",
+  "typeNpcDialogueText(copy, cursor, message)",
+  "campus2d-npc-dialogue is-text-only",
   "updateConnectedCount",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
@@ -357,6 +365,8 @@ for (const runtimeNeedle of [
   "data-campus2d-zone-copy",
   "Copy patch",
   "whole image walkable",
+  "RETIRED_DEV_ZONE_IDS",
+  "removeRetiredDevZones(data)",
   "setDebugEnabled(!debugEnabled)",
   "ALPACA_COLLISION_RADIUS",
   "WALK_FRAME_COLUMNS",
@@ -492,7 +502,11 @@ for (const styleNeedle of [
   ".campus2d-zone-fields",
   ".campus2d-zone-direction",
   ".campus2d-chat-stack",
+  ".campus2d-npc-dialogue.is-text-only",
   ".library-inline-topbar",
+  ".library-inline-doc-action",
+  ".library-embedded-doc-overlay",
+  ".library-embedded-doc-iframe",
   ".library-inline-panel-title",
   ".library-inline-game-shell"
 ]) {
