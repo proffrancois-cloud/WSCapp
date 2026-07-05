@@ -282,10 +282,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campusgames"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus game-zone reset.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campuspanels"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus panel reset.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campusgames")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campuspanels")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 
@@ -299,7 +299,11 @@ if (!appJs.includes("renderOnlineHomeGameGrid")) {
 for (const appNeedle of [
   "isCampusActivityInlineActive",
   "data-campus2d-activity-mount",
-  "getLibraryCampusInlineMount"
+  "getLibraryCampusInlineMount",
+  "librarySectionPicker",
+  "data-library-section-choice",
+  "data-library-section-confirm",
+  "renderLibraryCampusSectionPicker"
 ]) {
   if (!appJs.includes(appNeedle)) {
     failures.push(`app.js is missing inline Campus 2D activity support: ${appNeedle}.`);
@@ -327,8 +331,10 @@ for (const runtimeNeedle of [
   "updatePlayerCardTilt",
   "resetPlayerCardTilt",
   "headerCardHost.append(playerCard)",
-  "activityPanel.append(activityMount)",
-  "controlsPanel.append(debugPanel, chatForm)",
+  "activityPanel.append(activityMount, debugPanel)",
+  "viewport.append(world, chatForm, npcDialogueLayer)",
+  "updateShellHeight",
+  "campus2d-npc-dialogue is-text-only",
   "updateConnectedCount",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
@@ -495,20 +501,20 @@ if (!/\.campus2d-chat-bubble\s*\{[^}]*background:\s*color-mix\(in srgb,\s*var\(-
 if (!/\.campus2d-chat-bubble\s*\{[^}]*color:\s*var\(--campus2d-bubble-text/.test(styles)) {
   failures.push("Campus 2D world chat bubbles must set readable text on alpaca-colored bubbles.");
 }
-if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-activity-width\)\s*var\(--campus2d-controls-width\)/i.test(styles)) {
-  failures.push("Campus 2D layout must place the world first, then activity and chat columns.");
+if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-panel-width\)/i.test(styles)) {
+  failures.push("Campus 2D layout must place the world first, then one wide right activity block.");
 }
-if (!/\.campus2d-root\.is-debug\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-activity-width\)\s*var\(--campus2d-controls-width\)/i.test(styles)) {
-  failures.push("Campus 2D dev mode must stay inside the right controls column instead of overlaying the room.");
+if (!/\.campus2d-root\.is-debug\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-panel-width\)/i.test(styles)) {
+  failures.push("Campus 2D dev mode must stay inside the wide right activity block instead of overlaying the room.");
 }
 if (!/\.campus2d-activity-panel\s*\{[^}]*background:\s*#030303/i.test(styles)) {
-  failures.push("Campus 2D activity panel must sit in the first black right column.");
+  failures.push("Campus 2D activity panel must sit in the black right block.");
 }
-if (!/\.campus2d-controls-panel\s*\{[^}]*background:\s*#030303/i.test(styles)) {
-  failures.push("Campus 2D message and dev controls must sit in the second black right column.");
+if (!/\.campus2d-controls-panel\s*\{[^}]*display:\s*none/i.test(styles)) {
+  failures.push("Campus 2D must not keep the old second controls column visible.");
 }
-if (!/\.campus2d-chat-form\s*\{[^}]*position:\s*sticky/i.test(styles)) {
-  failures.push("Campus 2D message form must stay anchored in the right controls panel.");
+if (!/\.campus2d-chat-form\s*\{[^}]*position:\s*absolute/i.test(styles)) {
+  failures.push("Campus 2D message form must sit over the bottom-left of the map viewport.");
 }
 if (!/\.campus2d-header-card-host\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D Alpaca ID card must be mounted into the header.");
@@ -516,8 +522,8 @@ if (!/\.campus2d-header-card-host\s*\{[^}]*position:\s*absolute/i.test(styles)) 
 if (/\.campus2d-hud\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D HUD must not overlay the room viewport.");
 }
-if (/\.campus2d-chat-form\s*\{[^}]*position:\s*absolute/i.test(styles)) {
-  failures.push("Campus 2D chat form must not overlay the bottom of the room viewport.");
+if (!styles.includes(".library-experience-panel .learn-card-footer-nav") || !/\.library-experience-panel\s+\.panel-hub-link,[\s\S]*?display:\s*none\s*!important/i.test(styles)) {
+  failures.push("Campus 2D learn experiences must hide cross-mode footer navigation.");
 }
 if (/openGameLauncher|campus2d-games-button|getGameLauncherHtml|data-campus2d-popup/.test(campusRuntime)) {
   failures.push("Campus 2D must not expose the old generic live-game launcher.");

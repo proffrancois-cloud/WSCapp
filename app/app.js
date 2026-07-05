@@ -7,7 +7,7 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260705campusgames";
+const ASSET_CACHE_VERSION = "20260705campuspanels";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -2337,6 +2337,7 @@ const state = {
     openModeChoicePath: null,
     libraryMenu: null,
     libraryResource: null,
+    librarySectionPicker: null,
     libraryExperience: null,
     rawMediaLightbox: null,
     rawMediaSwipeStartX: null
@@ -2824,6 +2825,34 @@ function handleClick(event) {
     return;
   }
 
+  const closeLibrarySectionPicker = event.target.closest("[data-close-library-section-picker]");
+  if (closeLibrarySectionPicker && (!event.target.closest("[data-library-section-picker-window]") || event.target.closest(".popup-close-button"))) {
+    event.preventDefault();
+    closeLibrarySectionPickerPanel();
+    return;
+  }
+
+  const librarySectionPickerBack = event.target.closest("[data-library-section-picker-back]");
+  if (librarySectionPickerBack) {
+    event.preventDefault();
+    returnToLibrarySectionPickerMenu();
+    return;
+  }
+
+  const librarySectionChoice = event.target.closest("[data-library-section-choice]");
+  if (librarySectionChoice) {
+    event.preventDefault();
+    selectLibrarySectionPickerSection(librarySectionChoice.dataset.librarySectionChoice);
+    return;
+  }
+
+  const librarySectionConfirm = event.target.closest("[data-library-section-confirm]");
+  if (librarySectionConfirm) {
+    event.preventDefault();
+    launchLibraryModeFromSectionPicker();
+    return;
+  }
+
   const closeLibraryMenu = event.target.closest("[data-close-library-menu]");
   if (closeLibraryMenu && (!event.target.closest("[data-library-menu-window]") || event.target.closest(".popup-close-button"))) {
     event.preventDefault();
@@ -2834,14 +2863,7 @@ function handleClick(event) {
   const libraryLaunchMode = event.target.closest("[data-library-launch-mode]");
   if (libraryLaunchMode) {
     event.preventDefault();
-    launchLibraryMode(libraryLaunchMode.dataset.libraryLaunchMode);
-    return;
-  }
-
-  const libraryChannelSection = event.target.closest("[data-library-channel-section]");
-  if (libraryChannelSection) {
-    event.preventDefault();
-    launchLibraryMode("channel", [libraryChannelSection.dataset.libraryChannelSection].filter(Boolean));
+    chooseLibraryMode(libraryLaunchMode.dataset.libraryLaunchMode);
     return;
   }
 
@@ -3482,7 +3504,6 @@ function handleClick(event) {
   const changeSectionsButton = event.target.closest("[data-change-sections]");
   if (changeSectionsButton) {
     if (state.ui.libraryExperience) {
-      returnToLibraryExperienceMenu();
       return;
     }
     changeGuidingSections();
@@ -3492,7 +3513,6 @@ function handleClick(event) {
   const changeModeButton = event.target.closest("[data-change-mode]");
   if (changeModeButton) {
     if (state.ui.libraryExperience) {
-      returnToLibraryExperienceMenu();
       return;
     }
     changeModeSelection();
@@ -3551,6 +3571,12 @@ function handleKeyDown(event) {
   if (state.ui.libraryExperience && event.key === "Escape") {
     event.preventDefault();
     closeLibraryExperienceViewer();
+    return;
+  }
+
+  if (state.ui.librarySectionPicker && event.key === "Escape") {
+    event.preventDefault();
+    closeLibrarySectionPickerPanel();
     return;
   }
 
@@ -6955,7 +6981,7 @@ function hasActiveQuestionPopup() {
     return true;
   }
 
-  if (state.ui.libraryMenu || state.ui.libraryResource || state.ui.libraryExperience) {
+  if (state.ui.libraryMenu || state.ui.libraryResource || state.ui.librarySectionPicker || state.ui.libraryExperience) {
     return true;
   }
 
@@ -7005,7 +7031,12 @@ function syncPopupScrollLock() {
     state.ui.resourcesOpen ||
     state.ui.cooperationOpen ||
     state.ui.authOpen ||
-    (!campusActivityInline && (state.ui.libraryMenu || state.ui.libraryResource || state.ui.libraryExperience)) ||
+    (!campusActivityInline && (
+      state.ui.libraryMenu ||
+      state.ui.libraryResource ||
+      state.ui.librarySectionPicker ||
+      state.ui.libraryExperience
+    )) ||
     state.ui.rawMediaLightbox ||
     state.live.launchCountdownText ||
     (state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
@@ -7623,6 +7654,11 @@ function renderLibraryCampusModal() {
     return;
   }
 
+  if (state.ui.librarySectionPicker) {
+    mount.innerHTML = renderLibraryCampusSectionPicker(state.ui.librarySectionPicker);
+    return;
+  }
+
   if (state.ui.libraryResource) {
     mount.innerHTML = renderLibraryResourceViewer(state.ui.libraryResource);
     return;
@@ -7666,8 +7702,6 @@ function getLibraryCampusMenuConfig(type) {
     return {
       ...campusConfig,
       content: campusConfig.modes.map((mode) => renderLibraryModeChoiceCard(mode.modeId, mode.label, {
-        prompt: campusConfig.prompt,
-        meta: mode.meta || "All guiding sections",
         className: "library-mode-id-card campus-activity-id-card"
       })).join("")
     };
@@ -7677,9 +7711,9 @@ function getLibraryCampusMenuConfig(type) {
     return {
       theme: "library",
       prompt: "Library",
-      title: "Choose the canal",
-      gridClass: "library-campus-card-grid-sections",
-      content: renderLibraryChannelSectionCards()
+      title: "Choose a learning mode",
+      gridClass: "library-campus-card-grid-two",
+      content: renderLibraryModeChoiceCard("channel", "Alpaca Channel")
     };
   }
 
@@ -7721,12 +7755,9 @@ function getLibraryCampusMenuConfig(type) {
 function renderLibraryModeChoiceCard(modeId, label, options = {}) {
   const option = getModeOption(modeId) || { title: label, mood: "wise" };
   const title = label || option.title || modeId;
-  const defaultMeta = modeId === "alpacard" || modeId === "mindmap" ? "All guiding sections" : "All resources";
   return renderLibraryIdChoiceCard({
     actionAttribute: `data-library-launch-mode="${escapeHtml(modeId)}"`,
-    prompt: options.prompt || "Library",
     title,
-    meta: options.meta || defaultMeta,
     className: options.className || "library-mode-id-card",
     mediaHtml: renderConfiguredMascotAsset(
       getModeAssetPath(modeId),
@@ -7742,31 +7773,6 @@ function renderLibraryModeChoiceCard(modeId, label, options = {}) {
   });
 }
 
-function renderLibraryChannelSectionCards() {
-  return getOrderedSectionIds().map((sectionId) => {
-    const section = sectionById[sectionId] || { title: sectionId };
-    const title = section.title || section.originalTitle || sectionId;
-    return renderLibraryIdChoiceCard({
-      actionAttribute: `data-library-channel-section="${escapeHtml(sectionId)}"`,
-      prompt: "Canal",
-      title,
-      meta: "Alpaca Channel",
-      className: "library-section-id-card",
-      mediaHtml: renderConfiguredMascotAsset(
-        getLibrarySectionAssetPath(sectionId),
-        section.mood || "wise",
-        "small",
-        {
-          alt: `${title} route alpaca`,
-          slotClass: "online-card-image-slot library-id-image-slot",
-          imageClass: "online-card-image library-id-image",
-          eager: true
-        }
-      )
-    });
-  }).join("");
-}
-
 function getLibrarySectionAssetPath(sectionId) {
   return appAssetService?.getTargetPath
     ? appAssetService.getTargetPath(sectionId, DEFAULT_LENS_ID)
@@ -7776,9 +7782,7 @@ function getLibrarySectionAssetPath(sectionId) {
 function renderLibraryGuideResourceCard(resource) {
   return renderLibraryIdChoiceCard({
     actionAttribute: `data-library-resource="${escapeHtml(resource.id)}"`,
-    prompt: "Guide",
     title: resource.label,
-    meta: "Embedded page",
     className: "library-resource-id-card",
     mediaHtml: `
       <span class="library-id-logo-shell">
@@ -7788,7 +7792,7 @@ function renderLibraryGuideResourceCard(resource) {
   });
 }
 
-function renderLibraryIdChoiceCard({ actionAttribute, prompt, title, meta, mediaHtml, className = "" }) {
+function renderLibraryIdChoiceCard({ actionAttribute, title, mediaHtml, className = "" }) {
   return `
     <button class="library-id-choice-card online-glow-card ${escapeHtml(className)}" type="button" ${actionAttribute} aria-label="${escapeHtml(title)}">
       <span class="online-card-container noselect">
@@ -7797,16 +7801,73 @@ function renderLibraryIdChoiceCard({ actionAttribute, prompt, title, meta, media
           <span class="online-card-frame">
             <span class="card-content">
               ${renderLibraryCardEffects()}
-              <span class="online-card-prompt">${escapeHtml(prompt)}</span>
               <span class="online-card-art library-id-art">${mediaHtml}</span>
               <span class="title library-id-title">${escapeHtml(title)}</span>
-              <span class="subtitle library-id-subtitle">
-                <span class="highlight">${escapeHtml(meta)}</span>
-              </span>
             </span>
           </span>
         </span>
       </span>
+    </button>
+  `;
+}
+
+function renderLibraryCampusSectionPicker(picker) {
+  const modeId = picker.modeId || "";
+  const option = getModeOption(modeId) || { title: "Learn" };
+  const selectedSectionId = normalizeSectionId(picker.selectedSectionId) || getOrderedSectionIds()[0] || "";
+  const returnMenuType = picker.returnMenuType || null;
+  const sourceConfig = getLibraryCampusMenuConfig(returnMenuType);
+  const theme = sourceConfig.theme || "library";
+  return `
+    <div class="auth-modal-overlay library-campus-overlay library-section-picker-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-section-picker role="dialog" aria-modal="true" aria-labelledby="librarySectionPickerTitle">
+      <div class="auth-modal-window library-campus-window library-section-picker-window library-campus-theme-${escapeHtml(theme)}" data-library-section-picker-window>
+        <button class="popup-close-button" type="button" data-close-library-section-picker aria-label="Close section picker">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="auth-modal-stack library-campus-stack library-section-picker-stack">
+          <div class="library-campus-heading library-section-picker-heading">
+            <p class="challenge-label">${escapeHtml(option.title || "Learn")}</p>
+            <h3 id="librarySectionPickerTitle">Choose one guiding section</h3>
+          </div>
+          <div class="selected-section-chip-strip library-section-picker-strip" aria-label="Choose one guiding section">
+            ${getOrderedSectionIds().map((sectionId) => renderLibrarySectionChoiceChip(sectionId, sectionId === selectedSectionId)).join("")}
+          </div>
+          <div class="selected-section-selected-row library-section-picker-selected" aria-label="Selected guiding section">
+            ${renderLibrarySectionChoiceChip(selectedSectionId, true)}
+          </div>
+          <div class="library-section-picker-actions">
+            ${returnMenuType ? `<button class="button secondary library-back-button" type="button" data-library-section-picker-back>Back</button>` : ""}
+            <button class="button primary" type="button" data-library-section-confirm>Start</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderLibrarySectionChoiceChip(sectionId, active) {
+  const section = sectionById[sectionId] || { id: sectionId, title: sectionId, mood: "wise" };
+  const title = section.title || section.originalTitle || sectionId;
+  return `
+    <button
+      class="selected-section-chip ${active ? "active" : ""}"
+      type="button"
+      data-library-section-choice="${escapeHtml(sectionId)}"
+      data-section-title="${escapeHtml(title)}"
+      aria-pressed="${active ? "true" : "false"}"
+      aria-label="${escapeHtml(title)}"
+    >
+      ${renderConfiguredMascotAsset(
+        getWizardCardAsset(getLibrarySectionAssetPath(sectionId)),
+        section.mood || "wise",
+        "small",
+        {
+          alt: "",
+          slotClass: "selected-section-chip-slot",
+          imageClass: "selected-section-chip-image"
+        }
+      )}
+      <span>${escapeHtml(title)}</span>
     </button>
   `;
 }
@@ -7950,6 +8011,7 @@ function getCampusActivityMenuType(roomId, zoneId) {
 function openLibraryCampusMenu(type) {
   state.ui.libraryMenu = { type };
   state.ui.libraryResource = null;
+  state.ui.librarySectionPicker = null;
   state.ui.libraryExperience = null;
   syncPopupScrollLock();
   renderLibraryCampusModal();
@@ -7969,6 +8031,7 @@ function openLibraryGuideResource(resourceId) {
 
   state.ui.libraryMenu = null;
   state.ui.libraryResource = resource;
+  state.ui.librarySectionPicker = null;
   state.ui.libraryExperience = null;
   syncPopupScrollLock();
   renderLibraryCampusModal();
@@ -7982,23 +8045,103 @@ function closeLibraryResourceViewer() {
 
 function returnToLibraryResourceMenu() {
   state.ui.libraryResource = null;
+  state.ui.librarySectionPicker = null;
   state.ui.libraryMenu = { type: "resources" };
   syncPopupScrollLock();
   renderLibraryCampusModal();
 }
 
-function launchLibraryMode(modeId, sectionIds = getOrderedSectionIds()) {
+function chooseLibraryMode(modeId) {
+  if (isLibraryLearnMode(modeId)) {
+    openLibrarySectionPicker(modeId);
+    return;
+  }
+  launchLibraryMode(modeId);
+}
+
+function isLibraryLearnMode(modeId) {
+  return getModePath(modeId) === "learn";
+}
+
+function openLibrarySectionPicker(modeId) {
+  if (!modeId) {
+    return;
+  }
+
+  const orderedSectionIds = getOrderedSectionIds();
+  const previousSectionId = getSelectedSectionIds().length === 1
+    ? getSelectedSectionIds()[0]
+    : normalizeSectionId(state.selection.targetId);
+  const selectedSectionId = orderedSectionIds.includes(previousSectionId)
+    ? previousSectionId
+    : orderedSectionIds[0] || "";
+  const returnMenuType = state.ui.libraryMenu?.type || state.ui.librarySectionPicker?.returnMenuType || null;
+
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryExperience = null;
+  state.ui.librarySectionPicker = {
+    modeId,
+    returnMenuType,
+    selectedSectionId
+  };
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function selectLibrarySectionPickerSection(sectionId) {
+  const normalizedSectionId = normalizeSectionId(sectionId);
+  if (!state.ui.librarySectionPicker || !sectionById[normalizedSectionId]) {
+    return;
+  }
+  state.ui.librarySectionPicker = {
+    ...state.ui.librarySectionPicker,
+    selectedSectionId: normalizedSectionId
+  };
+  renderLibraryCampusModal();
+}
+
+function launchLibraryModeFromSectionPicker() {
+  const picker = state.ui.librarySectionPicker;
+  if (!picker) {
+    return;
+  }
+
+  const selectedSectionId = normalizeSectionId(picker.selectedSectionId);
+  if (!sectionById[selectedSectionId]) {
+    return;
+  }
+
+  launchLibraryMode(picker.modeId, [selectedSectionId], picker.returnMenuType);
+}
+
+function closeLibrarySectionPickerPanel() {
+  state.ui.librarySectionPicker = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function returnToLibrarySectionPickerMenu() {
+  const menuType = state.ui.librarySectionPicker?.returnMenuType;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryMenu = menuType ? { type: menuType } : null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function launchLibraryMode(modeId, sectionIds = getOrderedSectionIds(), returnMenuTypeOverride = null) {
   const selectedSectionIds = sectionIds.map((sectionId) => normalizeSectionId(sectionId)).filter((sectionId) => sectionById[sectionId]);
   if (!modeId || !selectedSectionIds.length) {
     return;
   }
 
-  const returnMenuType = state.ui.libraryMenu?.type || state.ui.libraryExperience?.returnMenuType || null;
+  const returnMenuType = returnMenuTypeOverride || state.ui.libraryMenu?.type || state.ui.librarySectionPicker?.returnMenuType || state.ui.libraryExperience?.returnMenuType || null;
   clearJeopardyTimer();
   clearExperienceTimers();
   closeHeroMenu();
   state.ui.libraryMenu = null;
   state.ui.libraryResource = null;
+  state.ui.librarySectionPicker = null;
   state.ui.libraryExperience = { modeId, returnMenuType };
   state.ui.appEntryGateOpen = false;
   state.ui.cooperationOpen = false;
@@ -17627,7 +17770,7 @@ function renderPanelTitle(title, subtitle, metaLine, options = {}) {
     : isLearnMode || isTrainMode
       ? renderSelectedGuidingSectionSpans()
       : "";
-  const showHubLink = isLearnMode || isPlayMode || isTrainMode;
+  const showHubLink = !state.ui.libraryExperience && (isLearnMode || isPlayMode || isTrainMode);
   return `
     <div class="panel-title">
       <div>
@@ -17650,6 +17793,10 @@ function renderPanelTitle(title, subtitle, metaLine, options = {}) {
 }
 
 function renderLearnCardFooterNav(currentModeId) {
+  if (state.ui.libraryExperience && getModePath(currentModeId) === "learn") {
+    return "";
+  }
+
   const pathId = getModePath(currentModeId) || state.selection.path || "learn";
   const modeIds = pathId === "train"
     ? ["writing", "buildcase", "bowl", "quiz"]

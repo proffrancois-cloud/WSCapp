@@ -654,12 +654,11 @@
     headerCardHost.append(playerCard);
     roomMeta.append(roomTitle, statusPill);
     controlsHeader.append(connectedCount, roomMeta);
-    activityPanel.append(activityMount);
-    controlsPanel.append(debugPanel, chatForm);
+    activityPanel.append(activityMount, debugPanel);
     world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
     entitiesLayer.append(localElement);
-    viewport.append(world, npcDialogueLayer);
-    root.append(viewport, activityPanel, controlsPanel, settingsPanel);
+    viewport.append(world, chatForm, npcDialogueLayer);
+    root.append(viewport, activityPanel, settingsPanel);
     mountNode.replaceChildren(root);
     mountHeaderCard();
 
@@ -1563,7 +1562,20 @@
       };
     }
 
+    function updateShellHeight() {
+      const shell = mountNode.closest("[data-campus2d-shell]");
+      if (!shell) {
+        return;
+      }
+
+      const shellTop = shell.getBoundingClientRect().top;
+      const viewportHeight = window.visualViewport?.height || window.innerHeight || 0;
+      const availableHeight = Math.max(360, Math.floor(viewportHeight - shellTop));
+      shell.style.setProperty("--campus2d-shell-height", `${availableHeight}px`);
+    }
+
     function updateCamera() {
+      updateShellHeight();
       const width = viewport.clientWidth || 1;
       const height = viewport.clientHeight || 1;
       const fitScale = Math.min(width / room.width, height / room.height);
@@ -2204,18 +2216,10 @@
       closePlayerCard();
       closeNpcDialogue();
 
-      const title = getNpcDialogueTitle(npc);
-      const card = createEl("section", "campus2d-npc-dialogue", {
-        role: "dialog",
-        "aria-label": title,
+      const card = createEl("section", "campus2d-npc-dialogue is-text-only", {
+        role: "status",
+        "aria-label": npc.label || "Guide",
         "data-campus2d-npc-dialogue": ""
-      });
-      const header = createEl("div", "campus2d-npc-dialogue-header");
-      const titleElement = createEl("strong", "campus2d-npc-dialogue-title");
-      const closeButton = createEl("button", "campus2d-npc-dialogue-close", {
-        type: "button",
-        "aria-label": "Close dialogue",
-        "data-campus2d-npc-dialogue-close": ""
       });
       const textWrap = createEl("p", "campus2d-npc-dialogue-text", {
         "aria-live": "polite"
@@ -2225,11 +2229,8 @@
         "aria-hidden": "true"
       });
 
-      titleElement.textContent = title;
-      closeButton.textContent = "x";
       textWrap.append(textElement, cursorElement);
-      header.append(titleElement, closeButton);
-      card.append(header, textWrap);
+      card.append(textWrap);
       npcDialogueLayer.replaceChildren(card);
       npcDialogueLayer.hidden = false;
       activeNpcDialogue = { npc, card };

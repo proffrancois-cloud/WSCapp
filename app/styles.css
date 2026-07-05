@@ -13924,6 +13924,10 @@ body.is-campus2d-view .layout::before {
   display: none !important;
 }
 
+body.is-campus2d-view {
+  overflow: hidden;
+}
+
 body.is-campus2d-view .wizard.card-panel,
 body.is-campus2d-view .wizard.card-panel:hover,
 body.is-campus2d-view .wizard.card-panel:focus-within {
@@ -13939,8 +13943,8 @@ body.is-campus2d-view .wizard-steps {
 
 .campus2d-online-shell {
   width: 100%;
-  min-height: min(86vh, 940px);
-  height: clamp(640px, 82vh, 940px);
+  min-height: 0;
+  height: var(--campus2d-shell-height, calc(100dvh - 180px));
 }
 
 .campus2d-mount,
@@ -13951,14 +13955,13 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-root {
-  --campus2d-activity-width: clamp(300px, 22vw, 430px);
-  --campus2d-controls-width: clamp(260px, 18vw, 340px);
+  --campus2d-panel-width: clamp(620px, 40vw, 820px);
   --campus2d-map-brightness: 1;
   --campus2d-map-contrast: 1;
   --campus2d-map-saturation: 1;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--campus2d-activity-width) var(--campus2d-controls-width);
+  grid-template-columns: minmax(0, 1fr) var(--campus2d-panel-width);
   overflow: hidden;
   border-radius: 0;
   background: #050505;
@@ -13968,7 +13971,7 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-root.is-debug {
-  grid-template-columns: minmax(0, 1fr) var(--campus2d-activity-width) var(--campus2d-controls-width);
+  grid-template-columns: minmax(0, 1fr) var(--campus2d-panel-width);
 }
 
 .campus2d-viewport {
@@ -13992,7 +13995,7 @@ body.is-campus2d-view .wizard-steps {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 12px;
+  padding: 14px;
   border-left: 1px solid rgba(255, 234, 181, 0.18);
   background: #030303;
   overflow: hidden;
@@ -14007,21 +14010,7 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-controls-panel {
-  position: relative;
-  grid-column: 3;
-  grid-row: 1;
-  z-index: 20;
-  min-width: 0;
-  min-height: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 12px;
-  border-left: 1px solid rgba(255, 234, 181, 0.18);
-  background: #030303;
-  overflow: hidden;
-  touch-action: pan-y;
+  display: none;
 }
 
 .campus2d-world {
@@ -14648,21 +14637,21 @@ body.is-campus2d-view .hero-layout {
 }
 
 .campus2d-chat-form {
-  position: sticky;
-  bottom: 0;
-  align-self: end;
-  width: 100%;
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 12240;
+  width: min(430px, calc(100% - 24px));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px;
-  margin-top: auto;
-  padding: 12px 0 0;
-  border: 0;
-  border-top: 1px solid rgba(255, 234, 181, 0.18);
-  border-radius: 0;
-  background: #030303;
-  box-shadow: none;
-  backdrop-filter: none;
+  margin: 0;
+  padding: 9px;
+  border: 1px solid rgba(255, 234, 181, 0.28);
+  border-radius: 12px;
+  background: rgba(3, 3, 3, 0.86);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(10px);
 }
 
 .campus2d-chat-input {
@@ -14885,6 +14874,23 @@ body.is-campus2d-view .hero-layout {
   letter-spacing: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(107, 78, 22, 0.42) transparent;
+}
+
+.campus2d-npc-dialogue.is-text-only {
+  gap: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.campus2d-npc-dialogue.is-text-only .campus2d-npc-dialogue-text {
+  min-height: 0;
+  max-height: min(44vh, 290px);
+  padding: 12px 14px;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.82rem;
+  line-height: 1.42;
 }
 
 .campus2d-npc-dialogue-copy {
@@ -15124,18 +15130,16 @@ body.is-campus2d-view .hero-layout {
 
 @media (max-width: 760px) {
   .campus2d-online-shell {
-    height: 78vh;
-    min-height: 560px;
+    height: var(--campus2d-shell-height, calc(100dvh - 150px));
+    min-height: 0;
   }
 
   .campus2d-root {
-    --campus2d-activity-width: clamp(154px, 29vw, 214px);
-    --campus2d-controls-width: clamp(148px, 27vw, 194px);
+    --campus2d-panel-width: clamp(240px, 38vw, 320px);
     border-radius: 0;
   }
 
-  .campus2d-activity-panel,
-  .campus2d-controls-panel {
+  .campus2d-activity-panel {
     gap: 10px;
     padding: 8px;
   }
@@ -15177,7 +15181,10 @@ body.is-campus2d-view .hero-layout {
   }
 
   .campus2d-chat-form {
-    padding-top: 10px;
+    left: 8px;
+    bottom: 8px;
+    width: min(360px, calc(100% - 16px));
+    padding: 7px;
   }
 
   .campus2d-chat-input {
@@ -21044,8 +21051,11 @@ body.is-online-mode .library-id-subtitle {
     0 20px 46px rgba(0, 0, 0, 0.2);
 }
 
-.library-experience-panel .panel-hub-link {
-  display: none;
+.library-experience-panel .panel-hub-link,
+.library-experience-panel [data-change-mode],
+.library-experience-panel [data-change-sections],
+.library-experience-panel .learn-card-footer-nav {
+  display: none !important;
 }
 
 .library-resource-window {
@@ -21134,7 +21144,8 @@ body.is-online-mode .library-id-subtitle {
 
 .campus2d-activity-mount .library-campus-stack {
   gap: 14px;
-  padding: 14px;
+  min-height: 100%;
+  padding: 18px;
 }
 
 .campus2d-activity-mount .library-campus-heading {
@@ -21167,20 +21178,35 @@ body.is-online-mode .library-id-subtitle {
 .campus2d-activity-mount .library-campus-card-grid-four,
 .campus2d-activity-mount .library-campus-card-grid-sections,
 .campus2d-activity-mount .library-campus-card-grid-resources {
-  grid-template-columns: 1fr !important;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)) !important;
+  align-content: center;
+  gap: 14px;
 }
 
 .campus2d-activity-mount .library-id-choice-card.online-glow-card,
 .campus2d-activity-mount .library-section-id-card.online-glow-card,
 .campus2d-activity-mount .library-resource-id-card.online-glow-card {
-  min-height: 178px !important;
+  min-height: 158px !important;
 }
 
 .campus2d-activity-mount .library-id-choice-card .card-content,
 .campus2d-activity-mount .library-section-id-card .card-content,
 .campus2d-activity-mount .library-resource-id-card .card-content {
+  grid-template-rows: minmax(82px, 1fr) auto;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
   padding: 13px;
+  text-align: center;
+}
+
+.campus2d-activity-mount .library-id-choice-card .library-id-title,
+.campus2d-activity-mount .library-section-id-card .library-id-title,
+.campus2d-activity-mount .library-resource-id-card .library-id-title {
+  max-width: 100%;
+  font-size: clamp(0.9rem, 1.2vw, 1.08rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 
 .campus2d-activity-mount .library-experience-stack,
@@ -21203,6 +21229,40 @@ body.is-online-mode .library-id-subtitle {
 
 .campus2d-activity-mount .library-experience-panel {
   padding: 14px;
+}
+
+.library-section-picker-stack {
+  justify-content: center;
+}
+
+.library-section-picker-strip {
+  width: 100%;
+  max-width: 100%;
+}
+
+.campus2d-activity-mount .library-section-picker-strip {
+  justify-content: flex-start !important;
+  padding: 16px 14px 18px !important;
+  border-color: rgba(252, 209, 39, 0.18) !important;
+  background: rgba(255, 250, 238, 0.08) !important;
+}
+
+.campus2d-activity-mount .library-section-picker-selected {
+  padding-top: 0 !important;
+}
+
+.library-section-picker-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.library-section-picker-actions .button.primary {
+  min-width: min(260px, 100%);
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .library-campus-window .popup-close-button,
