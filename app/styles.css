@@ -13951,16 +13951,16 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-root {
-  --campus2d-side-width: clamp(236px, 22vw, 330px);
-  --campus2d-controls-width: clamp(220px, 20vw, 300px);
+  --campus2d-activity-width: clamp(300px, 22vw, 430px);
+  --campus2d-controls-width: clamp(260px, 18vw, 340px);
   --campus2d-map-brightness: 1;
   --campus2d-map-contrast: 1;
   --campus2d-map-saturation: 1;
   position: relative;
   display: grid;
-  grid-template-columns: var(--campus2d-side-width) minmax(0, 1fr) var(--campus2d-controls-width);
+  grid-template-columns: minmax(0, 1fr) var(--campus2d-activity-width) var(--campus2d-controls-width);
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 0;
   background: #050505;
   color: #fff8e8;
   isolation: isolate;
@@ -13968,12 +13968,12 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-root.is-debug {
-  grid-template-columns: var(--campus2d-side-width) minmax(0, 1fr) var(--campus2d-controls-width);
+  grid-template-columns: minmax(0, 1fr) var(--campus2d-activity-width) var(--campus2d-controls-width);
 }
 
 .campus2d-viewport {
   position: relative;
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
   min-width: 0;
   min-height: 0;
@@ -13982,23 +13982,28 @@ body.is-campus2d-view .wizard-steps {
   cursor: crosshair;
 }
 
-.campus2d-side-panel {
+.campus2d-activity-panel {
   position: relative;
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 1;
   z-index: 20;
   min-width: 0;
   min-height: 0;
   height: 100%;
-  display: grid;
-  align-content: start;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
   padding: 12px;
-  border-right: 1px solid rgba(255, 234, 181, 0.18);
+  border-left: 1px solid rgba(255, 234, 181, 0.18);
   background: #030303;
-  box-shadow: 18px 0 34px rgba(0, 0, 0, 0.34);
   overflow: hidden;
   touch-action: pan-y;
+}
+
+.campus2d-activity-mount {
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .campus2d-controls-panel {
@@ -14015,7 +14020,6 @@ body.is-campus2d-view .wizard-steps {
   padding: 12px;
   border-left: 1px solid rgba(255, 234, 181, 0.18);
   background: #030303;
-  box-shadow: -18px 0 34px rgba(0, 0, 0, 0.34);
   overflow: hidden;
   touch-action: pan-y;
 }
@@ -14374,6 +14378,21 @@ body.is-campus2d-view .wizard-steps {
   width: 100%;
 }
 
+body.is-campus2d-view .hero-layout {
+  position: relative !important;
+}
+
+.campus2d-header-card-host {
+  position: absolute;
+  top: 50%;
+  right: clamp(16px, 3vw, 46px);
+  z-index: 36;
+  width: clamp(260px, 22vw, 390px);
+  max-width: calc(100vw - 360px);
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
 .campus2d-profile-avatar {
   --campus2d-sprite-x: 50%;
   --campus2d-sprite-y: 0%;
@@ -14495,21 +14514,32 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-settings-panel {
+  position: fixed;
+  left: clamp(12px, 2vw, 28px);
+  top: clamp(150px, 18vh, 220px);
+  z-index: 140;
+  width: min(330px, calc(100vw - 24px));
   display: grid;
   gap: 10px;
-  padding: 10px 12px;
+  padding: 12px;
   border: 1px solid rgba(255, 232, 172, 0.28);
   border-radius: 12px;
-  background: rgba(255, 247, 223, 0.09);
+  background: rgba(22, 18, 12, 0.94);
   color: #fff7df;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(14px);
   transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.campus2d-settings-panel[hidden] {
+  display: none;
 }
 
 .campus2d-settings-panel:focus-visible,
 .campus2d-settings-panel.is-highlighted {
   outline: 0;
   border-color: rgba(255, 231, 158, 0.82);
-  background: rgba(255, 247, 223, 0.14);
+  background: rgba(31, 25, 17, 0.96);
   box-shadow: 0 0 0 3px rgba(238, 170, 58, 0.18);
 }
 
@@ -15099,12 +15129,12 @@ body.is-campus2d-view .wizard-steps {
   }
 
   .campus2d-root {
-    --campus2d-side-width: clamp(158px, 34vw, 208px);
-    --campus2d-controls-width: clamp(150px, 32vw, 194px);
-    border-radius: 12px;
+    --campus2d-activity-width: clamp(154px, 29vw, 214px);
+    --campus2d-controls-width: clamp(148px, 27vw, 194px);
+    border-radius: 0;
   }
 
-  .campus2d-side-panel,
+  .campus2d-activity-panel,
   .campus2d-controls-panel {
     gap: 10px;
     padding: 8px;
@@ -15718,6 +15748,113 @@ body.is-online-mode .campus2d-player-card.is-palette-open {
 
   body.is-online-mode .campus2d-player-card.is-palette-open {
     min-height: 460px !important;
+  }
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-player-card.online-glow-card {
+  min-height: 82px !important;
+  cursor: default !important;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-player-card.online-glow-card .card-content {
+  grid-template-columns: 74px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  align-content: center;
+  gap: 2px 12px;
+  min-height: 82px;
+  padding: 10px 14px;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-art {
+  grid-row: 1 / 3;
+  width: 66px;
+  height: 66px;
+  justify-self: center;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-avatar {
+  width: 54px;
+  height: 66px;
+  margin: 0 auto;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-name {
+  align-self: end;
+  font-size: clamp(1rem, 1.35vw, 1.28rem);
+  line-height: 1;
+  text-align: left;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-details {
+  align-self: start;
+  justify-items: start;
+  gap: 0;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-field {
+  justify-items: start;
+  gap: 0;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-school {
+  font-size: 0.82rem;
+  line-height: 1.08;
+  text-align: left;
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-palette {
+  grid-column: 1 / -1;
+  max-height: min(28vh, 210px);
+}
+
+body.is-online-mode .campus2d-header-card-host .campus2d-player-card.is-palette-open {
+  min-height: 220px !important;
+}
+
+body.is-online-mode .campus2d-header-card-host .online-card-prompt,
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-label,
+body.is-online-mode .campus2d-header-card-host .campus2d-profile-age {
+  display: none !important;
+}
+
+@media (max-width: 980px) {
+  .campus2d-header-card-host {
+    right: 12px;
+    width: clamp(230px, 34vw, 300px);
+    max-width: 44vw;
+  }
+}
+
+@media (max-width: 760px) {
+  .campus2d-header-card-host {
+    width: min(230px, 42vw);
+    max-width: 42vw;
+  }
+
+  body.is-online-mode .campus2d-header-card-host .campus2d-player-card.online-glow-card .card-content {
+    grid-template-columns: 52px minmax(0, 1fr);
+    min-height: 66px;
+    padding: 8px 9px;
+    gap: 1px 8px;
+  }
+
+  body.is-online-mode .campus2d-header-card-host .campus2d-profile-art {
+    width: 50px;
+    height: 50px;
+  }
+
+  body.is-online-mode .campus2d-header-card-host .campus2d-profile-avatar {
+    width: 41px;
+    height: 50px;
+  }
+
+  body.is-online-mode .campus2d-header-card-host .campus2d-profile-name {
+    font-size: 0.88rem;
+  }
+
+  body.is-online-mode .campus2d-header-card-host .campus2d-profile-school {
+    font-size: 0.68rem;
   }
 }
 
@@ -20540,6 +20677,30 @@ body .hero-links > button.hero-link-icon.hero-settings-icon::after {
   content: "Settings" !important;
 }
 
+body.is-campus2d-view .hero-links.is-open > .hero-discord-link {
+  transform: translate(126px, -30px) scale(1) rotate(0deg) !important;
+}
+
+body.is-campus2d-view .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+  transform: translate(118px, 34px) scale(1) rotate(0deg) !important;
+}
+
+body.is-campus2d-view .hero-links.is-open > .session-controls {
+  transform: translate(104px, 92px) scale(1) rotate(0deg) !important;
+}
+
+body.is-campus2d-view .hero-links.is-open > button.hero-link-icon.hero-resources-icon {
+  transform: translate(72px, 176px) scale(1) rotate(0deg) !important;
+}
+
+body.is-campus2d-view .hero-links.is-open > a.hero-link-icon {
+  transform: translate(48px, 254px) scale(1) rotate(0deg) !important;
+}
+
+body.is-campus2d-view .hero-links > button.hero-link-icon.hero-settings-icon img {
+  object-fit: contain !important;
+}
+
 @media (max-width: 760px) {
   .resource-link-list {
     grid-template-columns: 1fr;
@@ -20941,6 +21102,107 @@ body.is-online-mode .library-id-subtitle {
   border: 1px solid rgba(252, 209, 39, 0.22);
   border-radius: 18px;
   background: #fffaf0;
+}
+
+.campus2d-activity-mount .library-campus-overlay,
+.campus2d-activity-mount .auth-modal-overlay.library-campus-overlay {
+  position: static !important;
+  inset: auto !important;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  display: block;
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.campus2d-activity-mount .library-campus-window,
+.campus2d-activity-mount .library-resource-window,
+.campus2d-activity-mount .library-experience-window {
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  max-height: none !important;
+  min-height: 0;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.1),
+    0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.campus2d-activity-mount .library-campus-stack {
+  gap: 14px;
+  padding: 14px;
+}
+
+.campus2d-activity-mount .library-campus-heading {
+  justify-items: start;
+  text-align: left;
+}
+
+.campus2d-activity-mount .library-campus-heading .challenge-label,
+.campus2d-activity-mount .library-experience-title .online-card-prompt {
+  justify-self: start;
+}
+
+.campus2d-activity-mount .library-campus-heading h3,
+.campus2d-activity-mount .library-experience-title h3 {
+  font-size: clamp(1.16rem, 1.9vw, 1.55rem);
+  line-height: 1;
+  text-align: left;
+}
+
+.campus2d-activity-mount .library-campus-heading p,
+.campus2d-activity-mount .library-experience-title p {
+  font-size: 0.78rem;
+  line-height: 1.22;
+  text-align: left;
+}
+
+.campus2d-activity-mount .library-campus-card-grid,
+.campus2d-activity-mount .library-campus-card-grid-two,
+.campus2d-activity-mount .library-campus-card-grid-three,
+.campus2d-activity-mount .library-campus-card-grid-four,
+.campus2d-activity-mount .library-campus-card-grid-sections,
+.campus2d-activity-mount .library-campus-card-grid-resources {
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+
+.campus2d-activity-mount .library-id-choice-card.online-glow-card,
+.campus2d-activity-mount .library-section-id-card.online-glow-card,
+.campus2d-activity-mount .library-resource-id-card.online-glow-card {
+  min-height: 178px !important;
+}
+
+.campus2d-activity-mount .library-id-choice-card .card-content,
+.campus2d-activity-mount .library-section-id-card .card-content,
+.campus2d-activity-mount .library-resource-id-card .card-content {
+  padding: 13px;
+}
+
+.campus2d-activity-mount .library-experience-stack,
+.campus2d-activity-mount .library-resource-stack {
+  padding: 14px;
+}
+
+.campus2d-activity-mount .library-experience-top,
+.campus2d-activity-mount .library-resource-top {
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+}
+
+.campus2d-activity-mount .library-experience-title,
+.campus2d-activity-mount .library-resource-title {
+  justify-items: start;
+  order: -1;
+  text-align: left;
+}
+
+.campus2d-activity-mount .library-experience-panel {
+  padding: 14px;
 }
 
 .library-campus-window .popup-close-button,

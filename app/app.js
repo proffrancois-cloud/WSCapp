@@ -6999,14 +6999,13 @@ function hasActiveQuestionPopup() {
 }
 
 function syncPopupScrollLock() {
+  const campusActivityInline = isCampusActivityInlineActive();
   const blockingOverlayOpen = Boolean(
     state.ui.appEntryGateOpen ||
     state.ui.resourcesOpen ||
     state.ui.cooperationOpen ||
     state.ui.authOpen ||
-    state.ui.libraryMenu ||
-    state.ui.libraryResource ||
-    state.ui.libraryExperience ||
+    (!campusActivityInline && (state.ui.libraryMenu || state.ui.libraryResource || state.ui.libraryExperience)) ||
     state.ui.rawMediaLightbox ||
     state.live.launchCountdownText ||
     (state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
@@ -7015,6 +7014,13 @@ function syncPopupScrollLock() {
     ? blockingOverlayOpen
     : hasActiveQuestionPopup();
   document.body.classList.toggle("with-popup", shouldLock);
+}
+
+function isCampusActivityInlineActive() {
+  return Boolean(
+    isAlpacaOnlineCampusView() &&
+    document.querySelector("[data-campus2d-activity-mount]")
+  );
 }
 
 function hasSupabaseConfig() {
@@ -7598,8 +7604,20 @@ function getLibraryCampusModalMount() {
   return mount;
 }
 
+function getLibraryCampusInlineMount() {
+  if (!isAlpacaOnlineCampusView()) {
+    return null;
+  }
+  return document.querySelector("[data-campus2d-activity-mount]");
+}
+
 function renderLibraryCampusModal() {
-  const mount = getLibraryCampusModalMount();
+  const inlineMount = getLibraryCampusInlineMount();
+  const modalMount = getLibraryCampusModalMount();
+  const mount = inlineMount || modalMount;
+  if (inlineMount) {
+    modalMount.innerHTML = "";
+  }
   if (state.ui.libraryExperience && state.experience) {
     mount.innerHTML = renderLibraryExperienceViewer();
     return;

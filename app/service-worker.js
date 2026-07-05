@@ -13,6 +13,7 @@ const STATIC_ASSETS = [
   "./assets/footer/link-icon.png",
   "./assets/footer/logout-icon.png",
   "./assets/icons/ui/signin.png",
+  "./assets/icons/ui/settings.png",
   "./assets/icons/ui/settings-gear.svg",
   "./assets/icons/ui/alpaca-bullet-sunglasses.png",
   "./assets/icons/letters/A.png",

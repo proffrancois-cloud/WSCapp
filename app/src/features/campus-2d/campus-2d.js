@@ -11,6 +11,9 @@
   });
   const CHAT_TTL_MS = 10000;
   const CHAT_STACK_LIMIT = 10;
+  const NPC_DIALOGUE_TYPE_SPEED_MS = 12;
+  const NPC_DIALOGUE_CHARS_PER_TICK = 2;
+  const NPC_DIALOGUE_START_DELAY_MS = 120;
   const WALK_FRAME_COLUMNS = 7;
   const WALK_IDLE_FRAME = 3;
   const WALK_FRAME_MS = 115;
@@ -353,7 +356,10 @@
     let paletteOpen = false;
     let campusSettings = loadCampusSettings();
     let settingsHighlightTimer = 0;
+    let settingsPopupOpen = false;
     let backgroundMusicBlocked = false;
+    let activeNpcDialogue = null;
+    let npcTypingTimer = 0;
     let destroyed = false;
     const keys = new Set();
     const remotePlayers = new Map();
@@ -393,10 +399,18 @@
     const behindLayer = createEl("div", "campus2d-behind-layer");
     const npcsLayer = createEl("div", "campus2d-npcs");
     const debugLayer = createEl("div", "campus2d-debug-layer", { "aria-hidden": "true" });
+    const npcDialogueLayer = createEl("div", "campus2d-npc-dialogue-layer", {
+      "data-campus2d-ui": "",
+      hidden: ""
+    });
     const backgroundMusic = new Audio(BACKGROUND_MUSIC_SRC);
-    const sidePanel = createEl("aside", "campus2d-side-panel", {
-      "aria-label": "Your alpaca ID",
+    const activityPanel = createEl("aside", "campus2d-activity-panel", {
+      "aria-label": "Campus activity",
       "data-campus2d-ui": ""
+    });
+    const activityMount = createEl("div", "campus2d-activity-mount", {
+      id: "campus2dActivityPanel",
+      "data-campus2d-activity-mount": ""
     });
     const controlsPanel = createEl("aside", "campus2d-controls-panel", {
       "aria-label": "Multiplayer messages",
@@ -406,6 +420,7 @@
     const connectedCount = createEl("strong", "campus2d-connected-count", {
       "aria-live": "polite"
     });
+    const headerCardHost = createEl("div", "campus2d-header-card-host", { "data-campus2d-ui": "" });
     const hud = createEl("div", "campus2d-hud", { "data-campus2d-ui": "" });
     const playerCard = createEl("section", "campus2d-player-card online-glow-card", {
       "aria-label": "Your alpaca card"
@@ -544,9 +559,6 @@
     backgroundMusic.loop = true;
     backgroundMusic.preload = "auto";
     backgroundMusic.setAttribute("playsinline", "");
-    playerPrompt.textContent = "Alpaca ID";
-    playerSchoolLabel.textContent = "School";
-    playerAgeLabel.textContent = "Account age";
     settingsTitle.textContent = "Settings";
     toneLabel.textContent = "Display tone";
     volumeLabel.textContent = "Music";
@@ -618,15 +630,14 @@
     volumeLabelRow.append(volumeLabel, volumeValue);
     volumeControl.append(volumeLabelRow, volumeInput);
     settingsPanel.append(settingsHeader, toneControl, volumeControl);
+    settingsPanel.hidden = true;
     chatForm.append(chatInput, chatButton);
     playerArt.append(playerAvatarButton);
-    playerSchoolField.append(playerSchoolLabel, playerSchool);
-    playerAgeField.append(playerAgeLabel, playerAge);
-    playerDetails.append(playerSchoolField, playerAgeField);
+    playerSchoolField.append(playerSchool);
+    playerDetails.append(playerSchoolField);
     playerCardContent.append(
       playerCardGlare,
       playerCyberLines,
-      playerPrompt,
       playerArt,
       playerName,
       playerGlowingElements,
@@ -640,32 +651,48 @@
     playerCardCanvas.append(playerCardFrame);
     playerCardContainer.append(playerCardCanvas);
     playerCard.append(playerCardContainer);
+    headerCardHost.append(playerCard);
     roomMeta.append(roomTitle, statusPill);
     controlsHeader.append(connectedCount, roomMeta);
-    hud.append(playerCard);
-    sidePanel.append(hud);
-    controlsPanel.append(controlsHeader, debugPanel, chatForm);
-    controlsPanel.insertBefore(settingsPanel, debugPanel);
+    activityPanel.append(activityMount);
+    controlsPanel.append(debugPanel, chatForm);
     world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
     entitiesLayer.append(localElement);
-    viewport.append(world);
-    root.append(sidePanel, viewport, controlsPanel);
+    viewport.append(world, npcDialogueLayer);
+    root.append(viewport, activityPanel, controlsPanel, settingsPanel);
     mountNode.replaceChildren(root);
+    mountHeaderCard();
+
+    function mountHeaderCard() {
+      const headerTarget = document.querySelector(".hero-layout") || document.querySelector(".hero");
+      if (headerTarget) {
+        headerTarget.append(headerCardHost);
+        return;
+      }
+      root.append(headerCardHost);
+    }
 
     function createPlayerElement(player, isLocal, isNpc = false) {
       const element = createEl("div", `campus2d-player${isLocal ? " is-local" : ""}${isNpc ? " is-npc" : ""}`);
       const chatStack = createEl("div", "campus2d-chat-stack", {
         "aria-live": "polite"
       });
-      const avatarAttrs = {
-        role: "img",
-        "aria-label": `${player.displayName || "Alpaca"} avatar card`
-      };
+      const avatarAttrs = isNpc
+        ? {
+          type: "button",
+          title: `Talk to ${player.displayName || "NPC"}`,
+          "aria-label": `Talk to ${player.displayName || "NPC"}`,
+          "data-campus2d-npc": player.clientId
+        }
+        : {
+          role: "img",
+          "aria-label": `${player.displayName || "Alpaca"} avatar card`
+        };
       if (!isNpc) {
         avatarAttrs.type = "button";
         avatarAttrs["data-campus2d-avatar"] = player.clientId;
       }
-      const avatar = createEl(isNpc ? "span" : "button", "campus2d-avatar", avatarAttrs);
+      const avatar = createEl("button", "campus2d-avatar", avatarAttrs);
       const name = createEl("span", "campus2d-name");
       avatar.style.backgroundImage = `url("${manifest.sprite.asset}")`;
       name.textContent = player.displayName || "Guest";
@@ -716,7 +743,6 @@
       playerCard.style.setProperty("--campus2d-color", color.hex);
       playerName.textContent = localPlayer.displayName || "Guest";
       playerSchool.textContent = localPlayer.schoolName || "Unknown school";
-      playerAge.textContent = formatAccountAge(localPlayer.createdAt);
       playerAvatarButton.title = `${color.label} alpaca. Choose color`;
       playerAvatarButton.setAttribute("aria-label", `${color.label} alpaca. Choose color`);
       applyAvatarPreview(playerAvatarButton, localPlayer);
@@ -786,14 +812,26 @@
       applyCampusSettings();
     }
 
-    function openSettingsPanel() {
-      settingsPanel.scrollIntoView({ block: "nearest" });
-      settingsPanel.focus({ preventScroll: true });
+    function setSettingsPanelOpen(value) {
+      settingsPopupOpen = Boolean(value);
+      settingsPanel.hidden = !settingsPopupOpen;
+      settingsPanel.classList.toggle("is-open", settingsPopupOpen);
       window.clearTimeout(settingsHighlightTimer);
-      settingsPanel.classList.add("is-highlighted");
-      settingsHighlightTimer = window.setTimeout(() => {
-        settingsPanel.classList.remove("is-highlighted");
-      }, 1200);
+      settingsPanel.classList.remove("is-highlighted");
+      if (!settingsPopupOpen) {
+        return;
+      }
+      window.requestAnimationFrame(() => {
+        settingsPanel.focus({ preventScroll: true });
+        settingsPanel.classList.add("is-highlighted");
+        settingsHighlightTimer = window.setTimeout(() => {
+          settingsPanel.classList.remove("is-highlighted");
+        }, 1200);
+      });
+    }
+
+    function openSettingsPanel() {
+      setSettingsPanelOpen(!settingsPopupOpen);
     }
 
     function handleOpenSettingsEvent() {
@@ -1536,12 +1574,13 @@
       const minX = Math.min(0, width - worldWidth);
       const minY = Math.min(0, height - worldHeight);
       camera.x = worldWidth <= width
-        ? (width - worldWidth) / 2
+        ? 0
         : clamp((width / 2) - (localPlayer.x * camera.scale), minX, 0);
       camera.y = worldHeight <= height
         ? (height - worldHeight) / 2
         : clamp((height / 2) - (localPlayer.y * camera.scale), minY, 0);
       world.style.transform = `translate(${camera.x}px, ${camera.y}px) scale(${camera.scale})`;
+      updateNpcDialoguePosition();
     }
 
     function setRoom(roomId, spawnId = "default") {
@@ -1564,6 +1603,7 @@
       remotePlayers.clear();
       remoteElements.forEach((element) => element.remove());
       remoteElements.clear();
+      closeNpcDialogue();
       renderRoom();
       connectRealtime();
       publishPresence(true);
@@ -2060,6 +2100,147 @@
       closeButton.focus({ preventScroll: true });
     }
 
+    function getNpcById(npcId) {
+      return (room.npcs || []).find((entry) => entry.id === npcId) || null;
+    }
+
+    function getNpcDialogueText(npc) {
+      if (typeof npc?.dialogue === "string") {
+        return npc.dialogue;
+      }
+      return npc?.dialogue?.body || "";
+    }
+
+    function getNpcDialogueTitle(npc) {
+      if (npc?.dialogue && typeof npc.dialogue === "object" && npc.dialogue.title) {
+        return npc.dialogue.title;
+      }
+      return npc?.label || "Guide";
+    }
+
+    function clearNpcTypingTimer() {
+      if (npcTypingTimer) {
+        window.clearTimeout(npcTypingTimer);
+        npcTypingTimer = 0;
+      }
+    }
+
+    function closeNpcDialogue() {
+      clearNpcTypingTimer();
+      activeNpcDialogue = null;
+      npcDialogueLayer.replaceChildren();
+      npcDialogueLayer.hidden = true;
+    }
+
+    function updateNpcDialoguePosition() {
+      if (!activeNpcDialogue?.card || npcDialogueLayer.hidden) {
+        return;
+      }
+      const { card, npc } = activeNpcDialogue;
+      const viewportWidth = viewport.clientWidth || 1;
+      const viewportHeight = viewport.clientHeight || 1;
+      const screenX = (npc.x * camera.scale) + camera.x;
+      const screenY = (npc.y * camera.scale) + camera.y;
+      const cardWidth = Math.min(430, Math.max(260, viewportWidth - 24));
+      card.style.width = `${cardWidth}px`;
+
+      const prefersRight = screenX < viewportWidth * 0.54;
+      const cardHeight = card.offsetHeight || 260;
+      let left = prefersRight ? screenX + 30 : screenX - cardWidth - 30;
+      left = clamp(left, 12, Math.max(12, viewportWidth - cardWidth - 12));
+
+      let top = screenY - cardHeight - 22;
+      let placement = "above";
+      if (top < 12) {
+        top = screenY + 34;
+        placement = "below";
+      }
+      top = clamp(top, 12, Math.max(12, viewportHeight - cardHeight - 12));
+
+      card.style.left = `${left}px`;
+      card.style.top = `${top}px`;
+      card.dataset.placement = placement;
+      card.style.setProperty("--campus2d-npc-dialogue-arrow-x", `${clamp(screenX - left, 18, cardWidth - 18)}px`);
+    }
+
+    function typeNpcDialogueText(textElement, cursorElement, text) {
+      clearNpcTypingTimer();
+      const graphemes = Array.from(text);
+      let index = 0;
+      textElement.textContent = "";
+      cursorElement.hidden = false;
+
+      if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
+        textElement.textContent = text;
+        cursorElement.hidden = true;
+        return;
+      }
+
+      const tick = () => {
+        index = Math.min(graphemes.length, index + NPC_DIALOGUE_CHARS_PER_TICK);
+        textElement.textContent = graphemes.slice(0, index).join("");
+        if (index >= graphemes.length) {
+          cursorElement.hidden = true;
+          npcTypingTimer = 0;
+          return;
+        }
+        npcTypingTimer = window.setTimeout(tick, NPC_DIALOGUE_TYPE_SPEED_MS);
+      };
+
+      npcTypingTimer = window.setTimeout(tick, NPC_DIALOGUE_START_DELAY_MS);
+    }
+
+    function openNpcDialogue(npcId) {
+      const npc = getNpcById(npcId);
+      const message = getNpcDialogueText(npc).trim();
+      if (!npc || !message) {
+        const npcElement = npcElements.get(npcId);
+        if (npcElement) {
+          showBubble(npcElement, `${npc?.label || "Guide"} has nothing to share yet`);
+        }
+        return;
+      }
+
+      closePlayerCard();
+      closeNpcDialogue();
+
+      const title = getNpcDialogueTitle(npc);
+      const card = createEl("section", "campus2d-npc-dialogue", {
+        role: "dialog",
+        "aria-label": title,
+        "data-campus2d-npc-dialogue": ""
+      });
+      const header = createEl("div", "campus2d-npc-dialogue-header");
+      const titleElement = createEl("strong", "campus2d-npc-dialogue-title");
+      const closeButton = createEl("button", "campus2d-npc-dialogue-close", {
+        type: "button",
+        "aria-label": "Close dialogue",
+        "data-campus2d-npc-dialogue-close": ""
+      });
+      const textWrap = createEl("p", "campus2d-npc-dialogue-text", {
+        "aria-live": "polite"
+      });
+      const textElement = createEl("span", "campus2d-npc-dialogue-copy");
+      const cursorElement = createEl("span", "campus2d-npc-dialogue-cursor", {
+        "aria-hidden": "true"
+      });
+
+      titleElement.textContent = title;
+      closeButton.textContent = "x";
+      textWrap.append(textElement, cursorElement);
+      header.append(titleElement, closeButton);
+      card.append(header, textWrap);
+      npcDialogueLayer.replaceChildren(card);
+      npcDialogueLayer.hidden = false;
+      activeNpcDialogue = { npc, card };
+      updateNpcDialoguePosition();
+      window.requestAnimationFrame(() => {
+        card.classList.add("is-visible");
+        updateNpcDialoguePosition();
+      });
+      typeNpcDialogueText(textElement, cursorElement, message);
+    }
+
     function showBubble(playerElement, message) {
       const text = String(message || "").trim().slice(0, 140);
       const chatStack = playerElement?._campus2d?.chatStack;
@@ -2263,6 +2444,14 @@
 
     function handleKeyDown(event) {
       if (event.key === "Escape") {
+        if (settingsPopupOpen) {
+          setSettingsPanelOpen(false);
+          return;
+        }
+        if (activeNpcDialogue) {
+          closeNpcDialogue();
+          return;
+        }
         if (zoneEditGesture) {
           zoneEditGesture = null;
           renderRoom();
@@ -2306,9 +2495,11 @@
         }
         return;
       }
-      if (event.target.closest("[data-campus2d-ui], [data-campus2d-avatar], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
+      if (event.target.closest("[data-campus2d-ui], [data-campus2d-avatar], [data-campus2d-npc], [data-campus2d-hotspot], [data-campus2d-seat], [data-campus2d-portal]")) {
         return;
       }
+      setSettingsPanelOpen(false);
+      closeNpcDialogue();
       const point = screenToWorld(event.clientX, event.clientY);
       const activeZones = getEffectiveZones(room);
       if (canPlayerStandAt(point, activeZones)) {
@@ -2357,6 +2548,17 @@
 
       if (event.target.closest("[data-campus2d-id-close]") || event.target.matches("[data-campus2d-id-card]")) {
         closePlayerCard();
+        return;
+      }
+
+      if (event.target.closest("[data-campus2d-npc-dialogue-close]")) {
+        closeNpcDialogue();
+        return;
+      }
+
+      const npcButton = event.target.closest("[data-campus2d-npc]");
+      if (npcButton) {
+        openNpcDialogue(npcButton.dataset.campus2dNpc);
         return;
       }
 
@@ -2476,6 +2678,7 @@
     playerCard.addEventListener("pointermove", updatePlayerCardTilt);
     playerCard.addEventListener("pointerleave", resetPlayerCardTilt);
     playerCard.addEventListener("pointercancel", resetPlayerCardTilt);
+    headerCardHost.addEventListener("click", handleRootClick);
     root.addEventListener("click", handleRootClick);
     chatForm.addEventListener("submit", handleChatSubmit);
     toneInput.addEventListener("input", handleToneInput);
@@ -2513,11 +2716,14 @@
         playerCard.removeEventListener("pointermove", updatePlayerCardTilt);
         playerCard.removeEventListener("pointerleave", resetPlayerCardTilt);
         playerCard.removeEventListener("pointercancel", resetPlayerCardTilt);
+        headerCardHost.removeEventListener("click", handleRootClick);
         seatDirectionSelect.removeEventListener("change", handleSeatDirectionChange);
         channel?.destroy();
         backgroundMusic.pause();
         backgroundMusic.src = "";
         window.clearTimeout(settingsHighlightTimer);
+        headerCardHost.remove();
+        clearNpcTypingTimer();
         mountNode.replaceChildren();
       },
       setIdentity,

@@ -158,9 +158,7 @@
       npcs: [
         npc("lobby-instructions-npc", "Instructions", 578, 285, "down", "red")
       ],
-      gameZones: [
-        gameZone("lobby-game-2", "game", "Game zone", 877, 120, 183, 97)
-      ],
+      gameZones: [],
       behindZones: [
         rect("lobby-right-door-awning", 970, 460, 213, 192),
         rect("lobby-right-door-edge", 927, 513, 41, 126),
