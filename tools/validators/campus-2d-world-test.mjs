@@ -282,10 +282,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campusinline"')) {
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campusgrid"')) {
   failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus panel reset.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campusinline")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campusgrid")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 
@@ -529,6 +529,9 @@ if (/\.campus2d-hud\s*\{[^}]*position:\s*absolute/i.test(styles)) {
 }
 if (!styles.includes(".library-experience-panel .learn-card-footer-nav") || !/\.library-experience-panel\s+\.panel-hub-link,[\s\S]*?display:\s*none\s*!important/i.test(styles)) {
   failures.push("Campus 2D learn experiences must hide cross-mode footer navigation.");
+}
+if (!/\.campus2d-activity-mount\s+\.library-section-picker-strip\.selected-section-chip-strip\s*\{[\s\S]*?grid-template-columns:\s*repeat\(5,\s*minmax\(46px,\s*1fr\)\)\s*!important/i.test(styles)) {
+  failures.push("Campus 2D section picker must show all 15 guiding sections as a stable 5 by 3 grid.");
 }
 if (/openGameLauncher|campus2d-games-button|getGameLauncherHtml|data-campus2d-popup/.test(campusRuntime)) {
   failures.push("Campus 2D must not expose the old generic live-game launcher.");
