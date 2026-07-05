@@ -280,8 +280,8 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260704campus2d"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 4 Campus 2D visibility update.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705library"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 Library cache reset.");
 }
 
 const appJs = readApp("app.js");
