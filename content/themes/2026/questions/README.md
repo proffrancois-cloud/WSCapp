@@ -10,11 +10,12 @@ Current counts:
 
 ```json
 {
-  "uniqueQuestions": 396,
-  "sectionPlacements": 396,
+  "uniqueQuestions": 626,
+  "sectionPlacements": 668,
   "bySourceType": {
     "entry.quizQuestions": 214,
-    "section.guideQuestions": 182
+    "section.guideQuestions": 182,
+    "fullVoyageQuestions": 230
   }
 }
 ```

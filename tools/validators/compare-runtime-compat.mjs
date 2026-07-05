@@ -95,9 +95,9 @@ const ALL_COMPARE_KEYS = [
 ];
 
 const ACTIVE_RUNTIME_ACCEPTED_DELTAS = Object.freeze({
-  fullVoyageQuestions: "The published app intentionally excludes full-voyage level 400/500 questions from the active runtime.",
+  fullVoyageQuestions: "The legacy root runtime has no Full Voyage list; the generated runtime restores the Vercel level 400/500 questions loaded by the app.",
   firstGuideQuestion: "Legacy root runtime and generated runtime preserve different guide-question ordering; counts still match.",
-  firstFullVoyage: "The published app has no active full-voyage question list, while the generated compatibility artifact can report one."
+  firstFullVoyage: "The legacy root runtime has no Full Voyage first item; the generated runtime starts with the restored Vercel Full Voyage order."
 });
 
 function getCompareKeys(profile) {

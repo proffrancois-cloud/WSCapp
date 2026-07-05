@@ -177,7 +177,7 @@
   "videoRoutingUpdatedAt": "2026-05-11T11:04:10.587Z",
   "videoRoutingUpdatedFrom": "User-confirmed May 11 video-only routing list",
   "regularGuideTransferTablesBuiltFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/WSC_2026_Transfer_Tables_By_Guiding_Section",
-  "questionLevelPolicy": "Final V9.1 CSV source of truth: levels 100/200 live on raw-content entries; level 300 lives on section guideQuestions; games draw only levels 100/200/300. Levels 400/500 and fullVoyageQuestions are removed from the active runtime.",
+  "questionLevelPolicy": "Final XLSX source of truth: levels 100/200 live on raw-content entries; level 300 lives on section guideQuestions; levels 400/500 live in fullVoyageQuestions and are routed to games by primary/secondary guiding section associations.",
   "questionChoiceRepairs": {
     "updatedAt": "2026-05-12T21:02:31.945216+00:00",
     "reason": "Two CSV level-200 rows had blank A/B/C/D choices; app data keeps the CSV question and supplies usable choices for cards and games.",
@@ -186,8 +186,8 @@
       "introductory-questions / Things We Commit To but Do Not Finish / level 200"
     ]
   },
-  "finalQuestionBankUpdatedFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/WSC_2026_QUESTIONS_100_200_300_V9_1_DEDUPED_100_200_SAME_CONTENT_CHOICES.csv",
-  "finalQuestionBankUpdatedAt": "2026-05-26T08:33:17.568200+00:00",
+  "finalQuestionBankUpdatedFrom": "/Users/francoismo/Documents/Playground/WSC/output/questions/WSC_2026_ALL_LEVELS_100_500_FINAL_QUESTION_BANK.xlsx",
+  "finalQuestionBankUpdatedAt": "2026-05-13T23:30:50.260137+00:00",
   "archivedQuestionsBeforeFinalBank": {
     "csv": "/Users/francoismo/Documents/Playground/WSC/output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.csv",
     "json": "/Users/francoismo/Documents/Playground/WSC/output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.json",
@@ -210,5 +210,7 @@
     "call-of-duty-free",
     "next-year-in-futurism",
     "concluding-questions"
-  ]
+  ],
+  "fullVoyageQuestionsRestoredFrom": "https://wsc-2026-study-routes.vercel.app/generated/current-runtime/raw-content-bank.js?v=20260524coop2",
+  "fullVoyageQuestionsRestoredAt": "2026-07-05T00:00:00.000Z"
 }

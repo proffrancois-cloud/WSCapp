@@ -162,7 +162,7 @@ window.WSC_RAW_CONTENT_BANK = {
   "videoRoutingUpdatedAt": "2026-05-11T11:04:10.587Z",
   "videoRoutingUpdatedFrom": "User-confirmed May 11 video-only routing list",
   "regularGuideTransferTablesBuiltFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/WSC_2026_Transfer_Tables_By_Guiding_Section",
-  "questionLevelPolicy": "Final V9.1 CSV source of truth: levels 100/200 live on raw-content entries; level 300 lives on section guideQuestions; games draw only levels 100/200/300. Levels 400/500 and fullVoyageQuestions are removed from the active runtime.",
+  "questionLevelPolicy": "Final XLSX source of truth: levels 100/200 live on raw-content entries; level 300 lives on section guideQuestions; levels 400/500 live in fullVoyageQuestions and are routed to games by primary/secondary guiding section associations.",
   "questionChoiceRepairs": {
     "updatedAt": "2026-05-12T21:02:31.945216+00:00",
     "reason": "Two CSV level-200 rows had blank A/B/C/D choices; app data keeps the CSV question and supplies usable choices for cards and games.",
@@ -171,8 +171,8 @@ window.WSC_RAW_CONTENT_BANK = {
       "introductory-questions / Things We Commit To but Do Not Finish / level 200"
     ]
   },
-  "finalQuestionBankUpdatedFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/WSC_2026_QUESTIONS_100_200_300_V9_1_DEDUPED_100_200_SAME_CONTENT_CHOICES.csv",
-  "finalQuestionBankUpdatedAt": "2026-05-26T08:33:17.568200+00:00",
+  "finalQuestionBankUpdatedFrom": "/Users/francoismo/Documents/Playground/WSC/output/questions/WSC_2026_ALL_LEVELS_100_500_FINAL_QUESTION_BANK.xlsx",
+  "finalQuestionBankUpdatedAt": "2026-05-13T23:30:50.260137+00:00",
   "archivedQuestionsBeforeFinalBank": {
     "csv": "/Users/francoismo/Documents/Playground/WSC/output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.csv",
     "json": "/Users/francoismo/Documents/Playground/WSC/output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.json",
@@ -196,6 +196,8 @@ window.WSC_RAW_CONTENT_BANK = {
     "next-year-in-futurism",
     "concluding-questions"
   ],
+  "fullVoyageQuestionsRestoredFrom": "https://wsc-2026-study-routes.vercel.app/generated/current-runtime/raw-content-bank.js?v=20260524coop2",
+  "fullVoyageQuestionsRestoredAt": "2026-07-05T00:00:00.000Z",
   "sections": {
     "call-of-duty-free": {
       "id": "call-of-duty-free",
@@ -13143,7 +13145,7 @@ window.WSC_RAW_CONTENT_BANK = {
               ],
               "level": 2,
               "displayLevel": 200,
-              "prompt": "What more specific detail from \"Frank Sinatra, My Way\" should a alpaca remember after the obvious fact?",
+              "prompt": "What more specific detail from \"Frank Sinatra, My Way\" should an alpaca remember after the obvious fact?",
               "correctAnswer": "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
               "wrongAnswers": [
                 "It gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists.",
@@ -14002,7 +14004,7 @@ window.WSC_RAW_CONTENT_BANK = {
               ],
               "level": 2,
               "displayLevel": 200,
-              "prompt": "What more specific detail from \"Technologies That Seemed Close but Never Arrived\" should a alpaca remember after the obvious fact?",
+              "prompt": "What more specific detail from \"Technologies That Seemed Close but Never Arrived\" should an alpaca remember after the obvious fact?",
               "correctAnswer": "At the entry level, this teaches students to question predictions instead of simply believing them. At the section level, it gives the introduction a bridge into futurism. Key examples to keep available: Nuclear-Powered Cars; Food Pills; 3D Television; Why Some Futures Stay “Almost There”.",
               "wrongAnswers": [
                 "The entry mainly proves that every predicted technology eventually succeeds if people wait long enough.",
@@ -14296,7 +14298,7 @@ window.WSC_RAW_CONTENT_BANK = {
               ],
               "level": 2,
               "displayLevel": 200,
-              "prompt": "What more specific detail from \"Things We Commit To but Do Not Finish\" should a alpaca remember after the obvious fact?",
+              "prompt": "What more specific detail from \"Things We Commit To but Do Not Finish\" should an alpaca remember after the obvious fact?",
               "correctAnswer": "At the entry level, this helps students separate starting from finishing. At the section level, it gives the introduction a realistic counterpoint: some routes do not end in arrival. Key examples to keep available: The truth is that sometimes we’ll never get there at all; Most videogames are left unfinished; nearly half of those who start university don’t get a degree; Unfinished Video Games.",
               "wrongAnswers": [
                 "The entry says unfinished games and degrees mostly prove that people should never begin difficult routes.",
@@ -48874,5 +48876,19585 @@ window.WSC_RAW_CONTENT_BANK = {
       }
     }
   },
-  "fullVoyageQuestions": []
+  "fullVoyageQuestions": [
+    {
+      "id": "FV400_001",
+      "stableId": "FV400_001",
+      "sourceQuestionId": "FV400_001",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress",
+        "were-all-in-this",
+        "were-all-in-this-to-get-there"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A loading bar near the end keeps people patient even though the real process may still be stuck. Which place tells the closest story?",
+      "correctAnswer": "Berlin Brandenburg Airport",
+      "wrongAnswers": [
+        "Nishiyama Onsen Keiunkan",
+        "Grand Hotel Europe",
+        "Robie House"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nishiyama Onsen Keiunkan",
+          "feedback": "Nishiyama Onsen Keiunkan is about endurance across centuries, not false near-completion."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Hotel Europe",
+          "feedback": "Grand Hotel Europe is about luxury, memory, and cultural prestige rather than a stalled finish line."
+        },
+        {
+          "label": "D",
+          "answer": "Robie House",
+          "feedback": "Robie House matters as architectural innovation, not as a promise that kept looking nearly done."
+        }
+      ],
+      "explanation": "Both create an almost-finished feeling while real arrival keeps slipping away.",
+      "visibleCorrectExplanation": "Berlin Brandenburg Airport repeatedly seemed close to opening while delays kept pushing completion further away.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nishiyama Onsen Keiunkan",
+          "explanation": "Nishiyama Onsen Keiunkan is about endurance across centuries, not false near-completion."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Hotel Europe",
+          "explanation": "Grand Hotel Europe is about luxury, memory, and cultural prestige rather than a stalled finish line."
+        },
+        {
+          "label": "D",
+          "answer": "Robie House",
+          "explanation": "Robie House matters as architectural innovation, not as a promise that kept looking nearly done."
+        }
+      ],
+      "visibleConnection": "Both create an almost-finished feeling while real arrival keeps slipping away.",
+      "visibleTakeaway": "When something looks almost finished, ask whether completion is real or only performed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "We’re All in This to Get There",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.001",
+        "question.were-all-in-this-to-get-there.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 0,
+          "questionId": "question.progress-not-regress.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_001",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 0,
+          "questionId": "question.were-all-in-this-to-get-there.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_001",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_002",
+      "stableId": "FV400_002",
+      "sourceQuestionId": "FV400_002",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "progress-not-regress",
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A button gives people something to press, even when it may not change the system. Which public design uses the same kind of comfort?",
+      "correctAnswer": "Longer baggage-claim walks",
+      "wrongAnswers": [
+        "Duty-free shopping corridors",
+        "Moving sidewalks in airports",
+        "Wayfinding signs in terminals"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Duty-free shopping corridors",
+          "feedback": "Duty-free corridors turn waiting into shopping, but the delay is not disguised through useful movement."
+        },
+        {
+          "label": "C",
+          "answer": "Moving sidewalks in airports",
+          "feedback": "Moving sidewalks reduce walking effort, while the baggage-claim example adds walking to reduce complaint."
+        },
+        {
+          "label": "D",
+          "answer": "Wayfinding signs in terminals",
+          "feedback": "Wayfinding signs reduce confusion, not impatience caused by an unchanged wait."
+        }
+      ],
+      "explanation": "Both reduce frustration by changing how waiting feels rather than shortening the wait itself.",
+      "visibleCorrectExplanation": "Longer baggage-claim walks keep passengers moving, so the same delay feels less empty.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Duty-free shopping corridors",
+          "explanation": "Duty-free corridors turn waiting into shopping, but the delay is not disguised through useful movement."
+        },
+        {
+          "label": "C",
+          "answer": "Moving sidewalks in airports",
+          "explanation": "Moving sidewalks reduce walking effort, while the baggage-claim example adds walking to reduce complaint."
+        },
+        {
+          "label": "D",
+          "answer": "Wayfinding signs in terminals",
+          "explanation": "Wayfinding signs reduce confusion, not impatience caused by an unchanged wait."
+        }
+      ],
+      "visibleConnection": "Both reduce frustration by changing how waiting feels rather than shortening the wait itself.",
+      "visibleTakeaway": "Sometimes design changes the experience of time without changing the time itself.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "Introductory Questions",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.001",
+        "question.progress-not-regress.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 23,
+          "levelQuestionIndex": 0,
+          "questionId": "question.introductory-questions.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_002",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 1,
+          "questionId": "question.progress-not-regress.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_002",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_003",
+      "stableId": "FV400_003",
+      "sourceQuestionId": "FV400_003",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "theres-a-draft",
+        "more-to-do-than-can-ever-be-listed",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Unfinished tasks stay mentally loud after work stops. Which creative object carries a similar unfinished pressure?",
+      "correctAnswer": "A cut demo outside the final show",
+      "wrongAnswers": [
+        "A finished painting in a museum",
+        "A welcome poem on a monument",
+        "An ambient airport soundtrack"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A finished painting in a museum",
+          "feedback": "A finished museum painting has reached official form, so it lacks the unfinished pull."
+        },
+        {
+          "label": "C",
+          "answer": "A welcome poem on a monument",
+          "feedback": "A welcome poem frames arrival and belonging, not unfinished creative pressure."
+        },
+        {
+          "label": "D",
+          "answer": "An ambient airport soundtrack",
+          "feedback": "An airport soundtrack shapes waiting, but it is not an excluded piece calling for completion."
+        }
+      ],
+      "explanation": "Both keep attention attached to something unfinished or excluded from completion.",
+      "visibleCorrectExplanation": "A cut demo outside the final show keeps a trace of what nearly joined the finished work.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A finished painting in a museum",
+          "explanation": "A finished museum painting has reached official form, so it lacks the unfinished pull."
+        },
+        {
+          "label": "C",
+          "answer": "A welcome poem on a monument",
+          "explanation": "A welcome poem frames arrival and belonging, not unfinished creative pressure."
+        },
+        {
+          "label": "D",
+          "answer": "An ambient airport soundtrack",
+          "explanation": "An airport soundtrack shapes waiting, but it is not an excluded piece calling for completion."
+        }
+      ],
+      "visibleConnection": "Both keep attention attached to something unfinished or excluded from completion.",
+      "visibleTakeaway": "Unfinished things can stay active even after the official process has moved on.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "There’s a Draft in Here",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.001",
+        "question.theres-a-draft-in-here.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 14,
+          "levelQuestionIndex": 0,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_003",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 14,
+          "levelQuestionIndex": 0,
+          "questionId": "question.theres-a-draft-in-here.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_003",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_004",
+      "stableId": "FV400_004",
+      "sourceQuestionId": "FV400_004",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A young heir wants power before being ready. Which political move responds to the opposite fear: attention shifting too soon to the next ruler?",
+      "correctAnswer": "Elizabeth I delaying an heir",
+      "wrongAnswers": [
+        "A lame-duck president",
+        "A caretaker government",
+        "A regency council"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A lame-duck president",
+          "feedback": "A lame-duck president loses influence near the end, but the tactic is not hiding a successor."
+        },
+        {
+          "label": "C",
+          "answer": "A caretaker government",
+          "feedback": "A caretaker government holds power temporarily during transition, not to prevent attention shifting."
+        },
+        {
+          "label": "D",
+          "answer": "A regency council",
+          "feedback": "A regency council manages rule for someone else, but it does not capture Elizabeth’s fear of premature succession."
+        }
+      ],
+      "explanation": "Both focus on the instability created by succession before authority is actually transferred.",
+      "visibleCorrectExplanation": "Elizabeth I delayed naming a successor because a known heir could pull attention away from the current ruler.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A lame-duck president",
+          "explanation": "A lame-duck president loses influence near the end, but the tactic is not hiding a successor."
+        },
+        {
+          "label": "C",
+          "answer": "A caretaker government",
+          "explanation": "A caretaker government holds power temporarily during transition, not to prevent attention shifting."
+        },
+        {
+          "label": "D",
+          "answer": "A regency council",
+          "explanation": "A regency council manages rule for someone else, but it does not capture Elizabeth’s fear of premature succession."
+        }
+      ],
+      "visibleConnection": "Both focus on the instability created by succession before authority is actually transferred.",
+      "visibleTakeaway": "Succession anxiety is often about attention as much as legal power.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "The End is Nearish",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.002",
+        "question.the-end-is-nearish.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 24,
+          "levelQuestionIndex": 1,
+          "questionId": "question.introductory-questions.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_004",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 0,
+          "questionId": "question.the-end-is-nearish.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_004",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_005",
+      "stableId": "FV400_005",
+      "sourceQuestionId": "FV400_005",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "next-year-in-futurism",
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A technology promise rises, disappoints, then survives as a limited convenience. Which future-travel dream aged that way?",
+      "correctAnswer": "Moving sidewalks",
+      "wrongAnswers": [
+        "Nuclear-powered cars",
+        "Food pills",
+        "3D televisions"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "feedback": "Nuclear-powered cars stayed mostly in the fantasy stage rather than becoming ordinary infrastructure."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "feedback": "Food pills remained a future fantasy, not a modest convenience people use every day."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions",
+          "feedback": "3D televisions reached consumers but do not match the travel-infrastructure fantasy as closely."
+        }
+      ],
+      "explanation": "Both show a grand future becoming smaller but still real in limited places.",
+      "visibleCorrectExplanation": "Moving sidewalks did arrive, but mostly as airport infrastructure rather than a transformed urban future.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "explanation": "Nuclear-powered cars stayed mostly in the fantasy stage rather than becoming ordinary infrastructure."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "explanation": "Food pills remained a future fantasy, not a modest convenience people use every day."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions",
+          "explanation": "3D televisions reached consumers but do not match the travel-infrastructure fantasy as closely."
+        }
+      ],
+      "visibleConnection": "Both show a grand future becoming smaller but still real in limited places.",
+      "visibleTakeaway": "Some futures fail completely; others shrink into boring usefulness.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Next Year in Futurism",
+      "guidingSectionSecondary": "Where We’re Going, We’ll Still Need Them",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.001",
+        "question.next-year-in-futurism.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 0,
+          "questionId": "question.where-were-going-well-still-need-them.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_005",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "next-year-in-futurism",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 0,
+          "questionId": "question.next-year-in-futurism.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_005",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_006",
+      "stableId": "FV400_006",
+      "sourceQuestionId": "FV400_006",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "monkey-see",
+        "progress-not-regress",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A polished demo makes a product seem closer than it really is. Which older interface trick creates the same false readiness?",
+      "correctAnswer": "A skeleton screen before content loads",
+      "wrongAnswers": [
+        "A done list after work ends",
+        "A Grand Tour itinerary",
+        "A road sign to a city"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done list after work ends",
+          "feedback": "A done list records completed labor; it does not make an unfinished product look ready."
+        },
+        {
+          "label": "C",
+          "answer": "A Grand Tour itinerary",
+          "feedback": "A Grand Tour itinerary plans a journey, but it does not simulate a working product."
+        },
+        {
+          "label": "D",
+          "answer": "A road sign to a city",
+          "feedback": "A road sign guides movement toward a place; it is not a fake preview of readiness."
+        }
+      ],
+      "explanation": "Both present a partial or staged version as if the real thing is almost ready.",
+      "visibleCorrectExplanation": "A skeleton screen shows the layout before the actual content arrives, creating a sense of progress before completion.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done list after work ends",
+          "explanation": "A done list records completed labor; it does not make an unfinished product look ready."
+        },
+        {
+          "label": "C",
+          "answer": "A Grand Tour itinerary",
+          "explanation": "A Grand Tour itinerary plans a journey, but it does not simulate a working product."
+        },
+        {
+          "label": "D",
+          "answer": "A road sign to a city",
+          "explanation": "A road sign guides movement toward a place; it is not a fake preview of readiness."
+        }
+      ],
+      "visibleConnection": "Both present a partial or staged version as if the real thing is almost ready.",
+      "visibleTakeaway": "Watch for previews that look like completion before the real substance arrives.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.003",
+        "question.monkey-see-monkey-prototype.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 2,
+          "questionId": "question.progress-not-regress.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_006",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 23,
+          "levelQuestionIndex": 0,
+          "questionId": "question.monkey-see-monkey-prototype.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_006",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_007",
+      "stableId": "FV400_007",
+      "sourceQuestionId": "FV400_007",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A society trusts a number because it looks neutral. Which list-maker would understand the danger best?",
+      "correctAnswer": "Umberto Eco",
+      "wrongAnswers": [
+        "Brian Eno",
+        "Frank Sinatra",
+        "Tom Hanks"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Brian Eno",
+          "feedback": "Brian Eno shaped airport ambience; his work manages mood more than measurement."
+        },
+        {
+          "label": "C",
+          "answer": "Frank Sinatra",
+          "feedback": "Frank Sinatra’s ending song helps think about closure, not numerical value."
+        },
+        {
+          "label": "D",
+          "answer": "Tom Hanks",
+          "feedback": "Tom Hanks’s airport role is about blocked admission, not metrics defining worth."
+        }
+      ],
+      "explanation": "Both ask how lists and measurements decide what counts as meaningful.",
+      "visibleCorrectExplanation": "Umberto Eco treated lists as cultural forms, not neutral containers, so he would recognize how numbers carry values.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Brian Eno",
+          "explanation": "Brian Eno shaped airport ambience; his work manages mood more than measurement."
+        },
+        {
+          "label": "C",
+          "answer": "Frank Sinatra",
+          "explanation": "Frank Sinatra’s ending song helps think about closure, not numerical value."
+        },
+        {
+          "label": "D",
+          "answer": "Tom Hanks",
+          "explanation": "Tom Hanks’s airport role is about blocked admission, not metrics defining worth."
+        }
+      ],
+      "visibleConnection": "Both ask how lists and measurements decide what counts as meaningful.",
+      "visibleTakeaway": "Numbers and lists often look passive while quietly choosing what matters.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 15,
+          "levelQuestionIndex": 1,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_007",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_008",
+      "stableId": "FV400_008",
+      "sourceQuestionId": "FV400_008",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A traveler is physically present but not legally admitted. Which poem turns the welcome sign into a warning?",
+      "correctAnswer": "“Prospective Immigrants Please Note”",
+      "wrongAnswers": [
+        "“Sea Fever”",
+        "“The Road Not Taken”",
+        "“Sailing to Byzantium”"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "“Sea Fever”",
+          "feedback": "“Sea Fever” longs for motion and open travel, not legal exclusion."
+        },
+        {
+          "label": "C",
+          "answer": "“The Road Not Taken”",
+          "feedback": "“The Road Not Taken” turns choice into memory, not admission into a country."
+        },
+        {
+          "label": "D",
+          "answer": "“Sailing to Byzantium”",
+          "feedback": "“Sailing to Byzantium” imagines spiritual/artistic departure, not border rejection."
+        }
+      ],
+      "explanation": "Both separate being there from being accepted.",
+      "visibleCorrectExplanation": "“Prospective Immigrants Please Note” warns that arrival may not become belonging.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "“Sea Fever”",
+          "explanation": "“Sea Fever” longs for motion and open travel, not legal exclusion."
+        },
+        {
+          "label": "C",
+          "answer": "“The Road Not Taken”",
+          "explanation": "“The Road Not Taken” turns choice into memory, not admission into a country."
+        },
+        {
+          "label": "D",
+          "answer": "“Sailing to Byzantium”",
+          "explanation": "“Sailing to Byzantium” imagines spiritual/artistic departure, not border rejection."
+        }
+      ],
+      "visibleConnection": "Both separate being there from being accepted.",
+      "visibleTakeaway": "Physical arrival is weaker than real admission when a system controls the gate.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 20,
+          "levelQuestionIndex": 0,
+          "questionId": "question.call-of-duty-free.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_008",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_009",
+      "stableId": "FV400_009",
+      "sourceQuestionId": "FV400_009",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "monkey-see",
+        "progress-not-regress",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A route is changed to reduce frustration without reducing the total wait. Which interface object uses the same emotional strategy?",
+      "correctAnswer": "A throbber",
+      "wrongAnswers": [
+        "A Gini coefficient",
+        "A bucket list",
+        "A caretaker government"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A Gini coefficient",
+          "feedback": "A Gini coefficient measures inequality; it does not manage a person’s waiting experience."
+        },
+        {
+          "label": "C",
+          "answer": "A bucket list",
+          "feedback": "A bucket list organizes ambition, not moment-by-moment impatience."
+        },
+        {
+          "label": "D",
+          "answer": "A caretaker government",
+          "feedback": "A caretaker government preserves continuity during transition, not comfort during delay."
+        }
+      ],
+      "explanation": "Both reassure people that something is happening while they wait.",
+      "visibleCorrectExplanation": "A throbber shows ongoing activity without promising an exact finish, which can make delay more tolerable.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A Gini coefficient",
+          "explanation": "A Gini coefficient measures inequality; it does not manage a person’s waiting experience."
+        },
+        {
+          "label": "C",
+          "answer": "A bucket list",
+          "explanation": "A bucket list organizes ambition, not moment-by-moment impatience."
+        },
+        {
+          "label": "D",
+          "answer": "A caretaker government",
+          "explanation": "A caretaker government preserves continuity during transition, not comfort during delay."
+        }
+      ],
+      "visibleConnection": "Both reassure people that something is happening while they wait.",
+      "visibleTakeaway": "Movement or activity signals can make waiting feel less empty.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.004",
+        "question.monkey-see-monkey-prototype.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 3,
+          "questionId": "question.progress-not-regress.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_009",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 24,
+          "levelQuestionIndex": 1,
+          "questionId": "question.monkey-see-monkey-prototype.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_009",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_010",
+      "stableId": "FV400_010",
+      "sourceQuestionId": "FV400_010",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "the-end-is-nearish",
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A crossing point matters before the collapse is visible. Which older idea gives that scientific warning a moral shape?",
+      "correctAnswer": "Point of no return",
+      "wrongAnswers": [
+        "Bucket list",
+        "Grand Tour",
+        "Done list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Bucket list",
+          "feedback": "A bucket list organizes desired experiences before death, not irreversible system change."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour",
+          "feedback": "A Grand Tour turns travel into education and status, not threshold risk."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "feedback": "A done list preserves completed work, not a crossing into irreversibility."
+        }
+      ],
+      "explanation": "Both treat a threshold as decisive even when the consequences are not fully visible yet.",
+      "visibleCorrectExplanation": "A point of no return marks the moment after which reversal becomes impossible or costly.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Bucket list",
+          "explanation": "A bucket list organizes desired experiences before death, not irreversible system change."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour",
+          "explanation": "A Grand Tour turns travel into education and status, not threshold risk."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "explanation": "A done list preserves completed work, not a crossing into irreversibility."
+        }
+      ],
+      "visibleConnection": "Both treat a threshold as decisive even when the consequences are not fully visible yet.",
+      "visibleTakeaway": "Thresholds often become clear only after the easy return has vanished.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "Introductory Questions",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.003",
+        "question.the-end-is-nearish.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 25,
+          "levelQuestionIndex": 2,
+          "questionId": "question.introductory-questions.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_010",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 1,
+          "questionId": "question.the-end-is-nearish.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_010",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_011",
+      "stableId": "FV400_011",
+      "sourceQuestionId": "FV400_011",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "theres-a-draft",
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A cut song later finds an audience online. Which memory effect explains why unfinished material can keep calling people back?",
+      "correctAnswer": "The Zeigarnik Effect",
+      "wrongAnswers": [
+        "The Hawthorne Effect",
+        "Hofstadter’s Law",
+        "Conway’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Hawthorne Effect",
+          "feedback": "The Hawthorne Effect concerns behavior changing under observation, not unfinished attention."
+        },
+        {
+          "label": "C",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law concerns tasks taking longer than expected, not mental return to a cut work."
+        },
+        {
+          "label": "D",
+          "answer": "Conway’s Law",
+          "feedback": "Conway’s Law links system design to organizational structure, not unfinished memory."
+        }
+      ],
+      "explanation": "Both keep attention attached to something that did not reach official completion.",
+      "visibleCorrectExplanation": "The Zeigarnik Effect explains why unfinished tasks or interrupted works remain active in memory.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Hawthorne Effect",
+          "explanation": "The Hawthorne Effect concerns behavior changing under observation, not unfinished attention."
+        },
+        {
+          "label": "C",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law concerns tasks taking longer than expected, not mental return to a cut work."
+        },
+        {
+          "label": "D",
+          "answer": "Conway’s Law",
+          "explanation": "Conway’s Law links system design to organizational structure, not unfinished memory."
+        }
+      ],
+      "visibleConnection": "Both keep attention attached to something that did not reach official completion.",
+      "visibleTakeaway": "Unfinishedness can become its own kind of visibility.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "More To Do Than Can Ever Be Listed",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.003",
+        "question.theres-a-draft-in-here.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 16,
+          "levelQuestionIndex": 2,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_011",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 15,
+          "levelQuestionIndex": 1,
+          "questionId": "question.theres-a-draft-in-here.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_011",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_012",
+      "stableId": "FV400_012",
+      "sourceQuestionId": "FV400_012",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "where-the-sidewalk-starts",
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A city adds more road capacity, but congestion can still get worse. Which productivity habit makes a similar promise and risk?",
+      "correctAnswer": "Adding more tasks to a list",
+      "wrongAnswers": [
+        "Keeping a done list",
+        "Naming a successor late",
+        "Walking to baggage claim"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Keeping a done list",
+          "feedback": "A done list restores evidence of completed work, which moves in the opposite direction."
+        },
+        {
+          "label": "C",
+          "answer": "Naming a successor late",
+          "feedback": "Naming a successor late manages political attention, not overload from added capacity."
+        },
+        {
+          "label": "D",
+          "answer": "Walking to baggage claim",
+          "feedback": "Walking to baggage claim changes perceived waiting, not system overload."
+        }
+      ],
+      "explanation": "Both show that adding more structure can backfire when the system is already overloaded.",
+      "visibleCorrectExplanation": "Adding more tasks to a list can turn a tool for control into another source of pressure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Keeping a done list",
+          "explanation": "A done list restores evidence of completed work, which moves in the opposite direction."
+        },
+        {
+          "label": "C",
+          "answer": "Naming a successor late",
+          "explanation": "Naming a successor late manages political attention, not overload from added capacity."
+        },
+        {
+          "label": "D",
+          "answer": "Walking to baggage claim",
+          "explanation": "Walking to baggage claim changes perceived waiting, not system overload."
+        }
+      ],
+      "visibleConnection": "Both show that adding more structure can backfire when the system is already overloaded.",
+      "visibleTakeaway": "More options or more structure do not automatically make a system work better.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "More To Do Than Can Ever Be Listed",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.004",
+        "question.where-the-sidewalk-starts.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 17,
+          "levelQuestionIndex": 3,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_012",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 0,
+          "questionId": "question.where-the-sidewalk-starts.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_012",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_013",
+      "stableId": "FV400_013",
+      "sourceQuestionId": "FV400_013",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A public building is designed to make waiting feel calmer instead of shorter. Which musical work shares that goal?",
+      "correctAnswer": "Music for Airports",
+      "wrongAnswers": [
+        "The Four Horsemen",
+        "Strawberry Fields Forever demo",
+        "The New Colossus"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Four Horsemen",
+          "feedback": "The Four Horsemen visualizes apocalypse; it intensifies dread rather than calming transit waiting."
+        },
+        {
+          "label": "C",
+          "answer": "Strawberry Fields Forever demo",
+          "feedback": "A Strawberry Fields demo shows creative process, not public waiting design."
+        },
+        {
+          "label": "D",
+          "answer": "The New Colossus",
+          "feedback": "The New Colossus frames immigration as welcome, not ambient comfort."
+        }
+      ],
+      "explanation": "Both shape the emotional atmosphere of waiting rather than removing the wait.",
+      "visibleCorrectExplanation": "Music for Airports was designed for a public transit environment where people wait, worry, and pass through.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Four Horsemen",
+          "explanation": "The Four Horsemen visualizes apocalypse; it intensifies dread rather than calming transit waiting."
+        },
+        {
+          "label": "C",
+          "answer": "Strawberry Fields Forever demo",
+          "explanation": "A Strawberry Fields demo shows creative process, not public waiting design."
+        },
+        {
+          "label": "D",
+          "answer": "The New Colossus",
+          "explanation": "The New Colossus frames immigration as welcome, not ambient comfort."
+        }
+      ],
+      "visibleConnection": "Both shape the emotional atmosphere of waiting rather than removing the wait.",
+      "visibleTakeaway": "Some art changes how a place feels before it changes what happens there.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Monkey See, Monkey Prototype",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.004",
+        "question.monkey-see-monkey-prototype.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 3,
+          "questionId": "question.introductory-questions.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_013",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 25,
+          "levelQuestionIndex": 2,
+          "questionId": "question.monkey-see-monkey-prototype.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_013",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_014",
+      "stableId": "FV400_014",
+      "sourceQuestionId": "FV400_014",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish",
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A system keeps functioning while real authority is between owners. Which creative process has the closest in-between status?",
+      "correctAnswer": "A rough draft before the final",
+      "wrongAnswers": [
+        "A home demo before release",
+        "A rehearsal before performance",
+        "A cut song after opening"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A home demo before release",
+          "feedback": "A home demo is an early sound version, but it does not carry the same temporary authority over the whole work."
+        },
+        {
+          "label": "C",
+          "answer": "A rehearsal before performance",
+          "feedback": "A rehearsal prepares a performance, while the draft itself temporarily holds the work’s form."
+        },
+        {
+          "label": "D",
+          "answer": "A cut song after opening",
+          "feedback": "A cut song survives outside the final product rather than holding the place of the final."
+        }
+      ],
+      "explanation": "Both occupy a temporary state where continuity matters but final authority has not arrived.",
+      "visibleCorrectExplanation": "A rough draft keeps the work moving before the final version takes over.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A home demo before release",
+          "explanation": "A home demo is an early sound version, but it does not carry the same temporary authority over the whole work."
+        },
+        {
+          "label": "C",
+          "answer": "A rehearsal before performance",
+          "explanation": "A rehearsal prepares a performance, while the draft itself temporarily holds the work’s form."
+        },
+        {
+          "label": "D",
+          "answer": "A cut song after opening",
+          "explanation": "A cut song survives outside the final product rather than holding the place of the final."
+        }
+      ],
+      "visibleConnection": "Both occupy a temporary state where continuity matters but final authority has not arrived.",
+      "visibleTakeaway": "Temporary forms matter when they keep a system alive before the final version arrives.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "There’s a Draft in Here",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.003",
+        "question.theres-a-draft-in-here.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 2,
+          "questionId": "question.the-end-is-nearish.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_014",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 16,
+          "levelQuestionIndex": 2,
+          "questionId": "question.theres-a-draft-in-here.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_014",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_015",
+      "stableId": "FV400_015",
+      "sourceQuestionId": "FV400_015",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "An old road still matters because later systems keep rebuilding around it. Which progress idea explains why invention is not enough?",
+      "correctAnswer": "Maintenance prevents regress",
+      "wrongAnswers": [
+        "A done list records work",
+        "A demo shows process",
+        "A bucket list performs desire"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done list records work",
+          "feedback": "A done list records labor, but it does not explain infrastructure survival."
+        },
+        {
+          "label": "C",
+          "answer": "A demo shows process",
+          "feedback": "A demo reveals an unfinished version, not the upkeep needed after completion."
+        },
+        {
+          "label": "D",
+          "answer": "A bucket list performs desire",
+          "feedback": "A bucket list displays aspiration, not the work of preserving a system."
+        }
+      ],
+      "explanation": "Both show that survival depends on upkeep, not just the first act of creation.",
+      "visibleCorrectExplanation": "Maintenance prevents regress because systems decay when no one keeps repairing them.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done list records work",
+          "explanation": "A done list records labor, but it does not explain infrastructure survival."
+        },
+        {
+          "label": "C",
+          "answer": "A demo shows process",
+          "explanation": "A demo reveals an unfinished version, not the upkeep needed after completion."
+        },
+        {
+          "label": "D",
+          "answer": "A bucket list performs desire",
+          "explanation": "A bucket list displays aspiration, not the work of preserving a system."
+        }
+      ],
+      "visibleConnection": "Both show that survival depends on upkeep, not just the first act of creation.",
+      "visibleTakeaway": "Lasting progress usually depends on repeated care, not one dramatic invention.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 4,
+          "questionId": "question.progress-not-regress.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_015",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_016",
+      "stableId": "FV400_016",
+      "sourceQuestionId": "FV400_016",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A person far from home feels home more intensely than when they lived there. Which airport situation echoes that distance from arrival?",
+      "correctAnswer": "A passenger stuck in transit",
+      "wrongAnswers": [
+        "A tourist buying souvenirs",
+        "A driver on Route 66",
+        "A diner at a sidewalk café"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A tourist buying souvenirs",
+          "feedback": "A tourist buying souvenirs is consuming a place, not longing for an unreachable home."
+        },
+        {
+          "label": "C",
+          "answer": "A driver on Route 66",
+          "feedback": "A driver on Route 66 follows a nostalgic route, but the road itself does not block belonging."
+        },
+        {
+          "label": "D",
+          "answer": "A diner at a sidewalk café",
+          "feedback": "A sidewalk café creates public presence, not separation from home."
+        }
+      ],
+      "explanation": "Both turn distance into emotional intensity: the desired place becomes more powerful because it cannot be fully reached.",
+      "visibleCorrectExplanation": "A passenger stuck in transit is near movement but blocked from actual arrival.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A tourist buying souvenirs",
+          "explanation": "A tourist buying souvenirs is consuming a place, not longing for an unreachable home."
+        },
+        {
+          "label": "C",
+          "answer": "A driver on Route 66",
+          "explanation": "A driver on Route 66 follows a nostalgic route, but the road itself does not block belonging."
+        },
+        {
+          "label": "D",
+          "answer": "A diner at a sidewalk café",
+          "explanation": "A sidewalk café creates public presence, not separation from home."
+        }
+      ],
+      "visibleConnection": "Both turn distance into emotional intensity: the desired place becomes more powerful because it cannot be fully reached.",
+      "visibleTakeaway": "Absence can make a place feel stronger than presence did.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 0,
+          "questionId": "question.home-and-wandering.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_016",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_017",
+      "stableId": "FV400_017",
+      "sourceQuestionId": "FV400_017",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "monkey-see",
+        "theres-a-draft-in-here",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A work looks finished enough to sell, but the substance is still missing. Which product label fits that risk?",
+      "correctAnswer": "Vaporware",
+      "wrongAnswers": [
+        "Entrepôt",
+        "Stroad",
+        "Throbber"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Entrepôt",
+          "feedback": "An entrepôt is a trade hub; it is not a false product promise."
+        },
+        {
+          "label": "C",
+          "answer": "Stroad",
+          "feedback": "A stroad is a road-street hybrid, not a missing product."
+        },
+        {
+          "label": "D",
+          "answer": "Throbber",
+          "feedback": "A throbber shows activity during loading, not a market promise that may never arrive."
+        }
+      ],
+      "explanation": "Both name a promise of arrival before the product is truly there.",
+      "visibleCorrectExplanation": "Vaporware is announced or displayed as if it is coming soon, even when real delivery may not happen.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Entrepôt",
+          "explanation": "An entrepôt is a trade hub; it is not a false product promise."
+        },
+        {
+          "label": "C",
+          "answer": "Stroad",
+          "explanation": "A stroad is a road-street hybrid, not a missing product."
+        },
+        {
+          "label": "D",
+          "answer": "Throbber",
+          "explanation": "A throbber shows activity during loading, not a market promise that may never arrive."
+        }
+      ],
+      "visibleConnection": "Both name a promise of arrival before the product is truly there.",
+      "visibleTakeaway": "Presentation can arrive long before the product does.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "Monkey See, Monkey Prototype",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.004",
+        "question.monkey-see-monkey-prototype.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 17,
+          "levelQuestionIndex": 3,
+          "questionId": "question.theres-a-draft-in-here.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_017",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 3,
+          "questionId": "question.monkey-see-monkey-prototype.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_017",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_018",
+      "stableId": "FV400_018",
+      "sourceQuestionId": "FV400_018",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A city path appears where planners did not intend one. Which planning concept treats that informal movement as evidence?",
+      "correctAnswer": "Desire paths",
+      "wrongAnswers": [
+        "Snout houses",
+        "Stroads",
+        "Wayfinding signs"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Snout houses",
+          "feedback": "Snout houses show garages dominating street life, not informal paths."
+        },
+        {
+          "label": "C",
+          "answer": "Stroads",
+          "feedback": "Stroads mix street and road functions, but they are planned road types, not user-made evidence."
+        },
+        {
+          "label": "D",
+          "answer": "Wayfinding signs",
+          "feedback": "Wayfinding signs guide official movement rather than reveal unofficial movement."
+        }
+      ],
+      "explanation": "Both value the route people actually take over the route designers expected.",
+      "visibleCorrectExplanation": "Desire paths reveal repeated human movement through grass or space before official design catches up.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Snout houses",
+          "explanation": "Snout houses show garages dominating street life, not informal paths."
+        },
+        {
+          "label": "C",
+          "answer": "Stroads",
+          "explanation": "Stroads mix street and road functions, but they are planned road types, not user-made evidence."
+        },
+        {
+          "label": "D",
+          "answer": "Wayfinding signs",
+          "explanation": "Wayfinding signs guide official movement rather than reveal unofficial movement."
+        }
+      ],
+      "visibleConnection": "Both value the route people actually take over the route designers expected.",
+      "visibleTakeaway": "Actual behavior can expose design truth better than a plan does.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 1,
+          "questionId": "question.where-the-sidewalk-starts.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_018",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_019",
+      "stableId": "FV400_019",
+      "sourceQuestionId": "FV400_019",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A host country welcomes people in poetry, but policy may refuse them in practice. Which index measures a similar inequality in movement?",
+      "correctAnswer": "Passport Index",
+      "wrongAnswers": [
+        "Big Mac Index",
+        "Happiness Index",
+        "Labor Productivity"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Big Mac Index",
+          "feedback": "The Big Mac Index compares purchasing power, not border access."
+        },
+        {
+          "label": "C",
+          "answer": "Happiness Index",
+          "feedback": "The Happiness Index measures well-being, not legal mobility."
+        },
+        {
+          "label": "D",
+          "answer": "Labor Productivity",
+          "feedback": "Labor productivity measures output, not who can cross borders."
+        }
+      ],
+      "explanation": "Both show that movement is not equally available to everyone.",
+      "visibleCorrectExplanation": "The Passport Index ranks how much mobility different passports allow.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Big Mac Index",
+          "explanation": "The Big Mac Index compares purchasing power, not border access."
+        },
+        {
+          "label": "C",
+          "answer": "Happiness Index",
+          "explanation": "The Happiness Index measures well-being, not legal mobility."
+        },
+        {
+          "label": "D",
+          "answer": "Labor Productivity",
+          "explanation": "Labor productivity measures output, not who can cross borders."
+        }
+      ],
+      "visibleConnection": "Both show that movement is not equally available to everyone.",
+      "visibleTakeaway": "A promise of welcome means little if the paperwork decides otherwise.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 21,
+          "levelQuestionIndex": 1,
+          "questionId": "question.call-of-duty-free.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_019",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_020",
+      "stableId": "FV400_020",
+      "sourceQuestionId": "FV400_020",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A series seems to end, then keeps returning with more closure. Which movie experience made that feeling famous?",
+      "correctAnswer": "The Return of the King",
+      "wrongAnswers": [
+        "Back to the Future",
+        "The Terminal",
+        "The Grand Budapest Hotel"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Back to the Future",
+          "feedback": "Back to the Future is about futurist time travel and roads, not repeated endings."
+        },
+        {
+          "label": "C",
+          "answer": "The Terminal",
+          "feedback": "The Terminal is about blocked admission, not multiple closings."
+        },
+        {
+          "label": "D",
+          "answer": "The Grand Budapest Hotel",
+          "feedback": "The Grand Budapest Hotel centers memory and hospitality, not false final scenes."
+        }
+      ],
+      "explanation": "The shared issue is repeated near-closure: the audience feels the end before the story stops.",
+      "visibleCorrectExplanation": "The Return of the King is famous for feeling as if it ends several times.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Back to the Future",
+          "explanation": "Back to the Future is about futurist time travel and roads, not repeated endings."
+        },
+        {
+          "label": "C",
+          "answer": "The Terminal",
+          "explanation": "The Terminal is about blocked admission, not multiple closings."
+        },
+        {
+          "label": "D",
+          "answer": "The Grand Budapest Hotel",
+          "explanation": "The Grand Budapest Hotel centers memory and hospitality, not false final scenes."
+        }
+      ],
+      "visibleConnection": "The shared issue is repeated near-closure: the audience feels the end before the story stops.",
+      "visibleTakeaway": "A story can make the end feel near several times before it truly arrives.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Home and Wandering",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.005",
+        "question.home-and-wandering.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 4,
+          "questionId": "question.introductory-questions.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_020",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 1,
+          "questionId": "question.home-and-wandering.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_020",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_021",
+      "stableId": "FV400_021",
+      "sourceQuestionId": "FV400_021",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A rehearsed conversation helps someone face a difficult moment before it happens. Which visual art practice works similarly?",
+      "correctAnswer": "A preparatory sketch",
+      "wrongAnswers": [
+        "A passport stamp",
+        "A duty-free display",
+        "A road atlas"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A passport stamp",
+          "feedback": "A passport stamp records movement already approved, not preparation."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free display",
+          "feedback": "A duty-free display sells goods in transit, not rehearsal."
+        },
+        {
+          "label": "D",
+          "answer": "A road atlas",
+          "feedback": "A road atlas guides travel, but it is not a trial version of an action."
+        }
+      ],
+      "explanation": "Both let someone test a version before the public or final act.",
+      "visibleCorrectExplanation": "A preparatory sketch lets an artist think through the final work in advance.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A passport stamp",
+          "explanation": "A passport stamp records movement already approved, not preparation."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free display",
+          "explanation": "A duty-free display sells goods in transit, not rehearsal."
+        },
+        {
+          "label": "D",
+          "answer": "A road atlas",
+          "explanation": "A road atlas guides travel, but it is not a trial version of an action."
+        }
+      ],
+      "visibleConnection": "Both let someone test a version before the public or final act.",
+      "visibleTakeaway": "Practice versions matter because they shape what later looks finished.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 18,
+          "levelQuestionIndex": 4,
+          "questionId": "question.theres-a-draft-in-here.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_021",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_022",
+      "stableId": "FV400_022",
+      "sourceQuestionId": "FV400_022",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A place is neither starting point nor destination, but it becomes meaningful during the wait. Which public space best matches that logic?",
+      "correctAnswer": "Airport lounge",
+      "wrongAnswers": [
+        "Finish line",
+        "Private bedroom",
+        "National border fence"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Finish line",
+          "feedback": "A finish line is an endpoint, not an in-between place."
+        },
+        {
+          "label": "C",
+          "answer": "Private bedroom",
+          "feedback": "A private bedroom is a home space, not a public transit pause."
+        },
+        {
+          "label": "D",
+          "answer": "National border fence",
+          "feedback": "A border fence marks separation, not a meaningful waiting environment."
+        }
+      ],
+      "explanation": "Both make an in-between space into a lived experience rather than empty transit.",
+      "visibleCorrectExplanation": "An airport lounge is designed for people who are between departure and arrival.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Finish line",
+          "explanation": "A finish line is an endpoint, not an in-between place."
+        },
+        {
+          "label": "C",
+          "answer": "Private bedroom",
+          "explanation": "A private bedroom is a home space, not a public transit pause."
+        },
+        {
+          "label": "D",
+          "answer": "National border fence",
+          "explanation": "A border fence marks separation, not a meaningful waiting environment."
+        }
+      ],
+      "visibleConnection": "Both make an in-between space into a lived experience rather than empty transit.",
+      "visibleTakeaway": "Some places matter precisely because they are not the destination.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "The Lovely and the Liminal",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.006",
+        "question.the-lovely-and-the-liminal.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 5,
+          "questionId": "question.introductory-questions.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_022",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 0,
+          "questionId": "question.the-lovely-and-the-liminal.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_022",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_023",
+      "stableId": "FV400_023",
+      "sourceQuestionId": "FV400_023",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "where-the-sidewalk-starts",
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A guide sign makes a confusing place easier to cross. Which interface tool does the same for a digital wait?",
+      "correctAnswer": "Progress bar",
+      "wrongAnswers": [
+        "Passport index",
+        "Doomsday Clock",
+        "Bucket list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport index",
+          "feedback": "A passport index ranks travel freedom, not moment-by-moment orientation."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday Clock",
+          "feedback": "The Doomsday Clock signals danger, not practical navigation."
+        },
+        {
+          "label": "D",
+          "answer": "Bucket list",
+          "feedback": "A bucket list lists desires, not position inside a process."
+        }
+      ],
+      "explanation": "Both reduce uncertainty by showing where a person is within a process.",
+      "visibleCorrectExplanation": "A progress bar helps users understand movement toward completion during a digital task.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport index",
+          "explanation": "A passport index ranks travel freedom, not moment-by-moment orientation."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday Clock",
+          "explanation": "The Doomsday Clock signals danger, not practical navigation."
+        },
+        {
+          "label": "D",
+          "answer": "Bucket list",
+          "explanation": "A bucket list lists desires, not position inside a process."
+        }
+      ],
+      "visibleConnection": "Both reduce uncertainty by showing where a person is within a process.",
+      "visibleTakeaway": "Good guidance gives uncertainty a visible shape.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.006",
+        "question.where-the-sidewalk-starts.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 5,
+          "questionId": "question.progress-not-regress.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_023",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 2,
+          "questionId": "question.where-the-sidewalk-starts.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_023",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_024",
+      "stableId": "FV400_024",
+      "sourceQuestionId": "FV400_024",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A hotel turns staying somewhere into status, memory, and identity. Which travel tradition made movement serve a similar social role?",
+      "correctAnswer": "The Grand Tour",
+      "wrongAnswers": [
+        "The London-Calcutta bus",
+        "A layover corridor",
+        "A desire path"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The London-Calcutta bus",
+          "feedback": "The London-Calcutta bus emphasizes long-distance endurance, not elite self-fashioning."
+        },
+        {
+          "label": "C",
+          "answer": "A layover corridor",
+          "feedback": "A layover corridor is a transit path, not a social education tradition."
+        },
+        {
+          "label": "D",
+          "answer": "A desire path",
+          "feedback": "A desire path shows informal movement, not status travel."
+        }
+      ],
+      "explanation": "Both connect travel with education, status, and self-making.",
+      "visibleCorrectExplanation": "The Grand Tour turned travel into a marker of elite formation and cultural identity.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The London-Calcutta bus",
+          "explanation": "The London-Calcutta bus emphasizes long-distance endurance, not elite self-fashioning."
+        },
+        {
+          "label": "C",
+          "answer": "A layover corridor",
+          "explanation": "A layover corridor is a transit path, not a social education tradition."
+        },
+        {
+          "label": "D",
+          "answer": "A desire path",
+          "explanation": "A desire path shows informal movement, not status travel."
+        }
+      ],
+      "visibleConnection": "Both connect travel with education, status, and self-making.",
+      "visibleTakeaway": "Travel can be a social credential, not just a route.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 22,
+          "levelQuestionIndex": 2,
+          "questionId": "question.call-of-duty-free.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_024",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_025",
+      "stableId": "FV400_025",
+      "sourceQuestionId": "FV400_025",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A machine seems autonomous, but a hidden person is doing the work. Which modern technology worry echoes that disguise?",
+      "correctAnswer": "AI hiding human labor",
+      "wrongAnswers": [
+        "Smart roads charging cars",
+        "Moving sidewalks in airports",
+        "Food pills replacing meals"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Smart roads charging cars",
+          "feedback": "Smart roads charging cars automate infrastructure, but hidden human performance is not the key issue."
+        },
+        {
+          "label": "C",
+          "answer": "Moving sidewalks in airports",
+          "feedback": "Moving sidewalks reduce walking, not labor visibility."
+        },
+        {
+          "label": "D",
+          "answer": "Food pills replacing meals",
+          "feedback": "Food pills imagine replacing meals, not concealing workers."
+        }
+      ],
+      "explanation": "Both hide labor behind the appearance of smooth automation.",
+      "visibleCorrectExplanation": "AI systems can appear fully automated while relying on human labeling, moderation, or correction.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Smart roads charging cars",
+          "explanation": "Smart roads charging cars automate infrastructure, but hidden human performance is not the key issue."
+        },
+        {
+          "label": "C",
+          "answer": "Moving sidewalks in airports",
+          "explanation": "Moving sidewalks reduce walking, not labor visibility."
+        },
+        {
+          "label": "D",
+          "answer": "Food pills replacing meals",
+          "explanation": "Food pills imagine replacing meals, not concealing workers."
+        }
+      ],
+      "visibleConnection": "Both hide labor behind the appearance of smooth automation.",
+      "visibleTakeaway": "Automation questions often begin by asking whose work has disappeared from view.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 4,
+          "questionId": "question.monkey-see-monkey-prototype.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_025",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_026",
+      "stableId": "FV400_026",
+      "sourceQuestionId": "FV400_026",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A doomed future image lets viewers rehearse collapse before collapse arrives. Which warning tool turns that rehearsal into a clock?",
+      "correctAnswer": "Doomsday Clock",
+      "wrongAnswers": [
+        "Passport Index",
+        "Big Mac Index",
+        "Ivy Lee Method"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport Index",
+          "feedback": "The Passport Index measures mobility power, not civilizational risk."
+        },
+        {
+          "label": "C",
+          "answer": "Big Mac Index",
+          "feedback": "The Big Mac Index compares purchasing power, not apocalypse."
+        },
+        {
+          "label": "D",
+          "answer": "Ivy Lee Method",
+          "feedback": "The Ivy Lee Method organizes daily tasks, not global danger."
+        }
+      ],
+      "explanation": "Both make possible catastrophe visible before it happens.",
+      "visibleCorrectExplanation": "The Doomsday Clock turns existential danger into a public image of nearness.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport Index",
+          "explanation": "The Passport Index measures mobility power, not civilizational risk."
+        },
+        {
+          "label": "C",
+          "answer": "Big Mac Index",
+          "explanation": "The Big Mac Index compares purchasing power, not apocalypse."
+        },
+        {
+          "label": "D",
+          "answer": "Ivy Lee Method",
+          "explanation": "The Ivy Lee Method organizes daily tasks, not global danger."
+        }
+      ],
+      "visibleConnection": "Both make possible catastrophe visible before it happens.",
+      "visibleTakeaway": "Some warnings make a future threat feel present.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 3,
+          "questionId": "question.the-end-is-nearish.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_026",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_027",
+      "stableId": "FV400_027",
+      "sourceQuestionId": "FV400_027",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "going-pains",
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A person keeps investing because quitting would make past effort feel wasted. Which travel plan has the same emotional trap?",
+      "correctAnswer": "Finishing a miserable bucket-list trip",
+      "wrongAnswers": [
+        "Reading a done list",
+        "Using a skeleton screen",
+        "Naming a successor late"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Reading a done list",
+          "feedback": "A done list records finished effort; it does not force bad continuation."
+        },
+        {
+          "label": "C",
+          "answer": "Using a skeleton screen",
+          "feedback": "A skeleton screen manages waiting, not commitment to a bad plan."
+        },
+        {
+          "label": "D",
+          "answer": "Naming a successor late",
+          "feedback": "Naming a successor late controls political attention, not sunk cost."
+        }
+      ],
+      "explanation": "Both turn past investment into pressure to continue even when the experience no longer works.",
+      "visibleCorrectExplanation": "Finishing a miserable bucket-list trip keeps the plan alive because the person already paid or committed.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Reading a done list",
+          "explanation": "A done list records finished effort; it does not force bad continuation."
+        },
+        {
+          "label": "C",
+          "answer": "Using a skeleton screen",
+          "explanation": "A skeleton screen manages waiting, not commitment to a bad plan."
+        },
+        {
+          "label": "D",
+          "answer": "Naming a successor late",
+          "explanation": "Naming a successor late controls political attention, not sunk cost."
+        }
+      ],
+      "visibleConnection": "Both turn past investment into pressure to continue even when the experience no longer works.",
+      "visibleTakeaway": "Past effort can become a trap when it decides the future.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Going Pains",
+      "guidingSectionSecondary": "More To Do Than Can Ever Be Listed",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.005",
+        "question.going-pains.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 18,
+          "levelQuestionIndex": 4,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_027",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "going-pains",
+          "levelKey": "400",
+          "sectionQuestionIndex": 23,
+          "levelQuestionIndex": 0,
+          "questionId": "question.going-pains.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_027",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_028",
+      "stableId": "FV400_028",
+      "sourceQuestionId": "FV400_028",
+      "questionScope": "Full Voyage",
+      "sectionId": "were-all-in-this-to-get-there",
+      "sectionIds": [
+        "were-all-in-this",
+        "were-all-in-this-to-get-there"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Observation changes behavior, making the measurement less neutral. Which classroom-style effect names that problem?",
+      "correctAnswer": "The Hawthorne Effect",
+      "wrongAnswers": [
+        "Hofstadter’s Law",
+        "Conway’s Law",
+        "Illich’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law is about underestimated time, not observation changing behavior."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "feedback": "Conway’s Law links design to organization, not observed performance."
+        },
+        {
+          "label": "D",
+          "answer": "Illich’s Law",
+          "feedback": "Illich’s Law warns that too much effort can reduce productivity, not that observation alters behavior."
+        }
+      ],
+      "explanation": "Both warn that measurement can change the thing being measured.",
+      "visibleCorrectExplanation": "The Hawthorne Effect describes people changing behavior when they know they are being observed.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law is about underestimated time, not observation changing behavior."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "explanation": "Conway’s Law links design to organization, not observed performance."
+        },
+        {
+          "label": "D",
+          "answer": "Illich’s Law",
+          "explanation": "Illich’s Law warns that too much effort can reduce productivity, not that observation alters behavior."
+        }
+      ],
+      "visibleConnection": "Both warn that measurement can change the thing being measured.",
+      "visibleTakeaway": "When people know they are being measured, the measure may stop being neutral.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "We’re All in This to Get There",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.were-all-in-this-to-get-there.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 1,
+          "questionId": "question.were-all-in-this-to-get-there.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_028",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_029",
+      "stableId": "FV400_029",
+      "sourceQuestionId": "FV400_029",
+      "questionScope": "Full Voyage",
+      "sectionId": "going-pains",
+      "sectionIds": [
+        "going-pains"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Too much work past a certain point makes output worse. Which productivity warning fits that curve?",
+      "correctAnswer": "Illich’s Law",
+      "wrongAnswers": [
+        "Hawthorne Effect",
+        "Conway’s Law",
+        "Hofstadter’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect concerns observation, not overwork."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "feedback": "Conway’s Law concerns organizational structure shaping design."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law concerns schedules taking longer than expected."
+        }
+      ],
+      "explanation": "Both warn that more effort can stop producing better results.",
+      "visibleCorrectExplanation": "Illich’s Law is often used to warn that productivity drops after too much continuous work.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect concerns observation, not overwork."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "explanation": "Conway’s Law concerns organizational structure shaping design."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law concerns schedules taking longer than expected."
+        }
+      ],
+      "visibleConnection": "Both warn that more effort can stop producing better results.",
+      "visibleTakeaway": "More effort is not always the same as more progress.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Going Pains",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.going-pains.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "going-pains",
+          "levelKey": "400",
+          "sectionQuestionIndex": 24,
+          "levelQuestionIndex": 1,
+          "questionId": "question.going-pains.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_029",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_030",
+      "stableId": "FV400_030",
+      "sourceQuestionId": "FV400_030",
+      "questionScope": "Full Voyage",
+      "sectionId": "were-all-in-this-to-get-there",
+      "sectionIds": [
+        "monkey-see",
+        "were-all-in-this",
+        "were-all-in-this-to-get-there",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A product’s structure reflects the team that built it. Which law makes that organizational footprint explicit?",
+      "correctAnswer": "Conway’s Law",
+      "wrongAnswers": [
+        "Illich’s Law",
+        "Hawthorne Effect",
+        "Zeigarnik Effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Illich’s Law",
+          "feedback": "Illich’s Law is about overwork reducing productivity."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect is about behavior under observation."
+        },
+        {
+          "label": "D",
+          "answer": "Zeigarnik Effect",
+          "feedback": "The Zeigarnik Effect is about unfinished tasks staying active in memory."
+        }
+      ],
+      "explanation": "Both show that hidden social structure can appear in the finished design.",
+      "visibleCorrectExplanation": "Conway’s Law says systems tend to mirror the communication structures of the organizations that create them.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Illich’s Law",
+          "explanation": "Illich’s Law is about overwork reducing productivity."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect is about behavior under observation."
+        },
+        {
+          "label": "D",
+          "answer": "Zeigarnik Effect",
+          "explanation": "The Zeigarnik Effect is about unfinished tasks staying active in memory."
+        }
+      ],
+      "visibleConnection": "Both show that hidden social structure can appear in the finished design.",
+      "visibleTakeaway": "Look at a design and you may also be seeing the organization behind it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "We’re All in This to Get There",
+      "sectionPlacementIds": [
+        "question.were-all-in-this-to-get-there.400.003",
+        "question.monkey-see-monkey-prototype.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 2,
+          "questionId": "question.were-all-in-this-to-get-there.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_030",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 5,
+          "questionId": "question.monkey-see-monkey-prototype.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_030",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_031",
+      "stableId": "FV400_031",
+      "sourceQuestionId": "FV400_031",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A prophecy fails, then believers reschedule the ending. Which software problem uses a similar delayed-near-end logic?",
+      "correctAnswer": "A release stuck in beta",
+      "wrongAnswers": [
+        "A done list",
+        "A duty-free corridor",
+        "A sidewalk café"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done list",
+          "feedback": "A done list points to completed work, not delayed prediction."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free corridor",
+          "feedback": "A duty-free corridor is commercial transit space, not postponed completion."
+        },
+        {
+          "label": "D",
+          "answer": "A sidewalk café",
+          "feedback": "A sidewalk café is a public social edge, not a rescheduled ending."
+        }
+      ],
+      "explanation": "Both keep the promised finish alive after the expected endpoint fails.",
+      "visibleCorrectExplanation": "A release stuck in beta can look close to completion while remaining unfinished.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done list",
+          "explanation": "A done list points to completed work, not delayed prediction."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free corridor",
+          "explanation": "A duty-free corridor is commercial transit space, not postponed completion."
+        },
+        {
+          "label": "D",
+          "answer": "A sidewalk café",
+          "explanation": "A sidewalk café is a public social edge, not a rescheduled ending."
+        }
+      ],
+      "visibleConnection": "Both keep the promised finish alive after the expected endpoint fails.",
+      "visibleTakeaway": "Failed endings often survive by moving the finish line.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 4,
+          "questionId": "question.the-end-is-nearish.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_031",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_032",
+      "stableId": "FV400_032",
+      "sourceQuestionId": "FV400_032",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A cultural object becomes more interesting because people can see the rough path behind it. Which painting pair works that way?",
+      "correctAnswer": "Despair and The Scream",
+      "wrongAnswers": [
+        "The Last Judgment and Revelation",
+        "The New Colossus and Sea Fever",
+        "Doomsday Clock and Y2K"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Last Judgment and Revelation",
+          "feedback": "The Last Judgment and Revelation connect source imagery to art, not draft-to-final process."
+        },
+        {
+          "label": "C",
+          "answer": "The New Colossus and Sea Fever",
+          "feedback": "The New Colossus and Sea Fever are poems about movement and welcome, not visual revision."
+        },
+        {
+          "label": "D",
+          "answer": "Doomsday Clock and Y2K",
+          "feedback": "The Doomsday Clock and Y2K are warning systems, not artwork drafts."
+        }
+      ],
+      "explanation": "Both show how a rough or earlier version can reveal the route toward a famous final image.",
+      "visibleCorrectExplanation": "Despair helps show Munch working toward the emotional force of The Scream.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Last Judgment and Revelation",
+          "explanation": "The Last Judgment and Revelation connect source imagery to art, not draft-to-final process."
+        },
+        {
+          "label": "C",
+          "answer": "The New Colossus and Sea Fever",
+          "explanation": "The New Colossus and Sea Fever are poems about movement and welcome, not visual revision."
+        },
+        {
+          "label": "D",
+          "answer": "Doomsday Clock and Y2K",
+          "explanation": "The Doomsday Clock and Y2K are warning systems, not artwork drafts."
+        }
+      ],
+      "visibleConnection": "Both show how a rough or earlier version can reveal the route toward a famous final image.",
+      "visibleTakeaway": "A draft can reveal decisions that the final version hides.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 19,
+          "levelQuestionIndex": 5,
+          "questionId": "question.theres-a-draft-in-here.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_032",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_033",
+      "stableId": "FV400_033",
+      "sourceQuestionId": "FV400_033",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "An index ranks countries by travel freedom. Which immigration text asks the human version of that inequality?",
+      "correctAnswer": "“Prospective Immigrants Please Note”",
+      "wrongAnswers": [
+        "“Sea Fever”",
+        "“The Road Not Taken”",
+        "“My Way”"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "“Sea Fever”",
+          "feedback": "“Sea Fever” imagines open longing for the sea rather than unequal admission."
+        },
+        {
+          "label": "C",
+          "answer": "“The Road Not Taken”",
+          "feedback": "“The Road Not Taken” treats choice and memory, not border inequality."
+        },
+        {
+          "label": "D",
+          "answer": "“My Way”",
+          "feedback": "“My Way” narrates personal ending, not migration restriction."
+        }
+      ],
+      "explanation": "Both question who can move freely and who meets barriers at arrival.",
+      "visibleCorrectExplanation": "“Prospective Immigrants Please Note” warns migrants that arrival may come with loss and exclusion.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "“Sea Fever”",
+          "explanation": "“Sea Fever” imagines open longing for the sea rather than unequal admission."
+        },
+        {
+          "label": "C",
+          "answer": "“The Road Not Taken”",
+          "explanation": "“The Road Not Taken” treats choice and memory, not border inequality."
+        },
+        {
+          "label": "D",
+          "answer": "“My Way”",
+          "explanation": "“My Way” narrates personal ending, not migration restriction."
+        }
+      ],
+      "visibleConnection": "Both question who can move freely and who meets barriers at arrival.",
+      "visibleTakeaway": "Mobility is never only about desire; it is also about permission.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 23,
+          "levelQuestionIndex": 3,
+          "questionId": "question.call-of-duty-free.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_033",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_034",
+      "stableId": "FV400_034",
+      "sourceQuestionId": "FV400_034",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A place sells luxury to people who are between countries. Which trade space uses the same between-status at a larger scale?",
+      "correctAnswer": "Free-trade zone",
+      "wrongAnswers": [
+        "Sidewalk café",
+        "Snout house",
+        "Regency council"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Sidewalk café",
+          "feedback": "A sidewalk café blurs public and private space, not customs law."
+        },
+        {
+          "label": "C",
+          "answer": "Snout house",
+          "feedback": "A snout house shapes street life through garage design."
+        },
+        {
+          "label": "D",
+          "answer": "Regency council",
+          "feedback": "A regency council manages political authority, not trade status."
+        }
+      ],
+      "explanation": "Both use a special legal-economic zone between ordinary jurisdictions.",
+      "visibleCorrectExplanation": "A free-trade zone changes normal customs and trade rules for goods moving through it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Sidewalk café",
+          "explanation": "A sidewalk café blurs public and private space, not customs law."
+        },
+        {
+          "label": "C",
+          "answer": "Snout house",
+          "explanation": "A snout house shapes street life through garage design."
+        },
+        {
+          "label": "D",
+          "answer": "Regency council",
+          "explanation": "A regency council manages political authority, not trade status."
+        }
+      ],
+      "visibleConnection": "Both use a special legal-economic zone between ordinary jurisdictions.",
+      "visibleTakeaway": "Some places make profit from being legally in-between.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 24,
+          "levelQuestionIndex": 4,
+          "questionId": "question.call-of-duty-free.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_034",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_035",
+      "stableId": "FV400_035",
+      "sourceQuestionId": "FV400_035",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A child asks whether the destination has arrived, but the real issue is emotional time. Which design tool answers that feeling visually?",
+      "correctAnswer": "Progress bar",
+      "wrongAnswers": [
+        "Passport Index",
+        "Caretaker government",
+        "Grand Tour"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport Index",
+          "feedback": "The Passport Index compares mobility rights across passports."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker government",
+          "feedback": "A caretaker government manages transition power, not impatience."
+        },
+        {
+          "label": "D",
+          "answer": "Grand Tour",
+          "feedback": "The Grand Tour turns travel into education and status."
+        }
+      ],
+      "explanation": "Both give uncertain waiting a visible shape.",
+      "visibleCorrectExplanation": "A progress bar turns waiting into a visible movement toward a finish.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport Index",
+          "explanation": "The Passport Index compares mobility rights across passports."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker government",
+          "explanation": "A caretaker government manages transition power, not impatience."
+        },
+        {
+          "label": "D",
+          "answer": "Grand Tour",
+          "explanation": "The Grand Tour turns travel into education and status."
+        }
+      ],
+      "visibleConnection": "Both give uncertain waiting a visible shape.",
+      "visibleTakeaway": "Waiting often needs a shape before it needs a faster clock.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.007",
+        "question.progress-not-regress.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 6,
+          "questionId": "question.introductory-questions.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_035",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 6,
+          "questionId": "question.progress-not-regress.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_035",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_036",
+      "stableId": "FV400_036",
+      "sourceQuestionId": "FV400_036",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A famous line says history bends toward justice. Which physical law complicates that optimism?",
+      "correctAnswer": "Second Law of Thermodynamics",
+      "wrongAnswers": [
+        "Hofstadter’s Law",
+        "Conway’s Law",
+        "Hawthorne Effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law is about time estimates, not disorder."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "feedback": "Conway’s Law is about organizations shaping systems."
+        },
+        {
+          "label": "D",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect is about observation changing behavior."
+        }
+      ],
+      "explanation": "Both contrast optimism about improvement with the tendency of systems to decay without work.",
+      "visibleCorrectExplanation": "The Second Law suggests disorder increases in closed systems, which challenges easy faith in automatic progress.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law is about time estimates, not disorder."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "explanation": "Conway’s Law is about organizations shaping systems."
+        },
+        {
+          "label": "D",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect is about observation changing behavior."
+        }
+      ],
+      "visibleConnection": "Both contrast optimism about improvement with the tendency of systems to decay without work.",
+      "visibleTakeaway": "Progress stories need maintenance, pressure, and repair.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 7,
+          "questionId": "question.progress-not-regress.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_036",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_037",
+      "stableId": "FV400_037",
+      "sourceQuestionId": "FV400_037",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A road trip sells freedom, but every mile depends on pavement, fuel, signs, and repair. Which movie fantasy hides that dependence most clearly?",
+      "correctAnswer": "Back to the Future",
+      "wrongAnswers": [
+        "The Terminal",
+        "The Return of the King",
+        "The Grand Budapest Hotel"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Terminal",
+          "feedback": "The Terminal focuses on blocked admission inside an airport."
+        },
+        {
+          "label": "C",
+          "answer": "The Return of the King",
+          "feedback": "The Return of the King focuses on prolonged endings."
+        },
+        {
+          "label": "D",
+          "answer": "The Grand Budapest Hotel",
+          "feedback": "The Grand Budapest Hotel uses memory and hospitality more than road dependence."
+        }
+      ],
+      "explanation": "Both wrap freedom in motion while depending on roads and systems underneath.",
+      "visibleCorrectExplanation": "Back to the Future turns roads into symbols of future movement while still relying on infrastructure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Terminal",
+          "explanation": "The Terminal focuses on blocked admission inside an airport."
+        },
+        {
+          "label": "C",
+          "answer": "The Return of the King",
+          "explanation": "The Return of the King focuses on prolonged endings."
+        },
+        {
+          "label": "D",
+          "answer": "The Grand Budapest Hotel",
+          "explanation": "The Grand Budapest Hotel uses memory and hospitality more than road dependence."
+        }
+      ],
+      "visibleConnection": "Both wrap freedom in motion while depending on roads and systems underneath.",
+      "visibleTakeaway": "Freedom stories often hide the systems that make movement possible.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 1,
+          "questionId": "question.where-were-going-well-still-need-them.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_037",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_038",
+      "stableId": "FV400_038",
+      "sourceQuestionId": "FV400_038",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A public ranking can make a country look successful while hiding uneven lives inside it. Which social measure raises the clearest warning?",
+      "correctAnswer": "Gini coefficient",
+      "wrongAnswers": [
+        "Big Mac Index",
+        "Passport Index",
+        "Labor productivity"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Big Mac Index",
+          "feedback": "The Big Mac Index compares purchasing power through a product price."
+        },
+        {
+          "label": "C",
+          "answer": "Passport Index",
+          "feedback": "The Passport Index compares travel access."
+        },
+        {
+          "label": "D",
+          "answer": "Labor productivity",
+          "feedback": "Labor productivity measures output per worker, not distribution of benefits."
+        }
+      ],
+      "explanation": "Both push against simple progress stories by asking how benefits are distributed.",
+      "visibleCorrectExplanation": "The Gini coefficient focuses on inequality, so it challenges averages that hide unequal outcomes.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Big Mac Index",
+          "explanation": "The Big Mac Index compares purchasing power through a product price."
+        },
+        {
+          "label": "C",
+          "answer": "Passport Index",
+          "explanation": "The Passport Index compares travel access."
+        },
+        {
+          "label": "D",
+          "answer": "Labor productivity",
+          "explanation": "Labor productivity measures output per worker, not distribution of benefits."
+        }
+      ],
+      "visibleConnection": "Both push against simple progress stories by asking how benefits are distributed.",
+      "visibleTakeaway": "A high number can still hide who is left out.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 8,
+          "questionId": "question.progress-not-regress.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_038",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_039",
+      "stableId": "FV400_039",
+      "sourceQuestionId": "FV400_039",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A homecoming feels strange because the place is familiar but the person has changed. Which travel idea makes that mismatch easiest to see?",
+      "correctAnswer": "Return and homecoming",
+      "wrongAnswers": [
+        "Grand Tour",
+        "Duty-free shopping",
+        "Moving sidewalk"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Grand Tour",
+          "feedback": "The Grand Tour is about formative outward travel, not the shock of return."
+        },
+        {
+          "label": "C",
+          "answer": "Duty-free shopping",
+          "feedback": "Duty-free shopping is commerce during transit."
+        },
+        {
+          "label": "D",
+          "answer": "Moving sidewalk",
+          "feedback": "A moving sidewalk changes movement through space, not identity after return."
+        }
+      ],
+      "explanation": "Both show that arrival back at the starting place is not the same as returning unchanged.",
+      "visibleCorrectExplanation": "Return and homecoming focus on the emotional difference between coming back and simply arriving.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Grand Tour",
+          "explanation": "The Grand Tour is about formative outward travel, not the shock of return."
+        },
+        {
+          "label": "C",
+          "answer": "Duty-free shopping",
+          "explanation": "Duty-free shopping is commerce during transit."
+        },
+        {
+          "label": "D",
+          "answer": "Moving sidewalk",
+          "explanation": "A moving sidewalk changes movement through space, not identity after return."
+        }
+      ],
+      "visibleConnection": "Both show that arrival back at the starting place is not the same as returning unchanged.",
+      "visibleTakeaway": "Returning can reveal that the journey changed the traveler.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 2,
+          "questionId": "question.home-and-wandering.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_039",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_040",
+      "stableId": "FV400_040",
+      "sourceQuestionId": "FV400_040",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A direct path through a city becomes dangerous because it tries to be a road and a street at once. Which urban form names that failed compromise?",
+      "correctAnswer": "Stroad",
+      "wrongAnswers": [
+        "Desire path",
+        "Snout house",
+        "Sidewalk café"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Desire path",
+          "feedback": "A desire path is an unofficial route created by walkers."
+        },
+        {
+          "label": "C",
+          "answer": "Snout house",
+          "feedback": "A snout house is a home design dominated by the garage."
+        },
+        {
+          "label": "D",
+          "answer": "Sidewalk café",
+          "feedback": "A sidewalk café extends social life into public space."
+        }
+      ],
+      "explanation": "Both expose a design that combines functions badly rather than serving one purpose well.",
+      "visibleCorrectExplanation": "A stroad mixes high-speed road movement with local street access, often making both worse.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Desire path",
+          "explanation": "A desire path is an unofficial route created by walkers."
+        },
+        {
+          "label": "C",
+          "answer": "Snout house",
+          "explanation": "A snout house is a home design dominated by the garage."
+        },
+        {
+          "label": "D",
+          "answer": "Sidewalk café",
+          "explanation": "A sidewalk café extends social life into public space."
+        }
+      ],
+      "visibleConnection": "Both expose a design that combines functions badly rather than serving one purpose well.",
+      "visibleTakeaway": "Bad design often comes from trying to serve incompatible goals at once.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 3,
+          "questionId": "question.where-the-sidewalk-starts.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_040",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_041",
+      "stableId": "FV400_041",
+      "sourceQuestionId": "FV400_041",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "An image of apocalypse tells people where the saved and doomed end up. Which non-art object also turns danger into a visual scale?",
+      "correctAnswer": "Doomsday Clock",
+      "wrongAnswers": [
+        "Passport Index",
+        "Ivy Lee list",
+        "Skeleton screen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport Index",
+          "feedback": "The Passport Index visualizes mobility, not civilizational danger."
+        },
+        {
+          "label": "C",
+          "answer": "Ivy Lee list",
+          "feedback": "The Ivy Lee list organizes tasks, not catastrophe."
+        },
+        {
+          "label": "D",
+          "answer": "Skeleton screen",
+          "feedback": "A skeleton screen previews layout while content loads, not apocalypse."
+        }
+      ],
+      "explanation": "Both translate danger and final outcomes into something viewers can see.",
+      "visibleCorrectExplanation": "The Doomsday Clock turns global risk into a visible distance from midnight.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport Index",
+          "explanation": "The Passport Index visualizes mobility, not civilizational danger."
+        },
+        {
+          "label": "C",
+          "answer": "Ivy Lee list",
+          "explanation": "The Ivy Lee list organizes tasks, not catastrophe."
+        },
+        {
+          "label": "D",
+          "answer": "Skeleton screen",
+          "explanation": "A skeleton screen previews layout while content loads, not apocalypse."
+        }
+      ],
+      "visibleConnection": "Both translate danger and final outcomes into something viewers can see.",
+      "visibleTakeaway": "Visual tools can make abstract danger feel near.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "The End is Nearish",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.008",
+        "question.the-end-is-nearish.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 7,
+          "questionId": "question.introductory-questions.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_041",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 5,
+          "questionId": "question.the-end-is-nearish.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_041",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_042",
+      "stableId": "FV400_042",
+      "sourceQuestionId": "FV400_042",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A performer repeats a scene before facing the audience. Which non-stage habit uses the same trial-before-final logic?",
+      "correctAnswer": "Practicing a difficult conversation",
+      "wrongAnswers": [
+        "Collecting passport stamps",
+        "Shopping duty-free",
+        "Reading a road sign"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Collecting passport stamps",
+          "feedback": "Collecting passport stamps records completed crossings."
+        },
+        {
+          "label": "C",
+          "answer": "Shopping duty-free",
+          "feedback": "Shopping duty-free fills layover time but does not prepare a performance."
+        },
+        {
+          "label": "D",
+          "answer": "Reading a road sign",
+          "feedback": "Reading a road sign guides movement rather than rehearses behavior."
+        }
+      ],
+      "explanation": "Both use rehearsal to reduce uncertainty before a high-stakes performance.",
+      "visibleCorrectExplanation": "Practicing a difficult conversation lets someone test language and emotion before the real encounter.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Collecting passport stamps",
+          "explanation": "Collecting passport stamps records completed crossings."
+        },
+        {
+          "label": "C",
+          "answer": "Shopping duty-free",
+          "explanation": "Shopping duty-free fills layover time but does not prepare a performance."
+        },
+        {
+          "label": "D",
+          "answer": "Reading a road sign",
+          "explanation": "Reading a road sign guides movement rather than rehearses behavior."
+        }
+      ],
+      "visibleConnection": "Both use rehearsal to reduce uncertainty before a high-stakes performance.",
+      "visibleTakeaway": "Rehearsal makes the future less unknown by creating a trial version of it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 20,
+          "levelQuestionIndex": 6,
+          "questionId": "question.theres-a-draft-in-here.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_042",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_043",
+      "stableId": "FV400_043",
+      "sourceQuestionId": "FV400_043",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "home-and-wandering",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "An object is valuable partly because it is not the final version. Which music example best shares that value?",
+      "correctAnswer": "A home demo sequence",
+      "wrongAnswers": [
+        "A national anthem",
+        "A duty-free jingle",
+        "An airport announcement"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A national anthem",
+          "feedback": "A national anthem is an official finished symbol."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free jingle",
+          "feedback": "A duty-free jingle sells in transit, not creative process."
+        },
+        {
+          "label": "D",
+          "answer": "An airport announcement",
+          "feedback": "An airport announcement organizes passengers, not artistic revision."
+        }
+      ],
+      "explanation": "Both let people hear or see the unfinished route toward a later work.",
+      "visibleCorrectExplanation": "A home demo sequence preserves a song before studio polish locks it into final form.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A national anthem",
+          "explanation": "A national anthem is an official finished symbol."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free jingle",
+          "explanation": "A duty-free jingle sells in transit, not creative process."
+        },
+        {
+          "label": "D",
+          "answer": "An airport announcement",
+          "explanation": "An airport announcement organizes passengers, not artistic revision."
+        }
+      ],
+      "visibleConnection": "Both let people hear or see the unfinished route toward a later work.",
+      "visibleTakeaway": "Rough versions can matter because they show choices still in motion.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "Home and Wandering",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.008",
+        "question.home-and-wandering.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 21,
+          "levelQuestionIndex": 7,
+          "questionId": "question.theres-a-draft-in-here.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_043",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 3,
+          "questionId": "question.home-and-wandering.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_043",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_044",
+      "stableId": "FV400_044",
+      "sourceQuestionId": "FV400_044",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress",
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A ranking asks whether a country has ‘arrived’ by choosing what counts as success. Which list tradition makes that choice feel less modern?",
+      "correctAnswer": "Inventories and ledgers",
+      "wrongAnswers": [
+        "Done lists",
+        "Bucket lists",
+        "Cut musical numbers"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Done lists",
+          "feedback": "Done lists remember completed work, not national value."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket lists",
+          "feedback": "Bucket lists display desired experiences, not institutional counting."
+        },
+        {
+          "label": "D",
+          "answer": "Cut musical numbers",
+          "feedback": "Cut musical numbers show creative exclusion, not social measurement."
+        }
+      ],
+      "explanation": "Both show that counting is a cultural decision about what deserves attention.",
+      "visibleCorrectExplanation": "Inventories and ledgers helped societies track what they valued, owned, or controlled.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Done lists",
+          "explanation": "Done lists remember completed work, not national value."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket lists",
+          "explanation": "Bucket lists display desired experiences, not institutional counting."
+        },
+        {
+          "label": "D",
+          "answer": "Cut musical numbers",
+          "explanation": "Cut musical numbers show creative exclusion, not social measurement."
+        }
+      ],
+      "visibleConnection": "Both show that counting is a cultural decision about what deserves attention.",
+      "visibleTakeaway": "Every metric begins by deciding what is worth counting.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "More To Do Than Can Ever Be Listed",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.010",
+        "question.more-to-do-than-can-ever-be-listed.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 9,
+          "questionId": "question.progress-not-regress.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_044",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 19,
+          "levelQuestionIndex": 5,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_044",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_045",
+      "stableId": "FV400_045",
+      "sourceQuestionId": "FV400_045",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A traveler wants an authentic place, but attention and tourism change the thing being sought. Which museum-like problem matches that paradox?",
+      "correctAnswer": "Preserving ruins for visitors",
+      "wrongAnswers": [
+        "Charging roads wirelessly",
+        "Releasing a cut demo",
+        "Using a throbber"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Charging roads wirelessly",
+          "feedback": "Wireless charging roads improve infrastructure rather than transform authenticity."
+        },
+        {
+          "label": "C",
+          "answer": "Releasing a cut demo",
+          "feedback": "Releasing a cut demo reveals unfinished art, not tourism’s effect on place."
+        },
+        {
+          "label": "D",
+          "answer": "Using a throbber",
+          "feedback": "A throbber signals loading activity, not authenticity under attention."
+        }
+      ],
+      "explanation": "Both risk changing the object by trying to preserve or experience it.",
+      "visibleCorrectExplanation": "Preserving ruins for visitors can make the past visible while also turning it into a managed attraction.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Charging roads wirelessly",
+          "explanation": "Wireless charging roads improve infrastructure rather than transform authenticity."
+        },
+        {
+          "label": "C",
+          "answer": "Releasing a cut demo",
+          "explanation": "Releasing a cut demo reveals unfinished art, not tourism’s effect on place."
+        },
+        {
+          "label": "D",
+          "answer": "Using a throbber",
+          "explanation": "A throbber signals loading activity, not authenticity under attention."
+        }
+      ],
+      "visibleConnection": "Both risk changing the object by trying to preserve or experience it.",
+      "visibleTakeaway": "Looking for authenticity can become one of the forces that changes it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 25,
+          "levelQuestionIndex": 5,
+          "questionId": "question.call-of-duty-free.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_045",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_046",
+      "stableId": "FV400_046",
+      "sourceQuestionId": "FV400_046",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "were-all-in-this",
+        "the-end-is-nearish",
+        "were-all-in-this-to-get-there"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which law would Berlin Brandenburg Airport least want printed above its entrance?",
+      "correctAnswer": "Hofstadter’s Law",
+      "wrongAnswers": [
+        "Conway’s Law",
+        "Illich’s Law",
+        "The Hawthorne Effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Conway’s Law",
+          "feedback": "Conway’s Law would blame organizational structure, not the special irony of endless delay."
+        },
+        {
+          "label": "C",
+          "answer": "Illich’s Law",
+          "feedback": "Illich’s Law would warn about overwork reducing productivity, not schedules slipping again and again."
+        },
+        {
+          "label": "D",
+          "answer": "The Hawthorne Effect",
+          "feedback": "The Hawthorne Effect would focus on behavior under observation, not time estimates."
+        }
+      ],
+      "explanation": "The joke works because the airport became a monument to delays lasting longer than expected.",
+      "visibleCorrectExplanation": "Hofstadter’s Law says work takes longer than expected even when delays are expected.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Conway’s Law",
+          "explanation": "Conway’s Law would blame organizational structure, not the special irony of endless delay."
+        },
+        {
+          "label": "C",
+          "answer": "Illich’s Law",
+          "explanation": "Illich’s Law would warn about overwork reducing productivity, not schedules slipping again and again."
+        },
+        {
+          "label": "D",
+          "answer": "The Hawthorne Effect",
+          "explanation": "The Hawthorne Effect would focus on behavior under observation, not time estimates."
+        }
+      ],
+      "visibleConnection": "The joke works because the airport became a monument to delays lasting longer than expected.",
+      "visibleTakeaway": "Some projects do not just run late; they make lateness their identity.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "We’re All in This to Get There",
+      "guidingSectionSecondary": "The End is Nearish",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.007",
+        "question.were-all-in-this-to-get-there.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 6,
+          "questionId": "question.the-end-is-nearish.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_046",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 3,
+          "questionId": "question.were-all-in-this-to-get-there.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_046",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_047",
+      "stableId": "FV400_047",
+      "sourceQuestionId": "FV400_047",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "If Munch had composed Despair instead of painting it, what would it most resemble?",
+      "correctAnswer": "A rough demo with the emotional core of a later hit",
+      "wrongAnswers": [
+        "A calm ambient loop for a public terminal",
+        "A cut theater song restored decades later",
+        "A polished cue written for a final film"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A calm ambient loop for a public terminal",
+          "feedback": "Ambient public music shapes a space; it does not describe a rough version becoming a famous image."
+        },
+        {
+          "label": "C",
+          "answer": "A cut theater song restored decades later",
+          "feedback": "A restored cut song returns after exclusion, not as the direct early version of a later iconic work."
+        },
+        {
+          "label": "D",
+          "answer": "A polished cue written for a final film",
+          "feedback": "A polished film cue is already final, while Despair is valuable as visible creative process."
+        }
+      ],
+      "explanation": "Despair matters as an earlier form already carrying the emotional force later sharpened in The Scream.",
+      "visibleCorrectExplanation": "A rough demo with a later hit’s emotional core matches an unfinished version becoming a stronger final work.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A calm ambient loop for a public terminal",
+          "explanation": "Ambient public music shapes a space; it does not describe a rough version becoming a famous image."
+        },
+        {
+          "label": "C",
+          "answer": "A cut theater song restored decades later",
+          "explanation": "A restored cut song returns after exclusion, not as the direct early version of a later iconic work."
+        },
+        {
+          "label": "D",
+          "answer": "A polished cue written for a final film",
+          "explanation": "A polished film cue is already final, while Despair is valuable as visible creative process."
+        }
+      ],
+      "visibleConnection": "Despair matters as an earlier form already carrying the emotional force later sharpened in The Scream.",
+      "visibleTakeaway": "Early versions can be powerful because they show the emotion before it becomes iconic.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 22,
+          "levelQuestionIndex": 8,
+          "questionId": "question.theres-a-draft-in-here.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_047",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_048",
+      "stableId": "FV400_048",
+      "sourceQuestionId": "FV400_048",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Who would the protagonist of The Terminal understand best?",
+      "correctAnswer": "Saint Louis passengers denied safe arrival",
+      "wrongAnswers": [
+        "Grand Tour travelers in Lyon",
+        "London-Calcutta bus passengers",
+        "Duty-free shoppers on layover"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Grand Tour travelers in Lyon",
+          "feedback": "Grand Tour travelers in Lyon are moving through education and status, not being legally trapped."
+        },
+        {
+          "label": "C",
+          "answer": "London-Calcutta bus passengers",
+          "feedback": "London-Calcutta bus passengers experience long-distance travel, not blocked admission."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free shoppers on layover",
+          "feedback": "Duty-free shoppers use transit time commercially rather than facing denied admission."
+        }
+      ],
+      "explanation": "The shared experience is blocked arrival: being near a destination does not mean being admitted.",
+      "visibleCorrectExplanation": "Saint Louis passengers were prevented from reaching safe arrival despite the journey’s purpose.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Grand Tour travelers in Lyon",
+          "explanation": "Grand Tour travelers in Lyon are moving through education and status, not being legally trapped."
+        },
+        {
+          "label": "C",
+          "answer": "London-Calcutta bus passengers",
+          "explanation": "London-Calcutta bus passengers experience long-distance travel, not blocked admission."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free shoppers on layover",
+          "explanation": "Duty-free shoppers use transit time commercially rather than facing denied admission."
+        }
+      ],
+      "visibleConnection": "The shared experience is blocked arrival: being near a destination does not mean being admitted.",
+      "visibleTakeaway": "Being present in a travel system is not the same as being allowed to arrive.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 6,
+          "questionId": "question.call-of-duty-free.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_048",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_049",
+      "stableId": "FV400_049",
+      "sourceQuestionId": "FV400_049",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts",
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which future would make a moving sidewalk feel like a prophecy that gave up?",
+      "correctAnswer": "Airport walkways replacing citywide dreams",
+      "wrongAnswers": [
+        "Nuclear cars in every garage",
+        "Food pills ending restaurants",
+        "3D televisions replacing windows"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nuclear cars in every garage",
+          "feedback": "Nuclear cars remain a fantasy of personal transport rather than a reduced version of moving sidewalks."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills ending restaurants",
+          "feedback": "Food pills imagine replacing meals, not shrinking pedestrian infrastructure."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions replacing windows",
+          "feedback": "3D televisions belong to home entertainment, not the dream of effortless city movement."
+        }
+      ],
+      "explanation": "The grand urban future shrinks into a narrow convenience used mostly in transit spaces.",
+      "visibleCorrectExplanation": "Airport walkways preserve the idea but on a much smaller scale than the original dream.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nuclear cars in every garage",
+          "explanation": "Nuclear cars remain a fantasy of personal transport rather than a reduced version of moving sidewalks."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills ending restaurants",
+          "explanation": "Food pills imagine replacing meals, not shrinking pedestrian infrastructure."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions replacing windows",
+          "explanation": "3D televisions belong to home entertainment, not the dream of effortless city movement."
+        }
+      ],
+      "visibleConnection": "The grand urban future shrinks into a narrow convenience used mostly in transit spaces.",
+      "visibleTakeaway": "A future can fail by becoming too ordinary to feel like the future.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "Monkey See, Monkey Prototype",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.005",
+        "question.monkey-see-monkey-prototype.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 4,
+          "questionId": "question.where-the-sidewalk-starts.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_049",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 6,
+          "questionId": "question.monkey-see-monkey-prototype.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_049",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_050",
+      "stableId": "FV400_050",
+      "sourceQuestionId": "FV400_050",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which object would make a fake product launch look most honest?",
+      "correctAnswer": "A loading bar frozen at 99%",
+      "wrongAnswers": [
+        "A passport full of stamps",
+        "A done list on a desk",
+        "A road sign at a junction"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A passport full of stamps",
+          "feedback": "A stamped passport records completed crossings, not a stalled launch."
+        },
+        {
+          "label": "C",
+          "answer": "A done list on a desk",
+          "feedback": "A done list records finished labor, not an almost-ready promise."
+        },
+        {
+          "label": "D",
+          "answer": "A road sign at a junction",
+          "feedback": "A road sign guides movement, but it does not show fake nearness to completion."
+        }
+      ],
+      "explanation": "Both admit the same thing visually: everything looks almost ready, but arrival has not happened.",
+      "visibleCorrectExplanation": "A frozen near-complete loading bar captures the honest version of a product that keeps seeming close.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A passport full of stamps",
+          "explanation": "A stamped passport records completed crossings, not a stalled launch."
+        },
+        {
+          "label": "C",
+          "answer": "A done list on a desk",
+          "explanation": "A done list records finished labor, not an almost-ready promise."
+        },
+        {
+          "label": "D",
+          "answer": "A road sign at a junction",
+          "explanation": "A road sign guides movement, but it does not show fake nearness to completion."
+        }
+      ],
+      "visibleConnection": "Both admit the same thing visually: everything looks almost ready, but arrival has not happened.",
+      "visibleTakeaway": "Near-finished can be more misleading than clearly unfinished.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 10,
+          "questionId": "question.progress-not-regress.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_050",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_051",
+      "stableId": "FV400_051",
+      "sourceQuestionId": "FV400_051",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which visitor would Bluma Zeigarnik have the hardest time ignoring?",
+      "correctAnswer": "Someone leaving mid-song",
+      "wrongAnswers": [
+        "Someone finishing a checklist",
+        "Someone entering a hotel lobby",
+        "Someone buying a passport cover"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Someone finishing a checklist",
+          "feedback": "Finishing a checklist reduces mental pressure rather than creating it."
+        },
+        {
+          "label": "C",
+          "answer": "Someone entering a hotel lobby",
+          "feedback": "Entering a hotel lobby starts an experience but does not necessarily interrupt one."
+        },
+        {
+          "label": "D",
+          "answer": "Someone buying a passport cover",
+          "feedback": "Buying a passport cover involves travel identity, not unfinished memory."
+        }
+      ],
+      "explanation": "Interrupted experience keeps attention active because the mind wants closure.",
+      "visibleCorrectExplanation": "Someone leaving mid-song creates the unfinished pull that the Zeigarnik Effect describes.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Someone finishing a checklist",
+          "explanation": "Finishing a checklist reduces mental pressure rather than creating it."
+        },
+        {
+          "label": "C",
+          "answer": "Someone entering a hotel lobby",
+          "explanation": "Entering a hotel lobby starts an experience but does not necessarily interrupt one."
+        },
+        {
+          "label": "D",
+          "answer": "Someone buying a passport cover",
+          "explanation": "Buying a passport cover involves travel identity, not unfinished memory."
+        }
+      ],
+      "visibleConnection": "Interrupted experience keeps attention active because the mind wants closure.",
+      "visibleTakeaway": "The unfinished piece is often louder than the completed one.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 20,
+          "levelQuestionIndex": 6,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_051",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_052",
+      "stableId": "FV400_052",
+      "sourceQuestionId": "FV400_052",
+      "questionScope": "Full Voyage",
+      "sectionId": "going-pains",
+      "sectionIds": [
+        "going-pains"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which warning label belongs on a trophy awarded for suffering the longest?",
+      "correctAnswer": "Glorifying struggle",
+      "wrongAnswers": [
+        "Sunk cost fallacy",
+        "Hawthorne Effect",
+        "Hofstadter’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Sunk cost fallacy",
+          "feedback": "Sunk cost fallacy is about continuing because of past investment, not celebrating pain itself."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect concerns behavior changing under observation."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law concerns time estimates running late."
+        }
+      ],
+      "explanation": "The trophy turns pain itself into proof of value, which is exactly the danger.",
+      "visibleCorrectExplanation": "Glorifying struggle rewards suffering as if suffering automatically meant growth.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Sunk cost fallacy",
+          "explanation": "Sunk cost fallacy is about continuing because of past investment, not celebrating pain itself."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect concerns behavior changing under observation."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law concerns time estimates running late."
+        }
+      ],
+      "visibleConnection": "The trophy turns pain itself into proof of value, which is exactly the danger.",
+      "visibleTakeaway": "Pain can teach, but pain alone is not proof of progress.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Going Pains",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.going-pains.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "going-pains",
+          "levelKey": "400",
+          "sectionQuestionIndex": 25,
+          "levelQuestionIndex": 2,
+          "questionId": "question.going-pains.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_052",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_053",
+      "stableId": "FV400_053",
+      "sourceQuestionId": "FV400_053",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which map would make Zeno keep sharpening his pencil?",
+      "correctAnswer": "A fog-of-war game map",
+      "wrongAnswers": [
+        "A Route 66 diner map",
+        "A Grand Tour itinerary map",
+        "An airport duty-free map"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A Route 66 diner map",
+          "feedback": "A Route 66 diner map is nostalgic travel imagery, not infinite divisibility."
+        },
+        {
+          "label": "C",
+          "answer": "A Grand Tour itinerary map",
+          "feedback": "A Grand Tour itinerary map lists stops, but it does not turn arrival into endless halves."
+        },
+        {
+          "label": "D",
+          "answer": "An airport duty-free map",
+          "feedback": "An airport duty-free map guides shopping and gates, not paradoxical motion."
+        }
+      ],
+      "explanation": "The endlessly unfolding map matches the feeling that arrival keeps being divided into smaller steps.",
+      "visibleCorrectExplanation": "A fog-of-war game map reveals progress gradually, making each advance create another partial distance.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A Route 66 diner map",
+          "explanation": "A Route 66 diner map is nostalgic travel imagery, not infinite divisibility."
+        },
+        {
+          "label": "C",
+          "answer": "A Grand Tour itinerary map",
+          "explanation": "A Grand Tour itinerary map lists stops, but it does not turn arrival into endless halves."
+        },
+        {
+          "label": "D",
+          "answer": "An airport duty-free map",
+          "explanation": "An airport duty-free map guides shopping and gates, not paradoxical motion."
+        }
+      ],
+      "visibleConnection": "The endlessly unfolding map matches the feeling that arrival keeps being divided into smaller steps.",
+      "visibleTakeaway": "Some journeys feel endless because each step creates another step to resolve.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 4,
+          "questionId": "question.home-and-wandering.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_053",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_054",
+      "stableId": "FV400_054",
+      "sourceQuestionId": "FV400_054",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which slogan would a placebo button whisper?",
+      "correctAnswer": "At least you did something",
+      "wrongAnswers": [
+        "Everything is measured exactly",
+        "The work is already done",
+        "No one is waiting anymore"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Everything is measured exactly",
+          "feedback": "Everything is measured exactly belongs to determinate progress, not fake control."
+        },
+        {
+          "label": "C",
+          "answer": "The work is already done",
+          "feedback": "The work is already done removes the waiting problem entirely."
+        },
+        {
+          "label": "D",
+          "answer": "No one is waiting anymore",
+          "feedback": "No one is waiting anymore denies the delay that makes the button useful."
+        }
+      ],
+      "explanation": "The button comforts by giving action without necessarily giving control.",
+      "visibleCorrectExplanation": "At least you did something captures the feeling of agency even when the system may not change.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Everything is measured exactly",
+          "explanation": "Everything is measured exactly belongs to determinate progress, not fake control."
+        },
+        {
+          "label": "C",
+          "answer": "The work is already done",
+          "explanation": "The work is already done removes the waiting problem entirely."
+        },
+        {
+          "label": "D",
+          "answer": "No one is waiting anymore",
+          "explanation": "No one is waiting anymore denies the delay that makes the button useful."
+        }
+      ],
+      "visibleConnection": "The button comforts by giving action without necessarily giving control.",
+      "visibleTakeaway": "Fake control works by making helpless time feel active.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 11,
+          "questionId": "question.progress-not-regress.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_054",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_055",
+      "stableId": "FV400_055",
+      "sourceQuestionId": "FV400_055",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which ruler would most distrust a visible successor standing too close to the throne?",
+      "correctAnswer": "Elizabeth I",
+      "wrongAnswers": [
+        "A caretaker prime minister",
+        "A lame-duck president",
+        "A regent for a child king"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A caretaker prime minister",
+          "feedback": "A caretaker prime minister accepts temporary authority rather than hiding a successor."
+        },
+        {
+          "label": "C",
+          "answer": "A lame-duck president",
+          "feedback": "A lame-duck president has already lost some influence; the successor problem is not being prevented."
+        },
+        {
+          "label": "D",
+          "answer": "A regent for a child king",
+          "feedback": "A regent governs for someone else rather than keeping succession unnamed."
+        }
+      ],
+      "explanation": "The issue is attention moving to the next ruler before the current one is finished.",
+      "visibleCorrectExplanation": "Elizabeth I delayed naming an heir because a successor could become a rival focus of loyalty.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A caretaker prime minister",
+          "explanation": "A caretaker prime minister accepts temporary authority rather than hiding a successor."
+        },
+        {
+          "label": "C",
+          "answer": "A lame-duck president",
+          "explanation": "A lame-duck president has already lost some influence; the successor problem is not being prevented."
+        },
+        {
+          "label": "D",
+          "answer": "A regent for a child king",
+          "explanation": "A regent governs for someone else rather than keeping succession unnamed."
+        }
+      ],
+      "visibleConnection": "The issue is attention moving to the next ruler before the current one is finished.",
+      "visibleTakeaway": "Power can weaken before it formally ends when attention moves ahead.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "The End is Nearish",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.009",
+        "question.the-end-is-nearish.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 8,
+          "questionId": "question.introductory-questions.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_055",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 7,
+          "questionId": "question.the-end-is-nearish.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_055",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_056",
+      "stableId": "FV400_056",
+      "sourceQuestionId": "FV400_056",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which artwork turns a clock into a crowd’s nightmare?",
+      "correctAnswer": "The Doomsday Clock",
+      "wrongAnswers": [
+        "Bedroom in Arles",
+        "Dance (II)",
+        "The Robie House"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Bedroom in Arles",
+          "feedback": "Bedroom in Arles explores repeated versions of a room, not shared apocalypse."
+        },
+        {
+          "label": "C",
+          "answer": "Dance (II)",
+          "feedback": "Dance (II) develops a visual composition, not a countdown to collapse."
+        },
+        {
+          "label": "D",
+          "answer": "The Robie House",
+          "feedback": "The Robie House is architectural design, not a public warning symbol."
+        }
+      ],
+      "explanation": "The clock works like an image of collective fear: it makes an uncertain ending feel near.",
+      "visibleCorrectExplanation": "The Doomsday Clock translates civilizational danger into a visible distance from midnight.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Bedroom in Arles",
+          "explanation": "Bedroom in Arles explores repeated versions of a room, not shared apocalypse."
+        },
+        {
+          "label": "C",
+          "answer": "Dance (II)",
+          "explanation": "Dance (II) develops a visual composition, not a countdown to collapse."
+        },
+        {
+          "label": "D",
+          "answer": "The Robie House",
+          "explanation": "The Robie House is architectural design, not a public warning symbol."
+        }
+      ],
+      "visibleConnection": "The clock works like an image of collective fear: it makes an uncertain ending feel near.",
+      "visibleTakeaway": "An ending becomes more powerful when people can see it approaching.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 8,
+          "questionId": "question.the-end-is-nearish.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_056",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_057",
+      "stableId": "FV400_057",
+      "sourceQuestionId": "FV400_057",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which list would make a completed task feel less like it vanished?",
+      "correctAnswer": "Done list",
+      "wrongAnswers": [
+        "Bucket list",
+        "To-do list",
+        "Poetic list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Bucket list",
+          "feedback": "A bucket list points toward desired future experiences."
+        },
+        {
+          "label": "C",
+          "answer": "To-do list",
+          "feedback": "A to-do list keeps unfinished tasks visible."
+        },
+        {
+          "label": "D",
+          "answer": "Poetic list",
+          "feedback": "A poetic list expands imagination rather than records completed labor."
+        }
+      ],
+      "explanation": "The point is to preserve evidence of labor after completion.",
+      "visibleCorrectExplanation": "A done list records finished work so effort does not disappear the moment it is crossed off.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Bucket list",
+          "explanation": "A bucket list points toward desired future experiences."
+        },
+        {
+          "label": "C",
+          "answer": "To-do list",
+          "explanation": "A to-do list keeps unfinished tasks visible."
+        },
+        {
+          "label": "D",
+          "answer": "Poetic list",
+          "explanation": "A poetic list expands imagination rather than records completed labor."
+        }
+      ],
+      "visibleConnection": "The point is to preserve evidence of labor after completion.",
+      "visibleTakeaway": "Sometimes progress needs memory after the work is done.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 21,
+          "levelQuestionIndex": 7,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_057",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_058",
+      "stableId": "FV400_058",
+      "sourceQuestionId": "FV400_058",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "the-lovely-and-the-liminal",
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which place would feel most like a sentence with no period?",
+      "correctAnswer": "An airport transit zone",
+      "wrongAnswers": [
+        "A Renaissance piazza",
+        "A sidewalk café",
+        "A home kitchen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A Renaissance piazza",
+          "feedback": "A Renaissance piazza is a civic gathering space, not an unresolved border state."
+        },
+        {
+          "label": "C",
+          "answer": "A sidewalk café",
+          "feedback": "A sidewalk café blurs public and private, but it is not normally a blocked transition."
+        },
+        {
+          "label": "D",
+          "answer": "A home kitchen",
+          "feedback": "A home kitchen is domestic arrival, not suspended movement."
+        }
+      ],
+      "explanation": "The transit zone is built for passage, but people can get stuck inside its unfinished grammar.",
+      "visibleCorrectExplanation": "An airport transit zone keeps people between departure and admission.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A Renaissance piazza",
+          "explanation": "A Renaissance piazza is a civic gathering space, not an unresolved border state."
+        },
+        {
+          "label": "C",
+          "answer": "A sidewalk café",
+          "explanation": "A sidewalk café blurs public and private, but it is not normally a blocked transition."
+        },
+        {
+          "label": "D",
+          "answer": "A home kitchen",
+          "explanation": "A home kitchen is domestic arrival, not suspended movement."
+        }
+      ],
+      "visibleConnection": "The transit zone is built for passage, but people can get stuck inside its unfinished grammar.",
+      "visibleTakeaway": "Some places are designed as passages until someone cannot pass through.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "Monkey See, Monkey Prototype",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.008",
+        "question.the-lovely-and-the-liminal.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 7,
+          "questionId": "question.monkey-see-monkey-prototype.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_058",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 1,
+          "questionId": "question.the-lovely-and-the-liminal.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_058",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_059",
+      "stableId": "FV400_059",
+      "sourceQuestionId": "FV400_059",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which old promise sounds most like AI hype after the demo ends?",
+      "correctAnswer": "Vaporware",
+      "wrongAnswers": [
+        "Roman roads",
+        "Grand Tour",
+        "The New Colossus"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Roman roads",
+          "feedback": "Roman roads represent durable infrastructure, not overpromised software."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour",
+          "feedback": "The Grand Tour is elite travel education, not technology hype."
+        },
+        {
+          "label": "D",
+          "answer": "The New Colossus",
+          "feedback": "The New Colossus is a welcome poem, not a product promise."
+        }
+      ],
+      "explanation": "Both depend on a future-sounding promise that may outrun the delivered product.",
+      "visibleCorrectExplanation": "Vaporware names products advertised as coming soon without reliable delivery.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Roman roads",
+          "explanation": "Roman roads represent durable infrastructure, not overpromised software."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour",
+          "explanation": "The Grand Tour is elite travel education, not technology hype."
+        },
+        {
+          "label": "D",
+          "answer": "The New Colossus",
+          "explanation": "The New Colossus is a welcome poem, not a product promise."
+        }
+      ],
+      "visibleConnection": "Both depend on a future-sounding promise that may outrun the delivered product.",
+      "visibleTakeaway": "Future language can make absence sound like arrival.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 8,
+          "questionId": "question.monkey-see-monkey-prototype.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_059",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_060",
+      "stableId": "FV400_060",
+      "sourceQuestionId": "FV400_060",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which road would a maintenance worker trust more than a futurist?",
+      "correctAnswer": "A repaired old road",
+      "wrongAnswers": [
+        "A glowing concept road",
+        "A road in a movie poster",
+        "A road on a souvenir map"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A glowing concept road",
+          "feedback": "A glowing concept road may look futuristic without proving durability."
+        },
+        {
+          "label": "C",
+          "answer": "A road in a movie poster",
+          "feedback": "A movie poster road symbolizes adventure, not reliable function."
+        },
+        {
+          "label": "D",
+          "answer": "A road on a souvenir map",
+          "feedback": "A souvenir map road sells memory, not upkeep."
+        }
+      ],
+      "explanation": "The repaired road values upkeep over spectacle.",
+      "visibleCorrectExplanation": "A repaired old road proves that movement survives through maintenance.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A glowing concept road",
+          "explanation": "A glowing concept road may look futuristic without proving durability."
+        },
+        {
+          "label": "C",
+          "answer": "A road in a movie poster",
+          "explanation": "A movie poster road symbolizes adventure, not reliable function."
+        },
+        {
+          "label": "D",
+          "answer": "A road on a souvenir map",
+          "explanation": "A souvenir map road sells memory, not upkeep."
+        }
+      ],
+      "visibleConnection": "The repaired road values upkeep over spectacle.",
+      "visibleTakeaway": "The most important future may be the one someone keeps repairing.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 12,
+          "questionId": "question.progress-not-regress.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_060",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_061",
+      "stableId": "FV400_061",
+      "sourceQuestionId": "FV400_061",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which traveler is closest to cargo in an entrepôt?",
+      "correctAnswer": "A passenger trapped in airport transit",
+      "wrongAnswers": [
+        "A tourist on the Grand Tour",
+        "A driver on Route 66",
+        "A diner at a sidewalk café"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A tourist on the Grand Tour",
+          "feedback": "A Grand Tour tourist moves through chosen cultural stops."
+        },
+        {
+          "label": "C",
+          "answer": "A driver on Route 66",
+          "feedback": "A Route 66 driver follows a nostalgic road journey."
+        },
+        {
+          "label": "D",
+          "answer": "A diner at a sidewalk café",
+          "feedback": "A sidewalk café diner occupies public-private city space, not a customs-like holding zone."
+        }
+      ],
+      "explanation": "Both are present in a transfer space without being fully admitted into the destination.",
+      "visibleCorrectExplanation": "A passenger trapped in transit is handled by a system of movement but denied ordinary admission.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A tourist on the Grand Tour",
+          "explanation": "A Grand Tour tourist moves through chosen cultural stops."
+        },
+        {
+          "label": "C",
+          "answer": "A driver on Route 66",
+          "explanation": "A Route 66 driver follows a nostalgic road journey."
+        },
+        {
+          "label": "D",
+          "answer": "A diner at a sidewalk café",
+          "explanation": "A sidewalk café diner occupies public-private city space, not a customs-like holding zone."
+        }
+      ],
+      "visibleConnection": "Both are present in a transfer space without being fully admitted into the destination.",
+      "visibleTakeaway": "Transit can make a person present without making them arrived.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 9,
+          "questionId": "question.monkey-see-monkey-prototype.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_061",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_062",
+      "stableId": "FV400_062",
+      "sourceQuestionId": "FV400_062",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which object would a homesick traveler overvalue?",
+      "correctAnswer": "A kitchen mug from home",
+      "wrongAnswers": [
+        "A passport cover from travel",
+        "A duty-free receipt",
+        "A road-construction plan"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A passport cover from travel",
+          "feedback": "A passport cover points to mobility and identity, not the emotional pull of home itself."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free receipt",
+          "feedback": "A duty-free receipt marks transit consumption rather than belonging."
+        },
+        {
+          "label": "D",
+          "answer": "A road-construction plan",
+          "feedback": "A road-construction plan concerns infrastructure, not longing."
+        }
+      ],
+      "explanation": "Homesickness gives ordinary home details emotional weight from a distance.",
+      "visibleCorrectExplanation": "A kitchen mug from home can carry the place more powerfully than it did before departure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A passport cover from travel",
+          "explanation": "A passport cover points to mobility and identity, not the emotional pull of home itself."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free receipt",
+          "explanation": "A duty-free receipt marks transit consumption rather than belonging."
+        },
+        {
+          "label": "D",
+          "answer": "A road-construction plan",
+          "explanation": "A road-construction plan concerns infrastructure, not longing."
+        }
+      ],
+      "visibleConnection": "Homesickness gives ordinary home details emotional weight from a distance.",
+      "visibleTakeaway": "Distance can make ordinary objects feel like proof of belonging.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 5,
+          "questionId": "question.home-and-wandering.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_062",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_063",
+      "stableId": "FV400_063",
+      "sourceQuestionId": "FV400_063",
+      "questionScope": "Full Voyage",
+      "sectionId": "concluding-questions",
+      "sectionIds": [
+        "concluding-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which official ending can arrive before people feel finished?",
+      "correctAnswer": "A school year closing date",
+      "wrongAnswers": [
+        "A moving sidewalk ride",
+        "A passport stamp",
+        "A hotel check-in time"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A moving sidewalk ride",
+          "feedback": "A moving sidewalk ride ends physically but carries little emotional or institutional closure."
+        },
+        {
+          "label": "C",
+          "answer": "A passport stamp",
+          "feedback": "A passport stamp records permission to enter, not an ending."
+        },
+        {
+          "label": "D",
+          "answer": "A hotel check-in time",
+          "feedback": "A hotel check-in time starts a stay rather than closes one."
+        }
+      ],
+      "explanation": "The date can declare an ending even when emotional closure has not caught up.",
+      "visibleCorrectExplanation": "A school year closing date is an administrative finish that may not match how people feel.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A moving sidewalk ride",
+          "explanation": "A moving sidewalk ride ends physically but carries little emotional or institutional closure."
+        },
+        {
+          "label": "C",
+          "answer": "A passport stamp",
+          "explanation": "A passport stamp records permission to enter, not an ending."
+        },
+        {
+          "label": "D",
+          "answer": "A hotel check-in time",
+          "explanation": "A hotel check-in time starts a stay rather than closes one."
+        }
+      ],
+      "visibleConnection": "The date can declare an ending even when emotional closure has not caught up.",
+      "visibleTakeaway": "Systems can end things before people are ready to call them over.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.concluding-questions.400.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "concluding-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 0,
+          "questionId": "question.concluding-questions.400.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_063",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_064",
+      "stableId": "FV400_064",
+      "sourceQuestionId": "FV400_064",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which index would make a welcome poem nervous?",
+      "correctAnswer": "Passport Index",
+      "wrongAnswers": [
+        "Happiness Index",
+        "Big Mac Index",
+        "Labor Productivity"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Happiness Index",
+          "feedback": "The Happiness Index measures well-being, not permission to cross borders."
+        },
+        {
+          "label": "C",
+          "answer": "Big Mac Index",
+          "feedback": "The Big Mac Index compares purchasing power."
+        },
+        {
+          "label": "D",
+          "answer": "Labor Productivity",
+          "feedback": "Labor productivity measures economic output."
+        }
+      ],
+      "explanation": "The index exposes how unequal the ability to move can be, even when welcome is celebrated.",
+      "visibleCorrectExplanation": "The Passport Index shows that legal mobility depends heavily on nationality.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Happiness Index",
+          "explanation": "The Happiness Index measures well-being, not permission to cross borders."
+        },
+        {
+          "label": "C",
+          "answer": "Big Mac Index",
+          "explanation": "The Big Mac Index compares purchasing power."
+        },
+        {
+          "label": "D",
+          "answer": "Labor Productivity",
+          "explanation": "Labor productivity measures economic output."
+        }
+      ],
+      "visibleConnection": "The index exposes how unequal the ability to move can be, even when welcome is celebrated.",
+      "visibleTakeaway": "A welcome sounds different when mobility is not equally available.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 7,
+          "questionId": "question.call-of-duty-free.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_064",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_065",
+      "stableId": "FV400_065",
+      "sourceQuestionId": "FV400_065",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress",
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which scene would make a progress bar look like theater?",
+      "correctAnswer": "A fake demo running on hidden work",
+      "wrongAnswers": [
+        "A done list after a long day",
+        "A road sign before a turn",
+        "A hotel lobby at check-in"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done list after a long day",
+          "feedback": "A done list records work already completed."
+        },
+        {
+          "label": "C",
+          "answer": "A road sign before a turn",
+          "feedback": "A road sign guides direction rather than performs progress."
+        },
+        {
+          "label": "D",
+          "answer": "A hotel lobby at check-in",
+          "feedback": "A hotel lobby begins a stay, but it is not staged technical readiness."
+        }
+      ],
+      "explanation": "Both can make progress visible before the underlying system is truly working.",
+      "visibleCorrectExplanation": "A fake demo can perform readiness while hiding the fragile or unfinished reality behind it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done list after a long day",
+          "explanation": "A done list records work already completed."
+        },
+        {
+          "label": "C",
+          "answer": "A road sign before a turn",
+          "explanation": "A road sign guides direction rather than performs progress."
+        },
+        {
+          "label": "D",
+          "answer": "A hotel lobby at check-in",
+          "explanation": "A hotel lobby begins a stay, but it is not staged technical readiness."
+        }
+      ],
+      "visibleConnection": "Both can make progress visible before the underlying system is truly working.",
+      "visibleTakeaway": "Visible progress can be a performance when the system behind it is not ready.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "There’s a Draft in Here",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.014",
+        "question.theres-a-draft-in-here.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 13,
+          "questionId": "question.progress-not-regress.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_065",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 23,
+          "levelQuestionIndex": 9,
+          "questionId": "question.theres-a-draft-in-here.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_065",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_066",
+      "stableId": "FV400_066",
+      "sourceQuestionId": "FV400_066",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which sign would a stroad ignore?",
+      "correctAnswer": "Slow down and stay awhile",
+      "wrongAnswers": [
+        "Merge fast and keep moving",
+        "Shop here before flying",
+        "Welcome back for dinner"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Merge fast and keep moving",
+          "feedback": "Merge fast and keep moving sounds like the road function a stroad already privileges."
+        },
+        {
+          "label": "C",
+          "answer": "Shop here before flying",
+          "feedback": "Shop here before flying belongs to airport commerce rather than street life."
+        },
+        {
+          "label": "D",
+          "answer": "Welcome back for dinner",
+          "feedback": "Welcome back for dinner points toward homecoming, not the street-road conflict."
+        }
+      ],
+      "explanation": "A stroad fails because it cannot fully behave like a street where people comfortably linger.",
+      "visibleCorrectExplanation": "Slow down and stay awhile matches the street function a stroad often undermines.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Merge fast and keep moving",
+          "explanation": "Merge fast and keep moving sounds like the road function a stroad already privileges."
+        },
+        {
+          "label": "C",
+          "answer": "Shop here before flying",
+          "explanation": "Shop here before flying belongs to airport commerce rather than street life."
+        },
+        {
+          "label": "D",
+          "answer": "Welcome back for dinner",
+          "explanation": "Welcome back for dinner points toward homecoming, not the street-road conflict."
+        }
+      ],
+      "visibleConnection": "A stroad fails because it cannot fully behave like a street where people comfortably linger.",
+      "visibleTakeaway": "Bad urban design often fails by making incompatible behaviors share one space.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 5,
+          "questionId": "question.where-the-sidewalk-starts.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_066",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_067",
+      "stableId": "FV400_067",
+      "sourceQuestionId": "FV400_067",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which journey ends by changing the traveler’s status more than the map?",
+      "correctAnswer": "A rite of passage",
+      "wrongAnswers": [
+        "A moving walkway",
+        "A duty-free loop",
+        "A baggage-claim walk"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A moving walkway",
+          "feedback": "A moving walkway changes effort through space."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free loop",
+          "feedback": "A duty-free loop changes shopping opportunity."
+        },
+        {
+          "label": "D",
+          "answer": "A baggage-claim walk",
+          "feedback": "A baggage-claim walk changes the feeling of waiting."
+        }
+      ],
+      "explanation": "The journey matters because the person becomes socially different after crossing it.",
+      "visibleCorrectExplanation": "A rite of passage changes identity or status, not just location.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A moving walkway",
+          "explanation": "A moving walkway changes effort through space."
+        },
+        {
+          "label": "C",
+          "answer": "A duty-free loop",
+          "explanation": "A duty-free loop changes shopping opportunity."
+        },
+        {
+          "label": "D",
+          "answer": "A baggage-claim walk",
+          "explanation": "A baggage-claim walk changes the feeling of waiting."
+        }
+      ],
+      "visibleConnection": "The journey matters because the person becomes socially different after crossing it.",
+      "visibleTakeaway": "Some arrivals are social transformations, not places.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "The Lovely and the Liminal",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.010",
+        "question.the-lovely-and-the-liminal.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 9,
+          "questionId": "question.introductory-questions.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_067",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 2,
+          "questionId": "question.the-lovely-and-the-liminal.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_067",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_068",
+      "stableId": "FV400_068",
+      "sourceQuestionId": "FV400_068",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-the-sidewalk-starts",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which future promise would disappoint a city planner but still help an airport?",
+      "correctAnswer": "Moving sidewalks",
+      "wrongAnswers": [
+        "Nuclear-powered cars",
+        "Food pills",
+        "3D televisions"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "feedback": "Nuclear cars would not especially help airports as pedestrian infrastructure."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "feedback": "Food pills concern eating, not moving through terminals."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions",
+          "feedback": "3D televisions belong to entertainment, not urban movement."
+        }
+      ],
+      "explanation": "The dream of effortless city movement narrowed into a practical transit convenience.",
+      "visibleCorrectExplanation": "Moving sidewalks did not transform cities, but they became useful in airports.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "explanation": "Nuclear cars would not especially help airports as pedestrian infrastructure."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "explanation": "Food pills concern eating, not moving through terminals."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions",
+          "explanation": "3D televisions belong to entertainment, not urban movement."
+        }
+      ],
+      "visibleConnection": "The dream of effortless city movement narrowed into a practical transit convenience.",
+      "visibleTakeaway": "Reduced futures often survive where the use case is narrow enough.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "Where the Sidewalk Starts",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.007",
+        "question.where-were-going-well-still-need-them.400.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 6,
+          "questionId": "question.where-the-sidewalk-starts.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_068",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 2,
+          "questionId": "question.where-were-going-well-still-need-them.400.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_068",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_069",
+      "stableId": "FV400_069",
+      "sourceQuestionId": "FV400_069",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which method admits that not everything can be done today?",
+      "correctAnswer": "Ivy Lee Method",
+      "wrongAnswers": [
+        "Doomsday Clock",
+        "Passport Index",
+        "Mechanical Turk"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Doomsday Clock",
+          "feedback": "The Doomsday Clock measures global danger."
+        },
+        {
+          "label": "C",
+          "answer": "Passport Index",
+          "feedback": "The Passport Index measures mobility power."
+        },
+        {
+          "label": "D",
+          "answer": "Mechanical Turk",
+          "feedback": "The Mechanical Turk disguises human labor as machine intelligence."
+        }
+      ],
+      "explanation": "The method forces a small daily priority list instead of pretending time is unlimited.",
+      "visibleCorrectExplanation": "The Ivy Lee Method focuses attention on a few tasks rather than an endless list.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Doomsday Clock",
+          "explanation": "The Doomsday Clock measures global danger."
+        },
+        {
+          "label": "C",
+          "answer": "Passport Index",
+          "explanation": "The Passport Index measures mobility power."
+        },
+        {
+          "label": "D",
+          "answer": "Mechanical Turk",
+          "explanation": "The Mechanical Turk disguises human labor as machine intelligence."
+        }
+      ],
+      "visibleConnection": "The method forces a small daily priority list instead of pretending time is unlimited.",
+      "visibleTakeaway": "Prioritization is often the art of choosing what not to do.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 22,
+          "levelQuestionIndex": 8,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_069",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_070",
+      "stableId": "FV400_070",
+      "sourceQuestionId": "FV400_070",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which empire painting would feel at home beside a failed future forecast?",
+      "correctAnswer": "The Course of Empire: Destruction",
+      "wrongAnswers": [
+        "The Triumph of Death",
+        "The Last Judgment",
+        "The Great Day of His Wrath"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Triumph of Death",
+          "feedback": "The Triumph of Death shows mortality and catastrophe, but not the same rise-and-collapse arc of empire."
+        },
+        {
+          "label": "C",
+          "answer": "The Last Judgment",
+          "feedback": "The Last Judgment imagines final judgment, not a civilization’s progress failing over time."
+        },
+        {
+          "label": "D",
+          "answer": "The Great Day of His Wrath",
+          "feedback": "The Great Day of His Wrath visualizes catastrophe, but not the full historical cycle of progress and destruction."
+        }
+      ],
+      "explanation": "Both question the assumption that history keeps moving upward.",
+      "visibleCorrectExplanation": "The Course of Empire: Destruction shows a civilization’s progress turning into ruin.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Triumph of Death",
+          "explanation": "The Triumph of Death shows mortality and catastrophe, but not the same rise-and-collapse arc of empire."
+        },
+        {
+          "label": "C",
+          "answer": "The Last Judgment",
+          "explanation": "The Last Judgment imagines final judgment, not a civilization’s progress failing over time."
+        },
+        {
+          "label": "D",
+          "answer": "The Great Day of His Wrath",
+          "explanation": "The Great Day of His Wrath visualizes catastrophe, but not the full historical cycle of progress and destruction."
+        }
+      ],
+      "visibleConnection": "Both question the assumption that history keeps moving upward.",
+      "visibleTakeaway": "Progress stories become fragile when decline is also part of the cycle.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 6,
+          "questionId": "question.home-and-wandering.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_070",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_071",
+      "stableId": "FV400_071",
+      "sourceQuestionId": "FV400_071",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which phrase would least comfort someone staring at a throbber?",
+      "correctAnswer": "It is doing something, probably",
+      "wrongAnswers": [
+        "It is exactly 87 percent done",
+        "It is finished now",
+        "It was never loading"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "It is exactly 87 percent done",
+          "feedback": "Exactly 87 percent done belongs to determinate progress."
+        },
+        {
+          "label": "C",
+          "answer": "It is finished now",
+          "feedback": "Finished now removes the need for a loading indicator."
+        },
+        {
+          "label": "D",
+          "answer": "It was never loading",
+          "feedback": "Never loading turns the signal into failure rather than uncertainty."
+        }
+      ],
+      "explanation": "A throbber offers only ongoing activity, not exact measurement.",
+      "visibleCorrectExplanation": "It is doing something, probably captures the weak reassurance a throbber provides.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "It is exactly 87 percent done",
+          "explanation": "Exactly 87 percent done belongs to determinate progress."
+        },
+        {
+          "label": "C",
+          "answer": "It is finished now",
+          "explanation": "Finished now removes the need for a loading indicator."
+        },
+        {
+          "label": "D",
+          "answer": "It was never loading",
+          "explanation": "Never loading turns the signal into failure rather than uncertainty."
+        }
+      ],
+      "visibleConnection": "A throbber offers only ongoing activity, not exact measurement.",
+      "visibleTakeaway": "Activity signals help most when exact progress is unavailable.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.015"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 14,
+          "questionId": "question.progress-not-regress.400.015",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_071",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_072",
+      "stableId": "FV400_072",
+      "sourceQuestionId": "FV400_072",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which case would make a bucket list look less like joy and more like performance?",
+      "correctAnswer": "Posting every item for proof",
+      "wrongAnswers": [
+        "Keeping a private done list",
+        "Forgetting an unfinished tune",
+        "Repairing an old road"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Keeping a private done list",
+          "feedback": "A private done list remembers work without turning aspiration into display."
+        },
+        {
+          "label": "C",
+          "answer": "Forgetting an unfinished tune",
+          "feedback": "Forgetting an unfinished tune relates to interrupted memory."
+        },
+        {
+          "label": "D",
+          "answer": "Repairing an old road",
+          "feedback": "Repairing an old road relates to maintenance, not performative desire."
+        }
+      ],
+      "explanation": "Public proof turns desired experience into evidence of having lived correctly.",
+      "visibleCorrectExplanation": "Posting every item for proof makes the list perform identity for an audience.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Keeping a private done list",
+          "explanation": "A private done list remembers work without turning aspiration into display."
+        },
+        {
+          "label": "C",
+          "answer": "Forgetting an unfinished tune",
+          "explanation": "Forgetting an unfinished tune relates to interrupted memory."
+        },
+        {
+          "label": "D",
+          "answer": "Repairing an old road",
+          "explanation": "Repairing an old road relates to maintenance, not performative desire."
+        }
+      ],
+      "visibleConnection": "Public proof turns desired experience into evidence of having lived correctly.",
+      "visibleTakeaway": "Aspirations change when they become proof for other people.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 23,
+          "levelQuestionIndex": 9,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_072",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_073",
+      "stableId": "FV400_073",
+      "sourceQuestionId": "FV400_073",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which tool would a person use to make invisible work harder to erase?",
+      "correctAnswer": "Done list",
+      "wrongAnswers": [
+        "Splash screen",
+        "Doomsday Clock",
+        "Free-trade zone"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Splash screen",
+          "feedback": "A splash screen fills waiting time before an app opens."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday Clock",
+          "feedback": "The Doomsday Clock visualizes global risk."
+        },
+        {
+          "label": "D",
+          "answer": "Free-trade zone",
+          "feedback": "A free-trade zone changes customs rules for goods."
+        }
+      ],
+      "explanation": "The tool preserves evidence of work after it would normally disappear from attention.",
+      "visibleCorrectExplanation": "A done list keeps completed effort visible instead of letting it vanish when crossed off.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Splash screen",
+          "explanation": "A splash screen fills waiting time before an app opens."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday Clock",
+          "explanation": "The Doomsday Clock visualizes global risk."
+        },
+        {
+          "label": "D",
+          "answer": "Free-trade zone",
+          "explanation": "A free-trade zone changes customs rules for goods."
+        }
+      ],
+      "visibleConnection": "The tool preserves evidence of work after it would normally disappear from attention.",
+      "visibleTakeaway": "Work that is not recorded can feel like it never happened.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 24,
+          "levelQuestionIndex": 10,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_073",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_074",
+      "stableId": "FV400_074",
+      "sourceQuestionId": "FV400_074",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which urban object would Jane Jacobs trust more than a snout house?",
+      "correctAnswer": "A lively sidewalk",
+      "wrongAnswers": [
+        "A private garage door",
+        "A highway ramp",
+        "A blank wall"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A private garage door",
+          "feedback": "A private garage door pulls attention away from public life."
+        },
+        {
+          "label": "C",
+          "answer": "A highway ramp",
+          "feedback": "A highway ramp moves cars, not neighborhood interaction."
+        },
+        {
+          "label": "D",
+          "answer": "A blank wall",
+          "feedback": "A blank wall removes social exchange from the street edge."
+        }
+      ],
+      "explanation": "The lively sidewalk supports public presence and informal social life.",
+      "visibleCorrectExplanation": "A lively sidewalk keeps eyes, movement, and social contact on the street.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A private garage door",
+          "explanation": "A private garage door pulls attention away from public life."
+        },
+        {
+          "label": "C",
+          "answer": "A highway ramp",
+          "explanation": "A highway ramp moves cars, not neighborhood interaction."
+        },
+        {
+          "label": "D",
+          "answer": "A blank wall",
+          "explanation": "A blank wall removes social exchange from the street edge."
+        }
+      ],
+      "visibleConnection": "The lively sidewalk supports public presence and informal social life.",
+      "visibleTakeaway": "Streets work better when they invite people, not only vehicles.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 7,
+          "questionId": "question.where-the-sidewalk-starts.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_074",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_075",
+      "stableId": "FV400_075",
+      "sourceQuestionId": "FV400_075",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Which traveler would a compass help most directly?",
+      "correctAnswer": "A sailor needing direction at sea",
+      "wrongAnswers": [
+        "A tourist choosing a hotel",
+        "A shopper crossing duty-free",
+        "A teenager awaiting adulthood"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A tourist choosing a hotel",
+          "feedback": "A tourist choosing a hotel needs preference and location, not magnetic direction."
+        },
+        {
+          "label": "C",
+          "answer": "A shopper crossing duty-free",
+          "feedback": "A duty-free shopper is already inside a managed corridor."
+        },
+        {
+          "label": "D",
+          "answer": "A teenager awaiting adulthood",
+          "feedback": "A teenager awaiting adulthood faces social transition, not navigation."
+        }
+      ],
+      "explanation": "The compass solves orientation when landmarks and routes are uncertain.",
+      "visibleCorrectExplanation": "A sailor at sea needs direction when the open environment offers few visible paths.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A tourist choosing a hotel",
+          "explanation": "A tourist choosing a hotel needs preference and location, not magnetic direction."
+        },
+        {
+          "label": "C",
+          "answer": "A shopper crossing duty-free",
+          "explanation": "A duty-free shopper is already inside a managed corridor."
+        },
+        {
+          "label": "D",
+          "answer": "A teenager awaiting adulthood",
+          "explanation": "A teenager awaiting adulthood faces social transition, not navigation."
+        }
+      ],
+      "visibleConnection": "The compass solves orientation when landmarks and routes are uncertain.",
+      "visibleTakeaway": "Some tools answer the oldest travel question: which way are we going?",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 3,
+          "questionId": "question.where-were-going-well-still-need-them.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_075",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_076",
+      "stableId": "FV400_076",
+      "sourceQuestionId": "FV400_076",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A tiny unfinished chore keeps shouting in your head while finished chores disappear from memory. What got control?",
+      "correctAnswer": "The Zeigarnik Effect",
+      "wrongAnswers": [
+        "A done list",
+        "The Ivy Lee Method",
+        "A bucket list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done list",
+          "feedback": "A done list preserves finished work; it answers a different problem, the disappearance of completed effort."
+        },
+        {
+          "label": "C",
+          "answer": "The Ivy Lee Method",
+          "feedback": "The Ivy Lee Method ranks daily priorities; it does not explain why one unfinished task keeps intruding."
+        },
+        {
+          "label": "D",
+          "answer": "A bucket list",
+          "feedback": "A bucket list organizes desired life experiences; it is not about short-term memory pressure from unfinished work."
+        }
+      ],
+      "explanation": "The situation hides the pressure of unfinished work staying mentally active after action stops.",
+      "visibleCorrectExplanation": "Choose The Zeigarnik Effect here; unfinished tasks remain louder in memory than completed ones.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done list",
+          "explanation": "A done list preserves finished work; it answers a different problem, the disappearance of completed effort."
+        },
+        {
+          "label": "C",
+          "answer": "The Ivy Lee Method",
+          "explanation": "The Ivy Lee Method ranks daily priorities; it does not explain why one unfinished task keeps intruding."
+        },
+        {
+          "label": "D",
+          "answer": "A bucket list",
+          "explanation": "A bucket list organizes desired life experiences; it is not about short-term memory pressure from unfinished work."
+        }
+      ],
+      "visibleConnection": "The situation hides the pressure of unfinished work staying mentally active after action stops.",
+      "visibleTakeaway": "Unfinished work can keep acting even when no one is actively working on it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 25,
+          "levelQuestionIndex": 11,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_076",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_077",
+      "stableId": "FV400_077",
+      "sourceQuestionId": "FV400_077",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The final award is over, but speeches, tributes, and music keep making the night feel unfinished. What is happening?",
+      "correctAnswer": "False endings and near-endings",
+      "wrongAnswers": [
+        "Point of no return",
+        "Last-chance psychology",
+        "Caretaker government"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Point of no return",
+          "feedback": "Point of no return focuses on irreversibility after a threshold, not repeated emotional closure."
+        },
+        {
+          "label": "C",
+          "answer": "Last-chance psychology",
+          "feedback": "Last-chance psychology involves urgency before time runs out, not an ending that keeps restarting."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker government",
+          "feedback": "Caretaker government is temporary authority between regimes, not a staged sequence of almost-endings."
+        }
+      ],
+      "explanation": "The ceremony keeps offering closure, then pulling it away again.",
+      "visibleCorrectExplanation": "False endings fit because the audience keeps feeling closure before the event has really settled.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Point of no return",
+          "explanation": "Point of no return focuses on irreversibility after a threshold, not repeated emotional closure."
+        },
+        {
+          "label": "C",
+          "answer": "Last-chance psychology",
+          "explanation": "Last-chance psychology involves urgency before time runs out, not an ending that keeps restarting."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker government",
+          "explanation": "Caretaker government is temporary authority between regimes, not a staged sequence of almost-endings."
+        }
+      ],
+      "visibleConnection": "The ceremony keeps offering closure, then pulling it away again.",
+      "visibleTakeaway": "An ending can be felt several times before it actually arrives.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 10,
+          "questionId": "question.introductory-questions.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_077",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_078",
+      "stableId": "FV400_078",
+      "sourceQuestionId": "FV400_078",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Midnight is coming, and every choice suddenly feels heavier than it did five minutes earlier. What pressure is taking over?",
+      "correctAnswer": "Last-chance psychology",
+      "wrongAnswers": [
+        "The Doomsday Clock",
+        "Climate tipping points",
+        "Lame-duck power"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Doomsday Clock",
+          "feedback": "The Doomsday Clock measures civilizational risk; it does not explain one person’s deadline panic."
+        },
+        {
+          "label": "C",
+          "answer": "Climate tipping points",
+          "feedback": "Climate tipping points involve ecological thresholds, not a social countdown shaping immediate choices."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck power",
+          "feedback": "Lame-duck power describes fading influence after attention moves on, not urgency before a cutoff."
+        }
+      ],
+      "explanation": "The approaching deadline changes behavior before the deadline itself arrives.",
+      "visibleCorrectExplanation": "The pattern belongs to Last-chance psychology: perceived finality sharpens attention and can distort judgment.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Doomsday Clock",
+          "explanation": "The Doomsday Clock measures civilizational risk; it does not explain one person’s deadline panic."
+        },
+        {
+          "label": "C",
+          "answer": "Climate tipping points",
+          "explanation": "Climate tipping points involve ecological thresholds, not a social countdown shaping immediate choices."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck power",
+          "explanation": "Lame-duck power describes fading influence after attention moves on, not urgency before a cutoff."
+        }
+      ],
+      "visibleConnection": "The approaching deadline changes behavior before the deadline itself arrives.",
+      "visibleTakeaway": "A deadline can begin changing decisions before it has actually arrived.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 9,
+          "questionId": "question.the-end-is-nearish.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_078",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_079",
+      "stableId": "FV400_079",
+      "sourceQuestionId": "FV400_079",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A bus is still late, but the moving dot on the screen makes people stop pacing. What is the screen doing?",
+      "correctAnswer": "A progress display",
+      "wrongAnswers": [
+        "A placebo button",
+        "A skeleton screen",
+        "A throbber"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A placebo button",
+          "feedback": "A placebo button gives a sense of control through pressing; the screen is showing movement instead."
+        },
+        {
+          "label": "C",
+          "answer": "A skeleton screen",
+          "feedback": "A skeleton screen previews layout before content arrives; this situation tracks a delayed process."
+        },
+        {
+          "label": "D",
+          "answer": "A throbber",
+          "feedback": "A throbber only signals activity; the moving bus dot suggests progress toward an endpoint."
+        }
+      ],
+      "explanation": "The display turns waiting into visible movement, even when real arrival is unchanged.",
+      "visibleCorrectExplanation": "A progress display carries the same logic: it gives delay a visible shape and makes completion feel closer.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A placebo button",
+          "explanation": "A placebo button gives a sense of control through pressing; the screen is showing movement instead."
+        },
+        {
+          "label": "C",
+          "answer": "A skeleton screen",
+          "explanation": "A skeleton screen previews layout before content arrives; this situation tracks a delayed process."
+        },
+        {
+          "label": "D",
+          "answer": "A throbber",
+          "explanation": "A throbber only signals activity; the moving bus dot suggests progress toward an endpoint."
+        }
+      ],
+      "visibleConnection": "The display turns waiting into visible movement, even when real arrival is unchanged.",
+      "visibleTakeaway": "Visible movement can calm people even before real arrival changes.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.012",
+        "question.progress-not-regress.400.016"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 11,
+          "questionId": "question.introductory-questions.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_079",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 15,
+          "questionId": "question.progress-not-regress.400.016",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_079",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_080",
+      "stableId": "FV400_080",
+      "sourceQuestionId": "FV400_080",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A museum exit quietly leads every visitor through the shop before daylight. What kind of design is doing the work?",
+      "correctAnswer": "A duty-free-style route",
+      "wrongAnswers": [
+        "A desire path",
+        "A sidewalk café",
+        "A stroad"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A desire path",
+          "feedback": "A desire path is made by people ignoring official routes; the museum route is designed from above."
+        },
+        {
+          "label": "C",
+          "answer": "A sidewalk café",
+          "feedback": "A sidewalk café invites public life to linger; it does not funnel movement toward buying."
+        },
+        {
+          "label": "D",
+          "answer": "A stroad",
+          "feedback": "A stroad mixes road and street functions; it is not mainly about routing people through retail."
+        }
+      ],
+      "explanation": "The path turns movement into a commercial opportunity before the visitor leaves.",
+      "visibleCorrectExplanation": "This points toward A duty-free-style route: the space makes shopping part of the path out.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A desire path",
+          "explanation": "A desire path is made by people ignoring official routes; the museum route is designed from above."
+        },
+        {
+          "label": "C",
+          "answer": "A sidewalk café",
+          "explanation": "A sidewalk café invites public life to linger; it does not funnel movement toward buying."
+        },
+        {
+          "label": "D",
+          "answer": "A stroad",
+          "explanation": "A stroad mixes road and street functions; it is not mainly about routing people through retail."
+        }
+      ],
+      "visibleConnection": "The path turns movement into a commercial opportunity before the visitor leaves.",
+      "visibleTakeaway": "A route can sell without ever announcing itself as an advertisement.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 8,
+          "questionId": "question.call-of-duty-free.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_080",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_081",
+      "stableId": "FV400_081",
+      "sourceQuestionId": "FV400_081",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Every morning repeats, but the person inside the repetition slowly changes. Which model fits best?",
+      "correctAnswer": "Cyclical progress",
+      "wrongAnswers": [
+        "Linear progress",
+        "A progress bar",
+        "The moral arc"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Linear progress",
+          "feedback": "Linear progress would move steadily forward; this situation loops instead of advancing in a straight line."
+        },
+        {
+          "label": "C",
+          "answer": "A progress bar",
+          "feedback": "A progress bar implies visible movement toward a fixed endpoint, which the repeating day hides."
+        },
+        {
+          "label": "D",
+          "answer": "The moral arc",
+          "feedback": "The moral arc imagines justice over historical time, not personal change through repeated cycles."
+        }
+      ],
+      "explanation": "The situation repeats in circles while change accumulates inside the person.",
+      "visibleCorrectExplanation": "Cyclical progress is the cleanest answer: repetition becomes the structure through which change happens.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Linear progress",
+          "explanation": "Linear progress would move steadily forward; this situation loops instead of advancing in a straight line."
+        },
+        {
+          "label": "C",
+          "answer": "A progress bar",
+          "explanation": "A progress bar implies visible movement toward a fixed endpoint, which the repeating day hides."
+        },
+        {
+          "label": "D",
+          "answer": "The moral arc",
+          "explanation": "The moral arc imagines justice over historical time, not personal change through repeated cycles."
+        }
+      ],
+      "visibleConnection": "The situation repeats in circles while change accumulates inside the person.",
+      "visibleTakeaway": "Not every movement toward change looks like a straight line.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.017"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 16,
+          "questionId": "question.progress-not-regress.400.017",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_081",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_082",
+      "stableId": "FV400_082",
+      "sourceQuestionId": "FV400_082",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "next-year-in-futurism",
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "First it was promised as a revolution; years later it survives as a tiny convenience people barely notice. What happened?",
+      "correctAnswer": "Moving sidewalks",
+      "wrongAnswers": [
+        "Nuclear-powered cars",
+        "Food pills",
+        "3D televisions"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "feedback": "Nuclear-powered cars did not become a quiet everyday convenience; they remained mostly unrealized fantasy."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "feedback": "Food pills did not replace meals; the promise failed rather than settling into a common niche."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions",
+          "feedback": "3D televisions had a consumer fad but did not become a durable infrastructure convenience."
+        }
+      ],
+      "explanation": "The promised future did arrive, but only in a smaller and more ordinary form.",
+      "visibleCorrectExplanation": "Moving sidewalks fit because a citywide travel dream became mostly a limited airport convenience.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "explanation": "Nuclear-powered cars did not become a quiet everyday convenience; they remained mostly unrealized fantasy."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "explanation": "Food pills did not replace meals; the promise failed rather than settling into a common niche."
+        },
+        {
+          "label": "D",
+          "answer": "3D televisions",
+          "explanation": "3D televisions had a consumer fad but did not become a durable infrastructure convenience."
+        }
+      ],
+      "visibleConnection": "The promised future did arrive, but only in a smaller and more ordinary form.",
+      "visibleTakeaway": "A future can arrive in a much smaller form than its original promise.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Next Year in Futurism",
+      "guidingSectionSecondary": "Where the Sidewalk Starts",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.009",
+        "question.next-year-in-futurism.400.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 8,
+          "questionId": "question.where-the-sidewalk-starts.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_082",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "next-year-in-futurism",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 1,
+          "questionId": "question.next-year-in-futurism.400.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_082",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_083",
+      "stableId": "FV400_083",
+      "sourceQuestionId": "FV400_083",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A royal drama avoids showing the next heir because the current ruler would instantly look temporary. What tactic does that echo?",
+      "correctAnswer": "Elizabeth I delaying an heir",
+      "wrongAnswers": [
+        "A lame-duck president",
+        "A caretaker government",
+        "A regency"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A lame-duck president",
+          "feedback": "A lame-duck president has already lost attention to the future; this tactic tries to prevent that shift."
+        },
+        {
+          "label": "C",
+          "answer": "A caretaker government",
+          "feedback": "A caretaker government accepts temporary limits; it does not hide succession to preserve personal authority."
+        },
+        {
+          "label": "D",
+          "answer": "A regency",
+          "feedback": "A regency manages power for someone not ready to rule, rather than hiding the next ruler."
+        }
+      ],
+      "explanation": "The tactic protects present authority by keeping the successor out of view.",
+      "visibleCorrectExplanation": "Elizabeth I delaying an heir captures the pattern: naming the successor would pull attention toward the next reign.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A lame-duck president",
+          "explanation": "A lame-duck president has already lost attention to the future; this tactic tries to prevent that shift."
+        },
+        {
+          "label": "C",
+          "answer": "A caretaker government",
+          "explanation": "A caretaker government accepts temporary limits; it does not hide succession to preserve personal authority."
+        },
+        {
+          "label": "D",
+          "answer": "A regency",
+          "explanation": "A regency manages power for someone not ready to rule, rather than hiding the next ruler."
+        }
+      ],
+      "visibleConnection": "The tactic protects present authority by keeping the successor out of view.",
+      "visibleTakeaway": "Succession can weaken authority before any formal transfer happens.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 10,
+          "questionId": "question.the-end-is-nearish.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_083",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_084",
+      "stableId": "FV400_084",
+      "sourceQuestionId": "FV400_084",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "monkey-see",
+        "theres-a-draft-in-here",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The rehearsal gets applause, so everyone forgets there is still no working product. What trap has opened?",
+      "correctAnswer": "Fake demos and vaporware",
+      "wrongAnswers": [
+        "Rough demos",
+        "Prototype testing",
+        "Rehearsal psychology"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Rough demos",
+          "feedback": "Rough demos show process honestly; they usually reveal unfinishedness rather than hide it."
+        },
+        {
+          "label": "C",
+          "answer": "Prototype testing",
+          "feedback": "Prototype testing checks an early model; this situation mistakes performance for delivery."
+        },
+        {
+          "label": "D",
+          "answer": "Rehearsal psychology",
+          "feedback": "Rehearsal psychology is about practice preparing behavior, not selling an illusion of completion."
+        }
+      ],
+      "explanation": "A polished performance is being mistaken for actual readiness.",
+      "visibleCorrectExplanation": "Fake demos and vaporware fit because smooth presentation can make an unfinished product seem real.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Rough demos",
+          "explanation": "Rough demos show process honestly; they usually reveal unfinishedness rather than hide it."
+        },
+        {
+          "label": "C",
+          "answer": "Prototype testing",
+          "explanation": "Prototype testing checks an early model; this situation mistakes performance for delivery."
+        },
+        {
+          "label": "D",
+          "answer": "Rehearsal psychology",
+          "explanation": "Rehearsal psychology is about practice preparing behavior, not selling an illusion of completion."
+        }
+      ],
+      "visibleConnection": "A polished performance is being mistaken for actual readiness.",
+      "visibleTakeaway": "Polish can create a false sense that something is ready.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "Monkey See, Monkey Prototype",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.011",
+        "question.monkey-see-monkey-prototype.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 24,
+          "levelQuestionIndex": 10,
+          "questionId": "question.theres-a-draft-in-here.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_084",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 10,
+          "questionId": "question.monkey-see-monkey-prototype.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_084",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_085",
+      "stableId": "FV400_085",
+      "sourceQuestionId": "FV400_085",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A child walks across a stage, receives a certificate, and everyone treats them as changed. What kind of arrival is this?",
+      "correctAnswer": "A rite of passage",
+      "wrongAnswers": [
+        "A Grand Tour",
+        "A homecoming",
+        "A pilgrimage"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A Grand Tour",
+          "feedback": "A Grand Tour is travel for education and status; it is not a single ceremony marking transition."
+        },
+        {
+          "label": "C",
+          "answer": "A homecoming",
+          "feedback": "A homecoming returns someone to a place; the stage scene changes how others classify them."
+        },
+        {
+          "label": "D",
+          "answer": "A pilgrimage",
+          "feedback": "A pilgrimage gives sacred meaning to travel; the certificate marks a social threshold."
+        }
+      ],
+      "explanation": "The ceremony makes a social transition visible and official.",
+      "visibleCorrectExplanation": "A rite of passage explains the situation: the crossing changes social status, not just location.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A Grand Tour",
+          "explanation": "A Grand Tour is travel for education and status; it is not a single ceremony marking transition."
+        },
+        {
+          "label": "C",
+          "answer": "A homecoming",
+          "explanation": "A homecoming returns someone to a place; the stage scene changes how others classify them."
+        },
+        {
+          "label": "D",
+          "answer": "A pilgrimage",
+          "explanation": "A pilgrimage gives sacred meaning to travel; the certificate marks a social threshold."
+        }
+      ],
+      "visibleConnection": "The ceremony makes a social transition visible and official.",
+      "visibleTakeaway": "Some arrivals matter because a community agrees the person has changed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "The Lovely and the Liminal",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.013",
+        "question.the-lovely-and-the-liminal.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 12,
+          "questionId": "question.introductory-questions.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_085",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 3,
+          "questionId": "question.the-lovely-and-the-liminal.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_085",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_086",
+      "stableId": "FV400_086",
+      "sourceQuestionId": "FV400_086",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A mural of ruins makes people argue about their own century more than about the last day of the world. What is the image doing?",
+      "correctAnswer": "Apocalyptic aesthetics",
+      "wrongAnswers": [
+        "Doomsday prediction",
+        "Climate tipping point",
+        "Doomsday Clock"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Doomsday prediction",
+          "feedback": "A doomsday prediction gives a date or claim about the end; the mural works through mood and imagery."
+        },
+        {
+          "label": "C",
+          "answer": "Climate tipping point",
+          "feedback": "A climate tipping point is a scientific threshold; the mural is an artistic rehearsal of collapse."
+        },
+        {
+          "label": "D",
+          "answer": "Doomsday Clock",
+          "feedback": "The Doomsday Clock visualizes risk numerically; the mural makes fear into a scene."
+        }
+      ],
+      "explanation": "The image uses imagined ending to make present fears visible.",
+      "visibleCorrectExplanation": "Apocalyptic aesthetics fit because ruins and destruction become a way to rehearse cultural anxiety.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Doomsday prediction",
+          "explanation": "A doomsday prediction gives a date or claim about the end; the mural works through mood and imagery."
+        },
+        {
+          "label": "C",
+          "answer": "Climate tipping point",
+          "explanation": "A climate tipping point is a scientific threshold; the mural is an artistic rehearsal of collapse."
+        },
+        {
+          "label": "D",
+          "answer": "Doomsday Clock",
+          "explanation": "The Doomsday Clock visualizes risk numerically; the mural makes fear into a scene."
+        }
+      ],
+      "visibleConnection": "The image uses imagined ending to make present fears visible.",
+      "visibleTakeaway": "Images of endings often reveal what the present is afraid of.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 11,
+          "questionId": "question.the-end-is-nearish.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_086",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_087",
+      "stableId": "FV400_087",
+      "sourceQuestionId": "FV400_087",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A country ranking looks neutral until people notice it quietly decides what counts as a good life. What is at work?",
+      "correctAnswer": "Progress as a measurement problem",
+      "wrongAnswers": [
+        "Moral and social progress",
+        "Personal progress is non-linear",
+        "Entropy and maintenance"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Moral and social progress",
+          "feedback": "Moral and social progress concerns rights, backlash, and uneven benefit, not the value choices inside a ranking."
+        },
+        {
+          "label": "C",
+          "answer": "Personal progress is non-linear",
+          "feedback": "Personal progress is non-linear deals with plateaus and setbacks in growth, not national measurement."
+        },
+        {
+          "label": "D",
+          "answer": "Entropy and maintenance",
+          "feedback": "Entropy and maintenance warn that systems decay without upkeep, not that numbers define values."
+        }
+      ],
+      "explanation": "The ranking does not only measure value; it chooses which values count.",
+      "visibleCorrectExplanation": "Progress as a measurement problem carries the same logic: metrics define the goal while pretending only to report it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Moral and social progress",
+          "explanation": "Moral and social progress concerns rights, backlash, and uneven benefit, not the value choices inside a ranking."
+        },
+        {
+          "label": "C",
+          "answer": "Personal progress is non-linear",
+          "explanation": "Personal progress is non-linear deals with plateaus and setbacks in growth, not national measurement."
+        },
+        {
+          "label": "D",
+          "answer": "Entropy and maintenance",
+          "explanation": "Entropy and maintenance warn that systems decay without upkeep, not that numbers define values."
+        }
+      ],
+      "visibleConnection": "The ranking does not only measure value; it chooses which values count.",
+      "visibleTakeaway": "A number can look neutral while carrying a theory of what matters.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.018"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 17,
+          "questionId": "question.progress-not-regress.400.018",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_087",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_088",
+      "stableId": "FV400_088",
+      "sourceQuestionId": "FV400_088",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Only the ground already crossed becomes visible; every step turns the future into a partial map. What structure does this resemble?",
+      "correctAnswer": "A fog-of-war map",
+      "wrongAnswers": [
+        "A Route 66 diner map",
+        "A Grand Tour itinerary",
+        "An airport shopping map"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A Route 66 diner map",
+          "feedback": "A Route 66 diner map remembers a road already made meaningful, not a future gradually becoming visible."
+        },
+        {
+          "label": "C",
+          "answer": "A Grand Tour itinerary",
+          "feedback": "A Grand Tour itinerary plans the route in advance; it does not hide the route until movement occurs."
+        },
+        {
+          "label": "D",
+          "answer": "An airport shopping map",
+          "feedback": "An airport shopping map directs customers through known space rather than revealing uncertainty step by step."
+        }
+      ],
+      "explanation": "The map makes knowledge arrive gradually through movement.",
+      "visibleCorrectExplanation": "This points toward A fog-of-war map: space is revealed only as the traveler explores it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A Route 66 diner map",
+          "explanation": "A Route 66 diner map remembers a road already made meaningful, not a future gradually becoming visible."
+        },
+        {
+          "label": "C",
+          "answer": "A Grand Tour itinerary",
+          "explanation": "A Grand Tour itinerary plans the route in advance; it does not hide the route until movement occurs."
+        },
+        {
+          "label": "D",
+          "answer": "An airport shopping map",
+          "explanation": "An airport shopping map directs customers through known space rather than revealing uncertainty step by step."
+        }
+      ],
+      "visibleConnection": "The map makes knowledge arrive gradually through movement.",
+      "visibleTakeaway": "Some maps do not just show movement; they decide when the world becomes knowable.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 7,
+          "questionId": "question.home-and-wandering.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_088",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_089",
+      "stableId": "FV400_089",
+      "sourceQuestionId": "FV400_089",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The traveler has arrived somewhere, but the lobby makes life feel paused rather than settled. What space is this?",
+      "correctAnswer": "A liminal space",
+      "wrongAnswers": [
+        "A homecoming",
+        "A sidewalk café",
+        "A Grand Tour stop"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A homecoming",
+          "feedback": "A homecoming restores connection to a place; the lobby keeps the traveler suspended."
+        },
+        {
+          "label": "C",
+          "answer": "A sidewalk café",
+          "feedback": "A sidewalk café creates public social life; the lobby creates temporary in-betweenness."
+        },
+        {
+          "label": "D",
+          "answer": "A Grand Tour stop",
+          "feedback": "A Grand Tour stop is part of educational travel, not mainly a pause between identities."
+        }
+      ],
+      "explanation": "The place works as a threshold, not a destination with full belonging.",
+      "visibleCorrectExplanation": "A liminal space is the cleanest answer: the traveler is between states: no longer outside, not yet settled.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A homecoming",
+          "explanation": "A homecoming restores connection to a place; the lobby keeps the traveler suspended."
+        },
+        {
+          "label": "C",
+          "answer": "A sidewalk café",
+          "explanation": "A sidewalk café creates public social life; the lobby creates temporary in-betweenness."
+        },
+        {
+          "label": "D",
+          "answer": "A Grand Tour stop",
+          "explanation": "A Grand Tour stop is part of educational travel, not mainly a pause between identities."
+        }
+      ],
+      "visibleConnection": "The place works as a threshold, not a destination with full belonging.",
+      "visibleTakeaway": "Some places are defined by being between one state and another.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 4,
+          "questionId": "question.the-lovely-and-the-liminal.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_089",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_090",
+      "stableId": "FV400_090",
+      "sourceQuestionId": "FV400_090",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Ten extreme activities are posted online less for joy than to prove the life was properly lived. What has the list become?",
+      "correctAnswer": "A bucket list as performance",
+      "wrongAnswers": [
+        "A done list",
+        "A practical to-do list",
+        "A poetic list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done list",
+          "feedback": "A done list records completed work, usually to preserve effort rather than display identity."
+        },
+        {
+          "label": "C",
+          "answer": "A practical to-do list",
+          "feedback": "A practical to-do list organizes duties; the extreme activities are about aspiration and self-image."
+        },
+        {
+          "label": "D",
+          "answer": "A poetic list",
+          "feedback": "A poetic list expands imagination; this situation is about performing completion for others."
+        }
+      ],
+      "explanation": "The list turns desire into identity proof for an audience.",
+      "visibleCorrectExplanation": "The clue points to A bucket list as performance: the experiences become public evidence of a life well lived.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done list",
+          "explanation": "A done list records completed work, usually to preserve effort rather than display identity."
+        },
+        {
+          "label": "C",
+          "answer": "A practical to-do list",
+          "explanation": "A practical to-do list organizes duties; the extreme activities are about aspiration and self-image."
+        },
+        {
+          "label": "D",
+          "answer": "A poetic list",
+          "explanation": "A poetic list expands imagination; this situation is about performing completion for others."
+        }
+      ],
+      "visibleConnection": "The list turns desire into identity proof for an audience.",
+      "visibleTakeaway": "A list can become a performance of who someone wants to be.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 12,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_090",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_091",
+      "stableId": "FV400_091",
+      "sourceQuestionId": "FV400_091",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The official path is paved, but the grass shows where people actually want to go. What is the grass path saying?",
+      "correctAnswer": "Desire path",
+      "wrongAnswers": [
+        "Wayfinding sign",
+        "Sidewalk café",
+        "Snout house"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Wayfinding sign",
+          "feedback": "A wayfinding sign tells people where to go; the grass path shows what they do without being told."
+        },
+        {
+          "label": "C",
+          "answer": "Sidewalk café",
+          "feedback": "A sidewalk café invites lingering in public space; the grass path reveals preferred movement."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "feedback": "A snout house prioritizes the garage face; it is about car-centered home design, not informal routing."
+        }
+      ],
+      "explanation": "The worn route reveals behavior that the planned route failed to anticipate.",
+      "visibleCorrectExplanation": "A desire path captures the pattern: repeated footsteps expose the route people actually choose.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Wayfinding sign",
+          "explanation": "A wayfinding sign tells people where to go; the grass path shows what they do without being told."
+        },
+        {
+          "label": "C",
+          "answer": "Sidewalk café",
+          "explanation": "A sidewalk café invites lingering in public space; the grass path reveals preferred movement."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "explanation": "A snout house prioritizes the garage face; it is about car-centered home design, not informal routing."
+        }
+      ],
+      "visibleConnection": "The worn route reveals behavior that the planned route failed to anticipate.",
+      "visibleTakeaway": "Real movement often audits official design better than a plan does.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 9,
+          "questionId": "question.where-the-sidewalk-starts.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_091",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_092",
+      "stableId": "FV400_092",
+      "sourceQuestionId": "FV400_092",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "One more revision makes the work smoother, but the original energy starts disappearing. What tension is showing?",
+      "correctAnswer": "Draft versus final version",
+      "wrongAnswers": [
+        "Fake demo",
+        "Unfinished masterpiece",
+        "Rehearsal"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Fake demo",
+          "feedback": "A fake demo hides unreadiness; this situation is about real revision changing the work’s feel."
+        },
+        {
+          "label": "C",
+          "answer": "Unfinished masterpiece",
+          "feedback": "An unfinished masterpiece gains meaning from incompletion, but the stem focuses on revision toward polish."
+        },
+        {
+          "label": "D",
+          "answer": "Rehearsal",
+          "feedback": "Rehearsal prepares performance; it does not describe the tradeoff between draft energy and final smoothness."
+        }
+      ],
+      "explanation": "The situation weighs polish against the revealing force of the unfinished version.",
+      "visibleCorrectExplanation": "Choose Draft versus final version here; revision can improve clarity while changing what the work originally carried.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Fake demo",
+          "explanation": "A fake demo hides unreadiness; this situation is about real revision changing the work’s feel."
+        },
+        {
+          "label": "C",
+          "answer": "Unfinished masterpiece",
+          "explanation": "An unfinished masterpiece gains meaning from incompletion, but the stem focuses on revision toward polish."
+        },
+        {
+          "label": "D",
+          "answer": "Rehearsal",
+          "explanation": "Rehearsal prepares performance; it does not describe the tradeoff between draft energy and final smoothness."
+        }
+      ],
+      "visibleConnection": "The situation weighs polish against the revealing force of the unfinished version.",
+      "visibleTakeaway": "A final version can gain polish while losing something visible in the draft.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 25,
+          "levelQuestionIndex": 11,
+          "questionId": "question.theres-a-draft-in-here.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_092",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_093",
+      "stableId": "FV400_093",
+      "sourceQuestionId": "FV400_093",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The voyage is over, but the passengers are not allowed into the promised harbor. What kind of arrival failed?",
+      "correctAnswer": "The Saint Louis passengers",
+      "wrongAnswers": [
+        "The Grand Tour",
+        "The London-Calcutta bus",
+        "A pilgrimage"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Grand Tour",
+          "feedback": "The Grand Tour is educational elite travel, not a journey blocked at the point of refuge."
+        },
+        {
+          "label": "C",
+          "answer": "The London-Calcutta bus",
+          "feedback": "The London-Calcutta bus emphasizes long-distance passage, not denial after reaching the desired endpoint."
+        },
+        {
+          "label": "D",
+          "answer": "A pilgrimage",
+          "feedback": "A pilgrimage gives sacred meaning to arrival; it does not center on political refusal of admission."
+        }
+      ],
+      "explanation": "The failure is not movement; it is admission at the destination.",
+      "visibleCorrectExplanation": "The Saint Louis passengers fit because physical travel did not become safe arrival or accepted admission.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Grand Tour",
+          "explanation": "The Grand Tour is educational elite travel, not a journey blocked at the point of refuge."
+        },
+        {
+          "label": "C",
+          "answer": "The London-Calcutta bus",
+          "explanation": "The London-Calcutta bus emphasizes long-distance passage, not denial after reaching the desired endpoint."
+        },
+        {
+          "label": "D",
+          "answer": "A pilgrimage",
+          "explanation": "A pilgrimage gives sacred meaning to arrival; it does not center on political refusal of admission."
+        }
+      ],
+      "visibleConnection": "The failure is not movement; it is admission at the destination.",
+      "visibleTakeaway": "Arrival can fail even after the route has been completed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 9,
+          "questionId": "question.call-of-duty-free.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_093",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_094",
+      "stableId": "FV400_094",
+      "sourceQuestionId": "FV400_094",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The sci-fi city promised flying freedom, but the future still needs lanes, chargers, repairs, and rules. What did the fantasy forget?",
+      "correctAnswer": "Roads as hidden foundation",
+      "wrongAnswers": [
+        "Smart roads",
+        "Charging roads",
+        "Flying-car posters"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Smart roads",
+          "feedback": "Smart roads add technology to infrastructure, but the stem asks what the fantasy forgot underneath everything."
+        },
+        {
+          "label": "C",
+          "answer": "Charging roads",
+          "feedback": "Charging roads imagine powering vehicles while they move; they are one upgrade, not the basic forgotten condition."
+        },
+        {
+          "label": "D",
+          "answer": "Flying-car posters",
+          "feedback": "Flying-car posters sell the dream; they do not explain the infrastructure that still has to support it."
+        }
+      ],
+      "explanation": "The fantasy ignored the ordinary systems that make movement possible.",
+      "visibleCorrectExplanation": "Roads as hidden foundation fit because even futuristic travel depends on maintained infrastructure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Smart roads",
+          "explanation": "Smart roads add technology to infrastructure, but the stem asks what the fantasy forgot underneath everything."
+        },
+        {
+          "label": "C",
+          "answer": "Charging roads",
+          "explanation": "Charging roads imagine powering vehicles while they move; they are one upgrade, not the basic forgotten condition."
+        },
+        {
+          "label": "D",
+          "answer": "Flying-car posters",
+          "explanation": "Flying-car posters sell the dream; they do not explain the infrastructure that still has to support it."
+        }
+      ],
+      "visibleConnection": "The fantasy ignored the ordinary systems that make movement possible.",
+      "visibleTakeaway": "A future of movement still needs boring systems beneath the dream.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 4,
+          "questionId": "question.where-were-going-well-still-need-them.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_094",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_095",
+      "stableId": "FV400_095",
+      "sourceQuestionId": "FV400_095",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The souvenir makes the road feel more legendary than the trip itself. What has taken over?",
+      "correctAnswer": "Route 66 nostalgia",
+      "wrongAnswers": [
+        "Grand Tour education",
+        "Pilgrimage ritual",
+        "Dark tourism"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Grand Tour education",
+          "feedback": "Grand Tour education used travel to build elite cultural status, not roadside memory branding."
+        },
+        {
+          "label": "C",
+          "answer": "Pilgrimage ritual",
+          "feedback": "Pilgrimage ritual makes travel sacred; the souvenir road is more about nostalgia and identity."
+        },
+        {
+          "label": "D",
+          "answer": "Dark tourism",
+          "feedback": "Dark tourism focuses on tragedy and difficult history, not a romanticized road myth."
+        }
+      ],
+      "explanation": "Memory and branding have become more important than the route as transportation.",
+      "visibleCorrectExplanation": "Route 66 nostalgia carries the same logic: the road survives as a cultural symbol and souvenir of travel freedom.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Grand Tour education",
+          "explanation": "Grand Tour education used travel to build elite cultural status, not roadside memory branding."
+        },
+        {
+          "label": "C",
+          "answer": "Pilgrimage ritual",
+          "explanation": "Pilgrimage ritual makes travel sacred; the souvenir road is more about nostalgia and identity."
+        },
+        {
+          "label": "D",
+          "answer": "Dark tourism",
+          "explanation": "Dark tourism focuses on tragedy and difficult history, not a romanticized road myth."
+        }
+      ],
+      "visibleConnection": "Memory and branding have become more important than the route as transportation.",
+      "visibleTakeaway": "A route can become more powerful as memory than as infrastructure.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 5,
+          "questionId": "question.where-were-going-well-still-need-them.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_095",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_096",
+      "stableId": "FV400_096",
+      "sourceQuestionId": "FV400_096",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The paperwork says the conflict is over, but people still act as if the ending never reached them. What kind of ending is that?",
+      "correctAnswer": "An administrative ending",
+      "wrongAnswers": [
+        "A point of no return",
+        "A last-chance deadline",
+        "A caretaker transition"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A point of no return",
+          "feedback": "A point of no return marks lost reversibility; the issue here is official closure without emotional closure."
+        },
+        {
+          "label": "C",
+          "answer": "A last-chance deadline",
+          "feedback": "A last-chance deadline creates urgency before time runs out, not disagreement after closure is declared."
+        },
+        {
+          "label": "D",
+          "answer": "A caretaker transition",
+          "feedback": "A caretaker transition keeps authority moving temporarily, but the stem concerns whether an ending has really been felt."
+        }
+      ],
+      "explanation": "The formal finish and the human finish do not arrive at the same time.",
+      "visibleCorrectExplanation": "This points toward An administrative ending: a system can declare closure before people experience it as finished.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A point of no return",
+          "explanation": "A point of no return marks lost reversibility; the issue here is official closure without emotional closure."
+        },
+        {
+          "label": "C",
+          "answer": "A last-chance deadline",
+          "explanation": "A last-chance deadline creates urgency before time runs out, not disagreement after closure is declared."
+        },
+        {
+          "label": "D",
+          "answer": "A caretaker transition",
+          "explanation": "A caretaker transition keeps authority moving temporarily, but the stem concerns whether an ending has really been felt."
+        }
+      ],
+      "visibleConnection": "The formal finish and the human finish do not arrive at the same time.",
+      "visibleTakeaway": "A declared ending is not always the same as a lived ending.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 13,
+          "questionId": "question.introductory-questions.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_096",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_097",
+      "stableId": "FV400_097",
+      "sourceQuestionId": "FV400_097",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The restaurant gives diners a little game while food is delayed; the kitchen is not faster, but the wait feels filled. What is this most like?",
+      "correctAnswer": "Auxiliary loading games",
+      "wrongAnswers": [
+        "A progress bar",
+        "A placebo button",
+        "A done list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A progress bar",
+          "feedback": "A progress bar makes movement toward completion visible; the game distracts from the wait rather than measuring it."
+        },
+        {
+          "label": "C",
+          "answer": "A placebo button",
+          "feedback": "A placebo button gives fake control; the diner is being entertained, not invited to control the kitchen."
+        },
+        {
+          "label": "D",
+          "answer": "A done list",
+          "feedback": "A done list preserves completed labor; it does not manage the feeling of waiting."
+        }
+      ],
+      "explanation": "The wait is not shortened; attention is redirected into a small side activity.",
+      "visibleCorrectExplanation": "Auxiliary loading games fit because they fill waiting time with play instead of speeding the process.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A progress bar",
+          "explanation": "A progress bar makes movement toward completion visible; the game distracts from the wait rather than measuring it."
+        },
+        {
+          "label": "C",
+          "answer": "A placebo button",
+          "explanation": "A placebo button gives fake control; the diner is being entertained, not invited to control the kitchen."
+        },
+        {
+          "label": "D",
+          "answer": "A done list",
+          "explanation": "A done list preserves completed labor; it does not manage the feeling of waiting."
+        }
+      ],
+      "visibleConnection": "The wait is not shortened; attention is redirected into a small side activity.",
+      "visibleTakeaway": "A process can feel shorter when attention has somewhere else to go.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.015"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 14,
+          "questionId": "question.introductory-questions.400.015",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_097",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_098",
+      "stableId": "FV400_098",
+      "sourceQuestionId": "FV400_098",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A passport score turns freedom of movement into a number on a leaderboard. What has been measured?",
+      "correctAnswer": "Passport Index",
+      "wrongAnswers": [
+        "Gini Coefficient",
+        "Human Development Index",
+        "Big Mac Index"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Gini Coefficient",
+          "feedback": "Gini Coefficient measures income inequality, not freedom to cross borders."
+        },
+        {
+          "label": "C",
+          "answer": "Human Development Index",
+          "feedback": "Human Development Index combines health, education, and income, not passport mobility."
+        },
+        {
+          "label": "D",
+          "answer": "Big Mac Index",
+          "feedback": "Big Mac Index compares purchasing power through burger prices, not travel access."
+        }
+      ],
+      "explanation": "The number ranks how much mobility a passport can unlock.",
+      "visibleCorrectExplanation": "The clue points to Passport Index: it measures travel access and visa-free mobility across borders.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Gini Coefficient",
+          "explanation": "Gini Coefficient measures income inequality, not freedom to cross borders."
+        },
+        {
+          "label": "C",
+          "answer": "Human Development Index",
+          "explanation": "Human Development Index combines health, education, and income, not passport mobility."
+        },
+        {
+          "label": "D",
+          "answer": "Big Mac Index",
+          "explanation": "Big Mac Index compares purchasing power through burger prices, not travel access."
+        }
+      ],
+      "visibleConnection": "The number ranks how much mobility a passport can unlock.",
+      "visibleTakeaway": "Numbers can turn freedom into a ranked comparison.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 10,
+          "questionId": "question.call-of-duty-free.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_098",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_099",
+      "stableId": "FV400_099",
+      "sourceQuestionId": "FV400_099",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The old bedroom is still there, but returning feels like visiting a museum of someone else. What changed?",
+      "correctAnswer": "Homecoming",
+      "wrongAnswers": [
+        "Homesickness",
+        "The Grand Tour",
+        "Duty-free shopping"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness is longing from far away; the stem describes the discomfort of actually returning."
+        },
+        {
+          "label": "C",
+          "answer": "The Grand Tour",
+          "feedback": "The Grand Tour is educational travel, not the altered feeling of coming back."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free shopping",
+          "feedback": "Duty-free shopping happens in transit commerce, not in the emotional return to a former home."
+        }
+      ],
+      "explanation": "The return exposes that the traveler and the home have both changed.",
+      "visibleCorrectExplanation": "Homecoming captures the pattern: arrival back home can feel unfamiliar after time, growth, or distance.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness is longing from far away; the stem describes the discomfort of actually returning."
+        },
+        {
+          "label": "C",
+          "answer": "The Grand Tour",
+          "explanation": "The Grand Tour is educational travel, not the altered feeling of coming back."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free shopping",
+          "explanation": "Duty-free shopping happens in transit commerce, not in the emotional return to a former home."
+        }
+      ],
+      "visibleConnection": "The return exposes that the traveler and the home have both changed.",
+      "visibleTakeaway": "Coming back is not always the same as recovering the old home.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 8,
+          "questionId": "question.home-and-wandering.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_099",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_100",
+      "stableId": "FV400_100",
+      "sourceQuestionId": "FV400_100",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A memorial tour sells postcards before visitors have processed the tragedy. What danger appears?",
+      "correctAnswer": "Dark tourism commercialization",
+      "wrongAnswers": [
+        "Authentic tourism",
+        "Grand Tour education",
+        "Route 66 nostalgia"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Authentic tourism",
+          "feedback": "Authentic tourism seeks contact with local life; the danger here is selling tragedy as a product."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour education",
+          "feedback": "Grand Tour education used travel for cultural formation, not visiting sites of disaster or grief."
+        },
+        {
+          "label": "D",
+          "answer": "Route 66 nostalgia",
+          "feedback": "Route 66 nostalgia romanticizes a road myth, not the consumption of painful history."
+        }
+      ],
+      "explanation": "The tragedy risks becoming an experience to consume before it is understood.",
+      "visibleCorrectExplanation": "Choose Dark tourism commercialization here; sites of suffering can be packaged for visitors.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Authentic tourism",
+          "explanation": "Authentic tourism seeks contact with local life; the danger here is selling tragedy as a product."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour education",
+          "explanation": "Grand Tour education used travel for cultural formation, not visiting sites of disaster or grief."
+        },
+        {
+          "label": "D",
+          "answer": "Route 66 nostalgia",
+          "explanation": "Route 66 nostalgia romanticizes a road myth, not the consumption of painful history."
+        }
+      ],
+      "visibleConnection": "The tragedy risks becoming an experience to consume before it is understood.",
+      "visibleTakeaway": "Travel can turn memory into merchandise if it is not handled carefully.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 11,
+          "questionId": "question.call-of-duty-free.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_100",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_101",
+      "stableId": "FV400_101",
+      "sourceQuestionId": "FV400_101",
+      "questionScope": "Full Voyage",
+      "sectionId": "were-all-in-this-to-get-there",
+      "sectionIds": [
+        "were-all-in-this",
+        "were-all-in-this-to-get-there"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Everyone works harder once the observers arrive, but the work culture has not really changed. What effect is at work?",
+      "correctAnswer": "The Hawthorne Effect",
+      "wrongAnswers": [
+        "The Zeigarnik Effect",
+        "The sunk cost fallacy",
+        "Hofstadter’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Zeigarnik Effect",
+          "feedback": "The Zeigarnik Effect concerns unfinished tasks staying active in memory, not behavior under observation."
+        },
+        {
+          "label": "C",
+          "answer": "The sunk cost fallacy",
+          "feedback": "The sunk cost fallacy keeps people committed because of past investment, not because observers arrived."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law explains delays lasting longer than expected, not improved effort under observation."
+        }
+      ],
+      "explanation": "The behavior changes because people know they are being watched.",
+      "visibleCorrectExplanation": "The Hawthorne Effect explains the situation: observation itself can alter performance.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Zeigarnik Effect",
+          "explanation": "The Zeigarnik Effect concerns unfinished tasks staying active in memory, not behavior under observation."
+        },
+        {
+          "label": "C",
+          "answer": "The sunk cost fallacy",
+          "explanation": "The sunk cost fallacy keeps people committed because of past investment, not because observers arrived."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law explains delays lasting longer than expected, not improved effort under observation."
+        }
+      ],
+      "visibleConnection": "The behavior changes because people know they are being watched.",
+      "visibleTakeaway": "Observation can change behavior without solving the underlying system.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "We’re All in This to Get There",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.were-all-in-this-to-get-there.400.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 4,
+          "questionId": "question.were-all-in-this-to-get-there.400.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_101",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_102",
+      "stableId": "FV400_102",
+      "sourceQuestionId": "FV400_102",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "home-and-wandering",
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A new road is added to reduce traffic, and everyone somehow gets home later. What lesson fits?",
+      "correctAnswer": "Braess’s Paradox",
+      "wrongAnswers": [
+        "Illich’s Law",
+        "Conway’s Law",
+        "Hofstadter’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Illich’s Law",
+          "feedback": "Illich’s Law warns that too much effort can reduce productivity, not that networks worsen after added capacity."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "feedback": "Conway’s Law links system design to organization structure, not traffic route choice."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Hofstadter’s Law explains schedule delays, not road networks becoming slower after expansion."
+        }
+      ],
+      "explanation": "The added route changes everyone’s choices and makes the whole network worse.",
+      "visibleCorrectExplanation": "The pattern belongs to Braess’s Paradox: adding a road can increase congestion in a network.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Illich’s Law",
+          "explanation": "Illich’s Law warns that too much effort can reduce productivity, not that networks worsen after added capacity."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "explanation": "Conway’s Law links system design to organization structure, not traffic route choice."
+        },
+        {
+          "label": "D",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Hofstadter’s Law explains schedule delays, not road networks becoming slower after expansion."
+        }
+      ],
+      "visibleConnection": "The added route changes everyone’s choices and makes the whole network worse.",
+      "visibleTakeaway": "More infrastructure is not always better if the network reacts badly.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "Where the Sidewalk Starts",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.011",
+        "question.home-and-wandering.400.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 10,
+          "questionId": "question.where-the-sidewalk-starts.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_102",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 9,
+          "questionId": "question.home-and-wandering.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_102",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_103",
+      "stableId": "FV400_103",
+      "sourceQuestionId": "FV400_103",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Someone buys the trip because it is supposed to make them cultured, not because the destination matters alone. What old pattern returned?",
+      "correctAnswer": "The Grand Tour",
+      "wrongAnswers": [
+        "A pilgrimage",
+        "A bucket list",
+        "A layover"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A pilgrimage",
+          "feedback": "A pilgrimage is shaped by sacred purpose; the stem emphasizes culture and social formation."
+        },
+        {
+          "label": "C",
+          "answer": "A bucket list",
+          "feedback": "A bucket list collects desired experiences; it does not necessarily carry the same educational status logic."
+        },
+        {
+          "label": "D",
+          "answer": "A layover",
+          "feedback": "A layover is a pause between flights, not a journey designed to transform status."
+        }
+      ],
+      "explanation": "The journey is treated as education and social formation.",
+      "visibleCorrectExplanation": "The Grand Tour carries the same logic: elite travel was meant to produce cultural polish and status.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A pilgrimage",
+          "explanation": "A pilgrimage is shaped by sacred purpose; the stem emphasizes culture and social formation."
+        },
+        {
+          "label": "C",
+          "answer": "A bucket list",
+          "explanation": "A bucket list collects desired experiences; it does not necessarily carry the same educational status logic."
+        },
+        {
+          "label": "D",
+          "answer": "A layover",
+          "explanation": "A layover is a pause between flights, not a journey designed to transform status."
+        }
+      ],
+      "visibleConnection": "The journey is treated as education and social formation.",
+      "visibleTakeaway": "Some journeys are meant to produce a kind of person, not just reach a place.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.016"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 15,
+          "questionId": "question.introductory-questions.400.016",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_103",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_104",
+      "stableId": "FV400_104",
+      "sourceQuestionId": "FV400_104",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Visitors love the half-finished building partly because completion would end the story they came to see. What kind of value is this?",
+      "correctAnswer": "Unfinished masterpiece",
+      "wrongAnswers": [
+        "Rough demo",
+        "Fake demo",
+        "Prototype"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Rough demo",
+          "feedback": "A rough demo is an early version on the way to something else; the building’s incompletion is being valued in itself."
+        },
+        {
+          "label": "C",
+          "answer": "Fake demo",
+          "feedback": "A fake demo pretends readiness; this building is openly unfinished."
+        },
+        {
+          "label": "D",
+          "answer": "Prototype",
+          "feedback": "A prototype tests a future design; the stem focuses on aesthetic and cultural value in incompletion."
+        }
+      ],
+      "explanation": "The work’s incompletion becomes part of its meaning and appeal.",
+      "visibleCorrectExplanation": "This points toward An unfinished masterpiece: not being complete can become central to the work’s power.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Rough demo",
+          "explanation": "A rough demo is an early version on the way to something else; the building’s incompletion is being valued in itself."
+        },
+        {
+          "label": "C",
+          "answer": "Fake demo",
+          "explanation": "A fake demo pretends readiness; this building is openly unfinished."
+        },
+        {
+          "label": "D",
+          "answer": "Prototype",
+          "explanation": "A prototype tests a future design; the stem focuses on aesthetic and cultural value in incompletion."
+        }
+      ],
+      "visibleConnection": "The work’s incompletion becomes part of its meaning and appeal.",
+      "visibleTakeaway": "Some unfinished things matter because they never fully close.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 12,
+          "questionId": "question.theres-a-draft-in-here.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_104",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_105",
+      "stableId": "FV400_105",
+      "sourceQuestionId": "FV400_105",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A community ceremony makes a slow change official: the child is no longer treated as a child. What has the ceremony done?",
+      "correctAnswer": "Marked a rite of passage",
+      "wrongAnswers": [
+        "Created homesickness",
+        "Started a Grand Tour",
+        "Opened a duty-free zone"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Created homesickness",
+          "feedback": "Homesickness is longing for home from elsewhere; the ceremony is about social transition."
+        },
+        {
+          "label": "C",
+          "answer": "Started a Grand Tour",
+          "feedback": "A Grand Tour is educational travel, not a local ritual declaring a new status."
+        },
+        {
+          "label": "D",
+          "answer": "Opened a duty-free zone",
+          "feedback": "A duty-free zone changes customs rules for goods, not social status for a person."
+        }
+      ],
+      "explanation": "The ceremony turns gradual growth into a recognized social crossing.",
+      "visibleCorrectExplanation": "Marking a rite of passage is the cleanest answer: the group publicly recognizes a change in status.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Created homesickness",
+          "explanation": "Homesickness is longing for home from elsewhere; the ceremony is about social transition."
+        },
+        {
+          "label": "C",
+          "answer": "Started a Grand Tour",
+          "explanation": "A Grand Tour is educational travel, not a local ritual declaring a new status."
+        },
+        {
+          "label": "D",
+          "answer": "Opened a duty-free zone",
+          "explanation": "A duty-free zone changes customs rules for goods, not social status for a person."
+        }
+      ],
+      "visibleConnection": "The ceremony turns gradual growth into a recognized social crossing.",
+      "visibleTakeaway": "A ritual can make a slow personal change visible to everyone.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 5,
+          "questionId": "question.the-lovely-and-the-liminal.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_105",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_106",
+      "stableId": "FV400_106",
+      "sourceQuestionId": "FV400_106",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A sitcom character walks into the kitchen, freezes, and asks why he came in. What just happened?",
+      "correctAnswer": "Doorway effect",
+      "wrongAnswers": [
+        "Zeigarnik effect",
+        "Hawthorne effect",
+        "Endowed progress effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Zeigarnik effect",
+          "feedback": "Unfinished tasks stay mentally active, but the scene is about forgetting an intention after changing rooms."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne effect",
+          "feedback": "Observation can change behavior, but nobody is acting differently because they are being watched here."
+        },
+        {
+          "label": "D",
+          "answer": "Endowed progress effect",
+          "feedback": "A head start can increase motivation, but no artificial progress has been given in this scene."
+        }
+      ],
+      "explanation": "A change of physical context can interrupt the mental thread that carried the original intention.",
+      "visibleCorrectExplanation": "Crossing into a new room can reset attention, making the original purpose suddenly harder to retrieve.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Zeigarnik effect",
+          "explanation": "Unfinished tasks stay mentally active, but the scene is about forgetting an intention after changing rooms."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne effect",
+          "explanation": "Observation can change behavior, but nobody is acting differently because they are being watched here."
+        },
+        {
+          "label": "D",
+          "answer": "Endowed progress effect",
+          "explanation": "A head start can increase motivation, but no artificial progress has been given in this scene."
+        }
+      ],
+      "visibleConnection": "A change of physical context can interrupt the mental thread that carried the original intention.",
+      "visibleTakeaway": "When a location change breaks a thought, think doorway effect.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 6,
+          "questionId": "question.the-lovely-and-the-liminal.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_106",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_107",
+      "stableId": "FV400_107",
+      "sourceQuestionId": "FV400_107",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A café song cuts off before the chorus, and the missing ending bothers you all afternoon. What explains the itch?",
+      "correctAnswer": "Zeigarnik effect",
+      "wrongAnswers": [
+        "Doorway effect",
+        "Hawthorne effect",
+        "Sunk cost fallacy"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Doorway effect",
+          "feedback": "A doorway can disrupt memory, but nothing here depends on entering a new space."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne effect",
+          "feedback": "Being observed can change behavior, but the problem here is an unfinished pattern."
+        },
+        {
+          "label": "D",
+          "answer": "Sunk cost fallacy",
+          "feedback": "Sunk cost keeps people attached to past investment, not to an interrupted ending."
+        }
+      ],
+      "explanation": "The mind gives extra attention to unfinished patterns and unresolved tasks.",
+      "visibleCorrectExplanation": "The unfinished song stays active because the mind keeps trying to complete what was interrupted.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Doorway effect",
+          "explanation": "A doorway can disrupt memory, but nothing here depends on entering a new space."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne effect",
+          "explanation": "Being observed can change behavior, but the problem here is an unfinished pattern."
+        },
+        {
+          "label": "D",
+          "answer": "Sunk cost fallacy",
+          "explanation": "Sunk cost keeps people attached to past investment, not to an interrupted ending."
+        }
+      ],
+      "visibleConnection": "The mind gives extra attention to unfinished patterns and unresolved tasks.",
+      "visibleTakeaway": "Unfinished things often become louder than finished ones.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 13,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_107",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_108",
+      "stableId": "FV400_108",
+      "sourceQuestionId": "FV400_108",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A stadium has promised to open next spring for six springs in a row. Which law is laughing?",
+      "correctAnswer": "Hofstadter’s Law",
+      "wrongAnswers": [
+        "Brooks’ Law",
+        "Conway’s Law",
+        "Putt’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Brooks’ Law",
+          "feedback": "Adding workers to a late project can make it later, but the stem focuses on repeated bad time estimates."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "feedback": "Organization shape can affect design, but the problem here is duration, not structure."
+        },
+        {
+          "label": "D",
+          "answer": "Putt’s Law",
+          "feedback": "Hierarchy can hide competence, but the joke is about schedules that keep slipping."
+        }
+      ],
+      "explanation": "Some projects keep taking longer than expected even after everyone starts expecting delay.",
+      "visibleCorrectExplanation": "The repeated promise of a near opening works the joke that work takes longer than expected, even when delay is already expected.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Brooks’ Law",
+          "explanation": "Adding workers to a late project can make it later, but the stem focuses on repeated bad time estimates."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "explanation": "Organization shape can affect design, but the problem here is duration, not structure."
+        },
+        {
+          "label": "D",
+          "answer": "Putt’s Law",
+          "explanation": "Hierarchy can hide competence, but the joke is about schedules that keep slipping."
+        }
+      ],
+      "visibleConnection": "Some projects keep taking longer than expected even after everyone starts expecting delay.",
+      "visibleTakeaway": "When the calendar keeps losing to reality, think Hofstadter.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 47,
+          "levelQuestionIndex": 12,
+          "questionId": "question.the-end-is-nearish.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_108",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_109",
+      "stableId": "FV400_109",
+      "sourceQuestionId": "FV400_109",
+      "questionScope": "Full Voyage",
+      "sectionId": "were-all-in-this-to-get-there",
+      "sectionIds": [
+        "were-all-in-this",
+        "were-all-in-this-to-get-there"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A late software team doubles its staff, then spends the week coordinating meetings instead of shipping. Which law did they forget?",
+      "correctAnswer": "Brooks’ Law",
+      "wrongAnswers": [
+        "Hofstadter’s Law",
+        "Conway’s Law",
+        "Laborit’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hofstadter’s Law",
+          "feedback": "Bad time estimates matter here, but the key mistake is adding people to solve lateness."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "feedback": "Team structure can shape the product, but the stem focuses on staffing and coordination drag."
+        },
+        {
+          "label": "D",
+          "answer": "Laborit’s Law",
+          "feedback": "Avoiding unpleasant tasks can delay work, but the added meetings come from extra coordination."
+        }
+      ],
+      "explanation": "More people can create more coordination work instead of faster completion.",
+      "visibleCorrectExplanation": "Adding people to a late software project can make the project slower because communication costs grow.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hofstadter’s Law",
+          "explanation": "Bad time estimates matter here, but the key mistake is adding people to solve lateness."
+        },
+        {
+          "label": "C",
+          "answer": "Conway’s Law",
+          "explanation": "Team structure can shape the product, but the stem focuses on staffing and coordination drag."
+        },
+        {
+          "label": "D",
+          "answer": "Laborit’s Law",
+          "explanation": "Avoiding unpleasant tasks can delay work, but the added meetings come from extra coordination."
+        }
+      ],
+      "visibleConnection": "More people can create more coordination work instead of faster completion.",
+      "visibleTakeaway": "More help is not always less delay.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "We’re All in This to Get There",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.were-all-in-this-to-get-there.400.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 5,
+          "questionId": "question.were-all-in-this-to-get-there.400.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_109",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_110",
+      "stableId": "FV400_110",
+      "sourceQuestionId": "FV400_110",
+      "questionScope": "Full Voyage",
+      "sectionId": "were-all-in-this-to-get-there",
+      "sectionIds": [
+        "were-all-in-this",
+        "were-all-in-this-to-get-there"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A group has three committees, and its final slideshow looks like three separate projects glued together. Which law predicted it?",
+      "correctAnswer": "Conway’s Law",
+      "wrongAnswers": [
+        "Brooks’ Law",
+        "Putt’s Law",
+        "Illich’s Law"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Brooks’ Law",
+          "feedback": "Extra workers can slow a project, but the clue is the product copying the organization."
+        },
+        {
+          "label": "C",
+          "answer": "Putt’s Law",
+          "feedback": "Hierarchy can distort competence, but the visible issue is structural mirroring."
+        },
+        {
+          "label": "D",
+          "answer": "Illich’s Law",
+          "feedback": "Over-effort can become harmful, but the problem here is the shape of the team becoming the shape of the product."
+        }
+      ],
+      "explanation": "The structure of the group can appear inside the structure of what it produces.",
+      "visibleCorrectExplanation": "The divided slideshow mirrors the divided team, which is exactly the kind of pattern Conway’s Law describes.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Brooks’ Law",
+          "explanation": "Extra workers can slow a project, but the clue is the product copying the organization."
+        },
+        {
+          "label": "C",
+          "answer": "Putt’s Law",
+          "explanation": "Hierarchy can distort competence, but the visible issue is structural mirroring."
+        },
+        {
+          "label": "D",
+          "answer": "Illich’s Law",
+          "explanation": "Over-effort can become harmful, but the problem here is the shape of the team becoming the shape of the product."
+        }
+      ],
+      "visibleConnection": "The structure of the group can appear inside the structure of what it produces.",
+      "visibleTakeaway": "When the output looks like the organization, think Conway.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "We’re All in This to Get There",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.were-all-in-this-to-get-there.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "were-all-in-this-to-get-there",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 6,
+          "questionId": "question.were-all-in-this-to-get-there.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_110",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_111",
+      "stableId": "FV400_111",
+      "sourceQuestionId": "FV400_111",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "going-pains",
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "After four hours of revision, every extra hour makes the essay worse. Which warning fits?",
+      "correctAnswer": "Illich’s Law",
+      "wrongAnswers": [
+        "Hawthorne effect",
+        "90-90 rule",
+        "Endowed progress effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hawthorne effect",
+          "feedback": "Observation changes behavior, but nobody is being watched into changing their work."
+        },
+        {
+          "label": "C",
+          "answer": "90-90 rule",
+          "feedback": "The 90-90 rule jokes about unfinished work expanding, not about overwork damaging quality."
+        },
+        {
+          "label": "D",
+          "answer": "Endowed progress effect",
+          "feedback": "Artificial head starts can motivate, but the scene is about effort becoming counterproductive."
+        }
+      ],
+      "explanation": "Past a certain point, more effort can create less useful output.",
+      "visibleCorrectExplanation": "The essay gets worse because extra work has passed the point where effort still helps.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hawthorne effect",
+          "explanation": "Observation changes behavior, but nobody is being watched into changing their work."
+        },
+        {
+          "label": "C",
+          "answer": "90-90 rule",
+          "explanation": "The 90-90 rule jokes about unfinished work expanding, not about overwork damaging quality."
+        },
+        {
+          "label": "D",
+          "answer": "Endowed progress effect",
+          "explanation": "Artificial head starts can motivate, but the scene is about effort becoming counterproductive."
+        }
+      ],
+      "visibleConnection": "Past a certain point, more effort can create less useful output.",
+      "visibleTakeaway": "More work can become less progress when energy collapses.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Going Pains",
+      "guidingSectionSecondary": "The Lovely and the Liminal",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.008",
+        "question.going-pains.400.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 7,
+          "questionId": "question.the-lovely-and-the-liminal.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_111",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "going-pains",
+          "levelKey": "400",
+          "sectionQuestionIndex": 26,
+          "levelQuestionIndex": 3,
+          "questionId": "question.going-pains.400.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_111",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_112",
+      "stableId": "FV400_112",
+      "sourceQuestionId": "FV400_112",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A hotel elevator has a close-door button that makes guests feel calmer, but it is not connected. What is it?",
+      "correctAnswer": "Placebo button",
+      "wrongAnswers": [
+        "Progress bar",
+        "Skeleton screen",
+        "Splash screen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Progress bar",
+          "feedback": "A bar makes progress visible, but the clue is a fake control."
+        },
+        {
+          "label": "C",
+          "answer": "Skeleton screen",
+          "feedback": "A skeleton layout previews missing content, but the scene is about pressing a useless control."
+        },
+        {
+          "label": "D",
+          "answer": "Splash screen",
+          "feedback": "A splash screen covers loading with branding, not with a fake button."
+        }
+      ],
+      "explanation": "A control can reduce frustration even when it does not change the system.",
+      "visibleCorrectExplanation": "The button gives a feeling of control without actually controlling the door.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Progress bar",
+          "explanation": "A bar makes progress visible, but the clue is a fake control."
+        },
+        {
+          "label": "C",
+          "answer": "Skeleton screen",
+          "explanation": "A skeleton layout previews missing content, but the scene is about pressing a useless control."
+        },
+        {
+          "label": "D",
+          "answer": "Splash screen",
+          "explanation": "A splash screen covers loading with branding, not with a fake button."
+        }
+      ],
+      "visibleConnection": "A control can reduce frustration even when it does not change the system.",
+      "visibleTakeaway": "A fake control can still change how waiting feels.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.017",
+        "question.progress-not-regress.400.019"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 16,
+          "questionId": "question.introductory-questions.400.017",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_112",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 47,
+          "levelQuestionIndex": 18,
+          "questionId": "question.progress-not-regress.400.019",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_112",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_113",
+      "stableId": "FV400_113",
+      "sourceQuestionId": "FV400_113",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A news page loads grey boxes where headlines and images will soon appear. What is the page using?",
+      "correctAnswer": "Skeleton screen",
+      "wrongAnswers": [
+        "Throbber",
+        "Console output",
+        "Splash screen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Throbber",
+          "feedback": "A throbber only signals activity; it does not preview the page layout."
+        },
+        {
+          "label": "C",
+          "answer": "Console output",
+          "feedback": "Console output shows lines of process text, not placeholder blocks for content."
+        },
+        {
+          "label": "D",
+          "answer": "Splash screen",
+          "feedback": "A splash screen hides the interface at launch rather than sketching the missing content."
+        }
+      ],
+      "explanation": "A page can reduce waiting stress by showing the shape of missing content before the content arrives.",
+      "visibleCorrectExplanation": "The grey placeholders preview the layout, making the page feel partly present before it is fully loaded.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Throbber",
+          "explanation": "A throbber only signals activity; it does not preview the page layout."
+        },
+        {
+          "label": "C",
+          "answer": "Console output",
+          "explanation": "Console output shows lines of process text, not placeholder blocks for content."
+        },
+        {
+          "label": "D",
+          "answer": "Splash screen",
+          "explanation": "A splash screen hides the interface at launch rather than sketching the missing content."
+        }
+      ],
+      "visibleConnection": "A page can reduce waiting stress by showing the shape of missing content before the content arrives.",
+      "visibleTakeaway": "When the empty layout appears before the content, think skeleton screen.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Progress, Not Regress",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.018",
+        "question.progress-not-regress.400.020"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 17,
+          "questionId": "question.introductory-questions.400.018",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_113",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 48,
+          "levelQuestionIndex": 19,
+          "questionId": "question.progress-not-regress.400.020",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_113",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_114",
+      "stableId": "FV400_114",
+      "sourceQuestionId": "FV400_114",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "If a bubble-tea index compared the same drink in cities around the world, what would it probably estimate?",
+      "correctAnswer": "Purchasing power parity",
+      "wrongAnswers": [
+        "Income inequality",
+        "Labor productivity",
+        "Balance of trade"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Income inequality",
+          "feedback": "Income inequality compares distribution within a society, not the price of one product across currencies."
+        },
+        {
+          "label": "C",
+          "answer": "Labor productivity",
+          "feedback": "Labor productivity measures output per worker or hour, not local buying power through a product price."
+        },
+        {
+          "label": "D",
+          "answer": "Balance of trade",
+          "feedback": "Balance of trade compares imports and exports, not what the same drink costs in different places."
+        }
+      ],
+      "explanation": "A familiar product can become a rough tool for comparing currency value across places.",
+      "visibleCorrectExplanation": "Comparing the same drink across cities would work like a playful price-based estimate of purchasing power.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Income inequality",
+          "explanation": "Income inequality compares distribution within a society, not the price of one product across currencies."
+        },
+        {
+          "label": "C",
+          "answer": "Labor productivity",
+          "explanation": "Labor productivity measures output per worker or hour, not local buying power through a product price."
+        },
+        {
+          "label": "D",
+          "answer": "Balance of trade",
+          "explanation": "Balance of trade compares imports and exports, not what the same drink costs in different places."
+        }
+      ],
+      "visibleConnection": "A familiar product can become a rough tool for comparing currency value across places.",
+      "visibleTakeaway": "A single-product index usually points toward purchasing power.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.400.021"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "400",
+          "sectionQuestionIndex": 49,
+          "levelQuestionIndex": 20,
+          "questionId": "question.progress-not-regress.400.021",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_114",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_115",
+      "stableId": "FV400_115",
+      "sourceQuestionId": "FV400_115",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A cartoon shows a vacation photo captioned, “This is not the trip.” Which artwork would understand the joke?",
+      "correctAnswer": "The Treachery of Images",
+      "wrongAnswers": [
+        "The Persistence of Memory",
+        "Rain, Steam and Speed",
+        "The Triumph of Death"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Persistence of Memory",
+          "feedback": "Melting clocks question time and memory, but the joke is about representation."
+        },
+        {
+          "label": "C",
+          "answer": "Rain, Steam and Speed",
+          "feedback": "Mist and motion create speed, but the cartoon is not about movement."
+        },
+        {
+          "label": "D",
+          "answer": "The Triumph of Death",
+          "feedback": "Death and collapse dominate that work, not the difference between object and image."
+        }
+      ],
+      "explanation": "A representation can point to something without being the thing itself.",
+      "visibleCorrectExplanation": "The joke depends on the gap between an image and the reality it represents.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Persistence of Memory",
+          "explanation": "Melting clocks question time and memory, but the joke is about representation."
+        },
+        {
+          "label": "C",
+          "answer": "Rain, Steam and Speed",
+          "explanation": "Mist and motion create speed, but the cartoon is not about movement."
+        },
+        {
+          "label": "D",
+          "answer": "The Triumph of Death",
+          "explanation": "Death and collapse dominate that work, not the difference between object and image."
+        }
+      ],
+      "visibleConnection": "A representation can point to something without being the thing itself.",
+      "visibleTakeaway": "When an image refuses to be the thing it shows, think Magritte.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.019"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 18,
+          "questionId": "question.introductory-questions.400.019",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_115",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_116",
+      "stableId": "FV400_116",
+      "sourceQuestionId": "FV400_116",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A rough painting already contains the panic that will later become a famous scream. Which work is it closest to?",
+      "correctAnswer": "Despair",
+      "wrongAnswers": [
+        "The Last Judgment",
+        "Migration",
+        "The Great Day of His Wrath"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Last Judgment",
+          "feedback": "The Last Judgment stages final judgment, not a personal emotional draft."
+        },
+        {
+          "label": "C",
+          "answer": "Migration",
+          "feedback": "Migration focuses on movement and displacement, not a draft evolving into panic."
+        },
+        {
+          "label": "D",
+          "answer": "The Great Day of His Wrath",
+          "feedback": "The Great Day of His Wrath imagines catastrophe on a grand scale, not a precursor to a scream."
+        }
+      ],
+      "explanation": "An earlier version can carry the emotional core of a later, more famous work.",
+      "visibleCorrectExplanation": "Despair works as a rough emotional predecessor to the later image of panic.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Last Judgment",
+          "explanation": "The Last Judgment stages final judgment, not a personal emotional draft."
+        },
+        {
+          "label": "C",
+          "answer": "Migration",
+          "explanation": "Migration focuses on movement and displacement, not a draft evolving into panic."
+        },
+        {
+          "label": "D",
+          "answer": "The Great Day of His Wrath",
+          "explanation": "The Great Day of His Wrath imagines catastrophe on a grand scale, not a precursor to a scream."
+        }
+      ],
+      "visibleConnection": "An earlier version can carry the emotional core of a later, more famous work.",
+      "visibleTakeaway": "A draft can already contain the feeling that the final work makes famous.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 13,
+          "questionId": "question.theres-a-draft-in-here.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_116",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_117",
+      "stableId": "FV400_117",
+      "sourceQuestionId": "FV400_117",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A painter wants smoke, mist, and blurred motion to make speed visible. Which work fits best?",
+      "correctAnswer": "Rain, Steam and Speed",
+      "wrongAnswers": [
+        "The Course of Empire: Destruction",
+        "The Persistence of Memory",
+        "The Mystical Nativity"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Course of Empire: Destruction",
+          "feedback": "Destruction shows collapse, not speed made visible through mist and steam."
+        },
+        {
+          "label": "C",
+          "answer": "The Persistence of Memory",
+          "feedback": "Melting clocks distort time, but the clue is physical speed and atmosphere."
+        },
+        {
+          "label": "D",
+          "answer": "The Mystical Nativity",
+          "feedback": "The Mystical Nativity is spiritual and symbolic, not a study of modern motion."
+        }
+      ],
+      "explanation": "Motion can be shown through atmosphere, blur, and machinery rather than through a diagram.",
+      "visibleCorrectExplanation": "Rain, Steam and Speed uses atmosphere and a train to make movement feel visible.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Course of Empire: Destruction",
+          "explanation": "Destruction shows collapse, not speed made visible through mist and steam."
+        },
+        {
+          "label": "C",
+          "answer": "The Persistence of Memory",
+          "explanation": "Melting clocks distort time, but the clue is physical speed and atmosphere."
+        },
+        {
+          "label": "D",
+          "answer": "The Mystical Nativity",
+          "explanation": "The Mystical Nativity is spiritual and symbolic, not a study of modern motion."
+        }
+      ],
+      "visibleConnection": "Motion can be shown through atmosphere, blur, and machinery rather than through a diagram.",
+      "visibleTakeaway": "Speed can be painted as weather, energy, and blur.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 6,
+          "questionId": "question.where-were-going-well-still-need-them.400.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_117",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_118",
+      "stableId": "FV400_118",
+      "sourceQuestionId": "FV400_118",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions",
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A composer writes music meant to calm strangers in a terminal without demanding their attention. What is it closest to?",
+      "correctAnswer": "Music for Airports",
+      "wrongAnswers": [
+        "Waiting for Godot",
+        "Sea Fever",
+        "The Road Not Taken"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Waiting for Godot",
+          "feedback": "Waiting for Godot centers on endless expectation, but it is not music designed for a public terminal."
+        },
+        {
+          "label": "C",
+          "answer": "Sea Fever",
+          "feedback": "Sea Fever expresses the pull of travel, not a calm soundscape for waiting."
+        },
+        {
+          "label": "D",
+          "answer": "The Road Not Taken",
+          "feedback": "The Road Not Taken is about choice and retrospective meaning, not ambient public sound."
+        }
+      ],
+      "explanation": "Sound can be designed as an atmosphere for waiting rather than as a performance to follow.",
+      "visibleCorrectExplanation": "Music for Airports is built around ambient calm in a space of waiting and transit.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Waiting for Godot",
+          "explanation": "Waiting for Godot centers on endless expectation, but it is not music designed for a public terminal."
+        },
+        {
+          "label": "C",
+          "answer": "Sea Fever",
+          "explanation": "Sea Fever expresses the pull of travel, not a calm soundscape for waiting."
+        },
+        {
+          "label": "D",
+          "answer": "The Road Not Taken",
+          "explanation": "The Road Not Taken is about choice and retrospective meaning, not ambient public sound."
+        }
+      ],
+      "visibleConnection": "Sound can be designed as an atmosphere for waiting rather than as a performance to follow.",
+      "visibleTakeaway": "Some music is designed to change the space around the listener.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "Monkey See, Monkey Prototype",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.020",
+        "question.monkey-see-monkey-prototype.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 19,
+          "questionId": "question.introductory-questions.400.020",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_118",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 11,
+          "questionId": "question.monkey-see-monkey-prototype.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_118",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_119",
+      "stableId": "FV400_119",
+      "sourceQuestionId": "FV400_119",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "Two figures keep saying they will leave, but they stay and wait for someone who never arrives. Which work is closest?",
+      "correctAnswer": "Waiting for Godot",
+      "wrongAnswers": [
+        "The Odyssey",
+        "Sea Fever",
+        "The Road Not Taken"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The Odyssey",
+          "feedback": "The Odyssey involves long travel and return, not a static wait for a missing arrival."
+        },
+        {
+          "label": "C",
+          "answer": "Sea Fever",
+          "feedback": "Sea Fever longs for departure, while the scene is trapped in waiting."
+        },
+        {
+          "label": "D",
+          "answer": "The Road Not Taken",
+          "feedback": "The Road Not Taken reflects on choice, not on waiting for a person who never arrives."
+        }
+      ],
+      "explanation": "The situation turns waiting itself into the main action.",
+      "visibleCorrectExplanation": "Waiting for Godot centers on characters whose lives are organized around someone who never comes.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The Odyssey",
+          "explanation": "The Odyssey involves long travel and return, not a static wait for a missing arrival."
+        },
+        {
+          "label": "C",
+          "answer": "Sea Fever",
+          "explanation": "Sea Fever longs for departure, while the scene is trapped in waiting."
+        },
+        {
+          "label": "D",
+          "answer": "The Road Not Taken",
+          "explanation": "The Road Not Taken reflects on choice, not on waiting for a person who never arrives."
+        }
+      ],
+      "visibleConnection": "The situation turns waiting itself into the main action.",
+      "visibleTakeaway": "When waiting becomes the whole plot, Godot is nearby.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.021"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 20,
+          "questionId": "question.introductory-questions.400.021",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_119",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_120",
+      "stableId": "FV400_120",
+      "sourceQuestionId": "FV400_120",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A traveler sleeps under fluorescent lights after landing, but the border still says he has not really arrived. What kind of space is this?",
+      "correctAnswer": "Liminal space",
+      "wrongAnswers": [
+        "Entrepôt",
+        "Stroad",
+        "Snout house"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Entrepôt",
+          "feedback": "An entrepôt stores and transfers goods, while the scene is about a person stuck between statuses."
+        },
+        {
+          "label": "C",
+          "answer": "Stroad",
+          "feedback": "A stroad mixes street and road functions, but this is not a car corridor problem."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "feedback": "A snout house centers a garage, not a human being suspended between arrival and admission."
+        }
+      ],
+      "explanation": "The person is physically present but still between statuses.",
+      "visibleCorrectExplanation": "The airport floor becomes an in-between space where arrival is physical but not fully legal or social.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Entrepôt",
+          "explanation": "An entrepôt stores and transfers goods, while the scene is about a person stuck between statuses."
+        },
+        {
+          "label": "C",
+          "answer": "Stroad",
+          "explanation": "A stroad mixes street and road functions, but this is not a car corridor problem."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "explanation": "A snout house centers a garage, not a human being suspended between arrival and admission."
+        }
+      ],
+      "visibleConnection": "The person is physically present but still between statuses.",
+      "visibleTakeaway": "Being somewhere is not always the same as being admitted.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 8,
+          "questionId": "question.the-lovely-and-the-liminal.400.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_120",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_121",
+      "stableId": "FV400_121",
+      "sourceQuestionId": "FV400_121",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "call-of-duty-free",
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A traveler buys perfume after passport control but before entering the next city. Which place makes that purchase possible?",
+      "correctAnswer": "Duty-free zone",
+      "wrongAnswers": [
+        "Grand Hotel lobby",
+        "Entrepôt port",
+        "Pilgrimage hostel"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Grand Hotel lobby",
+          "feedback": "A hotel lobby hosts travelers, but it does not create the same tax-and-border shopping condition."
+        },
+        {
+          "label": "C",
+          "answer": "Entrepôt port",
+          "feedback": "An entrepôt moves goods through trade networks, not retail perfume for passengers after passport control."
+        },
+        {
+          "label": "D",
+          "answer": "Pilgrimage hostel",
+          "feedback": "A pilgrimage hostel supports religious travel, not airport shopping between borders."
+        }
+      ],
+      "explanation": "Some travel spaces turn border crossing into a special shopping condition.",
+      "visibleCorrectExplanation": "Duty-free shopping exists in a border-like commercial space between departure and arrival.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Grand Hotel lobby",
+          "explanation": "A hotel lobby hosts travelers, but it does not create the same tax-and-border shopping condition."
+        },
+        {
+          "label": "C",
+          "answer": "Entrepôt port",
+          "explanation": "An entrepôt moves goods through trade networks, not retail perfume for passengers after passport control."
+        },
+        {
+          "label": "D",
+          "answer": "Pilgrimage hostel",
+          "explanation": "A pilgrimage hostel supports religious travel, not airport shopping between borders."
+        }
+      ],
+      "visibleConnection": "Some travel spaces turn border crossing into a special shopping condition.",
+      "visibleTakeaway": "Some border spaces turn transit into consumption.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Call of Duty-Free",
+      "guidingSectionSecondary": "The Lovely and the Liminal",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.010",
+        "question.call-of-duty-free.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 9,
+          "questionId": "question.the-lovely-and-the-liminal.400.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_121",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 12,
+          "questionId": "question.call-of-duty-free.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_121",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_122",
+      "stableId": "FV400_122",
+      "sourceQuestionId": "FV400_122",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "People keep cutting across the grass until the city finally paves their diagonal route. What did planners learn from?",
+      "correctAnswer": "Desire path",
+      "wrongAnswers": [
+        "Wayfinding sign",
+        "Stroad",
+        "Moving sidewalk"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Wayfinding sign",
+          "feedback": "A wayfinding sign guides people, but the route here is created by repeated use."
+        },
+        {
+          "label": "C",
+          "answer": "Stroad",
+          "feedback": "A stroad mixes traffic functions, while the clue is a pedestrian shortcut."
+        },
+        {
+          "label": "D",
+          "answer": "Moving sidewalk",
+          "feedback": "A moving sidewalk carries people mechanically, not through an informal path worn into the ground."
+        }
+      ],
+      "explanation": "Repeated human movement can reveal the route people actually need.",
+      "visibleCorrectExplanation": "The diagonal track shows where people naturally go before official design catches up.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Wayfinding sign",
+          "explanation": "A wayfinding sign guides people, but the route here is created by repeated use."
+        },
+        {
+          "label": "C",
+          "answer": "Stroad",
+          "explanation": "A stroad mixes traffic functions, while the clue is a pedestrian shortcut."
+        },
+        {
+          "label": "D",
+          "answer": "Moving sidewalk",
+          "explanation": "A moving sidewalk carries people mechanically, not through an informal path worn into the ground."
+        }
+      ],
+      "visibleConnection": "Repeated human movement can reveal the route people actually need.",
+      "visibleTakeaway": "Sometimes the real map is drawn by feet first.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 11,
+          "questionId": "question.where-the-sidewalk-starts.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_122",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_123",
+      "stableId": "FV400_123",
+      "sourceQuestionId": "FV400_123",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A public bench is built with metal dividers so no one can lie down. What design logic is at work?",
+      "correctAnswer": "Hostile architecture",
+      "wrongAnswers": [
+        "Placemaking",
+        "Wayfinding",
+        "Shared space"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Placemaking",
+          "feedback": "Placemaking tries to make public space more welcoming, while the bench restricts use."
+        },
+        {
+          "label": "C",
+          "answer": "Wayfinding",
+          "feedback": "Wayfinding helps people navigate, but the bench is about controlling behavior."
+        },
+        {
+          "label": "D",
+          "answer": "Shared space",
+          "feedback": "Shared space reduces hard divisions between users, while this design adds physical limits."
+        }
+      ],
+      "explanation": "A public object can quietly control who is allowed to use a space comfortably.",
+      "visibleCorrectExplanation": "The bench is designed to exclude certain uses while still looking like ordinary public furniture.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Placemaking",
+          "explanation": "Placemaking tries to make public space more welcoming, while the bench restricts use."
+        },
+        {
+          "label": "C",
+          "answer": "Wayfinding",
+          "explanation": "Wayfinding helps people navigate, but the bench is about controlling behavior."
+        },
+        {
+          "label": "D",
+          "answer": "Shared space",
+          "explanation": "Shared space reduces hard divisions between users, while this design adds physical limits."
+        }
+      ],
+      "visibleConnection": "A public object can quietly control who is allowed to use a space comfortably.",
+      "visibleTakeaway": "Public design can include hidden rules about who belongs.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 12,
+          "questionId": "question.where-the-sidewalk-starts.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_123",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_124",
+      "stableId": "FV400_124",
+      "sourceQuestionId": "FV400_124",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "monkey-see",
+        "where-the-sidewalk-starts",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "The revolution became a short corridor that mostly helps tired passengers between gates. Which old promise shrank that way?",
+      "correctAnswer": "Moving sidewalks",
+      "wrongAnswers": [
+        "Nuclear-powered cars",
+        "Food pills",
+        "3D television"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "feedback": "Nuclear cars largely remained fantasy rather than becoming a quiet airport convenience."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "feedback": "Food pills represent a reduced idea of meals, not a corridor-based travel convenience."
+        },
+        {
+          "label": "D",
+          "answer": "3D television",
+          "feedback": "3D television reached consumers as entertainment, not as a movement system in public space."
+        }
+      ],
+      "explanation": "Some imagined futures arrive only in a narrow, practical, reduced form.",
+      "visibleCorrectExplanation": "Moving sidewalks were once imagined as a broader urban future, but they mostly survive as limited transit infrastructure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nuclear-powered cars",
+          "explanation": "Nuclear cars largely remained fantasy rather than becoming a quiet airport convenience."
+        },
+        {
+          "label": "C",
+          "answer": "Food pills",
+          "explanation": "Food pills represent a reduced idea of meals, not a corridor-based travel convenience."
+        },
+        {
+          "label": "D",
+          "answer": "3D television",
+          "explanation": "3D television reached consumers as entertainment, not as a movement system in public space."
+        }
+      ],
+      "visibleConnection": "Some imagined futures arrive only in a narrow, practical, reduced form.",
+      "visibleTakeaway": "A future can arrive, but smaller than promised.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "Where the Sidewalk Starts",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.400.014",
+        "question.monkey-see-monkey-prototype.400.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 13,
+          "questionId": "question.where-the-sidewalk-starts.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_124",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 12,
+          "questionId": "question.monkey-see-monkey-prototype.400.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_124",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_125",
+      "stableId": "FV400_125",
+      "sourceQuestionId": "FV400_125",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "An inventor sees global wireless messages coming, but money and infrastructure fail before the tower proves it. Which case fits?",
+      "correctAnswer": "Wardenclyffe Tower",
+      "wrongAnswers": [
+        "Space elevator",
+        "Q-Day",
+        "Graphene batteries"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Space elevator",
+          "feedback": "A space elevator is a proposed megastructure, but the clue is a wireless communication tower."
+        },
+        {
+          "label": "C",
+          "answer": "Q-Day",
+          "feedback": "Q-Day concerns future cryptographic risk, not an unfinished wireless infrastructure project."
+        },
+        {
+          "label": "D",
+          "answer": "Graphene batteries",
+          "feedback": "Graphene batteries concern material innovation, not a failed tower for global messages."
+        }
+      ],
+      "explanation": "A prediction can point in the right direction and still fail as a project.",
+      "visibleCorrectExplanation": "Wardenclyffe shows a future-facing communication idea collapsing because support, timing, and infrastructure did not line up.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Space elevator",
+          "explanation": "A space elevator is a proposed megastructure, but the clue is a wireless communication tower."
+        },
+        {
+          "label": "C",
+          "answer": "Q-Day",
+          "explanation": "Q-Day concerns future cryptographic risk, not an unfinished wireless infrastructure project."
+        },
+        {
+          "label": "D",
+          "answer": "Graphene batteries",
+          "explanation": "Graphene batteries concern material innovation, not a failed tower for global messages."
+        }
+      ],
+      "visibleConnection": "A prediction can point in the right direction and still fail as a project.",
+      "visibleTakeaway": "Being early can still look like failure.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.400.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "400",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 7,
+          "questionId": "question.where-were-going-well-still-need-them.400.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_125",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_126",
+      "stableId": "FV400_126",
+      "sourceQuestionId": "FV400_126",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A chess machine wins applause, but a hidden person inside makes every move. Which old performance is being replayed?",
+      "correctAnswer": "Mechanical Turk",
+      "wrongAnswers": [
+        "Wizard of Oz testing",
+        "Vaporware reveal",
+        "Minimum viable product"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Wizard of Oz testing",
+          "feedback": "Wizard of Oz testing can use hidden human support, but the historic chess-machine performance is more exact."
+        },
+        {
+          "label": "C",
+          "answer": "Vaporware reveal",
+          "feedback": "Vaporware promises an absent product, while the machine here performs through a concealed operator."
+        },
+        {
+          "label": "D",
+          "answer": "Minimum viable product",
+          "feedback": "A minimum viable product is a real early version, not a hoax powered by someone inside."
+        }
+      ],
+      "explanation": "A machine can appear intelligent while human labor is hidden inside the performance.",
+      "visibleCorrectExplanation": "The hidden chess player is the central trick: apparent automation depends on concealed human skill.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Wizard of Oz testing",
+          "explanation": "Wizard of Oz testing can use hidden human support, but the historic chess-machine performance is more exact."
+        },
+        {
+          "label": "C",
+          "answer": "Vaporware reveal",
+          "explanation": "Vaporware promises an absent product, while the machine here performs through a concealed operator."
+        },
+        {
+          "label": "D",
+          "answer": "Minimum viable product",
+          "explanation": "A minimum viable product is a real early version, not a hoax powered by someone inside."
+        }
+      ],
+      "visibleConnection": "A machine can appear intelligent while human labor is hidden inside the performance.",
+      "visibleTakeaway": "If the intelligence is secretly human, look behind the machine.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 13,
+          "questionId": "question.monkey-see-monkey-prototype.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_126",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_127",
+      "stableId": "FV400_127",
+      "sourceQuestionId": "FV400_127",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "home-and-wandering",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A prototype chatbot is secretly answered by staff so designers can test reactions before building the system. What method is this?",
+      "correctAnswer": "Wizard of Oz testing",
+      "wrongAnswers": [
+        "Minimum viable product",
+        "Proof of concept",
+        "Lean manufacturing"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Minimum viable product",
+          "feedback": "A minimum viable product is a real usable version, not a human-operated simulation."
+        },
+        {
+          "label": "C",
+          "answer": "Proof of concept",
+          "feedback": "A proof of concept shows feasibility, but it does not necessarily simulate a full user experience."
+        },
+        {
+          "label": "D",
+          "answer": "Lean manufacturing",
+          "feedback": "Lean manufacturing reduces waste in production, not hidden human support in a fake interface."
+        }
+      ],
+      "explanation": "A product experience can be simulated before the actual system exists.",
+      "visibleCorrectExplanation": "Hidden staff make the unfinished system feel real so designers can learn from user reactions.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Minimum viable product",
+          "explanation": "A minimum viable product is a real usable version, not a human-operated simulation."
+        },
+        {
+          "label": "C",
+          "answer": "Proof of concept",
+          "explanation": "A proof of concept shows feasibility, but it does not necessarily simulate a full user experience."
+        },
+        {
+          "label": "D",
+          "answer": "Lean manufacturing",
+          "explanation": "Lean manufacturing reduces waste in production, not hidden human support in a fake interface."
+        }
+      ],
+      "visibleConnection": "A product experience can be simulated before the actual system exists.",
+      "visibleTakeaway": "A fake interface can be a test, but it must be handled carefully.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "Home and Wandering",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.015",
+        "question.home-and-wandering.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 14,
+          "questionId": "question.monkey-see-monkey-prototype.400.015",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_127",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 10,
+          "questionId": "question.home-and-wandering.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_127",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_128",
+      "stableId": "FV400_128",
+      "sourceQuestionId": "FV400_128",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "monkey-see",
+        "theres-a-draft",
+        "theres-a-draft-in-here",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A robot walks onstage, waves, and then the costume wrinkles at the elbow. What kind of launch is this?",
+      "correctAnswer": "Staged tech demo",
+      "wrongAnswers": [
+        "Paper prototype",
+        "User testing session",
+        "Proof of concept"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Paper prototype",
+          "feedback": "A paper prototype is openly rough and low-cost, not a stage performance pretending to be advanced."
+        },
+        {
+          "label": "C",
+          "answer": "User testing session",
+          "feedback": "User testing watches real reactions, but the scene is about public hype and staged readiness."
+        },
+        {
+          "label": "D",
+          "answer": "Proof of concept",
+          "feedback": "A proof of concept tests feasibility, while the wrinkle exposes performance instead of proof."
+        }
+      ],
+      "explanation": "A product can be performed as ready before it is technically ready.",
+      "visibleCorrectExplanation": "The reveal sells readiness through theater rather than through a working autonomous product.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Paper prototype",
+          "explanation": "A paper prototype is openly rough and low-cost, not a stage performance pretending to be advanced."
+        },
+        {
+          "label": "C",
+          "answer": "User testing session",
+          "explanation": "User testing watches real reactions, but the scene is about public hype and staged readiness."
+        },
+        {
+          "label": "D",
+          "answer": "Proof of concept",
+          "explanation": "A proof of concept tests feasibility, while the wrinkle exposes performance instead of proof."
+        }
+      ],
+      "visibleConnection": "A product can be performed as ready before it is technically ready.",
+      "visibleTakeaway": "A demo can become theater when readiness is only performed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "There’s a Draft in Here",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.400.015",
+        "question.monkey-see-monkey-prototype.400.016"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "400",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 14,
+          "questionId": "question.theres-a-draft-in-here.400.015",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_128",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        },
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 15,
+          "questionId": "question.monkey-see-monkey-prototype.400.016",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_128",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_129",
+      "stableId": "FV400_129",
+      "sourceQuestionId": "FV400_129",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A phone launch fails because nobody watched ordinary buyers struggle through the first setup screen. What was missing?",
+      "correctAnswer": "User testing",
+      "wrongAnswers": [
+        "Storyboarding",
+        "Lean manufacturing",
+        "Quality control"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Storyboarding",
+          "feedback": "Storyboarding can map an experience before building it, but the clue is untested real users."
+        },
+        {
+          "label": "C",
+          "answer": "Lean manufacturing",
+          "feedback": "Lean manufacturing improves production flow, not the first-use experience of buyers."
+        },
+        {
+          "label": "D",
+          "answer": "Quality control",
+          "feedback": "Quality control catches defects, but the setup problem comes from usability being missed."
+        }
+      ],
+      "explanation": "Watching real users can reveal problems designers do not notice from inside the project.",
+      "visibleCorrectExplanation": "The failure comes from not observing how ordinary people actually use the product.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Storyboarding",
+          "explanation": "Storyboarding can map an experience before building it, but the clue is untested real users."
+        },
+        {
+          "label": "C",
+          "answer": "Lean manufacturing",
+          "explanation": "Lean manufacturing improves production flow, not the first-use experience of buyers."
+        },
+        {
+          "label": "D",
+          "answer": "Quality control",
+          "explanation": "Quality control catches defects, but the setup problem comes from usability being missed."
+        }
+      ],
+      "visibleConnection": "Watching real users can reveal problems designers do not notice from inside the project.",
+      "visibleTakeaway": "A product can work technically and still fail in human hands.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.400.017"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "400",
+          "sectionQuestionIndex": 39,
+          "levelQuestionIndex": 16,
+          "questionId": "question.monkey-see-monkey-prototype.400.017",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_129",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_130",
+      "stableId": "FV400_130",
+      "sourceQuestionId": "FV400_130",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "After a day of tiny errands, a worker writes down what finished so the labor does not vanish. What is that list doing?",
+      "correctAnswer": "Making completed work visible",
+      "wrongAnswers": [
+        "Ranking urgent work first",
+        "Turning wishes into status",
+        "Keeping unfinished tasks active"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Ranking urgent work first",
+          "feedback": "Urgency ranking belongs to prioritization systems, not to remembering completed labor."
+        },
+        {
+          "label": "C",
+          "answer": "Turning wishes into status",
+          "feedback": "Aspirational lists can perform identity, but this list records finished effort."
+        },
+        {
+          "label": "D",
+          "answer": "Keeping unfinished tasks active",
+          "feedback": "Unfinished tasks can stay mentally loud, but this list protects completed work from disappearing."
+        }
+      ],
+      "explanation": "Completed effort can disappear emotionally unless it is deliberately recorded.",
+      "visibleCorrectExplanation": "The list preserves evidence of work that would otherwise be forgotten once finished.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Ranking urgent work first",
+          "explanation": "Urgency ranking belongs to prioritization systems, not to remembering completed labor."
+        },
+        {
+          "label": "C",
+          "answer": "Turning wishes into status",
+          "explanation": "Aspirational lists can perform identity, but this list records finished effort."
+        },
+        {
+          "label": "D",
+          "answer": "Keeping unfinished tasks active",
+          "explanation": "Unfinished tasks can stay mentally loud, but this list protects completed work from disappearing."
+        }
+      ],
+      "visibleConnection": "Completed effort can disappear emotionally unless it is deliberately recorded.",
+      "visibleTakeaway": "A done list changes what the mind counts as evidence.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.400.015"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "400",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 14,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.400.015",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_130",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_131",
+      "stableId": "FV400_131",
+      "sourceQuestionId": "FV400_131",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A wealthy young traveler crosses Europe to collect manners, languages, art, and social polish. What tradition is closest?",
+      "correctAnswer": "Grand Tour",
+      "wrongAnswers": [
+        "Mass tourism",
+        "Dark tourism",
+        "Package holiday"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Mass tourism",
+          "feedback": "Mass tourism involves broad access and scale, not elite formation through European travel."
+        },
+        {
+          "label": "C",
+          "answer": "Dark tourism",
+          "feedback": "Dark tourism centers on death or tragedy, not education and social polish."
+        },
+        {
+          "label": "D",
+          "answer": "Package holiday",
+          "feedback": "A package holiday organizes leisure travel, not a status-forming educational route."
+        }
+      ],
+      "explanation": "Travel can be used as education, status-building, and cultural formation.",
+      "visibleCorrectExplanation": "The journey is about becoming socially and culturally polished, which works the Grand Tour tradition.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Mass tourism",
+          "explanation": "Mass tourism involves broad access and scale, not elite formation through European travel."
+        },
+        {
+          "label": "C",
+          "answer": "Dark tourism",
+          "explanation": "Dark tourism centers on death or tragedy, not education and social polish."
+        },
+        {
+          "label": "D",
+          "answer": "Package holiday",
+          "explanation": "A package holiday organizes leisure travel, not a status-forming educational route."
+        }
+      ],
+      "visibleConnection": "Travel can be used as education, status-building, and cultural formation.",
+      "visibleTakeaway": "Some travel is designed to produce identity, not just movement.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.400.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "400",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 13,
+          "questionId": "question.call-of-duty-free.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_131",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_132",
+      "stableId": "FV400_132",
+      "sourceQuestionId": "FV400_132",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A guided trip sells visits to prisons, battlefields, and disaster sites as its main attraction. What kind of tourism is it?",
+      "correctAnswer": "Dark tourism",
+      "wrongAnswers": [
+        "Niche tourism",
+        "Mass tourism",
+        "Authentic tourism"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Niche tourism",
+          "feedback": "Niche tourism can be specialized, but the specific focus here is tragedy."
+        },
+        {
+          "label": "C",
+          "answer": "Mass tourism",
+          "feedback": "Mass tourism describes scale and accessibility, not the emotional subject of the destination."
+        },
+        {
+          "label": "D",
+          "answer": "Authentic tourism",
+          "feedback": "Authentic tourism seeks real local experience, while this trip centers on difficult historical sites."
+        }
+      ],
+      "explanation": "Some travel turns tragedy and death into the central destination.",
+      "visibleCorrectExplanation": "The itinerary is built around places associated with suffering, disaster, or death.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Niche tourism",
+          "explanation": "Niche tourism can be specialized, but the specific focus here is tragedy."
+        },
+        {
+          "label": "C",
+          "answer": "Mass tourism",
+          "explanation": "Mass tourism describes scale and accessibility, not the emotional subject of the destination."
+        },
+        {
+          "label": "D",
+          "answer": "Authentic tourism",
+          "explanation": "Authentic tourism seeks real local experience, while this trip centers on difficult historical sites."
+        }
+      ],
+      "visibleConnection": "Some travel turns tragedy and death into the central destination.",
+      "visibleTakeaway": "The type of tourism depends on what kind of experience is being sold.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.introductory-questions.400.022"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "400",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 21,
+          "questionId": "question.introductory-questions.400.022",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_132",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_133",
+      "stableId": "FV400_133",
+      "sourceQuestionId": "FV400_133",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A person only understands what home meant after months of missing its smells, routines, and voices. What feeling is strongest?",
+      "correctAnswer": "Homesickness",
+      "wrongAnswers": [
+        "Nostalgia",
+        "Homecoming",
+        "Pilgrimage"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nostalgia",
+          "feedback": "Nostalgia looks back at the past, but the clue is longing for a home left behind."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming",
+          "feedback": "Homecoming is the return itself, while the person is still away."
+        },
+        {
+          "label": "D",
+          "answer": "Pilgrimage",
+          "feedback": "Pilgrimage is purposeful sacred travel, not longing for familiar routines and voices."
+        }
+      ],
+      "explanation": "Home can become more emotionally visible when someone is separated from it.",
+      "visibleCorrectExplanation": "The feeling is tied to absence: distance makes ordinary home details feel painfully meaningful.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nostalgia",
+          "explanation": "Nostalgia looks back at the past, but the clue is longing for a home left behind."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming",
+          "explanation": "Homecoming is the return itself, while the person is still away."
+        },
+        {
+          "label": "D",
+          "answer": "Pilgrimage",
+          "explanation": "Pilgrimage is purposeful sacred travel, not longing for familiar routines and voices."
+        }
+      ],
+      "visibleConnection": "Home can become more emotionally visible when someone is separated from it.",
+      "visibleTakeaway": "Distance can make home more vivid than presence did.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.400.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "400",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 11,
+          "questionId": "question.home-and-wandering.400.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_133",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_134",
+      "stableId": "FV400_134",
+      "sourceQuestionId": "FV400_134",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A young heir sings as if the crown is already his, while everyone else hears a child rehearsing adulthood. What state is he in?",
+      "correctAnswer": "Liminality",
+      "wrongAnswers": [
+        "Nostalgia",
+        "Sunk cost",
+        "Retrofuturism"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nostalgia",
+          "feedback": "Nostalgia looks backward, while the scene pushes impatiently toward a future role."
+        },
+        {
+          "label": "C",
+          "answer": "Sunk cost",
+          "feedback": "Sunk cost means staying because of past investment, not being between identities."
+        },
+        {
+          "label": "D",
+          "answer": "Retrofuturism",
+          "feedback": "Retrofuturism imagines futures through old styles, not a child rehearsing authority."
+        }
+      ],
+      "explanation": "The character is between identities: not a child exactly, but not ready for the role he imagines.",
+      "visibleCorrectExplanation": "The scene works because the character is suspended between what he is and what he wants to become.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nostalgia",
+          "explanation": "Nostalgia looks backward, while the scene pushes impatiently toward a future role."
+        },
+        {
+          "label": "C",
+          "answer": "Sunk cost",
+          "explanation": "Sunk cost means staying because of past investment, not being between identities."
+        },
+        {
+          "label": "D",
+          "answer": "Retrofuturism",
+          "explanation": "Retrofuturism imagines futures through old styles, not a child rehearsing authority."
+        }
+      ],
+      "visibleConnection": "The character is between identities: not a child exactly, but not ready for the role he imagines.",
+      "visibleTakeaway": "A transition can feel like wanting the destination before becoming ready for it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.400.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "400",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 10,
+          "questionId": "question.the-lovely-and-the-liminal.400.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_134",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV400_135",
+      "stableId": "FV400_135",
+      "sourceQuestionId": "FV400_135",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 4,
+      "displayLevel": 400,
+      "prompt": "A leader still has the office, but cameras, donors, and rivals are already looking past him. What period has begun?",
+      "correctAnswer": "Lame-duck period",
+      "wrongAnswers": [
+        "Caretaker government",
+        "Regency",
+        "Succession delay"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Caretaker government",
+          "feedback": "A caretaker government temporarily manages transition with limited authority, but the clue is a weakening outgoing leader."
+        },
+        {
+          "label": "C",
+          "answer": "Regency",
+          "feedback": "A regency governs for someone unable to rule, not for a leader losing influence near the end."
+        },
+        {
+          "label": "D",
+          "answer": "Succession delay",
+          "feedback": "Succession delay hides the next ruler, while the scene shows everyone already looking beyond the current one."
+        }
+      ],
+      "explanation": "Authority on paper can survive after real attention has moved elsewhere.",
+      "visibleCorrectExplanation": "The leader still holds office, but political power has already started shifting to the next phase.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Caretaker government",
+          "explanation": "A caretaker government temporarily manages transition with limited authority, but the clue is a weakening outgoing leader."
+        },
+        {
+          "label": "C",
+          "answer": "Regency",
+          "explanation": "A regency governs for someone unable to rule, not for a leader losing influence near the end."
+        },
+        {
+          "label": "D",
+          "answer": "Succession delay",
+          "explanation": "Succession delay hides the next ruler, while the scene shows everyone already looking beyond the current one."
+        }
+      ],
+      "visibleConnection": "Authority on paper can survive after real attention has moved elsewhere.",
+      "visibleTakeaway": "Power can end socially before it ends legally.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "",
+      "sourceNote": "All previous 500s are now saved as 400. True 500 is rebuilt separately using real external anchors.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.400.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "400",
+          "sectionQuestionIndex": 48,
+          "levelQuestionIndex": 13,
+          "questionId": "question.the-end-is-nearish.400.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV400_135",
+          "sectionTitle": "",
+          "level": 4,
+          "displayLevel": 400
+        }
+      ],
+      "levelKey": "400"
+    },
+    {
+      "id": "FV500_REAL_001",
+      "stableId": "FV500_REAL_001",
+      "sourceQuestionId": "FV500_REAL_001",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Groundhog Day, Phil Connors relives February 2 again and again; the calendar barely moves, but his character slowly changes. What does his loop best illustrate?",
+      "correctAnswer": "Cyclical progress",
+      "wrongAnswers": [
+        "False ending",
+        "Placebo progress",
+        "Caretaker power"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "feedback": "False ending deals with closure arriving too early, not growth through repetition."
+        },
+        {
+          "label": "C",
+          "answer": "Placebo progress",
+          "feedback": "Placebo progress makes waiting feel active without proving real change."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker power",
+          "feedback": "Caretaker power describes temporary authority, not repeated personal growth."
+        }
+      ],
+      "explanation": "The outside story makes progress happen through repetition rather than straight movement forward.",
+      "visibleCorrectExplanation": "The repeated day creates change through cycles, not through a straight line forward.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "explanation": "False ending deals with closure arriving too early, not growth through repetition."
+        },
+        {
+          "label": "C",
+          "answer": "Placebo progress",
+          "explanation": "Placebo progress makes waiting feel active without proving real change."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker power",
+          "explanation": "Caretaker power describes temporary authority, not repeated personal growth."
+        }
+      ],
+      "visibleConnection": "The outside story makes progress happen through repetition rather than straight movement forward.",
+      "visibleTakeaway": "Progress can circle back and still change someone.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Groundhog_Day_(film)",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 50,
+          "levelQuestionIndex": 0,
+          "questionId": "question.progress-not-regress.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_001",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_002",
+      "stableId": "FV500_REAL_002",
+      "sourceQuestionId": "FV500_REAL_002",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Truman Show, Truman Burbank discovers that his hometown, job, and neighbors were staged for an audience long before he noticed. What is the sharpest reading of that setup?",
+      "correctAnswer": "Staged authenticity",
+      "wrongAnswers": [
+        "Homesickness",
+        "Done list",
+        "Moral arc"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness is about longing for home, not discovering that home was a set."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "feedback": "A done list preserves finished work; it does not expose a staged world."
+        },
+        {
+          "label": "D",
+          "answer": "Moral arc",
+          "feedback": "The moral arc concerns justice over time, not a manufactured reality."
+        }
+      ],
+      "explanation": "The outside story turns normal life into a performance that only looked authentic.",
+      "visibleCorrectExplanation": "Truman’s town feels authentic until the machinery of performance is exposed.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness is about longing for home, not discovering that home was a set."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "explanation": "A done list preserves finished work; it does not expose a staged world."
+        },
+        {
+          "label": "D",
+          "answer": "Moral arc",
+          "explanation": "The moral arc concerns justice over time, not a manufactured reality."
+        }
+      ],
+      "visibleConnection": "The outside story turns normal life into a performance that only looked authentic.",
+      "visibleTakeaway": "When reality is arranged for display, authenticity becomes unstable.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Truman_Show",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 0,
+          "questionId": "question.home-and-wandering.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_002",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_003",
+      "stableId": "FV500_REAL_003",
+      "sourceQuestionId": "FV500_REAL_003",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Memento, Leonard Shelby uses notes, photos, and tattoos so his future self can keep acting despite short-term memory loss. What idea does that tool kit most resemble?",
+      "correctAnswer": "Externalized memory",
+      "wrongAnswers": [
+        "Done list",
+        "Bucket list",
+        "False ending"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Done list",
+          "feedback": "A done list records completed work, while this system preserves instructions for future action."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket list",
+          "feedback": "A bucket list turns desire into a life inventory, not a memory aid for survival."
+        },
+        {
+          "label": "D",
+          "answer": "False ending",
+          "feedback": "A false ending makes closure unstable; memory failure is the real pressure here."
+        }
+      ],
+      "explanation": "The outside story turns memory into a visible system that carries tasks across time.",
+      "visibleCorrectExplanation": "The notes and tattoos move memory outside the mind so action can continue.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Done list",
+          "explanation": "A done list records completed work, while this system preserves instructions for future action."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket list",
+          "explanation": "A bucket list turns desire into a life inventory, not a memory aid for survival."
+        },
+        {
+          "label": "D",
+          "answer": "False ending",
+          "explanation": "A false ending makes closure unstable; memory failure is the real pressure here."
+        }
+      ],
+      "visibleConnection": "The outside story turns memory into a visible system that carries tasks across time.",
+      "visibleTakeaway": "A list can become a substitute for memory, not just a reminder.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Memento_(film)",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 0,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_003",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_004",
+      "stableId": "FV500_REAL_004",
+      "sourceQuestionId": "FV500_REAL_004",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the end of Inception, Cobb watches a spinning top that may or may not fall, leaving viewers unsure whether the final world is real. What kind of ending is being created?",
+      "correctAnswer": "Unstable ending",
+      "wrongAnswers": [
+        "Point of no return",
+        "Last-chance pressure",
+        "Linear progress"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Point of no return",
+          "feedback": "Point of no return is about crossing a threshold that cannot be undone."
+        },
+        {
+          "label": "C",
+          "answer": "Last-chance pressure",
+          "feedback": "Last-chance pressure changes decisions under urgency, not under ambiguity."
+        },
+        {
+          "label": "D",
+          "answer": "Linear progress",
+          "feedback": "Linear progress assumes a clear forward line, which the ending refuses."
+        }
+      ],
+      "explanation": "The outside scene makes closure arrive without settling the reality of the ending.",
+      "visibleCorrectExplanation": "The spinning top gives closure and uncertainty at the same time.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Point of no return",
+          "explanation": "Point of no return is about crossing a threshold that cannot be undone."
+        },
+        {
+          "label": "C",
+          "answer": "Last-chance pressure",
+          "explanation": "Last-chance pressure changes decisions under urgency, not under ambiguity."
+        },
+        {
+          "label": "D",
+          "answer": "Linear progress",
+          "explanation": "Linear progress assumes a clear forward line, which the ending refuses."
+        }
+      ],
+      "visibleConnection": "The outside scene makes closure arrive without settling the reality of the ending.",
+      "visibleTakeaway": "An ending can close the story while leaving the answer open.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Inception",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 0,
+          "questionId": "question.introductory-questions.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_004",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_005",
+      "stableId": "FV500_REAL_005",
+      "sourceQuestionId": "FV500_REAL_005",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Matrix, Neo takes the red pill and can no longer return to the comfortable illusion he lived in before. What kind of threshold has he crossed?",
+      "correctAnswer": "Point of no return",
+      "wrongAnswers": [
+        "False ending",
+        "Waiting effect",
+        "Done list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "feedback": "False ending concerns premature closure, not an irreversible awakening."
+        },
+        {
+          "label": "C",
+          "answer": "Waiting effect",
+          "feedback": "Waiting effect is about anticipation changing experience before arrival."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "feedback": "A done list records completed labor; it does not describe irreversible choice."
+        }
+      ],
+      "explanation": "The outside scene is a threshold: after the choice, the old world cannot simply be restored.",
+      "visibleCorrectExplanation": "The red pill makes return impossible; knowledge changes the available path.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "explanation": "False ending concerns premature closure, not an irreversible awakening."
+        },
+        {
+          "label": "C",
+          "answer": "Waiting effect",
+          "explanation": "Waiting effect is about anticipation changing experience before arrival."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "explanation": "A done list records completed labor; it does not describe irreversible choice."
+        }
+      ],
+      "visibleConnection": "The outside scene is a threshold: after the choice, the old world cannot simply be restored.",
+      "visibleTakeaway": "A threshold matters when crossing it changes every later option.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Matrix",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 1,
+          "questionId": "question.introductory-questions.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_005",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_006",
+      "stableId": "FV500_REAL_006",
+      "sourceQuestionId": "FV500_REAL_006",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the end of The Wizard of Oz, Dorothy realizes the place she wanted was tied to belonging and family all along. What has she learned about arrival?",
+      "correctAnswer": "Home as meaning",
+      "wrongAnswers": [
+        "Homesickness",
+        "Duty-free transit",
+        "Grand Tour polish"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness is longing from far away; the scene is about understanding what home means after return."
+        },
+        {
+          "label": "C",
+          "answer": "Duty-free transit",
+          "feedback": "Duty-free transit is movement through commercial limbo, not a return to belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Grand Tour polish",
+          "feedback": "Grand Tour polish turns travel into education and status, not homecoming."
+        }
+      ],
+      "explanation": "The outside story treats home as emotional belonging rather than just a location on a map.",
+      "visibleCorrectExplanation": "Dorothy learns that home depends on belonging, not only on reaching a place.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness is longing from far away; the scene is about understanding what home means after return."
+        },
+        {
+          "label": "C",
+          "answer": "Duty-free transit",
+          "explanation": "Duty-free transit is movement through commercial limbo, not a return to belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Grand Tour polish",
+          "explanation": "Grand Tour polish turns travel into education and status, not homecoming."
+        }
+      ],
+      "visibleConnection": "The outside story treats home as emotional belonging rather than just a location on a map.",
+      "visibleTakeaway": "Home can be a meaning someone recognizes only after leaving.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Wizard_of_Oz",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 1,
+          "questionId": "question.home-and-wandering.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_006",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_007",
+      "stableId": "FV500_REAL_007",
+      "sourceQuestionId": "FV500_REAL_007",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Cast Away, Chuck Noland survives years away, returns alive, and finds that the life he imagined waiting for him has moved on. What kind of return is this?",
+      "correctAnswer": "Changed homecoming",
+      "wrongAnswers": [
+        "Homesickness",
+        "Wayfinding signs",
+        "Airport lounge"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness names longing while away, but the hard part here is return after absence."
+        },
+        {
+          "label": "C",
+          "answer": "Wayfinding signs",
+          "feedback": "Wayfinding signs solve navigation, not the emotional mismatch of homecoming."
+        },
+        {
+          "label": "D",
+          "answer": "Airport lounge",
+          "feedback": "An airport lounge is a waiting space, not a changed return."
+        }
+      ],
+      "explanation": "The outside story separates physical return from emotional restoration.",
+      "visibleCorrectExplanation": "Chuck returns physically, but the life he imagined has already changed.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness names longing while away, but the hard part here is return after absence."
+        },
+        {
+          "label": "C",
+          "answer": "Wayfinding signs",
+          "explanation": "Wayfinding signs solve navigation, not the emotional mismatch of homecoming."
+        },
+        {
+          "label": "D",
+          "answer": "Airport lounge",
+          "explanation": "An airport lounge is a waiting space, not a changed return."
+        }
+      ],
+      "visibleConnection": "The outside story separates physical return from emotional restoration.",
+      "visibleTakeaway": "Arrival can be real while homecoming remains incomplete.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cast_Away",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 2,
+          "questionId": "question.home-and-wandering.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_007",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_008",
+      "stableId": "FV500_REAL_008",
+      "sourceQuestionId": "FV500_REAL_008",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Fyre Festival sold paradise through polished promotion, then guests arrived to broken logistics and missing basics. What does the disaster most resemble?",
+      "correctAnswer": "Vaporware promise",
+      "wrongAnswers": [
+        "Reduced future",
+        "Auxiliary game",
+        "Skeleton screen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Reduced future",
+          "feedback": "Reduced future describes a promise that survives in smaller form, not a collapse on arrival."
+        },
+        {
+          "label": "C",
+          "answer": "Auxiliary game",
+          "feedback": "An auxiliary game distracts people while they wait; it does not sell a fake destination."
+        },
+        {
+          "label": "D",
+          "answer": "Skeleton screen",
+          "feedback": "A skeleton screen simulates loading, while the festival sold a whole fake experience."
+        }
+      ],
+      "explanation": "The outside event sold an arrival before the real system could support it.",
+      "visibleCorrectExplanation": "The promotion sold a finished paradise before the real system existed.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Reduced future",
+          "explanation": "Reduced future describes a promise that survives in smaller form, not a collapse on arrival."
+        },
+        {
+          "label": "C",
+          "answer": "Auxiliary game",
+          "explanation": "An auxiliary game distracts people while they wait; it does not sell a fake destination."
+        },
+        {
+          "label": "D",
+          "answer": "Skeleton screen",
+          "explanation": "A skeleton screen simulates loading, while the festival sold a whole fake experience."
+        }
+      ],
+      "visibleConnection": "The outside event sold an arrival before the real system could support it.",
+      "visibleTakeaway": "A beautiful promise can arrive before the infrastructure behind it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fyre_Festival",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 0,
+          "questionId": "question.monkey-see-monkey-prototype.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_008",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_009",
+      "stableId": "FV500_REAL_009",
+      "sourceQuestionId": "FV500_REAL_009",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Theranos presented the Edison device as if it already worked, while the real technology was far less ready. What kind of prototype problem is on display?",
+      "correctAnswer": "Fake demo",
+      "wrongAnswers": [
+        "Rough draft",
+        "Done list",
+        "Grand Tour"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Rough draft",
+          "feedback": "A rough draft openly shows unfinished work; the problem here is pretending the work is ready."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "feedback": "A done list records completed labor, not a device that performs readiness."
+        },
+        {
+          "label": "D",
+          "answer": "Grand Tour",
+          "feedback": "The Grand Tour is travel as education and status, not technology readiness."
+        }
+      ],
+      "explanation": "The outside case turns a promise of readiness into a performance before the system can deliver.",
+      "visibleCorrectExplanation": "The display of readiness hides the gap between presentation and working reality.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Rough draft",
+          "explanation": "A rough draft openly shows unfinished work; the problem here is pretending the work is ready."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "explanation": "A done list records completed labor, not a device that performs readiness."
+        },
+        {
+          "label": "D",
+          "answer": "Grand Tour",
+          "explanation": "The Grand Tour is travel as education and status, not technology readiness."
+        }
+      ],
+      "visibleConnection": "The outside case turns a promise of readiness into a performance before the system can deliver.",
+      "visibleTakeaway": "A demo becomes dangerous when it performs completion instead of proving it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Theranos",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 1,
+          "questionId": "question.monkey-see-monkey-prototype.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_009",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_010",
+      "stableId": "FV500_REAL_010",
+      "sourceQuestionId": "FV500_REAL_010",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "The Sagrada Família began in the 1880s and kept inviting new completion timelines long after its original builders were gone. Which law would be least surprised?",
+      "correctAnswer": "Hofstadter's Law",
+      "wrongAnswers": [
+        "Conway's Law",
+        "Hawthorne Effect",
+        "Zeigarnik Effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Conway's Law",
+          "feedback": "Conway's Law links designs to the organizations that make them, not to repeated schedule slippage."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect changes behavior through observation, not through expanding deadlines."
+        },
+        {
+          "label": "D",
+          "answer": "Zeigarnik Effect",
+          "feedback": "The Zeigarnik Effect keeps unfinished tasks mentally active, but it is not a scheduling law."
+        }
+      ],
+      "explanation": "The outside project makes delayed completion feel almost built into the schedule itself.",
+      "visibleCorrectExplanation": "The project keeps outlasting every expectation about when completion should arrive.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Conway's Law",
+          "explanation": "Conway's Law links designs to the organizations that make them, not to repeated schedule slippage."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect changes behavior through observation, not through expanding deadlines."
+        },
+        {
+          "label": "D",
+          "answer": "Zeigarnik Effect",
+          "explanation": "The Zeigarnik Effect keeps unfinished tasks mentally active, but it is not a scheduling law."
+        }
+      ],
+      "visibleConnection": "The outside project makes delayed completion feel almost built into the schedule itself.",
+      "visibleTakeaway": "Some projects make time estimates part of the problem.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 49,
+          "levelQuestionIndex": 0,
+          "questionId": "question.the-end-is-nearish.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_010",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_011",
+      "stableId": "FV500_REAL_011",
+      "sourceQuestionId": "FV500_REAL_011",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Duke Nukem Forever spent years being announced, redesigned, delayed, and joked about before finally appearing. Which law would have warned the developers?",
+      "correctAnswer": "Hofstadter's Law",
+      "wrongAnswers": [
+        "Conway's Law",
+        "Hawthorne Effect",
+        "Doorway Effect"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Conway's Law",
+          "feedback": "Conway's Law explains how organizations shape designs, not why a release keeps slipping."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect is about behavior changing under observation."
+        },
+        {
+          "label": "D",
+          "answer": "Doorway Effect",
+          "feedback": "The Doorway Effect is a memory lapse tied to crossing spaces, not a delayed project."
+        }
+      ],
+      "explanation": "The outside case turns a release date into a moving target.",
+      "visibleCorrectExplanation": "Every new deadline becomes part of the delay it was supposed to end.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Conway's Law",
+          "explanation": "Conway's Law explains how organizations shape designs, not why a release keeps slipping."
+        },
+        {
+          "label": "C",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect is about behavior changing under observation."
+        },
+        {
+          "label": "D",
+          "answer": "Doorway Effect",
+          "explanation": "The Doorway Effect is a memory lapse tied to crossing spaces, not a delayed project."
+        }
+      ],
+      "visibleConnection": "The outside case turns a release date into a moving target.",
+      "visibleTakeaway": "A delayed launch can become famous for the delay itself.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Duke_Nukem_Forever",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 50,
+          "levelQuestionIndex": 1,
+          "questionId": "question.the-end-is-nearish.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_011",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_012",
+      "stableId": "FV500_REAL_012",
+      "sourceQuestionId": "FV500_REAL_012",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "The Segway was announced as the future of city movement, then mostly became a niche tool instead of transforming daily life. What happened to the promise?",
+      "correctAnswer": "Reduced future",
+      "wrongAnswers": [
+        "Pure vaporware",
+        "Ritual ending",
+        "Done list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Pure vaporware",
+          "feedback": "Pure vaporware would mean the promise never meaningfully arrived at all."
+        },
+        {
+          "label": "C",
+          "answer": "Ritual ending",
+          "feedback": "A ritual ending is a declared closure, not a disappointed technology future."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "feedback": "A done list records finished work, not a future that shrank."
+        }
+      ],
+      "explanation": "The outside case did not vanish; it shrank from revolution into limited use.",
+      "visibleCorrectExplanation": "The promised revolution survives as a smaller, less world-changing convenience.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Pure vaporware",
+          "explanation": "Pure vaporware would mean the promise never meaningfully arrived at all."
+        },
+        {
+          "label": "C",
+          "answer": "Ritual ending",
+          "explanation": "A ritual ending is a declared closure, not a disappointed technology future."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "explanation": "A done list records finished work, not a future that shrank."
+        }
+      ],
+      "visibleConnection": "The outside case did not vanish; it shrank from revolution into limited use.",
+      "visibleTakeaway": "Some futures arrive, but much smaller than advertised.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Segway",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "500",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 0,
+          "questionId": "question.where-were-going-well-still-need-them.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_012",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_013",
+      "stableId": "FV500_REAL_013",
+      "sourceQuestionId": "FV500_REAL_013",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Google Glass launched as a glimpse of everyday augmented life, then survived mostly in narrower professional uses. What happened to that future?",
+      "correctAnswer": "Reduced future",
+      "wrongAnswers": [
+        "False ending",
+        "Bucket list",
+        "Caretaker power"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "feedback": "False ending is about closure that arrives too early, not a future that shrinks."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket list",
+          "feedback": "A bucket list turns desire into an inventory of experiences."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker power",
+          "feedback": "Caretaker power is temporary political authority, not technology adoption."
+        }
+      ],
+      "explanation": "The outside case shows a futuristic promise that does not disappear, but becomes much narrower.",
+      "visibleCorrectExplanation": "The product shrinks from public future to narrower professional tool.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "explanation": "False ending is about closure that arrives too early, not a future that shrinks."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket list",
+          "explanation": "A bucket list turns desire into an inventory of experiences."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker power",
+          "explanation": "Caretaker power is temporary political authority, not technology adoption."
+        }
+      ],
+      "visibleConnection": "The outside case shows a futuristic promise that does not disappear, but becomes much narrower.",
+      "visibleTakeaway": "A future can fail as a revolution while surviving as a tool.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Google_Glass",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "500",
+          "sectionQuestionIndex": 47,
+          "levelQuestionIndex": 1,
+          "questionId": "question.where-were-going-well-still-need-them.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_013",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_014",
+      "stableId": "FV500_REAL_014",
+      "sourceQuestionId": "FV500_REAL_014",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Banksy’s Girl with Balloon was sold at auction, then partly shredded itself and became a different finished object. What kind of final version did the sale create?",
+      "correctAnswer": "Unstable final version",
+      "wrongAnswers": [
+        "Apocalyptic landscape",
+        "Grand Tour memory",
+        "Passport ranking"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Apocalyptic landscape",
+          "feedback": "An apocalyptic landscape turns destruction into a moral image, but this event is about finality and revision."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour memory",
+          "feedback": "Grand Tour memory concerns travel and cultural education, not a changing artwork."
+        },
+        {
+          "label": "D",
+          "answer": "Passport ranking",
+          "feedback": "Passport ranking measures mobility, not artistic completion."
+        }
+      ],
+      "explanation": "The outside event makes the finished artwork turn back into process at the moment of sale.",
+      "visibleCorrectExplanation": "The auction turns a supposedly finished object into a new unfinished-afterlife version.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Apocalyptic landscape",
+          "explanation": "An apocalyptic landscape turns destruction into a moral image, but this event is about finality and revision."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour memory",
+          "explanation": "Grand Tour memory concerns travel and cultural education, not a changing artwork."
+        },
+        {
+          "label": "D",
+          "answer": "Passport ranking",
+          "explanation": "Passport ranking measures mobility, not artistic completion."
+        }
+      ],
+      "visibleConnection": "The outside event makes the finished artwork turn back into process at the moment of sale.",
+      "visibleTakeaway": "A final form can become unstable when process returns in public.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Love_Is_in_the_Bin",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 29,
+          "levelQuestionIndex": 0,
+          "questionId": "question.theres-a-draft-in-here.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_014",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_015",
+      "stableId": "FV500_REAL_015",
+      "sourceQuestionId": "FV500_REAL_015",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Picasso’s Guernica turns the bombing of a town into fractured bodies, panic, and moral accusation. What role is the painting playing?",
+      "correctAnswer": "Apocalyptic aesthetics",
+      "wrongAnswers": [
+        "Staged authenticity",
+        "Draft revision",
+        "Route nostalgia"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Staged authenticity",
+          "feedback": "Staged authenticity deals with performed realness, not an image of violent collapse."
+        },
+        {
+          "label": "C",
+          "answer": "Draft revision",
+          "feedback": "Draft revision is about changing versions before completion, not disaster imagery."
+        },
+        {
+          "label": "D",
+          "answer": "Route nostalgia",
+          "feedback": "Route nostalgia romanticizes travel memory rather than confronting catastrophe."
+        }
+      ],
+      "explanation": "The outside artwork makes catastrophe visible so viewers can confront it as more than a report.",
+      "visibleCorrectExplanation": "The painting makes destruction visible as a moral and emotional landscape.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Staged authenticity",
+          "explanation": "Staged authenticity deals with performed realness, not an image of violent collapse."
+        },
+        {
+          "label": "C",
+          "answer": "Draft revision",
+          "explanation": "Draft revision is about changing versions before completion, not disaster imagery."
+        },
+        {
+          "label": "D",
+          "answer": "Route nostalgia",
+          "explanation": "Route nostalgia romanticizes travel memory rather than confronting catastrophe."
+        }
+      ],
+      "visibleConnection": "The outside artwork makes catastrophe visible so viewers can confront it as more than a report.",
+      "visibleTakeaway": "Art can make slow or distant disaster emotionally visible.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Guernica_(Picasso)",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 51,
+          "levelQuestionIndex": 2,
+          "questionId": "question.the-end-is-nearish.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_015",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_016",
+      "stableId": "FV500_REAL_016",
+      "sourceQuestionId": "FV500_REAL_016",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Eagles’ Hotel California imagines a hotel where leaving sounds possible, but escape never really happens. What kind of threshold is the hotel?",
+      "correctAnswer": "Trapped threshold",
+      "wrongAnswers": [
+        "Homesickness",
+        "Done list",
+        "Linear progress"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness is longing for home, not being unable to exit a strange place."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "feedback": "A done list records completed work; it does not trap a traveler."
+        },
+        {
+          "label": "D",
+          "answer": "Linear progress",
+          "feedback": "Linear progress assumes forward movement toward a clear endpoint."
+        }
+      ],
+      "explanation": "The outside song turns a place of arrival into a space that refuses release.",
+      "visibleCorrectExplanation": "The hotel looks like a passage, but it functions as a trap.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness is longing for home, not being unable to exit a strange place."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "explanation": "A done list records completed work; it does not trap a traveler."
+        },
+        {
+          "label": "D",
+          "answer": "Linear progress",
+          "explanation": "Linear progress assumes forward movement toward a clear endpoint."
+        }
+      ],
+      "visibleConnection": "The outside song turns a place of arrival into a space that refuses release.",
+      "visibleTakeaway": "Some places feel transitional until they stop letting people leave.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hotel_California",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "500",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 0,
+          "questionId": "question.the-lovely-and-the-liminal.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_016",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_017",
+      "stableId": "FV500_REAL_017",
+      "sourceQuestionId": "FV500_REAL_017",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the Times Square New Year’s Eve ball drop, the city counts down to midnight, then treats one second as the end of a whole era. What is the countdown doing to time?",
+      "correctAnswer": "Narrated ending",
+      "wrongAnswers": [
+        "False prototype",
+        "Wayfinding system",
+        "Sunk cost"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "False prototype",
+          "feedback": "A false prototype is about unfinished technology pretending to be ready."
+        },
+        {
+          "label": "C",
+          "answer": "Wayfinding system",
+          "feedback": "A wayfinding system helps navigation, not symbolic closure."
+        },
+        {
+          "label": "D",
+          "answer": "Sunk cost",
+          "feedback": "Sunk cost keeps people committed because of past investment."
+        }
+      ],
+      "explanation": "The outside event turns a calendar change into a public emotional ending.",
+      "visibleCorrectExplanation": "The crowd gives one second the power to close one year and open another.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "False prototype",
+          "explanation": "A false prototype is about unfinished technology pretending to be ready."
+        },
+        {
+          "label": "C",
+          "answer": "Wayfinding system",
+          "explanation": "A wayfinding system helps navigation, not symbolic closure."
+        },
+        {
+          "label": "D",
+          "answer": "Sunk cost",
+          "explanation": "Sunk cost keeps people committed because of past investment."
+        }
+      ],
+      "visibleConnection": "The outside event turns a calendar change into a public emotional ending.",
+      "visibleTakeaway": "Some endings become real because people perform them together.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Times_Square_Ball",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 52,
+          "levelQuestionIndex": 3,
+          "questionId": "question.the-end-is-nearish.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_017",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_018",
+      "stableId": "FV500_REAL_018",
+      "sourceQuestionId": "FV500_REAL_018",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Black Mirror: Nosedive, every social interaction receives a rating until a person’s number starts deciding access, status, and future. What is the number doing to people?",
+      "correctAnswer": "Measuring human worth",
+      "wrongAnswers": [
+        "Progress bar design",
+        "Homecoming",
+        "Rough demo"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Progress bar design",
+          "feedback": "Progress bar design measures task completion, not social ranking."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming",
+          "feedback": "Homecoming deals with return and belonging, not score-based access."
+        },
+        {
+          "label": "D",
+          "answer": "Rough demo",
+          "feedback": "A rough demo shows an early version before a final form."
+        }
+      ],
+      "explanation": "The outside story turns a human life into a visible score that controls opportunity.",
+      "visibleCorrectExplanation": "The rating stops reporting status and starts controlling access to life.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Progress bar design",
+          "explanation": "Progress bar design measures task completion, not social ranking."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming",
+          "explanation": "Homecoming deals with return and belonging, not score-based access."
+        },
+        {
+          "label": "D",
+          "answer": "Rough demo",
+          "explanation": "A rough demo shows an early version before a final form."
+        }
+      ],
+      "visibleConnection": "The outside story turns a human life into a visible score that controls opportunity.",
+      "visibleTakeaway": "A metric becomes powerful when people start living inside it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nosedive_(Black_Mirror)",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 51,
+          "levelQuestionIndex": 1,
+          "questionId": "question.progress-not-regress.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_018",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_019",
+      "stableId": "FV500_REAL_019",
+      "sourceQuestionId": "FV500_REAL_019",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "IKEA guides shoppers through a long preset showroom path, making wandering feel like choosing. What is the layout quietly doing?",
+      "correctAnswer": "Infrastructure shapes behavior",
+      "wrongAnswers": [
+        "Homesickness",
+        "False ending",
+        "Apocalyptic art"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness is emotional distance from home, not a designed shopping route."
+        },
+        {
+          "label": "C",
+          "answer": "False ending",
+          "feedback": "A false ending makes closure unstable, not navigation controlled."
+        },
+        {
+          "label": "D",
+          "answer": "Apocalyptic art",
+          "feedback": "Apocalyptic art visualizes collapse, not consumer movement."
+        }
+      ],
+      "explanation": "The outside situation shows a route quietly steering choices while still feeling optional.",
+      "visibleCorrectExplanation": "The showroom path quietly organizes what shoppers see, miss, and do next.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness is emotional distance from home, not a designed shopping route."
+        },
+        {
+          "label": "C",
+          "answer": "False ending",
+          "explanation": "A false ending makes closure unstable, not navigation controlled."
+        },
+        {
+          "label": "D",
+          "answer": "Apocalyptic art",
+          "explanation": "Apocalyptic art visualizes collapse, not consumer movement."
+        }
+      ],
+      "visibleConnection": "The outside situation shows a route quietly steering choices while still feeling optional.",
+      "visibleTakeaway": "A path can guide behavior without announcing that it is doing so.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/IKEA",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "500",
+          "sectionQuestionIndex": 40,
+          "levelQuestionIndex": 0,
+          "questionId": "question.where-the-sidewalk-starts.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_019",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_020",
+      "stableId": "FV500_REAL_020",
+      "sourceQuestionId": "FV500_REAL_020",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Disney-style amusement-park queues give visitors story details, objects, and scenes before the ride begins. What is the queue doing to the wait?",
+      "correctAnswer": "Occupied waiting",
+      "wrongAnswers": [
+        "Passport power",
+        "Moral arc",
+        "Caretaker power"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport power",
+          "feedback": "Passport power measures international mobility, not a designed line."
+        },
+        {
+          "label": "C",
+          "answer": "Moral arc",
+          "feedback": "The moral arc concerns justice over time, not waiting design."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker power",
+          "feedback": "Caretaker power is temporary authority during transition."
+        }
+      ],
+      "explanation": "The outside situation fills waiting time with activity so delay feels less empty.",
+      "visibleCorrectExplanation": "The queue turns delay into part of the entertainment instead of empty time.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport power",
+          "explanation": "Passport power measures international mobility, not a designed line."
+        },
+        {
+          "label": "C",
+          "answer": "Moral arc",
+          "explanation": "The moral arc concerns justice over time, not waiting design."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker power",
+          "explanation": "Caretaker power is temporary authority during transition."
+        }
+      ],
+      "visibleConnection": "The outside situation fills waiting time with activity so delay feels less empty.",
+      "visibleTakeaway": "Waiting feels different when the wait is given something to do.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Queue_area",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 47,
+          "levelQuestionIndex": 2,
+          "questionId": "question.introductory-questions.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_020",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_021",
+      "stableId": "FV500_REAL_021",
+      "sourceQuestionId": "FV500_REAL_021",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "During the Olympic torch relay, the flame’s journey becomes a public ceremony across many places before it reaches the cauldron. What is the flame’s journey doing?",
+      "correctAnswer": "Ritualized arrival",
+      "wrongAnswers": [
+        "Vaporware promise",
+        "Doorway memory",
+        "Snout house"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Vaporware promise",
+          "feedback": "Vaporware promise sells something not ready, rather than ceremonial movement."
+        },
+        {
+          "label": "C",
+          "answer": "Doorway memory",
+          "feedback": "Doorway memory concerns forgetting after crossing a boundary."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "feedback": "A snout house is an architectural pattern centered on garages."
+        }
+      ],
+      "explanation": "The outside ceremony turns arrival into a process people witness before the endpoint.",
+      "visibleCorrectExplanation": "The flame’s journey makes arrival feel public, gradual, and ceremonial.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Vaporware promise",
+          "explanation": "Vaporware promise sells something not ready, rather than ceremonial movement."
+        },
+        {
+          "label": "C",
+          "answer": "Doorway memory",
+          "explanation": "Doorway memory concerns forgetting after crossing a boundary."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "explanation": "A snout house is an architectural pattern centered on garages."
+        }
+      ],
+      "visibleConnection": "The outside ceremony turns arrival into a process people witness before the endpoint.",
+      "visibleTakeaway": "Ceremony can make the road to arrival part of the arrival.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Olympic_flame",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 48,
+          "levelQuestionIndex": 3,
+          "questionId": "question.introductory-questions.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_021",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_022",
+      "stableId": "FV500_REAL_022",
+      "sourceQuestionId": "FV500_REAL_022",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Good Place, characters keep rebooting into the same test world, but moral learning slowly survives the resets. What kind of progress survives the loops?",
+      "correctAnswer": "Nonlinear progress",
+      "wrongAnswers": [
+        "Fixed destination",
+        "Duty-free transit",
+        "Fake demo"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Fixed destination",
+          "feedback": "A fixed destination would make progress depend only on reaching one endpoint."
+        },
+        {
+          "label": "C",
+          "answer": "Duty-free transit",
+          "feedback": "Duty-free transit is commercial movement through a border zone."
+        },
+        {
+          "label": "D",
+          "answer": "Fake demo",
+          "feedback": "A fake demo performs readiness before the thing works."
+        }
+      ],
+      "explanation": "The outside story makes improvement survive loops, setbacks, and repeated failure.",
+      "visibleCorrectExplanation": "Moral growth survives through resets instead of moving in a clean straight line.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Fixed destination",
+          "explanation": "A fixed destination would make progress depend only on reaching one endpoint."
+        },
+        {
+          "label": "C",
+          "answer": "Duty-free transit",
+          "explanation": "Duty-free transit is commercial movement through a border zone."
+        },
+        {
+          "label": "D",
+          "answer": "Fake demo",
+          "explanation": "A fake demo performs readiness before the thing works."
+        }
+      ],
+      "visibleConnection": "The outside story makes improvement survive loops, setbacks, and repeated failure.",
+      "visibleTakeaway": "Repeated failure can still be part of real growth.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Good_Place",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 52,
+          "levelQuestionIndex": 2,
+          "questionId": "question.progress-not-regress.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_022",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_023",
+      "stableId": "FV500_REAL_023",
+      "sourceQuestionId": "FV500_REAL_023",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Up, Carl Fredricksen ties balloons to his house to fulfill an old adventure dream that life kept postponing. What pressure finally sends the house flying?",
+      "correctAnswer": "Bucket-list pressure",
+      "wrongAnswers": [
+        "Hawthorne Effect",
+        "Caretaker authority",
+        "Big Mac measure"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hawthorne Effect",
+          "feedback": "The Hawthorne Effect changes behavior when people know they are being observed."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker authority",
+          "feedback": "Caretaker authority manages power during transition, not personal aspiration."
+        },
+        {
+          "label": "D",
+          "answer": "Big Mac measure",
+          "feedback": "A Big Mac measure compares economic purchasing power."
+        }
+      ],
+      "explanation": "The outside story turns an unfinished life desire into a concrete mission before time runs out.",
+      "visibleCorrectExplanation": "The flight turns a postponed dream into proof that the adventure still matters.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hawthorne Effect",
+          "explanation": "The Hawthorne Effect changes behavior when people know they are being observed."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker authority",
+          "explanation": "Caretaker authority manages power during transition, not personal aspiration."
+        },
+        {
+          "label": "D",
+          "answer": "Big Mac measure",
+          "explanation": "A Big Mac measure compares economic purchasing power."
+        }
+      ],
+      "visibleConnection": "The outside story turns an unfinished life desire into a concrete mission before time runs out.",
+      "visibleTakeaway": "A dream can become a checklist when time feels finite.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Up_(2009_film)",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 1,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_023",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_024",
+      "stableId": "FV500_REAL_024",
+      "sourceQuestionId": "FV500_REAL_024",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-were-going-well-still-need-them",
+      "sectionIds": [
+        "roads-and-futures",
+        "where-were-going-well-still-need-them"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Great Gatsby, the green light keeps promising a future Gatsby can see, but never truly reach. What does the green light keep producing?",
+      "correctAnswer": "Delayed arrival",
+      "wrongAnswers": [
+        "Done list",
+        "Throbber",
+        "Lame duck"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Done list",
+          "feedback": "A done list preserves completed labor, not an unreachable future."
+        },
+        {
+          "label": "C",
+          "answer": "Throbber",
+          "feedback": "A throbber shows ongoing activity without exact progress."
+        },
+        {
+          "label": "D",
+          "answer": "Lame duck",
+          "feedback": "A lame duck holds office while losing influence."
+        }
+      ],
+      "explanation": "The outside symbol makes the future visible while keeping it out of reach.",
+      "visibleCorrectExplanation": "The green light keeps the future visible but never truly reachable.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Done list",
+          "explanation": "A done list preserves completed labor, not an unreachable future."
+        },
+        {
+          "label": "C",
+          "answer": "Throbber",
+          "explanation": "A throbber shows ongoing activity without exact progress."
+        },
+        {
+          "label": "D",
+          "answer": "Lame duck",
+          "explanation": "A lame duck holds office while losing influence."
+        }
+      ],
+      "visibleConnection": "The outside symbol makes the future visible while keeping it out of reach.",
+      "visibleTakeaway": "A visible goal can be powerful precisely because it remains unreachable.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Great_Gatsby",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where We’re Going, We’ll Still Need Them",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-were-going-well-still-need-them.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-were-going-well-still-need-them",
+          "levelKey": "500",
+          "sectionQuestionIndex": 48,
+          "levelQuestionIndex": 2,
+          "questionId": "question.where-were-going-well-still-need-them.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_024",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_025",
+      "stableId": "FV500_REAL_025",
+      "sourceQuestionId": "FV500_REAL_025",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Tetris, falling blocks keep arriving faster than they can be cleared, so order becomes harder the longer the game continues. What problem does the game turn into?",
+      "correctAnswer": "Overload by accumulation",
+      "wrongAnswers": [
+        "Grand Tour polish",
+        "Homecoming",
+        "Moral arc"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Grand Tour polish",
+          "feedback": "Grand Tour polish is travel as education and status, not accumulation pressure."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming",
+          "feedback": "Homecoming concerns returning and belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Moral arc",
+          "feedback": "The moral arc imagines justice across history, not piling tasks."
+        }
+      ],
+      "explanation": "The outside game turns sorting and clearing into a battle against endless accumulation.",
+      "visibleCorrectExplanation": "The system meant for order becomes harder as unfinished pieces accumulate.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Grand Tour polish",
+          "explanation": "Grand Tour polish is travel as education and status, not accumulation pressure."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming",
+          "explanation": "Homecoming concerns returning and belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Moral arc",
+          "explanation": "The moral arc imagines justice across history, not piling tasks."
+        }
+      ],
+      "visibleConnection": "The outside game turns sorting and clearing into a battle against endless accumulation.",
+      "visibleTakeaway": "A system for order can become another source of pressure when items never stop arriving.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tetris",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 2,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_025",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_026",
+      "stableId": "FV500_REAL_026",
+      "sourceQuestionId": "FV500_REAL_026",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Taylor Swift re-recorded older albums as Taylor’s Version, so the same songs returned with a new ownership status. What kind of return is she creating?",
+      "correctAnswer": "Return with revision",
+      "wrongAnswers": [
+        "Homesickness",
+        "False doomsday",
+        "Road network"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "feedback": "Homesickness is longing for home, not reclaiming older work."
+        },
+        {
+          "label": "C",
+          "answer": "False doomsday",
+          "feedback": "False doomsday predicts an ending that does not arrive."
+        },
+        {
+          "label": "D",
+          "answer": "Road network",
+          "feedback": "A road network is physical infrastructure, not artistic return."
+        }
+      ],
+      "explanation": "The outside case makes return an act of revision, not simple repetition.",
+      "visibleCorrectExplanation": "The songs return with changed ownership, so repetition becomes revision.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness",
+          "explanation": "Homesickness is longing for home, not reclaiming older work."
+        },
+        {
+          "label": "C",
+          "answer": "False doomsday",
+          "explanation": "False doomsday predicts an ending that does not arrive."
+        },
+        {
+          "label": "D",
+          "answer": "Road network",
+          "explanation": "A road network is physical infrastructure, not artistic return."
+        }
+      ],
+      "visibleConnection": "The outside case makes return an act of revision, not simple repetition.",
+      "visibleTakeaway": "Returning to an old work can change what the work now means.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Taylor_Swift_masters_dispute",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 30,
+          "levelQuestionIndex": 1,
+          "questionId": "question.theres-a-draft-in-here.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_026",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_027",
+      "stableId": "FV500_REAL_027",
+      "sourceQuestionId": "FV500_REAL_027",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "During Jaws, the mechanical shark barely worked, so Spielberg showed less of it and let absence create suspense. What did the broken shark become?",
+      "correctAnswer": "Constraint becomes method",
+      "wrongAnswers": [
+        "Passport index",
+        "Caretaker rule",
+        "Duty-free loop"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport index",
+          "feedback": "A passport index ranks mobility, not production constraints."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker rule",
+          "feedback": "Caretaker rule limits temporary power during transition."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free loop",
+          "feedback": "A duty-free loop turns transit into shopping, not suspense."
+        }
+      ],
+      "explanation": "The outside production problem turns an unfinished tool into a stronger artistic technique.",
+      "visibleCorrectExplanation": "The technical weakness becomes part of the film’s suspense method.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport index",
+          "explanation": "A passport index ranks mobility, not production constraints."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker rule",
+          "explanation": "Caretaker rule limits temporary power during transition."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free loop",
+          "explanation": "A duty-free loop turns transit into shopping, not suspense."
+        }
+      ],
+      "visibleConnection": "The outside production problem turns an unfinished tool into a stronger artistic technique.",
+      "visibleTakeaway": "A flaw in process can become part of the final effect.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jaws_(film)",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 31,
+          "levelQuestionIndex": 2,
+          "questionId": "question.theres-a-draft-in-here.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_027",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_028",
+      "stableId": "FV500_REAL_028",
+      "sourceQuestionId": "FV500_REAL_028",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "When a rocket launch is scrubbed at the last moment, the countdown still made everyone feel the mission had almost begun. What does the scrubbed countdown create?",
+      "correctAnswer": "Near-ending pressure",
+      "wrongAnswers": [
+        "Nostalgia tourism",
+        "Bucket list",
+        "Snout house"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nostalgia tourism",
+          "feedback": "Nostalgia tourism romanticizes remembered places, not a delayed start."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket list",
+          "feedback": "A bucket list turns life desires into a checklist."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "feedback": "A snout house is a house dominated by its garage."
+        }
+      ],
+      "explanation": "The outside event shows how a countdown can create emotional arrival before the action actually happens.",
+      "visibleCorrectExplanation": "The countdown creates almost-arrival even when the launch never happens.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nostalgia tourism",
+          "explanation": "Nostalgia tourism romanticizes remembered places, not a delayed start."
+        },
+        {
+          "label": "C",
+          "answer": "Bucket list",
+          "explanation": "A bucket list turns life desires into a checklist."
+        },
+        {
+          "label": "D",
+          "answer": "Snout house",
+          "explanation": "A snout house is a house dominated by its garage."
+        }
+      ],
+      "visibleConnection": "The outside event shows how a countdown can create emotional arrival before the action actually happens.",
+      "visibleTakeaway": "A countdown can make “almost” feel like an event of its own.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Launch_status_check",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 49,
+          "levelQuestionIndex": 4,
+          "questionId": "question.introductory-questions.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_028",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_029",
+      "stableId": "FV500_REAL_029",
+      "sourceQuestionId": "FV500_REAL_029",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Love-lock bridges became famous not for where they lead, but because couples attach locks there to perform permanence. What are the locks doing to the bridge?",
+      "correctAnswer": "Performed belonging",
+      "wrongAnswers": [
+        "Airport lounge",
+        "Console output",
+        "Moral arc"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Airport lounge",
+          "feedback": "An airport lounge is a waiting space, not a ritualized place of attachment."
+        },
+        {
+          "label": "C",
+          "answer": "Console output",
+          "feedback": "Console output reports technical process, not emotional belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Moral arc",
+          "feedback": "The moral arc is a story about justice over time."
+        }
+      ],
+      "explanation": "The outside practice turns a passage structure into a ritual site for identity and memory.",
+      "visibleCorrectExplanation": "The locks make the bridge meaningful through repeated public gestures of attachment.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Airport lounge",
+          "explanation": "An airport lounge is a waiting space, not a ritualized place of attachment."
+        },
+        {
+          "label": "C",
+          "answer": "Console output",
+          "explanation": "Console output reports technical process, not emotional belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Moral arc",
+          "explanation": "The moral arc is a story about justice over time."
+        }
+      ],
+      "visibleConnection": "The outside practice turns a passage structure into a ritual site for identity and memory.",
+      "visibleTakeaway": "People can turn infrastructure into a symbolic destination.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Love_lock",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 50,
+          "levelQuestionIndex": 5,
+          "questionId": "question.introductory-questions.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_029",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_030",
+      "stableId": "FV500_REAL_030",
+      "sourceQuestionId": "FV500_REAL_030",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In the Mona Lisa gallery at the Louvre, visitors often photograph the painting first, while the crowd and glass change the experience of seeing it. What is the crowd doing to authenticity?",
+      "correctAnswer": "Authenticity under attention",
+      "wrongAnswers": [
+        "Hofstadter schedule",
+        "Caretaker power",
+        "Done list"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Hofstadter schedule",
+          "feedback": "A Hofstadter schedule is about time estimates taking longer than expected."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker power",
+          "feedback": "Caretaker power is temporary political authority."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "feedback": "A done list preserves evidence of completed work."
+        }
+      ],
+      "explanation": "The outside situation shows how trying to capture an authentic encounter can alter the encounter itself.",
+      "visibleCorrectExplanation": "The crowd and cameras change the experience they came to preserve.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Hofstadter schedule",
+          "explanation": "A Hofstadter schedule is about time estimates taking longer than expected."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker power",
+          "explanation": "Caretaker power is temporary political authority."
+        },
+        {
+          "label": "D",
+          "answer": "Done list",
+          "explanation": "A done list preserves evidence of completed work."
+        }
+      ],
+      "visibleConnection": "The outside situation shows how trying to capture an authentic encounter can alter the encounter itself.",
+      "visibleTakeaway": "Attention can damage the authenticity it came to find.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mona_Lisa",
+      "sourceNote": "Built after demoting all previous 500s to 400. Stem uses a real external movie, artwork, song, event, product, or public situation. | Prompt updated to name the real external reference directly.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "500",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 0,
+          "questionId": "question.call-of-duty-free.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_030",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_056",
+      "stableId": "FV500_REAL_056",
+      "sourceQuestionId": "FV500_REAL_056",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Parasite, the Kim family climbs back down into flooded streets after leaving the Park house above them. What social measurement does that image attack most directly?",
+      "correctAnswer": "Vertical inequality",
+      "wrongAnswers": [
+        "Passport mobility",
+        "Done-list pride",
+        "Auxiliary play"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport mobility",
+          "feedback": "Passport mobility measures how freely people cross borders, not how unequal life feels inside one city."
+        },
+        {
+          "label": "C",
+          "answer": "Done-list pride",
+          "feedback": "Done-list pride is about remembering completed work, not measuring social distance."
+        },
+        {
+          "label": "D",
+          "answer": "Auxiliary play",
+          "feedback": "Auxiliary play distracts people during waiting; it does not expose class hierarchy."
+        }
+      ],
+      "explanation": "The film turns class difference into literal height, distance, and flooding.",
+      "visibleCorrectExplanation": "The climb downward makes inequality physical: one family lives above the disaster while another returns to it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport mobility",
+          "explanation": "Passport mobility measures how freely people cross borders, not how unequal life feels inside one city."
+        },
+        {
+          "label": "C",
+          "answer": "Done-list pride",
+          "explanation": "Done-list pride is about remembering completed work, not measuring social distance."
+        },
+        {
+          "label": "D",
+          "answer": "Auxiliary play",
+          "explanation": "Auxiliary play distracts people during waiting; it does not expose class hierarchy."
+        }
+      ],
+      "visibleConnection": "The film turns class difference into literal height, distance, and flooding.",
+      "visibleTakeaway": "A number like inequality becomes easier to grasp when a story turns it into space.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Parasite_(2019_film)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 53,
+          "levelQuestionIndex": 3,
+          "questionId": "question.progress-not-regress.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_056",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_057",
+      "stableId": "FV500_REAL_057",
+      "sourceQuestionId": "FV500_REAL_057",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Toy Story 3, Andy gives his toys away and the story feels complete, yet the franchise later continues. What kind of ending did that moment become?",
+      "correctAnswer": "A false ending",
+      "wrongAnswers": [
+        "A point of no return",
+        "A done list",
+        "A stroad"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A point of no return",
+          "feedback": "A point of no return blocks reversal after a threshold; this case is about closure being reopened."
+        },
+        {
+          "label": "C",
+          "answer": "A done list",
+          "feedback": "A done list preserves completed work; it does not describe a story that resumes after farewell."
+        },
+        {
+          "label": "D",
+          "answer": "A stroad",
+          "feedback": "A stroad blends street and road functions; it has no narrative closure problem."
+        }
+      ],
+      "explanation": "The movie creates emotional closure that later stops being final once the story continues.",
+      "visibleCorrectExplanation": "The farewell works like an ending, but the later continuation turns that closure into a near-ending.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A point of no return",
+          "explanation": "A point of no return blocks reversal after a threshold; this case is about closure being reopened."
+        },
+        {
+          "label": "C",
+          "answer": "A done list",
+          "explanation": "A done list preserves completed work; it does not describe a story that resumes after farewell."
+        },
+        {
+          "label": "D",
+          "answer": "A stroad",
+          "explanation": "A stroad blends street and road functions; it has no narrative closure problem."
+        }
+      ],
+      "visibleConnection": "The movie creates emotional closure that later stops being final once the story continues.",
+      "visibleTakeaway": "A powerful ending can feel final even when the larger system keeps going.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Toy_Story_3",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 51,
+          "levelQuestionIndex": 6,
+          "questionId": "question.introductory-questions.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_057",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_058",
+      "stableId": "FV500_REAL_058",
+      "sourceQuestionId": "FV500_REAL_058",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Banksy’s Girl with Balloon shredded itself at Sotheby’s in 2018, then became even more famous. What did destruction unexpectedly create?",
+      "correctAnswer": "Unfinishedness as value",
+      "wrongAnswers": [
+        "Scheduled apocalypse",
+        "Linear progress",
+        "Airport wayfinding"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Scheduled apocalypse",
+          "feedback": "Scheduled apocalypse gives fear a date; the auction event changed an artwork’s status."
+        },
+        {
+          "label": "C",
+          "answer": "Linear progress",
+          "feedback": "Linear progress moves forward cleanly; this value came from rupture and surprise."
+        },
+        {
+          "label": "D",
+          "answer": "Airport wayfinding",
+          "feedback": "Airport wayfinding directs movement through space; it does not explain damaged art gaining meaning."
+        }
+      ],
+      "explanation": "The event turned damage into part of the artwork’s public life rather than a simple loss.",
+      "visibleCorrectExplanation": "The shredded version became meaningful because the interruption became part of the work itself.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Scheduled apocalypse",
+          "explanation": "Scheduled apocalypse gives fear a date; the auction event changed an artwork’s status."
+        },
+        {
+          "label": "C",
+          "answer": "Linear progress",
+          "explanation": "Linear progress moves forward cleanly; this value came from rupture and surprise."
+        },
+        {
+          "label": "D",
+          "answer": "Airport wayfinding",
+          "explanation": "Airport wayfinding directs movement through space; it does not explain damaged art gaining meaning."
+        }
+      ],
+      "visibleConnection": "The event turned damage into part of the artwork’s public life rather than a simple loss.",
+      "visibleTakeaway": "A work can become more powerful when the “mistake” becomes part of its story.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Love_Is_in_the_Bin",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 3,
+          "questionId": "question.theres-a-draft-in-here.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_058",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_059",
+      "stableId": "FV500_REAL_059",
+      "sourceQuestionId": "FV500_REAL_059",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "During the 2021 Suez Canal blockage, the Ever Given stopped one ship but disrupted trade far beyond it. What structure does that reveal?",
+      "correctAnswer": "Network dependence",
+      "wrongAnswers": [
+        "Nostalgic travel",
+        "Poetic listing",
+        "Dark tourism"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Nostalgic travel",
+          "feedback": "Nostalgic travel looks backward with longing; the canal blockage exposed dependency in the present."
+        },
+        {
+          "label": "C",
+          "answer": "Poetic listing",
+          "feedback": "Poetic listing expands meaning through abundance; it does not explain a blocked trade route."
+        },
+        {
+          "label": "D",
+          "answer": "Dark tourism",
+          "feedback": "Dark tourism visits places of tragedy; the Suez event was a logistics failure."
+        }
+      ],
+      "explanation": "One blocked passage exposed how many distant routes depended on a single chokepoint.",
+      "visibleCorrectExplanation": "The blockage mattered because a single stuck point disrupted a much larger movement system.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Nostalgic travel",
+          "explanation": "Nostalgic travel looks backward with longing; the canal blockage exposed dependency in the present."
+        },
+        {
+          "label": "C",
+          "answer": "Poetic listing",
+          "explanation": "Poetic listing expands meaning through abundance; it does not explain a blocked trade route."
+        },
+        {
+          "label": "D",
+          "answer": "Dark tourism",
+          "explanation": "Dark tourism visits places of tragedy; the Suez event was a logistics failure."
+        }
+      ],
+      "visibleConnection": "One blocked passage exposed how many distant routes depended on a single chokepoint.",
+      "visibleTakeaway": "A system can look flexible until one chokepoint freezes the whole route.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "500",
+          "sectionQuestionIndex": 41,
+          "levelQuestionIndex": 1,
+          "questionId": "question.where-the-sidewalk-starts.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_059",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_060",
+      "stableId": "FV500_REAL_060",
+      "sourceQuestionId": "FV500_REAL_060",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the 2017 Oscars, La La Land was announced before Moonlight was confirmed as Best Picture. What kind of arrival happened too early?",
+      "correctAnswer": "Administrative false ending",
+      "wrongAnswers": [
+        "Cyclical progress",
+        "Grand Tour education",
+        "Skeleton loading"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Cyclical progress",
+          "feedback": "Cyclical progress repeats to create change; the Oscars moment was a mistaken finish."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour education",
+          "feedback": "Grand Tour education treats travel as formation; no educational journey is being tested here."
+        },
+        {
+          "label": "D",
+          "answer": "Skeleton loading",
+          "feedback": "Skeleton loading previews content during a wait; the ceremony announced the wrong result."
+        }
+      ],
+      "explanation": "The ceremony declared a finish before the result was actually settled in public.",
+      "visibleCorrectExplanation": "The wrong announcement created a public ending that had to be undone seconds later.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Cyclical progress",
+          "explanation": "Cyclical progress repeats to create change; the Oscars moment was a mistaken finish."
+        },
+        {
+          "label": "C",
+          "answer": "Grand Tour education",
+          "explanation": "Grand Tour education treats travel as formation; no educational journey is being tested here."
+        },
+        {
+          "label": "D",
+          "answer": "Skeleton loading",
+          "explanation": "Skeleton loading previews content during a wait; the ceremony announced the wrong result."
+        }
+      ],
+      "visibleConnection": "The ceremony declared a finish before the result was actually settled in public.",
+      "visibleTakeaway": "A system can declare an ending before the truth has finished arriving.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/89th_Academy_Awards#Best_Picture_announcement_error",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 52,
+          "levelQuestionIndex": 7,
+          "questionId": "question.introductory-questions.500.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_060",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_061",
+      "stableId": "FV500_REAL_061",
+      "sourceQuestionId": "FV500_REAL_061",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In the 2018 Hawaii false missile alert, people lived through the end before learning it was a mistake. What did the warning manufacture?",
+      "correctAnswer": "Last-chance urgency",
+      "wrongAnswers": [
+        "Done-list evidence",
+        "Retrofuturist comfort",
+        "Linguistic drift"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Done-list evidence",
+          "feedback": "Done-list evidence records completed work; the alert created panic, not accomplishment."
+        },
+        {
+          "label": "C",
+          "answer": "Retrofuturist comfort",
+          "feedback": "Retrofuturist comfort looks back at old futures; the alert was immediate fear."
+        },
+        {
+          "label": "D",
+          "answer": "Linguistic drift",
+          "feedback": "Linguistic drift changes language over time; this case changed behavior through urgency."
+        }
+      ],
+      "explanation": "The alert made a possible ending feel immediate and forced people into emergency thinking.",
+      "visibleCorrectExplanation": "The false alert compressed time into crisis, making every choice feel final for a short period.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Done-list evidence",
+          "explanation": "Done-list evidence records completed work; the alert created panic, not accomplishment."
+        },
+        {
+          "label": "C",
+          "answer": "Retrofuturist comfort",
+          "explanation": "Retrofuturist comfort looks back at old futures; the alert was immediate fear."
+        },
+        {
+          "label": "D",
+          "answer": "Linguistic drift",
+          "explanation": "Linguistic drift changes language over time; this case changed behavior through urgency."
+        }
+      ],
+      "visibleConnection": "The alert made a possible ending feel immediate and forced people into emergency thinking.",
+      "visibleTakeaway": "A countdown or alert can change reality before the danger is even confirmed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2018_Hawaii_false_missile_alert",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 53,
+          "levelQuestionIndex": 4,
+          "questionId": "question.the-end-is-nearish.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_061",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_062",
+      "stableId": "FV500_REAL_062",
+      "sourceQuestionId": "FV500_REAL_062",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "The Fyre Festival trailer promised luxury, escape, and status, but the event collapsed into tents and chaos. What was sold before it existed?",
+      "correctAnswer": "Performed arrival",
+      "wrongAnswers": [
+        "Maintenance culture",
+        "Caretaker restraint",
+        "Cyclical progress"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Maintenance culture",
+          "feedback": "Maintenance culture protects working systems; Fyre Festival lacked the system in the first place."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker restraint",
+          "feedback": "Caretaker restraint limits temporary power; it does not explain a luxury promise collapsing."
+        },
+        {
+          "label": "D",
+          "answer": "Cyclical progress",
+          "feedback": "Cyclical progress changes through repetition; Fyre was a staged arrival without support."
+        }
+      ],
+      "explanation": "The promotion made the destination feel socially real before the infrastructure existed.",
+      "visibleCorrectExplanation": "The event was marketed as an achieved lifestyle before the basic conditions were built.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Maintenance culture",
+          "explanation": "Maintenance culture protects working systems; Fyre Festival lacked the system in the first place."
+        },
+        {
+          "label": "C",
+          "answer": "Caretaker restraint",
+          "explanation": "Caretaker restraint limits temporary power; it does not explain a luxury promise collapsing."
+        },
+        {
+          "label": "D",
+          "answer": "Cyclical progress",
+          "explanation": "Cyclical progress changes through repetition; Fyre was a staged arrival without support."
+        }
+      ],
+      "visibleConnection": "The promotion made the destination feel socially real before the infrastructure existed.",
+      "visibleTakeaway": "A polished promise can make arrival look complete before anything is ready.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fyre_Festival",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 2,
+          "questionId": "question.monkey-see-monkey-prototype.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_062",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_063",
+      "stableId": "FV500_REAL_063",
+      "sourceQuestionId": "FV500_REAL_063",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In 2019, Apple canceled AirPower after years of promising it as an upcoming wireless charger. What kind of future did it become?",
+      "correctAnswer": "Canceled tech promise",
+      "wrongAnswers": [
+        "Completed task record",
+        "Tragic-site tourism",
+        "Rite-of-passage marker"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Completed task record",
+          "feedback": "Completed task records preserve work already done; AirPower is remembered for non-arrival."
+        },
+        {
+          "label": "C",
+          "answer": "Tragic-site tourism",
+          "feedback": "Tragic-site tourism visits places marked by suffering; this case is a canceled product promise."
+        },
+        {
+          "label": "D",
+          "answer": "Rite-of-passage marker",
+          "feedback": "Rite-of-passage markers show transition; AirPower never crossed into release."
+        }
+      ],
+      "explanation": "The product stayed publicly anticipated but never became a delivered consumer object.",
+      "visibleCorrectExplanation": "AirPower stayed public as an upcoming device until cancellation replaced release.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Completed task record",
+          "explanation": "Completed task records preserve work already done; AirPower is remembered for non-arrival."
+        },
+        {
+          "label": "C",
+          "answer": "Tragic-site tourism",
+          "explanation": "Tragic-site tourism visits places marked by suffering; this case is a canceled product promise."
+        },
+        {
+          "label": "D",
+          "answer": "Rite-of-passage marker",
+          "explanation": "Rite-of-passage markers show transition; AirPower never crossed into release."
+        }
+      ],
+      "visibleConnection": "The product stayed publicly anticipated but never became a delivered consumer object.",
+      "visibleTakeaway": "Some futures stay visible only as promises, prototypes, or announcements.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/AirPower_(Apple)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 3,
+          "questionId": "question.monkey-see-monkey-prototype.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_063",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_064",
+      "stableId": "FV500_REAL_064",
+      "sourceQuestionId": "FV500_REAL_064",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "During Tesla’s 2019 Cybertruck reveal, the supposedly unbreakable window cracked onstage. What did the demonstration accidentally reveal?",
+      "correctAnswer": "Prototype fragility",
+      "wrongAnswers": [
+        "Poetic abundance",
+        "Homesick memory",
+        "Duty-free browsing"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Poetic abundance",
+          "feedback": "Poetic abundance expands meaning through lists; the window crack exposed material weakness."
+        },
+        {
+          "label": "C",
+          "answer": "Homesick memory",
+          "feedback": "Homesick memory is about longing for home; the demo was about technological readiness."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free browsing",
+          "feedback": "Duty-free browsing redirects waiting into shopping; the reveal failed under testing."
+        }
+      ],
+      "explanation": "The stage demo meant to prove readiness instead exposed a weakness in public.",
+      "visibleCorrectExplanation": "The cracked glass turned the reveal into evidence that the product was still not as ready as promised.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Poetic abundance",
+          "explanation": "Poetic abundance expands meaning through lists; the window crack exposed material weakness."
+        },
+        {
+          "label": "C",
+          "answer": "Homesick memory",
+          "explanation": "Homesick memory is about longing for home; the demo was about technological readiness."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free browsing",
+          "explanation": "Duty-free browsing redirects waiting into shopping; the reveal failed under testing."
+        }
+      ],
+      "visibleConnection": "The stage demo meant to prove readiness instead exposed a weakness in public.",
+      "visibleTakeaway": "A demo can become more revealing when it fails than when it works.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tesla_Cybertruck#Announcement",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 4,
+          "questionId": "question.theres-a-draft-in-here.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_064",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_065",
+      "stableId": "FV500_REAL_065",
+      "sourceQuestionId": "FV500_REAL_065",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In 1985, New Coke was introduced as an improvement, then quickly reversed after public backlash. What did the launch misunderstand?",
+      "correctAnswer": "Progress as value conflict",
+      "wrongAnswers": [
+        "Liminal architecture",
+        "Zeigarnik memory",
+        "Airport boredom"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Liminal architecture",
+          "feedback": "Liminal architecture concerns in-between spaces; the launch was a value conflict around a product."
+        },
+        {
+          "label": "C",
+          "answer": "Zeigarnik memory",
+          "feedback": "Zeigarnik memory keeps unfinished tasks active; New Coke was a rejected redesign."
+        },
+        {
+          "label": "D",
+          "answer": "Airport boredom",
+          "feedback": "Airport boredom concerns waiting; the backlash came from perceived loss, not delay."
+        }
+      ],
+      "explanation": "The product changed measurable taste while underestimating memory, identity, and loyalty.",
+      "visibleCorrectExplanation": "New Coke treated change as improvement while consumers judged value through attachment and tradition.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Liminal architecture",
+          "explanation": "Liminal architecture concerns in-between spaces; the launch was a value conflict around a product."
+        },
+        {
+          "label": "C",
+          "answer": "Zeigarnik memory",
+          "explanation": "Zeigarnik memory keeps unfinished tasks active; New Coke was a rejected redesign."
+        },
+        {
+          "label": "D",
+          "answer": "Airport boredom",
+          "explanation": "Airport boredom concerns waiting; the backlash came from perceived loss, not delay."
+        }
+      ],
+      "visibleConnection": "The product changed measurable taste while underestimating memory, identity, and loyalty.",
+      "visibleTakeaway": "Calling something improved does not mean people will experience it as progress.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/New_Coke",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 54,
+          "levelQuestionIndex": 4,
+          "questionId": "question.progress-not-regress.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_065",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_066",
+      "stableId": "FV500_REAL_066",
+      "sourceQuestionId": "FV500_REAL_066",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Apollo 13, the mission goal changed from landing on the Moon to bringing the crew home alive. What did the journey become?",
+      "correctAnswer": "A detour with a new destination",
+      "wrongAnswers": [
+        "A bucket list performance",
+        "A fake progress display",
+        "A Grand Tour itinerary"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A bucket list performance",
+          "feedback": "A bucket list performs desired experiences; Apollo 13 abandoned the planned achievement."
+        },
+        {
+          "label": "C",
+          "answer": "A fake progress display",
+          "feedback": "A fake progress display stages movement; the mission faced a real emergency."
+        },
+        {
+          "label": "D",
+          "answer": "A Grand Tour itinerary",
+          "feedback": "A Grand Tour itinerary plans cultural formation; Apollo 13 became crisis navigation."
+        }
+      ],
+      "explanation": "The original endpoint stopped being the measure of success once survival became the goal.",
+      "visibleCorrectExplanation": "Apollo 13 shows a route change so serious that the destination itself had to be redefined.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A bucket list performance",
+          "explanation": "A bucket list performs desired experiences; Apollo 13 abandoned the planned achievement."
+        },
+        {
+          "label": "C",
+          "answer": "A fake progress display",
+          "explanation": "A fake progress display stages movement; the mission faced a real emergency."
+        },
+        {
+          "label": "D",
+          "answer": "A Grand Tour itinerary",
+          "explanation": "A Grand Tour itinerary plans cultural formation; Apollo 13 became crisis navigation."
+        }
+      ],
+      "visibleConnection": "The original endpoint stopped being the measure of success once survival became the goal.",
+      "visibleTakeaway": "A detour can change what success means, not just how someone gets there.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Apollo_13",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 53,
+          "levelQuestionIndex": 8,
+          "questionId": "question.introductory-questions.500.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_066",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_067",
+      "stableId": "FV500_REAL_067",
+      "sourceQuestionId": "FV500_REAL_067",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Matrix, Neo takes the red pill and cannot return to ordinary ignorance afterward. What kind of crossing is that?",
+      "correctAnswer": "Point of no return",
+      "wrongAnswers": [
+        "False ending",
+        "Done list",
+        "Moving sidewalk"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "feedback": "False ending describes closure that later reopens; Neo’s choice is a threshold, not a fake finale."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "feedback": "A done list records completed work; the red pill changes what can still be unknown."
+        },
+        {
+          "label": "D",
+          "answer": "Moving sidewalk",
+          "feedback": "A moving sidewalk is reduced futurist infrastructure, not an irreversible decision."
+        }
+      ],
+      "explanation": "The choice creates knowledge that cannot be undone and changes every later decision.",
+      "visibleCorrectExplanation": "The red pill works as an irreversible threshold: once Neo sees the truth, returning is no longer simple.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "False ending",
+          "explanation": "False ending describes closure that later reopens; Neo’s choice is a threshold, not a fake finale."
+        },
+        {
+          "label": "C",
+          "answer": "Done list",
+          "explanation": "A done list records completed work; the red pill changes what can still be unknown."
+        },
+        {
+          "label": "D",
+          "answer": "Moving sidewalk",
+          "explanation": "A moving sidewalk is reduced futurist infrastructure, not an irreversible decision."
+        }
+      ],
+      "visibleConnection": "The choice creates knowledge that cannot be undone and changes every later decision.",
+      "visibleTakeaway": "Some crossings matter because they remove the option of going back unchanged.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Red_pill_and_blue_pill",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 54,
+          "levelQuestionIndex": 9,
+          "questionId": "question.introductory-questions.500.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_067",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_068",
+      "stableId": "FV500_REAL_068",
+      "sourceQuestionId": "FV500_REAL_068",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Marcel Duchamp’s Fountain became art partly because a urinal was moved into an art context. What changed first?",
+      "correctAnswer": "Institutional framing",
+      "wrongAnswers": [
+        "Thermal disorder",
+        "Airport transit",
+        "Lame-duck power"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Thermal disorder",
+          "feedback": "Thermal disorder explains decay in closed systems; Duchamp’s work concerns artistic status."
+        },
+        {
+          "label": "C",
+          "answer": "Airport transit",
+          "feedback": "Airport transit concerns being physically present without admission; Fountain concerns art-world recognition."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck power",
+          "feedback": "Lame-duck power separates office from influence; Fountain separates object from art status."
+        }
+      ],
+      "explanation": "The object’s status changed because the institution and context changed how it was read.",
+      "visibleCorrectExplanation": "Fountain shows that meaning can be granted by framing before the object itself changes.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Thermal disorder",
+          "explanation": "Thermal disorder explains decay in closed systems; Duchamp’s work concerns artistic status."
+        },
+        {
+          "label": "C",
+          "answer": "Airport transit",
+          "explanation": "Airport transit concerns being physically present without admission; Fountain concerns art-world recognition."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck power",
+          "explanation": "Lame-duck power separates office from influence; Fountain separates object from art status."
+        }
+      ],
+      "visibleConnection": "The object’s status changed because the institution and context changed how it was read.",
+      "visibleTakeaway": "Sometimes “arrival” depends on who recognizes the object, not what the object is.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fountain_(Duchamp)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 4,
+          "questionId": "question.monkey-see-monkey-prototype.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_068",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_069",
+      "stableId": "FV500_REAL_069",
+      "sourceQuestionId": "FV500_REAL_069",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Claude Monet painted Rouen Cathedral again and again as light changed across the day. What kind of progress does that suggest?",
+      "correctAnswer": "Variation through repetition",
+      "wrongAnswers": [
+        "One-way completion",
+        "Administrative closure",
+        "Airport retail"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "One-way completion",
+          "feedback": "One-way completion treats progress as a straight line; the paintings return to the same subject."
+        },
+        {
+          "label": "C",
+          "answer": "Administrative closure",
+          "feedback": "Administrative closure is declared by rules; Monet’s work develops through repeated seeing."
+        },
+        {
+          "label": "D",
+          "answer": "Airport retail",
+          "feedback": "Airport retail redirects waiting into shopping; it does not explain repeated artistic variation."
+        }
+      ],
+      "explanation": "The repeated subject changes because perception, light, and time keep changing around it.",
+      "visibleCorrectExplanation": "Monet’s series makes repetition productive: the same cathedral becomes different through changing conditions.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "One-way completion",
+          "explanation": "One-way completion treats progress as a straight line; the paintings return to the same subject."
+        },
+        {
+          "label": "C",
+          "answer": "Administrative closure",
+          "explanation": "Administrative closure is declared by rules; Monet’s work develops through repeated seeing."
+        },
+        {
+          "label": "D",
+          "answer": "Airport retail",
+          "explanation": "Airport retail redirects waiting into shopping; it does not explain repeated artistic variation."
+        }
+      ],
+      "visibleConnection": "The repeated subject changes because perception, light, and time keep changing around it.",
+      "visibleTakeaway": "Repeating the same route can still reveal something new.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rouen_Cathedral_(Monet_series)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 5,
+          "questionId": "question.theres-a-draft-in-here.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_069",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_070",
+      "stableId": "FV500_REAL_070",
+      "sourceQuestionId": "FV500_REAL_070",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Yayoi Kusama’s Infinity Mirror Rooms feel endless even though visitors stand inside a bounded gallery room. What is being engineered?",
+      "correctAnswer": "Simulated boundlessness",
+      "wrongAnswers": [
+        "Caretaker legitimacy",
+        "Food-pill futurism",
+        "Lame-duck decline"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Caretaker legitimacy",
+          "feedback": "Caretaker legitimacy depends on temporary restraint; Kusama’s work changes perception, not authority."
+        },
+        {
+          "label": "C",
+          "answer": "Food-pill futurism",
+          "feedback": "Food-pill futurism imagines reduced future convenience; the mirror room expands perceived space."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck decline",
+          "feedback": "Lame-duck decline concerns power fading before office ends; the gallery room concerns spatial illusion."
+        }
+      ],
+      "explanation": "The installation uses mirrors to make a limited room feel like an endless space.",
+      "visibleCorrectExplanation": "The room’s physical boundary remains small, but reflection makes the experience feel unlimited.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Caretaker legitimacy",
+          "explanation": "Caretaker legitimacy depends on temporary restraint; Kusama’s work changes perception, not authority."
+        },
+        {
+          "label": "C",
+          "answer": "Food-pill futurism",
+          "explanation": "Food-pill futurism imagines reduced future convenience; the mirror room expands perceived space."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck decline",
+          "explanation": "Lame-duck decline concerns power fading before office ends; the gallery room concerns spatial illusion."
+        }
+      ],
+      "visibleConnection": "The installation uses mirrors to make a limited room feel like an endless space.",
+      "visibleTakeaway": "A space can feel larger than its physical limits when design changes perception.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yayoi_Kusama",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "500",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 1,
+          "questionId": "question.the-lovely-and-the-liminal.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_070",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_071",
+      "stableId": "FV500_REAL_071",
+      "sourceQuestionId": "FV500_REAL_071",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Beyoncé’s Homecoming, a concert becomes a staged return to history, school culture, and collective pride. What kind of arrival is being performed?",
+      "correctAnswer": "Cultural homecoming",
+      "wrongAnswers": [
+        "Vaporware launch",
+        "Doorway forgetting",
+        "Stroad confusion"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Vaporware launch",
+          "feedback": "Vaporware launch promises a product that never arrives; this performance centers return and identity."
+        },
+        {
+          "label": "C",
+          "answer": "Doorway forgetting",
+          "feedback": "Doorway forgetting concerns memory disrupted by crossing spaces; Homecoming builds memory deliberately."
+        },
+        {
+          "label": "D",
+          "answer": "Stroad confusion",
+          "feedback": "Stroad confusion mixes road and street functions; it does not describe cultural return."
+        }
+      ],
+      "explanation": "The performance turns return into a public act of memory, belonging, and cultural recognition.",
+      "visibleCorrectExplanation": "Homecoming becomes more than going back; it stages belonging as a collective cultural arrival.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Vaporware launch",
+          "explanation": "Vaporware launch promises a product that never arrives; this performance centers return and identity."
+        },
+        {
+          "label": "C",
+          "answer": "Doorway forgetting",
+          "explanation": "Doorway forgetting concerns memory disrupted by crossing spaces; Homecoming builds memory deliberately."
+        },
+        {
+          "label": "D",
+          "answer": "Stroad confusion",
+          "explanation": "Stroad confusion mixes road and street functions; it does not describe cultural return."
+        }
+      ],
+      "visibleConnection": "The performance turns return into a public act of memory, belonging, and cultural recognition.",
+      "visibleTakeaway": "A return can be a public performance of identity, not just a movement backward.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Homecoming_(2019_film)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 3,
+          "questionId": "question.home-and-wandering.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_071",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_072",
+      "stableId": "FV500_REAL_072",
+      "sourceQuestionId": "FV500_REAL_072",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Harry Potter and the Deathly Hallows, Platform 9¾ is a hidden threshold inside an ordinary train station. What does that doorway do?",
+      "correctAnswer": "Turns transit into passage",
+      "wrongAnswers": [
+        "Measures national income",
+        "Preserves finished labor",
+        "Stages product readiness"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Measures national income",
+          "feedback": "National income measures economic output; the platform is about crossing worlds."
+        },
+        {
+          "label": "C",
+          "answer": "Preserves finished labor",
+          "feedback": "Preserving finished labor describes done lists; the platform changes access and belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Stages product readiness",
+          "feedback": "Product readiness concerns launch status; Platform 9¾ is a hidden passage."
+        }
+      ],
+      "explanation": "A normal station becomes a crossing point between ordinary space and another world.",
+      "visibleCorrectExplanation": "Platform 9¾ makes a transit place into a threshold where identity and destination change at once.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Measures national income",
+          "explanation": "National income measures economic output; the platform is about crossing worlds."
+        },
+        {
+          "label": "C",
+          "answer": "Preserves finished labor",
+          "explanation": "Preserving finished labor describes done lists; the platform changes access and belonging."
+        },
+        {
+          "label": "D",
+          "answer": "Stages product readiness",
+          "explanation": "Product readiness concerns launch status; Platform 9¾ is a hidden passage."
+        }
+      ],
+      "visibleConnection": "A normal station becomes a crossing point between ordinary space and another world.",
+      "visibleTakeaway": "A threshold can hide inside a familiar place and still change everything after it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Harry_Potter",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "500",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 2,
+          "questionId": "question.the-lovely-and-the-liminal.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_072",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_073",
+      "stableId": "FV500_REAL_073",
+      "sourceQuestionId": "FV500_REAL_073",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Avengers: Endgame, the heroes go back to earlier moments because the present cannot be fixed by moving forward alone. What shape does progress take?",
+      "correctAnswer": "Recursive repair",
+      "wrongAnswers": [
+        "Straight-line improvement",
+        "Customs-free shopping",
+        "Architectural prairie style"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Straight-line improvement",
+          "feedback": "Straight-line improvement would keep moving ahead; Endgame goes backward to repair the present."
+        },
+        {
+          "label": "C",
+          "answer": "Customs-free shopping",
+          "feedback": "Customs-free shopping belongs to transit commerce; it does not explain temporal repair."
+        },
+        {
+          "label": "D",
+          "answer": "Architectural prairie style",
+          "feedback": "Prairie style is an architectural language, not a model of progress through return."
+        }
+      ],
+      "explanation": "The plot makes repair depend on returning to earlier points rather than advancing in a clean line.",
+      "visibleCorrectExplanation": "The time heist treats progress as repair through return, not simple forward movement.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Straight-line improvement",
+          "explanation": "Straight-line improvement would keep moving ahead; Endgame goes backward to repair the present."
+        },
+        {
+          "label": "C",
+          "answer": "Customs-free shopping",
+          "explanation": "Customs-free shopping belongs to transit commerce; it does not explain temporal repair."
+        },
+        {
+          "label": "D",
+          "answer": "Architectural prairie style",
+          "explanation": "Prairie style is an architectural language, not a model of progress through return."
+        }
+      ],
+      "visibleConnection": "The plot makes repair depend on returning to earlier points rather than advancing in a clean line.",
+      "visibleTakeaway": "Moving forward sometimes requires revisiting what was already passed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Avengers:_Endgame",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 55,
+          "levelQuestionIndex": 5,
+          "questionId": "question.progress-not-regress.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_073",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_074",
+      "stableId": "FV500_REAL_074",
+      "sourceQuestionId": "FV500_REAL_074",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Bear, the kitchen ticket printer keeps spitting out orders faster than the crew can finish them. What pressure takes over?",
+      "correctAnswer": "Endless task accumulation",
+      "wrongAnswers": [
+        "Passport privilege",
+        "Retrofuturist nostalgia",
+        "Caretaker restraint"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Passport privilege",
+          "feedback": "Passport privilege measures cross-border mobility; the kitchen pressure comes from too many tasks."
+        },
+        {
+          "label": "C",
+          "answer": "Retrofuturist nostalgia",
+          "feedback": "Retrofuturist nostalgia looks back at old futures; the printer creates immediate overload."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker restraint",
+          "feedback": "Caretaker restraint limits temporary authority; the kitchen scene is about task accumulation."
+        }
+      ],
+      "explanation": "The visible queue of tasks becomes a source of panic instead of control.",
+      "visibleCorrectExplanation": "The tickets turn work into a growing list that overwhelms the people meant to complete it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Passport privilege",
+          "explanation": "Passport privilege measures cross-border mobility; the kitchen pressure comes from too many tasks."
+        },
+        {
+          "label": "C",
+          "answer": "Retrofuturist nostalgia",
+          "explanation": "Retrofuturist nostalgia looks back at old futures; the printer creates immediate overload."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker restraint",
+          "explanation": "Caretaker restraint limits temporary authority; the kitchen scene is about task accumulation."
+        }
+      ],
+      "visibleConnection": "The visible queue of tasks becomes a source of panic instead of control.",
+      "visibleTakeaway": "A list can stop organizing work once it becomes the thing causing the panic.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Bear_(TV_series)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 32,
+          "levelQuestionIndex": 3,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_074",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_075",
+      "stableId": "FV500_REAL_075",
+      "sourceQuestionId": "FV500_REAL_075",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In WALL-E, humans ride floating chairs while screens guide every movement on the Axiom. What has infrastructure quietly done?",
+      "correctAnswer": "Designed away agency",
+      "wrongAnswers": [
+        "Restored completed labor",
+        "Delayed naming an heir",
+        "Preserved poetic lists"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Restored completed labor",
+          "feedback": "Restoring completed labor is done-list logic; WALL-E shows systems replacing effort."
+        },
+        {
+          "label": "C",
+          "answer": "Delayed naming an heir",
+          "feedback": "Delaying an heir controls succession; the Axiom controls movement and attention."
+        },
+        {
+          "label": "D",
+          "answer": "Preserved poetic lists",
+          "feedback": "Poetic lists create abundance of meaning; the ship narrows human agency through design."
+        }
+      ],
+      "explanation": "The ship’s systems make daily movement so automatic that choice nearly disappears.",
+      "visibleCorrectExplanation": "The Axiom’s design turns convenience into dependence, guiding bodies before they decide anything.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Restored completed labor",
+          "explanation": "Restoring completed labor is done-list logic; WALL-E shows systems replacing effort."
+        },
+        {
+          "label": "C",
+          "answer": "Delayed naming an heir",
+          "explanation": "Delaying an heir controls succession; the Axiom controls movement and attention."
+        },
+        {
+          "label": "D",
+          "answer": "Preserved poetic lists",
+          "explanation": "Poetic lists create abundance of meaning; the ship narrows human agency through design."
+        }
+      ],
+      "visibleConnection": "The ship’s systems make daily movement so automatic that choice nearly disappears.",
+      "visibleTakeaway": "Infrastructure can guide behavior so smoothly that people stop noticing the guidance.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/WALL-E",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 4,
+          "questionId": "question.home-and-wandering.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_075",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_076",
+      "stableId": "FV500_REAL_076",
+      "sourceQuestionId": "FV500_REAL_076",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Inside Out, Riley returns home physically, but her real arrival happens only when she can share sadness with her parents. What kind of return is this?",
+      "correctAnswer": "Emotional homecoming",
+      "wrongAnswers": [
+        "Airport transit",
+        "GDP ranking",
+        "Console output"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Airport transit",
+          "feedback": "Airport transit is movement through a space without admission; Riley is dealing with belonging at home."
+        },
+        {
+          "label": "C",
+          "answer": "GDP ranking",
+          "feedback": "GDP ranking measures economic output; Inside Out concerns emotional return."
+        },
+        {
+          "label": "D",
+          "answer": "Console output",
+          "feedback": "Console output shows process text; it does not explain homecoming."
+        }
+      ],
+      "explanation": "The story separates being back in the house from actually feeling at home again.",
+      "visibleCorrectExplanation": "Riley’s return matters only when emotional belonging catches up with physical arrival.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Airport transit",
+          "explanation": "Airport transit is movement through a space without admission; Riley is dealing with belonging at home."
+        },
+        {
+          "label": "C",
+          "answer": "GDP ranking",
+          "explanation": "GDP ranking measures economic output; Inside Out concerns emotional return."
+        },
+        {
+          "label": "D",
+          "answer": "Console output",
+          "explanation": "Console output shows process text; it does not explain homecoming."
+        }
+      ],
+      "visibleConnection": "The story separates being back in the house from actually feeling at home again.",
+      "visibleTakeaway": "Coming back is not always the same as feeling returned.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Inside_Out_(2015_film)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 5,
+          "questionId": "question.home-and-wandering.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_076",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_077",
+      "stableId": "FV500_REAL_077",
+      "sourceQuestionId": "FV500_REAL_077",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In La La Land’s final montage, Mia imagines a life that could have happened but did not. What does the sequence turn into?",
+      "correctAnswer": "An alternate-route memory",
+      "wrongAnswers": [
+        "A customs corridor",
+        "A productivity method",
+        "A caretaker cabinet"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A customs corridor",
+          "feedback": "A customs corridor manages travel flow; the montage explores memory and possibility."
+        },
+        {
+          "label": "C",
+          "answer": "A productivity method",
+          "feedback": "A productivity method sorts tasks; the sequence imagines an unlived life."
+        },
+        {
+          "label": "D",
+          "answer": "A caretaker cabinet",
+          "feedback": "A caretaker cabinet manages transition; the montage is a private counterfactual journey."
+        }
+      ],
+      "explanation": "The montage shows a route that exists emotionally even though it never became real.",
+      "visibleCorrectExplanation": "The imagined life works like a route not taken, giving emotional weight to an unreal destination.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A customs corridor",
+          "explanation": "A customs corridor manages travel flow; the montage explores memory and possibility."
+        },
+        {
+          "label": "C",
+          "answer": "A productivity method",
+          "explanation": "A productivity method sorts tasks; the sequence imagines an unlived life."
+        },
+        {
+          "label": "D",
+          "answer": "A caretaker cabinet",
+          "explanation": "A caretaker cabinet manages transition; the montage is a private counterfactual journey."
+        }
+      ],
+      "visibleConnection": "The montage shows a route that exists emotionally even though it never became real.",
+      "visibleTakeaway": "A journey that never happened can still shape how arrival feels.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/La_La_Land",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 55,
+          "levelQuestionIndex": 10,
+          "questionId": "question.introductory-questions.500.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_077",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_078",
+      "stableId": "FV500_REAL_078",
+      "sourceQuestionId": "FV500_REAL_078",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Lord of the Rings, Gollum reaches the Ring at the end and loses himself in the same instant. What does arrival become?",
+      "correctAnswer": "A destructive destination",
+      "wrongAnswers": [
+        "A done-list reward",
+        "A throbber signal",
+        "A transit lounge"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A done-list reward",
+          "feedback": "A done-list reward recognizes finished work; Gollum’s ending turns success into ruin."
+        },
+        {
+          "label": "C",
+          "answer": "A throbber signal",
+          "feedback": "A throbber signal shows activity during loading; this scene concerns the cost of reaching the goal."
+        },
+        {
+          "label": "D",
+          "answer": "A transit lounge",
+          "feedback": "A transit lounge is an in-between space; Mount Doom becomes a fatal endpoint."
+        }
+      ],
+      "explanation": "The object of the journey is reached, but reaching it completes the character’s ruin.",
+      "visibleCorrectExplanation": "Gollum gets what he wants and is destroyed by the arrival itself.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A done-list reward",
+          "explanation": "A done-list reward recognizes finished work; Gollum’s ending turns success into ruin."
+        },
+        {
+          "label": "C",
+          "answer": "A throbber signal",
+          "explanation": "A throbber signal shows activity during loading; this scene concerns the cost of reaching the goal."
+        },
+        {
+          "label": "D",
+          "answer": "A transit lounge",
+          "explanation": "A transit lounge is an in-between space; Mount Doom becomes a fatal endpoint."
+        }
+      ],
+      "visibleConnection": "The object of the journey is reached, but reaching it completes the character’s ruin.",
+      "visibleTakeaway": "Reaching the destination does not guarantee that the destination was good.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Gollum",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 56,
+          "levelQuestionIndex": 11,
+          "questionId": "question.introductory-questions.500.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_078",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_079",
+      "stableId": "FV500_REAL_079",
+      "sourceQuestionId": "FV500_REAL_079",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Kafka’s The Castle, K. keeps trying to reach authority that remains present, distant, and unreachable. What kind of arrival is being denied?",
+      "correctAnswer": "Administrative admission",
+      "wrongAnswers": [
+        "Airport entertainment",
+        "Moving-sidewalk convenience",
+        "Poetic list abundance"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Airport entertainment",
+          "feedback": "Airport entertainment fills waiting time; Kafka’s problem is blocked legitimacy."
+        },
+        {
+          "label": "C",
+          "answer": "Moving-sidewalk convenience",
+          "feedback": "Moving-sidewalk convenience reduces effort; The Castle denies access through bureaucracy."
+        },
+        {
+          "label": "D",
+          "answer": "Poetic list abundance",
+          "feedback": "Poetic abundance expands lists; The Castle traps the character in unreachable authority."
+        }
+      ],
+      "explanation": "The character is near the system but never truly accepted by it.",
+      "visibleCorrectExplanation": "K. can pursue the Castle endlessly, but the authority he seeks never grants real access.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Airport entertainment",
+          "explanation": "Airport entertainment fills waiting time; Kafka’s problem is blocked legitimacy."
+        },
+        {
+          "label": "C",
+          "answer": "Moving-sidewalk convenience",
+          "explanation": "Moving-sidewalk convenience reduces effort; The Castle denies access through bureaucracy."
+        },
+        {
+          "label": "D",
+          "answer": "Poetic list abundance",
+          "explanation": "Poetic abundance expands lists; The Castle traps the character in unreachable authority."
+        }
+      ],
+      "visibleConnection": "The character is near the system but never truly accepted by it.",
+      "visibleTakeaway": "Being near a system is not the same as being admitted by it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Castle_(novel)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "500",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 3,
+          "questionId": "question.the-lovely-and-the-liminal.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_079",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_080",
+      "stableId": "FV500_REAL_080",
+      "sourceQuestionId": "FV500_REAL_080",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Great Gatsby, Gatsby’s green light is visible across the bay but never truly reachable as a life. What does the light become?",
+      "correctAnswer": "A symbolic destination",
+      "wrongAnswers": [
+        "A maintenance schedule",
+        "A loading screen game",
+        "A food pill"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A maintenance schedule",
+          "feedback": "A maintenance schedule prevents decay; Gatsby’s light is about longing and projection."
+        },
+        {
+          "label": "C",
+          "answer": "A loading screen game",
+          "feedback": "A loading screen game distracts during delay; the green light organizes desire."
+        },
+        {
+          "label": "D",
+          "answer": "A food pill",
+          "feedback": "A food pill is a reduced futurist convenience; the light is an unreachable symbolic goal."
+        }
+      ],
+      "explanation": "The light is close enough to see but too symbolic to reach as a complete future.",
+      "visibleCorrectExplanation": "The green light turns desire into a visible endpoint that reality cannot fully deliver.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A maintenance schedule",
+          "explanation": "A maintenance schedule prevents decay; Gatsby’s light is about longing and projection."
+        },
+        {
+          "label": "C",
+          "answer": "A loading screen game",
+          "explanation": "A loading screen game distracts during delay; the green light organizes desire."
+        },
+        {
+          "label": "D",
+          "answer": "A food pill",
+          "explanation": "A food pill is a reduced futurist convenience; the light is an unreachable symbolic goal."
+        }
+      ],
+      "visibleConnection": "The light is close enough to see but too symbolic to reach as a complete future.",
+      "visibleTakeaway": "Some destinations matter because they are imagined more than reached.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Great_Gatsby",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 57,
+          "levelQuestionIndex": 12,
+          "questionId": "question.introductory-questions.500.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_080",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_081",
+      "stableId": "FV500_REAL_081",
+      "sourceQuestionId": "FV500_REAL_081",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Spider-Man: Into the Spider-Verse, Miles becomes ready through repeated failed jumps, not a single clean success. What kind of progress is shown?",
+      "correctAnswer": "Nonlinear learning",
+      "wrongAnswers": [
+        "Customs exemption",
+        "Doomsday scheduling",
+        "Lame-duck decline"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Customs exemption",
+          "feedback": "Customs exemption concerns travel rules and taxes; Miles is learning through repeated attempts."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday scheduling",
+          "feedback": "Doomsday scheduling gives fear a date; the film shows skill developing unevenly."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck decline",
+          "feedback": "Lame-duck decline describes fading political influence; Miles is gaining readiness."
+        }
+      ],
+      "explanation": "The film treats failed attempts as part of becoming ready rather than proof of failure.",
+      "visibleCorrectExplanation": "Miles grows through setbacks, practice, and one breakthrough that only makes sense after failure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Customs exemption",
+          "explanation": "Customs exemption concerns travel rules and taxes; Miles is learning through repeated attempts."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday scheduling",
+          "explanation": "Doomsday scheduling gives fear a date; the film shows skill developing unevenly."
+        },
+        {
+          "label": "D",
+          "answer": "Lame-duck decline",
+          "explanation": "Lame-duck decline describes fading political influence; Miles is gaining readiness."
+        }
+      ],
+      "visibleConnection": "The film treats failed attempts as part of becoming ready rather than proof of failure.",
+      "visibleTakeaway": "Growth can look like failure until the earlier attempts finally connect.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Spider-Man:_Into_the_Spider-Verse",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 56,
+          "levelQuestionIndex": 6,
+          "questionId": "question.progress-not-regress.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_081",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_082",
+      "stableId": "FV500_REAL_082",
+      "sourceQuestionId": "FV500_REAL_082",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In 127 Hours, Aron Ralston survives only by making a terrible irreversible choice. What kind of threshold does the story force?",
+      "correctAnswer": "Costly no-return decision",
+      "wrongAnswers": [
+        "Poetic list expansion",
+        "Airport shopping delay",
+        "Staged authenticity"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Poetic list expansion",
+          "feedback": "Poetic list expansion creates abundance; 127 Hours centers a single irreversible act."
+        },
+        {
+          "label": "C",
+          "answer": "Airport shopping delay",
+          "feedback": "Airport shopping delay redirects waiting; the story is about survival and irreversible cost."
+        },
+        {
+          "label": "D",
+          "answer": "Staged authenticity",
+          "feedback": "Staged authenticity concerns performance; Ralston’s threshold is physical and final."
+        }
+      ],
+      "explanation": "Survival depends on crossing a line that cannot be undone afterward.",
+      "visibleCorrectExplanation": "The choice saves him by closing off every easier return to the previous situation.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Poetic list expansion",
+          "explanation": "Poetic list expansion creates abundance; 127 Hours centers a single irreversible act."
+        },
+        {
+          "label": "C",
+          "answer": "Airport shopping delay",
+          "explanation": "Airport shopping delay redirects waiting; the story is about survival and irreversible cost."
+        },
+        {
+          "label": "D",
+          "answer": "Staged authenticity",
+          "explanation": "Staged authenticity concerns performance; Ralston’s threshold is physical and final."
+        }
+      ],
+      "visibleConnection": "Survival depends on crossing a line that cannot be undone afterward.",
+      "visibleTakeaway": "A threshold becomes moral and practical when every option has a cost.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/127_Hours",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.014"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 58,
+          "levelQuestionIndex": 13,
+          "questionId": "question.introductory-questions.500.014",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_082",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_083",
+      "stableId": "FV500_REAL_083",
+      "sourceQuestionId": "FV500_REAL_083",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In the 2023 Barbenheimer release weekend, two very different films became one shared cultural event. What did the public create?",
+      "correctAnswer": "A combined itinerary",
+      "wrongAnswers": [
+        "A caretaker government",
+        "A Gini coefficient",
+        "A skeleton screen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A caretaker government",
+          "feedback": "A caretaker government manages transition; Barbenheimer was a fan-made cultural route."
+        },
+        {
+          "label": "C",
+          "answer": "A Gini coefficient",
+          "feedback": "A Gini coefficient measures inequality; the weekend measured participation through experience."
+        },
+        {
+          "label": "D",
+          "answer": "A skeleton screen",
+          "feedback": "A skeleton screen previews loading content; Barbenheimer was a social plan, not an interface."
+        }
+      ],
+      "explanation": "Audiences turned two separate releases into a planned experience people could perform socially.",
+      "visibleCorrectExplanation": "Barbenheimer became a public itinerary: watching both films signaled participation in a shared moment.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A caretaker government",
+          "explanation": "A caretaker government manages transition; Barbenheimer was a fan-made cultural route."
+        },
+        {
+          "label": "C",
+          "answer": "A Gini coefficient",
+          "explanation": "A Gini coefficient measures inequality; the weekend measured participation through experience."
+        },
+        {
+          "label": "D",
+          "answer": "A skeleton screen",
+          "explanation": "A skeleton screen previews loading content; Barbenheimer was a social plan, not an interface."
+        }
+      ],
+      "visibleConnection": "Audiences turned two separate releases into a planned experience people could perform socially.",
+      "visibleTakeaway": "People can turn media consumption into a route, a checklist, and a social identity.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Barbenheimer",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 33,
+          "levelQuestionIndex": 4,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_083",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_084",
+      "stableId": "FV500_REAL_084",
+      "sourceQuestionId": "FV500_REAL_084",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Dolly Parton’s 9 to 5 turns the workday into a repeated grind where motion does not feel like advancement. What is being questioned?",
+      "correctAnswer": "Movement without arrival",
+      "wrongAnswers": [
+        "Airport admission",
+        "Prototype testing",
+        "Apocalyptic imagery"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Airport admission",
+          "feedback": "Airport admission concerns legal access; the song is about labor and stagnation."
+        },
+        {
+          "label": "C",
+          "answer": "Prototype testing",
+          "feedback": "Prototype testing checks unfinished products; 9 to 5 questions repetitive work."
+        },
+        {
+          "label": "D",
+          "answer": "Apocalyptic imagery",
+          "feedback": "Apocalyptic imagery visualizes endings; the song focuses on everyday non-arrival."
+        }
+      ],
+      "explanation": "The song makes daily effort feel circular rather than meaningfully progressive.",
+      "visibleCorrectExplanation": "The workday keeps moving, but the singer’s life does not feel closer to a fair destination.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Airport admission",
+          "explanation": "Airport admission concerns legal access; the song is about labor and stagnation."
+        },
+        {
+          "label": "C",
+          "answer": "Prototype testing",
+          "explanation": "Prototype testing checks unfinished products; 9 to 5 questions repetitive work."
+        },
+        {
+          "label": "D",
+          "answer": "Apocalyptic imagery",
+          "explanation": "Apocalyptic imagery visualizes endings; the song focuses on everyday non-arrival."
+        }
+      ],
+      "visibleConnection": "The song makes daily effort feel circular rather than meaningfully progressive.",
+      "visibleTakeaway": "Busy motion can hide the fact that nothing has truly changed.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/9_to_5_(Dolly_Parton_song)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.015"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 59,
+          "levelQuestionIndex": 14,
+          "questionId": "question.introductory-questions.500.015",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_084",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_085",
+      "stableId": "FV500_REAL_085",
+      "sourceQuestionId": "FV500_REAL_085",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In David Bowie’s Space Oddity, Major Tom reaches space but becomes more isolated the farther he goes. What happens to arrival?",
+      "correctAnswer": "Distance becomes alienation",
+      "wrongAnswers": [
+        "A list becomes culture",
+        "A button gives control",
+        "A road invites stopping"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A list becomes culture",
+          "feedback": "Lists as culture explain what societies count; Space Oddity centers isolation after arrival."
+        },
+        {
+          "label": "C",
+          "answer": "A button gives control",
+          "feedback": "A placebo button gives a feeling of control; Major Tom loses connection instead."
+        },
+        {
+          "label": "D",
+          "answer": "A road invites stopping",
+          "feedback": "A road inviting stopping concerns travel spaces; the song turns distance into loneliness."
+        }
+      ],
+      "explanation": "The song turns a successful journey outward into separation rather than fulfillment.",
+      "visibleCorrectExplanation": "Major Tom reaches the destination, but the achievement leaves him more detached, not more complete.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A list becomes culture",
+          "explanation": "Lists as culture explain what societies count; Space Oddity centers isolation after arrival."
+        },
+        {
+          "label": "C",
+          "answer": "A button gives control",
+          "explanation": "A placebo button gives a feeling of control; Major Tom loses connection instead."
+        },
+        {
+          "label": "D",
+          "answer": "A road invites stopping",
+          "explanation": "A road inviting stopping concerns travel spaces; the song turns distance into loneliness."
+        }
+      ],
+      "visibleConnection": "The song turns a successful journey outward into separation rather than fulfillment.",
+      "visibleTakeaway": "Arrival can increase distance from home instead of resolving the journey.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Space_Oddity",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 47,
+          "levelQuestionIndex": 6,
+          "questionId": "question.home-and-wandering.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_085",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_086",
+      "stableId": "FV500_REAL_086",
+      "sourceQuestionId": "FV500_REAL_086",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Bruce Springsteen’s Born to Run, escape is imagined before any destination is secure. What powers the song?",
+      "correctAnswer": "Anticipated departure",
+      "wrongAnswers": [
+        "Completed labor",
+        "Measured poverty",
+        "Caretaker restraint"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Completed labor",
+          "feedback": "Completed labor belongs to done lists; Born to Run is driven by wanting to leave."
+        },
+        {
+          "label": "C",
+          "answer": "Measured poverty",
+          "feedback": "Measured poverty uses indicators; the song is about escape and possibility."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker restraint",
+          "feedback": "Caretaker restraint limits temporary authority; the song is about restless departure."
+        }
+      ],
+      "explanation": "The song makes leaving feel meaningful before arrival has any clear shape.",
+      "visibleCorrectExplanation": "The energy comes from the promise of departure, not from a guaranteed endpoint.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Completed labor",
+          "explanation": "Completed labor belongs to done lists; Born to Run is driven by wanting to leave."
+        },
+        {
+          "label": "C",
+          "answer": "Measured poverty",
+          "explanation": "Measured poverty uses indicators; the song is about escape and possibility."
+        },
+        {
+          "label": "D",
+          "answer": "Caretaker restraint",
+          "explanation": "Caretaker restraint limits temporary authority; the song is about restless departure."
+        }
+      ],
+      "visibleConnection": "The song makes leaving feel meaningful before arrival has any clear shape.",
+      "visibleTakeaway": "Sometimes the imagined road matters before the destination exists.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Born_to_Run_(Bruce_Springsteen_song)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.016"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 60,
+          "levelQuestionIndex": 15,
+          "questionId": "question.introductory-questions.500.016",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_086",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_087",
+      "stableId": "FV500_REAL_087",
+      "sourceQuestionId": "FV500_REAL_087",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Casablanca, Rick lets Ilsa leave because the meaningful ending is not the one he wants personally. What kind of ending is chosen?",
+      "correctAnswer": "Sacrificed closure",
+      "wrongAnswers": [
+        "Retail waiting",
+        "Console output",
+        "Food-pill convenience"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Retail waiting",
+          "feedback": "Retail waiting turns delay into shopping; Casablanca ends through sacrifice."
+        },
+        {
+          "label": "C",
+          "answer": "Console output",
+          "feedback": "Console output shows process text; the scene is about moral closure."
+        },
+        {
+          "label": "D",
+          "answer": "Food-pill convenience",
+          "feedback": "Food-pill convenience compresses eating into futurist efficiency; the scene is about letting go."
+        }
+      ],
+      "explanation": "The final departure closes the story by choosing duty over the desired romantic endpoint.",
+      "visibleCorrectExplanation": "Rick accepts an ending that hurts him because the larger moral route matters more.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Retail waiting",
+          "explanation": "Retail waiting turns delay into shopping; Casablanca ends through sacrifice."
+        },
+        {
+          "label": "C",
+          "answer": "Console output",
+          "explanation": "Console output shows process text; the scene is about moral closure."
+        },
+        {
+          "label": "D",
+          "answer": "Food-pill convenience",
+          "explanation": "Food-pill convenience compresses eating into futurist efficiency; the scene is about letting go."
+        }
+      ],
+      "visibleConnection": "The final departure closes the story by choosing duty over the desired romantic endpoint.",
+      "visibleTakeaway": "An ending can be right without being personally satisfying.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Casablanca_(film)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 5,
+          "questionId": "question.monkey-see-monkey-prototype.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_087",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_088",
+      "stableId": "FV500_REAL_088",
+      "sourceQuestionId": "FV500_REAL_088",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In the 1986 Challenger launch, a national spectacle of technological progress became disaster seconds after takeoff. What collapsed?",
+      "correctAnswer": "Performed confidence",
+      "wrongAnswers": [
+        "Poetic listing",
+        "Homecoming nostalgia",
+        "Duty-free identity"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Poetic listing",
+          "feedback": "Poetic listing creates abundance of meaning; Challenger concerns public risk and failed confidence."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming nostalgia",
+          "feedback": "Homecoming nostalgia is about return and belonging; Challenger was a failed launch spectacle."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free identity",
+          "feedback": "Duty-free identity concerns consumption in transit; Challenger exposed technological vulnerability."
+        }
+      ],
+      "explanation": "The launch was staged as national achievement, then exposed hidden risk in real time.",
+      "visibleCorrectExplanation": "The disaster broke the public performance of technological certainty almost immediately after launch.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Poetic listing",
+          "explanation": "Poetic listing creates abundance of meaning; Challenger concerns public risk and failed confidence."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming nostalgia",
+          "explanation": "Homecoming nostalgia is about return and belonging; Challenger was a failed launch spectacle."
+        },
+        {
+          "label": "D",
+          "answer": "Duty-free identity",
+          "explanation": "Duty-free identity concerns consumption in transit; Challenger exposed technological vulnerability."
+        }
+      ],
+      "visibleConnection": "The launch was staged as national achievement, then exposed hidden risk in real time.",
+      "visibleTakeaway": "Progress staged for public confidence can collapse when hidden fragility appears.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 54,
+          "levelQuestionIndex": 5,
+          "questionId": "question.the-end-is-nearish.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_088",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_089",
+      "stableId": "FV500_REAL_089",
+      "sourceQuestionId": "FV500_REAL_089",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "The Berlin Wall fell in 1989, but reunification and its consequences continued long afterward. What does the fall show about endings?",
+      "correctAnswer": "Symbolic ending before full change",
+      "wrongAnswers": [
+        "A throbber replacing measurement",
+        "A bucket list becoming identity",
+        "A moving sidewalk shrinking"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A throbber replacing measurement",
+          "feedback": "A throbber shows activity without progress measurement; the Wall is a historical transition."
+        },
+        {
+          "label": "C",
+          "answer": "A bucket list becoming identity",
+          "feedback": "A bucket list performs desired experiences; reunification is not a personal checklist."
+        },
+        {
+          "label": "D",
+          "answer": "A moving sidewalk shrinking",
+          "feedback": "A moving sidewalk shrinking describes a reduced future convenience, not a political ending."
+        }
+      ],
+      "explanation": "A powerful symbol of ending arrived before the slower work of transformation was complete.",
+      "visibleCorrectExplanation": "The wall’s fall was a visible endpoint, but the political and social transition continued after it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A throbber replacing measurement",
+          "explanation": "A throbber shows activity without progress measurement; the Wall is a historical transition."
+        },
+        {
+          "label": "C",
+          "answer": "A bucket list becoming identity",
+          "explanation": "A bucket list performs desired experiences; reunification is not a personal checklist."
+        },
+        {
+          "label": "D",
+          "answer": "A moving sidewalk shrinking",
+          "explanation": "A moving sidewalk shrinking describes a reduced future convenience, not a political ending."
+        }
+      ],
+      "visibleConnection": "A powerful symbol of ending arrived before the slower work of transformation was complete.",
+      "visibleTakeaway": "A visible ending can arrive long before the consequences finish unfolding.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 55,
+          "levelQuestionIndex": 6,
+          "questionId": "question.the-end-is-nearish.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_089",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_090",
+      "stableId": "FV500_REAL_090",
+      "sourceQuestionId": "FV500_REAL_090",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Les Misérables, the barricade looks like a step toward revolution, but it becomes a site of sacrifice and loss. What kind of progress is questioned?",
+      "correctAnswer": "Moral progress as uneven",
+      "wrongAnswers": [
+        "Airport walking as comfort",
+        "Done list as memory",
+        "Console output as proof"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Airport walking as comfort",
+          "feedback": "Airport walking reduces complaint during waiting; the barricade concerns political sacrifice."
+        },
+        {
+          "label": "C",
+          "answer": "Done list as memory",
+          "feedback": "Done lists preserve completed work; the barricade leaves unfinished moral work behind."
+        },
+        {
+          "label": "D",
+          "answer": "Console output as proof",
+          "feedback": "Console output shows system activity; the barricade tests whether struggle equals progress."
+        }
+      ],
+      "explanation": "The barricade turns the hope of justice into a scene where advancement costs lives and remains unfinished.",
+      "visibleCorrectExplanation": "The struggle points toward justice, but the outcome refuses a simple upward story of progress.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Airport walking as comfort",
+          "explanation": "Airport walking reduces complaint during waiting; the barricade concerns political sacrifice."
+        },
+        {
+          "label": "C",
+          "answer": "Done list as memory",
+          "explanation": "Done lists preserve completed work; the barricade leaves unfinished moral work behind."
+        },
+        {
+          "label": "D",
+          "answer": "Console output as proof",
+          "explanation": "Console output shows system activity; the barricade tests whether struggle equals progress."
+        }
+      ],
+      "visibleConnection": "The barricade turns the hope of justice into a scene where advancement costs lives and remains unfinished.",
+      "visibleTakeaway": "A fight for justice can matter even when it does not become a clean victory.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Les_Mis%C3%A9rables_(musical)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 57,
+          "levelQuestionIndex": 7,
+          "questionId": "question.progress-not-regress.500.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_090",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_091",
+      "stableId": "FV500_REAL_091",
+      "sourceQuestionId": "FV500_REAL_091",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Arrival, Louise understands the alien language and begins experiencing time nonlinearly. What does language change?",
+      "correctAnswer": "The shape of time",
+      "wrongAnswers": [
+        "The price of burgers",
+        "The length of customs",
+        "The speed of elevators"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The price of burgers",
+          "feedback": "Burger prices belong to index measurement; Arrival concerns perception and time."
+        },
+        {
+          "label": "C",
+          "answer": "The length of customs",
+          "feedback": "Customs length concerns transit systems; the film changes temporal understanding."
+        },
+        {
+          "label": "D",
+          "answer": "The speed of elevators",
+          "feedback": "Elevator speed concerns placebo buttons or movement; Arrival changes cognition."
+        }
+      ],
+      "explanation": "The new language changes how time itself is perceived, not just how words are translated.",
+      "visibleCorrectExplanation": "Louise’s learning changes her experience of sequence, making time feel less like a straight line.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The price of burgers",
+          "explanation": "Burger prices belong to index measurement; Arrival concerns perception and time."
+        },
+        {
+          "label": "C",
+          "answer": "The length of customs",
+          "explanation": "Customs length concerns transit systems; the film changes temporal understanding."
+        },
+        {
+          "label": "D",
+          "answer": "The speed of elevators",
+          "explanation": "Elevator speed concerns placebo buttons or movement; Arrival changes cognition."
+        }
+      ],
+      "visibleConnection": "The new language changes how time itself is perceived, not just how words are translated.",
+      "visibleTakeaway": "A new system of meaning can change the route by changing how time is understood.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Arrival_(film)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 58,
+          "levelQuestionIndex": 8,
+          "questionId": "question.progress-not-regress.500.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_091",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_092",
+      "stableId": "FV500_REAL_092",
+      "sourceQuestionId": "FV500_REAL_092",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Squid Game, the players advance through rounds, but each stage measures survival rather than human worth. What is the game exposing?",
+      "correctAnswer": "Measurement without humanity",
+      "wrongAnswers": [
+        "Homesickness as longing",
+        "Moving sidewalks as failure",
+        "Drafts as rehearsal"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Homesickness as longing",
+          "feedback": "Homesickness concerns distance from home; Squid Game concerns brutal measurement."
+        },
+        {
+          "label": "C",
+          "answer": "Moving sidewalks as failure",
+          "feedback": "Moving sidewalks show reduced futurism; the game is a system of value and elimination."
+        },
+        {
+          "label": "D",
+          "answer": "Drafts as rehearsal",
+          "feedback": "Drafts as rehearsal make process visible; Squid Game turns survival into a metric."
+        }
+      ],
+      "explanation": "The game reduces lives to scores, rounds, and eliminations while hiding human value.",
+      "visibleCorrectExplanation": "Progress through the game is measurable, but the measurement strips people of dignity.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Homesickness as longing",
+          "explanation": "Homesickness concerns distance from home; Squid Game concerns brutal measurement."
+        },
+        {
+          "label": "C",
+          "answer": "Moving sidewalks as failure",
+          "explanation": "Moving sidewalks show reduced futurism; the game is a system of value and elimination."
+        },
+        {
+          "label": "D",
+          "answer": "Drafts as rehearsal",
+          "explanation": "Drafts as rehearsal make process visible; Squid Game turns survival into a metric."
+        }
+      ],
+      "visibleConnection": "The game reduces lives to scores, rounds, and eliminations while hiding human value.",
+      "visibleTakeaway": "A system can measure advancement while refusing to measure what matters most.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Squid_Game",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 59,
+          "levelQuestionIndex": 9,
+          "questionId": "question.progress-not-regress.500.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_092",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_093",
+      "stableId": "FV500_REAL_093",
+      "sourceQuestionId": "FV500_REAL_093",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Up, Carl finally reaches Paradise Falls, but the trip matters most after he lets go of the house and starts caring for Russell. What is being revised?",
+      "correctAnswer": "The meaning of arrival",
+      "wrongAnswers": [
+        "The function of a passport",
+        "The speed of a progress bar",
+        "The role of a splash screen"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The function of a passport",
+          "feedback": "A passport controls mobility across borders; Up focuses on emotional arrival."
+        },
+        {
+          "label": "C",
+          "answer": "The speed of a progress bar",
+          "feedback": "A progress bar measures task movement; Carl’s journey changes what arrival means."
+        },
+        {
+          "label": "D",
+          "answer": "The role of a splash screen",
+          "feedback": "A splash screen covers loading time; Up revises the value of the destination."
+        }
+      ],
+      "explanation": "The planned destination becomes less important than the change that happens on the way.",
+      "visibleCorrectExplanation": "Paradise Falls is reached, but the emotional destination changes once Carl’s attachments change.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The function of a passport",
+          "explanation": "A passport controls mobility across borders; Up focuses on emotional arrival."
+        },
+        {
+          "label": "C",
+          "answer": "The speed of a progress bar",
+          "explanation": "A progress bar measures task movement; Carl’s journey changes what arrival means."
+        },
+        {
+          "label": "D",
+          "answer": "The role of a splash screen",
+          "explanation": "A splash screen covers loading time; Up revises the value of the destination."
+        }
+      ],
+      "visibleConnection": "The planned destination becomes less important than the change that happens on the way.",
+      "visibleTakeaway": "Getting there can matter less than discovering what “there” was supposed to mean.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Up_(2009_film)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.017"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 61,
+          "levelQuestionIndex": 16,
+          "questionId": "question.introductory-questions.500.017",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_093",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_094",
+      "stableId": "FV500_REAL_094",
+      "sourceQuestionId": "FV500_REAL_094",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-lovely-and-the-liminal",
+      "sectionIds": [
+        "the-lovely-and-the-liminal"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Severance, workers cross a threshold and lose access to another version of their own life. What does the doorway control?",
+      "correctAnswer": "Divided identity",
+      "wrongAnswers": [
+        "Airport boredom",
+        "Food-pill efficiency",
+        "Tourist nostalgia"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Airport boredom",
+          "feedback": "Airport boredom describes waiting; Severance uses a threshold to divide identity."
+        },
+        {
+          "label": "C",
+          "answer": "Food-pill efficiency",
+          "feedback": "Food-pill efficiency imagines compressed convenience; Severance controls consciousness."
+        },
+        {
+          "label": "D",
+          "answer": "Tourist nostalgia",
+          "feedback": "Tourist nostalgia romanticizes travel; the show turns crossing into identity separation."
+        }
+      ],
+      "explanation": "The transition does more than move a body; it splits memory, identity, and agency.",
+      "visibleCorrectExplanation": "The elevator crossing controls which self is awake and what memories are available.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Airport boredom",
+          "explanation": "Airport boredom describes waiting; Severance uses a threshold to divide identity."
+        },
+        {
+          "label": "C",
+          "answer": "Food-pill efficiency",
+          "explanation": "Food-pill efficiency imagines compressed convenience; Severance controls consciousness."
+        },
+        {
+          "label": "D",
+          "answer": "Tourist nostalgia",
+          "explanation": "Tourist nostalgia romanticizes travel; the show turns crossing into identity separation."
+        }
+      ],
+      "visibleConnection": "The transition does more than move a body; it splits memory, identity, and agency.",
+      "visibleTakeaway": "A threshold can change who someone is allowed to be on the other side.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Severance_(TV_series)",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The Lovely and the Liminal",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-lovely-and-the-liminal.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-lovely-and-the-liminal",
+          "levelKey": "500",
+          "sectionQuestionIndex": 47,
+          "levelQuestionIndex": 4,
+          "questionId": "question.the-lovely-and-the-liminal.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_094",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_095",
+      "stableId": "FV500_REAL_095",
+      "sourceQuestionId": "FV500_REAL_095",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Last of Us, Joel reaches the hospital that could save humanity, then chooses Ellie over the promised cure. What breaks at the destination?",
+      "correctAnswer": "The agreed goal",
+      "wrongAnswers": [
+        "The duty-free loop",
+        "The hotel lobby",
+        "The throbber icon"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "The duty-free loop",
+          "feedback": "The duty-free loop turns transit into shopping; the hospital ending is an ethical rupture."
+        },
+        {
+          "label": "C",
+          "answer": "The hotel lobby",
+          "feedback": "A hotel lobby is a liminal social space; the hospital forces a choice about the goal itself."
+        },
+        {
+          "label": "D",
+          "answer": "The throbber icon",
+          "feedback": "A throbber icon shows ongoing activity; the ending questions whether the goal should be reached."
+        }
+      ],
+      "explanation": "The journey reaches its expected endpoint, but the meaning of success collapses under moral conflict.",
+      "visibleCorrectExplanation": "The hospital should complete the mission, yet Joel rejects the goal the journey was built around.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "The duty-free loop",
+          "explanation": "The duty-free loop turns transit into shopping; the hospital ending is an ethical rupture."
+        },
+        {
+          "label": "C",
+          "answer": "The hotel lobby",
+          "explanation": "A hotel lobby is a liminal social space; the hospital forces a choice about the goal itself."
+        },
+        {
+          "label": "D",
+          "answer": "The throbber icon",
+          "explanation": "A throbber icon shows ongoing activity; the ending questions whether the goal should be reached."
+        }
+      ],
+      "visibleConnection": "The journey reaches its expected endpoint, but the meaning of success collapses under moral conflict.",
+      "visibleTakeaway": "A destination can stop being the right destination at the moment it is reached.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Last_of_Us",
+      "sourceNote": "Additional true Level 500 batch; real external reference named directly; no imaginary scenario.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.018"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 62,
+          "levelQuestionIndex": 17,
+          "questionId": "question.introductory-questions.500.018",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_095",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_001",
+      "stableId": "FV500_REAL_ADD_001",
+      "sourceQuestionId": "FV500_REAL_ADD_001",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Pixar’s Toy Story 2 production, deleted files were reportedly saved because a backup copy existed outside the main system. What lesson does that survival teach?",
+      "correctAnswer": "Maintenance keeps progress alive",
+      "wrongAnswers": [
+        "Polished demos prove readiness",
+        "Rankings define social worth",
+        "Nostalgia makes travel real"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Polished demos prove readiness",
+          "feedback": "A polished demo can still hide an unfinished product."
+        },
+        {
+          "label": "C",
+          "answer": "Rankings define social worth",
+          "feedback": "Rankings decide what counts as value, not whether a system survives damage."
+        },
+        {
+          "label": "D",
+          "answer": "Nostalgia makes travel real",
+          "feedback": "Nostalgia can reshape memory, but it does not protect a damaged production system."
+        }
+      ],
+      "explanation": "The production crisis turns hidden upkeep into the condition for keeping creative progress alive.",
+      "visibleCorrectExplanation": "Progress survived because the backup system had been maintained outside the broken workflow.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Polished demos prove readiness",
+          "explanation": "A polished demo can still hide an unfinished product."
+        },
+        {
+          "label": "C",
+          "answer": "Rankings define social worth",
+          "explanation": "Rankings decide what counts as value, not whether a system survives damage."
+        },
+        {
+          "label": "D",
+          "answer": "Nostalgia makes travel real",
+          "explanation": "Nostalgia can reshape memory, but it does not protect a damaged production system."
+        }
+      ],
+      "visibleConnection": "The production crisis turns hidden upkeep into the condition for keeping creative progress alive.",
+      "visibleTakeaway": "Progress often depends on quiet systems nobody praises until they fail.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Toy_Story_2#Production",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.011"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 60,
+          "levelQuestionIndex": 10,
+          "questionId": "question.progress-not-regress.500.011",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_001",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_002",
+      "stableId": "FV500_REAL_ADD_002",
+      "sourceQuestionId": "FV500_REAL_ADD_002",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "NASA’s Mars Climate Orbiter was lost after metric and imperial units were mixed in mission calculations. What did the failure expose?",
+      "correctAnswer": "Measurement choices steer outcomes",
+      "wrongAnswers": [
+        "Rehearsal removes every risk",
+        "Authenticity improves under crowds",
+        "Succession solves weak power"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Rehearsal removes every risk",
+          "feedback": "Rehearsal can reduce risk, but this failure came from incompatible measurement systems."
+        },
+        {
+          "label": "C",
+          "answer": "Authenticity improves under crowds",
+          "feedback": "Crowds can change authenticity, but the probe was lost through a technical measurement mismatch."
+        },
+        {
+          "label": "D",
+          "answer": "Succession solves weak power",
+          "feedback": "Succession problems concern authority moving between leaders, not units in a spacecraft calculation."
+        }
+      ],
+      "explanation": "The spacecraft loss makes measurement look like a design choice with real consequences, not a neutral detail.",
+      "visibleCorrectExplanation": "The wrong unit did not just describe the mission badly; it helped send the mission to failure.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Rehearsal removes every risk",
+          "explanation": "Rehearsal can reduce risk, but this failure came from incompatible measurement systems."
+        },
+        {
+          "label": "C",
+          "answer": "Authenticity improves under crowds",
+          "explanation": "Crowds can change authenticity, but the probe was lost through a technical measurement mismatch."
+        },
+        {
+          "label": "D",
+          "answer": "Succession solves weak power",
+          "explanation": "Succession problems concern authority moving between leaders, not units in a spacecraft calculation."
+        }
+      ],
+      "visibleConnection": "The spacecraft loss makes measurement look like a design choice with real consequences, not a neutral detail.",
+      "visibleTakeaway": "Measurement is not just reporting reality; it can help create the outcome.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mars_Climate_Orbiter",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.012"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 61,
+          "levelQuestionIndex": 11,
+          "questionId": "question.progress-not-regress.500.012",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_002",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_003",
+      "stableId": "FV500_REAL_ADD_003",
+      "sourceQuestionId": "FV500_REAL_ADD_003",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "When the Ever Given blocked the Suez Canal in 2021, ships around the world had to wait or reroute. What did one stuck vessel reveal?",
+      "correctAnswer": "One blockage reshapes the network",
+      "wrongAnswers": [
+        "A list settles every task",
+        "A souvenir preserves belonging",
+        "A countdown guarantees action"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A list settles every task",
+          "feedback": "Lists organize tasks, but they do not explain a physical bottleneck in global shipping."
+        },
+        {
+          "label": "C",
+          "answer": "A souvenir preserves belonging",
+          "feedback": "Souvenirs can preserve identity, but the canal crisis was about blocked movement."
+        },
+        {
+          "label": "D",
+          "answer": "A countdown guarantees action",
+          "feedback": "Countdowns create urgency, but the main issue was network dependence."
+        }
+      ],
+      "explanation": "The canal blockage makes a whole movement system visible through one point of failure.",
+      "visibleCorrectExplanation": "One stopped ship affected routes far beyond itself because the network depended on that passage.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A list settles every task",
+          "explanation": "Lists organize tasks, but they do not explain a physical bottleneck in global shipping."
+        },
+        {
+          "label": "C",
+          "answer": "A souvenir preserves belonging",
+          "explanation": "Souvenirs can preserve identity, but the canal crisis was about blocked movement."
+        },
+        {
+          "label": "D",
+          "answer": "A countdown guarantees action",
+          "explanation": "Countdowns create urgency, but the main issue was network dependence."
+        }
+      ],
+      "visibleConnection": "The canal blockage makes a whole movement system visible through one point of failure.",
+      "visibleTakeaway": "Networks are easiest to see when a single link breaks.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.500.003"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "500",
+          "sectionQuestionIndex": 42,
+          "levelQuestionIndex": 2,
+          "questionId": "question.where-the-sidewalk-starts.500.003",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_003",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_004",
+      "stableId": "FV500_REAL_ADD_004",
+      "sourceQuestionId": "FV500_REAL_ADD_004",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the 2017 Oscars, La La Land was announced before Moonlight was revealed as the real Best Picture winner. What happened to the ending?",
+      "correctAnswer": "Public closure was reversed",
+      "wrongAnswers": [
+        "A detour improved the route",
+        "A metric hid inequality",
+        "A prototype became culture"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A detour improved the route",
+          "feedback": "A detour can redirect a route, but the Oscars mistake was about an ending declared too early."
+        },
+        {
+          "label": "C",
+          "answer": "A metric hid inequality",
+          "feedback": "A metric can distort value, but the envelope mistake was not a ranking-method problem."
+        },
+        {
+          "label": "D",
+          "answer": "A prototype became culture",
+          "feedback": "A prototype can gain cultural life, but this was a mistaken final announcement."
+        }
+      ],
+      "explanation": "The ceremony created a public ending, then forced everyone to watch that ending collapse in real time.",
+      "visibleCorrectExplanation": "The first announcement gave the audience closure before the real result had been settled publicly.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A detour improved the route",
+          "explanation": "A detour can redirect a route, but the Oscars mistake was about an ending declared too early."
+        },
+        {
+          "label": "C",
+          "answer": "A metric hid inequality",
+          "explanation": "A metric can distort value, but the envelope mistake was not a ranking-method problem."
+        },
+        {
+          "label": "D",
+          "answer": "A prototype became culture",
+          "explanation": "A prototype can gain cultural life, but this was a mistaken final announcement."
+        }
+      ],
+      "visibleConnection": "The ceremony created a public ending, then forced everyone to watch that ending collapse in real time.",
+      "visibleTakeaway": "An ending can feel real before it has actually become final.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/89th_Academy_Awards#Best_Picture_announcement_error",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.019"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 63,
+          "levelQuestionIndex": 18,
+          "questionId": "question.introductory-questions.500.019",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_004",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_005",
+      "stableId": "FV500_REAL_ADD_005",
+      "sourceQuestionId": "FV500_REAL_ADD_005",
+      "questionScope": "Full Voyage",
+      "sectionId": "monkey-see-monkey-prototype",
+      "sectionIds": [
+        "monkey-see",
+        "monkey-see-monkey-prototype"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Fyre Festival sold luxury images online, then collapsed into a badly organized event. What did the advertising do?",
+      "correctAnswer": "Promotion outran reality",
+      "wrongAnswers": [
+        "Maintenance saved progress",
+        "Cycles replaced growth",
+        "A border softened arrival"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Maintenance saved progress",
+          "feedback": "Maintenance protects systems, but the festival problem was overpromising before building."
+        },
+        {
+          "label": "C",
+          "answer": "Cycles replaced growth",
+          "feedback": "Cycles can show repeated progress, but the disaster came from a gap between image and delivery."
+        },
+        {
+          "label": "D",
+          "answer": "A border softened arrival",
+          "feedback": "Borders shape admission, but the festival failed through staged readiness."
+        }
+      ],
+      "explanation": "The festival’s image campaign made the destination look finished before the infrastructure existed.",
+      "visibleCorrectExplanation": "The online promise arrived before the real event could support it.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Maintenance saved progress",
+          "explanation": "Maintenance protects systems, but the festival problem was overpromising before building."
+        },
+        {
+          "label": "C",
+          "answer": "Cycles replaced growth",
+          "explanation": "Cycles can show repeated progress, but the disaster came from a gap between image and delivery."
+        },
+        {
+          "label": "D",
+          "answer": "A border softened arrival",
+          "explanation": "Borders shape admission, but the festival failed through staged readiness."
+        }
+      ],
+      "visibleConnection": "The festival’s image campaign made the destination look finished before the infrastructure existed.",
+      "visibleTakeaway": "A shiny promise can arrive much earlier than the thing it claims to sell.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fyre_Festival",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Monkey See, Monkey Prototype",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.monkey-see-monkey-prototype.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "monkey-see-monkey-prototype",
+          "levelKey": "500",
+          "sectionQuestionIndex": 46,
+          "levelQuestionIndex": 6,
+          "questionId": "question.monkey-see-monkey-prototype.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_005",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_006",
+      "stableId": "FV500_REAL_ADD_006",
+      "sourceQuestionId": "FV500_REAL_ADD_006",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "When Banksy’s Girl with Balloon partly shredded itself at auction, the sale did not simply end; the event became part of the artwork’s story. What changed?",
+      "correctAnswer": "Completion became performance",
+      "wrongAnswers": [
+        "Waiting became measurable",
+        "Authority stayed temporary",
+        "A ranking defined value"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Waiting became measurable",
+          "feedback": "Measuring waiting is about progress displays, not an artwork changing through a public act."
+        },
+        {
+          "label": "C",
+          "answer": "Authority stayed temporary",
+          "feedback": "Temporary authority describes political restraint, not an auction performance."
+        },
+        {
+          "label": "D",
+          "answer": "A ranking defined value",
+          "feedback": "Rankings can create value, but the central twist was completion becoming action."
+        }
+      ],
+      "explanation": "The shredding turned the supposedly finished sale into a new public act of making meaning.",
+      "visibleCorrectExplanation": "The artwork did not just remain an object; its partial destruction became the next stage of the work.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Waiting became measurable",
+          "explanation": "Measuring waiting is about progress displays, not an artwork changing through a public act."
+        },
+        {
+          "label": "C",
+          "answer": "Authority stayed temporary",
+          "explanation": "Temporary authority describes political restraint, not an auction performance."
+        },
+        {
+          "label": "D",
+          "answer": "A ranking defined value",
+          "explanation": "Rankings can create value, but the central twist was completion becoming action."
+        }
+      ],
+      "visibleConnection": "The shredding turned the supposedly finished sale into a new public act of making meaning.",
+      "visibleTakeaway": "Sometimes the ending of a work becomes another part of the work.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Love_Is_in_the_Bin",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 6,
+          "questionId": "question.theres-a-draft-in-here.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_006",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_007",
+      "stableId": "FV500_REAL_ADD_007",
+      "sourceQuestionId": "FV500_REAL_ADD_007",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the end of Inception, Cobb watches the spinning top, but the cut arrives before certainty does. What does the ending withhold?",
+      "correctAnswer": "Closure on purpose",
+      "wrongAnswers": [
+        "Home through distance",
+        "Progress through upkeep",
+        "Travel through nostalgia"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Home through distance",
+          "feedback": "Longing for home is not the main puzzle of the spinning top."
+        },
+        {
+          "label": "C",
+          "answer": "Progress through upkeep",
+          "feedback": "Upkeep prevents systems from regressing, but the scene is about withheld certainty."
+        },
+        {
+          "label": "D",
+          "answer": "Travel through nostalgia",
+          "feedback": "Nostalgia reshapes travel memory, but the top creates unresolved closure."
+        }
+      ],
+      "explanation": "The film leaves the audience inside uncertainty instead of confirming the final state.",
+      "visibleCorrectExplanation": "The cut makes the ending active because viewers must keep deciding what the top means.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Home through distance",
+          "explanation": "Longing for home is not the main puzzle of the spinning top."
+        },
+        {
+          "label": "C",
+          "answer": "Progress through upkeep",
+          "explanation": "Upkeep prevents systems from regressing, but the scene is about withheld certainty."
+        },
+        {
+          "label": "D",
+          "answer": "Travel through nostalgia",
+          "explanation": "Nostalgia reshapes travel memory, but the top creates unresolved closure."
+        }
+      ],
+      "visibleConnection": "The film leaves the audience inside uncertainty instead of confirming the final state.",
+      "visibleTakeaway": "An ending can be powerful because it refuses to finish the question.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Inception",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.020"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 64,
+          "levelQuestionIndex": 19,
+          "questionId": "question.introductory-questions.500.020",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_007",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_008",
+      "stableId": "FV500_REAL_ADD_008",
+      "sourceQuestionId": "FV500_REAL_ADD_008",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In Memento, Leonard uses Polaroids, notes, and tattoos to hold together a life his memory cannot hold. What are those tools doing?",
+      "correctAnswer": "Memory moves outside the mind",
+      "wrongAnswers": [
+        "Crowds manufacture authenticity",
+        "Doomsday dates organize fear",
+        "Infrastructure reduces freedom"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Crowds manufacture authenticity",
+          "feedback": "Crowds can damage authenticity, but Leonard’s problem is memory loss."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday dates organize fear",
+          "feedback": "Doomsday dates give fear a schedule, not a usable memory system."
+        },
+        {
+          "label": "D",
+          "answer": "Infrastructure reduces freedom",
+          "feedback": "Infrastructure can constrain movement, but the tattoos are personal memory tools."
+        }
+      ],
+      "explanation": "The notes and tattoos turn memory into a visible system that Leonard can consult.",
+      "visibleCorrectExplanation": "Leonard survives by outsourcing memory to objects, marks, and written instructions.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Crowds manufacture authenticity",
+          "explanation": "Crowds can damage authenticity, but Leonard’s problem is memory loss."
+        },
+        {
+          "label": "C",
+          "answer": "Doomsday dates organize fear",
+          "explanation": "Doomsday dates give fear a schedule, not a usable memory system."
+        },
+        {
+          "label": "D",
+          "answer": "Infrastructure reduces freedom",
+          "explanation": "Infrastructure can constrain movement, but the tattoos are personal memory tools."
+        }
+      ],
+      "visibleConnection": "The notes and tattoos turn memory into a visible system that Leonard can consult.",
+      "visibleTakeaway": "A list can become a substitute for memory when memory cannot be trusted.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Memento_(film)",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 34,
+          "levelQuestionIndex": 5,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_008",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_009",
+      "stableId": "FV500_REAL_ADD_009",
+      "sourceQuestionId": "FV500_REAL_ADD_009",
+      "questionScope": "Full Voyage",
+      "sectionId": "going-pains",
+      "sectionIds": [
+        "going-pains"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Office episode “Stress Relief,” Dwight stages a fake fire drill so badly that panic takes over. What did urgency become?",
+      "correctAnswer": "A manufactured emergency",
+      "wrongAnswers": [
+        "A visible progress cue",
+        "A homecoming ritual",
+        "A neutral measurement"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A visible progress cue",
+          "feedback": "Progress cues calm waiting; the fake drill does the opposite."
+        },
+        {
+          "label": "C",
+          "answer": "A homecoming ritual",
+          "feedback": "Homecoming rituals return people to belonging, not panic."
+        },
+        {
+          "label": "D",
+          "answer": "A neutral measurement",
+          "feedback": "Neutral measurement is not the issue; emotional pressure is."
+        }
+      ],
+      "explanation": "The fake emergency shows how urgency can be created and then escape control.",
+      "visibleCorrectExplanation": "People react as if the danger is real because the situation has been staged to feel immediate.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A visible progress cue",
+          "explanation": "Progress cues calm waiting; the fake drill does the opposite."
+        },
+        {
+          "label": "C",
+          "answer": "A homecoming ritual",
+          "explanation": "Homecoming rituals return people to belonging, not panic."
+        },
+        {
+          "label": "D",
+          "answer": "A neutral measurement",
+          "explanation": "Neutral measurement is not the issue; emotional pressure is."
+        }
+      ],
+      "visibleConnection": "The fake emergency shows how urgency can be created and then escape control.",
+      "visibleTakeaway": "Urgency can focus people, but it can also make them behave worse.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Stress_Relief_(The_Office)",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Going Pains",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.going-pains.500.001"
+      ],
+      "placements": [
+        {
+          "sectionId": "going-pains",
+          "levelKey": "500",
+          "sectionQuestionIndex": 27,
+          "levelQuestionIndex": 0,
+          "questionId": "question.going-pains.500.001",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_009",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_010",
+      "stableId": "FV500_REAL_ADD_010",
+      "sourceQuestionId": "FV500_REAL_ADD_010",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "IKEA stores often guide shoppers through a long showroom path before checkout. What is the layout quietly doing?",
+      "correctAnswer": "Designing the route for behavior",
+      "wrongAnswers": [
+        "Turning failure into suspense",
+        "Scheduling fear with dates",
+        "Preserving a finished task"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Turning failure into suspense",
+          "feedback": "Suspense can grow from production limits, but IKEA’s path is a behavioral design."
+        },
+        {
+          "label": "C",
+          "answer": "Scheduling fear with dates",
+          "feedback": "Scheduled fear belongs to doomsday prediction, not store navigation."
+        },
+        {
+          "label": "D",
+          "answer": "Preserving a finished task",
+          "feedback": "Finished tasks can be preserved by done lists, but the showroom controls movement."
+        }
+      ],
+      "explanation": "The store layout shapes movement before shoppers feel they are making independent choices.",
+      "visibleCorrectExplanation": "The path makes browsing feel natural while steering people through selected rooms and products.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Turning failure into suspense",
+          "explanation": "Suspense can grow from production limits, but IKEA’s path is a behavioral design."
+        },
+        {
+          "label": "C",
+          "answer": "Scheduling fear with dates",
+          "explanation": "Scheduled fear belongs to doomsday prediction, not store navigation."
+        },
+        {
+          "label": "D",
+          "answer": "Preserving a finished task",
+          "explanation": "Finished tasks can be preserved by done lists, but the showroom controls movement."
+        }
+      ],
+      "visibleConnection": "The store layout shapes movement before shoppers feel they are making independent choices.",
+      "visibleTakeaway": "Spaces can guide decisions without announcing that they are doing it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/IKEA#Store_layout",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.500.004"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "500",
+          "sectionQuestionIndex": 43,
+          "levelQuestionIndex": 3,
+          "questionId": "question.where-the-sidewalk-starts.500.004",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_010",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_011",
+      "stableId": "FV500_REAL_ADD_011",
+      "sourceQuestionId": "FV500_REAL_ADD_011",
+      "questionScope": "Full Voyage",
+      "sectionId": "more-to-do-than-can-ever-be-listed",
+      "sectionIds": [
+        "more-to-do",
+        "more-to-do-than-can-ever-be-listed"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Spotify Wrapped turns private listening habits into shareable annual graphics. What does that annual ritual create?",
+      "correctAnswer": "A public inventory of identity",
+      "wrongAnswers": [
+        "A legal border at arrival",
+        "A temporary transfer of power",
+        "A prototype mistaken for final"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A legal border at arrival",
+          "feedback": "Legal borders decide admission, not musical self-presentation."
+        },
+        {
+          "label": "C",
+          "answer": "A temporary transfer of power",
+          "feedback": "Temporary power belongs to transition politics, not listening summaries."
+        },
+        {
+          "label": "D",
+          "answer": "A prototype mistaken for final",
+          "feedback": "Prototype confusion is about unfinished products appearing ready."
+        }
+      ],
+      "explanation": "The listening report turns personal behavior into a public display of taste and self-image.",
+      "visibleCorrectExplanation": "Private listening becomes something people post to show who they are.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A legal border at arrival",
+          "explanation": "Legal borders decide admission, not musical self-presentation."
+        },
+        {
+          "label": "C",
+          "answer": "A temporary transfer of power",
+          "explanation": "Temporary power belongs to transition politics, not listening summaries."
+        },
+        {
+          "label": "D",
+          "answer": "A prototype mistaken for final",
+          "explanation": "Prototype confusion is about unfinished products appearing ready."
+        }
+      ],
+      "visibleConnection": "The listening report turns personal behavior into a public display of taste and self-image.",
+      "visibleTakeaway": "A list can become a performance of identity.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Spotify_Wrapped",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "More To Do Than Can Ever Be Listed",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.more-to-do-than-can-ever-be-listed.500.007"
+      ],
+      "placements": [
+        {
+          "sectionId": "more-to-do-than-can-ever-be-listed",
+          "levelKey": "500",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 6,
+          "questionId": "question.more-to-do-than-can-ever-be-listed.500.007",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_011",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_012",
+      "stableId": "FV500_REAL_ADD_012",
+      "sourceQuestionId": "FV500_REAL_ADD_012",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Taylor Swift re-recorded older albums as Taylor’s Version so the same songs could return under a changed ownership status. What kind of return is this?",
+      "correctAnswer": "Return changes control",
+      "wrongAnswers": [
+        "Drafts hide labor",
+        "Metrics become goals",
+        "Borders erase movement"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Drafts hide labor",
+          "feedback": "Drafts reveal labor, but the re-recordings are about control over released work."
+        },
+        {
+          "label": "C",
+          "answer": "Metrics become goals",
+          "feedback": "Metrics becoming goals describes measurement pressure, not song ownership."
+        },
+        {
+          "label": "D",
+          "answer": "Borders erase movement",
+          "feedback": "Borders can block arrival, but the albums returned through rights and control."
+        }
+      ],
+      "explanation": "The songs return sounding familiar, but the legal and symbolic status has changed.",
+      "visibleCorrectExplanation": "The same music comes back with a different relationship to ownership and authority.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Drafts hide labor",
+          "explanation": "Drafts reveal labor, but the re-recordings are about control over released work."
+        },
+        {
+          "label": "C",
+          "answer": "Metrics become goals",
+          "explanation": "Metrics becoming goals describes measurement pressure, not song ownership."
+        },
+        {
+          "label": "D",
+          "answer": "Borders erase movement",
+          "explanation": "Borders can block arrival, but the albums returned through rights and control."
+        }
+      ],
+      "visibleConnection": "The songs return sounding familiar, but the legal and symbolic status has changed.",
+      "visibleTakeaway": "Returning to the same material can still change who controls the destination.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Taylor_Swift_masters_dispute",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 48,
+          "levelQuestionIndex": 7,
+          "questionId": "question.home-and-wandering.500.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_012",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_013",
+      "stableId": "FV500_REAL_ADD_013",
+      "sourceQuestionId": "FV500_REAL_ADD_013",
+      "questionScope": "Full Voyage",
+      "sectionId": "home-and-wandering",
+      "sectionIds": [
+        "home-and-wandering"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Wizard of Oz, Dorothy clicks the ruby slippers and says there is no place like home. What does the scene make home depend on?",
+      "correctAnswer": "Meaning, not just location",
+      "wrongAnswers": [
+        "Tasks, not memory",
+        "Transit, not admission",
+        "Polish, not rehearsal"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Tasks, not memory",
+          "feedback": "Tasks and memory describe lists, not Dorothy’s longing."
+        },
+        {
+          "label": "C",
+          "answer": "Transit, not admission",
+          "feedback": "Transit and admission belong to border or airport problems."
+        },
+        {
+          "label": "D",
+          "answer": "Polish, not rehearsal",
+          "feedback": "Polish and rehearsal describe performance readiness, not home."
+        }
+      ],
+      "explanation": "The scene treats home as emotional belonging rather than a simple point on a map.",
+      "visibleCorrectExplanation": "Dorothy’s return matters because Kansas carries attachment, not because it is merely a destination.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Tasks, not memory",
+          "explanation": "Tasks and memory describe lists, not Dorothy’s longing."
+        },
+        {
+          "label": "C",
+          "answer": "Transit, not admission",
+          "explanation": "Transit and admission belong to border or airport problems."
+        },
+        {
+          "label": "D",
+          "answer": "Polish, not rehearsal",
+          "explanation": "Polish and rehearsal describe performance readiness, not home."
+        }
+      ],
+      "visibleConnection": "The scene treats home as emotional belonging rather than a simple point on a map.",
+      "visibleTakeaway": "Home is not only where someone arrives; it is what the arrival means.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Wizard_of_Oz_(1939_film)",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Home and Wandering",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.home-and-wandering.500.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "home-and-wandering",
+          "levelKey": "500",
+          "sectionQuestionIndex": 49,
+          "levelQuestionIndex": 8,
+          "questionId": "question.home-and-wandering.500.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_013",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_014",
+      "stableId": "FV500_REAL_ADD_014",
+      "sourceQuestionId": "FV500_REAL_ADD_014",
+      "questionScope": "Full Voyage",
+      "sectionId": "progress-not-regress",
+      "sectionIds": [
+        "progress-not-regress"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Social Network, early Facebook scenes turn social life into rankings, profiles, and visible status. What danger appears?",
+      "correctAnswer": "Metrics turn people into value",
+      "wrongAnswers": [
+        "Waiting becomes entertainment",
+        "Detours protect the route",
+        "Repairs make damage beautiful"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Waiting becomes entertainment",
+          "feedback": "Entertainment can distract waiting, but the issue here is social measurement."
+        },
+        {
+          "label": "C",
+          "answer": "Detours protect the route",
+          "feedback": "Detours can protect a route, but rankings are not route changes."
+        },
+        {
+          "label": "D",
+          "answer": "Repairs make damage beautiful",
+          "feedback": "Visible repair changes damaged objects, not social status systems."
+        }
+      ],
+      "explanation": "The story shows social life being transformed into numbers, profiles, and status signals.",
+      "visibleCorrectExplanation": "When people become comparable data, the measurement starts shaping their social value.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Waiting becomes entertainment",
+          "explanation": "Entertainment can distract waiting, but the issue here is social measurement."
+        },
+        {
+          "label": "C",
+          "answer": "Detours protect the route",
+          "explanation": "Detours can protect a route, but rankings are not route changes."
+        },
+        {
+          "label": "D",
+          "answer": "Repairs make damage beautiful",
+          "explanation": "Visible repair changes damaged objects, not social status systems."
+        }
+      ],
+      "visibleConnection": "The story shows social life being transformed into numbers, profiles, and status signals.",
+      "visibleTakeaway": "Once people are measured, the measurement can start deciding what they are worth.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_Social_Network",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Progress, Not Regress",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.progress-not-regress.500.013"
+      ],
+      "placements": [
+        {
+          "sectionId": "progress-not-regress",
+          "levelKey": "500",
+          "sectionQuestionIndex": 62,
+          "levelQuestionIndex": 12,
+          "questionId": "question.progress-not-regress.500.013",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_014",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_015",
+      "stableId": "FV500_REAL_ADD_015",
+      "sourceQuestionId": "FV500_REAL_ADD_015",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "During Jaws, the mechanical shark often failed, so Spielberg showed it less and built suspense around what viewers could not see. What did the limitation become?",
+      "correctAnswer": "Constraint strengthened suspense",
+      "wrongAnswers": [
+        "Progress proved completion",
+        "A list finished culture",
+        "A treaty froze authority"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Progress proved completion",
+          "feedback": "A progress sign can imply completion, but the shark problem was a creative constraint."
+        },
+        {
+          "label": "C",
+          "answer": "A list finished culture",
+          "feedback": "Lists can organize culture, but the film’s suspense came from what was hidden."
+        },
+        {
+          "label": "D",
+          "answer": "A treaty froze authority",
+          "feedback": "Frozen authority belongs to political transition, not monster design."
+        }
+      ],
+      "explanation": "The broken prop forced a less visible shark, and that absence made the fear stronger.",
+      "visibleCorrectExplanation": "The technical failure became a creative method instead of only a production problem.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Progress proved completion",
+          "explanation": "A progress sign can imply completion, but the shark problem was a creative constraint."
+        },
+        {
+          "label": "C",
+          "answer": "A list finished culture",
+          "explanation": "Lists can organize culture, but the film’s suspense came from what was hidden."
+        },
+        {
+          "label": "D",
+          "answer": "A treaty froze authority",
+          "explanation": "Frozen authority belongs to political transition, not monster design."
+        }
+      ],
+      "visibleConnection": "The broken prop forced a less visible shark, and that absence made the fear stronger.",
+      "visibleTakeaway": "A broken tool can sometimes improve the final work by changing the method.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jaws_(film)#Production",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 36,
+          "levelQuestionIndex": 7,
+          "questionId": "question.theres-a-draft-in-here.500.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_015",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_016",
+      "stableId": "FV500_REAL_ADD_016",
+      "sourceQuestionId": "FV500_REAL_ADD_016",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Barcelona’s Sagrada Família has remained unfinished for generations while becoming central to its identity. What has incompletion become?",
+      "correctAnswer": "Part of the monument’s meaning",
+      "wrongAnswers": [
+        "Proof that speed is progress",
+        "A way to shorten waiting",
+        "A measure of national wealth"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Proof that speed is progress",
+          "feedback": "Speed is not the point of a project famous for long duration."
+        },
+        {
+          "label": "C",
+          "answer": "A way to shorten waiting",
+          "feedback": "Shortening waiting belongs to interface or queue design."
+        },
+        {
+          "label": "D",
+          "answer": "A measure of national wealth",
+          "feedback": "Wealth metrics measure economies, not architectural incompletion."
+        }
+      ],
+      "explanation": "The building’s long incompletion is not just a delay; it has become part of how people understand it.",
+      "visibleCorrectExplanation": "The unfinished state helps define the monument’s story across generations.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Proof that speed is progress",
+          "explanation": "Speed is not the point of a project famous for long duration."
+        },
+        {
+          "label": "C",
+          "answer": "A way to shorten waiting",
+          "explanation": "Shortening waiting belongs to interface or queue design."
+        },
+        {
+          "label": "D",
+          "answer": "A measure of national wealth",
+          "explanation": "Wealth metrics measure economies, not architectural incompletion."
+        }
+      ],
+      "visibleConnection": "The building’s long incompletion is not just a delay; it has become part of how people understand it.",
+      "visibleTakeaway": "Some works become meaningful partly because they are not yet finished.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.009"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 37,
+          "levelQuestionIndex": 8,
+          "questionId": "question.theres-a-draft-in-here.500.009",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_016",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_017",
+      "stableId": "FV500_REAL_ADD_017",
+      "sourceQuestionId": "FV500_REAL_ADD_017",
+      "questionScope": "Full Voyage",
+      "sectionId": "theres-a-draft-in-here",
+      "sectionIds": [
+        "theres-a-draft",
+        "theres-a-draft-in-here"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the Louvre, many visitors crowd around the Mona Lisa to photograph it instead of slowly looking at it. What is the crowd doing?",
+      "correctAnswer": "Turning attention into performance",
+      "wrongAnswers": [
+        "Making rehearsal unnecessary",
+        "Ending political authority",
+        "Creating exact progress data"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Making rehearsal unnecessary",
+          "feedback": "Rehearsal concerns preparation, not museum spectatorship."
+        },
+        {
+          "label": "C",
+          "answer": "Ending political authority",
+          "feedback": "Political endings belong to leadership transitions, not museum behavior."
+        },
+        {
+          "label": "D",
+          "answer": "Creating exact progress data",
+          "feedback": "Exact progress data belongs to measurement tools, not crowd attention."
+        }
+      ],
+      "explanation": "The crowd makes the artwork a social performance as much as an encounter with the painting.",
+      "visibleCorrectExplanation": "The visit becomes partly about proving presence, not only seeing the work.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Making rehearsal unnecessary",
+          "explanation": "Rehearsal concerns preparation, not museum spectatorship."
+        },
+        {
+          "label": "C",
+          "answer": "Ending political authority",
+          "explanation": "Political endings belong to leadership transitions, not museum behavior."
+        },
+        {
+          "label": "D",
+          "answer": "Creating exact progress data",
+          "explanation": "Exact progress data belongs to measurement tools, not crowd attention."
+        }
+      ],
+      "visibleConnection": "The crowd makes the artwork a social performance as much as an encounter with the painting.",
+      "visibleTakeaway": "Attention can change the thing it came to admire.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mona_Lisa",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "There’s a Draft in Here",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.theres-a-draft-in-here.500.010"
+      ],
+      "placements": [
+        {
+          "sectionId": "theres-a-draft-in-here",
+          "levelKey": "500",
+          "sectionQuestionIndex": 38,
+          "levelQuestionIndex": 9,
+          "questionId": "question.theres-a-draft-in-here.500.010",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_017",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_018",
+      "stableId": "FV500_REAL_ADD_018",
+      "sourceQuestionId": "FV500_REAL_ADD_018",
+      "questionScope": "Full Voyage",
+      "sectionId": "the-end-is-nearish",
+      "sectionIds": [
+        "the-end-is-nearish"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Black Friday websites often use countdown clocks and limited-stock messages to push shoppers toward checkout. What is being manufactured?",
+      "correctAnswer": "Urgency before reflection",
+      "wrongAnswers": [
+        "Belonging after return",
+        "Maintenance after collapse",
+        "Movement without route"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Belonging after return",
+          "feedback": "Belonging after return describes homecoming, not online shopping pressure."
+        },
+        {
+          "label": "C",
+          "answer": "Maintenance after collapse",
+          "feedback": "Maintenance after collapse describes system upkeep, not checkout urgency."
+        },
+        {
+          "label": "D",
+          "answer": "Movement without route",
+          "feedback": "Movement without route describes wandering, not countdown-driven purchase pressure."
+        }
+      ],
+      "explanation": "The countdown makes time feel scarce so shoppers act before thinking slowly.",
+      "visibleCorrectExplanation": "The pressure is built into the interface as a sales tactic.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Belonging after return",
+          "explanation": "Belonging after return describes homecoming, not online shopping pressure."
+        },
+        {
+          "label": "C",
+          "answer": "Maintenance after collapse",
+          "explanation": "Maintenance after collapse describes system upkeep, not checkout urgency."
+        },
+        {
+          "label": "D",
+          "answer": "Movement without route",
+          "explanation": "Movement without route describes wandering, not countdown-driven purchase pressure."
+        }
+      ],
+      "visibleConnection": "The countdown makes time feel scarce so shoppers act before thinking slowly.",
+      "visibleTakeaway": "Scarcity can be designed into a screen.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Black_Friday_(shopping)",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "The End is Nearish",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.the-end-is-nearish.500.008"
+      ],
+      "placements": [
+        {
+          "sectionId": "the-end-is-nearish",
+          "levelKey": "500",
+          "sectionQuestionIndex": 56,
+          "levelQuestionIndex": 7,
+          "questionId": "question.the-end-is-nearish.500.008",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_018",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_019",
+      "stableId": "FV500_REAL_ADD_019",
+      "sourceQuestionId": "FV500_REAL_ADD_019",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Amazon’s one-click buying removes steps between wanting and purchasing. What does the design reduce?",
+      "correctAnswer": "Friction before action",
+      "wrongAnswers": [
+        "Distance before homesickness",
+        "Chaos before apocalypse",
+        "Drafting before performance"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Distance before homesickness",
+          "feedback": "Homesickness grows from distance and longing, not checkout design."
+        },
+        {
+          "label": "C",
+          "answer": "Chaos before apocalypse",
+          "feedback": "Apocalyptic chaos is not the problem in a purchase shortcut."
+        },
+        {
+          "label": "D",
+          "answer": "Drafting before performance",
+          "feedback": "Drafting before performance concerns creative preparation, not buying friction."
+        }
+      ],
+      "explanation": "The purchase path is shortened so the decision can become action almost immediately.",
+      "visibleCorrectExplanation": "The design makes completion easier by removing pauses that might invite reconsideration.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Distance before homesickness",
+          "explanation": "Homesickness grows from distance and longing, not checkout design."
+        },
+        {
+          "label": "C",
+          "answer": "Chaos before apocalypse",
+          "explanation": "Apocalyptic chaos is not the problem in a purchase shortcut."
+        },
+        {
+          "label": "D",
+          "answer": "Drafting before performance",
+          "explanation": "Drafting before performance concerns creative preparation, not buying friction."
+        }
+      ],
+      "visibleConnection": "The purchase path is shortened so the decision can become action almost immediately.",
+      "visibleTakeaway": "Design can make action feel almost automatic.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/1-Click",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.500.005"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "500",
+          "sectionQuestionIndex": 44,
+          "levelQuestionIndex": 4,
+          "questionId": "question.where-the-sidewalk-starts.500.005",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_019",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_020",
+      "stableId": "FV500_REAL_ADD_020",
+      "sourceQuestionId": "FV500_REAL_ADD_020",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "After Apollo 13’s oxygen tank exploded, the mission changed from landing on the Moon to bringing the crew home safely. What did the failed route become?",
+      "correctAnswer": "A survival detour",
+      "wrongAnswers": [
+        "A polished launch",
+        "A public ranking",
+        "A souvenir road"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A polished launch",
+          "feedback": "A polished launch hides readiness problems; Apollo 13 changed course after a crisis."
+        },
+        {
+          "label": "C",
+          "answer": "A public ranking",
+          "feedback": "Public rankings measure value, not emergency rerouting."
+        },
+        {
+          "label": "D",
+          "answer": "A souvenir road",
+          "feedback": "Souvenir roads preserve memory, not spacecraft survival."
+        }
+      ],
+      "explanation": "The mission’s original destination became impossible, so the route changed into survival.",
+      "visibleCorrectExplanation": "The detour was not wasted movement; it became the only way to reach a different kind of success.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A polished launch",
+          "explanation": "A polished launch hides readiness problems; Apollo 13 changed course after a crisis."
+        },
+        {
+          "label": "C",
+          "answer": "A public ranking",
+          "explanation": "Public rankings measure value, not emergency rerouting."
+        },
+        {
+          "label": "D",
+          "answer": "A souvenir road",
+          "explanation": "Souvenir roads preserve memory, not spacecraft survival."
+        }
+      ],
+      "visibleConnection": "The mission’s original destination became impossible, so the route changed into survival.",
+      "visibleTakeaway": "A detour can replace the destination with a more urgent goal.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Apollo_13",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.021"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 65,
+          "levelQuestionIndex": 20,
+          "questionId": "question.introductory-questions.500.021",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_020",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_021",
+      "stableId": "FV500_REAL_ADD_021",
+      "sourceQuestionId": "FV500_REAL_ADD_021",
+      "questionScope": "Full Voyage",
+      "sectionId": "where-the-sidewalk-starts",
+      "sectionIds": [
+        "where-the-sidewalk-starts"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "TikTok’s endless scroll can make a user keep moving through videos without choosing a real stopping point. What has the interface created?",
+      "correctAnswer": "Movement without arrival",
+      "wrongAnswers": [
+        "A restored done list",
+        "A legal threshold",
+        "A stable homecoming"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "A restored done list",
+          "feedback": "A done list preserves completed work, while the feed keeps adding more."
+        },
+        {
+          "label": "C",
+          "answer": "A legal threshold",
+          "feedback": "A legal threshold changes admission or reversibility, not scrolling."
+        },
+        {
+          "label": "D",
+          "answer": "A stable homecoming",
+          "feedback": "Homecoming gives return meaning; endless scrolling avoids return."
+        }
+      ],
+      "explanation": "The feed produces constant motion without a clear destination or completion point.",
+      "visibleCorrectExplanation": "The user keeps going, but the movement does not naturally arrive anywhere.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "A restored done list",
+          "explanation": "A done list preserves completed work, while the feed keeps adding more."
+        },
+        {
+          "label": "C",
+          "answer": "A legal threshold",
+          "explanation": "A legal threshold changes admission or reversibility, not scrolling."
+        },
+        {
+          "label": "D",
+          "answer": "A stable homecoming",
+          "explanation": "Homecoming gives return meaning; endless scrolling avoids return."
+        }
+      ],
+      "visibleConnection": "The feed produces constant motion without a clear destination or completion point.",
+      "visibleTakeaway": "Some systems keep movement alive by removing the finish line.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/TikTok",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Where the Sidewalk Starts",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.where-the-sidewalk-starts.500.006"
+      ],
+      "placements": [
+        {
+          "sectionId": "where-the-sidewalk-starts",
+          "levelKey": "500",
+          "sectionQuestionIndex": 45,
+          "levelQuestionIndex": 5,
+          "questionId": "question.where-the-sidewalk-starts.500.006",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_021",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_022",
+      "stableId": "FV500_REAL_ADD_022",
+      "sourceQuestionId": "FV500_REAL_ADD_022",
+      "questionScope": "Full Voyage",
+      "sectionId": "call-of-duty-free",
+      "sectionIds": [
+        "call-of-duty-free"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "Museum gift shops often turn an exhibition visit into posters, mugs, and postcards on the way out. What happens to memory there?",
+      "correctAnswer": "It becomes something to buy",
+      "wrongAnswers": [
+        "It becomes impossible to measure",
+        "It becomes temporary authority",
+        "It becomes exact progress"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "It becomes impossible to measure",
+          "feedback": "Some values resist measurement, but the gift shop is about buying memory."
+        },
+        {
+          "label": "C",
+          "answer": "It becomes temporary authority",
+          "feedback": "Temporary authority belongs to political transition."
+        },
+        {
+          "label": "D",
+          "answer": "It becomes exact progress",
+          "feedback": "Exact progress belongs to indicators, not souvenirs."
+        }
+      ],
+      "explanation": "The visit is converted into objects that let people purchase a portable memory.",
+      "visibleCorrectExplanation": "The experience continues as merchandise, not only as recollection.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "It becomes impossible to measure",
+          "explanation": "Some values resist measurement, but the gift shop is about buying memory."
+        },
+        {
+          "label": "C",
+          "answer": "It becomes temporary authority",
+          "explanation": "Temporary authority belongs to political transition."
+        },
+        {
+          "label": "D",
+          "answer": "It becomes exact progress",
+          "explanation": "Exact progress belongs to indicators, not souvenirs."
+        }
+      ],
+      "visibleConnection": "The visit is converted into objects that let people purchase a portable memory.",
+      "visibleTakeaway": "Memory can be packaged into objects.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Gift_shop",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.call-of-duty-free.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "call-of-duty-free",
+          "levelKey": "500",
+          "sectionQuestionIndex": 35,
+          "levelQuestionIndex": 1,
+          "questionId": "question.call-of-duty-free.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_022",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_023",
+      "stableId": "FV500_REAL_ADD_023",
+      "sourceQuestionId": "FV500_REAL_ADD_023",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "In The Matrix, Neo takes the red pill and can no longer return to ordinary ignorance. What has the choice done?",
+      "correctAnswer": "Closed the way back",
+      "wrongAnswers": [
+        "Made waiting measurable",
+        "Listed unfinished work",
+        "Ranked public happiness"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Made waiting measurable",
+          "feedback": "Measurable waiting belongs to progress displays."
+        },
+        {
+          "label": "C",
+          "answer": "Listed unfinished work",
+          "feedback": "Unfinished work staying active belongs to task memory."
+        },
+        {
+          "label": "D",
+          "answer": "Ranked public happiness",
+          "feedback": "Public happiness rankings measure society, not irreversible awakening."
+        }
+      ],
+      "explanation": "The choice changes what can still be undone; the old reality is no longer available in the same way.",
+      "visibleCorrectExplanation": "Neo crosses into knowledge, and that crossing cannot simply be reversed.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Made waiting measurable",
+          "explanation": "Measurable waiting belongs to progress displays."
+        },
+        {
+          "label": "C",
+          "answer": "Listed unfinished work",
+          "explanation": "Unfinished work staying active belongs to task memory."
+        },
+        {
+          "label": "D",
+          "answer": "Ranked public happiness",
+          "explanation": "Public happiness rankings measure society, not irreversible awakening."
+        }
+      ],
+      "visibleConnection": "The choice changes what can still be undone; the old reality is no longer available in the same way.",
+      "visibleTakeaway": "A threshold matters because the old route may close behind it.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Red_pill_and_blue_pill",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Introductory Questions",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.022"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 66,
+          "levelQuestionIndex": 21,
+          "questionId": "question.introductory-questions.500.022",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_023",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_024",
+      "stableId": "FV500_REAL_ADD_024",
+      "sourceQuestionId": "FV500_REAL_ADD_024",
+      "questionScope": "Full Voyage",
+      "sectionId": "introductory-questions",
+      "sectionIds": [
+        "introductory-questions"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "The viral debate over The Dress made people argue over the same photo as if they were seeing different objects. What did the image expose?",
+      "correctAnswer": "Visible evidence can split reality",
+      "wrongAnswers": [
+        "Progress bars can end waiting",
+        "Homecoming can repair identity",
+        "Demos can prove readiness"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Progress bars can end waiting",
+          "feedback": "Progress bars shape waiting, but the dress debate was about perception."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming can repair identity",
+          "feedback": "Homecoming concerns return and belonging, not rival visual realities."
+        },
+        {
+          "label": "D",
+          "answer": "Demos can prove readiness",
+          "feedback": "Demos can mislead about readiness, but the dress was not a product launch."
+        }
+      ],
+      "explanation": "The same image produced different perceived realities, making visibility less stable than it seemed.",
+      "visibleCorrectExplanation": "The debate showed that seeing the same thing does not guarantee agreeing on what is real.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Progress bars can end waiting",
+          "explanation": "Progress bars shape waiting, but the dress debate was about perception."
+        },
+        {
+          "label": "C",
+          "answer": "Homecoming can repair identity",
+          "explanation": "Homecoming concerns return and belonging, not rival visual realities."
+        },
+        {
+          "label": "D",
+          "answer": "Demos can prove readiness",
+          "explanation": "Demos can mislead about readiness, but the dress was not a product launch."
+        }
+      ],
+      "visibleConnection": "The same image produced different perceived realities, making visibility less stable than it seemed.",
+      "visibleTakeaway": "Seeing is not always a shared answer.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/The_dress",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Needs review",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.introductory-questions.500.023"
+      ],
+      "placements": [
+        {
+          "sectionId": "introductory-questions",
+          "levelKey": "500",
+          "sectionQuestionIndex": 67,
+          "levelQuestionIndex": 22,
+          "questionId": "question.introductory-questions.500.023",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_024",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    },
+    {
+      "id": "FV500_REAL_ADD_025",
+      "stableId": "FV500_REAL_ADD_025",
+      "sourceQuestionId": "FV500_REAL_ADD_025",
+      "questionScope": "Full Voyage",
+      "sectionId": "going-pains",
+      "sectionIds": [
+        "going-pains"
+      ],
+      "level": 5,
+      "displayLevel": 500,
+      "prompt": "At the 2020 Tokyo Olympics, Simone Biles withdrew from several events after experiencing the twisties. What did the decision challenge?",
+      "correctAnswer": "Glorifying struggle at any cost",
+      "wrongAnswers": [
+        "Ranking countries by income",
+        "Turning travel into nostalgia",
+        "Declaring a project finished"
+      ],
+      "distractors": [
+        {
+          "label": "B",
+          "answer": "Ranking countries by income",
+          "feedback": "Income rankings measure economies, not athletic risk."
+        },
+        {
+          "label": "C",
+          "answer": "Turning travel into nostalgia",
+          "feedback": "Travel nostalgia reshapes memory, not bodily danger."
+        },
+        {
+          "label": "D",
+          "answer": "Declaring a project finished",
+          "feedback": "Declaring completion too early is about false endings, not competing while unsafe."
+        }
+      ],
+      "explanation": "The withdrawal challenged the idea that pushing through danger is always the noblest form of growth.",
+      "visibleCorrectExplanation": "Stopping became a safety decision, not a failure of courage.",
+      "visibleWrongExplanations": [
+        {
+          "label": "B",
+          "answer": "Ranking countries by income",
+          "explanation": "Income rankings measure economies, not athletic risk."
+        },
+        {
+          "label": "C",
+          "answer": "Turning travel into nostalgia",
+          "explanation": "Travel nostalgia reshapes memory, not bodily danger."
+        },
+        {
+          "label": "D",
+          "answer": "Declaring a project finished",
+          "explanation": "Declaring completion too early is about false endings, not competing while unsafe."
+        }
+      ],
+      "visibleConnection": "The withdrawal challenged the idea that pushing through danger is always the noblest form of growth.",
+      "visibleTakeaway": "Not every struggle deserves to be celebrated as progress.",
+      "sourceBank": "Full Voyage V11",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Simone_Biles#2020_Summer_Olympics",
+      "sourceNote": "Additional true 500 trial. Uses a named real external anchor not from the WSC guiding content.",
+      "sectionInferenceNote": "Inferred from anchor/target/reference fields; review if ambiguous.",
+      "guidingSectionPrimary": "Going Pains",
+      "guidingSectionSecondary": "External reference (not in WSC guiding section)",
+      "sectionPlacementIds": [
+        "question.going-pains.500.002"
+      ],
+      "placements": [
+        {
+          "sectionId": "going-pains",
+          "levelKey": "500",
+          "sectionQuestionIndex": 28,
+          "levelQuestionIndex": 1,
+          "questionId": "question.going-pains.500.002",
+          "entryId": null,
+          "sourceType": "fullVoyageQuestions",
+          "sourceId": "FV500_REAL_ADD_025",
+          "sectionTitle": "",
+          "level": 5,
+          "displayLevel": 500
+        }
+      ],
+      "levelKey": "500"
+    }
+  ]
 };

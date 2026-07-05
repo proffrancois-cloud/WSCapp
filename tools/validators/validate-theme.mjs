@@ -6,6 +6,10 @@ const DEFAULT_THEME_DIR = path.join(ROOT, "content/themes/2026");
 const THEME_DIR = path.resolve(process.argv[2] || DEFAULT_THEME_DIR);
 const APP_DIR = path.join(ROOT, "app");
 const VALID_LEVELS = new Set(["100", "200", "300", "400", "500"]);
+const EXPECTED_FULL_VOYAGE_LEVEL_COUNTS = {
+  "400": 135,
+  "500": 95
+};
 
 const errors = [];
 const warnings = [];
@@ -81,6 +85,10 @@ function validate() {
   let questionBankCount = 0;
   let questionBankPlacementCount = 0;
   let questionBankSourceKeys = new Set();
+  const questionBankSourceTypesByKey = new Map();
+  const questionBankCountsBySourceType = {};
+  const fullVoyageCountsByLevel = {};
+  const fullVoyageSourceKeys = new Set();
   const rawEntryCountsBySectionId = new Map();
 
   const manifestQuestionBankPath = manifest.questionBank ? resolveThemePath(manifest.questionBank) : null;
@@ -99,6 +107,9 @@ function validate() {
             errors.push(`Duplicate central question key: ${key}`);
           }
           questionBankSourceKeys.add(key);
+          questionBankSourceTypesByKey.set(key, question.sourceType || "unknown");
+          questionBankCountsBySourceType[question.sourceType || "unknown"] =
+            (questionBankCountsBySourceType[question.sourceType || "unknown"] || 0) + 1;
           questionBankPlacementCount += Array.isArray(question.placements) ? question.placements.length : 1;
           if (!question.prompt || !question.correctAnswer) {
             errors.push(`Central question missing prompt/correct answer: ${key}`);
@@ -106,6 +117,56 @@ function validate() {
           const wrongAnswers = question.wrongAnswers || (question.distractors || []).map((item) => item.answer);
           if (!Array.isArray(wrongAnswers) || wrongAnswers.length < 3) {
             warnings.push(`Central question has fewer than 3 distractors: ${key}`);
+          }
+          if (question.sourceType === "fullVoyageQuestions") {
+            fullVoyageSourceKeys.add(key);
+            const levelKey = String(question.displayLevel || Number(question.level) * 100);
+            fullVoyageCountsByLevel[levelKey] = (fullVoyageCountsByLevel[levelKey] || 0) + 1;
+            if (!Array.isArray(question.placements) || question.placements.length === 0) {
+              errors.push(`Full Voyage question has no section placements: ${key}`);
+            }
+          }
+        }
+
+        if (questionBank.counts) {
+          if (questionBank.counts.uniqueQuestions !== questionBankCount) {
+            errors.push(`Question bank uniqueQuestions count mismatch: declared=${questionBank.counts.uniqueQuestions} actual=${questionBankCount}`);
+          }
+          if (questionBank.counts.sectionPlacements !== questionBankPlacementCount) {
+            errors.push(`Question bank sectionPlacements count mismatch: declared=${questionBank.counts.sectionPlacements} actual=${questionBankPlacementCount}`);
+          }
+          for (const [sourceType, actualCount] of Object.entries(questionBankCountsBySourceType)) {
+            const declaredCount = questionBank.counts.bySourceType?.[sourceType];
+            if (declaredCount !== actualCount) {
+              errors.push(`Question bank ${sourceType} count mismatch: declared=${declaredCount} actual=${actualCount}`);
+            }
+          }
+        }
+
+        for (const [levelKey, expectedCount] of Object.entries(EXPECTED_FULL_VOYAGE_LEVEL_COUNTS)) {
+          const actualCount = fullVoyageCountsByLevel[levelKey] || 0;
+          if (actualCount !== expectedCount) {
+            errors.push(`Full Voyage level ${levelKey} count mismatch: expected=${expectedCount} actual=${actualCount}`);
+          }
+        }
+
+        const fullVoyageOrderPath = path.join(THEME_DIR, "compat/full-voyage-order.json");
+        if (exists(fullVoyageOrderPath, "Full Voyage question order")) {
+          const fullVoyageOrder = readJson(fullVoyageOrderPath) || [];
+          const orderKeys = new Set();
+          for (const id of fullVoyageOrder) {
+            if (orderKeys.has(id)) {
+              errors.push(`Duplicate Full Voyage order id: ${id}`);
+            }
+            orderKeys.add(id);
+            if (!fullVoyageSourceKeys.has(id)) {
+              errors.push(`Full Voyage order references missing central question: ${id}`);
+            }
+          }
+          for (const key of fullVoyageSourceKeys) {
+            if (!orderKeys.has(key)) {
+              errors.push(`Full Voyage question missing from order file: ${key}`);
+            }
           }
         }
       }
@@ -234,6 +295,9 @@ function validate() {
     }
     for (const key of questionBankSourceKeys) {
       if (!sectionQuestionSourceKeys.has(key)) {
+        if (questionBankSourceTypesByKey.get(key) === "fullVoyageQuestions") {
+          continue;
+        }
         warnings.push(`Central question bank has question not present in section compatibility files: ${key}`);
       }
     }
