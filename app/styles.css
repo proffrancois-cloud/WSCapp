@@ -14390,6 +14390,7 @@ body.is-campus2d-view .hero-layout {
   max-width: calc(100vw - 360px);
   transform: translateY(-50%);
   pointer-events: auto;
+  overflow: visible;
 }
 
 .campus2d-profile-avatar {
@@ -15771,9 +15772,11 @@ body.is-online-mode .campus2d-player-card.is-palette-open {
 body.is-online-mode .campus2d-header-card-host .campus2d-player-card.online-glow-card {
   min-height: 82px !important;
   cursor: default !important;
+  overflow: visible !important;
 }
 
 body.is-online-mode .campus2d-header-card-host .campus2d-player-card.online-glow-card .card-content {
+  position: relative;
   grid-template-columns: 74px minmax(0, 1fr);
   grid-template-rows: auto auto;
   align-items: center;
@@ -15821,12 +15824,29 @@ body.is-online-mode .campus2d-header-card-host .campus2d-profile-school {
 }
 
 body.is-online-mode .campus2d-header-card-host .campus2d-palette {
-  grid-column: 1 / -1;
-  max-height: min(28vh, 210px);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 30;
+  width: 100%;
+  max-height: min(46vh, 260px);
+  grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid rgba(252, 209, 39, 0.34);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 22% 14%, rgba(255, 246, 210, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(95, 59, 35, 0.98), rgba(49, 29, 20, 0.98));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.12),
+    0 22px 46px rgba(0, 0, 0, 0.42);
+  overflow-y: auto;
 }
 
 body.is-online-mode .campus2d-header-card-host .campus2d-player-card.is-palette-open {
-  min-height: 220px !important;
+  min-height: 82px !important;
 }
 
 body.is-online-mode .campus2d-header-card-host .online-card-prompt,

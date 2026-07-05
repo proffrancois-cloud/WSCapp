@@ -282,10 +282,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campusgrid"')) {
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campuspalette"')) {
   failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus panel reset.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campusgrid")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campuspalette")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 
@@ -523,6 +523,9 @@ if (!/\.campus2d-chat-form\s*\{[^}]*position:\s*absolute/i.test(styles)) {
 }
 if (!/\.campus2d-header-card-host\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D Alpaca ID card must be mounted into the header.");
+}
+if (!/body\.is-online-mode\s+\.campus2d-header-card-host\s+\.campus2d-palette\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?top:\s*calc\(100%\s*\+\s*10px\)/i.test(styles)) {
+  failures.push("Campus 2D header color palette must open downward below the Alpaca ID card.");
 }
 if (/\.campus2d-hud\s*\{[^}]*position:\s*absolute/i.test(styles)) {
   failures.push("Campus 2D HUD must not overlay the room viewport.");
