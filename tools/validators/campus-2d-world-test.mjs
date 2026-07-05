@@ -282,10 +282,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campuspanels"')) {
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260705campusinline"')) {
   failures.push("index.html must bump WSC_PWA_RESET_VERSION for the July 5 campus panel reset.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campuspanels")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260705campusinline")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 
@@ -303,7 +303,9 @@ for (const appNeedle of [
   "librarySectionPicker",
   "data-library-section-choice",
   "data-library-section-confirm",
-  "renderLibraryCampusSectionPicker"
+  "renderLibraryCampusSectionPicker",
+  "renderLibraryInlineTopbar",
+  "library-inline-game-shell"
 ]) {
   if (!appJs.includes(appNeedle)) {
     failures.push(`app.js is missing inline Campus 2D activity support: ${appNeedle}.`);
@@ -334,7 +336,7 @@ for (const runtimeNeedle of [
   "activityPanel.append(activityMount, debugPanel)",
   "viewport.append(world, chatForm, npcDialogueLayer)",
   "updateShellHeight",
-  "campus2d-npc-dialogue is-text-only",
+  "showBubble(npcElement, message)",
   "updateConnectedCount",
   "campus2d-debug-panel",
   "campus2d-debug-zone",
@@ -489,7 +491,10 @@ for (const styleNeedle of [
   ".campus2d-game-zone",
   ".campus2d-zone-fields",
   ".campus2d-zone-direction",
-  ".campus2d-chat-stack"
+  ".campus2d-chat-stack",
+  ".library-inline-topbar",
+  ".library-inline-panel-title",
+  ".library-inline-game-shell"
 ]) {
   if (!styles.includes(styleNeedle)) {
     failures.push(`Campus 2D styles are missing ${styleNeedle}.`);

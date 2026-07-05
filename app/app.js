@@ -7,7 +7,7 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260705campuspanels";
+const ASSET_CACHE_VERSION = "20260705campusinline";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -2798,7 +2798,7 @@ function handleClick(event) {
   }
 
   const closeLibraryResource = event.target.closest("[data-close-library-resource]");
-  if (closeLibraryResource && (!event.target.closest("[data-library-resource-window]") || event.target.closest(".popup-close-button"))) {
+  if (closeLibraryResource && (!event.target.closest("[data-library-resource-window]") || event.target.closest(".popup-close-button, .library-inline-close"))) {
     event.preventDefault();
     closeLibraryResourceViewer();
     return;
@@ -2812,7 +2812,7 @@ function handleClick(event) {
   }
 
   const closeLibraryExperience = event.target.closest("[data-close-library-experience]");
-  if (closeLibraryExperience && (!event.target.closest("[data-library-experience-window]") || event.target.closest(".popup-close-button"))) {
+  if (closeLibraryExperience && (!event.target.closest("[data-library-experience-window]") || event.target.closest(".popup-close-button, .library-inline-close"))) {
     event.preventDefault();
     closeLibraryExperienceViewer();
     return;
@@ -2826,7 +2826,7 @@ function handleClick(event) {
   }
 
   const closeLibrarySectionPicker = event.target.closest("[data-close-library-section-picker]");
-  if (closeLibrarySectionPicker && (!event.target.closest("[data-library-section-picker-window]") || event.target.closest(".popup-close-button"))) {
+  if (closeLibrarySectionPicker && (!event.target.closest("[data-library-section-picker-window]") || event.target.closest(".popup-close-button, .library-inline-close"))) {
     event.preventDefault();
     closeLibrarySectionPickerPanel();
     return;
@@ -7811,33 +7811,71 @@ function renderLibraryIdChoiceCard({ actionAttribute, title, mediaHtml, classNam
   `;
 }
 
+function renderLibraryInlineTopbar({
+  title,
+  scope = "",
+  logo = "",
+  backAttribute = "",
+  closeAttribute = "",
+  closeLabel = "Close",
+  titleId = ""
+} = {}) {
+  const titleAttribute = titleId ? ` id="${escapeHtml(titleId)}"` : "";
+  const logoHtml = logo
+    ? `<img src="${escapeHtml(versionAssetSrc(logo))}" alt="" aria-hidden="true" loading="lazy" decoding="async" />`
+    : "";
+  const backHtml = backAttribute
+    ? `<button class="library-inline-action" type="button" ${backAttribute}>Back</button>`
+    : "";
+
+  return `
+    <div class="library-inline-topbar">
+      <div class="library-inline-title">
+        ${logoHtml}
+        <h3${titleAttribute}>${escapeHtml(title || "Library")}</h3>
+        ${scope ? `<span class="library-inline-scope">${escapeHtml(scope)}</span>` : ""}
+      </div>
+      <div class="library-inline-actions">
+        ${backHtml}
+        <button class="library-inline-close" type="button" ${closeAttribute} aria-label="${escapeHtml(closeLabel)}">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
 function renderLibraryCampusSectionPicker(picker) {
   const modeId = picker.modeId || "";
   const option = getModeOption(modeId) || { title: "Learn" };
-  const selectedSectionId = normalizeSectionId(picker.selectedSectionId) || getOrderedSectionIds()[0] || "";
+  const selectedSectionId = normalizeSectionId(picker.selectedSectionId);
   const returnMenuType = picker.returnMenuType || null;
   const sourceConfig = getLibraryCampusMenuConfig(returnMenuType);
   const theme = sourceConfig.theme || "library";
+  const hasSelectedSection = Boolean(selectedSectionId && sectionById[selectedSectionId]);
+  const selectedSection = hasSelectedSection ? renderLibrarySectionChoiceChip(selectedSectionId, true) : "";
   return `
     <div class="auth-modal-overlay library-campus-overlay library-section-picker-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-section-picker role="dialog" aria-modal="true" aria-labelledby="librarySectionPickerTitle">
-      <div class="auth-modal-window library-campus-window library-section-picker-window library-campus-theme-${escapeHtml(theme)}" data-library-section-picker-window>
-        <button class="popup-close-button" type="button" data-close-library-section-picker aria-label="Close section picker">
-          <span aria-hidden="true">×</span>
-        </button>
+      <div class="auth-modal-window library-campus-window library-section-picker-window library-campus-theme-${escapeHtml(theme)} library-inline-window" data-library-section-picker-window>
         <div class="auth-modal-stack library-campus-stack library-section-picker-stack">
-          <div class="library-campus-heading library-section-picker-heading">
-            <p class="challenge-label">${escapeHtml(option.title || "Learn")}</p>
-            <h3 id="librarySectionPickerTitle">Choose one guiding section</h3>
-          </div>
+          ${renderLibraryInlineTopbar({
+            title: option.title || "Learn",
+            scope: "Choose one guiding section",
+            backAttribute: returnMenuType ? "data-library-section-picker-back" : "",
+            closeAttribute: "data-close-library-section-picker",
+            closeLabel: "Close section picker",
+            titleId: "librarySectionPickerTitle"
+          })}
           <div class="selected-section-chip-strip library-section-picker-strip" aria-label="Choose one guiding section">
             ${getOrderedSectionIds().map((sectionId) => renderLibrarySectionChoiceChip(sectionId, sectionId === selectedSectionId)).join("")}
           </div>
-          <div class="selected-section-selected-row library-section-picker-selected" aria-label="Selected guiding section">
-            ${renderLibrarySectionChoiceChip(selectedSectionId, true)}
-          </div>
+          ${selectedSection ? `
+            <div class="selected-section-selected-row library-section-picker-selected" aria-label="Selected guiding section">
+              ${selectedSection}
+            </div>
+          ` : ""}
           <div class="library-section-picker-actions">
-            ${returnMenuType ? `<button class="button secondary library-back-button" type="button" data-library-section-picker-back>Back</button>` : ""}
-            <button class="button primary" type="button" data-library-section-confirm>Start</button>
+            <button class="button primary" type="button" data-library-section-confirm ${hasSelectedSection ? "" : "disabled"}>Start</button>
           </div>
         </div>
       </div>
@@ -7901,10 +7939,6 @@ function renderLibraryExperienceViewer() {
   const title = option.title || state.experience?.title || "Library";
   const sourceConfig = getLibraryCampusMenuConfig(state.ui.libraryExperience?.returnMenuType);
   const theme = sourceConfig.theme || "library";
-  const prompt = sourceConfig.prompt || "Library";
-  const selectedLabels = getSelectedSectionLabels();
-  const scope = selectedLabels.length === 1 ? selectedLabels[0] : "All guiding sections";
-  const canBack = Boolean(state.ui.libraryExperience?.returnMenuType);
   const panelClasses = [
     "experience-panel",
     "library-experience-panel",
@@ -7912,24 +7946,9 @@ function renderLibraryExperienceViewer() {
   ].filter(Boolean).join(" ");
 
   return `
-    <div class="auth-modal-overlay library-campus-overlay library-experience-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-experience role="dialog" aria-modal="true" aria-labelledby="libraryExperienceTitle">
-      <div class="auth-modal-window library-experience-window library-campus-theme-${escapeHtml(theme)}" data-library-experience-window>
-        <button class="popup-close-button" type="button" data-close-library-experience aria-label="Close library experience">
-          <span aria-hidden="true">×</span>
-        </button>
-        <div class="library-experience-chrome" aria-hidden="true">
-          ${renderLibraryCardEffects()}
-        </div>
+    <div class="auth-modal-overlay library-campus-overlay library-experience-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-experience role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+      <div class="auth-modal-window library-experience-window library-campus-theme-${escapeHtml(theme)} library-inline-window" data-library-experience-window>
         <div class="library-experience-stack">
-          <div class="library-experience-top">
-            ${canBack ? `<button class="button secondary small library-back-button" type="button" data-library-experience-back>Back</button>` : `<span></span>`}
-            <div class="library-experience-title">
-              <span class="online-card-prompt">${escapeHtml(prompt)}</span>
-              <h3 id="libraryExperienceTitle">${escapeHtml(title)}</h3>
-              <p>${escapeHtml(scope)}</p>
-            </div>
-            <span></span>
-          </div>
           <section class="${escapeHtml(panelClasses)}">
             ${renderExperienceContent()}
           </section>
@@ -7942,19 +7961,16 @@ function renderLibraryExperienceViewer() {
 function renderLibraryResourceViewer(resource) {
   return `
     <div class="auth-modal-overlay library-campus-overlay library-resource-overlay" data-close-library-resource role="dialog" aria-modal="true" aria-labelledby="libraryResourceViewerTitle">
-      <div class="auth-modal-window library-resource-window" data-library-resource-window>
-        <button class="popup-close-button" type="button" data-close-library-resource aria-label="Close embedded resource">
-          <span aria-hidden="true">×</span>
-        </button>
+      <div class="auth-modal-window library-resource-window library-inline-window" data-library-resource-window>
         <div class="auth-modal-stack library-resource-stack">
-          <div class="library-resource-top">
-            <button class="button secondary small" type="button" data-library-resource-back>Back</button>
-            <div class="library-resource-title">
-              <img src="${escapeHtml(versionAssetSrc(resource.logo))}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-              <h3 id="libraryResourceViewerTitle">${escapeHtml(resource.label)}</h3>
-            </div>
-            <a class="button primary small" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open page</a>
-          </div>
+          ${renderLibraryInlineTopbar({
+            title: resource.label,
+            logo: resource.logo,
+            backAttribute: "data-library-resource-back",
+            closeAttribute: "data-close-library-resource",
+            closeLabel: "Close embedded resource",
+            titleId: "libraryResourceViewerTitle"
+          })}
           <iframe
             class="library-resource-iframe"
             src="${escapeHtml(resource.url)}"
@@ -8068,13 +8084,6 @@ function openLibrarySectionPicker(modeId) {
     return;
   }
 
-  const orderedSectionIds = getOrderedSectionIds();
-  const previousSectionId = getSelectedSectionIds().length === 1
-    ? getSelectedSectionIds()[0]
-    : normalizeSectionId(state.selection.targetId);
-  const selectedSectionId = orderedSectionIds.includes(previousSectionId)
-    ? previousSectionId
-    : orderedSectionIds[0] || "";
   const returnMenuType = state.ui.libraryMenu?.type || state.ui.librarySectionPicker?.returnMenuType || null;
 
   state.ui.libraryMenu = null;
@@ -8083,7 +8092,7 @@ function openLibrarySectionPicker(modeId) {
   state.ui.librarySectionPicker = {
     modeId,
     returnMenuType,
-    selectedSectionId
+    selectedSectionId: ""
   };
   syncPopupScrollLock();
   renderLibraryCampusModal();
@@ -17433,6 +17442,16 @@ function renderRunExperience() {
 }
 
 function renderGameQuestionPopup(content, modeClass = "", options = {}) {
+  if (state.ui.libraryExperience) {
+    return `
+      <section class="library-inline-game-shell ${escapeHtml(modeClass)}">
+        <div class="question-popup-stack">
+          ${content}
+        </div>
+      </section>
+    `;
+  }
+
   const showClose = options.showClose !== false;
   return `
     <div class="question-popup-overlay ${escapeHtml(modeClass)}" role="dialog" aria-modal="true">
@@ -17447,6 +17466,10 @@ function renderGameQuestionPopup(content, modeClass = "", options = {}) {
 }
 
 function renderExperienceCloseButton(className = "popup-close-button") {
+  if (state.ui.libraryExperience) {
+    return "";
+  }
+
   return `
     <button class="${escapeHtml(className)}" type="button" data-close-experience aria-label="Leave route">
       <span aria-hidden="true">×</span>
@@ -17761,7 +17784,8 @@ function renderSelectedGuidingSectionSpans() {
 
 function renderPanelTitle(title, subtitle, metaLine, options = {}) {
   const modesWithoutReplay = new Set(["mindmap", "rawcontent", "regularguide", "channel", "alpacard", "quiz", "writing", "bowl"]);
-  const showReplay = options.showReplay !== false && !modesWithoutReplay.has(state.selection.mode);
+  const isLibraryExperience = Boolean(state.ui.libraryExperience);
+  const showReplay = !isLibraryExperience && options.showReplay !== false && !modesWithoutReplay.has(state.selection.mode);
   const isPlayMode = state.selection.path === "play";
   const isLearnMode = state.selection.path === "learn";
   const isTrainMode = state.selection.path === "train";
@@ -17770,15 +17794,25 @@ function renderPanelTitle(title, subtitle, metaLine, options = {}) {
     : isLearnMode || isTrainMode
       ? renderSelectedGuidingSectionSpans()
       : "";
-  const showHubLink = !state.ui.libraryExperience && (isLearnMode || isPlayMode || isTrainMode);
+  const showHubLink = !isLibraryExperience && (isLearnMode || isPlayMode || isTrainMode);
+  const libraryPanelActions = isLibraryExperience
+    ? `
+      <div class="panel-actions library-inline-panel-actions">
+        ${state.ui.libraryExperience?.returnMenuType ? `<button class="library-inline-action" type="button" data-library-experience-back>Back</button>` : ""}
+        <button class="library-inline-close" type="button" data-close-library-experience aria-label="Close library experience">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    `
+    : "";
   return `
-    <div class="panel-title">
+    <div class="panel-title ${isLibraryExperience ? "library-inline-panel-title" : ""}">
       <div>
         <h2>${options.titleHtml || escapeHtml(title)}</h2>
         ${sectionSpans || (subtitle ? `<p>${escapeHtml(subtitle)}</p>` : "")}
         ${metaLine ? `<p class="meta-line">${escapeHtml(metaLine)}</p>` : ""}
       </div>
-      ${showReplay ? `
+      ${libraryPanelActions || (showReplay ? `
         <div class="panel-actions">
           <button class="button secondary" data-replay-current ${state.selection.mode ? "" : "disabled"}>Take This Route Again</button>
           ${showHubLink ? `<button class="panel-hub-link" type="button" data-change-mode>Back to hub</button>` : ""}
@@ -17787,7 +17821,7 @@ function renderPanelTitle(title, subtitle, metaLine, options = {}) {
         <div class="panel-actions">
           <button class="panel-hub-link" type="button" data-change-mode>Back to hub</button>
         </div>
-      ` : ""}
+      ` : "")}
     </div>
   `;
 }

@@ -2205,8 +2205,8 @@
     function openNpcDialogue(npcId) {
       const npc = getNpcById(npcId);
       const message = getNpcDialogueText(npc).trim();
+      const npcElement = npcElements.get(npcId);
       if (!npc || !message) {
-        const npcElement = npcElements.get(npcId);
         if (npcElement) {
           showBubble(npcElement, `${npc?.label || "Guide"} has nothing to share yet`);
         }
@@ -2215,31 +2215,9 @@
 
       closePlayerCard();
       closeNpcDialogue();
-
-      const card = createEl("section", "campus2d-npc-dialogue is-text-only", {
-        role: "status",
-        "aria-label": npc.label || "Guide",
-        "data-campus2d-npc-dialogue": ""
-      });
-      const textWrap = createEl("p", "campus2d-npc-dialogue-text", {
-        "aria-live": "polite"
-      });
-      const textElement = createEl("span", "campus2d-npc-dialogue-copy");
-      const cursorElement = createEl("span", "campus2d-npc-dialogue-cursor", {
-        "aria-hidden": "true"
-      });
-
-      textWrap.append(textElement, cursorElement);
-      card.append(textWrap);
-      npcDialogueLayer.replaceChildren(card);
-      npcDialogueLayer.hidden = false;
-      activeNpcDialogue = { npc, card };
-      updateNpcDialoguePosition();
-      window.requestAnimationFrame(() => {
-        card.classList.add("is-visible");
-        updateNpcDialoguePosition();
-      });
-      typeNpcDialogueText(textElement, cursorElement, message);
+      if (npcElement) {
+        showBubble(npcElement, message);
+      }
     }
 
     function showBubble(playerElement, message) {
