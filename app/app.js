@@ -7,7 +7,7 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260705library";
+const ASSET_CACHE_VERSION = "20260705librarypopups";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -2337,6 +2337,9 @@ const state = {
     rawQuizSelections: {},
     rawQuizPages: {},
     openModeChoicePath: null,
+    libraryMenu: null,
+    libraryResource: null,
+    libraryExperience: null,
     rawMediaLightbox: null,
     rawMediaSwipeStartX: null
   },
@@ -2432,6 +2435,47 @@ const RESOURCE_LINKS = [
     url: "https://pwaaprep.com/Are-We-There-Yet.html"
   }
 ];
+
+const LIBRARY_SHELF_ZONE_IDS = new Set(["library-game-3", "library-game-4", "library-game-5"]);
+const LIBRARY_COMPUTER_ZONE_IDS = new Set(["library-game-6", "library-game-7", "library-game-8", "library-game-9"]);
+const LIBRARY_GUIDE_RESOURCES = Object.freeze([
+  {
+    id: "beijing-alpacas",
+    label: "Beijing alpacas",
+    url: "https://www.wscbeijingalpacas.com/2026-resources",
+    logo: "./assets/library-guides/beijing-alpacas.png"
+  },
+  {
+    id: "cornucopia",
+    label: "Cornucopia",
+    url: "https://scholarscornucopia.org/resources.html",
+    logo: "./assets/library-guides/cornucopia.png"
+  },
+  {
+    id: "ignition",
+    label: "Ignition",
+    url: "https://www.reigniting.org/guides",
+    logo: "./assets/library-guides/ignition.png"
+  },
+  {
+    id: "pwaaprep",
+    label: "Pwaaprep",
+    url: "https://pwaaprep.com/Are-We-There-Yet.html",
+    logo: "./assets/library-guides/pwaaprep.png"
+  },
+  {
+    id: "pwaa-pwaa-revolution",
+    label: "PwaaPwaaRevolution",
+    url: "https://pwaapwaarevolution.pwaaapwaarevolution.workers.dev/#",
+    logo: "./assets/library-guides/pwaa-pwaa-revolution.png"
+  },
+  {
+    id: "ready-scholar-one",
+    label: "ReadyScholarOne",
+    url: "https://docs.google.com/document/d/16nhUyT4fOzydPJuFgo-pIxI40HUkDXdiJkbRsugmtR8/edit?tab=t.0",
+    logo: "./assets/library-guides/ready-scholar-one.png"
+  }
+]);
 
 const appLifecycleController = window.WSC_APP_LIFECYCLE_CONTROLLER.create({
   window,
@@ -2686,6 +2730,62 @@ function handleClick(event) {
     return;
   }
 
+  const closeLibraryResource = event.target.closest("[data-close-library-resource]");
+  if (closeLibraryResource && (!event.target.closest("[data-library-resource-window]") || event.target.closest(".popup-close-button"))) {
+    event.preventDefault();
+    closeLibraryResourceViewer();
+    return;
+  }
+
+  const libraryResourceBack = event.target.closest("[data-library-resource-back]");
+  if (libraryResourceBack) {
+    event.preventDefault();
+    returnToLibraryResourceMenu();
+    return;
+  }
+
+  const closeLibraryExperience = event.target.closest("[data-close-library-experience]");
+  if (closeLibraryExperience && (!event.target.closest("[data-library-experience-window]") || event.target.closest(".popup-close-button"))) {
+    event.preventDefault();
+    closeLibraryExperienceViewer();
+    return;
+  }
+
+  const libraryExperienceBack = event.target.closest("[data-library-experience-back]");
+  if (libraryExperienceBack) {
+    event.preventDefault();
+    returnToLibraryExperienceMenu();
+    return;
+  }
+
+  const closeLibraryMenu = event.target.closest("[data-close-library-menu]");
+  if (closeLibraryMenu && (!event.target.closest("[data-library-menu-window]") || event.target.closest(".popup-close-button"))) {
+    event.preventDefault();
+    closeLibraryCampusMenu();
+    return;
+  }
+
+  const libraryLaunchMode = event.target.closest("[data-library-launch-mode]");
+  if (libraryLaunchMode) {
+    event.preventDefault();
+    launchLibraryMode(libraryLaunchMode.dataset.libraryLaunchMode);
+    return;
+  }
+
+  const libraryChannelSection = event.target.closest("[data-library-channel-section]");
+  if (libraryChannelSection) {
+    event.preventDefault();
+    launchLibraryMode("channel", [libraryChannelSection.dataset.libraryChannelSection].filter(Boolean));
+    return;
+  }
+
+  const libraryResource = event.target.closest("[data-library-resource]");
+  if (libraryResource) {
+    event.preventDefault();
+    openLibraryGuideResource(libraryResource.dataset.libraryResource);
+    return;
+  }
+
   const scrollButton = event.target.closest("[data-scroll-route-builder]");
   if (scrollButton) {
     refs.routeBuilder && refs.routeBuilder.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2730,6 +2830,11 @@ function handleClick(event) {
 
   const modeButton = event.target.closest("[data-pick-mode]");
   if (modeButton) {
+    if (state.ui.libraryExperience) {
+      event.preventDefault();
+      launchLibraryMode(modeButton.dataset.pickMode);
+      return;
+    }
     chooseMode(modeButton.dataset.pickMode, modeButton.dataset.pickModePath || null);
     return;
   }
@@ -3310,12 +3415,20 @@ function handleClick(event) {
 
   const changeSectionsButton = event.target.closest("[data-change-sections]");
   if (changeSectionsButton) {
+    if (state.ui.libraryExperience) {
+      returnToLibraryExperienceMenu();
+      return;
+    }
     changeGuidingSections();
     return;
   }
 
   const changeModeButton = event.target.closest("[data-change-mode]");
   if (changeModeButton) {
+    if (state.ui.libraryExperience) {
+      returnToLibraryExperienceMenu();
+      return;
+    }
     changeModeSelection();
     return;
   }
@@ -3363,6 +3476,24 @@ function handleSubmit(event) {
 }
 
 function handleKeyDown(event) {
+  if (state.ui.libraryResource && event.key === "Escape") {
+    event.preventDefault();
+    closeLibraryResourceViewer();
+    return;
+  }
+
+  if (state.ui.libraryExperience && event.key === "Escape") {
+    event.preventDefault();
+    closeLibraryExperienceViewer();
+    return;
+  }
+
+  if (state.ui.libraryMenu && event.key === "Escape") {
+    event.preventDefault();
+    closeLibraryCampusMenu();
+    return;
+  }
+
   if (state.ui.rawMediaLightbox) {
     if (event.key === "Escape") {
       event.preventDefault();
@@ -4060,6 +4191,7 @@ function render() {
   renderCooperationModal();
   renderResourcesModal();
   renderAuthModal();
+  renderLibraryCampusModal();
   syncPopupScrollLock();
 }
 
@@ -4606,7 +4738,8 @@ function syncCampus2DOnlineMount() {
   campus2dController = window.WSC_CAMPUS_2D.mount({
     mount,
     client: getSupabaseClient(),
-    identity: getCampus2DIdentity()
+    identity: getCampus2DIdentity(),
+    onCampusZoneAction: handleCampus2DZoneAction
   });
 }
 
@@ -5973,6 +6106,55 @@ function resetCurrentRouteAttempts() {
   state.ui.rawMediaSwipeStartX = null;
 }
 
+function buildExperienceForMode(mode) {
+  if (mode === "slideshow") {
+    return buildSlideshowExperience();
+  }
+  if (mode === "mindmap") {
+    return buildMindMapExperience();
+  }
+  if (mode === "rawcontent") {
+    return buildRawContentExperience();
+  }
+  if (mode === "regularguide") {
+    return buildRegularGuideExperience();
+  }
+  if (mode === "channel") {
+    return buildAlpacaChannelExperience();
+  }
+  if (mode === "alpacard") {
+    return buildAlpacardExperience();
+  }
+  if (mode === "writing") {
+    return buildWritingExperience();
+  }
+  if (mode === "quiz") {
+    return buildQuizExperience();
+  }
+  if (mode === "bowl") {
+    return buildBowlExperience();
+  }
+  if (mode === "race") {
+    return buildRaceExperience();
+  }
+  if (mode === "jump") {
+    return buildJumpExperience();
+  }
+  if (mode === "jeopardy") {
+    return buildJeopardyExperience();
+  }
+  if (mode === "run") {
+    return buildRunExperience();
+  }
+  if (mode === "relay") {
+    return buildRelayExperience();
+  }
+  if (mode === "buildcase") {
+    return buildBuildCaseExperience();
+  }
+  return null;
+}
+
 function launchExperience() {
   const { mode } = state.selection;
 
@@ -5982,49 +6164,90 @@ function launchExperience() {
 
   clearExperienceTimers();
 
-  if (mode === "slideshow") {
-    state.experience = buildSlideshowExperience();
-  } else if (mode === "mindmap") {
-    state.experience = buildMindMapExperience();
-  } else if (mode === "rawcontent") {
-    state.experience = buildRawContentExperience();
-  } else if (mode === "regularguide") {
-    state.experience = buildRegularGuideExperience();
-  } else if (mode === "channel") {
-    state.experience = buildAlpacaChannelExperience();
-  } else if (mode === "alpacard") {
-    state.experience = buildAlpacardExperience();
-  } else if (mode === "writing") {
-    state.experience = buildWritingExperience();
-  } else if (mode === "quiz") {
-    state.experience = buildQuizExperience();
-  } else if (mode === "bowl") {
-    state.experience = buildBowlExperience();
-  } else if (mode === "race") {
-    state.experience = buildRaceExperience();
-  } else if (mode === "jump") {
-    state.experience = buildJumpExperience();
-  } else if (mode === "jeopardy") {
-    state.experience = buildJeopardyExperience();
-  } else if (mode === "run") {
-    state.experience = buildRunExperience();
-  } else if (mode === "relay") {
-    state.experience = buildRelayExperience();
-  } else if (mode === "buildcase") {
-    state.experience = buildBuildCaseExperience();
-  }
+  state.experience = buildExperienceForMode(mode);
 
   render();
   refs.experiencePanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function renderExperienceContent() {
+  if (state.experience.type === "slideshow") {
+    return renderSlideshowExperience();
+  }
+  if (state.experience.type === "mindmap") {
+    return renderMindMapExperience();
+  }
+  if (state.experience.type === "rawcontent") {
+    return renderRawContentExperience();
+  }
+  if (state.experience.type === "regularguide") {
+    return renderRegularGuideExperience();
+  }
+  if (state.experience.type === "channel") {
+    return renderAlpacaChannelExperience();
+  }
+  if (state.experience.type === "alpacard") {
+    return renderAlpacardExperience();
+  }
+  if (state.experience.type === "writing") {
+    return renderWritingExperience();
+  }
+  if (state.experience.type === "quiz") {
+    return renderQuizExperience();
+  }
+  if (state.experience.type === "bowl") {
+    return renderBowlExperience();
+  }
+  if (state.experience.type === "race") {
+    return renderRaceExperience();
+  }
+  if (state.experience.type === "jump") {
+    return renderJumpExperience();
+  }
+  if (state.experience.type === "jeopardy") {
+    return renderJeopardyExperience();
+  }
+  if (state.experience.type === "run") {
+    return renderRunExperience();
+  }
+  if (state.experience.type === "relay") {
+    return renderRelayExperience();
+  }
+  if (state.experience.type === "buildcase") {
+    return renderBuildCaseExperience();
+  }
+  if (state.experience.type === "unavailable") {
+    return renderUnavailableModeExperience();
+  }
+  return "";
+}
+
+function syncExperienceRenderEffects() {
+  syncExperienceTimers();
+  syncPopupScrollLock();
+  syncRadialMindMapScroll();
+  syncMindMapOrbitAnimation();
+  syncRawQuestionGalleries();
+}
+
 function renderExperience() {
   if (state.ui.appShellMode === "online") {
-    state.ui.rawMediaLightbox = null;
-    state.ui.rawMediaSwipeStartX = null;
     refs.experiencePanel.classList.add("hidden");
     refs.experiencePanel.classList.remove("experience-panel--mindmap");
     refs.experiencePanel.innerHTML = "";
+
+    if (state.ui.libraryExperience && state.experience) {
+      if (!["rawcontent", "mindmap"].includes(state.experience.type) && state.ui.rawMediaLightbox) {
+        state.ui.rawMediaLightbox = null;
+        state.ui.rawMediaSwipeStartX = null;
+      }
+      renderLibraryCampusModal();
+      syncExperienceRenderEffects();
+      return;
+    }
+
+    state.ui.rawMediaLightbox = null;
+    state.ui.rawMediaSwipeStartX = null;
     stopMindMapOrbitAnimation();
     syncPopupScrollLock();
     return;
@@ -6049,45 +6272,8 @@ function renderExperience() {
     state.ui.rawMediaSwipeStartX = null;
   }
 
-  if (state.experience.type === "slideshow") {
-    refs.experiencePanel.innerHTML = renderSlideshowExperience();
-  } else if (state.experience.type === "mindmap") {
-    refs.experiencePanel.innerHTML = renderMindMapExperience();
-  } else if (state.experience.type === "rawcontent") {
-    refs.experiencePanel.innerHTML = renderRawContentExperience();
-  } else if (state.experience.type === "regularguide") {
-    refs.experiencePanel.innerHTML = renderRegularGuideExperience();
-  } else if (state.experience.type === "channel") {
-    refs.experiencePanel.innerHTML = renderAlpacaChannelExperience();
-  } else if (state.experience.type === "alpacard") {
-    refs.experiencePanel.innerHTML = renderAlpacardExperience();
-  } else if (state.experience.type === "writing") {
-    refs.experiencePanel.innerHTML = renderWritingExperience();
-  } else if (state.experience.type === "quiz") {
-    refs.experiencePanel.innerHTML = renderQuizExperience();
-  } else if (state.experience.type === "bowl") {
-    refs.experiencePanel.innerHTML = renderBowlExperience();
-  } else if (state.experience.type === "race") {
-    refs.experiencePanel.innerHTML = renderRaceExperience();
-  } else if (state.experience.type === "jump") {
-    refs.experiencePanel.innerHTML = renderJumpExperience();
-  } else if (state.experience.type === "jeopardy") {
-    refs.experiencePanel.innerHTML = renderJeopardyExperience();
-  } else if (state.experience.type === "run") {
-    refs.experiencePanel.innerHTML = renderRunExperience();
-  } else if (state.experience.type === "relay") {
-    refs.experiencePanel.innerHTML = renderRelayExperience();
-  } else if (state.experience.type === "buildcase") {
-    refs.experiencePanel.innerHTML = renderBuildCaseExperience();
-  } else if (state.experience.type === "unavailable") {
-    refs.experiencePanel.innerHTML = renderUnavailableModeExperience();
-  }
-
-  syncExperienceTimers();
-  syncPopupScrollLock();
-  syncRadialMindMapScroll();
-  syncMindMapOrbitAnimation();
-  syncRawQuestionGalleries();
+  refs.experiencePanel.innerHTML = renderExperienceContent();
+  syncExperienceRenderEffects();
 }
 
 function renderExperiencePreservingScroll() {
@@ -6703,6 +6889,10 @@ function hasActiveQuestionPopup() {
     return true;
   }
 
+  if (state.ui.libraryMenu || state.ui.libraryResource || state.ui.libraryExperience) {
+    return true;
+  }
+
   if (state.ui.rawMediaLightbox) {
     return true;
   }
@@ -6748,6 +6938,9 @@ function syncPopupScrollLock() {
     state.ui.resourcesOpen ||
     state.ui.cooperationOpen ||
     state.ui.authOpen ||
+    state.ui.libraryMenu ||
+    state.ui.libraryResource ||
+    state.ui.libraryExperience ||
     state.ui.rawMediaLightbox ||
     state.live.launchCountdownText ||
     (state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
@@ -7327,6 +7520,406 @@ function renderResourcesModal() {
       </div>
     </div>
   ` : "";
+}
+
+function getLibraryCampusModalMount() {
+  let mount = document.getElementById("libraryCampusModalMount");
+  if (!mount) {
+    mount = document.createElement("div");
+    mount.id = "libraryCampusModalMount";
+    document.body.appendChild(mount);
+  }
+  return mount;
+}
+
+function renderLibraryCampusModal() {
+  const mount = getLibraryCampusModalMount();
+  if (state.ui.libraryExperience && state.experience) {
+    mount.innerHTML = renderLibraryExperienceViewer();
+    return;
+  }
+
+  if (state.ui.libraryResource) {
+    mount.innerHTML = renderLibraryResourceViewer(state.ui.libraryResource);
+    return;
+  }
+
+  if (state.ui.libraryMenu) {
+    mount.innerHTML = renderLibraryCampusMenu(state.ui.libraryMenu.type);
+    return;
+  }
+
+  mount.innerHTML = "";
+}
+
+function renderLibraryCampusMenu(type) {
+  const config = getLibraryCampusMenuConfig(type);
+  return `
+    <div class="auth-modal-overlay library-campus-overlay" data-close-library-menu role="dialog" aria-modal="true" aria-labelledby="libraryCampusMenuTitle">
+      <div class="auth-modal-window library-campus-window library-campus-window-${escapeHtml(type)}" data-library-menu-window>
+        <button class="popup-close-button" type="button" data-close-library-menu aria-label="Close library menu">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="auth-modal-stack library-campus-stack">
+          <div class="library-campus-heading">
+            <p class="challenge-label">Library</p>
+            <h3 id="libraryCampusMenuTitle">${escapeHtml(config.title)}</h3>
+          </div>
+          <div class="library-campus-card-grid ${escapeHtml(config.gridClass)}">
+            ${config.content}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function getLibraryCampusMenuConfig(type) {
+  if (type === "channel") {
+    return {
+      title: "Choose the canal",
+      gridClass: "library-campus-card-grid-sections",
+      content: renderLibraryChannelSectionCards()
+    };
+  }
+
+  if (type === "study-tools") {
+    return {
+      title: "Choose a study tool",
+      gridClass: "library-campus-card-grid-two",
+      content: [
+        renderLibraryModeChoiceCard("alpacard", "Flashcards"),
+        renderLibraryModeChoiceCard("mindmap", "Mind Map")
+      ].join("")
+    };
+  }
+
+  if (type === "resources") {
+    return {
+      title: "Choose a guide",
+      gridClass: "library-campus-card-grid-resources",
+      content: LIBRARY_GUIDE_RESOURCES.map(renderLibraryGuideResourceCard).join("")
+    };
+  }
+
+  return {
+    title: "Choose a library resource",
+    gridClass: "library-campus-card-grid-two",
+    content: [
+      renderLibraryModeChoiceCard("rawcontent", "Raw Content"),
+      renderLibraryModeChoiceCard("regularguide", "Guides")
+    ].join("")
+  };
+}
+
+function renderLibraryModeChoiceCard(modeId, label) {
+  const option = getModeOption(modeId) || { title: label, mood: "wise" };
+  const title = label || option.title || modeId;
+  return renderLibraryIdChoiceCard({
+    actionAttribute: `data-library-launch-mode="${escapeHtml(modeId)}"`,
+    prompt: "Library",
+    title,
+    meta: modeId === "alpacard" || modeId === "mindmap" ? "All guiding sections" : "All resources",
+    className: "library-mode-id-card",
+    mediaHtml: renderConfiguredMascotAsset(
+      getModeAssetPath(modeId),
+      option.mood || "wise",
+      "small",
+      {
+        alt: `${title} alpaca`,
+        slotClass: "online-card-image-slot library-id-image-slot",
+        imageClass: "online-card-image library-id-image",
+        eager: true
+      }
+    )
+  });
+}
+
+function renderLibraryChannelSectionCards() {
+  return getOrderedSectionIds().map((sectionId) => {
+    const section = sectionById[sectionId] || { title: sectionId };
+    const title = section.title || section.originalTitle || sectionId;
+    return renderLibraryIdChoiceCard({
+      actionAttribute: `data-library-channel-section="${escapeHtml(sectionId)}"`,
+      prompt: "Canal",
+      title,
+      meta: "Alpaca Channel",
+      className: "library-section-id-card",
+      mediaHtml: renderConfiguredMascotAsset(
+        getLibrarySectionAssetPath(sectionId),
+        section.mood || "wise",
+        "small",
+        {
+          alt: `${title} route alpaca`,
+          slotClass: "online-card-image-slot library-id-image-slot",
+          imageClass: "online-card-image library-id-image",
+          eager: true
+        }
+      )
+    });
+  }).join("");
+}
+
+function getLibrarySectionAssetPath(sectionId) {
+  return appAssetService?.getTargetPath
+    ? appAssetService.getTargetPath(sectionId, DEFAULT_LENS_ID)
+    : getTargetAssetPath(sectionId);
+}
+
+function renderLibraryGuideResourceCard(resource) {
+  return renderLibraryIdChoiceCard({
+    actionAttribute: `data-library-resource="${escapeHtml(resource.id)}"`,
+    prompt: "Guide",
+    title: resource.label,
+    meta: "Embedded page",
+    className: "library-resource-id-card",
+    mediaHtml: `
+      <span class="library-id-logo-shell">
+        <img class="library-id-logo" src="${escapeHtml(versionAssetSrc(resource.logo))}" alt="" aria-hidden="true" loading="eager" decoding="async" />
+      </span>
+    `
+  });
+}
+
+function renderLibraryIdChoiceCard({ actionAttribute, prompt, title, meta, mediaHtml, className = "" }) {
+  return `
+    <button class="library-id-choice-card online-glow-card ${escapeHtml(className)}" type="button" ${actionAttribute} aria-label="${escapeHtml(title)}">
+      <span class="online-card-container noselect">
+        <span class="online-card-canvas">
+          ${renderLibraryCardTrackers()}
+          <span class="online-card-frame">
+            <span class="card-content">
+              ${renderLibraryCardEffects()}
+              <span class="online-card-prompt">${escapeHtml(prompt)}</span>
+              <span class="online-card-art library-id-art">${mediaHtml}</span>
+              <span class="title library-id-title">${escapeHtml(title)}</span>
+              <span class="subtitle library-id-subtitle">
+                <span class="highlight">${escapeHtml(meta)}</span>
+              </span>
+            </span>
+          </span>
+        </span>
+      </span>
+    </button>
+  `;
+}
+
+function renderLibraryCardTrackers() {
+  return Array.from({ length: 9 }, (_, index) => `<span class="tracker tr-${index + 1}" aria-hidden="true"></span>`).join("");
+}
+
+function renderLibraryCardEffects() {
+  return `
+    <span class="card-glare" aria-hidden="true"></span>
+    <span class="cyber-lines" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <span class="glowing-elements" aria-hidden="true">
+      <span class="glow-1"></span><span class="glow-2"></span><span class="glow-3"></span>
+    </span>
+    <span class="card-particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span class="corner-elements" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <span class="scan-line" aria-hidden="true"></span>
+  `;
+}
+
+function renderLibraryExperienceViewer() {
+  const modeId = state.selection.mode || state.experience?.type || "";
+  const option = getModeOption(modeId) || { title: state.experience?.title || "Library" };
+  const title = option.title || state.experience?.title || "Library";
+  const selectedLabels = getSelectedSectionLabels();
+  const scope = selectedLabels.length === 1 ? selectedLabels[0] : "All guiding sections";
+  const canBack = Boolean(state.ui.libraryExperience?.returnMenuType);
+  const panelClasses = [
+    "experience-panel",
+    "library-experience-panel",
+    state.experience?.type === "mindmap" ? "experience-panel--mindmap" : ""
+  ].filter(Boolean).join(" ");
+
+  return `
+    <div class="auth-modal-overlay library-campus-overlay library-experience-overlay" data-close-library-experience role="dialog" aria-modal="true" aria-labelledby="libraryExperienceTitle">
+      <div class="auth-modal-window library-experience-window" data-library-experience-window>
+        <button class="popup-close-button" type="button" data-close-library-experience aria-label="Close library experience">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="library-experience-chrome" aria-hidden="true">
+          ${renderLibraryCardEffects()}
+        </div>
+        <div class="library-experience-stack">
+          <div class="library-experience-top">
+            ${canBack ? `<button class="button secondary small library-back-button" type="button" data-library-experience-back>Back</button>` : `<span></span>`}
+            <div class="library-experience-title">
+              <span class="online-card-prompt">Library</span>
+              <h3 id="libraryExperienceTitle">${escapeHtml(title)}</h3>
+              <p>${escapeHtml(scope)}</p>
+            </div>
+            <span></span>
+          </div>
+          <section class="${escapeHtml(panelClasses)}">
+            ${renderExperienceContent()}
+          </section>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderLibraryResourceViewer(resource) {
+  return `
+    <div class="auth-modal-overlay library-campus-overlay library-resource-overlay" data-close-library-resource role="dialog" aria-modal="true" aria-labelledby="libraryResourceViewerTitle">
+      <div class="auth-modal-window library-resource-window" data-library-resource-window>
+        <button class="popup-close-button" type="button" data-close-library-resource aria-label="Close embedded resource">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="auth-modal-stack library-resource-stack">
+          <div class="library-resource-top">
+            <button class="button secondary small" type="button" data-library-resource-back>Back</button>
+            <div class="library-resource-title">
+              <img src="${escapeHtml(versionAssetSrc(resource.logo))}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+              <h3 id="libraryResourceViewerTitle">${escapeHtml(resource.label)}</h3>
+            </div>
+            <a class="button primary small" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open page</a>
+          </div>
+          <iframe
+            class="library-resource-iframe"
+            src="${escapeHtml(resource.url)}"
+            title="${escapeHtml(resource.label)}"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="clipboard-write; fullscreen; web-share"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function handleCampus2DZoneAction(action) {
+  const zoneId = action?.zoneId || "";
+  if (action?.roomId !== "library") {
+    return false;
+  }
+
+  if (LIBRARY_SHELF_ZONE_IDS.has(zoneId)) {
+    openLibraryCampusMenu("shelves");
+    return true;
+  }
+
+  if (zoneId === "library-alpacards") {
+    openLibraryCampusMenu("channel");
+    return true;
+  }
+
+  if (zoneId === "library-game-2") {
+    openLibraryCampusMenu("study-tools");
+    return true;
+  }
+
+  if (LIBRARY_COMPUTER_ZONE_IDS.has(zoneId)) {
+    openLibraryCampusMenu("resources");
+    return true;
+  }
+
+  return false;
+}
+
+function openLibraryCampusMenu(type) {
+  state.ui.libraryMenu = { type };
+  state.ui.libraryResource = null;
+  state.ui.libraryExperience = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function closeLibraryCampusMenu() {
+  state.ui.libraryMenu = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function openLibraryGuideResource(resourceId) {
+  const resource = LIBRARY_GUIDE_RESOURCES.find((item) => item.id === resourceId);
+  if (!resource) {
+    return;
+  }
+
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = resource;
+  state.ui.libraryExperience = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function closeLibraryResourceViewer() {
+  state.ui.libraryResource = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function returnToLibraryResourceMenu() {
+  state.ui.libraryResource = null;
+  state.ui.libraryMenu = { type: "resources" };
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function launchLibraryMode(modeId, sectionIds = getOrderedSectionIds()) {
+  const selectedSectionIds = sectionIds.map((sectionId) => normalizeSectionId(sectionId)).filter((sectionId) => sectionById[sectionId]);
+  if (!modeId || !selectedSectionIds.length) {
+    return;
+  }
+
+  const returnMenuType = state.ui.libraryMenu?.type || state.ui.libraryExperience?.returnMenuType || null;
+  clearJeopardyTimer();
+  clearExperienceTimers();
+  closeHeroMenu();
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryExperience = { modeId, returnMenuType };
+  state.ui.appEntryGateOpen = false;
+  state.ui.cooperationOpen = false;
+  state.ui.wizardTransition = "forward";
+  state.ui.rawQuizSelections = {};
+  state.ui.rawQuizPages = {};
+  state.ui.rawMediaLightbox = null;
+  state.ui.rawMediaSwipeStartX = null;
+  state.selection.path = "learn";
+  state.selection.lens = DEFAULT_LENS_ID;
+  state.selection.targetIds = selectedSectionIds;
+  state.selection.targetId = selectedSectionIds[0];
+  state.selection.mode = modeId;
+  state.experience = isModeUnavailable(modeId)
+    ? buildUnavailableModeExperience(modeId)
+    : buildExperienceForMode(modeId);
+  renderExperience();
+}
+
+function closeLibraryExperienceViewer() {
+  clearExperienceTimers();
+  state.ui.libraryExperience = null;
+  state.ui.rawMediaLightbox = null;
+  state.ui.rawMediaSwipeStartX = null;
+  state.experience = null;
+  stopMindMapOrbitAnimation();
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+}
+
+function returnToLibraryExperienceMenu() {
+  const menuType = state.ui.libraryExperience?.returnMenuType;
+  clearExperienceTimers();
+  state.ui.libraryExperience = null;
+  state.ui.rawMediaLightbox = null;
+  state.ui.rawMediaSwipeStartX = null;
+  state.experience = null;
+  stopMindMapOrbitAnimation();
+  state.ui.libraryMenu = menuType ? { type: menuType } : null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
 }
 
 function renderCooperationModal() {

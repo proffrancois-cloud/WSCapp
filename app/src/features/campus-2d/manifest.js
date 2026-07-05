@@ -21,8 +21,12 @@
     return { id, mode, label, zone: rect(id, x, y, width, height) };
   }
 
-  function npc(id, label, x, y, direction = "down", colorId = "red") {
-    return { id, label, x, y, direction, colorId };
+  function npc(id, label, x, y, direction = "down", colorId = "red", dialogue = null) {
+    const entry = { id, label, x, y, direction, colorId };
+    if (dialogue) {
+      entry.dialogue = dialogue;
+    }
+    return entry;
   }
 
   function decoration(id, asset, x, y, width, height) {
@@ -510,18 +514,33 @@
       ],
       decorations: [],
       npcs: [
-        npc("library-instructions-npc", "Instructions", 586, 233, "down", "red")
+        npc("library-instructions-npc", "Instructions", 586, 233, "down", "red", {
+          title: "Library Guide",
+          body: [
+            "Welcome to the library.",
+            "",
+            "In this room, you can focus on your learning journey.",
+            "",
+            "On the three shelves to my left, you can find the curriculum's raw content, our library guide, and tools for navigating the curriculum.",
+            "",
+            "On the screen in the red area, you can watch the Alpaca Channel: videos focused on each part of the curriculum.",
+            "",
+            "You also have four computers available. Use them to explore the larger Scholars' community and the resources they have shared.",
+            "",
+            "Finally, sit around the table to discuss your WSC experience with other alpacas. You can also find all of our flashcards on the shelf behind it."
+          ].join("\n")
+        })
       ],
       gameZones: [
-        gameZone("library-alpacards", "learn", "Library lessons", 791, 838, 184, 95),
-        gameZone("library-game-2", "game", "Game zone", 89, 893, 306, 58),
-        gameZone("library-game-3", "game", "Game zone", 792, 302, 295, 60),
-        gameZone("library-game-4", "game", "Game zone", 794, 436, 295, 60),
-        gameZone("library-game-5", "game", "Game zone", 792, 572, 295, 60),
-        gameZone("library-game-6", "game", "Game zone", 82, 574, 24, 31),
-        gameZone("library-game-7", "game", "Game zone", 81, 628, 25, 32),
-        gameZone("library-game-8", "game", "Game zone", 80, 684, 28, 26),
-        gameZone("library-game-9", "game", "Game zone", 80, 740, 27, 25)
+        gameZone("library-alpacards", "learn", "Choose Alpaca Channel", 791, 838, 184, 95),
+        gameZone("library-game-2", "learn", "Choose flashcards or Mind Map", 89, 893, 306, 58),
+        gameZone("library-game-3", "learn", "Choose Raw Content or Guides", 792, 302, 295, 60),
+        gameZone("library-game-4", "learn", "Choose Raw Content or Guides", 794, 436, 295, 60),
+        gameZone("library-game-5", "learn", "Choose Raw Content or Guides", 792, 572, 295, 60),
+        gameZone("library-game-6", "learn", "Choose community guide", 82, 574, 24, 31),
+        gameZone("library-game-7", "learn", "Choose community guide", 81, 628, 25, 32),
+        gameZone("library-game-8", "learn", "Choose community guide", 80, 684, 28, 26),
+        gameZone("library-game-9", "learn", "Choose community guide", 80, 740, 27, 25)
       ],
       behindZones: [
         rect("library-front-desk-left-lamp", 462, 240, 21, 46),
