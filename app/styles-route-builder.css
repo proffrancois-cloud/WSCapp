@@ -1,0 +1,3675 @@
+/* Route builder and route-picking flow */
+.lead,
+.side-intro,
+.section-heading p,
+.footer p {
+  line-height: 1.6;
+}
+
+.progress-stat-card {
+  display: grid;
+  gap: 8px;
+}
+
+.hero-progress-circles {
+  grid-column: 3;
+  grid-row: 1;
+  width: min(100%, 240px);
+  justify-self: end;
+  align-self: center;
+  display: grid;
+  justify-content: stretch;
+  gap: 12px;
+}
+
+.progress-circle-card {
+  width: min(100%, 300px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-progress-ring {
+  --percent: 0;
+  width: 84px;
+  height: 84px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    conic-gradient(rgba(252, 209, 39, 0.92) calc(var(--percent) * 1%), rgba(138, 99, 56, 0.16) 0),
+    rgba(247, 234, 204, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(107, 78, 22, 0.08), 0 12px 22px rgba(75, 47, 33, 0.1);
+}
+
+.stat-progress-ring-inner {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  border-radius: 50%;
+  background: rgba(255, 250, 238, 0.95);
+  color: #4b2f21;
+}
+
+.stat-progress-ring-inner strong {
+  font-size: 1.05rem;
+}
+
+.stat-progress-circle-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.stat-progress-circle-copy span,
+.hero-best-card span {
+  display: block;
+  margin: 0;
+  color: rgba(75, 47, 33, 0.72);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stat-progress-circle-copy strong {
+  font-size: 1rem;
+}
+
+.stat-progress-circle-copy em,
+.hero-best-card em {
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.breakdown-columns.single {
+  grid-template-columns: 1fr;
+}
+
+.stat-progress-track {
+  position: relative;
+  min-height: 42px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(138, 99, 56, 0.14);
+  border: 1px solid rgba(107, 78, 22, 0.12);
+}
+
+.stat-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block;
+  margin: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(252, 209, 39, 0.84), rgba(185, 137, 83, 0.72));
+}
+
+.stat-progress-copy {
+  position: relative;
+  z-index: 1;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  color: #4b2f21;
+}
+
+.stat-progress-copy strong,
+.stat-progress-copy em {
+  display: block;
+  margin: 0;
+  font-style: normal;
+  line-height: 1.05;
+}
+
+.stat-progress-copy strong {
+  font-size: 0.95rem;
+}
+
+.stat-progress-copy em {
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.wizard {
+  display: grid;
+  align-content: start;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--bg);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.section-heading p {
+  max-width: 70ch;
+  margin: 0;
+}
+
+.summary-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  min-height: 20px;
+}
+
+.summary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(107, 78, 22, 0.14);
+  background: rgba(247, 234, 204, 0.82);
+}
+
+.summary-chip strong {
+  color: var(--bg);
+}
+
+.summary-chip button {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0;
+}
+
+.wizard-steps {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+  perspective: 1600px;
+  overflow: visible;
+  align-items: start;
+}
+
+.wizard-rail-mount {
+  min-width: 0;
+  width: auto;
+  overflow-x: auto;
+}
+
+.step-page-shell {
+  display: grid;
+  gap: 14px;
+  min-height: 0;
+  align-content: start;
+}
+
+.step-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.route-back-button {
+  flex: 0 0 auto;
+  width: min(100%, 340px);
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
+}
+
+.route-back-button:hover {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 12px 18px rgba(75, 47, 33, 0.12));
+}
+
+.route-back-button:focus-visible {
+  outline: 3px solid rgba(200, 156, 68, 0.42);
+  outline-offset: 6px;
+  border-radius: 20px;
+}
+
+.route-back-asset-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.route-back-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: rgba(247, 234, 204, 0.94);
+  border: 1px solid rgba(107, 78, 22, 0.14);
+  color: var(--bg);
+  font-weight: 800;
+}
+
+.step-page-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.step-page-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-page-progress span {
+  width: 28px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(107, 78, 22, 0.16);
+}
+
+.step-page-progress span.done {
+  background: rgba(138, 99, 56, 0.5);
+}
+
+.step-page-progress span.active {
+  background: linear-gradient(90deg, var(--gold), #b98932);
+}
+
+.step-panel {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(247, 234, 204, 0.8);
+  border: 1px solid rgba(107, 78, 22, 0.12);
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  min-height: 0;
+  will-change: transform, opacity;
+  box-shadow:
+    0 24px 48px rgba(75, 47, 33, 0.08),
+    inset 0 1px 0 rgba(255, 248, 232, 0.42);
+  display: grid;
+  align-content: start;
+}
+
+.step-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(107, 78, 22, 0.18), rgba(107, 78, 22, 0.03) 26%, rgba(107, 78, 22, 0.14));
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.step-panel.page-forward {
+  transform-origin: left center;
+  animation: wizard-page-forward 360ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.step-panel.page-backward {
+  transform-origin: right center;
+  animation: wizard-page-backward 360ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.step-index {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.step-title-wrap h3 {
+  margin: 0 0 4px;
+  color: var(--bg);
+  font-size: 1.05rem;
+}
+
+.step-title-wrap p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.step-grid {
+  display: grid;
+  gap: 12px;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.step-grid.one {
+  grid-template-columns: minmax(240px, 520px);
+  justify-content: center;
+}
+
+.step-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.step-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.step-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.step-grid.five {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.step-grid.five > .mode-card {
+  grid-column: span 2;
+}
+
+.step-grid.five > .mode-card:nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.wizard-rail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0;
+  min-width: 0;
+}
+
+.wizard-rail-progress {
+  display: none;
+}
+
+.wizard-rail-progress span {
+  display: none;
+}
+
+.wizard-rail-items {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  justify-content: flex-start;
+  width: max-content;
+}
+
+.wizard-rail-item {
+  width: auto;
+  min-width: 176px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(107, 78, 22, 0.12);
+  background: rgba(247, 234, 204, 0.7);
+  color: var(--ink);
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.wizard-rail-item.done,
+.wizard-rail-item.active:not(:disabled) {
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.wizard-rail-item.done:hover,
+.wizard-rail-item.active:not(:disabled):hover {
+  transform: translateY(-1px);
+  border-color: rgba(107, 78, 22, 0.24);
+}
+
+.wizard-rail-item:disabled {
+  cursor: default;
+}
+
+.wizard-rail-item.active {
+  background:
+    radial-gradient(circle at top right, rgba(200, 156, 68, 0.2), transparent 40%),
+    linear-gradient(180deg, rgba(247, 234, 204, 0.98), rgba(236, 217, 170, 0.96));
+  border-color: rgba(107, 78, 22, 0.2);
+}
+
+.wizard-rail-item.upcoming {
+  opacity: 0.74;
+  box-shadow: none;
+}
+
+.wizard-rail-dot {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: rgba(107, 78, 22, 0.18);
+  border: 2px solid rgba(107, 78, 22, 0.22);
+}
+
+.wizard-rail-item.done .wizard-rail-dot {
+  background: rgba(138, 99, 56, 0.82);
+  border-color: rgba(138, 99, 56, 0.3);
+}
+
+.wizard-rail-item.active .wizard-rail-dot {
+  background: var(--gold);
+  border-color: rgba(107, 78, 22, 0.26);
+}
+
+.wizard-rail-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  align-items: center;
+}
+
+.wizard-rail-title {
+  color: var(--bg);
+  font-weight: 800;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.wizard-rail-value {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+@keyframes wizard-page-forward {
+  from {
+    opacity: 0;
+    transform: rotateY(-18deg) translateX(28px) scale(0.985);
+    filter: saturate(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
+@keyframes wizard-page-backward {
+  from {
+    opacity: 0;
+    transform: rotateY(16deg) translateX(-28px) scale(0.985);
+    filter: saturate(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
+.choice-card,
+.target-card,
+.mode-card {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid rgba(107, 78, 22, 0.14);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(200, 156, 68, 0.18), transparent 30%),
+    linear-gradient(180deg, rgba(247, 234, 204, 0.96), rgba(243, 227, 188, 0.95));
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+  min-height: 160px;
+}
+
+.choice-card:hover,
+.target-card:hover,
+.mode-card:hover,
+.button:hover,
+.mini-button:hover,
+.tile-button:hover,
+.option-button:hover {
+  transform: translateY(-1px);
+}
+
+.choice-card.active,
+.target-card.active,
+.mode-card.active {
+  border-color: rgba(107, 78, 22, 0.28);
+  box-shadow: 0 18px 34px rgba(107, 78, 22, 0.12);
+}
+
+.wizard-choice-card {
+  padding: 12px;
+}
+
+.wizard-choice-slot {
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  bottom: 4px;
+  width: 156px;
+  height: auto;
+  min-height: auto;
+  align-self: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  z-index: 1;
+}
+
+.wizard-choice-slot .asset-image,
+.wizard-choice-slot .mascot-asset {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.wizard-choice-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  min-width: 0;
+  width: min(100%, calc(100% - 72px));
+  max-width: calc(100% - 4px);
+  min-height: 100%;
+  margin-left: auto;
+  text-align: right;
+  padding: 0 8px 0 0;
+}
+
+.wizard-choice-copy h3 {
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  font-size: clamp(1.24rem, 1.9vw, 1.72rem);
+  line-height: 1.05;
+  text-align: right;
+}
+
+.target-card {
+  justify-content: center;
+  min-height: 132px;
+  padding: 10px;
+}
+
+.target-card .wizard-choice-copy h3 {
+  font-size: clamp(0.96rem, 1.1vw, 1.22rem);
+  line-height: 1.02;
+}
+
+.mode-card {
+  min-height: 170px;
+  text-align: center;
+}
+
+.mode-card .wizard-choice-copy h3 {
+  font-size: clamp(0.94rem, 1.05vw, 1.2rem);
+  line-height: 1.02;
+}
+
+.mode-card .wizard-choice-copy {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.mode-card-thanks {
+  margin: 6px 0 0;
+  color: rgba(75, 47, 33, 0.72);
+  font-size: 0.84rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.slide-progress {
+  color: var(--navy);
+  font-weight: 800;
+  width: 100%;
+  text-align: center;
+}
+
+.breakdown-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.breakdown-column h3 {
+  margin: 0 0 10px;
+  color: var(--bg);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+}
+
+.breakdown-list {
+  display: grid;
+  gap: 10px;
+}
+
+.breakdown-row {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(247, 234, 204, 0.88);
+  border: 1px solid rgba(107, 78, 22, 0.12);
+}
+
+.breakdown-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.breakdown-progress {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(138, 99, 56, 0.12);
+  overflow: hidden;
+}
+
+.breakdown-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--bg), var(--gold));
+}
+
+.setup-card {
+  display: grid;
+  gap: 18px;
+}
+
+.setup-card-header {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.online-mode-card {
+  min-height: 210px;
+}
+
+.hero h1,
+.hero-progress-circles .stat-progress-circle-copy span,
+.hero-progress-circles .stat-progress-circle-copy strong,
+.hero-progress-circles .stat-progress-circle-copy em {
+  color: #fff1cf !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  height: clamp(118px, 13vw, 150px) !important;
+  width: clamp(118px, 13vw, 150px) !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 12%;
+  --menu-y: -206%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 92%;
+  --menu-y: -132%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 126%;
+  --menu-y: -26%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 92%;
+  --menu-y: 82%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 12%;
+  --menu-y: 160%;
+}
+
+.hero h1,
+.hero-progress-circles .stat-progress-circle-copy span,
+.hero-progress-circles .stat-progress-circle-copy strong,
+.hero-progress-circles .stat-progress-circle-copy em {
+  color: #fff1cf !important;
+}
+
+.mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) .mode-choice-card-grid {
+  display: none !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  width: clamp(118px, 13vw, 150px) !important;
+  height: clamp(118px, 13vw, 150px) !important;
+  padding: 10px !important;
+  border-radius: 16px !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 12%;
+  --menu-y: -206%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 92%;
+  --menu-y: -132%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 126%;
+  --menu-y: -26%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 92%;
+  --menu-y: 82%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 12%;
+  --menu-y: 160%;
+}
+
+.mode-choice-board.is-menu-switching .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-board.is-menu-closing .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card {
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  transform: translate(var(--menu-x), var(--menu-y)) scale(0.78) !important;
+  transition-duration: 500ms !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  width: clamp(58px, 6.2vw, 74px) !important;
+  height: clamp(58px, 6.2vw, 74px) !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  max-width: 124px !important;
+  font-size: clamp(0.72rem, 0.95vw, 0.95rem) !important;
+}
+
+.hero-progress-circles .progress-circle-card {
+  grid-template-columns: auto minmax(0, 1fr) !important;
+}
+
+.hero-progress-circles .stat-progress-circle-copy {
+  min-width: 0 !important;
+  max-width: 150px !important;
+}
+
+.hero-progress-circles .stat-progress-circle-copy span {
+  font-size: clamp(0.56rem, 0.72vw, 0.72rem) !important;
+  white-space: normal !important;
+}
+
+.hero-progress-circles .stat-progress-circle-copy span,
+.hero-progress-circles .stat-progress-circle-copy strong,
+.hero-progress-circles .stat-progress-circle-copy em {
+  color: #fff1cf !important;
+}
+
+.mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) .mode-choice-card-grid {
+  display: none !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  width: clamp(118px, 13vw, 150px) !important;
+  height: clamp(118px, 13vw, 150px) !important;
+  padding: 10px !important;
+  border-radius: 16px !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 12%;
+  --menu-y: -206%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 92%;
+  --menu-y: -132%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 126%;
+  --menu-y: -26%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 92%;
+  --menu-y: 82%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 12%;
+  --menu-y: 160%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:hover,
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:focus-visible {
+  transform: translate(var(--menu-x), var(--menu-y)) scale(1.07) !important;
+}
+
+.mode-choice-board.is-menu-switching .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-board.is-menu-closing .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card {
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  transform: translate(var(--menu-x), var(--menu-y)) scale(0.78) !important;
+  transition-duration: 500ms !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  width: clamp(58px, 6.2vw, 74px) !important;
+  height: clamp(58px, 6.2vw, 74px) !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  max-width: 124px !important;
+  font-size: clamp(0.72rem, 0.95vw, 0.95rem) !important;
+}
+
+/* Local May 9 art pass: wallpaper, museum frames, and a looser route layout. */
+
+.hero,
+.wizard.card-panel {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.hero::after,
+.step-panel::after {
+  display: none;
+}
+
+.wizard.card-panel {
+  padding-inline: clamp(10px, 2vw, 24px);
+}
+
+.step-panel {
+  overflow: visible;
+  padding: clamp(10px, 1.6vw, 20px);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.wizard-steps {
+  overflow: visible;
+}
+
+.wizard-rail-item,
+.hero-stats .stat-card,
+.hero-best-card {
+  --header-frame: var(--frame-header-wide-a);
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.wizard-rail-item::before,
+.hero-stats .stat-card::before,
+.hero-best-card::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--header-frame);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 12px 14px rgba(65, 42, 23, 0.13));
+}
+
+.wizard-rail-item::after,
+.hero-stats .stat-card::after,
+.hero-best-card::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  z-index: 0;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 250, 238, 0.74), transparent 52%),
+    rgba(247, 234, 204, 0.46);
+  pointer-events: none;
+}
+
+.wizard-rail-item > *,
+.hero-stats .stat-card > *,
+.hero-best-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.wizard-rail-item {
+  min-width: 184px;
+  min-height: 76px;
+  padding: 20px 24px;
+}
+
+.wizard-rail-item:nth-child(1),
+.hero-best-card:nth-child(1),
+.hero-stats .stat-card:nth-child(1) {
+  --header-frame: var(--frame-header-wide-a);
+}
+
+.wizard-rail-item:nth-child(2),
+.hero-best-card:nth-child(2),
+.hero-stats .stat-card:nth-child(2) {
+  --header-frame: var(--frame-header-wide-b);
+}
+
+.wizard-rail-item:nth-child(3),
+.hero-best-card:nth-child(3) {
+  --header-frame: var(--frame-header-wide-c);
+}
+
+.wizard-rail-item:nth-child(4),
+.hero-best-card:nth-child(4) {
+  --header-frame: var(--frame-header-wide-d);
+}
+
+.choice-card,
+.target-card,
+.mode-card {
+  --card-frame: var(--frame-card-wide-a);
+  --card-tilt: 0deg;
+  --card-x: 0;
+  --card-y: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  min-height: 170px;
+  padding: clamp(26px, 3vw, 42px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.choice-card::before,
+.target-card::before,
+.mode-card::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--card-frame);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 16px 20px rgba(65, 42, 23, 0.14));
+}
+
+.choice-card::after,
+.target-card::after,
+.mode-card::after {
+  content: "";
+  position: absolute;
+  inset: clamp(18px, 5%, 28px);
+  z-index: 0;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 250, 238, 0.64), transparent 52%),
+    linear-gradient(180deg, rgba(247, 234, 204, 0.54), rgba(235, 211, 158, 0.36));
+  pointer-events: none;
+}
+
+.choice-card > *,
+.target-card > *,
+.mode-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.choice-card.active,
+.target-card.active,
+.mode-card.active {
+  box-shadow: none;
+}
+
+.choice-card.active::before,
+.target-card.active::before,
+.mode-card.active::before {
+  filter:
+    drop-shadow(0 18px 22px rgba(65, 42, 23, 0.18))
+    saturate(1.16)
+    brightness(1.04);
+}
+
+.choice-card:focus-visible,
+.target-card:focus-visible,
+.mode-card:focus-visible,
+.wizard-rail-item:focus-visible {
+  outline: 3px solid rgba(200, 156, 68, 0.56);
+  outline-offset: 8px;
+}
+
+.wizard-choice-card:nth-child(1) {
+  --card-frame: var(--frame-card-wide-a);
+  --card-tilt: -1.4deg;
+  --card-x: -1%;
+  --card-y: 2%;
+}
+
+.wizard-choice-card:nth-child(2) {
+  --card-frame: var(--frame-card-wide-b);
+  --card-tilt: 1.8deg;
+  --card-x: 2%;
+  --card-y: -1%;
+}
+
+.wizard-choice-card:nth-child(3) {
+  --card-frame: var(--frame-card-wide-c);
+  --card-tilt: -0.8deg;
+  --card-x: -2%;
+  --card-y: 6%;
+}
+
+.wizard-choice-card:nth-child(4) {
+  --card-frame: var(--frame-card-wide-d);
+  --card-tilt: 1.2deg;
+  --card-x: 3%;
+  --card-y: -3%;
+}
+
+.wizard-choice-card:nth-child(5) {
+  --card-frame: var(--frame-card-wide-e);
+  --card-tilt: -1.1deg;
+  --card-x: -3%;
+  --card-y: 3%;
+}
+
+.wizard-choice-card:nth-child(6) {
+  --card-frame: var(--frame-card-square-a);
+  --card-tilt: 1.5deg;
+  --card-x: 1%;
+  --card-y: 4%;
+}
+
+@media (min-width: 861px) {
+  .step-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: clamp(20px, 1.75vw, 27px);
+    grid-auto-flow: dense;
+    gap: clamp(10px, 1.1vw, 18px);
+    align-items: stretch;
+    min-height: clamp(340px, 39vw, 540px);
+    padding: clamp(10px, 1.2vw, 20px) clamp(6px, 1vw, 18px) clamp(28px, 3vw, 44px);
+  }
+
+  .step-grid.one,
+  .step-grid.two,
+  .step-grid.three,
+  .step-grid.four,
+  .step-grid.five {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .step-grid > .wizard-choice-card {
+    height: auto;
+    min-height: 0;
+    transform: translate(var(--card-x), var(--card-y)) rotate(var(--card-tilt));
+    transform-origin: center;
+  }
+
+  .step-grid > .wizard-choice-card:hover {
+    transform: translate(var(--card-x), calc(var(--card-y) - 4px)) rotate(var(--card-tilt));
+  }
+
+  .step-grid.one > .wizard-choice-card:nth-child(1) {
+    grid-column: 4 / span 6;
+    grid-row: 2 / span 9;
+  }
+
+  .step-grid.two > .wizard-choice-card:nth-child(1) {
+    grid-column: 1 / span 5;
+    grid-row: 3 / span 8;
+  }
+
+  .step-grid.two > .wizard-choice-card:nth-child(2) {
+    grid-column: 7 / span 6;
+    grid-row: 6 / span 9;
+  }
+
+  .step-grid.three > .wizard-choice-card:nth-child(1) {
+    grid-column: 1 / span 4;
+    grid-row: 5 / span 8;
+  }
+
+  .step-grid.three > .wizard-choice-card:nth-child(2) {
+    grid-column: 5 / span 4;
+    grid-row: 2 / span 8;
+  }
+
+  .step-grid.three > .wizard-choice-card:nth-child(3) {
+    grid-column: 9 / span 4;
+    grid-row: 6 / span 8;
+  }
+
+  .step-grid.four > .wizard-choice-card:nth-child(1) {
+    grid-column: 1 / span 4;
+    grid-row: 5 / span 8;
+  }
+
+  .step-grid.four > .wizard-choice-card:nth-child(2) {
+    grid-column: 4 / span 4;
+    grid-row: 1 / span 8;
+  }
+
+  .step-grid.four > .wizard-choice-card:nth-child(3) {
+    grid-column: 8 / span 5;
+    grid-row: 4 / span 8;
+  }
+
+  .step-grid.four > .wizard-choice-card:nth-child(4) {
+    grid-column: 3 / span 6;
+    grid-row: 13 / span 8;
+  }
+
+  .step-grid.five > .mode-card,
+  .step-grid.five > .mode-card:nth-last-child(-n + 2) {
+    grid-column: auto;
+  }
+
+  .step-grid.five > .wizard-choice-card:nth-child(1) {
+    grid-column: 1 / span 4;
+    grid-row: 4 / span 8;
+  }
+
+  .step-grid.five > .wizard-choice-card:nth-child(2) {
+    grid-column: 5 / span 4;
+    grid-row: 1 / span 8;
+  }
+
+  .step-grid.five > .wizard-choice-card:nth-child(3) {
+    grid-column: 9 / span 4;
+    grid-row: 5 / span 8;
+  }
+
+  .step-grid.five > .wizard-choice-card:nth-child(4) {
+    grid-column: 2 / span 5;
+    grid-row: 14 / span 8;
+  }
+
+  .step-grid.five > .wizard-choice-card:nth-child(5) {
+    grid-column: 7 / span 5;
+    grid-row: 12 / span 8;
+  }
+}
+
+@media (max-width: 860px) {
+  .wizard-rail-items {
+    padding: 8px 4px;
+  }
+
+  .wizard-rail-item {
+    min-width: 188px;
+  }
+
+  .choice-card,
+  .target-card,
+  .mode-card {
+    min-height: 158px;
+  }
+}
+
+.hero-progress-circles,
+.hero-best-strip,
+.wizard-rail-item,
+.choice-card,
+.target-card,
+.mode-card {
+  --frame-padding: 18px;
+  --frame-line: 4px;
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.hero-progress-circles::before,
+.hero-best-strip::before,
+.wizard-rail-item::before,
+.choice-card::before,
+.target-card::before,
+.mode-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border: var(--frame-line) solid var(--frame-ink);
+  background: transparent;
+  box-shadow:
+    inset 0 0 0 2px var(--frame-paper-line),
+    inset 0 0 0 8px var(--frame-ink),
+    inset 0 0 0 10px var(--frame-paper-line),
+    0 12px 20px rgba(65, 42, 23, 0.13);
+  filter: none;
+}
+
+.hero-progress-circles::after,
+.hero-best-strip::after,
+.wizard-rail-item::after,
+.choice-card::after,
+.target-card::after,
+.mode-card::after {
+  content: "";
+  position: absolute;
+  inset: var(--frame-padding);
+  z-index: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 250, 238, 0.52), transparent 48%),
+    var(--frame-fill);
+  box-shadow: inset 0 0 0 1px rgba(61, 33, 19, 0.08);
+  pointer-events: none;
+}
+
+.hero-progress-circles > *,
+.hero-best-strip > *,
+.wizard-rail-item > *,
+.choice-card > *,
+.target-card > *,
+.mode-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-progress-circles {
+  --frame-padding: 18px;
+  width: min(100%, 360px);
+  min-height: 190px;
+  padding: 34px 34px 32px;
+  gap: 12px;
+  align-content: center;
+}
+
+.progress-circle-card {
+  width: 100%;
+  padding: 6px 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+}
+
+.stat-progress-ring {
+  width: 74px;
+  height: 74px;
+}
+
+.stat-progress-ring-inner {
+  width: 54px;
+  height: 54px;
+}
+
+.stat-progress-circle-copy span,
+.hero-best-card span {
+  color: rgba(61, 33, 19, 0.68);
+}
+
+.wizard-rail-items {
+  gap: 16px;
+}
+
+.wizard-rail-item {
+  --frame-padding: 13px;
+  --frame-line: 3px;
+  min-width: 176px;
+  min-height: 72px;
+  padding: 21px 22px;
+}
+
+.wizard-rail-item.active {
+  background: transparent;
+}
+
+.wizard-rail-item.upcoming {
+  opacity: 0.58;
+}
+
+.wizard-rail-dot {
+  background: rgba(61, 33, 19, 0.16);
+  border-color: rgba(61, 33, 19, 0.26);
+}
+
+.wizard-rail-item.done .wizard-rail-dot,
+.wizard-rail-item.active .wizard-rail-dot {
+  background: var(--frame-ink);
+  border-color: rgba(61, 33, 19, 0.28);
+}
+
+.wizard.card-panel,
+.step-panel {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.wizard.card-panel {
+  padding-block: 18px 28px;
+}
+
+.section-heading {
+  align-items: start;
+}
+
+.section-heading h2 {
+  color: var(--frame-ink);
+  line-height: 0.95;
+}
+
+.step-panel {
+  padding: 0;
+}
+
+.step-top {
+  justify-content: center;
+  margin: 8px 0 20px;
+}
+
+.choice-card,
+.target-card,
+.mode-card {
+  --frame-padding: clamp(17px, 2vw, 23px);
+  --frame-line: 4px;
+  min-height: 184px;
+  padding: clamp(26px, 3.2vw, 44px);
+}
+
+.choice-card:hover,
+.target-card:hover,
+.mode-card:hover {
+  transform: translateY(-3px) rotate(var(--card-tilt));
+}
+
+.choice-card.active::before,
+.target-card.active::before,
+.mode-card.active::before {
+  box-shadow:
+    inset 0 0 0 2px var(--frame-paper-line),
+    inset 0 0 0 8px var(--frame-ink),
+    inset 0 0 0 10px var(--frame-paper-line),
+    0 16px 24px rgba(65, 42, 23, 0.18);
+}
+
+.wizard-choice-slot {
+  position: static;
+  width: clamp(72px, 8vw, 116px);
+  height: clamp(64px, 7vw, 106px);
+  min-height: 0;
+  z-index: 2;
+}
+
+.wizard-choice-slot .asset-image,
+.wizard-choice-slot .mascot-asset {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.wizard-choice-copy {
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.wizard-choice-copy h3,
+.target-card .wizard-choice-copy h3,
+.mode-card .wizard-choice-copy h3 {
+  margin: 0;
+  color: #6f4b28;
+  font-size: clamp(1rem, 1.45vw, 1.5rem);
+  line-height: 1.05;
+  text-align: inherit;
+}
+
+.mode-card .wizard-choice-copy {
+  align-items: center;
+  justify-items: center;
+}
+
+.wizard-choice-card:nth-child(3n + 1) .wizard-choice-copy {
+  justify-items: end;
+  text-align: right;
+}
+
+.wizard-choice-card:nth-child(3n + 2) .wizard-choice-slot {
+  width: clamp(82px, 9vw, 126px);
+  height: clamp(76px, 8vw, 118px);
+}
+
+.wizard-choice-card:nth-child(3n) .wizard-choice-copy {
+  order: -1;
+}
+
+.wizard-choice-card:nth-child(4n) .wizard-choice-slot {
+  order: 2;
+  justify-self: end;
+}
+
+.wizard-choice-card:nth-child(4n) .wizard-choice-copy {
+  order: 1;
+  justify-items: start;
+  text-align: left;
+}
+
+@media (min-width: 861px) {
+  .step-grid,
+  .step-grid.one,
+  .step-grid.two,
+  .step-grid.three,
+  .step-grid.four,
+  .step-grid.five {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(210px, 22vw, 285px), 1fr));
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    gap: clamp(26px, 3vw, 42px) clamp(22px, 2.4vw, 36px);
+    min-height: 0;
+    padding: 14px clamp(6px, 1vw, 18px) 42px;
+    align-items: stretch;
+  }
+
+  .step-grid.one {
+    grid-template-columns: minmax(260px, 460px);
+    justify-content: center;
+  }
+
+  .step-grid.two {
+    grid-template-columns: repeat(2, minmax(260px, 420px));
+    justify-content: center;
+  }
+
+  .step-grid.three {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+
+  .step-grid > .wizard-choice-card,
+  .step-grid.five > .mode-card,
+  .step-grid.five > .mode-card:nth-last-child(-n + 2),
+  .step-grid.one > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(1),
+  .step-grid.three > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(1),
+  .step-grid.four > .wizard-choice-card:nth-child(2),
+  .step-grid.four > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(1),
+  .step-grid.five > .wizard-choice-card:nth-child(2),
+  .step-grid.five > .wizard-choice-card:nth-child(3),
+  .step-grid.five > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(5) {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: clamp(170px, 15vw, 216px);
+  }
+
+  .step-grid > .wizard-choice-card {
+    transform: translateY(var(--card-y)) rotate(var(--card-tilt));
+  }
+
+  .wizard-choice-card:nth-child(6n + 1) {
+    --card-tilt: -1.2deg;
+    --card-y: 8px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 2) {
+    --card-tilt: 0.8deg;
+    --card-y: -6px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 3) {
+    --card-tilt: -0.5deg;
+    --card-y: 14px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 4) {
+    --card-tilt: 1.1deg;
+    --card-y: 0px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 5) {
+    --card-tilt: -0.9deg;
+    --card-y: 10px;
+  }
+
+  .wizard-choice-card:nth-child(6n) {
+    --card-tilt: 0.6deg;
+    --card-y: -2px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .hero-progress-circles {
+    width: min(100%, 660px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 18px;
+  }
+
+  .hero-progress-circles {
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 30px 28px;
+  }
+
+  .hero-best-strip {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    padding: 30px 28px;
+  }
+
+  .hero-best-card {
+    border-left: 0;
+    border-top: 1px solid rgba(61, 33, 19, 0.18);
+    padding: 10px 0;
+  }
+
+  .hero-best-card:first-child {
+    border-top: 0;
+  }
+
+  .section-heading {
+    gap: 16px;
+  }
+
+  .section-heading h2 {
+    text-align: left;
+  }
+
+  .wizard-rail-items {
+    gap: 12px;
+    padding: 10px 4px;
+  }
+
+  .wizard-rail-item {
+    min-width: 196px;
+  }
+
+  .step-grid,
+  .step-grid.one,
+  .step-grid.two,
+  .step-grid.three,
+  .step-grid.four,
+  .step-grid.five {
+    gap: 24px;
+  }
+
+  .choice-card,
+  .target-card,
+  .mode-card {
+    min-height: 164px;
+  }
+}
+
+.hero-progress-circles::after,
+.hero-best-strip::after {
+  inset: 28px 34px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 250, 238, 0.46), transparent 46%),
+    rgba(247, 234, 204, 0.42);
+}
+
+.hero-progress-circles {
+  padding: 44px 46px;
+}
+
+.wizard-rail-items {
+  gap: 4px;
+  align-items: stretch;
+}
+
+.wizard-rail-item {
+  min-width: 176px;
+  min-height: 68px;
+  padding: 13px 28px 13px 32px;
+  border: 1px solid rgba(138, 99, 56, 0.22);
+  background:
+    linear-gradient(180deg, rgba(247, 234, 204, 0.78), rgba(235, 213, 170, 0.62));
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 16px 50%);
+  box-shadow: 0 10px 18px rgba(75, 47, 33, 0.07);
+}
+
+.wizard-rail-item:first-child {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+}
+
+.wizard-rail-item::before,
+.wizard-rail-item::after {
+  display: none;
+}
+
+.wizard-rail-item.active {
+  background:
+    radial-gradient(circle at top right, rgba(200, 156, 68, 0.15), transparent 40%),
+    linear-gradient(180deg, rgba(247, 234, 204, 0.96), rgba(236, 217, 170, 0.9));
+  border-color: rgba(107, 78, 22, 0.2);
+}
+
+.wizard-rail-item.done {
+  background:
+    linear-gradient(180deg, rgba(245, 232, 199, 0.9), rgba(232, 207, 158, 0.78));
+}
+
+.wizard-rail-item.upcoming {
+  opacity: 0.74;
+}
+
+.wizard-rail-dot {
+  width: 14px;
+  height: 14px;
+  background: rgba(107, 78, 22, 0.18);
+  border: 2px solid rgba(107, 78, 22, 0.22);
+}
+
+.wizard-rail-item.done .wizard-rail-dot {
+  background: rgba(138, 99, 56, 0.82);
+  border-color: rgba(138, 99, 56, 0.3);
+}
+
+.wizard-rail-item.active .wizard-rail-dot {
+  background: var(--gold);
+  border-color: rgba(107, 78, 22, 0.26);
+}
+
+.wizard-rail-title {
+  color: #7c5632;
+}
+
+.wizard-rail-value {
+  color: rgba(65, 42, 23, 0.68);
+}
+
+.step-top {
+  display: none;
+}
+
+.choice-card,
+.target-card,
+.mode-card {
+  --card-shape: var(--wood-sign-soft-wide);
+  --card-inner-inset: 24px;
+  --card-tilt: 0deg;
+  --card-y: 0px;
+  min-height: 0;
+  padding: clamp(30px, 3.4vw, 46px);
+  border: 0;
+}
+
+.choice-card::before,
+.target-card::before,
+.mode-card::before {
+  inset: -2px;
+  z-index: 0;
+  border: 0;
+  background-image: var(--card-shape);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: none;
+  opacity: 0.7;
+  filter:
+    sepia(0.12)
+    saturate(0.64)
+    hue-rotate(350deg)
+    brightness(0.94)
+    contrast(0.82)
+    drop-shadow(0 10px 14px rgba(65, 42, 23, 0.1));
+}
+
+.choice-card::after,
+.target-card::after,
+.mode-card::after {
+  display: none;
+}
+
+.choice-card.active::before,
+.target-card.active::before,
+.mode-card.active::before {
+  filter:
+    sepia(0.12)
+    saturate(0.7)
+    hue-rotate(350deg)
+    brightness(0.98)
+    contrast(0.86)
+    drop-shadow(0 13px 16px rgba(65, 42, 23, 0.14));
+}
+
+.wizard-choice-card:nth-child(6n + 1) {
+  --card-shape: var(--wood-sign-long);
+  --card-inner-inset: 25px 38px;
+}
+
+.wizard-choice-card:nth-child(6n + 2) {
+  --card-shape: var(--wood-sign-square);
+  --card-inner-inset: 29px;
+}
+
+.wizard-choice-card:nth-child(6n + 3) {
+  --card-shape: var(--wood-sign-medium);
+  --card-inner-inset: 24px 30px;
+}
+
+.wizard-choice-card:nth-child(6n + 4) {
+  --card-shape: var(--wood-sign-portrait);
+  --card-inner-inset: 33px 27px;
+}
+
+.wizard-choice-card:nth-child(6n + 5) {
+  --card-shape: var(--wood-sign-soft-wide);
+  --card-inner-inset: 25px 34px;
+}
+
+.wizard-choice-card:nth-child(6n) {
+  --card-shape: var(--wood-sign-tall);
+  --card-inner-inset: 34px 26px;
+}
+
+@media (min-width: 861px) {
+  .step-grid,
+  .step-grid.one,
+  .step-grid.two,
+  .step-grid.three,
+  .step-grid.four,
+  .step-grid.five {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: 19px;
+    grid-auto-flow: dense;
+    gap: clamp(18px, 2.1vw, 32px);
+    align-items: stretch;
+    padding: 18px clamp(6px, 1vw, 18px) 48px;
+  }
+
+  .step-grid > .wizard-choice-card,
+  .step-grid.one > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(1),
+  .step-grid.three > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(1),
+  .step-grid.four > .wizard-choice-card:nth-child(2),
+  .step-grid.four > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(1),
+  .step-grid.five > .wizard-choice-card:nth-child(2),
+  .step-grid.five > .wizard-choice-card:nth-child(3),
+  .step-grid.five > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(5) {
+    grid-column: span 4;
+    grid-row: span 8;
+    min-height: 0;
+    transform: translateY(var(--card-y)) rotate(var(--card-tilt));
+  }
+
+  .step-grid.one > .wizard-choice-card {
+    grid-column: 4 / span 6;
+    grid-row: span 8;
+  }
+
+  .step-grid.two > .wizard-choice-card {
+    grid-column: span 6;
+    grid-row: span 8;
+  }
+
+  .step-grid.three > .wizard-choice-card {
+    grid-column: span 4;
+    grid-row: span 8;
+  }
+
+  .wizard-choice-card:nth-child(6n + 1) {
+    grid-column: span 5;
+    grid-row: span 6;
+    --card-tilt: -1deg;
+    --card-y: 8px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 2) {
+    grid-column: span 3;
+    grid-row: span 8;
+    --card-tilt: 0.7deg;
+    --card-y: -4px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 3) {
+    grid-column: span 4;
+    grid-row: span 6;
+    --card-tilt: -0.5deg;
+    --card-y: 14px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 4) {
+    grid-column: span 3;
+    grid-row: span 9;
+    --card-tilt: 1deg;
+    --card-y: 3px;
+  }
+
+  .wizard-choice-card:nth-child(6n + 5) {
+    grid-column: span 5;
+    grid-row: span 6;
+    --card-tilt: -0.8deg;
+    --card-y: 10px;
+  }
+
+  .wizard-choice-card:nth-child(6n) {
+    grid-column: span 3;
+    grid-row: span 9;
+    --card-tilt: 0.6deg;
+    --card-y: -2px;
+  }
+
+  .wizard-choice-card:nth-child(10n + 7) {
+    grid-column: span 4;
+    grid-row: span 7;
+  }
+
+  .wizard-choice-card:nth-child(10n + 8) {
+    grid-column: span 5;
+    grid-row: span 6;
+  }
+
+  .wizard-choice-card:nth-child(10n + 9) {
+    grid-column: span 3;
+    grid-row: span 8;
+  }
+
+  .wizard-choice-card:nth-child(10n) {
+    grid-column: span 4;
+    grid-row: span 7;
+  }
+}
+
+@media (max-width: 1120px) {
+  .hero-progress-circles {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .wizard-rail-item {
+    clip-path: none;
+    min-width: 188px;
+    padding: 13px 18px;
+  }
+
+  .hero-progress-circles {
+    min-height: 280px;
+    padding: 72px 48px 62px;
+    gap: 24px;
+  }
+
+  .hero-best-strip {
+    padding: 62px 42px 58px;
+  }
+
+  .choice-card,
+  .target-card,
+  .mode-card {
+    min-height: 178px;
+  }
+}
+
+.choice-card,
+.target-card,
+.mode-card {
+  --sign-image: var(--sign-wide-a);
+  --sign-aspect: 3.39 / 1;
+  --sign-layout: image-left;
+  --card-tilt: 0deg;
+  --card-x: 0px;
+  --card-y: 0px;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--sign-aspect);
+  min-height: 0;
+  padding: clamp(22px, 3vw, 38px) clamp(30px, 4vw, 56px);
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: var(--sign-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: none;
+  box-sizing: border-box;
+  clip-path: inset(2% 2.5% round 14px);
+  overflow: hidden;
+  transform: translate(var(--card-x), var(--card-y)) rotate(var(--card-tilt));
+}
+
+.choice-card::before,
+.choice-card::after,
+.target-card::before,
+.target-card::after,
+.mode-card::before,
+.mode-card::after {
+  display: none;
+}
+
+.choice-card:hover,
+.target-card:hover,
+.mode-card:hover {
+  transform: translate(var(--card-x), calc(var(--card-y) - 3px)) rotate(var(--card-tilt));
+  filter: drop-shadow(0 10px 14px rgba(65, 42, 23, 0.12));
+}
+
+.choice-card.active,
+.target-card.active,
+.mode-card.active {
+  filter:
+    saturate(1.06)
+    brightness(1.02)
+    drop-shadow(0 12px 16px rgba(65, 42, 23, 0.14));
+}
+
+.wizard-choice-slot {
+  position: static;
+  order: 1;
+  width: min(100%, clamp(54px, 6vw, 92px));
+  height: min(100%, clamp(50px, 5.6vw, 86px));
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.wizard-choice-slot .asset-image,
+.wizard-choice-slot .mascot-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.wizard-choice-copy {
+  order: 2;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  align-items: center;
+  justify-items: end;
+  text-align: right;
+}
+
+.wizard-choice-copy h3,
+.target-card .wizard-choice-copy h3,
+.mode-card .wizard-choice-copy h3 {
+  max-width: 100%;
+  margin: 0;
+  color: #6f4b28;
+  font-size: clamp(0.92rem, 1.34vw, 1.38rem);
+  line-height: 1.04;
+  text-align: inherit;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.mode-card-thanks {
+  max-width: 100%;
+  text-align: inherit;
+}
+
+.mode-card .wizard-choice-copy {
+  align-items: center;
+  justify-items: inherit;
+}
+
+.wizard-choice-card:nth-child(8n + 1) {
+  --sign-image: var(--sign-long-a);
+  --sign-aspect: 3.36 / 1;
+  --card-tilt: -0.8deg;
+  --card-x: -7px;
+  --card-y: 8px;
+}
+
+.wizard-choice-card:nth-child(8n + 2) {
+  --sign-image: var(--sign-square-a);
+  --sign-aspect: 1.18 / 1;
+  --card-tilt: 0.7deg;
+  --card-x: 6px;
+  --card-y: -6px;
+}
+
+.wizard-choice-card:nth-child(8n + 3) {
+  --sign-image: var(--sign-wide-a);
+  --sign-aspect: 3.39 / 1;
+  --card-tilt: -0.4deg;
+  --card-x: 10px;
+  --card-y: 12px;
+}
+
+.wizard-choice-card:nth-child(8n + 4) {
+  --sign-image: var(--sign-square-b);
+  --sign-aspect: 1.08 / 1;
+  --card-tilt: 0.9deg;
+  --card-x: -4px;
+  --card-y: 2px;
+}
+
+.wizard-choice-card:nth-child(8n + 5) {
+  --sign-image: var(--sign-long-b);
+  --sign-aspect: 4.38 / 1;
+  --card-tilt: -0.6deg;
+  --card-x: 5px;
+  --card-y: 10px;
+}
+
+.wizard-choice-card:nth-child(8n + 6) {
+  --sign-image: var(--sign-wide-c);
+  --sign-aspect: 3.5 / 1;
+  --card-tilt: 0.5deg;
+  --card-x: -8px;
+  --card-y: -2px;
+}
+
+.wizard-choice-card:nth-child(8n + 7) {
+  --sign-image: var(--sign-long-c);
+  --sign-aspect: 4.01 / 1;
+  --card-tilt: 0.8deg;
+  --card-x: 9px;
+  --card-y: 7px;
+}
+
+.wizard-choice-card:nth-child(8n) {
+  --sign-image: var(--sign-wide-b);
+  --sign-aspect: 4.02 / 1;
+  --card-tilt: -0.5deg;
+  --card-x: -6px;
+  --card-y: 4px;
+}
+
+.wizard-choice-card:nth-child(odd) .wizard-choice-slot {
+  order: 1;
+  width: min(100%, clamp(54px, 6vw, 92px));
+  height: min(100%, clamp(50px, 5.6vw, 86px));
+}
+
+.wizard-choice-card:nth-child(odd) .wizard-choice-copy {
+  order: 2;
+  justify-items: end;
+  text-align: right;
+}
+
+.wizard-choice-card:nth-child(even) .wizard-choice-slot {
+  order: 2;
+  width: min(100%, clamp(54px, 6vw, 92px));
+  height: min(100%, clamp(50px, 5.6vw, 86px));
+}
+
+.wizard-choice-card:nth-child(even) .wizard-choice-copy {
+  order: 1;
+  justify-items: start;
+  text-align: left;
+}
+
+.wizard-choice-card:nth-child(8n + 2) .wizard-choice-slot,
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-slot {
+  order: 1;
+  width: min(72%, clamp(70px, 8.6vw, 116px));
+  height: min(72%, clamp(64px, 8vw, 108px));
+}
+
+.wizard-choice-card:nth-child(8n + 2) .wizard-choice-copy,
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-copy {
+  order: 2;
+  justify-items: center;
+  text-align: center;
+}
+
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-slot {
+  order: 2;
+}
+
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-copy {
+  order: 1;
+}
+
+@media (min-width: 861px) {
+  .step-grid,
+  .step-grid.one,
+  .step-grid.two,
+  .step-grid.three,
+  .step-grid.four,
+  .step-grid.five {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: clamp(22px, 2.4vw, 38px);
+    align-items: center;
+    padding: 18px clamp(6px, 1vw, 18px) 52px;
+  }
+
+  .step-grid > .wizard-choice-card,
+  .step-grid.one > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(1),
+  .step-grid.three > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(1),
+  .step-grid.four > .wizard-choice-card:nth-child(2),
+  .step-grid.four > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(1),
+  .step-grid.five > .wizard-choice-card:nth-child(2),
+  .step-grid.five > .wizard-choice-card:nth-child(3),
+  .step-grid.five > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(5) {
+    grid-row: auto;
+    min-height: 0;
+  }
+
+  .wizard-choice-card:nth-child(8n + 1),
+  .wizard-choice-card:nth-child(8n + 5),
+  .wizard-choice-card:nth-child(8n + 7) {
+    grid-column: span 5;
+  }
+
+  .wizard-choice-card:nth-child(8n + 3),
+  .wizard-choice-card:nth-child(8n + 6),
+  .wizard-choice-card:nth-child(8n) {
+    grid-column: span 4;
+  }
+
+  .wizard-choice-card:nth-child(8n + 2),
+  .wizard-choice-card:nth-child(8n + 4) {
+    grid-column: span 3;
+  }
+
+  .step-grid.one > .wizard-choice-card,
+  .step-grid.two > .wizard-choice-card,
+  .step-grid.three > .wizard-choice-card {
+    grid-column: span 4;
+  }
+
+  .step-grid.one > .wizard-choice-card {
+    grid-column: 4 / span 6;
+  }
+
+  .step-grid.two > .wizard-choice-card {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 760px) {
+  .choice-card,
+  .target-card,
+  .mode-card {
+    width: min(100%, 360px);
+    min-height: 0;
+    padding: 28px 36px;
+  }
+
+  .wizard-choice-card:nth-child(8n + 2),
+  .wizard-choice-card:nth-child(8n + 4) {
+    width: min(100%, 286px);
+  }
+}
+
+.choice-card:hover,
+.target-card:hover,
+.mode-card:hover {
+  transform: translateY(-3px);
+}
+
+.wizard-choice-card .wizard-choice-slot,
+.wizard-choice-card:nth-child(odd) .wizard-choice-slot,
+.wizard-choice-card:nth-child(even) .wizard-choice-slot,
+.wizard-choice-card:nth-child(8n + 2) .wizard-choice-slot,
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-slot {
+  order: 1;
+  width: min(82%, clamp(58px, 5.9vw, 86px));
+  height: min(100%, clamp(56px, 5.8vw, 84px));
+}
+
+.wizard-choice-card .wizard-choice-copy,
+.wizard-choice-card:nth-child(odd) .wizard-choice-copy,
+.wizard-choice-card:nth-child(even) .wizard-choice-copy,
+.wizard-choice-card:nth-child(8n + 2) .wizard-choice-copy,
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-copy {
+  order: 2;
+  justify-items: center;
+  text-align: center;
+}
+
+.wizard-choice-copy h3,
+.target-card .wizard-choice-copy h3,
+.mode-card .wizard-choice-copy h3 {
+  color: #5f3d20;
+  font-size: clamp(0.92rem, 1.18vw, 1.2rem);
+  line-height: 1.04;
+  text-shadow: 0 1px 0 rgba(255, 241, 205, 0.76);
+}
+
+@media (min-width: 861px) {
+  .step-grid,
+  .step-grid.one,
+  .step-grid.two,
+  .step-grid.three,
+  .step-grid.four,
+  .step-grid.five {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(144px, 180px));
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(18px, 2vw, 30px);
+    padding: 24px clamp(8px, 1vw, 18px) 52px;
+  }
+
+  .step-grid > .wizard-choice-card,
+  .step-grid.one > .wizard-choice-card,
+  .step-grid.two > .wizard-choice-card,
+  .step-grid.three > .wizard-choice-card,
+  .step-grid.four > .wizard-choice-card,
+  .step-grid.five > .wizard-choice-card,
+  .step-grid.one > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(1),
+  .step-grid.two > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(1),
+  .step-grid.three > .wizard-choice-card:nth-child(2),
+  .step-grid.three > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(1),
+  .step-grid.four > .wizard-choice-card:nth-child(2),
+  .step-grid.four > .wizard-choice-card:nth-child(3),
+  .step-grid.four > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(1),
+  .step-grid.five > .wizard-choice-card:nth-child(2),
+  .step-grid.five > .wizard-choice-card:nth-child(3),
+  .step-grid.five > .wizard-choice-card:nth-child(4),
+  .step-grid.five > .wizard-choice-card:nth-child(5),
+  .wizard-choice-card:nth-child(8n + 1),
+  .wizard-choice-card:nth-child(8n + 2),
+  .wizard-choice-card:nth-child(8n + 3),
+  .wizard-choice-card:nth-child(8n + 4),
+  .wizard-choice-card:nth-child(8n + 5),
+  .wizard-choice-card:nth-child(8n + 6),
+  .wizard-choice-card:nth-child(8n + 7),
+  .wizard-choice-card:nth-child(8n) {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .choice-card,
+  .target-card,
+  .mode-card,
+  .wizard-choice-card:nth-child(8n + 2),
+  .wizard-choice-card:nth-child(8n + 4) {
+    width: min(44vw, 168px) !important;
+    padding: 34px 28px 46px;
+  }
+}
+
+.hero-progress-circles {
+  padding: 44px 34px 44px 12px;
+}
+
+.progress-circle-card {
+  gap: 8px;
+}
+
+.stat-progress-circle-copy span {
+  color: #5f3d20;
+  font-size: clamp(14px, 1.05vw, 15.5px) !important;
+  font-weight: 1000;
+}
+
+.choice-card,
+.target-card,
+.mode-card,
+.wizard-choice-card:nth-child(8n + 1),
+.wizard-choice-card:nth-child(8n + 2),
+.wizard-choice-card:nth-child(8n + 3),
+.wizard-choice-card:nth-child(8n + 4),
+.wizard-choice-card:nth-child(8n + 5),
+.wizard-choice-card:nth-child(8n + 6),
+.wizard-choice-card:nth-child(8n + 7),
+.wizard-choice-card:nth-child(8n) {
+  aspect-ratio: 1 / 1.12;
+  padding: clamp(38px, 3vw, 46px) clamp(24px, 2.4vw, 34px) clamp(44px, 3.1vw, 52px);
+}
+
+.wizard-choice-card .wizard-choice-slot,
+.wizard-choice-card:nth-child(odd) .wizard-choice-slot,
+.wizard-choice-card:nth-child(even) .wizard-choice-slot,
+.wizard-choice-card:nth-child(8n + 2) .wizard-choice-slot,
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-slot {
+  align-self: end;
+  transform: translateY(5px);
+  width: min(80%, clamp(54px, 5.3vw, 78px));
+  height: min(100%, clamp(52px, 5.2vw, 76px));
+}
+
+.wizard-choice-card .wizard-choice-copy,
+.wizard-choice-card:nth-child(odd) .wizard-choice-copy,
+.wizard-choice-card:nth-child(even) .wizard-choice-copy,
+.wizard-choice-card:nth-child(8n + 2) .wizard-choice-copy,
+.wizard-choice-card:nth-child(8n + 4) .wizard-choice-copy {
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  align-self: center;
+  text-align: center;
+}
+
+.wizard-choice-copy h3,
+.target-card .wizard-choice-copy h3,
+.mode-card .wizard-choice-copy h3 {
+  width: 100%;
+  font-size: clamp(0.78rem, 0.96vw, 1rem);
+  line-height: 1.02;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .hero-progress-circles {
+    padding-left: 18px;
+    padding-right: 34px;
+  }
+
+  .choice-card,
+  .target-card,
+  .mode-card,
+  .wizard-choice-card:nth-child(8n + 2),
+  .wizard-choice-card:nth-child(8n + 4) {
+    width: min(44vw, 168px) !important;
+    aspect-ratio: 1 / 1.12;
+    padding: 40px 26px 46px;
+  }
+}
+
+/* Local May 9 card icon nudge pass. Step 2 lens cards intentionally stay unchanged. */
+
+[data-pick-path] .wizard-choice-slot {
+  transform: translateY(11px) !important;
+}
+
+[data-pick-target] .wizard-choice-slot,
+[data-pick-mode] .wizard-choice-slot {
+  transform: translateY(10px) !important;
+}
+
+@media (min-width: 861px) {
+  .step-grid.target-grid {
+    grid-template-columns: repeat(12, minmax(0, 76px));
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-items: start;
+    gap: 28px 22px;
+  }
+
+  .step-grid.target-grid > .wizard-choice-card {
+    grid-column: auto / span 2 !important;
+    grid-row: auto !important;
+    width: 180px;
+    justify-self: center;
+  }
+
+  .step-grid.target-grid.lens-section > .wizard-choice-card:nth-child(1),
+  .step-grid.target-grid.lens-section > .wizard-choice-card:nth-child(12),
+  .step-grid.target-grid.lens-bigidea > .wizard-choice-card:nth-child(7),
+  .step-grid.target-grid.lens-subject > .wizard-choice-card:nth-child(1),
+  .step-grid.target-grid.lens-subject > .wizard-choice-card:nth-child(6),
+  .step-grid.target-grid.lens-subject > .wizard-choice-card:nth-child(11) {
+    grid-column: 2 / span 2 !important;
+  }
+
+  .step-grid.target-grid.lens-section > .wizard-choice-card:nth-child(6),
+  .step-grid.target-grid.lens-bigidea > .wizard-choice-card:nth-child(1),
+  .step-grid.target-grid.lens-bigidea > .wizard-choice-card:nth-child(12) {
+    grid-column: 1 / span 2 !important;
+  }
+}
+
+[data-pick-target="psychology"] .wizard-choice-slot {
+  transform: translate(-15px, 10px) !important;
+}
+
+/* May 14 route-builder simplification: guiding sections first, then Learn/Play choices. */
+
+.step-grid.mode-landing-grid {
+  display: block;
+  padding: clamp(14px, 2vw, 24px);
+}
+
+.mode-choice-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+  gap: clamp(12px, 1.6vw, 18px);
+  justify-items: center;
+}
+
+.mode-choice-card-grid .wizard-choice-card {
+  width: min(100%, 168px) !important;
+}
+
+.mode-choice-column-play .mode-choice-card-grid {
+  grid-template-columns: repeat(2, minmax(118px, 1fr));
+  justify-content: center;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card {
+  grid-column: auto;
+  width: min(100%, 156px) !important;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  grid-column: auto;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  grid-column: auto;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  grid-column: auto;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  grid-column: auto;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  grid-column: auto;
+}
+
+.mode-choice-column-train .mode-choice-card-grid {
+  grid-template-columns: repeat(2, minmax(118px, 1fr));
+  justify-content: center;
+}
+
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card {
+  width: min(100%, 156px) !important;
+}
+
+.step-grid.target-grid.lens-section {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(144px, 180px));
+  grid-auto-rows: auto;
+  justify-content: center;
+  align-items: start;
+  gap: 28px 22px;
+  padding: 24px clamp(8px, 1vw, 18px) 52px;
+}
+
+.step-grid.target-grid.lens-section > .wizard-choice-card {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  justify-self: center;
+  width: clamp(144px, 12.5vw, 180px) !important;
+}
+
+.step-grid.target-grid.lens-section > .wizard-choice-card:nth-child(n) {
+  grid-column: auto / span 1 !important;
+  grid-row: auto !important;
+}
+
+.selectable-target-card {
+  position: relative;
+}
+
+.selectable-target-card.selected .target-select-dot {
+  border-color: rgba(45, 103, 59, 0.82);
+  background: #3fb35f;
+}
+
+.section-heading h2:empty {
+  display: none;
+}
+
+.hero-progress-circles::before,
+.hero-best-strip::before {
+  filter:
+    drop-shadow(0 12px 16px rgba(65, 42, 23, 0.1))
+    saturate(0.68)
+    brightness(1.18) !important;
+}
+
+.hero-progress-circles::after,
+.hero-best-strip::after {
+  background:
+    radial-gradient(circle at top left, rgba(255, 250, 238, 0.62), transparent 48%),
+    rgba(247, 234, 204, 0.58) !important;
+}
+
+@media (max-width: 980px) {
+  .step-grid.target-grid.lens-section {
+    grid-template-columns: repeat(auto-fit, minmax(144px, 180px));
+  }
+
+  .mode-choice-board,
+  .quiz-setup-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid,
+  .mode-choice-column-train .mode-choice-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(136px, 168px));
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(n),
+  .mode-choice-column-train .mode-choice-card-grid .wizard-choice-card:nth-child(n) {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 980px) {
+  .step-grid.target-grid.lens-section {
+    grid-template-columns: repeat(5, minmax(112px, 136px));
+    gap: 24px 14px;
+  }
+
+  .step-grid.target-grid.lens-section > .wizard-choice-card {
+    width: min(100%, 136px) !important;
+    padding: 32px 20px 42px;
+  }
+
+  .step-grid.target-grid.lens-section .wizard-choice-copy h3 {
+    font-size: 0.78rem;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid {
+    grid-template-columns: repeat(6, minmax(0, 74px));
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card {
+    width: min(100%, 148px) !important;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+    grid-column: 2 / span 2;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+    grid-column: 4 / span 2;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+    grid-column: 1 / span 2;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+    grid-column: 3 / span 2;
+  }
+
+  .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+    grid-column: 5 / span 2;
+  }
+
+  .mode-choice-column-train .mode-choice-card-grid {
+    grid-template-columns: repeat(2, minmax(112px, 148px));
+  }
+}
+
+.mode-choice-card-grid .wizard-choice-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  filter: saturate(0.65);
+  transform: none !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:disabled::before {
+  filter:
+    sepia(0.12)
+    saturate(0.42)
+    hue-rotate(350deg)
+    brightness(0.98)
+    contrast(0.78)
+    drop-shadow(0 8px 12px rgba(65, 42, 23, 0.08));
+}
+
+.train-tip-card .setup-card-header {
+  align-items: center;
+}
+
+@media (min-width: 981px) {
+  .mode-choice-column-learn .mode-choice-card-grid {
+    grid-template-columns: repeat(2, minmax(118px, 1fr));
+    justify-content: center;
+  }
+
+  .mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+    grid-column: auto;
+    width: min(100%, 156px) !important;
+  }
+}
+
+/* Final route chooser experiment: section dock + radial Learn / Play / Train hubs. */
+
+.step-grid.mode-landing-grid {
+  padding-top: clamp(6px, 0.8vw, 12px) !important;
+}
+
+.mode-choice-card-grid {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card {
+  --tile-scale: 1;
+  --tile-x: 50%;
+  --tile-y: 50%;
+  --tile-translate: translate(-50%, -50%);
+  position: absolute !important;
+  left: var(--tile-x) !important;
+  top: var(--tile-y) !important;
+  z-index: 4 !important;
+  width: var(--tile-size) !important;
+  height: var(--tile-size) !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: clamp(10px, 1.1vw, 15px) !important;
+  border-radius: 16px !important;
+  clip-path: inset(2% round 14px) !important;
+  --sign-image: var(--sign-square-a) !important;
+  --sign-aspect: 1 / 1 !important;
+  transform: var(--tile-translate) scale(var(--tile-scale)) !important;
+  transition:
+    transform 190ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 160ms ease,
+    opacity 160ms ease !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:nth-child(even) {
+  --sign-image: var(--sign-square-b) !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  order: 1 !important;
+  width: min(72%, 58px) !important;
+  height: min(72%, 58px) !important;
+  justify-self: center !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-copy {
+  order: 2 !important;
+  justify-items: center !important;
+  text-align: center !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  font-size: clamp(0.58rem, 0.68vw, 0.78rem) !important;
+  line-height: 0.98 !important;
+  text-align: center !important;
+}
+
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card:nth-child(1),
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --tile-x: 50%;
+  --tile-y: calc(50% - var(--ring-radius));
+}
+
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card:nth-child(2),
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --tile-x: calc(50% + var(--ring-radius));
+  --tile-y: 50%;
+}
+
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card:nth-child(3),
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --tile-x: 50%;
+  --tile-y: calc(50% + var(--ring-radius));
+}
+
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card:nth-child(4),
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --tile-x: calc(50% - var(--ring-radius));
+  --tile-y: 50%;
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --tile-x: 50%;
+  --tile-y: calc(50% - var(--ring-radius));
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --tile-x: calc(50% + (var(--ring-radius) * 0.95));
+  --tile-y: calc(50% - (var(--ring-radius) * 0.3));
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --tile-x: calc(50% + (var(--ring-radius) * 0.58));
+  --tile-y: calc(50% + (var(--ring-radius) * 0.82));
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --tile-x: calc(50% - (var(--ring-radius) * 0.58));
+  --tile-y: calc(50% + (var(--ring-radius) * 0.82));
+}
+
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --tile-x: calc(50% - (var(--ring-radius) * 0.95));
+  --tile-y: calc(50% - (var(--ring-radius) * 0.3));
+}
+
+.mode-choice-card-grid .wizard-choice-card:hover,
+.mode-choice-card-grid .wizard-choice-card:focus-visible {
+  --tile-scale: 1.24;
+  z-index: 10 !important;
+  filter: drop-shadow(0 14px 18px rgba(65, 42, 23, 0.18)) !important;
+}
+
+.mode-choice-card-grid:hover .wizard-choice-card:not(:hover):not(:focus-visible) {
+  --tile-scale: 0.96;
+  opacity: 0.84 !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:disabled {
+  opacity: 0.42 !important;
+}
+
+.mode-choice-column .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  width: var(--tile-size) !important;
+  height: var(--tile-size) !important;
+  min-width: var(--tile-size) !important;
+  max-width: var(--tile-size) !important;
+  min-height: var(--tile-size) !important;
+  max-height: var(--tile-size) !important;
+}
+
+.page-shell,
+.layout,
+.wizard.card-panel {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.hero-progress-circles {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: min(100%, 214px) !important;
+  height: 78px !important;
+  min-height: 0 !important;
+  padding: 7px 12px !important;
+  transform: none !important;
+  align-content: center !important;
+}
+
+.progress-circle-card {
+  gap: 5px !important;
+}
+
+.stat-progress-ring {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.stat-progress-ring-inner {
+  width: 27px !important;
+  height: 27px !important;
+}
+
+.stat-progress-ring-inner strong,
+.stat-progress-circle-copy strong {
+  font-size: 0.62rem !important;
+}
+
+.stat-progress-circle-copy em {
+  font-size: 0.5rem !important;
+}
+
+.wizard.card-panel {
+  border-radius: clamp(34px, 4vw, 58px) clamp(34px, 4vw, 58px) 26px 26px !important;
+  transform: perspective(1200px) rotateX(1.6deg) !important;
+  transform-origin: top center !important;
+  transition: transform 260ms ease, border-radius 260ms ease !important;
+}
+
+.wizard.card-panel:focus-within,
+.wizard.card-panel:hover {
+  transform: perspective(1200px) rotateX(0deg) !important;
+}
+
+.hero-progress-circles::before,
+.hero-progress-circles::after,
+.progress-circle-card::before,
+.progress-circle-card::after {
+  display: none !important;
+}
+
+.mode-choice-shell,
+.mode-choice-picker-row,
+.mode-landing-grid,
+.step-grid,
+.step-panel,
+.wizard.card-panel,
+.selected-section-chip-strip,
+.selected-section-selected-row {
+  overflow: visible !important;
+}
+
+.mode-choice-card-grid,
+.mode-choice-column-play .mode-choice-card-grid,
+.mode-choice-column-train .mode-choice-card-grid,
+.mode-choice-column-learn .mode-choice-card-grid {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: clamp(74px, 7.2vw, 92px) !important;
+  height: clamp(74px, 7.2vw, 92px) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 6px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(123, 87, 42, 0.2) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 249, 232, 0.94), rgba(236, 213, 154, 0.82)) !important;
+  box-shadow: 0 12px 22px rgba(76, 51, 24, 0.14) !important;
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%) scale(0.2) !important;
+  transition:
+    transform 340ms cubic-bezier(0.18, 0.92, 0.22, 1),
+    opacity 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid {
+  pointer-events: auto !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  pointer-events: auto !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:hover,
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:focus-visible {
+  box-shadow: 0 18px 28px rgba(76, 51, 24, 0.2) !important;
+  transform: translate(var(--menu-x), var(--menu-y)) scale(1.09) !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: -50%;
+  --menu-y: -168%;
+  transition-delay: 20ms !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 60%;
+  --menu-y: -86%;
+  transition-delay: 50ms !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 22%;
+  --menu-y: 52%;
+  transition-delay: 80ms !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: -122%;
+  --menu-y: 52%;
+  transition-delay: 110ms !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: -158%;
+  --menu-y: -86%;
+  transition-delay: 140ms !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1),
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2),
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3),
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4),
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  transform: translate(var(--menu-x), var(--menu-y)) scale(1) !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  width: clamp(34px, 3.8vw, 46px) !important;
+  height: clamp(34px, 3.8vw, 46px) !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  font-size: clamp(0.48rem, 0.68vw, 0.68rem) !important;
+  line-height: 1.02 !important;
+  max-width: 72px !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .mode-card-thanks {
+  font-size: 0.42rem !important;
+  line-height: 1 !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card:disabled {
+  opacity: 0.34 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: auto 1fr !important;
+  }
+
+  .hero-progress-circles {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+  }
+
+  .mode-choice-board {
+    flex-direction: column !important;
+    align-items: center !important;
+    min-height: 780px !important;
+  }
+}
+
+.mode-choice-board:has(.mode-choice-column.is-open) .mode-choice-column:not(.is-open) .mode-choice-card-grid {
+  display: none !important;
+}
+
+.hero h1,
+.hero-progress-circles .stat-progress-circle-copy span,
+.hero-progress-circles .stat-progress-circle-copy strong,
+.hero-progress-circles .stat-progress-circle-copy em {
+  color: #fff1cf !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+.mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  height: clamp(118px, 13vw, 150px) !important;
+  width: clamp(118px, 13vw, 150px) !important;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 12%;
+  --menu-y: -206%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 92%;
+  --menu-y: -132%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 126%;
+  --menu-y: -26%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 92%;
+  --menu-y: 82%;
+}
+
+.mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 12%;
+  --menu-y: 160%;
+}
+
+body .progress-circle-card {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  gap: 9px !important;
+}
+
+body .stat-progress-ring {
+  width: 42px !important;
+  height: 42px !important;
+  background:
+    conic-gradient(#f3c65d calc(var(--percent) * 1%), rgba(255, 241, 207, 0.22) 0),
+    rgba(255, 241, 207, 0.15) !important;
+}
+
+body .stat-progress-ring-inner {
+  width: 30px !important;
+  height: 30px !important;
+  background: #fff1cf !important;
+}
+
+body .stat-progress-ring-inner strong {
+  color: #4f311d !important;
+  font-size: 0.58rem !important;
+}
+
+body .hero-progress-circles .stat-progress-circle-copy span,
+body .hero-progress-circles .stat-progress-circle-copy strong,
+body .hero-progress-circles .stat-progress-circle-copy em {
+  color: #fff1cf !important;
+}
+
+body .hero-progress-circles .stat-progress-circle-copy span {
+  font-size: 0.74rem !important;
+  font-weight: 950 !important;
+  letter-spacing: 0.04em !important;
+}
+
+body .hero-progress-circles .stat-progress-circle-copy strong {
+  font-size: 0.68rem !important;
+  font-weight: 900 !important;
+}
+
+body .hero-progress-circles .stat-progress-circle-copy em {
+  font-size: 0.58rem !important;
+  font-weight: 850 !important;
+}
+
+body .mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) .mode-choice-card-grid {
+  display: none !important;
+}
+
+body .mode-choice-board[data-active-path] .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card {
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  transform: translate(0, 0) scale(0.18) !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  width: clamp(132px, 12vw, 164px) !important;
+  height: clamp(132px, 12vw, 164px) !important;
+  max-width: clamp(132px, 12vw, 164px) !important;
+  max-height: clamp(132px, 12vw, 164px) !important;
+  min-width: clamp(132px, 12vw, 164px) !important;
+  min-height: clamp(132px, 12vw, 164px) !important;
+  border-radius: 20px !important;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 28%;
+  --menu-y: -196%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 104%;
+  --menu-y: -118%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 136%;
+  --menu-y: -16%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 104%;
+  --menu-y: 88%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 28%;
+  --menu-y: 166%;
+}
+
+body .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  width: clamp(58px, 5.4vw, 72px) !important;
+  height: clamp(58px, 5.4vw, 72px) !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  max-width: 132px !important;
+  font-size: clamp(0.74rem, 0.92vw, 0.96rem) !important;
+  line-height: 1.03 !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card {
+  width: clamp(174px, 16vw, 220px) !important;
+  height: clamp(68px, 6.6vw, 86px) !important;
+  max-width: clamp(174px, 16vw, 220px) !important;
+  max-height: clamp(68px, 6.6vw, 86px) !important;
+  min-width: clamp(174px, 16vw, 220px) !important;
+  min-height: clamp(68px, 6.6vw, 86px) !important;
+  padding: 6px 10px !important;
+  border: 1px solid transparent !important;
+  border-radius: 15px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  width: clamp(44px, 4.2vw, 56px) !important;
+  height: clamp(44px, 4.2vw, 56px) !important;
+  flex: 0 0 clamp(44px, 4.2vw, 56px) !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy {
+  min-width: 0 !important;
+  text-align: left !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  max-width: 140px !important;
+  margin: 0 !important;
+  font-size: clamp(0.72rem, 0.85vw, 0.92rem) !important;
+  line-height: 1.02 !important;
+  text-align: left !important;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 56%;
+  --menu-y: -142%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 78%;
+  --menu-y: -72%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 86%;
+  --menu-y: -2%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 78%;
+  --menu-y: 68%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 56%;
+  --menu-y: 138%;
+}
+
+body .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board[data-active-path] .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card {
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%) scale(0.18) !important;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card {
+  transition:
+    transform 780ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 260ms ease,
+    filter 260ms ease !important;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 50%;
+  --menu-y: -110%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 66%;
+  --menu-y: 5%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 72%;
+  --menu-y: 120%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 66%;
+  --menu-y: 235%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 50%;
+  --menu-y: 350%;
+}
+
+body .mode-choice-column.is-opening:not(.is-open) .mode-choice-card-grid .wizard-choice-card {
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%) scale(0.18) !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 50%;
+  --menu-y: -230%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 66%;
+  --menu-y: -100%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 72%;
+  --menu-y: 30%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 66%;
+  --menu-y: 160%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 50%;
+  --menu-y: 290%;
+}
+
+body .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card {
+  transition:
+    transform 980ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 520ms ease,
+    filter 520ms ease !important;
+}
+
+body .mode-choice-column.is-opening:not(.is-open) .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board[data-active-path] .mode-choice-column.is-closing .mode-choice-card-grid .wizard-choice-card {
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%) scale(0.18) !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card {
+  animation: mode-choice-card-spread-from-circle 980ms cubic-bezier(0.76, 0, 0.24, 1) both !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  animation-delay: 0ms !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  animation-delay: 36ms !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  animation-delay: 72ms !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  animation-delay: 108ms !important;
+}
+
+body .mode-choice-column.is-opening.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  animation-delay: 144ms !important;
+}
+
+@keyframes mode-choice-card-spread-from-circle {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translate(-50%, -50%) scale(0.18);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(var(--menu-x), var(--menu-y)) scale(1);
+  }
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column-play .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column-train .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column-learn .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column .mode-choice-card-grid .wizard-choice-card {
+  width: clamp(300px, 28vw, 360px) !important;
+  height: clamp(104px, 10vw, 126px) !important;
+  max-width: clamp(300px, 28vw, 360px) !important;
+  max-height: clamp(104px, 10vw, 126px) !important;
+  min-width: clamp(300px, 28vw, 360px) !important;
+  min-height: clamp(104px, 10vw, 126px) !important;
+  padding: 8px 18px !important;
+  aspect-ratio: auto !important;
+  border-radius: 15px !important;
+  opacity: 0 !important;
+  filter: blur(2px) !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  pointer-events: auto !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open:not(.is-opening) .mode-choice-card-grid .wizard-choice-card {
+  transform: translate(var(--menu-x), var(--menu-y)) scale(1) !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:hover,
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:focus-visible {
+  transform: translate(var(--menu-x), var(--menu-y)) scale(1.04) !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(1) {
+  --menu-x: 52%;
+  --menu-y: -172%;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(2) {
+  --menu-x: 64%;
+  --menu-y: -82%;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(3) {
+  --menu-x: 70%;
+  --menu-y: 8%;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(4) {
+  --menu-x: 64%;
+  --menu-y: 98%;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(5) {
+  --menu-x: 52%;
+  --menu-y: 188%;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+  width: clamp(86px, 8vw, 104px) !important;
+  height: clamp(86px, 8vw, 104px) !important;
+  flex: 0 0 clamp(86px, 8vw, 104px) !important;
+  min-width: clamp(86px, 8vw, 104px) !important;
+  min-height: clamp(86px, 8vw, 104px) !important;
+  max-width: clamp(86px, 8vw, 104px) !important;
+  max-height: clamp(86px, 8vw, 104px) !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy {
+  display: flex !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-items: start !important;
+  text-align: left !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+  max-width: clamp(170px, 17vw, 230px) !important;
+  margin: 0 !important;
+  font-size: clamp(1.06rem, 1.45vw, 1.48rem) !important;
+  line-height: 1.02 !important;
+  text-align: left !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .mode-card-thanks,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .mode-card-thanks {
+  display: block !important;
+  margin-top: 3px !important;
+  font-size: clamp(0.62rem, 0.78vw, 0.82rem) !important;
+  line-height: 1 !important;
+}
+
+.multiplayer-choice-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 142px;
+  padding: clamp(14px, 1.8vw, 20px);
+  border: 1px solid rgba(var(--campus-modal-accent-rgb, 252, 209, 39), 0.48);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 246, 223, 0.14), transparent 34%),
+    rgba(255, 246, 223, 0.08);
+  color: var(--campus-card-text, #fff6df);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.1),
+    0 18px 34px rgba(20, 21, 18, 0.2);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.multiplayer-choice-card:hover,
+.multiplayer-choice-card:focus-visible {
+  border-color: rgba(var(--campus-modal-accent-rgb, 252, 209, 39), 0.78);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 246, 223, 0.2), transparent 34%),
+    rgba(var(--campus-modal-accent-rgb, 252, 209, 39), 0.12);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.library-campus-theme-courtyard {
+  --campus-modal-accent: #bde86a;
+  --campus-modal-accent-rgb: 189, 232, 106;
+  --campus-modal-overlay-bg:
+    radial-gradient(circle at 18% 12%, rgba(189, 232, 106, 0.2), transparent 28%),
+    radial-gradient(circle at 80% 24%, rgba(255, 214, 98, 0.14), transparent 26%),
+    rgba(12, 24, 13, 0.66);
+  --campus-modal-window-bg:
+    radial-gradient(circle at 18% 14%, rgba(241, 255, 199, 0.2), transparent 26%),
+    radial-gradient(circle at 80% 28%, rgba(189, 232, 106, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(50, 91, 49, 0.98), rgba(45, 45, 25, 0.98));
+  --campus-card-bg:
+    radial-gradient(circle at 18% 14%, rgba(241, 255, 199, 0.2), transparent 26%),
+    radial-gradient(circle at 80% 28%, rgba(189, 232, 106, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(54, 99, 50, 0.98), rgba(52, 42, 24, 0.98));
+  --campus-card-text: #fffbe9;
+}
+
+.library-campus-theme-debate {
+  --campus-modal-accent: #f0c64b;
+  --campus-modal-accent-rgb: 240, 198, 75;
+  --campus-modal-overlay-bg:
+    radial-gradient(circle at 18% 12%, rgba(240, 198, 75, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(82, 126, 207, 0.18), transparent 28%),
+    rgba(11, 15, 30, 0.68);
+  --campus-modal-window-bg:
+    radial-gradient(circle at 18% 14%, rgba(255, 234, 178, 0.18), transparent 26%),
+    radial-gradient(circle at 82% 26%, rgba(82, 126, 207, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(55, 39, 58, 0.98), rgba(25, 32, 62, 0.98));
+  --campus-card-bg:
+    radial-gradient(circle at 18% 14%, rgba(255, 234, 178, 0.18), transparent 26%),
+    radial-gradient(circle at 82% 28%, rgba(82, 126, 207, 0.2), transparent 30%),
+    linear-gradient(145deg, rgba(83, 41, 45, 0.98), rgba(28, 36, 72, 0.98));
+  --campus-card-text: #fff8e8;
+}
+
+.library-campus-overlay.library-campus-theme-courtyard,
+.library-campus-overlay.library-campus-theme-debate {
+  background: var(--campus-modal-overlay-bg);
+}
+
+.library-campus-window.library-campus-theme-courtyard,
+.library-campus-window.library-campus-theme-debate,
+.library-experience-window.library-campus-theme-courtyard,
+.library-experience-window.library-campus-theme-debate {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.5);
+  background: var(--campus-modal-window-bg);
+  color: var(--campus-card-text);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.14),
+    inset 0 0 42px rgba(var(--campus-modal-accent-rgb), 0.1),
+    0 34px 76px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(var(--campus-modal-accent-rgb), 0.2);
+}
+
+.library-campus-theme-courtyard .library-campus-heading .challenge-label,
+.library-campus-theme-courtyard .library-experience-title .online-card-prompt,
+.library-campus-theme-debate .library-campus-heading .challenge-label,
+.library-campus-theme-debate .library-experience-title .online-card-prompt {
+  border-color: rgba(var(--campus-modal-accent-rgb), 0.42);
+  color: var(--campus-modal-accent);
+}
+
+.library-campus-theme-courtyard .library-campus-heading h3,
+.library-campus-theme-courtyard .library-experience-title h3,
+.library-campus-theme-debate .library-campus-heading h3,
+.library-campus-theme-debate .library-experience-title h3 {
+  color: var(--campus-card-text);
+}
+
+@media (max-width: 760px) {
+  .library-campus-overlay {
+    padding: 10px;
+  }
+
+  .library-campus-card-grid-two,
+  .library-campus-card-grid-three,
+  .library-campus-card-grid-four,
+  .library-campus-card-grid-sections,
+  .library-campus-card-grid-resources {
+    grid-template-columns: 1fr;
+  }
+
+  .multiplayer-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .multiplayer-choice-card {
+    min-height: 122px;
+  }
+
+  .library-experience-window,
+  .library-resource-window {
+    width: calc(100vw - 18px);
+    height: calc(100dvh - 18px);
+  }
+
+  .library-experience-top,
+  .library-resource-top {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .library-experience-title,
+  .library-resource-title {
+    order: -1;
+  }
+}

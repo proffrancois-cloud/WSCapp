@@ -1,0 +1,1513 @@
+/* Late shell and header overrides */
+/* Final local header mosaic: keep this after earlier local header experiments. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .hero {
+    position: relative !important;
+    min-height: clamp(410px, 31vw, 520px) !important;
+    padding: 0 clamp(18px, 1.7vw, 30px) clamp(8px, 0.8vw, 14px) !important;
+    overflow: hidden !important;
+  }
+
+  body.is-local-mode .hero-layout {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(398px, 30vw, 504px) !important;
+  }
+
+  body.is-local-mode .hero-links {
+    display: contents !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+
+  body.is-local-mode .hero-discord-link,
+  body.is-local-mode .hero-link-icon,
+  body.is-local-mode .session-controls {
+    position: absolute !important;
+    z-index: 4 !important;
+  }
+
+  body.is-local-mode .hero-discord-link {
+    left: calc(50% - 110px) !important;
+    top: clamp(36px, 3.4vw, 58px) !important;
+    width: clamp(58px, 4.2vw, 76px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon {
+    width: clamp(62px, 4.4vw, 84px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(1) {
+    left: clamp(82px, 9vw, 155px) !important;
+    top: clamp(56px, 5.5vw, 94px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(2) {
+    left: clamp(88px, 9.4vw, 166px) !important;
+    top: clamp(160px, 12vw, 220px) !important;
+  }
+
+  body.is-local-mode .session-controls {
+    left: calc(50% + 34px) !important;
+    top: clamp(32px, 3.2vw, 55px) !important;
+    width: auto !important;
+  }
+
+  body.is-local-mode .session-control-stack {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(16px, 2vw, 34px) !important;
+  }
+
+  body.is-local-mode .session-signout-button {
+    width: clamp(58px, 4.3vw, 78px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button {
+    width: clamp(82px, 5.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-online img {
+    width: clamp(82px, 5.8vw, 112px) !important;
+    height: clamp(82px, 5.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-local img {
+    width: clamp(68px, 4.8vw, 90px) !important;
+    height: clamp(68px, 4.8vw, 90px) !important;
+  }
+
+  body.is-local-mode .session-controls .session-mode-icon-button {
+    display: none !important;
+  }
+
+  body.is-local-mode .hero-copy {
+    position: absolute !important;
+    left: 50% !important;
+    top: clamp(150px, 13.3vw, 220px) !important;
+    width: min(56vw, 760px) !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+    pointer-events: none;
+  }
+
+  body.is-local-mode .hero h1 {
+    font-size: clamp(3.05rem, 5.05vw, 6.15rem) !important;
+    line-height: 0.86 !important;
+  }
+
+  body.is-local-mode .hero-stats,
+  body.is-local-mode .stats-strip {
+    display: contents !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  body.is-local-mode .hero-progress-circles {
+    position: absolute !important;
+    right: clamp(98px, 9.6vw, 180px) !important;
+    top: clamp(64px, 5.2vw, 92px) !important;
+    width: clamp(196px, 14vw, 264px) !important;
+    min-height: clamp(196px, 14vw, 264px) !important;
+    padding: clamp(24px, 2vw, 36px) clamp(22px, 1.9vw, 34px) !important;
+    z-index: 3 !important;
+  }
+
+  body.is-local-mode .hero-best-strip {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: clamp(10px, 1vw, 18px) !important;
+    width: min(88vw, 1420px) !important;
+    max-width: min(88vw, 1420px) !important;
+    margin: 0 !important;
+    padding: clamp(28px, 2.3vw, 38px) clamp(42px, 5vw, 76px) !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+  }
+}
+
+/* Final local header alignment fix: session icons stay in their own row, not absolute-stacked. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .hero {
+    min-height: clamp(420px, 30vw, 505px) !important;
+  }
+
+  body.is-local-mode .hero-layout {
+    min-height: clamp(405px, 29vw, 488px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(1),
+  body.is-local-mode .hero-link-icon:nth-of-type(2) {
+    left: clamp(96px, 10.5vw, 176px) !important;
+    width: clamp(62px, 4.4vw, 82px) !important;
+    transform: translateX(-50%) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(1) {
+    top: clamp(76px, 6.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(2) {
+    top: clamp(172px, 13.4vw, 226px) !important;
+  }
+
+  body.is-local-mode .hero-discord-link {
+    left: calc(50% - clamp(180px, 13vw, 230px)) !important;
+    top: clamp(66px, 5.5vw, 88px) !important;
+    width: clamp(58px, 4.2vw, 74px) !important;
+  }
+
+  body.is-local-mode .session-controls {
+    left: calc(50% - clamp(28px, 2vw, 36px)) !important;
+    top: clamp(56px, 4.8vw, 78px) !important;
+    transform: translateX(-50%) !important;
+  }
+
+  body.is-local-mode .session-control-stack {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(70px, 6vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-controls .hero-link-icon,
+  body.is-local-mode .session-controls .session-signout-button,
+  body.is-local-mode .session-controls .session-mode-icon-button {
+    position: static !important;
+    inset: auto !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: grid !important;
+    place-items: center !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.is-local-mode .session-controls .session-signout-button {
+    width: clamp(58px, 4.2vw, 74px) !important;
+  }
+
+  body.is-local-mode .session-controls .session-mode-icon-button {
+    width: clamp(84px, 5.9vw, 110px) !important;
+  }
+
+  body.is-local-mode .session-controls .session-mode-icon-button.switch-online img {
+    width: clamp(84px, 5.9vw, 110px) !important;
+    height: clamp(84px, 5.9vw, 110px) !important;
+  }
+
+  body.is-local-mode .session-controls .session-mode-icon-button.switch-local img {
+    width: clamp(66px, 4.7vw, 86px) !important;
+    height: clamp(66px, 4.7vw, 86px) !important;
+  }
+
+  body.is-local-mode .hero-copy {
+    top: clamp(150px, 12.3vw, 204px) !important;
+  }
+
+  body.is-local-mode .hero-progress-circles {
+    right: clamp(120px, 10.8vw, 205px) !important;
+    top: clamp(70px, 5.5vw, 96px) !important;
+  }
+}
+
+/* Local header mosaic: spread the clickable icons around the title instead of one centered row. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .hero {
+    position: relative !important;
+    min-height: clamp(410px, 31vw, 520px) !important;
+    padding: 0 clamp(18px, 1.7vw, 30px) clamp(8px, 0.8vw, 14px) !important;
+    overflow: hidden !important;
+  }
+
+  body.is-local-mode .hero-layout {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(398px, 30vw, 504px) !important;
+  }
+
+  body.is-local-mode .hero-links {
+    display: contents !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+
+  body.is-local-mode .hero-discord-link,
+  body.is-local-mode .hero-link-icon,
+  body.is-local-mode .session-controls {
+    position: absolute !important;
+    z-index: 4 !important;
+  }
+
+  body.is-local-mode .hero-discord-link {
+    left: calc(50% - 110px) !important;
+    top: clamp(36px, 3.4vw, 58px) !important;
+    width: clamp(58px, 4.2vw, 76px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon {
+    width: clamp(62px, 4.4vw, 84px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(1) {
+    left: clamp(82px, 9vw, 155px) !important;
+    top: clamp(56px, 5.5vw, 94px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(2) {
+    left: clamp(88px, 9.4vw, 166px) !important;
+    top: clamp(160px, 12vw, 220px) !important;
+  }
+
+  body.is-local-mode .session-controls {
+    left: calc(50% + 34px) !important;
+    top: clamp(32px, 3.2vw, 55px) !important;
+    width: auto !important;
+  }
+
+  body.is-local-mode .session-control-stack {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(16px, 2vw, 34px) !important;
+  }
+
+  body.is-local-mode .session-signout-button {
+    width: clamp(58px, 4.3vw, 78px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button {
+    width: clamp(82px, 5.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-online img {
+    width: clamp(82px, 5.8vw, 112px) !important;
+    height: clamp(82px, 5.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-local img {
+    width: clamp(68px, 4.8vw, 90px) !important;
+    height: clamp(68px, 4.8vw, 90px) !important;
+  }
+
+  body.is-local-mode .hero-copy {
+    position: absolute !important;
+    left: 50% !important;
+    top: clamp(150px, 13.3vw, 220px) !important;
+    width: min(56vw, 760px) !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+    pointer-events: none;
+  }
+
+  body.is-local-mode .hero h1 {
+    font-size: clamp(3.05rem, 5.05vw, 6.15rem) !important;
+    line-height: 0.86 !important;
+  }
+
+  body.is-local-mode .hero-stats,
+  body.is-local-mode .stats-strip {
+    display: contents !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  body.is-local-mode .hero-progress-circles {
+    position: absolute !important;
+    right: clamp(98px, 9.6vw, 180px) !important;
+    top: clamp(64px, 5.2vw, 92px) !important;
+    width: clamp(196px, 14vw, 264px) !important;
+    min-height: clamp(196px, 14vw, 264px) !important;
+    padding: clamp(24px, 2vw, 36px) clamp(22px, 1.9vw, 34px) !important;
+    z-index: 3 !important;
+  }
+
+  body.is-local-mode .hero-best-strip {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: clamp(10px, 1vw, 18px) !important;
+    width: min(88vw, 1420px) !important;
+    max-width: min(88vw, 1420px) !important;
+    margin: 0 !important;
+    padding: clamp(28px, 2.3vw, 38px) clamp(42px, 5vw, 76px) !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+  }
+}
+
+body.is-local-mode .hero,
+body.is-online-mode .hero {
+  min-height: clamp(138px, 13vw, 166px) !important;
+  padding: 0 !important;
+}
+
+body.is-local-mode .hero-layout,
+body.is-online-mode .hero-layout {
+  position: relative !important;
+  display: block !important;
+  min-height: clamp(138px, 13vw, 166px) !important;
+}
+
+body.is-local-mode .hero-copy,
+body.is-online-mode .hero-copy {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: min(42vw, 520px) !important;
+  display: grid !important;
+  text-align: center !important;
+  transform: translate(-50%, -50%) !important;
+  pointer-events: auto !important;
+}
+
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  display: block !important;
+  width: 230px !important;
+  height: 230px !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+
+body.is-local-mode .hero-links img,
+body.is-online-mode .hero-links img,
+body.is-local-mode .hero-links .session-controls img,
+body.is-online-mode .hero-links .session-controls img,
+body.is-local-mode .hero-links .session-signout-button img,
+body.is-online-mode .hero-links .session-signout-button img,
+body.is-local-mode .hero-links .hero-link-icon img,
+body.is-online-mode .hero-links .hero-link-icon img,
+body.is-local-mode .hero-links .hero-discord-link img,
+body.is-online-mode .hero-links .hero-discord-link img {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  object-fit: contain !important;
+}
+
+/* Absolute last overrides for May 23 path staging. */
+
+body.is-local-mode .hero,
+body.is-online-mode .hero,
+.hero {
+  background: linear-gradient(180deg, rgba(96, 62, 33, 0.98), rgba(75, 48, 27, 0.98)) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #fff1cf !important;
+  min-height: 150px !important;
+  padding: 0 !important;
+}
+
+.hero-links,
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  height: 150px !important;
+  width: 430px !important;
+}
+
+.hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #5a391f !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  height: 58px !important;
+  min-height: 58px !important;
+  min-width: 82px !important;
+  width: 82px !important;
+}
+
+.hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  height: 58px !important;
+  min-height: 58px !important;
+  min-width: 82px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 82px !important;
+}
+
+.hero-links.is-open > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links.is-open > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links.is-open > :not(.hero-menu-trigger) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.hero-links img,
+body.is-local-mode .hero-links img,
+body.is-online-mode .hero-links img,
+.hero-links .session-controls img,
+body.is-local-mode .hero-links .session-controls img,
+body.is-online-mode .hero-links .session-controls img,
+.hero-links .session-signout-button img,
+body.is-local-mode .hero-links .session-signout-button img,
+body.is-online-mode .hero-links .session-signout-button img,
+.hero-links .hero-link-icon img,
+body.is-local-mode .hero-links .hero-link-icon img,
+body.is-online-mode .hero-links .hero-link-icon img,
+.hero-links .hero-discord-link img,
+body.is-local-mode .hero-links .hero-discord-link img,
+body.is-online-mode .hero-links .hero-discord-link img {
+  height: 36px !important;
+  max-height: 36px !important;
+  max-width: 36px !important;
+  object-fit: contain !important;
+  width: 36px !important;
+}
+
+/* Final final pass: these rules must stay last. */
+
+.hero,
+body.is-local-mode .hero,
+body.is-online-mode .hero {
+  width: 100% !important;
+  min-height: 150px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(180deg, rgba(96, 62, 33, 0.98), rgba(75, 48, 27, 0.98)) !important;
+  color: #fff1cf !important;
+}
+
+.hero-links,
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 42 !important;
+  width: 430px !important;
+  height: 150px !important;
+  display: block !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+
+.hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  position: absolute !important;
+  left: 26px !important;
+  top: 50% !important;
+  z-index: 7 !important;
+  width: 82px !important;
+  height: 58px !important;
+  min-width: 82px !important;
+  min-height: 58px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #5a391f !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate(0, -50%) scale(0.25) !important;
+}
+
+.hero-links img,
+body.is-local-mode .hero-links img,
+body.is-online-mode .hero-links img {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  object-fit: contain !important;
+}
+
+/* May 23 pass 2: dark header, left radial nav, delayed path staging. */
+
+.hero,
+body.is-local-mode .hero,
+body.is-online-mode .hero {
+  width: 100% !important;
+  min-height: 150px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background:
+    linear-gradient(180deg, rgba(96, 62, 33, 0.98), rgba(75, 48, 27, 0.98)) !important;
+  box-shadow: 0 12px 26px rgba(56, 35, 18, 0.18) !important;
+  color: #fff1cf !important;
+}
+
+.hero-progress-circles,
+body.is-local-mode .hero-progress-circles,
+body.is-online-mode .hero-progress-circles {
+  color: #fff1cf !important;
+}
+
+.hero-links,
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 42 !important;
+  width: 430px !important;
+  height: 150px !important;
+  display: block !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+
+.hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  left: 26px !important;
+  top: 50% !important;
+  width: 82px !important;
+  height: 58px !important;
+  min-width: 82px !important;
+  min-height: 58px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #5a391f !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate(0, -50%) scale(0.25) !important;
+}
+
+.hero-links img,
+body.is-local-mode .hero-links img,
+body.is-online-mode .hero-links img,
+.hero-links .session-controls img,
+body.is-local-mode .hero-links .session-controls img,
+body.is-online-mode .hero-links .session-controls img,
+.hero-links .session-signout-button img,
+body.is-local-mode .hero-links .session-signout-button img,
+body.is-online-mode .hero-links .session-signout-button img,
+.hero-links .hero-link-icon img,
+body.is-local-mode .hero-links .hero-link-icon img,
+body.is-online-mode .hero-links .hero-link-icon img,
+.hero-links .hero-discord-link img,
+body.is-local-mode .hero-links .hero-discord-link img,
+body.is-online-mode .hero-links .hero-discord-link img {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  object-fit: contain !important;
+}
+
+/* Local header compaction: keep the icon rail, title, progress board, and records in one desktop band. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .hero {
+    padding: clamp(14px, 1.3vw, 22px) clamp(18px, 1.7vw, 30px) clamp(10px, 1vw, 16px);
+  }
+
+  body.is-local-mode .hero-layout {
+    grid-template-columns: 108px minmax(520px, 1fr) minmax(190px, 260px);
+    grid-template-rows: minmax(0, auto);
+    min-height: 0;
+    gap: clamp(14px, 1.6vw, 28px);
+    align-items: stretch;
+  }
+
+  body.is-local-mode .hero-links {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  body.is-local-mode .hero-copy {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+    align-self: start;
+    align-content: start;
+    padding-top: clamp(42px, 6.4vw, 112px);
+    pointer-events: none;
+  }
+
+  body.is-local-mode .hero h1 {
+    font-size: clamp(3rem, 5.25vw, 6.2rem);
+    line-height: 0.86;
+  }
+
+  body.is-local-mode .hero-progress-circles {
+    grid-column: 3;
+    grid-row: 1;
+    width: min(100%, 260px);
+    align-self: center;
+    justify-self: end;
+  }
+
+body.is-local-mode .hero-best-strip {
+    grid-column: 2;
+    grid-row: 1;
+    width: min(100%, 1000px);
+    align-self: end;
+    justify-self: center;
+    margin-top: 0;
+  }
+}
+
+/* Experimental local header: same icon-row rhythm as online, with local records below the title. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .hero {
+    padding: clamp(12px, 1vw, 18px) clamp(18px, 1.7vw, 30px) clamp(10px, 1vw, 16px);
+  }
+
+  body.is-local-mode .hero-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 0 !important;
+    gap: clamp(4px, 0.55vw, 9px) !important;
+  }
+
+  body.is-local-mode .hero-links {
+    order: 1 !important;
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(8px, 1vw, 14px) !important;
+    padding: 0 !important;
+  }
+
+  body.is-local-mode .hero-discord-link,
+  body.is-local-mode .hero-link-icon,
+  body.is-local-mode .session-signout-button {
+    width: 58px !important;
+  }
+
+  body.is-local-mode .session-controls {
+    width: auto !important;
+  }
+
+  body.is-local-mode .session-control-stack {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(8px, 1vw, 14px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button {
+    width: 86px !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-online img {
+    width: 84px !important;
+    height: 84px !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-local img {
+    width: 66px !important;
+    height: 66px !important;
+  }
+
+  body.is-local-mode .hero-copy {
+    order: 2 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    align-content: center !important;
+    pointer-events: none;
+  }
+
+  body.is-local-mode .hero h1 {
+    font-size: clamp(2.7rem, 4.7vw, 5rem);
+    line-height: 0.88;
+  }
+
+  body.is-local-mode .hero-stats,
+  body.is-local-mode .stats-strip {
+    order: 3 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    gap: clamp(5px, 0.7vw, 10px) !important;
+    width: 100% !important;
+    max-width: 1420px !important;
+    margin-top: clamp(-52px, -3.2vw, -28px) !important;
+  }
+
+  body.is-local-mode .hero-best-strip {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-self: center !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+    padding: 28px clamp(42px, 5vw, 76px) !important;
+  }
+
+  body.is-local-mode .hero-progress-circles {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: min(100%, 196px) !important;
+    min-height: 196px !important;
+    align-self: center !important;
+    justify-self: end !important;
+    padding: 25px 24px !important;
+  }
+
+  body.is-local-mode .progress-circle-card {
+    gap: 7px !important;
+    padding: 2px 0 !important;
+  }
+
+  body.is-local-mode .stat-progress-ring {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  body.is-local-mode .stat-progress-ring-inner {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  body.is-local-mode .stat-progress-ring-inner strong {
+    font-size: 0.78rem !important;
+  }
+
+  body.is-local-mode .stat-progress-circle-copy strong {
+    font-size: 0.78rem !important;
+  }
+
+  body.is-local-mode .stat-progress-circle-copy em {
+    font-size: 0.6rem !important;
+  }
+}
+
+/* Final local header mosaic: keep this after earlier local header experiments. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .hero {
+    position: relative !important;
+    min-height: clamp(410px, 31vw, 520px) !important;
+    padding: 0 clamp(18px, 1.7vw, 30px) clamp(8px, 0.8vw, 14px) !important;
+    overflow: hidden !important;
+  }
+
+  body.is-local-mode .hero-layout {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(398px, 30vw, 504px) !important;
+  }
+
+  body.is-local-mode .hero-links {
+    display: contents !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+
+  body.is-local-mode .hero-discord-link,
+  body.is-local-mode .hero-link-icon,
+  body.is-local-mode .session-controls {
+    position: absolute !important;
+    z-index: 4 !important;
+  }
+
+  body.is-local-mode .hero-discord-link {
+    left: calc(50% - 110px) !important;
+    top: clamp(36px, 3.4vw, 58px) !important;
+    width: clamp(58px, 4.2vw, 76px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon {
+    width: clamp(62px, 4.4vw, 84px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(1) {
+    left: clamp(82px, 9vw, 155px) !important;
+    top: clamp(56px, 5.5vw, 94px) !important;
+  }
+
+  body.is-local-mode .hero-link-icon:nth-of-type(2) {
+    left: clamp(88px, 9.4vw, 166px) !important;
+    top: clamp(160px, 12vw, 220px) !important;
+  }
+
+  body.is-local-mode .session-controls {
+    left: calc(50% + 34px) !important;
+    top: clamp(32px, 3.2vw, 55px) !important;
+    width: auto !important;
+  }
+
+  body.is-local-mode .session-control-stack {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(16px, 2vw, 34px) !important;
+  }
+
+  body.is-local-mode .session-signout-button {
+    width: clamp(58px, 4.3vw, 78px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button {
+    width: clamp(82px, 5.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-online img {
+    width: clamp(82px, 5.8vw, 112px) !important;
+    height: clamp(82px, 5.8vw, 112px) !important;
+  }
+
+  body.is-local-mode .session-mode-icon-button.switch-local img {
+    width: clamp(68px, 4.8vw, 90px) !important;
+    height: clamp(68px, 4.8vw, 90px) !important;
+  }
+
+  body.is-local-mode .hero-copy {
+    position: absolute !important;
+    left: 50% !important;
+    top: clamp(150px, 13.3vw, 220px) !important;
+    width: min(56vw, 760px) !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+    pointer-events: none;
+  }
+
+  body.is-local-mode .hero h1 {
+    font-size: clamp(3.05rem, 5.05vw, 6.15rem) !important;
+    line-height: 0.86 !important;
+  }
+
+  body.is-local-mode .hero-stats,
+  body.is-local-mode .stats-strip {
+    display: contents !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  body.is-local-mode .hero-progress-circles {
+    position: absolute !important;
+    right: clamp(98px, 9.6vw, 180px) !important;
+    top: clamp(64px, 5.2vw, 92px) !important;
+    width: clamp(196px, 14vw, 264px) !important;
+    min-height: clamp(196px, 14vw, 264px) !important;
+    padding: clamp(24px, 2vw, 36px) clamp(22px, 1.9vw, 34px) !important;
+    z-index: 3 !important;
+  }
+
+  body.is-local-mode .hero-best-strip {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: clamp(10px, 1vw, 18px) !important;
+    width: min(88vw, 1420px) !important;
+    max-width: min(88vw, 1420px) !important;
+    margin: 0 !important;
+    padding: clamp(28px, 2.3vw, 38px) clamp(42px, 5vw, 76px) !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+  }
+}
+
+/* Final hub-mode location: the local/online switch lives beside guiding sections, not in the solo header. */
+
+@media (min-width: 1121px) {
+  body.is-local-mode .session-controls .session-mode-icon-button {
+    display: none !important;
+  }
+}
+
+body.is-local-mode .hero {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: clamp(8px, 0.8vw, 12px) clamp(12px, 1.4vw, 22px) clamp(9px, 0.9vw, 14px) !important;
+  overflow: visible !important;
+}
+
+body.is-local-mode .hero-layout {
+  display: grid !important;
+  grid-template-columns: auto minmax(220px, 0.82fr) minmax(210px, 0.62fr) !important;
+  grid-template-rows: auto auto !important;
+  align-items: center !important;
+  gap: clamp(6px, 0.8vw, 12px) clamp(12px, 1.4vw, 22px) !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+body.is-local-mode .hero-links {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: clamp(6px, 0.7vw, 10px) !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+
+body.is-local-mode .hero-discord-link,
+body.is-local-mode .hero-link-icon,
+body.is-local-mode .session-controls,
+body.is-local-mode .session-signout-button {
+  position: static !important;
+  inset: auto !important;
+  width: clamp(42px, 3.6vw, 54px) !important;
+  min-width: 0 !important;
+  transform: none !important;
+}
+
+body.is-local-mode .hero-link-icon img,
+body.is-local-mode .hero-discord-link img,
+body.is-local-mode .session-signout-button img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+body.is-local-mode .hero-copy {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  width: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  transform: none !important;
+  pointer-events: none !important;
+}
+
+body.is-local-mode .hero h1 {
+  margin: 0 !important;
+  font-size: clamp(1.72rem, 2.65vw, 3.05rem) !important;
+  line-height: 0.9 !important;
+  letter-spacing: 0 !important;
+}
+
+body.is-local-mode .hero-stats,
+body.is-local-mode .stats-strip {
+  display: contents !important;
+}
+
+body.is-local-mode .hero-progress-circles {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: min(100%, 238px) !important;
+  min-height: 0 !important;
+  padding: 12px 16px !important;
+  transform: none !important;
+}
+
+body.is-local-mode .progress-circle-card {
+  gap: 5px !important;
+}
+
+body.is-local-mode .stat-progress-ring {
+  width: 46px !important;
+  height: 46px !important;
+}
+
+body.is-local-mode .stat-progress-ring-inner {
+  width: 34px !important;
+  height: 34px !important;
+}
+
+body.is-local-mode .stat-progress-ring-inner strong,
+body.is-local-mode .stat-progress-circle-copy strong {
+  font-size: 0.72rem !important;
+}
+
+body.is-local-mode .stat-progress-circle-copy em {
+  font-size: 0.56rem !important;
+}
+
+body.is-local-mode .hero-best-strip {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  position: static !important;
+  justify-self: center !important;
+  align-self: center !important;
+  width: min(100%, 900px) !important;
+  max-width: min(100%, 900px) !important;
+  margin: 0 !important;
+  padding: 11px clamp(18px, 2.8vw, 34px) !important;
+  transform: none !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+}
+
+body.is-local-mode .hero-best-card {
+  min-height: 48px !important;
+  padding: 3px 7px !important;
+}
+
+body.is-local-mode .hero-best-card span {
+  font-size: clamp(0.48rem, 0.58vw, 0.64rem) !important;
+}
+
+body.is-local-mode .hero-best-card strong {
+  font-size: clamp(0.72rem, 0.86vw, 0.96rem) !important;
+}
+
+body.is-local-mode .layout {
+  position: relative !important;
+  perspective: 1200px !important;
+  margin-top: clamp(-2px, -0.2vw, 0px) !important;
+  padding-top: clamp(8px, 1vw, 14px) !important;
+  overflow: visible !important;
+}
+
+body.is-local-mode .layout::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 0 !important;
+  width: min(92vw, 1180px) !important;
+  height: 34px !important;
+  border-radius: 999px 999px 0 0 !important;
+  background: linear-gradient(180deg, rgba(255, 250, 238, 0.44), rgba(255, 250, 238, 0)) !important;
+  transform: translateX(-50%) rotateX(58deg) !important;
+  transform-origin: center top !important;
+  pointer-events: none !important;
+}
+
+body.is-local-mode .wizard.card-panel {
+  border-radius: clamp(34px, 4vw, 58px) clamp(34px, 4vw, 58px) 26px 26px !important;
+  transform: perspective(1200px) rotateX(1.6deg) !important;
+  transform-origin: top center !important;
+  transition: transform 260ms ease, border-radius 260ms ease !important;
+}
+
+body.is-local-mode .wizard.card-panel:focus-within,
+body.is-local-mode .wizard.card-panel:hover {
+  transform: perspective(1200px) rotateX(0deg) !important;
+}
+
+@media (max-width: 980px) {
+  body.is-local-mode .hero-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.is-local-mode .hero-links,
+  body.is-local-mode .hero-copy,
+  body.is-local-mode .hero-progress-circles,
+  body.is-local-mode .hero-best-strip {
+    grid-column: 1 !important;
+  }
+
+  body.is-local-mode .hero-copy {
+    text-align: center !important;
+  }
+
+  body.is-local-mode .hero-best-strip {
+    grid-template-columns: repeat(5, minmax(88px, 1fr)) !important;
+    overflow-x: auto !important;
+  }
+}
+
+.hero-best-strip,
+.hero-best-strip-online,
+body.is-local-mode .hero-best-strip,
+body.is-online-mode .hero-best-strip,
+body.is-online-mode .hero-best-strip-online {
+  display: none !important;
+}
+
+.hero-progress-circles,
+body.is-local-mode .hero-progress-circles,
+body.is-online-mode .hero-progress-circles {
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  gap: clamp(6px, 0.9vw, 12px) !important;
+}
+
+.progress-circle-card,
+body.is-local-mode .progress-circle-card,
+body.is-online-mode .progress-circle-card {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.hero-progress-circles,
+body.is-local-mode .hero-progress-circles,
+body.is-online-mode .hero-progress-circles {
+  position: absolute !important;
+  right: clamp(16px, 2vw, 28px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 3 !important;
+  width: clamp(190px, 17vw, 260px) !important;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 190px !important;
+  }
+
+  .hero-copy {
+    width: min(70vw, 520px) !important;
+    top: 42% !important;
+  }
+
+  .hero-progress-circles,
+  body.is-local-mode .hero-progress-circles,
+  body.is-online-mode .hero-progress-circles {
+    right: 50% !important;
+    top: auto !important;
+    bottom: 8px !important;
+    transform: translateX(50%) !important;
+  }
+
+  .mode-choice-board:has(.mode-choice-column.is-open) .mode-choice-column {
+    left: 8px !important;
+  }
+
+  .mode-choice-board:has(.mode-choice-column.is-open) .mode-choice-column.is-open {
+    left: 58% !important;
+  }
+}
+
+/* Final specificity guard: keep the header menu over the header, never in the layout flow. */
+
+body.is-local-mode .hero,
+body.is-online-mode .hero {
+  min-height: clamp(138px, 13vw, 166px) !important;
+  padding: 0 !important;
+}
+
+body.is-local-mode .hero-layout,
+body.is-online-mode .hero-layout {
+  position: relative !important;
+  display: block !important;
+  min-height: clamp(138px, 13vw, 166px) !important;
+}
+
+body.is-local-mode .hero-copy,
+body.is-online-mode .hero-copy {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: min(42vw, 520px) !important;
+  display: grid !important;
+  text-align: center !important;
+  transform: translate(-50%, -50%) !important;
+  pointer-events: auto !important;
+}
+
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  display: block !important;
+  width: 230px !important;
+  height: 230px !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  position: absolute !important;
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  min-height: 52px !important;
+}
+
+body.is-local-mode .hero-links img,
+body.is-online-mode .hero-links img,
+body.is-local-mode .hero-links .session-controls img,
+body.is-online-mode .hero-links .session-controls img,
+body.is-local-mode .hero-links .session-signout-button img,
+body.is-online-mode .hero-links .session-signout-button img,
+body.is-local-mode .hero-links .hero-link-icon img,
+body.is-online-mode .hero-links .hero-link-icon img,
+body.is-local-mode .hero-links .hero-discord-link img,
+body.is-online-mode .hero-links .hero-discord-link img {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  object-fit: contain !important;
+}
+
+/* Absolute last overrides for May 23 path staging. */
+
+body.is-local-mode .hero,
+body.is-online-mode .hero,
+.hero {
+  background: linear-gradient(180deg, rgba(96, 62, 33, 0.98), rgba(75, 48, 27, 0.98)) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #fff1cf !important;
+  min-height: 150px !important;
+  padding: 0 !important;
+}
+
+.hero-links,
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  height: 150px !important;
+  width: 430px !important;
+}
+
+.hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #5a391f !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  height: 58px !important;
+  min-height: 58px !important;
+  min-width: 82px !important;
+  width: 82px !important;
+}
+
+/* May 23 final pass: dark full header, left arc menu, gated route path menus. */
+
+body .hero,
+body.is-local-mode .hero,
+body.is-online-mode .hero {
+  min-height: 148px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: linear-gradient(180deg, #684222 0%, #4f311d 100%) !important;
+  color: #fff1cf !important;
+  box-shadow: 0 2px 0 rgba(38, 22, 12, 0.28) !important;
+}
+
+body .hero-layout,
+body.is-local-mode .hero-layout,
+body.is-online-mode .hero-layout {
+  position: relative !important;
+  display: block !important;
+  min-height: 148px !important;
+  padding: 0 !important;
+}
+
+body .hero-best-strip,
+body .hero-best-strip-online,
+body.is-local-mode .hero-best-strip,
+body.is-online-mode .hero-best-strip,
+body.is-online-mode .hero-best-strip-online {
+  display: none !important;
+}
+
+body .hero-progress-circles,
+body.is-local-mode .hero-progress-circles,
+body.is-online-mode .hero-progress-circles {
+  position: absolute !important;
+  right: clamp(18px, 2.1vw, 34px) !important;
+  top: 50% !important;
+  z-index: 4 !important;
+  width: clamp(210px, 19vw, 285px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: translateY(-50%) !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+body .hero-links,
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 60 !important;
+  width: 360px !important;
+  height: 360px !important;
+  padding: 0 !important;
+  display: block !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+
+body .hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  position: absolute !important;
+  left: 24px !important;
+  top: 74px !important;
+  z-index: 9 !important;
+  width: 82px !important;
+  height: 72px !important;
+  min-width: 82px !important;
+  min-height: 72px !important;
+  padding: 4px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  border: 1px solid rgba(255, 241, 207, 0.28) !important;
+  border-radius: 18px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #4f311d !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate(0, 0) scale(0.22) !important;
+  transition: opacity 250ms ease, transform 780ms cubic-bezier(0.76, 0, 0.24, 1) !important;
+}
+
+@media (max-width: 900px) {
+  body .hero,
+  body.is-local-mode .hero,
+  body.is-online-mode .hero {
+    min-height: 190px !important;
+  }
+
+  body .hero-copy {
+    top: 42% !important;
+    width: min(66vw, 420px) !important;
+  }
+
+  body .hero-online-mount {
+    left: clamp(-84px, calc(-18vw + 90px), -10px) !important;
+  }
+
+  body .hero-progress-circles,
+  body.is-local-mode .hero-progress-circles,
+  body.is-online-mode .hero-progress-circles {
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 8px !important;
+    width: min(92vw, 360px) !important;
+    transform: translateX(-50%) !important;
+  }
+
+  body .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body .mode-choice-board[data-active-path="train"] .mode-choice-column-train {
+    left: 58% !important;
+    width: clamp(300px, 74vw, 390px) !important;
+    height: clamp(300px, 74vw, 390px) !important;
+  }
+}
+
+body .hero-links,
+body.is-local-mode .hero-links,
+body.is-online-mode .hero-links {
+  width: 510px !important;
+  height: 560px !important;
+}
+
+body .hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  left: 24px !important;
+  top: 74px !important;
+  width: 150px !important;
+  height: 58px !important;
+  min-width: 150px !important;
+  min-height: 58px !important;
+  padding: 4px 8px !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  border: 1px solid transparent !important;
+  border-radius: 14px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: translate(0, 0) scale(0.18) rotate(-8deg) !important;
+  transform-origin: 20px 50% !important;
+  transition:
+    opacity 260ms ease,
+    transform 880ms cubic-bezier(0.76, 0, 0.24, 1),
+    filter 160ms ease !important;
+}
+
+body .hero-links > :not(.hero-menu-trigger),
+body.is-local-mode .hero-links > :not(.hero-menu-trigger),
+body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+  width: 190px !important;
+  min-width: 190px !important;
+  height: 66px !important;
+  min-height: 66px !important;
+  transition:
+    opacity 360ms ease,
+    transform 1180ms cubic-bezier(0.76, 0, 0.24, 1),
+    filter 260ms ease !important;
+}
+
+body.is-local-mode.with-popup .layout {
+  perspective: none !important;
+}
+
+body.is-local-mode.with-popup .question-popup-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  min-height: 100dvh !important;
+  height: 100dvh !important;
+  align-items: center !important;
+  justify-items: center !important;
+}

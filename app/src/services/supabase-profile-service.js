@@ -1,8 +1,22 @@
 (function () {
-  function fetchProfile(client, userId) {
+  const BASE_PROFILE_COLUMNS = "alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,created_at";
+  const ID_PROFILE_COLUMNS = `${BASE_PROFILE_COLUMNS},wsc_achievements`;
+
+  async function fetchProfile(client, userId) {
+    const response = await client
+      .from("alpaca_profiles")
+      .select(ID_PROFILE_COLUMNS)
+      .eq("id", userId)
+      .maybeSingle();
+    const message = String(response.error?.message || "");
+    const missingAchievementColumn = response.error?.code === "42703" || /wsc_achievements/i.test(message);
+    if (!response.error || !missingAchievementColumn) {
+      return response;
+    }
+
     return client
       .from("alpaca_profiles")
-      .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,created_at")
+      .select(BASE_PROFILE_COLUMNS)
       .eq("id", userId)
       .maybeSingle();
   }

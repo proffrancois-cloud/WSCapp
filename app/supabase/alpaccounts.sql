@@ -9,6 +9,7 @@ create table if not exists public.alpaca_profiles (
   school_name text,
   wsc_event_count integer default 0,
   highest_wsc_round text default 'none_yet',
+  wsc_achievements jsonb not null default '[]'::jsonb,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
@@ -20,6 +21,7 @@ alter table public.alpaca_profiles
   add column if not exists school_name text,
   add column if not exists wsc_event_count integer default 0,
   add column if not exists highest_wsc_round text default 'none_yet',
+  add column if not exists wsc_achievements jsonb not null default '[]'::jsonb,
   add column if not exists created_at timestamptz default now(),
   add column if not exists updated_at timestamptz default now();
 
@@ -50,6 +52,11 @@ set
       then lower(trim(highest_wsc_round))
     else 'none_yet'
   end,
+  wsc_achievements = case
+    when jsonb_typeof(coalesce(wsc_achievements, '[]'::jsonb)) = 'array'
+      then coalesce(wsc_achievements, '[]'::jsonb)
+    else '[]'::jsonb
+  end,
   created_at = coalesce(created_at, now()),
   updated_at = coalesce(updated_at, now());
 
@@ -60,6 +67,8 @@ alter table public.alpaca_profiles
   alter column school_name set not null,
   alter column wsc_event_count set not null,
   alter column highest_wsc_round set not null,
+  alter column wsc_achievements set default '[]'::jsonb,
+  alter column wsc_achievements set not null,
   alter column created_at set not null,
   alter column updated_at set not null;
 
@@ -116,6 +125,18 @@ begin
     alter table public.alpaca_profiles
       add constraint alpaca_profiles_alpaca_name_format check (
         alpaca_name ~ '^[a-z0-9][a-z0-9_-]{2,31}$'
+      );
+  end if;
+
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.alpaca_profiles'::regclass
+      and conname = 'alpaca_profiles_wsc_achievements_array_check'
+  ) then
+    alter table public.alpaca_profiles
+      add constraint alpaca_profiles_wsc_achievements_array_check check (
+        jsonb_typeof(wsc_achievements) = 'array'
       );
   end if;
 end;
@@ -179,6 +200,11 @@ declare
   clean_school_name text := trim(coalesce(new.raw_user_meta_data ->> 'school_name', ''));
   clean_wsc_event_count integer := 0;
   clean_highest_wsc_round text := lower(trim(coalesce(new.raw_user_meta_data ->> 'highest_wsc_round', '')));
+  clean_wsc_reward_type text := lower(replace(trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_type', 'none_yet')), '_', '-'));
+  clean_wsc_reward_city text := trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_city', ''));
+  clean_wsc_reward_date text := trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_date', ''));
+  clean_wsc_achievement_round text := '';
+  clean_wsc_achievements jsonb := coalesce(new.raw_user_meta_data -> 'wsc_achievements', '[]'::jsonb);
 begin
   if coalesce(new.is_anonymous, false) then
     return new;
@@ -213,6 +239,44 @@ begin
     clean_highest_wsc_round := 'none_yet';
   end if;
 
+  if jsonb_typeof(clean_wsc_achievements) <> 'array' then
+    clean_wsc_achievements := '[]'::jsonb;
+  end if;
+
+  if clean_wsc_reward_type = 'jac khor' or clean_wsc_reward_type = 'jackhor' then
+    clean_wsc_reward_type := 'jac-khor';
+  elsif clean_wsc_reward_type = 'gold' or clean_wsc_reward_type = 'gold medal' then
+    clean_wsc_reward_type := 'gold-medal';
+  elsif clean_wsc_reward_type = 'silver' or clean_wsc_reward_type = 'silver medal' then
+    clean_wsc_reward_type := 'silver-medal';
+  end if;
+
+  if clean_wsc_reward_type not in ('none_yet', 'jac-khor', 'trophy', 'gold-medal', 'silver-medal') then
+    clean_wsc_reward_type := 'none_yet';
+  end if;
+
+  clean_wsc_achievement_round := case clean_highest_wsc_round
+    when 'regional_round' then 'regional'
+    when 'global_round' then 'global'
+    when 'tournament_of_champions' then 'toc'
+    else ''
+  end;
+
+  if jsonb_array_length(clean_wsc_achievements) = 0
+    and clean_wsc_reward_type <> 'none_yet'
+    and clean_wsc_achievement_round <> ''
+    and clean_wsc_reward_city <> ''
+    and clean_wsc_reward_date <> ''
+  then
+    clean_wsc_achievements := jsonb_build_array(jsonb_build_object(
+      'fullName', '',
+      'rewardType', clean_wsc_reward_type,
+      'round', clean_wsc_achievement_round,
+      'city', clean_wsc_reward_city,
+      'approximateDate', clean_wsc_reward_date
+    ));
+  end if;
+
   insert into public.alpaca_profiles (
     id,
     alpaca_name,
@@ -220,7 +284,8 @@ begin
     country,
     school_name,
     wsc_event_count,
-    highest_wsc_round
+    highest_wsc_round,
+    wsc_achievements
   )
   values (
     new.id,
@@ -229,7 +294,8 @@ begin
     clean_country,
     clean_school_name,
     clean_wsc_event_count,
-    clean_highest_wsc_round
+    clean_highest_wsc_round,
+    clean_wsc_achievements
   )
   on conflict (id) do update
     set
@@ -239,6 +305,7 @@ begin
       school_name = excluded.school_name,
       wsc_event_count = excluded.wsc_event_count,
       highest_wsc_round = excluded.highest_wsc_round,
+      wsc_achievements = excluded.wsc_achievements,
       updated_at = now();
 
   return new;

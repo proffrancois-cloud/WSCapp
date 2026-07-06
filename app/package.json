@@ -31,6 +31,8 @@
     "verify:vercel": "npm run build:vercel && npm run audit:vercel",
     "test:classic-scripts": "node ../tools/validators/classic-script-dependency-map-test.mjs",
     "test:campus2d": "node ../tools/validators/campus-2d-world-test.mjs",
+    "test:campus2d-debate": "node ../tools/validators/campus-2d-debate-lab-test.mjs",
+    "test:campus2d-debate-audio": "node ../tools/validators/campus-2d-debate-audio-smoke.mjs",
     "test:smoke": "node ../tools/validators/smoke-test-app.mjs",
     "test:auth-privacy": "node ../tools/validators/auth-privacy-test.mjs",
     "test:storage-failure": "node ../tools/validators/storage-failure-test.mjs",

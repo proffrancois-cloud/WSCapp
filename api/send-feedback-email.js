@@ -1,6 +1,12 @@
 const DEFAULT_ADMIN_EMAIL = "frenchease.admin@gmail.com";
 const DEFAULT_SUPABASE_URL = "https://bwogymstqrrmoxlwlhio.supabase.co";
 const MAX_BODY_BYTES = 32 * 1024;
+const ACHIEVEMENT_REWARD_LABELS = Object.freeze({
+  "jac-khor": "Jac Khor",
+  trophy: "Trophy",
+  "gold-medal": "Gold medal",
+  "silver-medal": "Silver medal"
+});
 
 function sendJson(response, statusCode, payload) {
   response.statusCode = statusCode;
@@ -28,6 +34,20 @@ function escapeHtml(value) {
 
 function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
+}
+
+function formatAchievementRewardType(value) {
+  const normalized = cleanText(value, 80).toLowerCase().replace(/_/g, "-");
+  const aliases = {
+    "jac khor": "jac-khor",
+    jackhor: "jac-khor",
+    gold: "gold-medal",
+    "gold medal": "gold-medal",
+    silver: "silver-medal",
+    "silver medal": "silver-medal"
+  };
+  const key = aliases[normalized] || normalized;
+  return ACHIEVEMENT_REWARD_LABELS[key] || "";
 }
 
 async function readJsonBody(request) {
@@ -109,10 +129,12 @@ function buildEmail(payload, reporter) {
     const achievements = Array.isArray(payload.achievements) ? payload.achievements : [];
     const validAchievements = achievements.map((entry) => ({
       fullName: cleanText(entry?.fullName, 180),
+      rewardType: cleanText(entry?.rewardType, 80),
+      rewardLabel: formatAchievementRewardType(entry?.rewardType),
       round: cleanText(entry?.round, 80),
       city: cleanText(entry?.city, 140),
       approximateDate: cleanText(entry?.approximateDate, 100)
-    })).filter((entry) => entry.fullName && entry.round && entry.city && entry.approximateDate);
+    })).filter((entry) => entry.fullName && entry.rewardLabel && entry.round && entry.city && entry.approximateDate);
 
     if (!validAchievements.length) {
       return { error: "Please include at least one complete achievement." };
@@ -122,6 +144,7 @@ function buildEmail(payload, reporter) {
     const achievementLines = validAchievements.flatMap((entry, index) => [
       `Achievement ${index + 1}`,
       `Full name: ${entry.fullName}`,
+      `Reward: ${entry.rewardLabel}`,
       `Round: ${entry.round}`,
       `City: ${entry.city}`,
       `Approximate date: ${entry.approximateDate}`,
@@ -144,6 +167,7 @@ function buildEmail(payload, reporter) {
         <p>
           <strong>Achievement ${index + 1}</strong><br />
           Full name: ${escapeHtml(entry.fullName)}<br />
+          Reward: ${escapeHtml(entry.rewardLabel)}<br />
           Round: ${escapeHtml(entry.round)}<br />
           City: ${escapeHtml(entry.city)}<br />
           Approximate date: ${escapeHtml(entry.approximateDate)}

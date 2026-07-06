@@ -1,0 +1,24 @@
+/* Late route-builder overrides */
+.mode-card-unavailable {
+  margin: 3px 0 0;
+  color: rgba(75, 47, 33, 0.7);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+body .mode-choice-column-train .mode-card.unavailable .wizard-choice-copy {
+  justify-items: center !important;
+  text-align: center !important;
+}
+
+body .mode-choice-column-train .mode-card.unavailable .wizard-choice-copy h3 {
+  text-align: center !important;
+}
+
+body .mode-choice-column-train .mode-card.unavailable .mode-card-thanks {
+  width: 100% !important;
+  margin: 4px auto 0 !important;
+  text-align: center !important;
+  font-style: italic !important;
+}

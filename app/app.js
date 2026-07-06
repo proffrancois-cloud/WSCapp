@@ -7,12 +7,98 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260706timerfix";
+const ASSET_CACHE_VERSION = "20260706pwaaresources";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
-const PWAA_PWAA_SHARED_DOC_URL = "https://docs.google.com/document/d/1H75m6OHX7YDKzI_F1yixmGGuHtUR5iiZrjlVBKiSxh8/edit?tab=t.lhrbuhopvqws";
+const PWAA_RESOURCE_LINKS = Object.freeze([
+  {
+    id: "official-syllabus",
+    label: "The Official Syllabus",
+    url: "https://themes.scholarscup.org/",
+    group: "syllabus"
+  },
+  {
+    id: "pwaa-new-notes",
+    label: "COMPLETELY REVAMPED AND NEW NOTES! You can still check out our old ones below!",
+    url: "https://docs.google.com/document/d/1H75m6OHX7YDKzI_F1yixmGGuHtUR5iiZrjlVBKiSxh8/edit?tab=t.0",
+    group: "guide",
+    featured: true
+  },
+  {
+    id: "introductory-questions",
+    label: "Introductory Questions",
+    url: "https://docs.google.com/document/d/1YYBhNP2q6fsTQsRZivXNUkvLtHfWlMXVuTdDNRaUmMM/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "progress-not-regress",
+    label: "Progress, not Regress",
+    url: "https://docs.google.com/document/d/1qbLFa4Ws3-BZ8BubteQBB-fG9ARkAkhOjae5X4CUQDE/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "more-to-do",
+    label: "More to do Than can Ever be Listed",
+    url: "https://docs.google.com/document/d/1C0llwXSM0CdS4-_Uastnh8rvMjQSCBQECl4QGZYSL3Y/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "end-is-nearish",
+    label: "The End is Nearish",
+    url: "https://docs.google.com/document/d/1D9uD_Pw_hhSn54PJkHyJtyU3Y4Pd2mIRn0BTV_DJFqA/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "draft-in-here",
+    label: "There's a Draft in Here",
+    url: "https://docs.google.com/document/d/16kMYaENlNrGCN4x9VypZaGTQ2l0uueuHC5zz-JfGzsg/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "all-in-this",
+    label: "We're All in This to Get There",
+    url: "https://docs.google.com/document/d/1inJZflFWBfc5kHqgF8YVg1Tc82a2AjVgnOQv5GuXFHU/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "sidewalk-starts",
+    label: "Where the Sidewalk Starts",
+    url: "https://docs.google.com/document/d/1TYJZRPFEYoFYJA3OcGq6YiwxIUXpo3wYkVwY23jo6Ds/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "monkey-prototype",
+    label: "Monkey See, Monkey Prototype",
+    url: "https://docs.google.com/document/d/1CIHNqNhxhpGIXBSnzHM7P7tpf_KejfMoqfnt44KYcTI/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "lovely-liminal",
+    label: "The Lovely and the Liminal",
+    url: "https://docs.google.com/document/d/1oohjSk-GyoDfxfhMchNz8Lz3viPGCVrkE4KYNHisAAQ/edit?tab=t.0",
+    group: "guide"
+  },
+  {
+    id: "concluding-questions",
+    label: "Concluding Questions",
+    url: "https://docs.google.com/document/d/1VsM13uv4Oz0viLNYGBzi3mLaGhsWbWxKCDUqUTqIkZc/edit?tab=t.0",
+    group: "guide"
+  }
+]);
+const PWAA_COMING_SOON_RESOURCES = Object.freeze([
+  "Going Pains",
+  "Home and Wandering",
+  "Where We're Going, We'll Still Need Them",
+  "Call of Duty-Free",
+  "Next Year in Futurism"
+]);
+const PWAA_WRITING_PROMPTS = Object.freeze([
+  "Many people these days live in airports. Imagine if you were in such a situation, how would it look?",
+  "A universal law demands that no artist can complete any book, song or piece of art, and MUST stop at 85% completion. How will it affect us common people?",
+  "Many people in the future may rely entirely on artificial intelligence to make decisions. If you lived in such a world, how would your daily life change?"
+]);
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
@@ -39,6 +125,14 @@ const WSC_ROUND_OPTIONS = [
   { value: "global_round", label: "Global Round" },
   { value: "tournament_of_champions", label: "Tournament of Champions" }
 ];
+const WSC_ID_REWARD_OPTIONS = [
+  { value: "none_yet", label: "No medal or trophy yet" },
+  { value: "jac-khor", label: "Jac Khor" },
+  { value: "trophy", label: "Trophy" },
+  { value: "gold-medal", label: "Gold medal" },
+  { value: "silver-medal", label: "Silver medal" }
+];
+const WSC_ID_REWARD_VALUES = new Set(WSC_ID_REWARD_OPTIONS.map((option) => option.value));
 
 const sectionById = Object.fromEntries(data.sections.map((section) => [section.id, section]));
 const subjectById = Object.fromEntries(data.subjects.map((subject) => [subject.id, subject]));
@@ -2475,13 +2569,7 @@ const LIBRARY_GUIDE_RESOURCES = Object.freeze([
     label: "PwaaPwaaRevolution",
     url: "https://pwaapwaarevolution.pwaaapwaarevolution.workers.dev/#",
     logo: "./assets/library-guides/pwaa-pwaa-revolution.png",
-    embeddedDocs: [
-      {
-        id: "pwaa-pwaa-shared-doc",
-        label: "Shared Docs",
-        url: PWAA_PWAA_SHARED_DOC_URL
-      }
-    ]
+    kind: "pwaa-resources"
   },
   {
     id: "ready-scholar-one",
@@ -4862,6 +4950,7 @@ function getCampus2DIdentity() {
     country: profile.country || "",
     wscEventCount: Number(profile.wsc_event_count) || 0,
     highestWscRound: profile.highest_wsc_round || "",
+    achievements: profile.wsc_achievements || profile.achievements || [],
     createdAt: profile.created_at || user?.created_at || null
   };
 }
@@ -7317,6 +7406,52 @@ function normalizeAlpacaName(value) {
     : String(value || "").trim().toLowerCase();
 }
 
+function normalizeWscIdRewardType(value) {
+  const normalized = String(value || "").trim().toLowerCase().replace(/_/g, "-");
+  const aliases = {
+    "jac khor": "jac-khor",
+    jackhor: "jac-khor",
+    gold: "gold-medal",
+    "gold medal": "gold-medal",
+    silver: "silver-medal",
+    "silver medal": "silver-medal"
+  };
+  const key = aliases[normalized] || normalized;
+  return WSC_ID_REWARD_VALUES.has(key) ? key : "none_yet";
+}
+
+function mapWscRoundToAchievementRound(value) {
+  const normalized = String(value || "").trim().toLowerCase();
+  if (normalized === "regional_round" || normalized === "regional") {
+    return "regional";
+  }
+  if (normalized === "global_round" || normalized === "global") {
+    return "global";
+  }
+  if (normalized === "tournament_of_champions" || normalized === "toc") {
+    return "toc";
+  }
+  return "";
+}
+
+function buildSignupWscAchievements({ rewardType, round, city, approximateDate }) {
+  const cleanRewardType = normalizeWscIdRewardType(rewardType);
+  const cleanRound = mapWscRoundToAchievementRound(round);
+  const cleanCity = String(city || "").trim();
+  const cleanApproximateDate = String(approximateDate || "").trim();
+  if (cleanRewardType === "none_yet" || !cleanRound || !cleanCity || !cleanApproximateDate) {
+    return [];
+  }
+
+  return [{
+    fullName: "",
+    rewardType: cleanRewardType,
+    round: cleanRound,
+    city: cleanCity,
+    approximateDate: cleanApproximateDate
+  }];
+}
+
 function getCurrentRedirectUrl() {
   return appAuthService?.getCurrentRedirectUrl
     ? appAuthService.getCurrentRedirectUrl(window.location)
@@ -7511,6 +7646,9 @@ async function createAlpaccount(formData, client) {
   const schoolName = String(formData.get("school_name") || "").trim();
   const wscEventCount = Number(formData.get("wsc_event_count") || 0);
   const highestWscRound = String(formData.get("highest_wsc_round") || "").trim();
+  const wscIdRewardType = normalizeWscIdRewardType(formData.get("wsc_id_reward_type"));
+  const wscIdRewardCity = String(formData.get("wsc_id_reward_city") || "").trim();
+  const wscIdRewardDate = String(formData.get("wsc_id_reward_date") || "").trim();
 
   if (!email || !alpacaName || !password || !country || !schoolName || !highestWscRound) {
     throw new Error("Please fill in every field to create your Alpaccount.");
@@ -7523,6 +7661,17 @@ async function createAlpaccount(formData, client) {
   if (!Number.isInteger(wscEventCount) || wscEventCount < 0 || wscEventCount > 99) {
     throw new Error("Please enter a valid number of WSC events.");
   }
+
+  if (wscIdRewardType !== "none_yet" && (!wscIdRewardCity || !wscIdRewardDate || highestWscRound === "none_yet")) {
+    throw new Error("To show a reward on your Alpaca ID, choose its round, city, and approximate date.");
+  }
+
+  const wscAchievements = buildSignupWscAchievements({
+    rewardType: wscIdRewardType,
+    round: highestWscRound,
+    city: wscIdRewardCity,
+    approximateDate: wscIdRewardDate
+  });
 
   const availability = supabaseProfileService?.checkAlpacaNameAvailability
     ? await supabaseProfileService.checkAlpacaNameAvailability(client, alpacaName)
@@ -7545,7 +7694,11 @@ async function createAlpaccount(formData, client) {
         country,
         school_name: schoolName,
         wsc_event_count: wscEventCount,
-        highest_wsc_round: highestWscRound
+        highest_wsc_round: highestWscRound,
+        wsc_id_reward_type: wscIdRewardType,
+        wsc_id_reward_city: wscIdRewardCity,
+        wsc_id_reward_date: wscIdRewardDate,
+        wsc_achievements: wscAchievements
       }
     }
   });
@@ -7800,6 +7953,7 @@ function getAuthRenderContext() {
     message: state.auth.message,
     profile: state.auth.profile,
     roundOptions: WSC_ROUND_OPTIONS,
+    rewardOptions: WSC_ID_REWARD_OPTIONS,
     canDismiss: canDismissAuthModal()
   };
 }
@@ -8273,23 +8427,20 @@ function renderLibraryExperienceViewer() {
   `;
 }
 
-function renderLibraryResourceDocActions(resource) {
-  const docs = Array.isArray(resource?.embeddedDocs) ? resource.embeddedDocs : [];
-  if (!docs.length) {
-    return "";
+function getLibraryResourceEmbeddedDocs(resource) {
+  if (resource?.kind === "pwaa-resources") {
+    return PWAA_RESOURCE_LINKS;
   }
 
-  return docs.map((doc) => `
-    <button
-      class="library-inline-action library-inline-doc-action"
-      type="button"
-      data-library-resource-doc="${escapeHtml(doc.id || doc.url || "")}"
-    >${escapeHtml(doc.label || "Shared Docs")}</button>
-  `).join("");
+  return Array.isArray(resource?.embeddedDocs) ? resource.embeddedDocs : [];
 }
 
 function getLibraryResourceEmbeddedDoc(resource, docId) {
-  const docs = Array.isArray(resource?.embeddedDocs) ? resource.embeddedDocs : [];
+  const docs = getLibraryResourceEmbeddedDocs(resource);
+  if (!docs.length) {
+    return null;
+  }
+
   return docs.find((doc) => String(doc.id || doc.url || "") === String(docId || "")) || null;
 }
 
@@ -8317,7 +8468,7 @@ function renderLibraryEmbeddedDocOverlay(doc) {
     return "";
   }
 
-  const title = doc.label || "Shared Docs";
+  const title = doc.label || "Resource";
   const embedUrl = doc.embedUrl || getEmbeddableGoogleDocUrl(doc.url);
   return `
     <div class="library-embedded-doc-overlay" data-close-library-embedded-doc role="dialog" aria-modal="true" aria-labelledby="libraryEmbeddedDocTitle">
@@ -8326,7 +8477,7 @@ function renderLibraryEmbeddedDocOverlay(doc) {
           title,
           backAttribute: "data-library-embedded-doc-back",
           closeAttribute: "data-close-library-embedded-doc",
-          closeLabel: "Close shared docs",
+          closeLabel: "Close embedded resource",
           titleId: "libraryEmbeddedDocTitle"
         })}
         <iframe
@@ -8342,7 +8493,84 @@ function renderLibraryEmbeddedDocOverlay(doc) {
   `;
 }
 
+function renderPwaaResourceCard(resource) {
+  const classNames = [
+    "pwaa-resource-card",
+    resource.featured ? "featured" : "",
+    resource.url ? "" : "disabled"
+  ].filter(Boolean).join(" ");
+
+  if (!resource.url) {
+    return `
+      <div class="${escapeHtml(classNames)}" aria-disabled="true">
+        <span>${escapeHtml(resource.label)}</span>
+        <small>Coming soon</small>
+      </div>
+    `;
+  }
+
+  return `
+    <button
+      class="${escapeHtml(classNames)}"
+      type="button"
+      data-library-resource-doc="${escapeHtml(resource.id || resource.url || "")}"
+    >
+      <span>${escapeHtml(resource.label)}</span>
+    </button>
+  `;
+}
+
+function renderPwaaResourceBrowser() {
+  const syllabus = PWAA_RESOURCE_LINKS.find((resource) => resource.group === "syllabus");
+  const guideCards = PWAA_RESOURCE_LINKS
+    .filter((resource) => resource.group === "guide")
+    .map(renderPwaaResourceCard)
+    .join("");
+  const comingSoonCards = PWAA_COMING_SOON_RESOURCES
+    .map((label) => renderPwaaResourceCard({ label }))
+    .join("");
+  const promptItems = PWAA_WRITING_PROMPTS
+    .map((prompt) => `<li>${escapeHtml(prompt)}</li>`)
+    .join("");
+
+  return `
+    <div class="pwaa-resource-browser">
+      <div class="pwaa-resource-browser-inner">
+        ${syllabus ? `
+          <div class="pwaa-resource-syllabus">
+            ${renderPwaaResourceCard({ ...syllabus, featured: true })}
+          </div>
+        ` : ""}
+        <section class="pwaa-resource-section">
+          <h3>Chapter-by-Chapter Guide</h3>
+          <div class="pwaa-resource-grid">
+            ${guideCards}
+            ${comingSoonCards}
+          </div>
+        </section>
+        <section class="pwaa-resource-prompts">
+          <h3>A few writing prompts:</h3>
+          <ul>${promptItems}</ul>
+        </section>
+      </div>
+    </div>
+  `;
+}
+
 function renderLibraryResourceViewer(resource) {
+  const resourceBodyHtml = resource.kind === "pwaa-resources"
+    ? renderPwaaResourceBrowser()
+    : `
+      <iframe
+        class="library-resource-iframe"
+        src="${escapeHtml(resource.url)}"
+        title="${escapeHtml(resource.label)}"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="clipboard-write; fullscreen; web-share"
+      ></iframe>
+    `;
+
   return `
     <div class="auth-modal-overlay library-campus-overlay library-resource-overlay" data-close-library-resource role="dialog" aria-modal="true" aria-labelledby="libraryResourceViewerTitle">
       <div class="auth-modal-window library-resource-window library-inline-window" data-library-resource-window>
@@ -8350,20 +8578,12 @@ function renderLibraryResourceViewer(resource) {
           ${renderLibraryInlineTopbar({
             title: resource.label,
             logo: resource.logo,
-            extraActionsHtml: renderLibraryResourceDocActions(resource),
             backAttribute: "data-library-resource-back",
             closeAttribute: "data-close-library-resource",
             closeLabel: "Close embedded resource",
             titleId: "libraryResourceViewerTitle"
           })}
-          <iframe
-            class="library-resource-iframe"
-            src="${escapeHtml(resource.url)}"
-            title="${escapeHtml(resource.label)}"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="clipboard-write; fullscreen; web-share"
-          ></iframe>
+          ${resourceBodyHtml}
           ${renderLibraryEmbeddedDocOverlay(state.ui.libraryEmbeddedDoc)}
         </div>
       </div>

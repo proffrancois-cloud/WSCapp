@@ -102,6 +102,11 @@
   function renderConnectedAlpaccount(context, helpers) {
     const profile = context.profile || {};
     const round = (context.roundOptions || []).find((option) => option.value === profile.highest_wsc_round);
+    const achievements = Array.isArray(profile.wsc_achievements) ? profile.wsc_achievements : [];
+    const firstAchievement = achievements[0] || null;
+    const reward = firstAchievement
+      ? (context.rewardOptions || []).find((option) => option.value === (firstAchievement.rewardType || firstAchievement.reward_type))
+      : null;
 
     return `
       <div class="alpaccount-profile-card">
@@ -109,6 +114,7 @@
         <strong>${helpers.escapeHtml(profile.alpaca_name || "Connected")}</strong>
         <p>${helpers.escapeHtml([profile.school_name, profile.country].filter(Boolean).join(" · ") || "Profile loading...")}</p>
         ${round ? `<p>${helpers.escapeHtml(round.label)} · ${Number(profile.wsc_event_count || 0)} WSC event${Number(profile.wsc_event_count || 0) === 1 ? "" : "s"}</p>` : ""}
+        ${reward ? `<p>ID reward: ${helpers.escapeHtml([reward.label, firstAchievement.city, firstAchievement.approximateDate || firstAchievement.approximate_date].filter(Boolean).join(" · "))}</p>` : ""}
       </div>
       <div class="panel-actions auth-actions">
         <button class="button secondary" type="button" data-auth-signout ${context.busy ? "disabled" : ""}>Sign out</button>
@@ -167,13 +173,29 @@
           </label>
         </div>
         <label class="auth-field">
-          <span>Highest WSC round reached</span>
+          <span>Highest WSC round reached for your ID</span>
           <select name="highest_wsc_round" required>
             <option value="">Choose a round</option>
             ${(context.roundOptions || []).map((option) => `<option value="${helpers.escapeHtml(option.value)}">${helpers.escapeHtml(option.label)}</option>`).join("")}
           </select>
         </label>
-        <p class="auth-helper">Examples: None yet, Regional Round, Global Round, or Tournament of Champions.</p>
+        <div class="auth-form-grid">
+          <label class="auth-field">
+            <span>Best WSC reward for your ID</span>
+            <select name="wsc_id_reward_type" required>
+              ${(context.rewardOptions || []).map((option) => `<option value="${helpers.escapeHtml(option.value)}">${helpers.escapeHtml(option.label)}</option>`).join("")}
+            </select>
+          </label>
+          <label class="auth-field">
+            <span>City for that reward</span>
+            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" placeholder="Bangkok" />
+          </label>
+          <label class="auth-field">
+            <span>Approximate date</span>
+            <input name="wsc_id_reward_date" type="text" placeholder="July 2026" />
+          </label>
+        </div>
+        <p class="auth-helper">If you already have a WSC reward, add its round, city, and month/year so your Alpaca ID can show the icon and info bubble. You can add more later from your ID card.</p>
         <div class="panel-actions auth-actions">
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Create Alpaccount</button>
           <button class="button secondary" type="button" data-auth-mode="login">Back to login</button>

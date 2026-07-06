@@ -11,6 +11,30 @@
   });
   const CHAT_TTL_MS = 10000;
   const CHAT_STACK_LIMIT = 10;
+  const debateRules = window.WSC_CAMPUS_2D_DEBATE_RULES;
+  const debateAudioApi = window.WSC_CAMPUS_2D_DEBATE_AUDIO;
+  const DEBATE_ROOM_ID = "debate-lab";
+  const DEBATE_SCHEMA = "campus2d.debate.v1";
+  const DEBATE_BOARD_ID = "debate-board";
+  const DEBATE_MODERATOR_NPC_ID = "debate-stage-moderator-npc";
+  const DEBATE_MIN_TEAM_SIZE = 2;
+  const DEBATE_MAX_TEAM_SIZE = 3;
+  const DEBATE_MAX_DEBATERS = 6;
+  const DEBATE_JOIN_CODE_LENGTH = 6;
+  const DEBATE_INTRO_MS = 30000;
+  const DEBATE_NPC_WALK_MS = 3200;
+  const DEBATE_NOTE_MAX_LENGTH = 1400;
+  const DEBATE_CENTER_STAGE = Object.freeze({ x: 588, y: 309 });
+  const DEBATE_SIDE_STAGE = Object.freeze({ x: 860, y: 245 });
+  const DEBATE_BOARD_RECT = Object.freeze({ x: 390, y: 30, width: 405, height: 175 });
+  const DEBATE_NOTE_COLORS = Object.freeze([
+    "#ffd166",
+    "#6ec6ff",
+    "#8bd17c",
+    "#ff8aa8",
+    "#c8a3ff",
+    "#ff9f5c"
+  ]);
   const NPC_DIALOGUE_TYPE_SPEED_MS = 12;
   const NPC_DIALOGUE_CHARS_PER_TICK = 2;
   const NPC_DIALOGUE_START_DELAY_MS = 120;
@@ -55,6 +79,43 @@
     Object.freeze({ value: "global", label: "Global" }),
     Object.freeze({ value: "toc", label: "ToC" })
   ]);
+  const REWARD_ASSET_VERSION = "20260706pwaaresources";
+  const MAX_ID_REWARDS = 9;
+  const ACHIEVEMENT_REWARD_TYPES = Object.freeze([
+    Object.freeze({
+      value: "jac-khor",
+      label: "Jac Khor",
+      asset: `./assets/campus-2d/rewards/jac-khor.png?v=${REWARD_ASSET_VERSION}`
+    }),
+    Object.freeze({
+      value: "trophy",
+      label: "Trophy",
+      asset: `./assets/campus-2d/rewards/trophy.png?v=${REWARD_ASSET_VERSION}`
+    }),
+    Object.freeze({
+      value: "gold-medal",
+      label: "Gold medal",
+      asset: `./assets/campus-2d/rewards/gold-medal.png?v=${REWARD_ASSET_VERSION}`
+    }),
+    Object.freeze({
+      value: "silver-medal",
+      label: "Silver medal",
+      asset: `./assets/campus-2d/rewards/silver-medal.png?v=${REWARD_ASSET_VERSION}`
+    })
+  ]);
+  const ACHIEVEMENT_REWARD_TYPE_VALUES = new Set(ACHIEVEMENT_REWARD_TYPES.map((entry) => entry.value));
+  const ID_REWARD_ROW_PATTERNS = Object.freeze({
+    0: Object.freeze([]),
+    1: Object.freeze([1]),
+    2: Object.freeze([2]),
+    3: Object.freeze([3]),
+    4: Object.freeze([2, 2]),
+    5: Object.freeze([2, 3]),
+    6: Object.freeze([3, 3]),
+    7: Object.freeze([2, 2, 3]),
+    8: Object.freeze([2, 3, 3]),
+    9: Object.freeze([3, 3, 3])
+  });
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -75,6 +136,83 @@
   function getRoom(roomId) {
     const manifest = getManifest();
     return manifest?.roomsById?.[roomId] || manifest?.roomsById?.[manifest.defaultRoomId] || null;
+  }
+
+  function parseAchievementList(value) {
+    if (Array.isArray(value)) {
+      return value;
+    }
+    if (value && typeof value === "object") {
+      return Array.isArray(value.achievements) ? value.achievements : [];
+    }
+    if (typeof value === "string" && value.trim()) {
+      try {
+        return parseAchievementList(JSON.parse(value));
+      } catch (_error) {
+        return [];
+      }
+    }
+    return [];
+  }
+
+  function getAchievementRewardType(value) {
+    return ACHIEVEMENT_REWARD_TYPES.find((entry) => entry.value === value) || ACHIEVEMENT_REWARD_TYPES[0];
+  }
+
+  function normalizeAchievementRewardType(value) {
+    const normalized = String(value || "").trim().toLowerCase().replace(/_/g, "-");
+    const aliases = {
+      "jac khor": "jac-khor",
+      jackhor: "jac-khor",
+      gold: "gold-medal",
+      "gold medal": "gold-medal",
+      silver: "silver-medal",
+      "silver medal": "silver-medal"
+    };
+    const key = aliases[normalized] || normalized;
+    return ACHIEVEMENT_REWARD_TYPE_VALUES.has(key) ? key : ACHIEVEMENT_REWARD_TYPES[0].value;
+  }
+
+  function normalizeAchievementRound(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    if (normalized === "regional_round" || normalized === "regional") {
+      return "regional";
+    }
+    if (normalized === "global_round" || normalized === "global") {
+      return "global";
+    }
+    if (normalized === "tournament_of_champions" || normalized === "toc") {
+      return "toc";
+    }
+    return ACHIEVEMENT_ROUNDS[0].value;
+  }
+
+  function normalizeAchievements(value) {
+    return parseAchievementList(value)
+      .map((entry) => ({
+        fullName: String(entry?.fullName || entry?.full_name || "").trim(),
+        rewardType: normalizeAchievementRewardType(entry?.rewardType || entry?.reward_type || entry?.type),
+        round: normalizeAchievementRound(entry?.round || entry?.roundType || entry?.highest_wsc_round),
+        city: String(entry?.city || "").trim(),
+        approximateDate: String(entry?.approximateDate || entry?.approximate_date || entry?.date || "").trim()
+      }))
+      .filter((entry) => entry.city || entry.approximateDate || entry.fullName)
+      .slice(0, MAX_ID_REWARDS);
+  }
+
+  function getRoundLabel(value) {
+    return ACHIEVEMENT_ROUNDS.find((round) => round.value === value)?.label || String(value || "Round");
+  }
+
+  function getIdRewardRows(achievements) {
+    const entries = normalizeAchievements(achievements).slice(0, MAX_ID_REWARDS);
+    const pattern = ID_REWARD_ROW_PATTERNS[entries.length] || ID_REWARD_ROW_PATTERNS[MAX_ID_REWARDS];
+    let start = 0;
+    return pattern.map((count) => {
+      const row = entries.slice(start, start + count);
+      start += count;
+      return row;
+    });
   }
 
   function isPointInRect(point, rect) {
@@ -272,6 +410,42 @@
     return `${value} ${unit}${value === 1 ? "" : "s"}`;
   }
 
+  function formatDebateClock(totalSeconds) {
+    const seconds = Math.max(0, Math.ceil(Number(totalSeconds) || 0));
+    const minutes = Math.floor(seconds / 60);
+    const remainder = seconds % 60;
+    return `${minutes}:${String(remainder).padStart(2, "0")}`;
+  }
+
+  function shortenDebateText(value, maxLength = 86) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return `${text.slice(0, Math.max(0, maxLength - 1)).trim()}...`;
+  }
+
+  function normalizeDebateCode(value) {
+    return String(value || "")
+      .trim()
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "")
+      .slice(0, DEBATE_JOIN_CODE_LENGTH);
+  }
+
+  function createDebateJoinCode(length = DEBATE_JOIN_CODE_LENGTH) {
+    const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let code = "";
+    for (let index = 0; index < length; index += 1) {
+      code += alphabet[Math.floor(Math.random() * alphabet.length)];
+    }
+    return code;
+  }
+
+  function createDebateId(prefix = "debate") {
+    return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`;
+  }
+
   function addMonths(date, months) {
     const year = date.getUTCFullYear();
     const month = date.getUTCMonth() + months;
@@ -374,6 +548,25 @@
     let feedbackSubmitting = false;
     let achievementDrafts = [createAchievementDraft()];
     let npcTypingTimer = 0;
+    let debateState = null;
+    let debateDraft = createDebateDraft();
+    let debatePanelStatus = "";
+    let debateNoteSendTimer = 0;
+    let debateSpeechTimer = 0;
+    let lastDebateSpeechId = "";
+    let lastDebateClockKey = "";
+    let lastDebateClockSecond = -1;
+    let debateAudioStatus = {
+      enabled: false,
+      muted: false,
+      connecting: false,
+      permissionDenied: false,
+      supported: Boolean(debateAudioApi?.createManager && window.RTCPeerConnection && navigator.mediaDevices?.getUserMedia),
+      error: "",
+      peerCount: 0,
+      routeLabel: "Audio idle",
+      canSend: false
+    };
     let destroyed = false;
     const keys = new Set();
     const remotePlayers = new Map();
@@ -391,6 +584,7 @@
       country: identity.country || "",
       wscEventCount: Number(identity.wscEventCount) || 0,
       highestWscRound: identity.highestWscRound || "",
+      achievements: normalizeAchievements(identity.achievements || identity.wscAchievements),
       createdAt: identity.createdAt || null,
       roomId: room.id,
       x: spawn.x,
@@ -399,6 +593,21 @@
       colorId: initialColor,
       moving: false
     };
+    const debateAudioManager = debateAudioApi?.createManager
+      ? debateAudioApi.createManager({
+        localClientId: localPlayer.clientId,
+        sendSignal: sendDebateSignal,
+        shouldHearPeer: (route, peerClientId) => debateRules.shouldHearPeer(route, peerClientId),
+        shouldConnectPeer: (route, peerClientId) => debateRules.shouldConnectPeer(route, peerClientId),
+        onStatusChange(status) {
+          debateAudioStatus = status;
+          updateDebateAudioStatusDisplays();
+          if (!destroyed) {
+            publishPresence(true);
+          }
+        }
+      })
+      : null;
 
     const root = createEl("section", "campus2d-root", {
       "aria-label": "Alpaca Online 2D campus",
@@ -411,6 +620,7 @@
       draggable: "false"
     });
     const decorationsLayer = createEl("div", "campus2d-decorations");
+    const debateLayer = createEl("div", "campus2d-debate-layer", { "aria-hidden": "true" });
     const entitiesLayer = createEl("div", "campus2d-entities");
     const hotspotsLayer = createEl("div", "campus2d-hotspots");
     const portalsLayer = createEl("div", "campus2d-portals");
@@ -682,7 +892,7 @@
     roomMeta.append(roomTitle, statusPill);
     controlsHeader.append(connectedCount, roomMeta);
     activityPanel.append(activityMount, debugPanel);
-    world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
+    world.append(mapImage, decorationsLayer, debateLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
     entitiesLayer.append(localElement);
     viewport.append(world, chatForm, reportButton, npcDialogueLayer);
     root.append(viewport, activityPanel, settingsPanel);
@@ -924,6 +1134,7 @@
         country: player.country || "",
         wscEventCount: Number(player.wscEventCount) || 0,
         highestWscRound: player.highestWscRound || "",
+        achievements: normalizeAchievements(player.achievements),
         createdAt: player.createdAt || null
       };
     }
@@ -1341,6 +1552,12 @@
     }
 
     function activateGameZone(entry) {
+      if (room.id === DEBATE_ROOM_ID && entry.id === DEBATE_BOARD_ID) {
+        renderDebateUi();
+        showBubble(localElement, "Debate Lab is open in the right panel");
+        return;
+      }
+
       const mode = entry.mode || entry.kind || "game";
       const handled = options.onCampusZoneAction?.({
         roomId: room.id,
@@ -1351,6 +1568,1118 @@
       if (!handled) {
         showBubble(localElement, `${entry.label || mode} coming soon`);
       }
+    }
+
+    function getDebateTopics() {
+      const topics = window.WSC_DEBATE_LAB_DATA?.topics;
+      return Array.isArray(topics) ? topics.filter((topic) => topic?.motion) : [];
+    }
+
+    function getDefaultDebateTopicId() {
+      const firstTopic = getDebateTopics()[0];
+      return firstTopic ? String(firstTopic.id) : "";
+    }
+
+    function getDebateTopic(topicId) {
+      const topics = getDebateTopics();
+      return topics.find((topic) => String(topic.id) === String(topicId)) || topics[0] || null;
+    }
+
+    function getDebateTopicId(topicId) {
+      const topic = getDebateTopic(topicId);
+      return topic ? String(topic.id) : "";
+    }
+
+    function createDebateDraft() {
+      return {
+        topicId: getDefaultDebateTopicId(),
+        hostSide: "pro",
+        judgeMode: false,
+        joinCode: ""
+      };
+    }
+
+    function createTextElement(tagName, className, text, attributes = {}) {
+      const element = createEl(tagName, className, attributes);
+      element.textContent = text;
+      return element;
+    }
+
+    function normalizeDebateSide(side) {
+      return side === "con" ? "con" : "pro";
+    }
+
+    function getDebateSideLabel(side) {
+      return normalizeDebateSide(side) === "con" ? "CON" : "PRO";
+    }
+
+    function getDebateMotion(topicId = debateState?.topicId || debateDraft.topicId) {
+      return getDebateTopic(topicId)?.motion || "Choose a Debate Lab motion.";
+    }
+
+    function normalizeDebateParticipant(entry) {
+      const clientId = String(entry?.clientId || "").trim();
+      if (!clientId) {
+        return null;
+      }
+      const colorId = manifest.colors.some((color) => color.id === entry?.colorId)
+        ? entry.colorId
+        : manifest.colors[0].id;
+      return {
+        clientId,
+        userId: entry?.userId || null,
+        displayName: String(entry?.displayName || "Guest").trim().slice(0, 80) || "Guest",
+        colorId,
+        noteColor: /^#[0-9a-f]{6}$/i.test(String(entry?.noteColor || "")) ? entry.noteColor : DEBATE_NOTE_COLORS[0],
+        joinedAtMs: Number(entry?.joinedAtMs) || Date.now()
+      };
+    }
+
+    function normalizeDebateTeam(entries = []) {
+      const seen = new Set();
+      const team = [];
+      entries.forEach((entry) => {
+        const participant = normalizeDebateParticipant(entry);
+        if (!participant || seen.has(participant.clientId) || team.length >= DEBATE_MAX_TEAM_SIZE) {
+          return;
+        }
+        seen.add(participant.clientId);
+        team.push(participant);
+      });
+      return team;
+    }
+
+    function normalizeDebateNotes(notes, teams) {
+      const result = { pro: {}, con: {} };
+      ["pro", "con"].forEach((side) => {
+        const allowedIds = new Set((teams[side] || []).map((participant) => participant.clientId));
+        const source = notes?.[side] && typeof notes[side] === "object" ? notes[side] : {};
+        Object.entries(source).forEach(([clientId, value]) => {
+          if (!allowedIds.has(clientId)) {
+            return;
+          }
+          result[side][clientId] = String(value || "").slice(0, DEBATE_NOTE_MAX_LENGTH);
+        });
+      });
+      return result;
+    }
+
+    function normalizeDebateState(value) {
+      if (!value || typeof value !== "object") {
+        return null;
+      }
+      const nowMs = Date.now();
+      const teams = {
+        pro: normalizeDebateTeam(value.teams?.pro),
+        con: normalizeDebateTeam(value.teams?.con)
+      };
+      const status = ["setup", "running", "ended"].includes(value.status) ? value.status : "setup";
+      const judgeMode = Boolean(value.judgeMode);
+      const judge = judgeMode ? normalizeDebateParticipant(value.judge) : null;
+      return {
+        schema: DEBATE_SCHEMA,
+        roomId: DEBATE_ROOM_ID,
+        sessionId: String(value.sessionId || createDebateId("debate-room")),
+        joinCode: normalizeDebateCode(value.joinCode || createDebateJoinCode()),
+        hostClientId: String(value.hostClientId || "").trim(),
+        hostName: String(value.hostName || "Host").trim().slice(0, 80) || "Host",
+        topicId: getDebateTopicId(value.topicId),
+        judgeMode,
+        judge,
+        teams,
+        notes: normalizeDebateNotes(value.notes, teams),
+        status,
+        createdAtMs: Number(value.createdAtMs) || nowMs,
+        updatedAtMs: Number(value.updatedAtMs) || Number(value.createdAtMs) || nowMs,
+        startedAtMs: Number(value.startedAtMs) || null,
+        endedAtMs: Number(value.endedAtMs) || null,
+        speechId: String(value.speechId || ""),
+        announcement: String(value.announcement || "")
+      };
+    }
+
+    function cloneDebateState(state = debateState) {
+      return state ? JSON.parse(JSON.stringify(state)) : null;
+    }
+
+    function touchDebateState(state) {
+      state.updatedAtMs = Date.now();
+      return state;
+    }
+
+    function getDebatePresencePayload() {
+      const payload = { debateRoom: null, debateAudio: null };
+      if (room.id !== DEBATE_ROOM_ID || !debateState) {
+        return payload;
+      }
+      if (debateState.hostClientId === localPlayer.clientId) {
+        payload.debateRoom = cloneDebateState(debateState);
+      }
+      if (debateAudioStatus.enabled) {
+        payload.debateAudio = {
+          schema: "campus2d.debate.audio-presence.v1",
+          enabled: true,
+          muted: Boolean(debateAudioStatus.muted),
+          connecting: Boolean(debateAudioStatus.connecting),
+          sessionId: debateState.sessionId,
+          routeLabel: debateAudioStatus.routeLabel || "",
+          canSend: Boolean(debateAudioStatus.canSend),
+          updatedAtMs: Date.now()
+        };
+      }
+      return payload;
+    }
+
+    function isDebateBlocking(state = debateState) {
+      return debateRules.isBlocking(state);
+    }
+
+    function isLocalDebateHost(state = debateState) {
+      return debateRules.isHost(state, localPlayer.clientId);
+    }
+
+    function getDebateParticipantName(participant) {
+      return debateRules.getParticipantName(participant);
+    }
+
+    function getLocalDebateRole(state = debateState) {
+      const role = debateRules.getLocalRole(state, localPlayer.clientId);
+      return role === "audience" ? "" : role;
+    }
+
+    function getLocalDebateParticipant(state = debateState) {
+      return debateRules.getLocalParticipant(state, localPlayer.clientId);
+    }
+
+    function getNextDebateNoteColor(state, side) {
+      const used = new Set((state?.teams?.[side] || []).map((participant) => participant.noteColor));
+      return DEBATE_NOTE_COLORS.find((color) => !used.has(color)) || DEBATE_NOTE_COLORS[0];
+    }
+
+    function createLocalDebateParticipant(noteColor = DEBATE_NOTE_COLORS[0]) {
+      return {
+        clientId: localPlayer.clientId,
+        userId: localPlayer.userId || null,
+        displayName: localPlayer.displayName || "Guest",
+        colorId: localPlayer.colorId || manifest.colors[0].id,
+        noteColor,
+        joinedAtMs: Date.now()
+      };
+    }
+
+    function removeLocalDebateRole(state) {
+      ["pro", "con"].forEach((side) => {
+        state.teams[side] = (state.teams[side] || []).filter((participant) => participant.clientId !== localPlayer.clientId);
+        if (state.notes?.[side]) {
+          delete state.notes[side][localPlayer.clientId];
+        }
+      });
+      if (state.judge?.clientId === localPlayer.clientId) {
+        state.judge = null;
+      }
+      return state;
+    }
+
+    function setDebateState(nextState, options = {}) {
+      const normalized = normalizeDebateState(nextState);
+      debateState = normalized;
+      if (debateState?.status === "ended") {
+        debateAudioManager?.disable();
+      }
+      if (Object.prototype.hasOwnProperty.call(options, "status")) {
+        debatePanelStatus = options.status || "";
+      }
+      if (options.render !== false) {
+        renderDebateUi();
+      }
+      if (options.broadcast && debateState) {
+        publishDebateState();
+      }
+      openDebateAnnouncementIfNeeded();
+      updateDebateAudioContext();
+    }
+
+    function publishDebateState() {
+      if (!debateState || room.id !== DEBATE_ROOM_ID) {
+        return;
+      }
+      channel?.sendDebate({ debateState: cloneDebateState(debateState) });
+      publishPresence(true);
+    }
+
+    function sendDebateSignal(payload) {
+      if (!payload || room.id !== DEBATE_ROOM_ID || !debateState) {
+        return;
+      }
+      channel?.sendDebateSignal({
+        debateSignal: {
+          roomId: DEBATE_ROOM_ID,
+          sessionId: debateState.sessionId,
+          ...payload
+        }
+      });
+    }
+
+    function getDebateAudioPeers() {
+      return Array.from(remotePlayers.values())
+        .filter((player) => player.roomId === DEBATE_ROOM_ID && player.debateAudio?.enabled)
+        .map((player) => ({
+          clientId: player.clientId,
+          displayName: player.displayName || "Guest",
+          debateAudio: player.debateAudio
+        }));
+    }
+
+    function getDebateAudioRoute(nowMs = Date.now()) {
+      return debateRules.createAudioRoute(debateState, localPlayer.clientId, nowMs);
+    }
+
+    function updateDebateAudioContext(nowMs = Date.now()) {
+      if (!debateAudioManager) {
+        return;
+      }
+      debateAudioManager.update({
+        sessionId: debateState?.sessionId || "",
+        debateStatus: debateState?.status || "",
+        route: getDebateAudioRoute(nowMs),
+        peers: getDebateAudioPeers()
+      });
+    }
+
+    function receiveDebateSignal(payload) {
+      const signal = payload?.debateSignal || payload;
+      if (!signal || signal.roomId !== DEBATE_ROOM_ID || signal.toClientId !== localPlayer.clientId) {
+        return;
+      }
+      debateAudioManager?.handleSignal(signal);
+    }
+
+    function shouldAcceptDebateState(incoming) {
+      if (!incoming) {
+        return false;
+      }
+      if (!debateState) {
+        return true;
+      }
+      if (incoming.sessionId !== debateState.sessionId) {
+        if (isDebateBlocking(debateState) && incoming.updatedAtMs < debateState.updatedAtMs) {
+          return false;
+        }
+        return true;
+      }
+      return incoming.updatedAtMs >= debateState.updatedAtMs;
+    }
+
+    function receiveRemoteDebate(payload) {
+      const incoming = normalizeDebateState(payload?.debateState || payload);
+      if (!shouldAcceptDebateState(incoming)) {
+        return;
+      }
+      setDebateState(incoming, { render: true, status: "" });
+      if (isLocalDebateHost()) {
+        publishPresence(true);
+      }
+    }
+
+    function syncDebateStateFromPresence(presenceRows = []) {
+      const latest = presenceRows
+        .map((presence) => normalizeDebateState(presence?.debateRoom))
+        .filter(Boolean)
+        .sort((left, right) => right.updatedAtMs - left.updatedAtMs)[0] || null;
+      if (latest && shouldAcceptDebateState(latest)) {
+        setDebateState(latest, { render: true, status: "" });
+      }
+    }
+
+    function createDebateRoom() {
+      if (isDebateBlocking(debateState)) {
+        debatePanelStatus = "A Debate Lab room is already active.";
+        renderDebateUi();
+        return;
+      }
+      const nowMs = Date.now();
+      const side = normalizeDebateSide(debateDraft.hostSide);
+      const next = {
+        schema: DEBATE_SCHEMA,
+        roomId: DEBATE_ROOM_ID,
+        sessionId: createDebateId("debate-room"),
+        joinCode: createDebateJoinCode(),
+        hostClientId: localPlayer.clientId,
+        hostName: localPlayer.displayName || "Host",
+        topicId: getDebateTopicId(debateDraft.topicId),
+        judgeMode: Boolean(debateDraft.judgeMode),
+        judge: null,
+        teams: { pro: [], con: [] },
+        notes: { pro: {}, con: {} },
+        status: "setup",
+        createdAtMs: nowMs,
+        updatedAtMs: nowMs
+      };
+      next.teams[side].push(createLocalDebateParticipant(getNextDebateNoteColor(next, side)));
+      setDebateState(next, { broadcast: true, status: "Room created. Share the join code." });
+    }
+
+    function getDebateStartIssues(state = debateState) {
+      return debateRules.getStartIssues(state);
+    }
+
+    function buildDebateAnnouncement(state) {
+      const motion = getDebateMotion(state.topicId);
+      const proNames = state.teams.pro.map(getDebateParticipantName).join(", ");
+      const conNames = state.teams.con.map(getDebateParticipantName).join(", ");
+      const judgeSentence = state.judgeMode && state.judge
+        ? `At the end, Judge ${getDebateParticipantName(state.judge)} will give us the winning team.`
+        : "At the end, Our audience and the debators will have two minutes to share their opinion on who won the debate and why.";
+      return [
+        "Dear speakers and audience,",
+        `Today's motion is "${motion}".`,
+        `On my right, our PRO team's speakers are ${proNames}.`,
+        `On my left, our CON team's speakers are ${conNames}.`,
+        `We will start with a 5mn preparation period, then, each speaker will have 3mn max to state, explain, defend their position. Between each speaker, we have a one minute transition period. ${judgeSentence}`,
+        "Please speakers, turn on your microphones, Please audience, turn on your speakers.",
+        "Let the 5mn prep start!"
+      ].join("\n");
+    }
+
+    function startDebate() {
+      if (!isLocalDebateHost() || debateState?.status !== "setup") {
+        return;
+      }
+      const issues = getDebateStartIssues(debateState);
+      if (issues.length) {
+        debatePanelStatus = issues[0];
+        renderDebateUi();
+        return;
+      }
+      const nowMs = Date.now();
+      const next = cloneDebateState();
+      next.status = "running";
+      next.startedAtMs = nowMs;
+      next.endedAtMs = null;
+      next.speechId = `${next.sessionId}-${nowMs}`;
+      next.announcement = buildDebateAnnouncement(next);
+      touchDebateState(next);
+      setDebateState(next, { broadcast: true, status: "" });
+    }
+
+    function endDebate() {
+      if (!isLocalDebateHost() || debateState?.status !== "running") {
+        return;
+      }
+      const next = cloneDebateState();
+      next.status = "ended";
+      next.endedAtMs = Date.now();
+      touchDebateState(next);
+      setDebateState(next, { broadcast: true, status: "Debate ended." });
+    }
+
+    function setActiveDebateTopic(topicId) {
+      if (!isLocalDebateHost() || debateState?.status !== "setup") {
+        return;
+      }
+      const next = cloneDebateState();
+      next.topicId = getDebateTopicId(topicId);
+      touchDebateState(next);
+      setDebateState(next, { broadcast: true, status: "Topic changed." });
+    }
+
+    function cycleDebateTopic() {
+      const topics = getDebateTopics();
+      if (!topics.length) {
+        return;
+      }
+      const currentId = debateState && isLocalDebateHost() && debateState.status === "setup"
+        ? debateState.topicId
+        : debateDraft.topicId;
+      const currentIndex = topics.findIndex((topic) => String(topic.id) === String(currentId));
+      const nextTopic = topics[(currentIndex + 1 + topics.length) % topics.length] || topics[0];
+      if (debateState && isLocalDebateHost() && debateState.status === "setup") {
+        setActiveDebateTopic(nextTopic.id);
+        return;
+      }
+      debateDraft.topicId = String(nextTopic.id);
+      renderDebateUi();
+    }
+
+    function setDebateJudgeMode(enabled) {
+      if (debateState && isLocalDebateHost() && debateState.status === "setup") {
+        const next = cloneDebateState();
+        next.judgeMode = Boolean(enabled);
+        if (!next.judgeMode) {
+          next.judge = null;
+        }
+        touchDebateState(next);
+        setDebateState(next, { broadcast: true, status: next.judgeMode ? "Judge mode on." : "Judge mode off." });
+        return;
+      }
+      debateDraft.judgeMode = Boolean(enabled);
+      renderDebateUi();
+    }
+
+    function chooseHostDebateSide(side) {
+      const normalizedSide = normalizeDebateSide(side);
+      if (debateState && isLocalDebateHost() && debateState.status === "setup") {
+        const next = removeLocalDebateRole(cloneDebateState());
+        if (next.teams[normalizedSide].length >= DEBATE_MAX_TEAM_SIZE) {
+          debatePanelStatus = `${getDebateSideLabel(normalizedSide)} is full.`;
+          renderDebateUi();
+          return;
+        }
+        next.teams[normalizedSide].push(createLocalDebateParticipant(getNextDebateNoteColor(next, normalizedSide)));
+        touchDebateState(next);
+        setDebateState(next, { broadcast: true, status: `Host joined ${getDebateSideLabel(normalizedSide)}.` });
+        return;
+      }
+      debateDraft.hostSide = normalizedSide;
+      renderDebateUi();
+    }
+
+    function joinDebateAs(role) {
+      if (!debateState || debateState.status !== "setup") {
+        return;
+      }
+      if (normalizeDebateCode(debateDraft.joinCode) !== debateState.joinCode && !getLocalDebateRole()) {
+        debatePanelStatus = "Enter the host's join code first.";
+        renderDebateUi();
+        return;
+      }
+      const next = removeLocalDebateRole(cloneDebateState());
+      if (role === "judge") {
+        if (!next.judgeMode) {
+          debatePanelStatus = "This room is not using a judge.";
+          renderDebateUi();
+          return;
+        }
+        if (next.judge && next.judge.clientId !== localPlayer.clientId) {
+          debatePanelStatus = `${getDebateParticipantName(next.judge)} is already judging.`;
+          renderDebateUi();
+          return;
+        }
+        next.judge = createLocalDebateParticipant("#fff2b5");
+        touchDebateState(next);
+        setDebateState(next, { broadcast: true, status: "Joined as judge." });
+        return;
+      }
+      const side = normalizeDebateSide(role);
+      if (next.teams[side].length >= DEBATE_MAX_TEAM_SIZE) {
+        debatePanelStatus = `${getDebateSideLabel(side)} is full.`;
+        renderDebateUi();
+        return;
+      }
+      next.teams[side].push(createLocalDebateParticipant(getNextDebateNoteColor(next, side)));
+      touchDebateState(next);
+      setDebateState(next, { broadcast: true, status: `Joined ${getDebateSideLabel(side)}.` });
+    }
+
+    function leaveDebateRole() {
+      if (!debateState || debateState.status !== "setup" || isLocalDebateHost()) {
+        return;
+      }
+      const next = removeLocalDebateRole(cloneDebateState());
+      touchDebateState(next);
+      setDebateState(next, { broadcast: true, status: "Left the signup list." });
+    }
+
+    function updateLocalDebateNote(side, text) {
+      if (!debateState || getLocalDebateRole() !== side) {
+        return;
+      }
+      const next = cloneDebateState();
+      next.notes[side][localPlayer.clientId] = String(text || "").slice(0, DEBATE_NOTE_MAX_LENGTH);
+      touchDebateState(next);
+      debateState = normalizeDebateState(next);
+      window.clearTimeout(debateNoteSendTimer);
+      debateNoteSendTimer = window.setTimeout(() => {
+        debateNoteSendTimer = 0;
+        publishDebateState();
+      }, 180);
+    }
+
+    function buildDebateTimeline(state = debateState) {
+      return debateRules.buildTimeline(state);
+    }
+
+    function getDebateClock(state = debateState, nowMs = Date.now()) {
+      return debateRules.getClock(state, nowMs);
+    }
+
+    function getDebateClockKey(clock) {
+      return debateRules.getClockKey(clock, debateState);
+    }
+
+    function maybeAutoEndDebate(nowMs = Date.now()) {
+      const clock = getDebateClock(debateState, nowMs);
+      if (isLocalDebateHost() && debateState?.status === "running" && clock && clock.totalRemaining <= 0) {
+        endDebate();
+      }
+    }
+
+    function getDebateModeratorPosition(nowMs = Date.now()) {
+      if (!debateState || debateState.status === "setup") {
+        return { ...DEBATE_CENTER_STAGE, direction: "down", moving: false };
+      }
+      if (debateState.status === "running") {
+        const walkStart = Number(debateState.startedAtMs || 0) + DEBATE_INTRO_MS;
+        const progress = clamp((nowMs - walkStart) / DEBATE_NPC_WALK_MS, 0, 1);
+        if (progress <= 0) {
+          return { ...DEBATE_CENTER_STAGE, direction: "down", moving: false };
+        }
+        if (progress >= 1) {
+          return { ...DEBATE_SIDE_STAGE, direction: "down", moving: false };
+        }
+        return {
+          x: DEBATE_CENTER_STAGE.x + ((DEBATE_SIDE_STAGE.x - DEBATE_CENTER_STAGE.x) * progress),
+          y: DEBATE_CENTER_STAGE.y + ((DEBATE_SIDE_STAGE.y - DEBATE_CENTER_STAGE.y) * progress),
+          direction: "right",
+          moving: true
+        };
+      }
+      if (debateState.status === "ended" && debateState.endedAtMs) {
+        const progress = clamp((nowMs - debateState.endedAtMs) / DEBATE_NPC_WALK_MS, 0, 1);
+        if (progress >= 1) {
+          return { ...DEBATE_CENTER_STAGE, direction: "down", moving: false };
+        }
+        return {
+          x: DEBATE_SIDE_STAGE.x + ((DEBATE_CENTER_STAGE.x - DEBATE_SIDE_STAGE.x) * progress),
+          y: DEBATE_SIDE_STAGE.y + ((DEBATE_CENTER_STAGE.y - DEBATE_SIDE_STAGE.y) * progress),
+          direction: "left",
+          moving: progress > 0
+        };
+      }
+      return { ...DEBATE_CENTER_STAGE, direction: "down", moving: false };
+    }
+
+    function getDebateNpcRenderState(entry, nowMs = Date.now()) {
+      if (room.id !== DEBATE_ROOM_ID || entry.id !== DEBATE_MODERATOR_NPC_ID) {
+        return entry;
+      }
+      const position = getDebateModeratorPosition(nowMs);
+      return {
+        ...entry,
+        x: position.x,
+        y: position.y,
+        direction: position.direction,
+        moving: position.moving
+      };
+    }
+
+    function updateDebateNpcElements(nowMs) {
+      if (room.id !== DEBATE_ROOM_ID) {
+        return;
+      }
+      const entry = getNpcById(DEBATE_MODERATOR_NPC_ID);
+      const element = npcElements.get(DEBATE_MODERATOR_NPC_ID);
+      if (!entry || !element) {
+        return;
+      }
+      const npc = getDebateNpcRenderState(entry, Date.now());
+      updatePlayerElement(element, {
+        clientId: npc.id,
+        displayName: npc.label || "NPC",
+        x: npc.x,
+        y: npc.y,
+        direction: npc.direction || "down",
+        colorId: npc.colorId || "red",
+        moving: Boolean(npc.moving)
+      }, nowMs);
+    }
+
+    function renderDebateTopicSelect(selectedId, dataAttribute) {
+      const select = createEl("select", "campus2d-debate-select", {
+        "data-campus2d-ui": "",
+        [dataAttribute]: ""
+      });
+      getDebateTopics().forEach((topic, index) => {
+        const option = createEl("option", "");
+        option.value = String(topic.id);
+        option.textContent = `${index + 1}. ${shortenDebateText(topic.motion, 92)}`;
+        option.selected = String(topic.id) === String(selectedId);
+        select.append(option);
+      });
+      return select;
+    }
+
+    function createDebateActionButton(label, action, className = "", attributes = {}) {
+      const button = createTextElement("button", `campus2d-debate-button ${className}`.trim(), label, {
+        type: "button",
+        "data-campus2d-debate-action": action,
+        "data-campus2d-ui": "",
+        ...attributes
+      });
+      if (attributes.disabled) {
+        button.disabled = true;
+      }
+      return button;
+    }
+
+    function createDebateTeamButton(side, label, attributes = {}) {
+      const button = createTextElement("button", `campus2d-debate-button ${normalizeDebateSide(side)}`, label, {
+        type: "button",
+        "data-campus2d-debate-team": normalizeDebateSide(side),
+        "data-campus2d-ui": "",
+        ...attributes
+      });
+      if (attributes.disabled) {
+        button.disabled = true;
+      }
+      return button;
+    }
+
+    function renderDebateCreateControls(panel) {
+      const form = createEl("form", "campus2d-debate-card campus2d-debate-create", {
+        "data-campus2d-debate-create-form": "",
+        "data-campus2d-ui": ""
+      });
+      form.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Host room"),
+        createTextElement("h3", "", "Create Debate Lab")
+      );
+      const topicRow = createEl("label", "campus2d-debate-field");
+      topicRow.append(createTextElement("span", "", "Topic"), renderDebateTopicSelect(debateDraft.topicId, "data-campus2d-debate-create-topic"));
+      const topicActions = createEl("div", "campus2d-debate-actions");
+      topicActions.append(createDebateActionButton("Change topic", "cycle-topic", "secondary"));
+      const sideRow = createEl("div", "campus2d-debate-segment", { role: "group", "aria-label": "Host team" });
+      ["pro", "con"].forEach((side) => {
+        const button = createDebateTeamButton(side, getDebateSideLabel(side));
+        button.classList.toggle("is-active", debateDraft.hostSide === side);
+        sideRow.append(button);
+      });
+      const judgeLabel = createEl("label", "campus2d-debate-check");
+      const judgeInput = createEl("input", "", {
+        type: "checkbox",
+        "data-campus2d-debate-judge-mode": "",
+        "data-campus2d-ui": ""
+      });
+      judgeInput.checked = Boolean(debateDraft.judgeMode);
+      judgeLabel.append(judgeInput, createTextElement("span", "", "Use a judge"));
+      const submit = createTextElement("button", "campus2d-debate-button primary", "Create room", {
+        type: "submit",
+        "data-campus2d-ui": ""
+      });
+      form.append(topicRow, topicActions, createTextElement("span", "campus2d-debate-label", "Host team"), sideRow, judgeLabel, submit);
+      panel.append(form);
+    }
+
+    function renderDebateTeamCard(side, panel) {
+      const team = debateState?.teams?.[side] || [];
+      const card = createEl("section", `campus2d-debate-team-card ${side}`);
+      card.append(
+        createTextElement("span", "campus2d-debate-team-label", getDebateSideLabel(side)),
+        createTextElement("strong", "", `${team.length}/${DEBATE_MAX_TEAM_SIZE}`)
+      );
+      const list = createEl("div", "campus2d-debate-roster");
+      for (let index = 0; index < DEBATE_MAX_TEAM_SIZE; index += 1) {
+        const participant = team[index];
+        const item = createEl("div", "campus2d-debate-roster-row");
+        const swatch = createEl("span", "campus2d-debate-note-swatch", { "aria-hidden": "true" });
+        swatch.style.setProperty("--debate-note-color", participant?.noteColor || "rgba(255,255,255,0.24)");
+        item.append(swatch, createTextElement("span", "", participant ? getDebateParticipantName(participant) : `Speaker ${index + 1}`));
+        item.classList.toggle("is-empty", !participant);
+        list.append(item);
+      }
+      card.append(list);
+      panel.append(card);
+    }
+
+    function renderDebateJudgeCard(panel) {
+      if (!debateState?.judgeMode) {
+        return;
+      }
+      const card = createEl("section", "campus2d-debate-judge-card");
+      card.append(
+        createTextElement("span", "campus2d-debate-team-label", "Judge"),
+        createTextElement("strong", "", debateState.judge ? getDebateParticipantName(debateState.judge) : "Open")
+      );
+      panel.append(card);
+    }
+
+    function renderDebateRoomSummary(panel) {
+      const topic = getDebateTopic(debateState.topicId);
+      const card = createEl("section", "campus2d-debate-card campus2d-debate-summary");
+      const header = createEl("div", "campus2d-debate-summary-header");
+      header.append(
+        createTextElement("span", "campus2d-debate-eyebrow", debateState.status === "running" ? "In progress" : debateState.status === "ended" ? "Ended" : "Room open"),
+        createTextElement("strong", "", isLocalDebateHost() ? `Join code ${debateState.joinCode}` : "Join by code")
+      );
+      const motion = createTextElement("h3", "", topic?.motion || "Debate Lab");
+      card.append(header, motion);
+      if (isLocalDebateHost() && debateState.status === "setup") {
+        const topicRow = createEl("label", "campus2d-debate-field");
+        topicRow.append(createTextElement("span", "", "Topic"), renderDebateTopicSelect(debateState.topicId, "data-campus2d-debate-topic-select"));
+        const actions = createEl("div", "campus2d-debate-actions");
+        actions.append(createDebateActionButton("Change topic", "cycle-topic", "secondary"));
+        const judgeLabel = createEl("label", "campus2d-debate-check");
+        const judgeInput = createEl("input", "", {
+          type: "checkbox",
+          "data-campus2d-debate-judge-mode": "",
+          "data-campus2d-ui": ""
+        });
+        judgeInput.checked = Boolean(debateState.judgeMode);
+        judgeLabel.append(judgeInput, createTextElement("span", "", "Use a judge"));
+        card.append(topicRow, actions, judgeLabel);
+      }
+      const timer = createEl("div", "campus2d-debate-timer-card");
+      timer.append(
+        createTextElement("span", "", "Countdown"),
+        createTextElement("strong", "", "--:--", { "data-campus2d-debate-timer": "" }),
+        createTextElement("em", "", "Setup", { "data-campus2d-debate-phase": "" })
+      );
+      card.append(timer);
+      panel.append(card);
+    }
+
+    function renderDebateSignupControls(panel) {
+      if (!debateState || debateState.status !== "setup") {
+        return;
+      }
+      const role = getLocalDebateRole();
+      const isHost = isLocalDebateHost();
+      const card = createEl("section", "campus2d-debate-card campus2d-debate-signup");
+      if (!role && !isHost) {
+        const field = createEl("label", "campus2d-debate-field");
+        const input = createEl("input", "campus2d-debate-code-input", {
+          type: "text",
+          inputmode: "latin",
+          maxlength: String(DEBATE_JOIN_CODE_LENGTH),
+          autocomplete: "off",
+          placeholder: "Join code",
+          "data-campus2d-debate-code-input": "",
+          "data-campus2d-ui": ""
+        });
+        input.value = debateDraft.joinCode;
+        field.append(createTextElement("span", "", "Code"), input);
+        card.append(createTextElement("p", "campus2d-debate-eyebrow", "Join room"), field);
+      } else {
+        card.append(createTextElement("p", "campus2d-debate-eyebrow", isHost ? "Host signup" : "Your signup"));
+      }
+      const buttons = createEl("div", "campus2d-debate-actions");
+      ["pro", "con"].forEach((side) => {
+        const current = role === side;
+        const full = debateState.teams[side].length >= DEBATE_MAX_TEAM_SIZE && !current;
+        const button = createDebateTeamButton(side, current ? `${getDebateSideLabel(side)} selected` : `Join ${getDebateSideLabel(side)}`, {
+          disabled: full || current
+        });
+        button.classList.toggle("is-active", current);
+        buttons.append(button);
+      });
+      if (debateState.judgeMode && !isHost) {
+        const judgeCurrent = role === "judge";
+        const judgeTaken = debateState.judge && !judgeCurrent;
+        const judgeButton = createDebateActionButton(judgeCurrent ? "Judge selected" : "Join as judge", "join-judge", "secondary", {
+          disabled: judgeTaken || judgeCurrent
+        });
+        judgeButton.classList.toggle("is-active", judgeCurrent);
+        buttons.append(judgeButton);
+      }
+      if (role && !isHost) {
+        buttons.append(createDebateActionButton("Leave", "leave-role", "secondary"));
+      }
+      card.append(buttons);
+      panel.append(card);
+    }
+
+    function renderDebateStartControls(panel) {
+      if (!debateState || debateState.status !== "setup") {
+        return;
+      }
+      const card = createEl("section", "campus2d-debate-card campus2d-debate-start");
+      const issues = getDebateStartIssues();
+      const list = createEl("ul", "campus2d-debate-requirements");
+      if (issues.length) {
+        issues.forEach((issue) => list.append(createTextElement("li", "", issue)));
+      } else {
+        list.append(createTextElement("li", "is-ready", "Teams are ready."));
+      }
+      card.append(createTextElement("p", "campus2d-debate-eyebrow", "Start gate"), list);
+      if (isLocalDebateHost()) {
+        card.append(createDebateActionButton("Let's Debate!", "start", "primary", { disabled: issues.length > 0 }));
+      } else {
+        card.append(createTextElement("p", "campus2d-debate-muted", "Only the host can start."));
+      }
+      panel.append(card);
+    }
+
+    function renderDebateRunningControls(panel) {
+      if (!debateState || debateState.status !== "running") {
+        return;
+      }
+      const card = createEl("section", "campus2d-debate-card campus2d-debate-running");
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Live round"),
+        createTextElement("strong", "", "Debate in progress")
+      );
+      if (isLocalDebateHost()) {
+        card.append(createDebateActionButton("End debate", "end", "danger"));
+      } else {
+        card.append(createTextElement("p", "campus2d-debate-muted", "The host controls this debate until it ends."));
+      }
+      panel.append(card);
+    }
+
+    function renderDebateEndedControls(panel) {
+      if (!debateState || debateState.status !== "ended") {
+        return;
+      }
+      const card = createEl("section", "campus2d-debate-card campus2d-debate-ended");
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Complete"),
+        createTextElement("strong", "", "Ready for a new Debate Lab room"),
+        createDebateActionButton("Create new debate", "new-room", "primary")
+      );
+      panel.append(card);
+    }
+
+    function renderDebateNotes(panel) {
+      const role = getLocalDebateRole();
+      if (!["pro", "con"].includes(role)) {
+        return;
+      }
+      const card = createEl("section", `campus2d-debate-card campus2d-debate-notes ${role}`);
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", `${getDebateSideLabel(role)} notes`),
+        createTextElement("h3", "", "Team notes")
+      );
+      const notes = debateState.notes?.[role] || {};
+      const list = createEl("div", "campus2d-debate-note-list");
+      (debateState.teams[role] || []).forEach((participant) => {
+        const label = createEl("label", "campus2d-debate-note-block");
+        const name = createTextElement("span", "", getDebateParticipantName(participant));
+        name.style.setProperty("--debate-note-color", participant.noteColor);
+        const textarea = createEl("textarea", "campus2d-debate-note-input", {
+          maxlength: String(DEBATE_NOTE_MAX_LENGTH),
+          rows: "4",
+          "data-campus2d-debate-note-input": "",
+          "data-campus2d-debate-note-side": role,
+          "data-campus2d-debate-note-client": participant.clientId,
+          "data-campus2d-ui": ""
+        });
+        textarea.value = notes[participant.clientId] || "";
+        textarea.readOnly = participant.clientId !== localPlayer.clientId;
+        textarea.style.setProperty("--debate-note-color", participant.noteColor);
+        label.append(name, textarea);
+        list.append(label);
+      });
+      card.append(list);
+      panel.append(card);
+    }
+
+    function getDebateAudioStatusText() {
+      if (!debateAudioStatus.supported) {
+        return "Audio is not supported in this browser.";
+      }
+      if (debateAudioStatus.permissionDenied) {
+        return "Microphone permission was denied.";
+      }
+      if (debateAudioStatus.connecting) {
+        return "Connecting microphone...";
+      }
+      if (!debateAudioStatus.enabled) {
+        return "Microphone off.";
+      }
+      if (debateAudioStatus.muted) {
+        return "Muted.";
+      }
+      if (debateAudioStatus.canSend) {
+        return "Microphone live.";
+      }
+      return "Listening. Your microphone opens only when the debate route allows it.";
+    }
+
+    function updateDebateAudioStatusDisplays() {
+      root.querySelectorAll("[data-campus2d-debate-audio-status]").forEach((element) => {
+        element.textContent = getDebateAudioStatusText();
+      });
+      root.querySelectorAll("[data-campus2d-debate-audio-route]").forEach((element) => {
+        element.textContent = debateAudioStatus.routeLabel || "Audio idle";
+      });
+      root.querySelectorAll("[data-campus2d-debate-audio-peers]").forEach((element) => {
+        element.textContent = `${debateAudioStatus.peerCount || 0} connected`;
+      });
+    }
+
+    function renderDebateAudioControls(panel) {
+      if (!debateState) {
+        return;
+      }
+      const card = createEl("section", "campus2d-debate-card campus2d-debate-audio");
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Audio"),
+        createTextElement("strong", "", debateAudioStatus.enabled ? "Microphone ready" : "Join audio")
+      );
+      const status = createTextElement("p", "campus2d-debate-muted", getDebateAudioStatusText(), {
+        "data-campus2d-debate-audio-status": "",
+        "aria-live": "polite"
+      });
+      const route = createEl("div", "campus2d-debate-audio-route");
+      route.append(
+        createTextElement("span", "", debateAudioStatus.routeLabel || "Audio idle", { "data-campus2d-debate-audio-route": "" }),
+        createTextElement("em", "", `${debateAudioStatus.peerCount || 0} connected`, { "data-campus2d-debate-audio-peers": "" })
+      );
+      card.append(status, route);
+      const actions = createEl("div", "campus2d-debate-actions");
+      if (!debateAudioStatus.supported) {
+        actions.append(createTextElement("p", "campus2d-debate-muted", "Use a browser with WebRTC audio support."));
+      } else if (!debateAudioStatus.enabled) {
+        actions.append(createDebateActionButton("Enable mic", "enable-audio", "primary", {
+          disabled: debateAudioStatus.connecting || !debateState
+        }));
+      } else {
+        actions.append(createDebateActionButton(debateAudioStatus.muted ? "Unmute" : "Mute", debateAudioStatus.muted ? "unmute-audio" : "mute-audio", "secondary"));
+        actions.append(createDebateActionButton("Leave audio", "disable-audio", "secondary"));
+      }
+      card.append(actions);
+      panel.append(card);
+    }
+
+    function getDebateFocusSnapshot() {
+      const active = document.activeElement;
+      if (!active || !activityMount.contains(active)) {
+        return null;
+      }
+      if (active.matches("[data-campus2d-debate-note-input]")) {
+        return {
+          type: "note",
+          side: active.dataset.campus2dDebateNoteSide,
+          clientId: active.dataset.campus2dDebateNoteClient,
+          selectionStart: active.selectionStart,
+          selectionEnd: active.selectionEnd
+        };
+      }
+      if (active.matches("[data-campus2d-debate-code-input]")) {
+        return {
+          type: "code",
+          selectionStart: active.selectionStart,
+          selectionEnd: active.selectionEnd
+        };
+      }
+      return null;
+    }
+
+    function restoreDebateFocus(snapshot) {
+      if (!snapshot) {
+        return;
+      }
+      let target = null;
+      if (snapshot.type === "note") {
+        target = activityMount.querySelector(`[data-campus2d-debate-note-side="${snapshot.side}"][data-campus2d-debate-note-client="${snapshot.clientId}"]`);
+      } else if (snapshot.type === "code") {
+        target = activityMount.querySelector("[data-campus2d-debate-code-input]");
+      }
+      if (!target) {
+        return;
+      }
+      target.focus({ preventScroll: true });
+      if (Number.isInteger(snapshot.selectionStart) && target.setSelectionRange) {
+        target.setSelectionRange(snapshot.selectionStart, snapshot.selectionEnd);
+      }
+    }
+
+    function renderDebatePanel() {
+      const focusSnapshot = getDebateFocusSnapshot();
+      const panel = createEl("section", "campus2d-debate-panel", {
+        "data-campus2d-debate-panel": "",
+        "data-campus2d-ui": "",
+        "aria-label": "Debate Lab multiplayer"
+      });
+      const header = createEl("header", "campus2d-debate-header");
+      header.append(createTextElement("p", "campus2d-debate-eyebrow", "Multiplayer"), createTextElement("h2", "", "Debate Lab"));
+      panel.append(header);
+      if (debatePanelStatus) {
+        panel.append(createTextElement("p", "campus2d-debate-status", debatePanelStatus, { "aria-live": "polite" }));
+      }
+      if (!debateState || debateState.status === "ended") {
+        if (debateState?.status === "ended") {
+          renderDebateRoomSummary(panel);
+          renderDebateEndedControls(panel);
+        }
+        renderDebateCreateControls(panel);
+      } else {
+        renderDebateRoomSummary(panel);
+        const teams = createEl("div", "campus2d-debate-team-grid");
+        renderDebateTeamCard("pro", teams);
+        renderDebateTeamCard("con", teams);
+        renderDebateJudgeCard(teams);
+        panel.append(teams);
+        renderDebateSignupControls(panel);
+        renderDebateStartControls(panel);
+        renderDebateRunningControls(panel);
+        renderDebateAudioControls(panel);
+        renderDebateNotes(panel);
+      }
+      activityMount.replaceChildren(panel);
+      lastDebateClockKey = getDebateClockKey(getDebateClock(debateState));
+      updateDebateTimerDisplays(Date.now());
+      restoreDebateFocus(focusSnapshot);
+    }
+
+    function renderDebateWorldScreen() {
+      debateLayer.replaceChildren();
+      if (room.id !== DEBATE_ROOM_ID) {
+        return;
+      }
+      const screen = createEl("section", "campus2d-debate-screen", { "aria-hidden": "true" });
+      screen.style.left = `${DEBATE_BOARD_RECT.x}px`;
+      screen.style.top = `${DEBATE_BOARD_RECT.y}px`;
+      screen.style.width = `${DEBATE_BOARD_RECT.width}px`;
+      screen.style.height = `${DEBATE_BOARD_RECT.height}px`;
+      screen.append(
+        createTextElement("span", "campus2d-debate-screen-label", debateState?.status === "running" ? "Live Debate Lab" : "Debate Lab"),
+        createTextElement("strong", "campus2d-debate-screen-topic", getDebateMotion()),
+        createTextElement("span", "campus2d-debate-screen-phase", debateState ? "Setup" : "Choose a topic", { "data-campus2d-debate-phase": "" }),
+        createTextElement("em", "campus2d-debate-screen-timer", debateState?.status === "running" ? "--:--" : "", { "data-campus2d-debate-timer": "" })
+      );
+      debateLayer.append(screen);
+    }
+
+    function renderDebateUi() {
+      renderDebateWorldScreen();
+      if (room.id === DEBATE_ROOM_ID) {
+        renderDebatePanel();
+        return;
+      }
+      if (activityMount.querySelector("[data-campus2d-debate-panel]")) {
+        activityMount.replaceChildren();
+      }
+    }
+
+    function updateDebateTimerDisplays(nowMs = Date.now()) {
+      const clock = getDebateClock(debateState, nowMs);
+      const phaseText = clock
+        ? clock.phase.label
+        : debateState?.status === "ended"
+          ? "Complete"
+          : debateState?.status === "setup"
+            ? "Setup"
+            : "Ready";
+      const timerText = clock ? formatDebateClock(clock.remaining) : "";
+      root.querySelectorAll("[data-campus2d-debate-phase]").forEach((element) => {
+        element.textContent = phaseText;
+      });
+      root.querySelectorAll("[data-campus2d-debate-timer]").forEach((element) => {
+        element.textContent = timerText;
+      });
+    }
+
+    function updateDebateRuntime(nowMs) {
+      updateDebateNpcElements(nowMs);
+      if (room.id !== DEBATE_ROOM_ID || !debateState) {
+        return;
+      }
+      maybeAutoEndDebate(Date.now());
+      const second = Math.floor(Date.now() / 1000);
+      if (second === lastDebateClockSecond) {
+        return;
+      }
+      lastDebateClockSecond = second;
+      const clock = getDebateClock(debateState);
+      const clockKey = getDebateClockKey(clock);
+      updateDebateAudioContext(Date.now());
+      if (clockKey !== lastDebateClockKey && activityMount.querySelector("[data-campus2d-debate-panel]")) {
+        lastDebateClockKey = clockKey;
+        renderDebateUi();
+        return;
+      }
+      updateDebateTimerDisplays(Date.now());
     }
 
     function renderPortals() {
@@ -1580,16 +2909,17 @@
       npcElements.forEach((element) => element.remove());
       npcElements.clear();
       (room.npcs || []).forEach((entry) => {
+        const npc = getDebateNpcRenderState(entry, Date.now());
         const element = createPlayerElement({
-          clientId: entry.id,
-          displayName: entry.label || "NPC",
-          x: entry.x,
-          y: entry.y,
-          direction: entry.direction || "down",
-          colorId: entry.colorId || "red",
-          moving: false
+          clientId: npc.id,
+          displayName: npc.label || "NPC",
+          x: npc.x,
+          y: npc.y,
+          direction: npc.direction || "down",
+          colorId: npc.colorId || "red",
+          moving: Boolean(npc.moving)
         }, false, true);
-        npcElements.set(entry.id, element);
+        npcElements.set(npc.id, element);
         npcsLayer.append(element);
       });
     }
@@ -1610,6 +2940,7 @@
       renderPortals();
       renderSeats();
       renderBehindZones();
+      renderDebateUi();
       renderDebugOverlay();
       updateDebugPanel();
       updatePlayerElement(localElement, localPlayer, performance.now());
@@ -1664,6 +2995,9 @@
       const nextRoom = getRoom(roomId);
       if (!nextRoom) {
         return;
+      }
+      if (room.id === DEBATE_ROOM_ID && nextRoom.id !== DEBATE_ROOM_ID) {
+        debateAudioManager?.disable();
       }
       room = nextRoom;
       const nextSpawn = room.spawnPoints[spawnId] || room.spawnPoints.default;
@@ -1945,6 +3279,7 @@
           updatePlayerElement(element, player, nowMs);
         }
       });
+      updateDebateRuntime(nowMs);
       animationFrameId = window.requestAnimationFrame(loop);
     }
 
@@ -1965,6 +3300,7 @@
         displayName: localPlayer.displayName,
         roomId: room.id,
         seatId: localPlayer.seatId || null,
+        ...getDebatePresencePayload(),
         ...getPlayerProfilePayload(localPlayer)
       });
     }
@@ -2018,6 +3354,12 @@
           },
           onAvatar(payload) {
             receiveRemoteMovement(payload);
+          },
+          onDebate(payload) {
+            receiveRemoteDebate(payload);
+          },
+          onDebateSignal(payload) {
+            receiveDebateSignal(payload);
           }
         }
       });
@@ -2050,6 +3392,8 @@
             country: presence.country || "",
             wscEventCount: Number(presence.wscEventCount) || 0,
             highestWscRound: presence.highestWscRound || "",
+            achievements: normalizeAchievements(presence.achievements),
+            debateAudio: presence.debateAudio || null,
             createdAt: presence.createdAt || null,
             moving: false
           });
@@ -2063,6 +3407,8 @@
       });
       renderRemotePlayers();
       updateConnectedCount();
+      syncDebateStateFromPresence(presenceRows);
+      updateDebateAudioContext();
     }
 
     function receiveRemoteMovement(payload) {
@@ -2086,6 +3432,8 @@
         country: payload.country || previous.country || "",
         wscEventCount: Number(payload.wscEventCount ?? previous.wscEventCount) || 0,
         highestWscRound: payload.highestWscRound || previous.highestWscRound || "",
+        achievements: normalizeAchievements(payload.achievements || previous.achievements),
+        debateAudio: previous.debateAudio || null,
         createdAt: payload.createdAt || previous.createdAt || null,
         moving: Boolean(previous.x !== payload.x || previous.y !== payload.y)
       };
@@ -2150,6 +3498,7 @@
     function createAchievementDraft(source = {}) {
       return {
         fullName: String(source.fullName || "").trim(),
+        rewardType: normalizeAchievementRewardType(source.rewardType),
         round: ACHIEVEMENT_ROUNDS.some((round) => round.value === source.round) ? source.round : ACHIEVEMENT_ROUNDS[0].value,
         city: String(source.city || "").trim(),
         approximateDate: String(source.approximateDate || "").trim()
@@ -2331,6 +3680,7 @@
     function collectAchievementDrafts(form) {
       return achievementDrafts.map((_draft, index) => createAchievementDraft({
         fullName: form.querySelector(`[name="achievement_${index}_fullName"]`)?.value || "",
+        rewardType: form.querySelector(`[name="achievement_${index}_rewardType"]`)?.value || "",
         round: form.querySelector(`[name="achievement_${index}_round"]`)?.value || "",
         city: form.querySelector(`[name="achievement_${index}_city"]`)?.value || "",
         approximateDate: form.querySelector(`[name="achievement_${index}_approximateDate"]`)?.value || ""
@@ -2360,6 +3710,7 @@
         group.append(
           legend,
           createField("Full name as displayed on the official WSC results", `achievement_${index}_fullName`, draft.fullName, { required: true }),
+          createSelectField("Reward type", `achievement_${index}_rewardType`, draft.rewardType, ACHIEVEMENT_REWARD_TYPES),
           createSelectField("Round", `achievement_${index}_round`, draft.round, ACHIEVEMENT_ROUNDS),
           createField("City", `achievement_${index}_city`, draft.city, { required: true }),
           createField("Approximate date (month and year)", `achievement_${index}_approximateDate`, draft.approximateDate, {
@@ -2379,7 +3730,12 @@
         type: "submit",
         "data-campus2d-feedback-submit": ""
       });
+      const canAddMore = achievementDrafts.length < MAX_ID_REWARDS;
+      addButton.disabled = !canAddMore;
       addButton.textContent = "+ Add another achievement";
+      if (!canAddMore) {
+        addButton.textContent = "Maximum 9 achievements";
+      }
       submitButton.textContent = "Submit";
       actions.append(addButton, submitButton);
       form.append(actions);
@@ -2413,16 +3769,83 @@
       }
     }
 
-    function createTrophyPanel() {
+    function createRewardTooltip(achievement, rewardType) {
+      const place = achievement.city || "Location pending";
+      const date = achievement.approximateDate || "Date pending";
+      return `${rewardType.label} · ${getRoundLabel(achievement.round)} · ${place} · ${date}`;
+    }
+
+    function createRewardIcon(achievement, index) {
+      const rewardType = getAchievementRewardType(achievement.rewardType);
+      const tooltipText = createRewardTooltip(achievement, rewardType);
+      const button = createEl("button", "campus2d-id-reward", {
+        type: "button",
+        title: tooltipText,
+        "aria-label": tooltipText,
+        "aria-expanded": "false",
+        "data-campus2d-reward": rewardType.value
+      });
+      const image = createEl("img", "campus2d-id-reward-image", {
+        src: rewardType.asset,
+        alt: "",
+        "aria-hidden": "true",
+        draggable: "false"
+      });
+      const tooltip = createEl("span", "campus2d-id-reward-tooltip", { role: "tooltip" });
+      tooltip.textContent = tooltipText;
+      button.append(image, tooltip);
+      button.style.setProperty("--reward-order", String(index + 1));
+      return button;
+    }
+
+    function createRewardRows(achievements) {
+      const grid = createEl("div", "campus2d-id-reward-grid", {
+        "aria-label": "Verified WSC rewards"
+      });
+      getIdRewardRows(achievements).forEach((row, rowIndex) => {
+        const rowElement = createEl("div", "campus2d-id-reward-row");
+        rowElement.style.setProperty("--reward-count", String(row.length));
+        row.forEach((achievement, index) => {
+          rowElement.append(createRewardIcon(achievement, rowIndex * 3 + index));
+        });
+        grid.append(rowElement);
+      });
+      return grid;
+    }
+
+    function createTrophyPanel(player) {
       const panel = createEl("aside", "campus2d-id-trophies", { "aria-label": "Achievements" });
       const title = createEl("strong", "");
-      const list = createEl("div", "campus2d-id-trophy-list");
+      const list = createEl("div", "campus2d-id-reward-list");
+      const achievements = normalizeAchievements(player?.achievements);
       title.textContent = "Achievements";
-      const empty = createEl("p", "campus2d-id-trophy-empty");
-      empty.textContent = "Coming soon";
-      list.append(empty);
+      if (achievements.length) {
+        list.append(createRewardRows(achievements));
+      } else {
+        const empty = createEl("div", "campus2d-id-reward-empty");
+        const rewardType = getAchievementRewardType("trophy");
+        const image = createEl("img", "campus2d-id-reward-empty-image", {
+          src: rewardType.asset,
+          alt: "",
+          "aria-hidden": "true",
+          draggable: "false"
+        });
+        const copy = createEl("span", "");
+        copy.textContent = "No verified rewards yet";
+        empty.append(image, copy);
+        list.append(empty);
+      }
       panel.append(title, list);
       return panel;
+    }
+
+    function hideRewardTooltips(exceptButton = null) {
+      root.querySelectorAll(".campus2d-id-reward.is-info-visible").forEach((button) => {
+        if (button !== exceptButton) {
+          button.classList.remove("is-info-visible");
+          button.setAttribute("aria-expanded", "false");
+        }
+      });
     }
 
     function createIdColorPanel(player) {
@@ -2527,7 +3950,7 @@
         details.append(createIdColorPanel(player), achievementsButton);
       }
       applyAvatarPreview(preview, player);
-      shell.content.append(preview, details, createTrophyPanel(), shell.glowingElements, shell.particles, shell.corners, shell.scanLine);
+      shell.content.append(preview, details, createTrophyPanel(player), shell.glowingElements, shell.particles, shell.corners, shell.scanLine);
       card.append(shell.container);
       layer.append(card);
       root.append(layer);
@@ -2561,6 +3984,10 @@
 
     function closeNpcDialogue() {
       clearNpcTypingTimer();
+      if (debateSpeechTimer) {
+        window.clearTimeout(debateSpeechTimer);
+        debateSpeechTimer = 0;
+      }
       activeNpcDialogue = null;
       npcDialogueLayer.replaceChildren();
       npcDialogueLayer.hidden = true;
@@ -2629,6 +4056,38 @@
       npcTypingTimer = window.setTimeout(tick, NPC_DIALOGUE_START_DELAY_MS);
     }
 
+    function openNpcDialogueMessage(npc, title, message, options = {}) {
+      closePlayerCard();
+      closeNpcDialogue();
+      const card = createEl("section", "campus2d-npc-dialogue is-text-only", {
+        role: "dialog",
+        "aria-live": "polite",
+        "aria-label": title,
+        "data-campus2d-ui": ""
+      });
+      const textBox = createEl("p", "campus2d-npc-dialogue-text");
+      const copy = createEl("span", "campus2d-npc-dialogue-copy");
+      const cursor = createEl("span", "campus2d-npc-dialogue-cursor", { "aria-hidden": "true" });
+      textBox.append(copy, cursor);
+      card.append(textBox);
+      activeNpcDialogue = { card, npc, debateSpeechId: options.debateSpeechId || "" };
+      npcDialogueLayer.hidden = false;
+      npcDialogueLayer.replaceChildren(card);
+      updateNpcDialoguePosition();
+      window.requestAnimationFrame(() => {
+        card.classList.add("is-visible");
+        updateNpcDialoguePosition();
+      });
+      typeNpcDialogueText(copy, cursor, message);
+      if (options.autoCloseMs) {
+        debateSpeechTimer = window.setTimeout(() => {
+          if (!options.debateSpeechId || activeNpcDialogue?.debateSpeechId === options.debateSpeechId) {
+            closeNpcDialogue();
+          }
+        }, options.autoCloseMs);
+      }
+    }
+
     function openNpcDialogue(npcId) {
       const npc = getNpcById(npcId);
       const message = getNpcDialogueText(npc).trim();
@@ -2639,29 +4098,34 @@
         }
         return;
       }
+      openNpcDialogueMessage(npc, getNpcDialogueTitle(npc), message);
+    }
 
-      closePlayerCard();
-      closeNpcDialogue();
-      const card = createEl("section", "campus2d-npc-dialogue is-text-only", {
-        role: "dialog",
-        "aria-live": "polite",
-        "aria-label": getNpcDialogueTitle(npc),
-        "data-campus2d-ui": ""
-      });
-      const textBox = createEl("p", "campus2d-npc-dialogue-text");
-      const copy = createEl("span", "campus2d-npc-dialogue-copy");
-      const cursor = createEl("span", "campus2d-npc-dialogue-cursor", { "aria-hidden": "true" });
-      textBox.append(copy, cursor);
-      card.append(textBox);
-      activeNpcDialogue = { card, npc };
-      npcDialogueLayer.hidden = false;
-      npcDialogueLayer.replaceChildren(card);
-      updateNpcDialoguePosition();
-      window.requestAnimationFrame(() => {
-        card.classList.add("is-visible");
-        updateNpcDialoguePosition();
-      });
-      typeNpcDialogueText(copy, cursor, message);
+    function openDebateAnnouncementIfNeeded() {
+      if (
+        !debateState ||
+        debateState.status !== "running" ||
+        !debateState.speechId ||
+        !debateState.announcement ||
+        debateState.speechId === lastDebateSpeechId ||
+        Date.now() > Number(debateState.startedAtMs || 0) + DEBATE_INTRO_MS
+      ) {
+        return;
+      }
+      const npc = getNpcById(DEBATE_MODERATOR_NPC_ID);
+      if (!npc) {
+        return;
+      }
+      lastDebateSpeechId = debateState.speechId;
+      openNpcDialogueMessage(
+        { ...npc, ...DEBATE_CENTER_STAGE },
+        "Moderator",
+        debateState.announcement,
+        {
+          debateSpeechId: debateState.speechId,
+          autoCloseMs: Math.max(1000, Number(debateState.startedAtMs || Date.now()) + DEBATE_INTRO_MS - Date.now())
+        }
+      );
     }
 
     function showBubble(playerElement, message) {
@@ -2966,12 +4430,77 @@
       handleZoneEditorPointerUp(event);
     }
 
+    function handleDebateClick(event) {
+      const teamButton = event.target.closest("[data-campus2d-debate-team]");
+      if (teamButton) {
+        event.preventDefault();
+        const side = normalizeDebateSide(teamButton.dataset.campus2dDebateTeam);
+        if (!debateState || teamButton.closest("[data-campus2d-debate-create-form]")) {
+          chooseHostDebateSide(side);
+        } else if (isLocalDebateHost()) {
+          chooseHostDebateSide(side);
+        } else {
+          joinDebateAs(side);
+        }
+        return true;
+      }
+
+      const actionButton = event.target.closest("[data-campus2d-debate-action]");
+      if (!actionButton) {
+        return false;
+      }
+
+      event.preventDefault();
+      const action = actionButton.dataset.campus2dDebateAction;
+      if (action === "cycle-topic") {
+        cycleDebateTopic();
+      } else if (action === "join-judge") {
+        joinDebateAs("judge");
+      } else if (action === "leave-role") {
+        leaveDebateRole();
+      } else if (action === "start") {
+        startDebate();
+      } else if (action === "end") {
+        endDebate();
+      } else if (action === "new-room") {
+        debateState = null;
+        debatePanelStatus = "";
+        debateDraft = createDebateDraft();
+        debateAudioManager?.disable();
+        renderDebateUi();
+        publishPresence(true);
+      } else if (action === "enable-audio") {
+        debateAudioManager?.enable().then(() => {
+          updateDebateAudioContext();
+          renderDebateUi();
+          publishPresence(true);
+        });
+      } else if (action === "mute-audio") {
+        debateAudioManager?.setMuted(true);
+        renderDebateUi();
+        publishPresence(true);
+      } else if (action === "unmute-audio") {
+        debateAudioManager?.setMuted(false);
+        renderDebateUi();
+        publishPresence(true);
+      } else if (action === "disable-audio") {
+        debateAudioManager?.disable();
+        renderDebateUi();
+        publishPresence(true);
+      }
+      return true;
+    }
+
     function handleRootClick(event) {
       if (debugEnabled) {
         if (!debugPanel.contains(event.target)) {
           event.preventDefault();
           event.stopPropagation();
         }
+        return;
+      }
+
+      if (handleDebateClick(event)) {
         return;
       }
 
@@ -2995,6 +4524,10 @@
       if (addAchievementButton) {
         const form = root.querySelector("[data-campus2d-achievement-form]");
         achievementDrafts = form ? collectAchievementDrafts(form) : achievementDrafts;
+        if (achievementDrafts.length >= MAX_ID_REWARDS) {
+          setFeedbackStatus("You can add up to 9 achievements.", "info");
+          return;
+        }
         achievementDrafts.push(createAchievementDraft());
         feedbackStatus = null;
         renderAchievementDialog();
@@ -3021,6 +4554,17 @@
         closePlayerCard();
         return;
       }
+
+      const rewardButton = event.target.closest("[data-campus2d-reward]");
+      if (rewardButton) {
+        const shouldShow = !rewardButton.classList.contains("is-info-visible");
+        hideRewardTooltips(rewardButton);
+        rewardButton.classList.toggle("is-info-visible", shouldShow);
+        rewardButton.setAttribute("aria-expanded", String(shouldShow));
+        return;
+      }
+
+      hideRewardTooltips();
 
       if (event.target.closest("[data-campus2d-npc-dialogue-close]")) {
         closeNpcDialogue();
@@ -3108,6 +4652,13 @@
     }
 
     function handleRootSubmit(event) {
+      const debateCreateForm = event.target.closest("[data-campus2d-debate-create-form]");
+      if (debateCreateForm) {
+        event.preventDefault();
+        createDebateRoom();
+        return;
+      }
+
       const reportForm = event.target.closest("[data-campus2d-report-form]");
       if (reportForm) {
         event.preventDefault();
@@ -3136,7 +4687,7 @@
         const achievements = achievementDrafts
           .map(createAchievementDraft)
           .filter((entry) => entry.fullName || entry.city || entry.approximateDate);
-        if (!achievements.length || achievements.some((entry) => !entry.fullName || !entry.city || !entry.approximateDate)) {
+        if (!achievements.length || achievements.some((entry) => !entry.fullName || !entry.rewardType || !entry.city || !entry.approximateDate)) {
           setFeedbackStatus("Please complete every achievement field before submitting.", "error");
           return;
         }
@@ -3145,6 +4696,40 @@
           reporterContact: getReporterContact(),
           achievements
         });
+      }
+    }
+
+    function handleRootInput(event) {
+      const codeInput = event.target.closest("[data-campus2d-debate-code-input]");
+      if (codeInput) {
+        debateDraft.joinCode = normalizeDebateCode(codeInput.value);
+        codeInput.value = debateDraft.joinCode;
+        return;
+      }
+
+      const noteInput = event.target.closest("[data-campus2d-debate-note-input]");
+      if (noteInput && !noteInput.readOnly) {
+        updateLocalDebateNote(noteInput.dataset.campus2dDebateNoteSide, noteInput.value);
+      }
+    }
+
+    function handleRootChange(event) {
+      const draftTopic = event.target.closest("[data-campus2d-debate-create-topic]");
+      if (draftTopic) {
+        debateDraft.topicId = getDebateTopicId(draftTopic.value);
+        renderDebateUi();
+        return;
+      }
+
+      const activeTopic = event.target.closest("[data-campus2d-debate-topic-select]");
+      if (activeTopic) {
+        setActiveDebateTopic(activeTopic.value);
+        return;
+      }
+
+      const judgeMode = event.target.closest("[data-campus2d-debate-judge-mode]");
+      if (judgeMode) {
+        setDebateJudgeMode(judgeMode.checked);
       }
     }
 
@@ -3180,6 +4765,7 @@
       localPlayer.country = nextIdentity.country || "";
       localPlayer.wscEventCount = Number(nextIdentity.wscEventCount) || 0;
       localPlayer.highestWscRound = nextIdentity.highestWscRound || "";
+      localPlayer.achievements = normalizeAchievements(nextIdentity.achievements || nextIdentity.wscAchievements);
       localPlayer.createdAt = nextIdentity.createdAt || null;
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderLocalCard();
@@ -3206,6 +4792,8 @@
     playerCard.addEventListener("keydown", handlePlayerCardKeyDown);
     headerCardHost.addEventListener("click", handleRootClick);
     root.addEventListener("click", handleRootClick);
+    root.addEventListener("input", handleRootInput);
+    root.addEventListener("change", handleRootChange);
     root.addEventListener("submit", handleRootSubmit);
     chatForm.addEventListener("submit", handleChatSubmit);
     toneInput.addEventListener("input", handleToneInput);
@@ -3246,12 +4834,17 @@
         playerCard.removeEventListener("keydown", handlePlayerCardKeyDown);
         headerCardHost.removeEventListener("click", handleRootClick);
         root.removeEventListener("click", handleRootClick);
+        root.removeEventListener("input", handleRootInput);
+        root.removeEventListener("change", handleRootChange);
         root.removeEventListener("submit", handleRootSubmit);
         seatDirectionSelect.removeEventListener("change", handleSeatDirectionChange);
+        debateAudioManager?.destroy();
         channel?.destroy();
         backgroundMusic.pause();
         backgroundMusic.src = "";
         window.clearTimeout(settingsHighlightTimer);
+        window.clearTimeout(debateNoteSendTimer);
+        window.clearTimeout(debateSpeechTimer);
         headerCardHost.remove();
         clearNpcTypingTimer();
         mountNode.replaceChildren();

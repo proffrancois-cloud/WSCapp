@@ -1,0 +1,223 @@
+/* Raw content reader surfaces */
+.alpaca-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.alpaca-li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.alpaca-bullet {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  background: center / contain no-repeat url("./assets/icons/ui/alpaca-bullet-update.png");
+}
+
+.alpaca-bullet::before,
+.alpaca-bullet::after {
+  content: none;
+}
+
+.raw-content-shell .alpaca-li {
+  position: relative;
+  display: block;
+  min-height: 0;
+  padding-left: 52px;
+}
+
+.raw-content-shell .alpaca-bullet {
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  width: 42px;
+  height: 42px;
+  margin-top: 0;
+}
+
+.game-note-item .alpaca-bullet {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+.raw-content-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.raw-source-card,
+.raw-section-card,
+.raw-atom-card {
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(247, 234, 204, 0.94);
+  border: 1px solid rgba(107, 78, 22, 0.12);
+  box-shadow: var(--shadow);
+}
+
+.raw-content-shell {
+  position: relative;
+}
+
+.raw-source-card h3,
+.raw-section-card h3,
+.raw-atom-card h3 {
+  margin: 0;
+  color: var(--bg);
+  font-size: clamp(1.24rem, 0.65vw + 1.08rem, 1.72rem);
+}
+
+.raw-source-card p,
+.raw-section-card p,
+.raw-atom-card p {
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.raw-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.raw-section-grid strong,
+.raw-block strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--bg);
+}
+
+.raw-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.raw-entry-back-to-top {
+  width: clamp(64px, 6.2vw, 84px);
+  aspect-ratio: 292 / 420;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 10px 14px rgba(65, 42, 23, 0.18));
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.raw-entry-back-to-top:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 14px 18px rgba(65, 42, 23, 0.24));
+}
+
+.raw-entry-back-to-top:focus-visible {
+  outline: 3px solid rgba(107, 78, 22, 0.9);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+.raw-entry-back-to-top img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.raw-entry-channel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 6px 11px 6px 7px;
+  border: 1px solid rgba(107, 78, 22, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.84);
+  color: var(--bg);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(65, 42, 23, 0.12);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.raw-entry-channel-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(107, 78, 22, 0.28);
+  box-shadow: 0 12px 22px rgba(65, 42, 23, 0.18);
+}
+
+.raw-entry-channel-link:focus-visible {
+  outline: 3px solid rgba(107, 78, 22, 0.9);
+  outline-offset: 3px;
+}
+
+.raw-entry-channel-link img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.raw-entry-channel-count {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(200, 156, 68, 0.18);
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.raw-section-group-card {
+  display: grid;
+  gap: 14px;
+}
+
+.raw-section-group-top h3 {
+  margin: 0;
+}
+
+.raw-section-entry-list {
+  display: grid;
+  gap: 14px;
+}
+
+a,
+button,
+summary,
+select,
+label,
+[role="button"],
+[tabindex]:not([tabindex="-1"]),
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="reset"],
+input[type="submit"],
+.choice-card,
+.mode-card,
+.target-card,
+.wizard-rail-item,
+.route-button,
+.hero-link-icon,
+.session-signout-button,
+.session-mode-icon-button,
+.raw-entry-back-to-top {
+  cursor: var(--wsc-click-cursor) !important;
+}

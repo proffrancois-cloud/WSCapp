@@ -3,7 +3,9 @@
   const EVENTS = Object.freeze({
     move: "campus2d.avatar.move",
     chat: "campus2d.chat.message",
-    avatar: "campus2d.avatar.update"
+    avatar: "campus2d.avatar.update",
+    debate: "campus2d.debate.state",
+    debateSignal: "campus2d.debate.signal"
   });
 
   function createClientId() {
@@ -77,7 +79,9 @@
       .on("presence", { event: "leave" }, syncPresence)
       .on("broadcast", { event: EVENTS.move }, (payload) => handlers.onMove?.(payload.payload || payload))
       .on("broadcast", { event: EVENTS.chat }, (payload) => handlers.onChat?.(payload.payload || payload))
-      .on("broadcast", { event: EVENTS.avatar }, (payload) => handlers.onAvatar?.(payload.payload || payload));
+      .on("broadcast", { event: EVENTS.avatar }, (payload) => handlers.onAvatar?.(payload.payload || payload))
+      .on("broadcast", { event: EVENTS.debate }, (payload) => handlers.onDebate?.(payload.payload || payload))
+      .on("broadcast", { event: EVENTS.debateSignal }, (payload) => handlers.onDebateSignal?.(payload.payload || payload));
 
     function subscribe() {
       channel.subscribe(async (status) => {
@@ -141,6 +145,8 @@
       sendMovement: (payload) => send(EVENTS.move, payload),
       sendChat: (payload) => send(EVENTS.chat, payload),
       sendAvatar: (payload) => send(EVENTS.avatar, payload),
+      sendDebate: (payload) => send(EVENTS.debate, payload),
+      sendDebateSignal: (payload) => send(EVENTS.debateSignal, payload),
       destroy
     };
   }

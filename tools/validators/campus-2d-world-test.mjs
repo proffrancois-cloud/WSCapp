@@ -12,6 +12,10 @@ const expectedAssets = {
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
   "assets/campus-2d/alpaca-sprite.png": { width: 2387, height: 3072 },
+  "assets/campus-2d/rewards/jac-khor.png": { width: 445, height: 503 },
+  "assets/campus-2d/rewards/trophy.png": { width: 360, height: 500 },
+  "assets/campus-2d/rewards/gold-medal.png": { width: 265, height: 522 },
+  "assets/campus-2d/rewards/silver-medal.png": { width: 289, height: 521 },
   "assets/icons/ui/settings.png": { width: 1536, height: 1024 }
 };
 
@@ -28,6 +32,22 @@ const forbiddenPaths = [
 
 function readApp(relativePath) {
   return readFileSync(resolve(appRoot, relativePath), "utf8");
+}
+
+function readStylesheet(relativePath, seen = new Set()) {
+  if (seen.has(relativePath)) {
+    return "";
+  }
+  seen.add(relativePath);
+  const source = readApp(relativePath);
+  const imports = Array.from(source.matchAll(/@import\s+url\(["']?\.\/([^"')]+)["']?\)\s*;/g), (match) => match[1]);
+  if (!imports.length) {
+    return source;
+  }
+  return [
+    source,
+    ...imports.map((importPath) => readStylesheet(importPath, seen))
+  ].join("\n");
 }
 
 function readPngSize(relativePath) {
@@ -277,6 +297,8 @@ const indexHtml = readApp("index.html");
 for (const scriptPath of [
   "src/features/campus-2d/manifest.js",
   "src/features/campus-2d/realtime.js",
+  "src/features/campus-2d/debate-lab-rules.js",
+  "src/features/campus-2d/debate-lab-audio.js",
   "src/features/campus-2d/campus-2d.js"
 ]) {
   if (!indexHtml.includes(scriptPath)) {
@@ -289,11 +311,22 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706timerfix"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the timer display cleanup.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706pwaaresources"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the reward icon ID-card cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706timerfix")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706pwaaresources")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
+}
+const serviceWorker = readApp("service-worker.js");
+for (const rewardAsset of [
+  "./assets/campus-2d/rewards/jac-khor.png",
+  "./assets/campus-2d/rewards/trophy.png",
+  "./assets/campus-2d/rewards/gold-medal.png",
+  "./assets/campus-2d/rewards/silver-medal.png"
+]) {
+  if (!serviceWorker.includes(rewardAsset)) {
+    failures.push(`Service worker must precache the ID-card reward asset ${rewardAsset}.`);
+  }
 }
 
 const appJs = readApp("app.js");
@@ -312,7 +345,8 @@ for (const appNeedle of [
   "data-library-section-confirm",
   "renderLibraryCampusSectionPicker",
   "renderLibraryInlineTopbar",
-  "PWAA_PWAA_SHARED_DOC_URL",
+  "PWAA_RESOURCE_LINKS",
+  "renderPwaaResourceBrowser",
   "DEBATE_LAB_ALONE_UNAVAILABLE_REASON",
   "Scholar's Bowl is available soon",
   "Scholar's Challenge is available soon",
@@ -338,7 +372,14 @@ for (const runtimeNeedle of [
   "createOnlineIdCardShell",
   "Alpaca name",
   "Achievements",
-  "Coming soon",
+  "No verified rewards yet",
+  "ACHIEVEMENT_REWARD_TYPES",
+  "MAX_ID_REWARDS",
+  "ID_REWARD_ROW_PATTERNS",
+  "Reward type",
+  "campus2d-id-reward",
+  "campus2d-id-reward-tooltip",
+  "data-campus2d-reward",
   "campus2d-decorations",
   "campus2d-decoration",
   "campus2d-npcs",
@@ -477,7 +518,7 @@ for (const forbiddenWalkingMask of [
   }
 }
 
-const styles = readApp("styles.css");
+const styles = readStylesheet("styles.css");
 if (!styles.includes(".online-glow-card")) {
   failures.push("Online glow-card styles were removed.");
 }
@@ -511,6 +552,10 @@ for (const styleNeedle of [
   ".campus2d-report-button",
   ".campus2d-feedback-layer",
   ".campus2d-id-trophies",
+  ".campus2d-id-reward-grid",
+  ".campus2d-id-reward-row",
+  ".campus2d-id-reward",
+  ".campus2d-id-reward-tooltip",
   ".campus2d-id-color-panel",
   ".campus2d-settings-panel[hidden]",
   ".campus2d-portal",
@@ -528,7 +573,8 @@ for (const styleNeedle of [
   ".campus2d-chat-stack",
   ".campus2d-npc-dialogue.is-text-only",
   ".library-inline-topbar",
-  ".library-inline-doc-action",
+  ".pwaa-resource-browser",
+  ".pwaa-resource-card",
   ".library-embedded-doc-overlay",
   ".library-embedded-doc-iframe",
   ".library-inline-panel-title",

@@ -1,0 +1,299 @@
+/* Shared experience cards and panels */
+.hero h1,
+.hero h2,
+.section-heading h2,
+.panel-title h2,
+.result-banner h2 {
+  font-family: "Cardo", Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.card-panel,
+.experience-panel {
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at top right, rgba(200, 156, 68, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(247, 234, 204, 0.96), rgba(243, 227, 188, 0.96));
+  border: 1px solid rgba(107, 78, 22, 0.12);
+}
+
+.asset-slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.wizard,
+.experience-panel {
+  padding: 24px;
+}
+
+.route-back-button .asset-slot {
+  width: 100%;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.card-top h3 {
+  margin: 0;
+  color: var(--bg);
+  font-size: 1.06rem;
+  text-wrap: balance;
+}
+
+.wizard-choice-card .card-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  height: 100%;
+  min-height: 100%;
+  text-align: right;
+  padding: 4px 10px 4px 6px;
+  overflow: visible;
+}
+
+.card-body {
+  color: var(--ink-soft);
+}
+
+.target-meta,
+.mode-meta {
+  margin-top: 12px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.target-card .card-top {
+  margin-bottom: 0;
+}
+
+.choice-card .card-top,
+.mode-card .card-top,
+.target-card .card-top {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.mode-card .card-top {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+}
+
+.experience-panel {
+  min-height: 280px;
+}
+
+.panel-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel-title h2 {
+  margin: 0 0 8px;
+  color: var(--bg);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.panel-title p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.panel-title .meta-line {
+  margin-top: 12px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.slide-card {
+  padding: 24px;
+}
+
+.slide-card h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.result-shell {
+  position: relative;
+  padding: 20px;
+}
+
+.board-decoration .asset-slot {
+  width: 100%;
+}
+
+.quiz-question-card .raw-quiz-option.active {
+  border-color: rgba(138, 99, 56, 0.72);
+  background: rgba(236, 217, 170, 0.55);
+}
+
+.wizard-choice-card .card-top {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  gap: 12px;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  text-align: center;
+}
+
+.wizard-choice-card:nth-child(3n + 1) .card-top {
+  grid-template-columns: minmax(70px, 0.72fr) minmax(0, 1fr);
+  justify-items: start;
+  text-align: right;
+}
+
+.wizard-choice-card:nth-child(3n + 2) .card-top {
+  grid-template-rows: auto auto;
+  align-content: center;
+}
+
+.wizard-choice-card:nth-child(3n) .card-top {
+  grid-template-rows: auto auto;
+  align-content: center;
+}
+
+.wizard-choice-card:nth-child(4n) .card-top {
+  grid-template-columns: minmax(0, 1fr) minmax(74px, 0.72fr);
+  text-align: left;
+}
+
+.wizard-choice-card .card-top {
+  display: grid;
+  grid-template-columns: minmax(46px, 0.48fr) minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: clamp(10px, 1.8vw, 22px);
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.wizard-choice-card:nth-child(odd) .card-top {
+  grid-template-columns: minmax(46px, 0.48fr) minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  text-align: right;
+}
+
+.wizard-choice-card:nth-child(even) .card-top {
+  grid-template-columns: minmax(0, 1fr) minmax(46px, 0.48fr);
+  grid-template-rows: 1fr;
+  text-align: left;
+}
+
+.wizard-choice-card:nth-child(8n + 2) .card-top,
+.wizard-choice-card:nth-child(8n + 4) .card-top {
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr) auto;
+  text-align: center;
+  gap: clamp(8px, 1.5vw, 16px);
+}
+
+.wizard-choice-card:nth-child(8n + 4) .card-top {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.wizard-choice-card .card-top,
+.wizard-choice-card:nth-child(odd) .card-top,
+.wizard-choice-card:nth-child(even) .card-top,
+.wizard-choice-card:nth-child(8n + 2) .card-top,
+.wizard-choice-card:nth-child(8n + 4) .card-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: clamp(8px, 1.2vw, 14px);
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.wizard-choice-card .card-top,
+.wizard-choice-card:nth-child(odd) .card-top,
+.wizard-choice-card:nth-child(even) .card-top,
+.wizard-choice-card:nth-child(8n + 2) .card-top,
+.wizard-choice-card:nth-child(8n + 4) .card-top {
+  grid-template-rows: minmax(0, 1fr) minmax(30px, auto);
+  gap: clamp(6px, 0.9vw, 10px);
+}
+
+.mode-choice-card-grid .wizard-choice-card .card-top {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: minmax(0, 1fr) auto !important;
+  gap: 3px !important;
+  text-align: center !important;
+}
+
+.mode-choice-card-grid .wizard-choice-card .card-top {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  height: 100% !important;
+}
+
+body .mode-choice-card-grid .wizard-choice-card .card-top {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 9px !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .card-top,
+body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .card-top {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: clamp(14px, 1.6vw, 22px) !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.multiplayer-choice-mascot-slot,
+.multiplayer-choice-mascot-slot .asset-slot,
+.multiplayer-choice-mascot-slot .mascot-asset,
+.multiplayer-choice-mascot {
+  width: 100%;
+  height: 100%;
+}
+
+.library-experience-panel {
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+  padding: clamp(16px, 2vw, 24px);
+  border-color: rgba(252, 209, 39, 0.28);
+  background:
+    radial-gradient(circle at top right, rgba(252, 209, 39, 0.14), transparent 24%),
+    linear-gradient(180deg, rgba(247, 234, 204, 0.98), rgba(243, 227, 188, 0.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 232, 0.42),
+    0 20px 46px rgba(0, 0, 0, 0.2);
+}
