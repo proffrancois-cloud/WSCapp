@@ -278,9 +278,15 @@ if (!manifest) {
   if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
     failures.push("Debate Lab must include an orange train game zone.");
   }
+  if (!debateLab?.gameZones?.some((zone) => String(zone.label || "").includes("Collaborative Writing"))) {
+    failures.push("Debate Lab orange zone must describe all four amphitheatre training tools.");
+  }
   const debateStageModerator = (debateLab?.npcs || []).find((npc) => npc.id === "debate-stage-moderator-npc");
   if (!debateStageModerator || debateStageModerator.x !== 588 || debateStageModerator.y !== 309 || debateStageModerator.colorId !== "red") {
     failures.push("Debate Lab must include the red stage moderator NPC at x=588 y=309.");
+  }
+  if (!String(debateStageModerator?.dialogue?.body || "").includes("Welcome to the amphitheatre")) {
+    failures.push("Debate Lab moderator NPC must use the amphitheatre welcome dialogue.");
   }
   expectZoneRect(debateLab, "blockedZones", "debate-lab-blocked-62", { x: 1036, y: 297, width: 30, height: 18 });
   expectZoneRect(debateLab, "behindZones", "debate-lab-behind-26", { x: 829, y: 434, width: 14, height: 19 });
@@ -311,13 +317,16 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706idrewardclean"')) {
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706amphitheatre"')) {
   failures.push("index.html must bump WSC_PWA_RESET_VERSION for the Debate Lab audio and reward ID-card cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706idrewardclean")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706amphitheatre")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 const serviceWorker = readApp("service-worker.js");
+if (!serviceWorker.includes("./assets/mascot/library/final-pack/Collaborative Writing.png")) {
+  failures.push("Service worker must precache the Collaborative Writing card icon.");
+}
 for (const rewardAsset of [
   "./assets/campus-2d/rewards/jac-khor.png",
   "./assets/campus-2d/rewards/trophy.png",
@@ -353,11 +362,18 @@ for (const appNeedle of [
   "libraryEmbeddedDoc",
   "data-library-resource-doc",
   "renderLibraryEmbeddedDocOverlay",
-  "library-inline-game-shell"
+  "library-inline-game-shell",
+  "Collaborative Writing",
+  "library-campus-card-grid-four",
+  "openCampus2DDebateLab"
 ]) {
   if (!appJs.includes(appNeedle)) {
     failures.push(`app.js is missing inline Campus 2D activity support: ${appNeedle}.`);
   }
+}
+const assetConfig = readApp("generated/current-runtime/assets-config.js");
+if (!assetConfig.includes('"writing": "./assets/mascot/library/final-pack/Collaborative Writing.png"')) {
+  failures.push("Assets config must map Collaborative Writing to its supplied card icon.");
 }
 const campusRuntime = readApp("src/features/campus-2d/campus-2d.js");
 for (const runtimeNeedle of [
@@ -410,6 +426,11 @@ for (const runtimeNeedle of [
   "gameZones",
   "orange game",
   "activateGameZone",
+  "debatePanelOpen",
+  "openDebateLabPanel",
+  "campus2d-debate-topic-choices",
+  "DEBATE_TOPIC_CHOICE_COUNT",
+  "Tournament tools",
   "if (zones.length)",
   "findAnyZoneAtPoint",
   "Copy selected",

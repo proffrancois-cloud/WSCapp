@@ -7,7 +7,7 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260706idrewardclean";
+const ASSET_CACHE_VERSION = "20260706amphitheatre";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -2624,11 +2624,12 @@ const CAMPUS_ACTIVITY_MENU_CONFIGS = Object.freeze({
   },
   "debate-board-training": {
     theme: "debate",
-    prompt: "Debate Lab",
+    prompt: "Amphitheatre",
     title: "Choose a tournament tool",
-    gridClass: "library-campus-card-grid-three",
+    gridClass: "library-campus-card-grid-four",
     modes: [
-      { modeId: "buildcase", label: "DebateLab" },
+      { modeId: "writing", label: "Collaborative Writing" },
+      { modeId: "buildcase", label: "Debate Lab" },
       { modeId: "quiz", label: "Scholar's Challenge" },
       { modeId: "bowl", label: "Scholar's Bowl" }
     ]
@@ -8701,6 +8702,11 @@ function returnToLibraryResourceMenu() {
 }
 
 function chooseLibraryMode(modeId) {
+  if (modeId === "buildcase" && isAlpacaOnlineCampusView() && campus2dController?.openDebateLab) {
+    openCampus2DDebateLab();
+    return;
+  }
+
   if (isModeUnavailable(modeId)) {
     launchLibraryMode(modeId);
     return;
@@ -8716,6 +8722,19 @@ function chooseLibraryMode(modeId) {
     return;
   }
   launchLibraryMode(modeId);
+}
+
+function openCampus2DDebateLab() {
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
+  state.experience = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+  campus2dController?.openDebateLab?.();
 }
 
 function shouldAskMultiplayerGameAudience(modeId) {

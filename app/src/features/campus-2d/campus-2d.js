@@ -21,12 +21,14 @@
   const DEBATE_MAX_TEAM_SIZE = 3;
   const DEBATE_MAX_DEBATERS = 6;
   const DEBATE_JOIN_CODE_LENGTH = 6;
+  const DEBATE_TOPIC_CHOICE_COUNT = 2;
   const DEBATE_INTRO_MS = 30000;
   const DEBATE_NPC_WALK_MS = 3200;
   const DEBATE_NOTE_MAX_LENGTH = 1400;
   const DEBATE_CENTER_STAGE = Object.freeze({ x: 588, y: 309 });
   const DEBATE_SIDE_STAGE = Object.freeze({ x: 860, y: 245 });
   const DEBATE_BOARD_RECT = Object.freeze({ x: 390, y: 30, width: 405, height: 175 });
+  const DEBATE_LAB_LOGO_SRC = "./assets/mascot/library/final-pack/DebateLab.png?v=20260706amphitheatre";
   const DEBATE_NOTE_COLORS = Object.freeze([
     "#ffd166",
     "#6ec6ff",
@@ -79,7 +81,7 @@
     Object.freeze({ value: "global", label: "Global" }),
     Object.freeze({ value: "toc", label: "ToC" })
   ]);
-  const REWARD_ASSET_VERSION = "20260706idrewardclean";
+  const REWARD_ASSET_VERSION = "20260706amphitheatre";
   const MAX_ID_REWARDS = 9;
   const ID_REWARD_TYPES = Object.freeze([
     Object.freeze({
@@ -559,6 +561,7 @@
     let debateState = null;
     let debateDraft = createDebateDraft();
     let debatePanelStatus = "";
+    let debatePanelOpen = false;
     let debateNoteSendTimer = 0;
     let debateSpeechTimer = 0;
     let lastDebateSpeechId = "";
@@ -1568,12 +1571,6 @@
     }
 
     function activateGameZone(entry) {
-      if (room.id === DEBATE_ROOM_ID && entry.id === DEBATE_BOARD_ID) {
-        renderDebateUi();
-        showBubble(localElement, "Debate Lab is open in the right panel");
-        return;
-      }
-
       const mode = entry.mode || entry.kind || "game";
       const handled = options.onCampusZoneAction?.({
         roomId: room.id,
@@ -1606,9 +1603,60 @@
       return topic ? String(topic.id) : "";
     }
 
-    function createDebateDraft() {
+    function normalizeDebateTopicChoices(topicChoices = [], selectedId = "") {
+      const topicIds = getDebateTopics().map((topic) => String(topic.id));
+      const selectedTopicId = getDebateTopicId(selectedId);
+      const seen = new Set();
+      const choices = [];
+      [selectedTopicId, ...(Array.isArray(topicChoices) ? topicChoices : []), ...topicIds].forEach((topicId) => {
+        const normalizedId = getDebateTopicId(topicId);
+        if (!normalizedId || seen.has(normalizedId)) {
+          return;
+        }
+        seen.add(normalizedId);
+        choices.push(normalizedId);
+      });
+      return choices.slice(0, DEBATE_TOPIC_CHOICE_COUNT);
+    }
+
+    function pickRandomDebateTopicChoices(preferredId = "") {
+      const topics = getDebateTopics();
+      if (!topics.length) {
+        return [];
+      }
+      const selectedTopicId = getDebateTopicId(preferredId);
+      const shuffled = topics
+        .map((topic) => ({ id: String(topic.id), sort: Math.random() }))
+        .sort((left, right) => left.sort - right.sort)
+        .map((entry) => entry.id);
+      const choices = [];
+      shuffled.forEach((topicId) => {
+        if (choices.length < DEBATE_TOPIC_CHOICE_COUNT && topicId !== selectedTopicId) {
+          choices.push(topicId);
+        }
+      });
+      if (selectedTopicId && !choices.includes(selectedTopicId) && choices.length < DEBATE_TOPIC_CHOICE_COUNT) {
+        choices.unshift(selectedTopicId);
+      }
+      if (!choices.length && selectedTopicId) {
+        choices.push(selectedTopicId);
+      }
+      return normalizeDebateTopicChoices(choices, choices[0] || selectedTopicId);
+    }
+
+    function createDebateTopicChoiceSet(preferredId = "") {
+      const topicChoices = pickRandomDebateTopicChoices(preferredId);
       return {
-        topicId: getDefaultDebateTopicId(),
+        topicId: topicChoices[0] || getDefaultDebateTopicId(),
+        topicChoices
+      };
+    }
+
+    function createDebateDraft() {
+      const topicChoiceSet = createDebateTopicChoiceSet();
+      return {
+        topicId: topicChoiceSet.topicId,
+        topicChoices: topicChoiceSet.topicChoices,
         hostSide: "pro",
         judgeMode: false,
         joinCode: ""
@@ -1700,6 +1748,7 @@
         hostClientId: String(value.hostClientId || "").trim(),
         hostName: String(value.hostName || "Host").trim().slice(0, 80) || "Host",
         topicId: getDebateTopicId(value.topicId),
+        topicChoices: normalizeDebateTopicChoices(value.topicChoices, value.topicId),
         judgeMode,
         judge,
         teams,
@@ -1923,6 +1972,7 @@
         hostClientId: localPlayer.clientId,
         hostName: localPlayer.displayName || "Host",
         topicId: getDebateTopicId(debateDraft.topicId),
+        topicChoices: normalizeDebateTopicChoices(debateDraft.topicChoices, debateDraft.topicId),
         judgeMode: Boolean(debateDraft.judgeMode),
         judge: null,
         teams: { pro: [], con: [] },
@@ -1995,25 +2045,24 @@
       }
       const next = cloneDebateState();
       next.topicId = getDebateTopicId(topicId);
+      next.topicChoices = normalizeDebateTopicChoices(next.topicChoices, next.topicId);
       touchDebateState(next);
       setDebateState(next, { broadcast: true, status: "Topic changed." });
     }
 
     function cycleDebateTopic() {
-      const topics = getDebateTopics();
-      if (!topics.length) {
-        return;
-      }
-      const currentId = debateState && isLocalDebateHost() && debateState.status === "setup"
-        ? debateState.topicId
-        : debateDraft.topicId;
-      const currentIndex = topics.findIndex((topic) => String(topic.id) === String(currentId));
-      const nextTopic = topics[(currentIndex + 1 + topics.length) % topics.length] || topics[0];
       if (debateState && isLocalDebateHost() && debateState.status === "setup") {
-        setActiveDebateTopic(nextTopic.id);
+        const next = cloneDebateState();
+        const topicChoiceSet = createDebateTopicChoiceSet(next.topicId);
+        next.topicId = topicChoiceSet.topicId;
+        next.topicChoices = topicChoiceSet.topicChoices;
+        touchDebateState(next);
+        setDebateState(next, { broadcast: true, status: "Topic options changed." });
         return;
       }
-      debateDraft.topicId = String(nextTopic.id);
+      const topicChoiceSet = createDebateTopicChoiceSet(debateDraft.topicId);
+      debateDraft.topicId = topicChoiceSet.topicId;
+      debateDraft.topicChoices = topicChoiceSet.topicChoices;
       renderDebateUi();
     }
 
@@ -2200,19 +2249,32 @@
       }, nowMs);
     }
 
-    function renderDebateTopicSelect(selectedId, dataAttribute) {
-      const select = createEl("select", "campus2d-debate-select", {
+    function renderDebateTopicChoices(selectedId, topicChoices, dataAttribute) {
+      const choices = normalizeDebateTopicChoices(topicChoices, selectedId);
+      const list = createEl("div", "campus2d-debate-topic-choices", {
         "data-campus2d-ui": "",
-        [dataAttribute]: ""
+        role: "group",
+        "aria-label": "Debate topic choices"
       });
-      getDebateTopics().forEach((topic, index) => {
-        const option = createEl("option", "");
-        option.value = String(topic.id);
-        option.textContent = `${index + 1}. ${shortenDebateText(topic.motion, 92)}`;
-        option.selected = String(topic.id) === String(selectedId);
-        select.append(option);
+      choices.forEach((topicId) => {
+        const topic = getDebateTopic(topicId);
+        if (!topic) {
+          return;
+        }
+        const selected = String(topic.id) === String(selectedId);
+        const button = createEl("button", `campus2d-debate-topic-chip${selected ? " is-active" : ""}`, {
+          type: "button",
+          [dataAttribute]: String(topic.id),
+          "aria-pressed": String(selected),
+          title: topic.motion
+        });
+        button.append(createTextElement("span", "", shortenDebateText(topic.motion, 82)));
+        list.append(button);
       });
-      return select;
+      if (!choices.length) {
+        list.append(createTextElement("span", "campus2d-debate-muted", "No Debate Lab topics loaded yet."));
+      }
+      return list;
     }
 
     function createDebateActionButton(label, action, className = "", attributes = {}) {
@@ -2250,8 +2312,11 @@
         createTextElement("p", "campus2d-debate-eyebrow", "Host room"),
         createTextElement("h3", "", "Create Debate Lab")
       );
-      const topicRow = createEl("label", "campus2d-debate-field");
-      topicRow.append(createTextElement("span", "", "Topic"), renderDebateTopicSelect(debateDraft.topicId, "data-campus2d-debate-create-topic"));
+      const topicRow = createEl("div", "campus2d-debate-field");
+      topicRow.append(
+        createTextElement("span", "", "Choose one topic"),
+        renderDebateTopicChoices(debateDraft.topicId, debateDraft.topicChoices, "data-campus2d-debate-create-topic")
+      );
       const topicActions = createEl("div", "campus2d-debate-actions");
       topicActions.append(createDebateActionButton("Change topic", "cycle-topic", "secondary"));
       const sideRow = createEl("div", "campus2d-debate-segment", { role: "group", "aria-label": "Host team" });
@@ -2320,8 +2385,11 @@
       const motion = createTextElement("h3", "", topic?.motion || "Debate Lab");
       card.append(header, motion);
       if (isLocalDebateHost() && debateState.status === "setup") {
-        const topicRow = createEl("label", "campus2d-debate-field");
-        topicRow.append(createTextElement("span", "", "Topic"), renderDebateTopicSelect(debateState.topicId, "data-campus2d-debate-topic-select"));
+        const topicRow = createEl("div", "campus2d-debate-field");
+        topicRow.append(
+          createTextElement("span", "", "Choose one topic"),
+          renderDebateTopicChoices(debateState.topicId, debateState.topicChoices, "data-campus2d-debate-topic-select")
+        );
         const actions = createEl("div", "campus2d-debate-actions");
         actions.append(createDebateActionButton("Change topic", "cycle-topic", "secondary"));
         const judgeLabel = createEl("label", "campus2d-debate-check");
@@ -2647,24 +2715,52 @@
       screen.style.top = `${DEBATE_BOARD_RECT.y}px`;
       screen.style.width = `${DEBATE_BOARD_RECT.width}px`;
       screen.style.height = `${DEBATE_BOARD_RECT.height}px`;
-      screen.append(
-        createTextElement("span", "campus2d-debate-screen-label", debateState?.status === "running" ? "Live Debate Lab" : "Debate Lab"),
-        createTextElement("strong", "campus2d-debate-screen-topic", getDebateMotion()),
-        createTextElement("span", "campus2d-debate-screen-phase", debateState ? "Setup" : "Choose a topic", { "data-campus2d-debate-phase": "" }),
-        createTextElement("em", "campus2d-debate-screen-timer", debateState?.status === "running" ? "--:--" : "", { "data-campus2d-debate-timer": "" })
-      );
+      if (debateState?.status === "running") {
+        screen.append(
+          createTextElement("span", "campus2d-debate-screen-label", "Live Debate Lab"),
+          createTextElement("strong", "campus2d-debate-screen-topic", getDebateMotion()),
+          createTextElement("span", "campus2d-debate-screen-phase", "Setup", { "data-campus2d-debate-phase": "" }),
+          createTextElement("em", "campus2d-debate-screen-timer", "--:--", { "data-campus2d-debate-timer": "" })
+        );
+      } else if (debatePanelOpen) {
+        const logo = createEl("img", "campus2d-debate-screen-logo", {
+          src: DEBATE_LAB_LOGO_SRC,
+          alt: ""
+        });
+        screen.append(
+          logo,
+          createTextElement("span", "campus2d-debate-screen-label", "Training room"),
+          createTextElement("strong", "campus2d-debate-screen-title", "Debate Lab")
+        );
+      } else {
+        screen.append(
+          createTextElement("span", "campus2d-debate-screen-label", "Tournament tools"),
+          createTextElement("strong", "campus2d-debate-screen-title", "Choose a challenge"),
+          createTextElement("span", "campus2d-debate-screen-tools", "Writing · Debate Lab · Bowl · Challenge")
+        );
+      }
       debateLayer.append(screen);
     }
 
     function renderDebateUi() {
       renderDebateWorldScreen();
-      if (room.id === DEBATE_ROOM_ID) {
+      if (room.id === DEBATE_ROOM_ID && debatePanelOpen) {
         renderDebatePanel();
         return;
       }
       if (activityMount.querySelector("[data-campus2d-debate-panel]")) {
         activityMount.replaceChildren();
       }
+    }
+
+    function openDebateLabPanel() {
+      if (room.id !== DEBATE_ROOM_ID) {
+        return false;
+      }
+      debatePanelOpen = true;
+      renderDebateUi();
+      showBubble(localElement, "Debate Lab is open in the right panel");
+      return true;
     }
 
     function updateDebateTimerDisplays(nowMs = Date.now()) {
@@ -3023,6 +3119,9 @@
       }
       if (room.id === DEBATE_ROOM_ID && nextRoom.id !== DEBATE_ROOM_ID) {
         debateAudioManager?.disable();
+      }
+      if (nextRoom.id !== DEBATE_ROOM_ID || room.id !== DEBATE_ROOM_ID) {
+        debatePanelOpen = false;
       }
       room = nextRoom;
       const nextSpawn = room.spawnPoints[spawnId] || room.spawnPoints.default;
@@ -4371,6 +4470,22 @@
     }
 
     function handleDebateClick(event) {
+      const draftTopicButton = event.target.closest("[data-campus2d-debate-create-topic]");
+      if (draftTopicButton) {
+        event.preventDefault();
+        debateDraft.topicId = getDebateTopicId(draftTopicButton.dataset.campus2dDebateCreateTopic);
+        debateDraft.topicChoices = normalizeDebateTopicChoices(debateDraft.topicChoices, debateDraft.topicId);
+        renderDebateUi();
+        return true;
+      }
+
+      const activeTopicButton = event.target.closest("[data-campus2d-debate-topic-select]");
+      if (activeTopicButton) {
+        event.preventDefault();
+        setActiveDebateTopic(activeTopicButton.dataset.campus2dDebateTopicSelect);
+        return true;
+      }
+
       const teamButton = event.target.closest("[data-campus2d-debate-team]");
       if (teamButton) {
         event.preventDefault();
@@ -4618,19 +4733,6 @@
     }
 
     function handleRootChange(event) {
-      const draftTopic = event.target.closest("[data-campus2d-debate-create-topic]");
-      if (draftTopic) {
-        debateDraft.topicId = getDebateTopicId(draftTopic.value);
-        renderDebateUi();
-        return;
-      }
-
-      const activeTopic = event.target.closest("[data-campus2d-debate-topic-select]");
-      if (activeTopic) {
-        setActiveDebateTopic(activeTopic.value);
-        return;
-      }
-
       const judgeMode = event.target.closest("[data-campus2d-debate-judge-mode]");
       if (judgeMode) {
         setDebateJudgeMode(judgeMode.checked);
@@ -4720,7 +4822,7 @@
     exportJsonButton.addEventListener("click", exportZoneJson);
     animationFrameId = window.requestAnimationFrame(loop);
 
-    return {
+      return {
       destroy() {
         destroyed = true;
         window.cancelAnimationFrame(animationFrameId);
@@ -4757,6 +4859,7 @@
       },
       setIdentity,
       setRoom,
+      openDebateLab: openDebateLabPanel,
       openSettings: openSettingsPanel
     };
   }

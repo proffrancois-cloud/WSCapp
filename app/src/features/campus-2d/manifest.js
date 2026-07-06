@@ -719,10 +719,13 @@
         hotspot("debate-board", "lesson", "Debate board", 390, 30, 405, 175)
       ],
       npcs: [
-        npc("debate-stage-moderator-npc", "Moderator", 588, 309, "down", "red")
+        npc("debate-stage-moderator-npc", "Moderator", 588, 309, "down", "red", {
+          title: "Moderator",
+          body: "Welcome to the amphitheatre,\nIn this room, we are specifically training for the four challenges you will find at any round.\nPlease take a sit and let's get started!"
+        })
       ],
       gameZones: [
-        gameZone("debate-board", "train", "Choose DebateLab, Scholar's Challenge, or Scholar's Bowl", 390, 30, 405, 175)
+        gameZone("debate-board", "train", "Choose Collaborative Writing, Debate Lab, Scholar's Challenge, or Scholar's Bowl", 390, 30, 405, 175)
       ],
       behindZones: [
         rect("debate-lab-behind-4", 470, 569, 16, 18),
