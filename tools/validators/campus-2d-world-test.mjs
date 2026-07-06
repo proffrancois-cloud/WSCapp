@@ -317,15 +317,18 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706amphitheatre"')) {
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706amphifix"')) {
   failures.push("index.html must bump WSC_PWA_RESET_VERSION for the Debate Lab audio and reward ID-card cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706amphitheatre")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706amphifix")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 const serviceWorker = readApp("service-worker.js");
 if (!serviceWorker.includes("./assets/mascot/library/final-pack/Collaborative Writing.png")) {
   failures.push("Service worker must precache the Collaborative Writing card icon.");
+}
+if (!serviceWorker.includes("./assets/mascot/library/final-pack/card-crops/Collaborative Writing.png")) {
+  failures.push("Service worker must precache the Collaborative Writing cropped card icon.");
 }
 for (const rewardAsset of [
   "./assets/campus-2d/rewards/jac-khor.png",

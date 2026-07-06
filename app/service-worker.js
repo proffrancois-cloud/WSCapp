@@ -57,6 +57,7 @@ const STATIC_ASSETS = [
   "./assets/mascot/library/final-pack/Backtotop.png",
   "./assets/mascot/library/final-pack/Alpacagroupe.png",
   "./assets/mascot/library/final-pack/Collaborative Writing.png",
+  "./assets/mascot/library/final-pack/card-crops/Collaborative Writing.png",
   "./assets/mascot/library/final-pack/DebateLab.png",
   "./assets/mascot/library/final-pack/debate-pro-logo.png",
   "./assets/mascot/library/final-pack/debate-con-logo.png",
