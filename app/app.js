@@ -4460,7 +4460,7 @@ function renderAppEntryGate() {
               alt=""
               aria-hidden="true"
             />
-            <strong>Stay solo</strong>
+            <strong>Solo offline</strong>
           </button>
           <button class="app-entry-choice-card online-choice" type="button" data-app-entry-choice="online" ${onlineAllowed ? "" : "disabled"}>
             <span>ALPACA ONLINE</span>
