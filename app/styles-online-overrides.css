@@ -2278,6 +2278,11 @@ body.is-campus2d-view .wizard-steps {
   background: rgba(110, 198, 255, 0.1);
 }
 
+.campus2d-debate-audio.is-warning .campus2d-debate-audio-route {
+  border-color: rgba(255, 209, 102, 0.42);
+  background: rgba(255, 209, 102, 0.12);
+}
+
 .campus2d-debate-audio-route span,
 .campus2d-debate-audio-route em {
   min-width: 0;

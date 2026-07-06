@@ -102,6 +102,29 @@ loadClassicScript("src/features/campus-2d/realtime.js", realtimeSandbox);
 const realtime = realtimeSandbox.window.WSC_CAMPUS_2D_REALTIME;
 assert.equal(realtime.EVENTS.debateSignal, "campus2d.debate.signal");
 
+const audioSandbox = vm.createContext({
+  window: {
+    WSC_DEBATE_AUDIO_CONFIG: {
+      iceServers: [
+        { urls: "turn:paid.example.test:3478" },
+        { urls: "stun:free.example.test:3478" }
+      ]
+    },
+    RTCPeerConnection: null
+  },
+  navigator: {}
+});
+loadClassicScript("src/features/campus-2d/debate-lab-audio.js", audioSandbox);
+const audio = audioSandbox.window.WSC_CAMPUS_2D_DEBATE_AUDIO;
+assert.deepEqual(audio.getIceServers(), [{ urls: "stun:free.example.test:3478" }]);
+audioSandbox.window.WSC_DEBATE_AUDIO_CONFIG.allowTurn = true;
+assert.deepEqual(audio.getIceServers(), [
+  { urls: "turn:paid.example.test:3478" },
+  { urls: "stun:free.example.test:3478" }
+]);
+audioSandbox.window.WSC_DEBATE_AUDIO_CONFIG = { iceServers: [] };
+assert.deepEqual(audio.getIceServers(), []);
+
 const fakeChannel = {
   handlers: [],
   on(type, config, handler) {
@@ -165,5 +188,8 @@ console.log(JSON.stringify({
   realtime: {
     signalEvent: sentMessages[0].event,
     targetedTo: sentMessages[0].payload.debateSignal.toClientId
+  },
+  audio: {
+    freeIceServers: audio.getIceServers().length
   }
 }, null, 2));

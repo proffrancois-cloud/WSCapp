@@ -93,7 +93,14 @@ async function main() {
       if (!rules?.createAudioRoute || !audio?.createManager) {
         throw new Error("Debate Lab rules/audio globals did not load.");
       }
-      window.WSC_DEBATE_AUDIO_CONFIG = { iceServers: [] };
+      window.WSC_DEBATE_AUDIO_CONFIG = {
+        iceServers: [
+          { urls: "turn:paid.example.test:3478" },
+          { urls: "stun:free.example.test:3478" }
+        ]
+      };
+      const freeOnlyIceServers = audio.getIceServers();
+      window.WSC_DEBATE_AUDIO_CONFIG = { iceServers: [], connectionIssueMs: 4000 };
 
       const sessionId = "debate-audio-smoke-session";
       const nowMs = Date.now();
@@ -261,6 +268,7 @@ async function main() {
       const result = {
         enabledClientCount: clients.filter((client) => client.status.enabled).length,
         remoteAudioElementCount: document.querySelectorAll("[data-campus2d-debate-audio-peer]").length,
+        freeOnlyIceServers,
         prepStatuses,
         speechStatuses,
         finalStatuses,
@@ -269,6 +277,53 @@ async function main() {
       };
 
       clients.forEach((client) => client.manager.destroy());
+      window.WSC_DEBATE_AUDIO_CONFIG = { iceServers: [], connectionIssueMs: 150 };
+
+      let blockedStatus = null;
+      const blockedManager = audio.createManager({
+        localClientId: "blocked-local",
+        sendSignal() {
+          return Promise.resolve();
+        },
+        shouldHearPeer() {
+          return true;
+        },
+        shouldConnectPeer() {
+          return true;
+        },
+        onStatusChange(status) {
+          blockedStatus = status;
+        }
+      });
+      await blockedManager.enable();
+      blockedManager.update({
+        sessionId: "blocked-session",
+        debateStatus: "running",
+        route: {
+          mode: "open",
+          label: "Open floor",
+          canSend: true,
+          hear: "everyone",
+          targetClientIds: []
+        },
+        peers: [{
+          clientId: "blocked-peer",
+          displayName: "Blocked Peer",
+          debateAudio: {
+            enabled: true,
+            sessionId: "blocked-session"
+          }
+        }]
+      });
+      await waitFor(() => blockedStatus?.connectionIssue, "free WebRTC fallback status", 1500);
+      result.fallbackStatus = {
+        connectionIssue: blockedStatus.connectionIssue,
+        error: blockedStatus.error,
+        desiredPeerCount: blockedStatus.desiredPeerCount,
+        peerCount: blockedStatus.peerCount,
+        networkLabel: blockedStatus.networkLabel
+      };
+      blockedManager.destroy();
       return result;
     });
 
@@ -277,6 +332,7 @@ async function main() {
       severe.length ||
       result.enabledClientCount !== 3 ||
       result.remoteAudioElementCount < 6 ||
+      result.freeOnlyIceServers.some((server) => String(server.urls).startsWith("turn:")) ||
       !result.targetedSignals ||
       !result.signalTypes.includes("offer") ||
       !result.signalTypes.includes("answer") ||
@@ -286,7 +342,10 @@ async function main() {
       result.prepStatuses["smoke-con"].peerCount !== 0 ||
       result.speechStatuses["smoke-mate"].canSend ||
       !result.speechStatuses["smoke-host"].canSend ||
-      !Object.values(result.finalStatuses).every((status) => status.canSend && status.mode === "open")
+      !Object.values(result.finalStatuses).every((status) => status.canSend && status.mode === "open") ||
+      !result.fallbackStatus.connectionIssue ||
+      result.fallbackStatus.peerCount !== 0 ||
+      result.fallbackStatus.desiredPeerCount !== 1
     ) {
       process.exitCode = 1;
     }

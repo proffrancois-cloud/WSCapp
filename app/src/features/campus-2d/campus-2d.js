@@ -564,6 +564,10 @@
       supported: Boolean(debateAudioApi?.createManager && window.RTCPeerConnection && navigator.mediaDevices?.getUserMedia),
       error: "",
       peerCount: 0,
+      desiredPeerCount: 0,
+      routedPeerCount: 0,
+      connectionIssue: false,
+      networkLabel: "Free browser audio",
       routeLabel: "Audio idle",
       canSend: false
     };
@@ -2470,6 +2474,9 @@
       if (debateAudioStatus.permissionDenied) {
         return "Microphone permission was denied.";
       }
+      if (debateAudioStatus.connectionIssue || debateAudioStatus.error) {
+        return debateAudioStatus.error || "Audio could not connect on this network.";
+      }
       if (debateAudioStatus.connecting) {
         return "Connecting microphone...";
       }
@@ -2485,6 +2492,12 @@
       return "Listening. Your microphone opens only when the debate route allows it.";
     }
 
+    function getDebateAudioPeerText() {
+      const connected = debateAudioStatus.peerCount || 0;
+      const expected = debateAudioStatus.desiredPeerCount || 0;
+      return expected > 0 ? `${connected}/${expected} connected` : `${connected} connected`;
+    }
+
     function updateDebateAudioStatusDisplays() {
       root.querySelectorAll("[data-campus2d-debate-audio-status]").forEach((element) => {
         element.textContent = getDebateAudioStatusText();
@@ -2493,7 +2506,7 @@
         element.textContent = debateAudioStatus.routeLabel || "Audio idle";
       });
       root.querySelectorAll("[data-campus2d-debate-audio-peers]").forEach((element) => {
-        element.textContent = `${debateAudioStatus.peerCount || 0} connected`;
+        element.textContent = getDebateAudioPeerText();
       });
     }
 
@@ -2501,7 +2514,7 @@
       if (!debateState) {
         return;
       }
-      const card = createEl("section", "campus2d-debate-card campus2d-debate-audio");
+      const card = createEl("section", `campus2d-debate-card campus2d-debate-audio${debateAudioStatus.connectionIssue ? " is-warning" : ""}`);
       card.append(
         createTextElement("p", "campus2d-debate-eyebrow", "Audio"),
         createTextElement("strong", "", debateAudioStatus.enabled ? "Microphone ready" : "Join audio")
@@ -2513,7 +2526,7 @@
       const route = createEl("div", "campus2d-debate-audio-route");
       route.append(
         createTextElement("span", "", debateAudioStatus.routeLabel || "Audio idle", { "data-campus2d-debate-audio-route": "" }),
-        createTextElement("em", "", `${debateAudioStatus.peerCount || 0} connected`, { "data-campus2d-debate-audio-peers": "" })
+        createTextElement("em", "", getDebateAudioPeerText(), { "data-campus2d-debate-audio-peers": "" })
       );
       card.append(status, route);
       const actions = createEl("div", "campus2d-debate-actions");

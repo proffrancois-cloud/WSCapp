@@ -4,6 +4,8 @@
     { urls: "stun:stun.l.google.com:19302" },
     { urls: "stun:global.stun.twilio.com:3478" }
   ]);
+  const DEFAULT_CONNECTION_ISSUE_MS = 12000;
+  const CONNECTION_ISSUE_MESSAGE = "Audio could not connect on this network. The debate can continue with notes.";
 
   function createStatus(overrides = {}) {
     return {
@@ -14,15 +16,43 @@
       supported: Boolean(window.RTCPeerConnection && navigator.mediaDevices?.getUserMedia),
       error: "",
       peerCount: 0,
+      desiredPeerCount: 0,
+      routedPeerCount: 0,
+      connectionIssue: false,
+      networkLabel: "Free browser audio",
       routeLabel: "Audio idle",
       canSend: false,
       ...overrides
     };
   }
 
+  function getUrlList(server) {
+    if (Array.isArray(server?.urls)) {
+      return server.urls.map((url) => String(url || ""));
+    }
+    return [String(server?.urls || "")];
+  }
+
+  function usesTurn(server) {
+    return getUrlList(server).some((url) => /^turns?:/i.test(url));
+  }
+
   function getIceServers() {
-    const configured = window["WSC_DEBATE_AUDIO_CONFIG"]?.iceServers;
-    return Array.isArray(configured) && configured.length ? configured : DEFAULT_ICE_SERVERS;
+    const config = window["WSC_DEBATE_AUDIO_CONFIG"] || {};
+    const configured = Array.isArray(config.iceServers) ? config.iceServers : DEFAULT_ICE_SERVERS;
+    if (config.allowTurn === true) {
+      return configured;
+    }
+    return configured.filter((server) => !usesTurn(server));
+  }
+
+  function getConnectionIssueMs() {
+    const configured = Number(window["WSC_DEBATE_AUDIO_CONFIG"]?.connectionIssueMs);
+    return Number.isFinite(configured) && configured >= 0 ? configured : DEFAULT_CONNECTION_ISSUE_MS;
+  }
+
+  function getNetworkLabel() {
+    return getIceServers().some(usesTurn) ? "Browser audio with relay fallback" : "Free browser audio";
   }
 
   function sortClientIds(left, right) {
@@ -46,6 +76,11 @@
     let route = null;
     let peers = [];
     let destroyed = false;
+    let connectionIssue = false;
+    let desiredPeerIds = new Set();
+    let connectionWatchKey = "";
+    let connectionWatchStartedAtMs = 0;
+    let connectionWatchTimer = 0;
     const peerConnections = new Map();
     const remoteAudio = new Map();
     const pendingCandidates = new Map();
@@ -64,7 +99,11 @@
         permissionDenied,
         supported: Boolean(window.RTCPeerConnection && navigator.mediaDevices?.getUserMedia),
         error,
-        peerCount: peerConnections.size,
+        peerCount: remoteAudio.size,
+        desiredPeerCount: desiredPeerIds.size,
+        routedPeerCount: peerConnections.size,
+        connectionIssue,
+        networkLabel: getNetworkLabel(),
         routeLabel: route?.label || "Audio idle",
         canSend: Boolean(route?.canSend && enabled && !muted)
       });
@@ -97,6 +136,67 @@
       return shouldHearPeer?.(route, peer.clientId);
     }
 
+    function getDesiredPeerKey(peerIds) {
+      return [
+        sessionId,
+        route?.mode || "none",
+        route?.speakerClientId || "",
+        [...(route?.targetClientIds || [])].sort().join(","),
+        [...peerIds].sort().join(",")
+      ].join(":");
+    }
+
+    function clearConnectionWatch() {
+      window.clearTimeout(connectionWatchTimer);
+      connectionWatchTimer = 0;
+    }
+
+    function clearConnectionIssue() {
+      if (connectionIssue || error === CONNECTION_ISSUE_MESSAGE) {
+        connectionIssue = false;
+        if (error === CONNECTION_ISSUE_MESSAGE) {
+          error = "";
+        }
+      }
+    }
+
+    function checkConnectionWatch() {
+      connectionWatchTimer = 0;
+      if (destroyed || !enabled || desiredPeerIds.size === 0 || remoteAudio.size >= desiredPeerIds.size) {
+        clearConnectionIssue();
+        emitStatus();
+        return;
+      }
+      if (Date.now() - connectionWatchStartedAtMs >= getConnectionIssueMs()) {
+        connectionIssue = true;
+        error = CONNECTION_ISSUE_MESSAGE;
+        emitStatus();
+        return;
+      }
+      scheduleConnectionWatch();
+    }
+
+    function scheduleConnectionWatch() {
+      clearConnectionWatch();
+      if (destroyed || !enabled || desiredPeerIds.size === 0 || remoteAudio.size >= desiredPeerIds.size) {
+        clearConnectionIssue();
+        return;
+      }
+      const remainingMs = Math.max(0, getConnectionIssueMs() - (Date.now() - connectionWatchStartedAtMs));
+      connectionWatchTimer = window.setTimeout(checkConnectionWatch, remainingMs || 1);
+    }
+
+    function setDesiredPeers(peerIds) {
+      desiredPeerIds = new Set(peerIds);
+      const nextKey = getDesiredPeerKey(desiredPeerIds);
+      if (nextKey !== connectionWatchKey) {
+        connectionWatchKey = nextKey;
+        connectionWatchStartedAtMs = Date.now();
+        clearConnectionIssue();
+      }
+      scheduleConnectionWatch();
+    }
+
     function sendPeerSignal(peerClientId, payload) {
       if (!sessionId || !peerClientId || destroyed) {
         return;
@@ -118,6 +218,7 @@
       remoteAudio.forEach((audio, peerClientId) => {
         audio.muted = !shouldHearPeer?.(route, peerClientId);
       });
+      scheduleConnectionWatch();
       emitStatus();
     }
 
@@ -150,6 +251,7 @@
         audio.remove();
       }
       remoteAudio.delete(peerClientId);
+      scheduleConnectionWatch();
     }
 
     async function flushPendingCandidates(peerClientId, connection) {
@@ -211,6 +313,8 @@
         audio.srcObject = event.streams[0] || new MediaStream([event.track]);
         audio.muted = !shouldHearPeer?.(route, peerClientId);
         audio.play?.().catch(() => {});
+        scheduleConnectionWatch();
+        emitStatus();
       };
       connection.onconnectionstatechange = () => {
         if (["failed", "closed", "disconnected"].includes(connection.connectionState)) {
@@ -224,9 +328,11 @@
 
     function syncPeers() {
       if (!enabled || !sessionId || destroyed) {
+        setDesiredPeers(new Set());
         return;
       }
       const desiredPeers = new Set(peers.filter(canConnectPeer).map((peer) => peer.clientId));
+      setDesiredPeers(desiredPeers);
       peerConnections.forEach((_connection, peerClientId) => {
         if (!desiredPeers.has(peerClientId)) {
           removePeer(peerClientId);
@@ -264,6 +370,7 @@
         });
         enabled = true;
         muted = false;
+        clearConnectionIssue();
         localStream.getAudioTracks().forEach((track) => {
           track.enabled = false;
         });
@@ -290,6 +397,7 @@
       route = next.route || null;
       peers = Array.isArray(next.peers) ? next.peers : [];
       if (!sessionId || next.debateStatus === "ended") {
+        setDesiredPeers(new Set());
         closePeers();
       } else {
         syncPeers();
@@ -361,6 +469,10 @@
       enabled = false;
       muted = false;
       connecting = false;
+      desiredPeerIds = new Set();
+      connectionWatchKey = "";
+      clearConnectionWatch();
+      clearConnectionIssue();
       emitStatus();
     }
 
@@ -384,6 +496,8 @@
   window.WSC_CAMPUS_2D_DEBATE_AUDIO = Object.freeze({
     SCHEMA,
     DEFAULT_ICE_SERVERS,
+    CONNECTION_ISSUE_MESSAGE,
+    getIceServers,
     createManager
   });
 }());
