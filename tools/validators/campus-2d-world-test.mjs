@@ -464,6 +464,8 @@ for (const runtimeNeedle of [
   "openDebateLabPanel",
   "campus2d-debate-topic-choices",
   "DEBATE_TOPIC_CHOICE_COUNT",
+  "Join current debate",
+  "Hosted by",
   "Tournament tools",
   "if (zones.length)",
   "findAnyZoneAtPoint",
@@ -498,6 +500,9 @@ for (const runtimeNeedle of [
   if (!campusRuntime.includes(runtimeNeedle)) {
     failures.push(`Campus 2D runtime is missing ${runtimeNeedle}.`);
   }
+}
+if (/joinCode|Join by code|Share the join code|Enter the host's join code|data-campus2d-debate-code-input|campus2d-debate-code-input/.test(campusRuntime)) {
+  failures.push("Debate Lab should use the shared amphitheatre signup flow, not a join-code flow.");
 }
 if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRuntime)) {
   failures.push("Campus 2D yellow seat zones must be non-walkable, not regular walking areas.");

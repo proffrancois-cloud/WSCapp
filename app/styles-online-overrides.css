@@ -2052,7 +2052,6 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-debate-select,
-.campus2d-debate-code-input,
 .campus2d-debate-note-input {
   width: 100%;
   min-width: 0;
@@ -2064,8 +2063,7 @@ body.is-campus2d-view .wizard-steps {
   font-weight: 850;
 }
 
-.campus2d-debate-select,
-.campus2d-debate-code-input {
+.campus2d-debate-select {
   min-height: 38px;
   padding: 0 10px;
 }
@@ -2132,7 +2130,6 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-debate-select:focus,
-.campus2d-debate-code-input:focus,
 .campus2d-debate-note-input:focus {
   outline: 2px solid rgba(255, 183, 86, 0.72);
   outline-offset: 2px;

@@ -20,7 +20,6 @@
   const DEBATE_MIN_TEAM_SIZE = 2;
   const DEBATE_MAX_TEAM_SIZE = 3;
   const DEBATE_MAX_DEBATERS = 6;
-  const DEBATE_JOIN_CODE_LENGTH = 6;
   const DEBATE_TOPIC_CHOICE_COUNT = 2;
   const DEBATE_INTRO_MS = 30000;
   const DEBATE_NPC_WALK_MS = 3200;
@@ -434,23 +433,6 @@
       return text;
     }
     return `${text.slice(0, Math.max(0, maxLength - 1)).trim()}...`;
-  }
-
-  function normalizeDebateCode(value) {
-    return String(value || "")
-      .trim()
-      .toUpperCase()
-      .replace(/[^A-Z0-9]/g, "")
-      .slice(0, DEBATE_JOIN_CODE_LENGTH);
-  }
-
-  function createDebateJoinCode(length = DEBATE_JOIN_CODE_LENGTH) {
-    const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    let code = "";
-    for (let index = 0; index < length; index += 1) {
-      code += alphabet[Math.floor(Math.random() * alphabet.length)];
-    }
-    return code;
   }
 
   function createDebateId(prefix = "debate") {
@@ -1658,8 +1640,7 @@
         topicId: topicChoiceSet.topicId,
         topicChoices: topicChoiceSet.topicChoices,
         hostSide: "pro",
-        judgeMode: false,
-        joinCode: ""
+        judgeMode: false
       };
     }
 
@@ -1744,7 +1725,6 @@
         schema: DEBATE_SCHEMA,
         roomId: DEBATE_ROOM_ID,
         sessionId: String(value.sessionId || createDebateId("debate-room")),
-        joinCode: normalizeDebateCode(value.joinCode || createDebateJoinCode()),
         hostClientId: String(value.hostClientId || "").trim(),
         hostName: String(value.hostName || "Host").trim().slice(0, 80) || "Host",
         topicId: getDebateTopicId(value.topicId),
@@ -1968,7 +1948,6 @@
         schema: DEBATE_SCHEMA,
         roomId: DEBATE_ROOM_ID,
         sessionId: createDebateId("debate-room"),
-        joinCode: createDebateJoinCode(),
         hostClientId: localPlayer.clientId,
         hostName: localPlayer.displayName || "Host",
         topicId: getDebateTopicId(debateDraft.topicId),
@@ -1982,7 +1961,7 @@
         updatedAtMs: nowMs
       };
       next.teams[side].push(createLocalDebateParticipant(getNextDebateNoteColor(next, side)));
-      setDebateState(next, { broadcast: true, status: "Room created. Share the join code." });
+      setDebateState(next, { broadcast: true, status: "Room created. Alpacas can join from this panel." });
     }
 
     function getDebateStartIssues(state = debateState) {
@@ -2101,11 +2080,6 @@
 
     function joinDebateAs(role) {
       if (!debateState || debateState.status !== "setup") {
-        return;
-      }
-      if (normalizeDebateCode(debateDraft.joinCode) !== debateState.joinCode && !getLocalDebateRole()) {
-        debatePanelStatus = "Enter the host's join code first.";
-        renderDebateUi();
         return;
       }
       const next = removeLocalDebateRole(cloneDebateState());
@@ -2310,7 +2284,7 @@
       });
       form.append(
         createTextElement("p", "campus2d-debate-eyebrow", "Host room"),
-        createTextElement("h3", "", "Create Debate Lab")
+        createTextElement("h3", "", "Create a debate")
       );
       const topicRow = createEl("div", "campus2d-debate-field");
       topicRow.append(
@@ -2333,7 +2307,7 @@
       });
       judgeInput.checked = Boolean(debateDraft.judgeMode);
       judgeLabel.append(judgeInput, createTextElement("span", "", "Use a judge"));
-      const submit = createTextElement("button", "campus2d-debate-button primary", "Create room", {
+      const submit = createTextElement("button", "campus2d-debate-button primary", "Create debate", {
         type: "submit",
         "data-campus2d-ui": ""
       });
@@ -2380,7 +2354,7 @@
       const header = createEl("div", "campus2d-debate-summary-header");
       header.append(
         createTextElement("span", "campus2d-debate-eyebrow", debateState.status === "running" ? "In progress" : debateState.status === "ended" ? "Ended" : "Room open"),
-        createTextElement("strong", "", isLocalDebateHost() ? `Join code ${debateState.joinCode}` : "Join by code")
+        createTextElement("strong", "", `Hosted by ${debateState.hostName || "Host"}`)
       );
       const motion = createTextElement("h3", "", topic?.motion || "Debate Lab");
       card.append(header, motion);
@@ -2419,23 +2393,7 @@
       const role = getLocalDebateRole();
       const isHost = isLocalDebateHost();
       const card = createEl("section", "campus2d-debate-card campus2d-debate-signup");
-      if (!role && !isHost) {
-        const field = createEl("label", "campus2d-debate-field");
-        const input = createEl("input", "campus2d-debate-code-input", {
-          type: "text",
-          inputmode: "latin",
-          maxlength: String(DEBATE_JOIN_CODE_LENGTH),
-          autocomplete: "off",
-          placeholder: "Join code",
-          "data-campus2d-debate-code-input": "",
-          "data-campus2d-ui": ""
-        });
-        input.value = debateDraft.joinCode;
-        field.append(createTextElement("span", "", "Code"), input);
-        card.append(createTextElement("p", "campus2d-debate-eyebrow", "Join room"), field);
-      } else {
-        card.append(createTextElement("p", "campus2d-debate-eyebrow", isHost ? "Host signup" : "Your signup"));
-      }
+      card.append(createTextElement("p", "campus2d-debate-eyebrow", isHost ? "Host signup" : role ? "Your signup" : "Join current debate"));
       const buttons = createEl("div", "campus2d-debate-actions");
       ["pro", "con"].forEach((side) => {
         const current = role === side;
@@ -2638,13 +2596,6 @@
           selectionEnd: active.selectionEnd
         };
       }
-      if (active.matches("[data-campus2d-debate-code-input]")) {
-        return {
-          type: "code",
-          selectionStart: active.selectionStart,
-          selectionEnd: active.selectionEnd
-        };
-      }
       return null;
     }
 
@@ -2655,8 +2606,6 @@
       let target = null;
       if (snapshot.type === "note") {
         target = activityMount.querySelector(`[data-campus2d-debate-note-side="${snapshot.side}"][data-campus2d-debate-note-client="${snapshot.clientId}"]`);
-      } else if (snapshot.type === "code") {
-        target = activityMount.querySelector("[data-campus2d-debate-code-input]");
       }
       if (!target) {
         return;
@@ -4719,13 +4668,6 @@
     }
 
     function handleRootInput(event) {
-      const codeInput = event.target.closest("[data-campus2d-debate-code-input]");
-      if (codeInput) {
-        debateDraft.joinCode = normalizeDebateCode(codeInput.value);
-        codeInput.value = debateDraft.joinCode;
-        return;
-      }
-
       const noteInput = event.target.closest("[data-campus2d-debate-note-input]");
       if (noteInput && !noteInput.readOnly) {
         updateLocalDebateNote(noteInput.dataset.campus2dDebateNoteSide, noteInput.value);
