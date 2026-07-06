@@ -324,6 +324,9 @@ if (!pwaResetVersion) {
 if (pwaResetVersion && !indexHtml.includes(`assets/icons/ui/settings.png?v=${pwaResetVersion}`)) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
+if (indexHtml.includes('id="statsStrip"') || indexHtml.includes("Progress trackers")) {
+  failures.push("Header must not render the retired achievement/progress tracker strip.");
+}
 const serviceWorker = readApp("service-worker.js");
 if (!serviceWorker.includes("self.registration.unregister()")) {
   failures.push("Service worker must unregister itself so old GitHub Pages caches cannot pin stale app shells.");
@@ -341,10 +344,21 @@ if (!pwaRuntime.includes("getRegistrations") || !pwaRuntime.includes("unregister
 if (pwaRuntime.includes(".register(")) {
   failures.push("pwa.js must not register a new service worker.");
 }
+const appShellCss = readApp("styles-app-shell.css");
+const onlineCss = readApp("styles-online-overrides.css");
+if (!appShellCss.includes(".library-campus-card-grid-four") || !appShellCss.includes("repeat(2, minmax(190px, 260px))")) {
+  failures.push("Four-card Campus menus must render as a 2x2 grid in the shared shell CSS.");
+}
+if (!onlineCss.includes(".campus2d-activity-mount .library-campus-card-grid-four") || !onlineCss.includes("repeat(2, minmax(0, 1fr)) !important")) {
+  failures.push("Four-card Campus activity menus must stay 2x2 in the right panel.");
+}
 
 const appJs = readApp("app.js");
 if (!appJs.includes("window.WSC_CAMPUS_2D.mount")) {
   failures.push("app.js does not mount WSC_CAMPUS_2D.");
+}
+if (/statsStrip|renderStats\(|renderOnlineScoreStrip|hero-progress-circles/.test(appJs)) {
+  failures.push("Retired header achievement/progress tracker JS must stay removed from app.js.");
 }
 if (!appJs.includes("renderOnlineHomeGameGrid")) {
   failures.push("Online game card grid renderer must remain available.");

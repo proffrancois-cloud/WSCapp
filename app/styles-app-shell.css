@@ -7528,7 +7528,7 @@ body .hero-links > button.hero-link-icon.hero-settings-icon::after {
 }
 
 .library-campus-card-grid-four {
-  grid-template-columns: repeat(4, minmax(158px, 224px));
+  grid-template-columns: repeat(2, minmax(190px, 260px));
   justify-content: center;
 }
 

@@ -2486,7 +2486,6 @@ const state = {
 
 const refs = {
   heroMascot: document.getElementById("heroMascot"),
-  statsStrip: document.getElementById("statsStrip"),
   sessionControls: document.getElementById("sessionControls"),
   heroOnlineMount: document.getElementById("heroOnlineMount"),
   appEntryGateMount: document.getElementById("appEntryGateMount"),
@@ -4425,7 +4424,6 @@ function render() {
   document.body.classList.toggle("is-online-mode", state.ui.appShellMode === "online");
   document.body.classList.toggle("is-local-mode", state.ui.appShellMode === "local");
   document.body.classList.toggle("is-campus2d-view", isAlpacaOnlineCampusView());
-  renderStats();
   renderSessionControls();
   renderAppEntryGate();
   renderSummary();
@@ -4454,42 +4452,6 @@ function renderInsights() {
       `
     )
     .join("");
-}
-
-function renderStats() {
-  if (!refs.statsStrip) {
-    return;
-  }
-
-  if (state.ui.appShellMode === "online") {
-    refs.statsStrip.innerHTML = renderOnlineScoreStrip();
-    return;
-  }
-
-  const totalAnswered = Number(state.stats.totalAnswered) || 0;
-  const totalCorrect = Number(state.stats.totalCorrect) || 0;
-  const accuracy = totalAnswered ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
-  const totalMasterable = getTotalRawMasterableEntries();
-  const mastered = getMasteredRawEntryCount();
-  const masteredPercent = totalMasterable ? Math.round((mastered / totalMasterable) * 100) : 0;
-
-  refs.statsStrip.innerHTML = `
-    <div class="hero-progress-circles" aria-label="Progress circles">
-      ${renderProgressCircleStatCard(
-        "Questions answered",
-        `${totalAnswered} answered`,
-        `${accuracy}% accuracy`,
-        accuracy
-      )}
-      ${renderProgressCircleStatCard(
-        "Knowledge mastered",
-        `${mastered}/${totalMasterable} entries`,
-        `${masteredPercent}% mastered`,
-        masteredPercent
-      )}
-    </div>
-    ${renderBestScoreStrip()}
-  `;
 }
 
 function renderSessionControls() {
@@ -4699,125 +4661,6 @@ function returnToAlpacaOnlineHub() {
     state.experience.playMode = "multiplayer";
   }
   renderLiveSurfaces();
-}
-
-function renderProgressCircleStatCard(label, primary, secondary, percent) {
-  const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
-  return `
-    <div class="stat-card progress-circle-card">
-      <div
-        class="stat-progress-ring"
-        style="--percent:${safePercent};"
-        aria-label="${escapeHtml(label)}: ${escapeHtml(primary)}, ${escapeHtml(secondary)}"
-      >
-        <div class="stat-progress-ring-inner">
-          <strong>${safePercent}%</strong>
-        </div>
-      </div>
-      <div class="stat-progress-circle-copy">
-        <span>${escapeHtml(label)}</span>
-        <strong>${escapeHtml(primary)}</strong>
-        <em>${escapeHtml(secondary)}</em>
-      </div>
-    </div>
-  `;
-}
-
-function renderBestScoreStrip() {
-  const stats = state.stats || getDefaultStats();
-  const cards = [
-    {
-      label: "Alpacapardy",
-      value: formatBestNumberStat(stats.bestAlpacapardyScore),
-      note: "Best team score"
-    },
-    {
-      label: "Alpaca Run",
-      value: getBestRunDestinationLabel(stats.bestRunStage),
-      note: "Best destination"
-    },
-    {
-      label: "Alpaca Jump",
-      value: `${Math.round(Number(stats.bestJumpDistance) || 0)}m`,
-      note: "Longest distance"
-    },
-    {
-      label: "Alpaquiz",
-      value: formatBestNumberStat(stats.bestRelayScore),
-      note: "Best team score"
-    },
-    {
-      label: "Survivalpaca",
-      value: formatBestNumberStat(stats.bestRaceScore),
-      note: "Best score"
-    }
-  ];
-
-  return `
-    <div class="hero-best-strip" aria-label="Best game scores">
-      ${cards.map((card) => renderBestScoreCard(card)).join("")}
-    </div>
-  `;
-}
-
-function renderBestScoreCard(card) {
-  return `
-    <article class="hero-best-card">
-      <span>${escapeHtml(card.label)}</span>
-      <strong>${escapeHtml(card.value)}</strong>
-      <em>${escapeHtml(card.note)}</em>
-    </article>
-  `;
-}
-
-function renderOnlineScoreStrip() {
-  const cards = LIVE_GAME_ORDER.map((gameType) => {
-    const record = getOnlineGameRecord(gameType);
-    return {
-      label: getLiveGameLabel(gameType),
-      value: `${record.wins}/${record.games} games`,
-      note: record.bestGames >= 5 && record.bestName
-        ? `${record.bestName} · ${record.bestWinPercent}% wins`
-        : "Best alpaca unlocks after 5 games"
-    };
-  });
-
-  return `
-    <div class="hero-best-strip hero-best-strip-online" aria-label="Online game records">
-      ${cards.map((card) => renderBestScoreCard(card)).join("")}
-    </div>
-  `;
-}
-
-function getOnlineGameRecord(gameType) {
-  const liveRecords = state.stats.liveRecords || {};
-  const record = liveRecords[normalizeLiveGameType(gameType)] || {};
-  const games = Math.max(0, Number(record.games) || 0);
-  const wins = Math.max(0, Number(record.wins) || 0);
-  const bestGames = Math.max(0, Number(record.bestGames) || 0);
-  const bestWins = Math.max(0, Number(record.bestWins) || 0);
-  const bestWinPercent = bestGames ? Math.round((bestWins / bestGames) * 100) : 0;
-  return {
-    games,
-    wins,
-    bestGames,
-    bestName: record.bestName || "",
-    bestWinPercent
-  };
-}
-
-function formatBestNumberStat(value) {
-  return String(Math.max(0, Number(value) || 0));
-}
-
-function getBestRunDestinationLabel(stageValue) {
-  const stage = Number(stageValue);
-  if (!Number.isFinite(stage) || stage < 0) {
-    return "Not started";
-  }
-
-  const stop = ALPACA_RUN_ROUTE[Math.min(Math.max(0, Math.round(stage)), ALPACA_RUN_ROUTE.length - 1)];
-  return stop ? stop.label : "Not started";
 }
 
 function renderSummary() {
@@ -7595,7 +7438,6 @@ async function loadAlpacaProgress() {
     state.stats = normalizeStats(data.game_stats);
     state.rawMastery = normalizeRawMastery(data.raw_mastered_entries);
     saveProgressLocally();
-    renderStats();
     if (state.experience?.type === "rawcontent") {
       renderExperience();
     }
@@ -11721,7 +11563,6 @@ function toggleRawMastery(key) {
   }
 
   saveRawMastery();
-  renderStats();
   renderExperience();
 }
 
@@ -19576,7 +19417,6 @@ function finalizeSessionStats(answers, bestStreak, gameResult = null) {
   state.stats.bestStreak = Math.max(state.stats.bestStreak, bestStreak);
   updateBestGameStats(gameResult);
   saveStats();
-  renderStats();
 }
 
 function getPerformanceRating(accuracy) {
