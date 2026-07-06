@@ -22,3 +22,13 @@ body .mode-choice-column-train .mode-card.unavailable .mode-card-thanks {
   text-align: center !important;
   font-style: italic !important;
 }
+
+body.is-local-experience-open .layout {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.is-local-experience-open .layout::before {
+  display: none !important;
+  content: none !important;
+}

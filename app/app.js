@@ -4358,6 +4358,7 @@ function openSectionChannel(sectionId) {
 function render() {
   document.body.classList.toggle("is-online-mode", state.ui.appShellMode === "online");
   document.body.classList.toggle("is-local-mode", state.ui.appShellMode === "local");
+  document.body.classList.toggle("is-local-experience-open", isLocalExperienceOpen());
   document.body.classList.toggle("is-campus2d-view", isAlpacaOnlineCampusView());
   renderSessionControls();
   renderAppEntryGate();
@@ -4374,12 +4375,16 @@ function render() {
   syncPopupScrollLock();
 }
 
+function isLocalExperienceOpen() {
+  return state.ui.appShellMode === "local" && Boolean(state.selection.mode && state.experience);
+}
+
 function syncRouteBuilderVisibility() {
   if (!refs.routeBuilder) {
     return;
   }
 
-  const hideRouteBuilder = state.ui.appShellMode === "local" && Boolean(state.selection.mode && state.experience);
+  const hideRouteBuilder = isLocalExperienceOpen();
   refs.routeBuilder.classList.toggle("hidden", hideRouteBuilder);
   if (hideRouteBuilder) {
     refs.routeBuilder.setAttribute("aria-hidden", "true");
@@ -6389,6 +6394,26 @@ function renderExperiencePreservingScroll() {
   renderPreservingScroll(renderExperience);
 }
 
+function getExperienceScrollPosition() {
+  const scrollContainer = getRenderedExperienceScrollContainer();
+  return scrollContainer
+    ? {
+        top: scrollContainer.scrollTop,
+        left: scrollContainer.scrollLeft
+      }
+    : null;
+}
+
+function restoreExperienceScrollPosition(scrollPosition) {
+  const scrollContainer = getRenderedExperienceScrollContainer();
+  if (!scrollContainer || !scrollPosition) {
+    return;
+  }
+
+  scrollContainer.scrollTop = scrollPosition.top;
+  scrollContainer.scrollLeft = scrollPosition.left;
+}
+
 function getViewportScrollPosition() {
   const scrollContainer = document.scrollingElement || document.documentElement || document.body;
   return {
@@ -6412,6 +6437,7 @@ function restoreViewportScrollPosition(scrollPosition) {
 
 function renderPreservingScroll(renderCallback) {
   const scrollPosition = getViewportScrollPosition();
+  const experienceScrollPosition = getExperienceScrollPosition();
   const preservedElementScrolls = capturePreservedElementScrolls();
   const previousHtmlBehavior = document.documentElement ? document.documentElement.style.scrollBehavior : "";
   const previousBodyBehavior = document.body ? document.body.style.scrollBehavior : "";
@@ -6427,6 +6453,7 @@ function renderPreservingScroll(renderCallback) {
 
   const restoreScroll = (restoreBehavior = false) => {
     restoreViewportScrollPosition(scrollPosition);
+    restoreExperienceScrollPosition(experienceScrollPosition);
     restorePreservedElementScrolls(preservedElementScrolls);
     if (restoreBehavior) {
       if (document.documentElement) {
@@ -6985,6 +7012,15 @@ function replaceMarkup(target, markup) {
 
 function getRenderedExperienceRoot() {
   return document.querySelector("[data-library-experience-window]") || refs.experiencePanel || null;
+}
+
+function getRenderedExperienceScrollContainer() {
+  const libraryPanel = document.querySelector("[data-library-experience-window] .library-experience-panel");
+  if (libraryPanel) {
+    return libraryPanel;
+  }
+
+  return refs.experiencePanel || null;
 }
 
 function refreshRunTimerDisplay(experience) {
@@ -20738,7 +20774,7 @@ function openRawMediaLightboxFromTrigger(trigger) {
       anchor
     };
     syncPopupScrollLock();
-    renderExperience();
+    renderExperiencePreservingScroll();
     return;
   }
 
@@ -20767,7 +20803,7 @@ function openRawMediaLightboxFromTrigger(trigger) {
       anchor
     };
     syncPopupScrollLock();
-    renderExperience();
+    renderExperiencePreservingScroll();
     return;
   }
 
@@ -20789,7 +20825,7 @@ function openRawMediaLightboxFromTrigger(trigger) {
       anchor
     };
     syncPopupScrollLock();
-    renderExperience();
+    renderExperiencePreservingScroll();
   }
 }
 
@@ -20799,7 +20835,7 @@ function getRawMediaLightboxAnchor(trigger) {
   }
 
   const rect = trigger.getBoundingClientRect();
-  const shell = trigger.closest(".raw-content-shell") || refs.experiencePanel || document.body;
+  const shell = trigger.closest(".raw-content-shell") || getRenderedExperienceRoot() || document.body;
   const shellRect = shell.getBoundingClientRect();
   const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
@@ -21044,20 +21080,22 @@ function shiftRawQuizPage(pagerKey, direction, total, options = {}) {
 }
 
 function getRawQuestionGalleryByPagerKey(pagerKey) {
-  if (!refs.experiencePanel || !pagerKey) {
+  const root = getRenderedExperienceRoot();
+  if (!root || !pagerKey) {
     return null;
   }
 
-  return [...refs.experiencePanel.querySelectorAll("[data-raw-question-gallery]")]
+  return [...root.querySelectorAll("[data-raw-question-gallery]")]
     .find((gallery) => gallery.dataset.rawQuestionPager === pagerKey) || null;
 }
 
 function syncRawQuestionGalleries(options = {}) {
-  if (!refs.experiencePanel) {
+  const root = getRenderedExperienceRoot();
+  if (!root) {
     return;
   }
 
-  refs.experiencePanel.querySelectorAll("[data-raw-question-gallery]").forEach((gallery) => {
+  root.querySelectorAll("[data-raw-question-gallery]").forEach((gallery) => {
     syncRawQuestionGallery(gallery, options);
   });
 }
