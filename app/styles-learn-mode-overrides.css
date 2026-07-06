@@ -1273,6 +1273,8 @@
   position: relative;
   display: grid;
   gap: 12px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .mindmap-gallery-track {
@@ -1289,6 +1291,15 @@
   scrollbar-width: none;
 }
 
+.mindmap-shell .mindmap-gallery-track {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding-inline: 0 !important;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
 .mindmap-gallery-track::-webkit-scrollbar {
   display: none;
 }
@@ -1298,6 +1309,11 @@
   min-width: 0;
   scroll-snap-align: center;
   scroll-snap-stop: always;
+}
+
+.mindmap-shell .mindmap-gallery-slide {
+  flex-basis: 100%;
+  max-width: 100%;
 }
 
 .mindmap-gallery.has-multiple .mindmap-gallery-slide {
@@ -1357,10 +1373,14 @@
 }
 
 .experience-panel--mindmap .mindmap-radial-scroll {
+  --mindmap-stage-visual-size: 604px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 640px;
+  min-height: min(640px, max(420px, calc(var(--mindmap-stage-visual-size) + 36px)));
   overflow: hidden !important;
   overflow: clip !important;
   border-radius: 42px;
@@ -1387,7 +1407,8 @@
   isolation: isolate;
   overflow: visible;
   margin: 0;
-  transform: none;
+  transform: scale(var(--mindmap-stage-scale, 1));
+  transform-origin: center center;
   background:
     radial-gradient(circle at center, rgba(255, 250, 238, 0.9) 0 9%, rgba(255, 250, 238, 0.36) 9.2% 13%, transparent 13.4%),
     radial-gradient(circle at center, rgba(252, 209, 39, 0.14), transparent 52%),
@@ -1572,6 +1593,30 @@
     min-height: 154px;
     padding: 22px;
   }
+}
+
+.raw-question-gallery .raw-quiz-option,
+.raw-question-gallery .raw-quiz-option > span:last-child,
+.regular-guide-shell .raw-quiz-option,
+.regular-guide-shell .raw-quiz-option > span:last-child,
+.mindmap-entry-window .raw-quiz-option,
+.mindmap-entry-window .raw-quiz-option > span:last-child,
+.mindmap-guide-window .raw-quiz-option,
+.mindmap-guide-window .raw-quiz-option > span:last-child {
+  color: #4b2f21 !important;
+  -webkit-text-fill-color: #4b2f21 !important;
+}
+
+.raw-question-gallery .raw-quiz-option {
+  background: rgba(255, 250, 238, 0.66);
+}
+
+.raw-question-gallery,
+.raw-question-gallery-track,
+.raw-question-gallery-slide,
+.raw-question-gallery .raw-quiz-card,
+.raw-question-gallery-nav {
+  overflow-anchor: none;
 }
 
 .library-experience-panel .panel-hub-link,

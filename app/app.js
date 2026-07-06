@@ -3025,6 +3025,7 @@ function handleClick(event) {
 
   const rawQuizOptionButton = event.target.closest("[data-raw-quiz-option]");
   if (rawQuizOptionButton) {
+    event.preventDefault();
     rememberRawQuestionGallerySlide(rawQuizOptionButton);
     selectRawQuizOption(
       rawQuizOptionButton.dataset.rawQuizKey,
@@ -3035,11 +3036,22 @@ function handleClick(event) {
 
   const rawQuizPageButton = event.target.closest("[data-raw-quiz-page]");
   if (rawQuizPageButton) {
-    shiftRawQuizPage(
-      rawQuizPageButton.dataset.rawQuizPage,
-      Number(rawQuizPageButton.dataset.rawQuizDirection),
-      Number(rawQuizPageButton.dataset.rawQuizTotal)
-    );
+    event.preventDefault();
+    event.stopPropagation();
+    rawQuizPageButton.blur();
+    const scrollPosition = getViewportScrollPosition();
+    renderPreservingScroll(() => {
+      shiftRawQuizPage(
+        rawQuizPageButton.dataset.rawQuizPage,
+        Number(rawQuizPageButton.dataset.rawQuizDirection),
+        Number(rawQuizPageButton.dataset.rawQuizTotal),
+        {
+          behavior: "auto",
+          preserveViewportScroll: scrollPosition
+        }
+      );
+    });
+    restoreViewportScrollPosition(scrollPosition);
     return;
   }
 
@@ -6356,10 +6368,29 @@ function renderExperiencePreservingScroll() {
   renderPreservingScroll(renderExperience);
 }
 
-function renderPreservingScroll(renderCallback) {
+function getViewportScrollPosition() {
   const scrollContainer = document.scrollingElement || document.documentElement || document.body;
-  const scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY || 0;
-  const scrollLeft = scrollContainer ? scrollContainer.scrollLeft : window.scrollX || 0;
+  return {
+    top: scrollContainer ? scrollContainer.scrollTop : window.scrollY || 0,
+    left: scrollContainer ? scrollContainer.scrollLeft : window.scrollX || 0
+  };
+}
+
+function restoreViewportScrollPosition(scrollPosition) {
+  if (!scrollPosition) {
+    return;
+  }
+
+  const scrollContainer = document.scrollingElement || document.documentElement || document.body;
+  if (scrollContainer) {
+    scrollContainer.scrollTop = scrollPosition.top;
+    scrollContainer.scrollLeft = scrollPosition.left;
+  }
+  window.scrollTo({ left: scrollPosition.left, top: scrollPosition.top, behavior: "auto" });
+}
+
+function renderPreservingScroll(renderCallback) {
+  const scrollPosition = getViewportScrollPosition();
   const preservedElementScrolls = capturePreservedElementScrolls();
   const previousHtmlBehavior = document.documentElement ? document.documentElement.style.scrollBehavior : "";
   const previousBodyBehavior = document.body ? document.body.style.scrollBehavior : "";
@@ -6374,13 +6405,8 @@ function renderPreservingScroll(renderCallback) {
   renderCallback();
 
   const restoreScroll = (restoreBehavior = false) => {
-    const target = document.scrollingElement || document.documentElement || document.body;
-    if (target) {
-      target.scrollTop = scrollTop;
-      target.scrollLeft = scrollLeft;
-    }
+    restoreViewportScrollPosition(scrollPosition);
     restorePreservedElementScrolls(preservedElementScrolls);
-    window.scrollTo({ left: scrollLeft, top: scrollTop, behavior: "auto" });
     if (restoreBehavior) {
       if (document.documentElement) {
         document.documentElement.style.scrollBehavior = previousHtmlBehavior;
@@ -6777,7 +6803,17 @@ function syncRadialMindMapScroll() {
         return;
       }
 
-      stage.style.removeProperty("--mindmap-stage-scale");
+      const stageSize = Number.parseFloat(stage.style.getPropertyValue("--map-size"))
+        || Number.parseFloat(getComputedStyle(stage).getPropertyValue("--map-size"))
+        || stage.offsetWidth
+        || 640;
+      const availableWidth = Math.max(260, map.clientWidth - 36);
+      const availableHeight = Math.max(260, map.clientHeight - 36);
+      const scale = Math.min(1, availableWidth / stageSize, availableHeight / stageSize);
+      const visualSize = Math.max(260, Math.round(stageSize * scale));
+
+      stage.style.setProperty("--mindmap-stage-scale", scale.toFixed(4));
+      map.style.setProperty("--mindmap-stage-visual-size", `${visualSize}px`);
     });
   });
 }
@@ -20900,7 +20936,7 @@ function selectRawQuizOption(quizKey, optionIndex) {
     [quizKey]: optionIndex
   };
 
-  renderExperience();
+  renderExperiencePreservingScroll();
 }
 
 function rememberRawQuestionGallerySlide(target) {
@@ -20918,7 +20954,7 @@ function rememberRawQuestionGallerySlide(target) {
   );
 }
 
-function setRawQuizPageIndex(pagerKey, index, total, sync = true) {
+function setRawQuizPageIndex(pagerKey, index, total, sync = true, options = {}) {
   if (!pagerKey || !Number.isFinite(index) || !Number.isFinite(total) || total < 1) {
     return null;
   }
@@ -20932,22 +20968,25 @@ function setRawQuizPageIndex(pagerKey, index, total, sync = true) {
   if (sync) {
     const gallery = getRawQuestionGalleryByPagerKey(pagerKey);
     if (gallery) {
-      syncRawQuestionGallery(gallery, { behavior: "smooth" });
+      syncRawQuestionGallery(gallery, {
+        behavior: options.behavior || "smooth",
+        preserveViewportScroll: options.preserveViewportScroll || null
+      });
     }
   }
 
   return nextIndex;
 }
 
-function shiftRawQuizPage(pagerKey, direction, total) {
+function shiftRawQuizPage(pagerKey, direction, total, options = {}) {
   if (!pagerKey || !Number.isFinite(direction) || !Number.isFinite(total) || total < 1) {
     return;
   }
 
   const currentIndex = getRawQuizPageIndex(pagerKey, total);
-  const nextIndex = setRawQuizPageIndex(pagerKey, currentIndex + direction, total, true);
+  const nextIndex = setRawQuizPageIndex(pagerKey, currentIndex + direction, total, true, options);
   if (nextIndex === null || !getRawQuestionGalleryByPagerKey(pagerKey)) {
-    renderExperience();
+    renderExperiencePreservingScroll();
   }
 }
 
@@ -21009,6 +21048,10 @@ function syncRawQuestionGallery(gallery, options = {}) {
       left: Math.max(0, targetLeft),
       behavior: options.behavior || "auto"
     });
+    if (options.preserveViewportScroll) {
+      restoreViewportScrollPosition(options.preserveViewportScroll);
+      window.requestAnimationFrame(() => restoreViewportScrollPosition(options.preserveViewportScroll));
+    }
   });
 
   return true;
