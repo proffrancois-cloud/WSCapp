@@ -522,7 +522,7 @@
             "",
             "On the three shelves to my left, you can find the curriculum's raw content, our library guide, and tools for navigating the curriculum.",
             "",
-            "On the screen in the red area, you can watch the Alpaca Channel: videos focused on each part of the curriculum.",
+            "On the screen in the blue area, you can watch the Alpaca Channel: videos focused on each part of the curriculum.",
             "",
             "You also have four computers available. Use them to explore the larger Scholars' community and the resources they have shared.",
             "",
