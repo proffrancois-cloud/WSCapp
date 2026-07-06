@@ -102,10 +102,10 @@
   function renderConnectedAlpaccount(context, helpers) {
     const profile = context.profile || {};
     const round = (context.roundOptions || []).find((option) => option.value === profile.highest_wsc_round);
-    const achievements = Array.isArray(profile.wsc_achievements) ? profile.wsc_achievements : [];
-    const firstAchievement = achievements[0] || null;
-    const reward = firstAchievement
-      ? (context.rewardOptions || []).find((option) => option.value === (firstAchievement.rewardType || firstAchievement.reward_type))
+    const idRewards = Array.isArray(profile.wsc_achievements) ? profile.wsc_achievements : [];
+    const firstReward = idRewards[0] || null;
+    const reward = firstReward
+      ? (context.rewardOptions || []).find((option) => option.value === (firstReward.rewardType || firstReward.reward_type))
       : null;
 
     return `
@@ -114,7 +114,7 @@
         <strong>${helpers.escapeHtml(profile.alpaca_name || "Connected")}</strong>
         <p>${helpers.escapeHtml([profile.school_name, profile.country].filter(Boolean).join(" · ") || "Profile loading...")}</p>
         ${round ? `<p>${helpers.escapeHtml(round.label)} · ${Number(profile.wsc_event_count || 0)} WSC event${Number(profile.wsc_event_count || 0) === 1 ? "" : "s"}</p>` : ""}
-        ${reward ? `<p>ID reward: ${helpers.escapeHtml([reward.label, firstAchievement.city, firstAchievement.approximateDate || firstAchievement.approximate_date].filter(Boolean).join(" · "))}</p>` : ""}
+        ${reward ? `<p>ID reward: ${helpers.escapeHtml([reward.label, firstReward.city, firstReward.approximateDate || firstReward.approximate_date].filter(Boolean).join(" · "))}</p>` : ""}
       </div>
       <div class="panel-actions auth-actions">
         <button class="button secondary" type="button" data-auth-signout ${context.busy ? "disabled" : ""}>Sign out</button>

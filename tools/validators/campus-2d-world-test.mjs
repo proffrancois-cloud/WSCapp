@@ -311,10 +311,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706debateaudiofree"')) {
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706idrewardclean"')) {
   failures.push("index.html must bump WSC_PWA_RESET_VERSION for the Debate Lab audio and reward ID-card cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706debateaudiofree")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706idrewardclean")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 const serviceWorker = readApp("service-worker.js");
@@ -371,12 +371,9 @@ for (const runtimeNeedle of [
   "campus2d-id-card online-glow-card",
   "createOnlineIdCardShell",
   "Alpaca name",
-  "Achievements",
-  "No verified rewards yet",
-  "ACHIEVEMENT_REWARD_TYPES",
+  "ID_REWARD_TYPES",
   "MAX_ID_REWARDS",
   "ID_REWARD_ROW_PATTERNS",
-  "Reward type",
   "campus2d-id-reward",
   "campus2d-id-reward-tooltip",
   "data-campus2d-reward",
@@ -397,9 +394,7 @@ for (const runtimeNeedle of [
   "data-campus2d-report-open",
   "viewport.append(world, chatForm, reportButton, npcDialogueLayer)",
   "data-campus2d-open-self-card",
-  "data-campus2d-achievements-open",
   "data-campus2d-report-form",
-  "data-campus2d-achievement-form",
   "onFeedbackSubmit",
   "updateShellHeight",
   "typeNpcDialogueText(copy, cursor, message)",
@@ -551,7 +546,7 @@ for (const styleNeedle of [
   ".campus2d-id-content",
   ".campus2d-report-button",
   ".campus2d-feedback-layer",
-  ".campus2d-id-trophies",
+  ".campus2d-id-rewards",
   ".campus2d-id-reward-grid",
   ".campus2d-id-reward-row",
   ".campus2d-id-reward",
@@ -623,8 +618,11 @@ if (!/\.campus2d-activity-mount\s+\.library-section-picker-strip\.selected-secti
 if (/openGameLauncher|campus2d-games-button|getGameLauncherHtml|data-campus2d-popup/.test(campusRuntime)) {
   failures.push("Campus 2D must not expose the old generic live-game launcher.");
 }
+if (/No verified rewards yet|Share achievements|data-campus2d-achievements-open|campus2d-id-trophies/.test(campusRuntime + styles)) {
+  failures.push("Campus 2D ID cards must not render the retired achievements panel, empty reward message, or share-achievements form.");
+}
 if (/createIdCardField\("Account age"/.test(campusRuntime) || /createIdCardField\("Alpaca ID"/.test(campusRuntime)) {
-  failures.push("Campus 2D alpaca click cards must show alpaca name, school, and achievements without age or internal IDs.");
+  failures.push("Campus 2D alpaca click cards must show alpaca name, school, and optional WSC rewards without age or internal IDs.");
 }
 if (!/\.campus2d-entities\s*\{[^}]*pointer-events:\s*none/i.test(styles)) {
   failures.push("Campus 2D entity layer must not intercept seat or portal clicks.");

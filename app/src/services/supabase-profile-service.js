@@ -9,8 +9,8 @@
       .eq("id", userId)
       .maybeSingle();
     const message = String(response.error?.message || "");
-    const missingAchievementColumn = response.error?.code === "42703" || /wsc_achievements/i.test(message);
-    if (!response.error || !missingAchievementColumn) {
+    const missingIdRewardColumn = response.error?.code === "42703" || /wsc_achievements/i.test(message);
+    if (!response.error || !missingIdRewardColumn) {
       return response;
     }
 

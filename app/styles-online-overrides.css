@@ -1679,9 +1679,9 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-id-card {
-  width: min(720px, 100%);
+  width: min(600px, 100%);
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr) minmax(104px, 138px);
+  grid-template-columns: 112px minmax(0, 1fr);
   gap: 14px;
   align-items: center;
   padding: 18px;
@@ -1691,6 +1691,11 @@ body.is-campus2d-view .wizard-steps {
   color: #fff7df;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
   backdrop-filter: blur(16px);
+}
+
+.campus2d-id-card.has-rewards {
+  width: min(720px, 100%);
+  grid-template-columns: 112px minmax(0, 1fr) minmax(104px, 138px);
 }
 
 .campus2d-id-avatar {
@@ -1765,7 +1770,7 @@ body.is-campus2d-view .wizard-steps {
   overflow-wrap: anywhere;
 }
 
-.campus2d-id-trophies {
+.campus2d-id-rewards {
   --reward-icon-size: 42px;
   min-width: 0;
   display: grid;
@@ -1773,15 +1778,9 @@ body.is-campus2d-view .wizard-steps {
   justify-items: center;
   gap: 7px;
   align-self: center;
-  padding: 8px;
-  border: 1px solid rgba(255, 232, 172, 0.22);
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 30% 16%, rgba(252, 209, 39, 0.18), transparent 42%),
-    rgba(255, 248, 223, 0.08);
+  padding: 4px 0;
 }
 
-.campus2d-id-trophies > strong,
 .campus2d-id-color-panel > strong {
   color: #ffe6ac;
   font-size: 0.68rem;
@@ -1790,7 +1789,6 @@ body.is-campus2d-view .wizard-steps {
   text-transform: uppercase;
 }
 
-.campus2d-id-reward-list,
 .campus2d-id-reward-grid {
   min-width: 0;
   display: grid;
@@ -1825,8 +1823,7 @@ body.is-campus2d-view .wizard-steps {
   background: rgba(252, 209, 39, 0.16);
 }
 
-.campus2d-id-reward-image,
-.campus2d-id-reward-empty-image {
+.campus2d-id-reward-image {
   display: block;
   width: 100%;
   height: 100%;
@@ -1879,24 +1876,6 @@ body.is-campus2d-view .wizard-steps {
   transform: translate(-50%, 0);
 }
 
-.campus2d-id-reward-empty {
-  margin: 0;
-  display: grid;
-  justify-items: center;
-  gap: 4px;
-  color: rgba(255, 246, 223, 0.68);
-  font-size: 0.66rem;
-  font-weight: 850;
-  line-height: 1.2;
-  text-align: center;
-}
-
-.campus2d-id-reward-empty-image {
-  width: 36px;
-  height: 36px;
-  opacity: 0.74;
-}
-
 .campus2d-id-color-panel {
   display: grid;
   gap: 8px;
@@ -1915,7 +1894,6 @@ body.is-campus2d-view .wizard-steps {
   height: 24px;
 }
 
-.campus2d-id-achievement-button,
 .campus2d-feedback-secondary {
   min-height: 34px;
   padding: 0 12px;
@@ -1929,8 +1907,6 @@ body.is-campus2d-view .wizard-steps {
   cursor: pointer;
 }
 
-.campus2d-id-achievement-button:hover,
-.campus2d-id-achievement-button:focus-visible,
 .campus2d-feedback-secondary:hover,
 .campus2d-feedback-secondary:focus-visible {
   outline: 0;
@@ -2694,9 +2670,7 @@ body.is-campus2d-view .hero-layout {
   line-height: 1;
 }
 
-.campus2d-feedback-title p,
-.campus2d-achievement-intro,
-.campus2d-achievement-submitter {
+.campus2d-feedback-title p {
   margin: 0;
   color: rgba(255, 246, 223, 0.82);
   font-size: 0.86rem;
@@ -2785,10 +2759,6 @@ body.is-campus2d-view .hero-layout {
   gap: 10px;
 }
 
-.campus2d-achievement-actions {
-  justify-content: space-between;
-}
-
 .campus2d-feedback-submit:disabled {
   opacity: 0.58;
   cursor: wait;
@@ -2809,25 +2779,6 @@ body.is-campus2d-view .hero-layout {
 
 .campus2d-feedback-status[data-status="error"] {
   color: #ffd1c6;
-}
-
-.campus2d-achievement-group {
-  min-width: 0;
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding: 12px;
-  border: 1px solid rgba(255, 232, 172, 0.22);
-  border-radius: 8px;
-  background: rgba(255, 247, 223, 0.08);
-}
-
-.campus2d-achievement-group legend {
-  padding: 0 6px;
-  color: #ffe6ac;
-  font-size: 0.78rem;
-  font-weight: 950;
-  text-transform: uppercase;
 }
 
 .campus2d-hotspot {
@@ -3422,10 +3373,6 @@ body.is-campus2d-view .hero-layout {
 
   .campus2d-report-switcher {
     grid-template-columns: 1fr;
-  }
-
-  .campus2d-achievement-actions {
-    justify-content: flex-end;
   }
 
   .campus2d-settings-panel {
@@ -4066,9 +4013,13 @@ body.is-online-mode .campus2d-header-card-host .campus2d-profile-age {
 }
 
 body.is-online-mode .campus2d-id-card.online-glow-card {
-  width: min(720px, calc(100vw - 48px));
+  width: min(600px, calc(100vw - 48px));
   min-height: 0 !important;
   cursor: default !important;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card.has-rewards {
+  width: min(720px, calc(100vw - 48px));
 }
 
 body.is-online-mode .campus2d-id-card.online-glow-card .online-card-container,
@@ -4082,7 +4033,7 @@ body.is-online-mode .campus2d-id-card.online-glow-card .online-card-frame {
 }
 
 body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-content {
-  grid-template-columns: 112px minmax(0, 1fr) minmax(104px, 138px);
+  grid-template-columns: 112px minmax(0, 1fr);
   grid-template-rows: 1fr;
   align-items: center;
   align-content: center;
@@ -4092,9 +4043,13 @@ body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-content {
   padding: 18px;
 }
 
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-content.has-rewards {
+  grid-template-columns: 112px minmax(0, 1fr) minmax(104px, 138px);
+}
+
 body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-avatar,
 body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-details,
-body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-trophies {
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-rewards {
   position: relative;
   z-index: 4;
 }

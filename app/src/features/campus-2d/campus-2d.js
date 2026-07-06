@@ -74,14 +74,14 @@
       behindZones: new Set(["lobby-behind-15"])
     })
   });
-  const ACHIEVEMENT_ROUNDS = Object.freeze([
+  const ID_REWARD_ROUNDS = Object.freeze([
     Object.freeze({ value: "regional", label: "Regional" }),
     Object.freeze({ value: "global", label: "Global" }),
     Object.freeze({ value: "toc", label: "ToC" })
   ]);
-  const REWARD_ASSET_VERSION = "20260706debateaudiofree";
+  const REWARD_ASSET_VERSION = "20260706idrewardclean";
   const MAX_ID_REWARDS = 9;
-  const ACHIEVEMENT_REWARD_TYPES = Object.freeze([
+  const ID_REWARD_TYPES = Object.freeze([
     Object.freeze({
       value: "jac-khor",
       label: "Jac Khor",
@@ -103,7 +103,7 @@
       asset: `./assets/campus-2d/rewards/silver-medal.png?v=${REWARD_ASSET_VERSION}`
     })
   ]);
-  const ACHIEVEMENT_REWARD_TYPE_VALUES = new Set(ACHIEVEMENT_REWARD_TYPES.map((entry) => entry.value));
+  const ID_REWARD_TYPE_VALUES = new Set(ID_REWARD_TYPES.map((entry) => entry.value));
   const ID_REWARD_ROW_PATTERNS = Object.freeze({
     0: Object.freeze([]),
     1: Object.freeze([1]),
@@ -138,16 +138,25 @@
     return manifest?.roomsById?.[roomId] || manifest?.roomsById?.[manifest.defaultRoomId] || null;
   }
 
-  function parseAchievementList(value) {
+  function parseIdRewardList(value) {
     if (Array.isArray(value)) {
       return value;
     }
     if (value && typeof value === "object") {
+      if (Array.isArray(value.idRewards)) {
+        return value.idRewards;
+      }
+      if (Array.isArray(value.rewards)) {
+        return value.rewards;
+      }
+      if (Array.isArray(value.wscAchievements)) {
+        return value.wscAchievements;
+      }
       return Array.isArray(value.achievements) ? value.achievements : [];
     }
     if (typeof value === "string" && value.trim()) {
       try {
-        return parseAchievementList(JSON.parse(value));
+        return parseIdRewardList(JSON.parse(value));
       } catch (_error) {
         return [];
       }
@@ -155,11 +164,11 @@
     return [];
   }
 
-  function getAchievementRewardType(value) {
-    return ACHIEVEMENT_REWARD_TYPES.find((entry) => entry.value === value) || ACHIEVEMENT_REWARD_TYPES[0];
+  function getIdRewardType(value) {
+    return ID_REWARD_TYPES.find((entry) => entry.value === value) || ID_REWARD_TYPES[0];
   }
 
-  function normalizeAchievementRewardType(value) {
+  function normalizeIdRewardType(value) {
     const normalized = String(value || "").trim().toLowerCase().replace(/_/g, "-");
     const aliases = {
       "jac khor": "jac-khor",
@@ -170,10 +179,10 @@
       "silver medal": "silver-medal"
     };
     const key = aliases[normalized] || normalized;
-    return ACHIEVEMENT_REWARD_TYPE_VALUES.has(key) ? key : ACHIEVEMENT_REWARD_TYPES[0].value;
+    return ID_REWARD_TYPE_VALUES.has(key) ? key : ID_REWARD_TYPES[0].value;
   }
 
-  function normalizeAchievementRound(value) {
+  function normalizeIdRewardRound(value) {
     const normalized = String(value || "").trim().toLowerCase();
     if (normalized === "regional_round" || normalized === "regional") {
       return "regional";
@@ -184,15 +193,15 @@
     if (normalized === "tournament_of_champions" || normalized === "toc") {
       return "toc";
     }
-    return ACHIEVEMENT_ROUNDS[0].value;
+    return ID_REWARD_ROUNDS[0].value;
   }
 
-  function normalizeAchievements(value) {
-    return parseAchievementList(value)
+  function normalizeIdRewards(value) {
+    return parseIdRewardList(value)
       .map((entry) => ({
         fullName: String(entry?.fullName || entry?.full_name || "").trim(),
-        rewardType: normalizeAchievementRewardType(entry?.rewardType || entry?.reward_type || entry?.type),
-        round: normalizeAchievementRound(entry?.round || entry?.roundType || entry?.highest_wsc_round),
+        rewardType: normalizeIdRewardType(entry?.rewardType || entry?.reward_type || entry?.type),
+        round: normalizeIdRewardRound(entry?.round || entry?.roundType || entry?.highest_wsc_round),
         city: String(entry?.city || "").trim(),
         approximateDate: String(entry?.approximateDate || entry?.approximate_date || entry?.date || "").trim()
       }))
@@ -201,11 +210,11 @@
   }
 
   function getRoundLabel(value) {
-    return ACHIEVEMENT_ROUNDS.find((round) => round.value === value)?.label || String(value || "Round");
+    return ID_REWARD_ROUNDS.find((round) => round.value === value)?.label || String(value || "Round");
   }
 
-  function getIdRewardRows(achievements) {
-    const entries = normalizeAchievements(achievements).slice(0, MAX_ID_REWARDS);
+  function getIdRewardRows(rewards) {
+    const entries = normalizeIdRewards(rewards).slice(0, MAX_ID_REWARDS);
     const pattern = ID_REWARD_ROW_PATTERNS[entries.length] || ID_REWARD_ROW_PATTERNS[MAX_ID_REWARDS];
     let start = 0;
     return pattern.map((count) => {
@@ -546,7 +555,6 @@
     let activeFeedbackDialog = null;
     let feedbackStatus = null;
     let feedbackSubmitting = false;
-    let achievementDrafts = [createAchievementDraft()];
     let npcTypingTimer = 0;
     let debateState = null;
     let debateDraft = createDebateDraft();
@@ -578,6 +586,7 @@
     const npcElements = new Map();
 
     const spawn = room.spawnPoints.default;
+    const initialIdRewards = normalizeIdRewards(identity);
     const localPlayer = {
       clientId: localClientId,
       userId: identity.userId || null,
@@ -588,7 +597,8 @@
       country: identity.country || "",
       wscEventCount: Number(identity.wscEventCount) || 0,
       highestWscRound: identity.highestWscRound || "",
-      achievements: normalizeAchievements(identity.achievements || identity.wscAchievements),
+      achievements: initialIdRewards,
+      idRewards: initialIdRewards,
       createdAt: identity.createdAt || null,
       roomId: room.id,
       x: spawn.x,
@@ -1131,6 +1141,7 @@
     }
 
     function getPlayerProfilePayload(player) {
+      const idRewards = normalizeIdRewards(player);
       return {
         email: player.email || "",
         alpacaName: player.alpacaName || "",
@@ -1138,7 +1149,8 @@
         country: player.country || "",
         wscEventCount: Number(player.wscEventCount) || 0,
         highestWscRound: player.highestWscRound || "",
-        achievements: normalizeAchievements(player.achievements),
+        idRewards,
+        achievements: idRewards,
         createdAt: player.createdAt || null
       };
     }
@@ -3388,6 +3400,7 @@
       presenceRows
         .filter((presence) => presence.roomId === room.id)
         .forEach((presence) => {
+          const idRewards = normalizeIdRewards(presence);
           seen.add(presence.clientId);
           remotePlayers.set(presence.clientId, {
             clientId: presence.clientId,
@@ -3405,7 +3418,8 @@
             country: presence.country || "",
             wscEventCount: Number(presence.wscEventCount) || 0,
             highestWscRound: presence.highestWscRound || "",
-            achievements: normalizeAchievements(presence.achievements),
+            idRewards,
+            achievements: idRewards,
             debateAudio: presence.debateAudio || null,
             createdAt: presence.createdAt || null,
             moving: false
@@ -3429,6 +3443,7 @@
         return;
       }
       const previous = remotePlayers.get(payload.clientId) || {};
+      const idRewards = normalizeIdRewards(payload.idRewards || payload.achievements || previous.idRewards || previous.achievements);
       const next = {
         clientId: payload.clientId,
         userId: payload.userId || previous.userId || null,
@@ -3445,7 +3460,8 @@
         country: payload.country || previous.country || "",
         wscEventCount: Number(payload.wscEventCount ?? previous.wscEventCount) || 0,
         highestWscRound: payload.highestWscRound || previous.highestWscRound || "",
-        achievements: normalizeAchievements(payload.achievements || previous.achievements),
+        idRewards,
+        achievements: idRewards,
         debateAudio: previous.debateAudio || null,
         createdAt: payload.createdAt || previous.createdAt || null,
         moving: Boolean(previous.x !== payload.x || previous.y !== payload.y)
@@ -3506,16 +3522,6 @@
       valueElement.textContent = value || "Unknown";
       row.append(labelElement, valueElement);
       return row;
-    }
-
-    function createAchievementDraft(source = {}) {
-      return {
-        fullName: String(source.fullName || "").trim(),
-        rewardType: normalizeAchievementRewardType(source.rewardType),
-        round: ACHIEVEMENT_ROUNDS.some((round) => round.value === source.round) ? source.round : ACHIEVEMENT_ROUNDS[0].value,
-        city: String(source.city || "").trim(),
-        approximateDate: String(source.approximateDate || "").trim()
-      };
     }
 
     function getReporterContact() {
@@ -3690,73 +3696,6 @@
       form.querySelector("input, textarea, select, button")?.focus({ preventScroll: true });
     }
 
-    function collectAchievementDrafts(form) {
-      return achievementDrafts.map((_draft, index) => createAchievementDraft({
-        fullName: form.querySelector(`[name="achievement_${index}_fullName"]`)?.value || "",
-        rewardType: form.querySelector(`[name="achievement_${index}_rewardType"]`)?.value || "",
-        round: form.querySelector(`[name="achievement_${index}_round"]`)?.value || "",
-        city: form.querySelector(`[name="achievement_${index}_city"]`)?.value || "",
-        approximateDate: form.querySelector(`[name="achievement_${index}_approximateDate"]`)?.value || ""
-      }));
-    }
-
-    function openAchievementDialog() {
-      activeFeedbackDialog = { type: "achievements" };
-      feedbackStatus = null;
-      achievementDrafts = achievementDrafts.length ? achievementDrafts : [createAchievementDraft()];
-      renderAchievementDialog();
-    }
-
-    function renderAchievementDialog() {
-      const { card } = createFeedbackShell("Share achievements", "");
-      const form = createEl("form", "campus2d-feedback-form campus2d-achievement-form", { "data-campus2d-achievement-form": "" });
-      const intro = createEl("p", "campus2d-achievement-intro");
-      intro.textContent = "You want to share you achievements? Let us know and we will add them to your ID! Please note that in order to make sure it is correct, we will need to double check with your legal name. We will not use your personal information for any other mean.";
-      const submitter = createEl("p", "campus2d-achievement-submitter");
-      submitter.textContent = `Submitting from ${getReporterContact() || "your Alpaccount"}`;
-      form.append(intro, submitter);
-
-      achievementDrafts.forEach((draft, index) => {
-        const group = createEl("fieldset", "campus2d-achievement-group");
-        const legend = createEl("legend", "");
-        legend.textContent = `Achievement ${index + 1}`;
-        group.append(
-          legend,
-          createField("Full name as displayed on the official WSC results", `achievement_${index}_fullName`, draft.fullName, { required: true }),
-          createSelectField("Reward type", `achievement_${index}_rewardType`, draft.rewardType, ACHIEVEMENT_REWARD_TYPES),
-          createSelectField("Round", `achievement_${index}_round`, draft.round, ACHIEVEMENT_ROUNDS),
-          createField("City", `achievement_${index}_city`, draft.city, { required: true }),
-          createField("Approximate date (month and year)", `achievement_${index}_approximateDate`, draft.approximateDate, {
-            required: true,
-            placeholder: "June 2026"
-          })
-        );
-        form.append(group);
-      });
-
-      const actions = createEl("div", "campus2d-feedback-actions campus2d-achievement-actions");
-      const addButton = createEl("button", "campus2d-feedback-secondary", {
-        type: "button",
-        "data-campus2d-add-achievement": ""
-      });
-      const submitButton = createEl("button", "campus2d-feedback-submit button primary", {
-        type: "submit",
-        "data-campus2d-feedback-submit": ""
-      });
-      const canAddMore = achievementDrafts.length < MAX_ID_REWARDS;
-      addButton.disabled = !canAddMore;
-      addButton.textContent = "+ Add another achievement";
-      if (!canAddMore) {
-        addButton.textContent = "Maximum 9 achievements";
-      }
-      submitButton.textContent = "Submit";
-      actions.append(addButton, submitButton);
-      form.append(actions);
-      appendFeedbackStatus(form);
-      card.append(form);
-      form.querySelector("input, textarea, select, button")?.focus({ preventScroll: true });
-    }
-
     async function submitFeedbackPayload(payload) {
       if (feedbackSubmitting) {
         return;
@@ -3782,15 +3721,15 @@
       }
     }
 
-    function createRewardTooltip(achievement, rewardType) {
-      const place = achievement.city || "Location pending";
-      const date = achievement.approximateDate || "Date pending";
-      return `${rewardType.label} · ${getRoundLabel(achievement.round)} · ${place} · ${date}`;
+    function createRewardTooltip(reward, rewardType) {
+      const place = reward.city || "Location pending";
+      const date = reward.approximateDate || "Date pending";
+      return `${rewardType.label} · ${getRoundLabel(reward.round)} · ${place} · ${date}`;
     }
 
-    function createRewardIcon(achievement, index) {
-      const rewardType = getAchievementRewardType(achievement.rewardType);
-      const tooltipText = createRewardTooltip(achievement, rewardType);
+    function createRewardIcon(reward, index) {
+      const rewardType = getIdRewardType(reward.rewardType);
+      const tooltipText = createRewardTooltip(reward, rewardType);
       const button = createEl("button", "campus2d-id-reward", {
         type: "button",
         title: tooltipText,
@@ -3811,44 +3750,28 @@
       return button;
     }
 
-    function createRewardRows(achievements) {
+    function createRewardRows(rewards) {
       const grid = createEl("div", "campus2d-id-reward-grid", {
         "aria-label": "Verified WSC rewards"
       });
-      getIdRewardRows(achievements).forEach((row, rowIndex) => {
+      getIdRewardRows(rewards).forEach((row, rowIndex) => {
         const rowElement = createEl("div", "campus2d-id-reward-row");
         rowElement.style.setProperty("--reward-count", String(row.length));
-        row.forEach((achievement, index) => {
-          rowElement.append(createRewardIcon(achievement, rowIndex * 3 + index));
+        row.forEach((reward, index) => {
+          rowElement.append(createRewardIcon(reward, rowIndex * 3 + index));
         });
         grid.append(rowElement);
       });
       return grid;
     }
 
-    function createTrophyPanel(player) {
-      const panel = createEl("aside", "campus2d-id-trophies", { "aria-label": "Achievements" });
-      const title = createEl("strong", "");
-      const list = createEl("div", "campus2d-id-reward-list");
-      const achievements = normalizeAchievements(player?.achievements);
-      title.textContent = "Achievements";
-      if (achievements.length) {
-        list.append(createRewardRows(achievements));
-      } else {
-        const empty = createEl("div", "campus2d-id-reward-empty");
-        const rewardType = getAchievementRewardType("trophy");
-        const image = createEl("img", "campus2d-id-reward-empty-image", {
-          src: rewardType.asset,
-          alt: "",
-          "aria-hidden": "true",
-          draggable: "false"
-        });
-        const copy = createEl("span", "");
-        copy.textContent = "No verified rewards yet";
-        empty.append(image, copy);
-        list.append(empty);
+    function createRewardPanel(player) {
+      const rewards = normalizeIdRewards(player);
+      if (!rewards.length) {
+        return null;
       }
-      panel.append(title, list);
+      const panel = createEl("aside", "campus2d-id-rewards", { "aria-label": "WSC rewards" });
+      panel.append(createRewardRows(rewards));
       return panel;
     }
 
@@ -3955,15 +3878,19 @@
         createIdCardField("School", player.schoolName || "Unknown school")
       );
       if (isLocalPlayer) {
-        const achievementsButton = createEl("button", "campus2d-id-achievement-button", {
-          type: "button",
-          "data-campus2d-achievements-open": ""
-        });
-        achievementsButton.textContent = "Share achievements";
-        details.append(createIdColorPanel(player), achievementsButton);
+        details.append(createIdColorPanel(player));
       }
       applyAvatarPreview(preview, player);
-      shell.content.append(preview, details, createTrophyPanel(player), shell.glowingElements, shell.particles, shell.corners, shell.scanLine);
+      const rewardPanel = createRewardPanel(player);
+      if (rewardPanel) {
+        card.classList.add("has-rewards");
+        shell.content.classList.add("has-rewards");
+      }
+      shell.content.append(preview, details);
+      if (rewardPanel) {
+        shell.content.append(rewardPanel);
+      }
+      shell.content.append(shell.glowingElements, shell.particles, shell.corners, shell.scanLine);
       card.append(shell.container);
       layer.append(card);
       root.append(layer);
@@ -4533,25 +4460,6 @@
         return;
       }
 
-      const addAchievementButton = event.target.closest("[data-campus2d-add-achievement]");
-      if (addAchievementButton) {
-        const form = root.querySelector("[data-campus2d-achievement-form]");
-        achievementDrafts = form ? collectAchievementDrafts(form) : achievementDrafts;
-        if (achievementDrafts.length >= MAX_ID_REWARDS) {
-          setFeedbackStatus("You can add up to 9 achievements.", "info");
-          return;
-        }
-        achievementDrafts.push(createAchievementDraft());
-        feedbackStatus = null;
-        renderAchievementDialog();
-        return;
-      }
-
-      if (event.target.closest("[data-campus2d-achievements-open]")) {
-        openAchievementDialog();
-        return;
-      }
-
       if (event.target.closest("[data-campus2d-report-open]")) {
         openReportDialog("person");
         return;
@@ -4693,23 +4601,6 @@
         return;
       }
 
-      const achievementForm = event.target.closest("[data-campus2d-achievement-form]");
-      if (achievementForm) {
-        event.preventDefault();
-        achievementDrafts = collectAchievementDrafts(achievementForm);
-        const achievements = achievementDrafts
-          .map(createAchievementDraft)
-          .filter((entry) => entry.fullName || entry.city || entry.approximateDate);
-        if (!achievements.length || achievements.some((entry) => !entry.fullName || !entry.rewardType || !entry.city || !entry.approximateDate)) {
-          setFeedbackStatus("Please complete every achievement field before submitting.", "error");
-          return;
-        }
-        submitFeedbackPayload({
-          category: "achievement_share",
-          reporterContact: getReporterContact(),
-          achievements
-        });
-      }
     }
 
     function handleRootInput(event) {
@@ -4770,6 +4661,7 @@
     }
 
     function setIdentity(nextIdentity = {}) {
+      const idRewards = normalizeIdRewards(nextIdentity);
       localPlayer.userId = nextIdentity.userId || null;
       localPlayer.email = nextIdentity.email || "";
       localPlayer.alpacaName = nextIdentity.alpacaName || nextIdentity.displayName || "";
@@ -4778,7 +4670,8 @@
       localPlayer.country = nextIdentity.country || "";
       localPlayer.wscEventCount = Number(nextIdentity.wscEventCount) || 0;
       localPlayer.highestWscRound = nextIdentity.highestWscRound || "";
-      localPlayer.achievements = normalizeAchievements(nextIdentity.achievements || nextIdentity.wscAchievements);
+      localPlayer.achievements = idRewards;
+      localPlayer.idRewards = idRewards;
       localPlayer.createdAt = nextIdentity.createdAt || null;
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderLocalCard();

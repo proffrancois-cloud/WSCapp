@@ -7,7 +7,7 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260706debateaudiofree";
+const ASSET_CACHE_VERSION = "20260706idrewardclean";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -4950,6 +4950,7 @@ function getCampus2DIdentity() {
     country: profile.country || "",
     wscEventCount: Number(profile.wsc_event_count) || 0,
     highestWscRound: profile.highest_wsc_round || "",
+    idRewards: profile.wsc_achievements || profile.achievements || [],
     achievements: profile.wsc_achievements || profile.achievements || [],
     createdAt: profile.created_at || user?.created_at || null
   };
@@ -7420,7 +7421,7 @@ function normalizeWscIdRewardType(value) {
   return WSC_ID_REWARD_VALUES.has(key) ? key : "none_yet";
 }
 
-function mapWscRoundToAchievementRound(value) {
+function mapWscRoundToIdRewardRound(value) {
   const normalized = String(value || "").trim().toLowerCase();
   if (normalized === "regional_round" || normalized === "regional") {
     return "regional";
@@ -7434,9 +7435,9 @@ function mapWscRoundToAchievementRound(value) {
   return "";
 }
 
-function buildSignupWscAchievements({ rewardType, round, city, approximateDate }) {
+function buildSignupWscIdRewards({ rewardType, round, city, approximateDate }) {
   const cleanRewardType = normalizeWscIdRewardType(rewardType);
-  const cleanRound = mapWscRoundToAchievementRound(round);
+  const cleanRound = mapWscRoundToIdRewardRound(round);
   const cleanCity = String(city || "").trim();
   const cleanApproximateDate = String(approximateDate || "").trim();
   if (cleanRewardType === "none_yet" || !cleanRound || !cleanCity || !cleanApproximateDate) {
@@ -7666,7 +7667,7 @@ async function createAlpaccount(formData, client) {
     throw new Error("To show a reward on your Alpaca ID, choose its round, city, and approximate date.");
   }
 
-  const wscAchievements = buildSignupWscAchievements({
+  const wscIdRewards = buildSignupWscIdRewards({
     rewardType: wscIdRewardType,
     round: highestWscRound,
     city: wscIdRewardCity,
@@ -7698,7 +7699,7 @@ async function createAlpaccount(formData, client) {
         wsc_id_reward_type: wscIdRewardType,
         wsc_id_reward_city: wscIdRewardCity,
         wsc_id_reward_date: wscIdRewardDate,
-        wsc_achievements: wscAchievements
+        wsc_achievements: wscIdRewards
       }
     }
   });
