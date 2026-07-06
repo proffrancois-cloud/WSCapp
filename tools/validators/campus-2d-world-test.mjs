@@ -353,6 +353,9 @@ if (!appShellCss.includes(".library-campus-card-grid-four") || !appShellCss.incl
 if (!onlineCss.includes(".campus2d-activity-mount .library-campus-card-grid-four") || !onlineCss.includes("repeat(2, minmax(0, 1fr)) !important")) {
   failures.push("Four-card Campus activity menus must stay 2x2 in the right panel.");
 }
+if (!onlineCss.includes("--campus2d-header-height: 104px") || !onlineCss.includes("body.is-campus2d-view .hero-layout")) {
+  failures.push("Campus 2D must keep a compact app-bar header with a centered layout.");
+}
 if (/\.hero[^{]*\{[^}]*min-height:\s*190px\s*!important/.test(lateShellCss) || /body \.hero-copy\s*\{[^}]*top:\s*42%\s*!important/.test(lateShellCss)) {
   failures.push("Header must not reserve retired achievement/progress tracker space in late shell overrides.");
 }
