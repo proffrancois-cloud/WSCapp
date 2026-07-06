@@ -93,6 +93,7 @@
             <div class="question-meta">
               <span class="meta-pill section">${helpers.escapeHtml(helpers.sectionById[question.sectionId].originalTitle)}</span>
               <span class="meta-pill section">Answering: ${helpers.escapeHtml(team.label)}</span>
+              <span class="meta-pill timer ${helpers.escapeHtml(timerClass)}" data-jeopardy-time-pill>${helpers.escapeHtml(`${active.timeRemaining}s on the clock`)}</span>
               ${question.subjectIds.map((subjectId) => {
                 const subject = helpers.subjectById[subjectId];
                 return `<span class="meta-pill subject" style="--subject-color:${subject.color}; --subject-soft:${subject.soft}">${helpers.escapeHtml(subject.label)}</span>`;

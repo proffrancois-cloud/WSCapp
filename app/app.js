@@ -7,10 +7,11 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260706lobbybehind";
+const ASSET_CACHE_VERSION = "20260706timerfix";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
+const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
 const PWAA_PWAA_SHARED_DOC_URL = "https://docs.google.com/document/d/1H75m6OHX7YDKzI_F1yixmGGuHtUR5iiZrjlVBKiSxh8/edit?tab=t.lhrbuhopvqws";
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
@@ -2588,6 +2589,9 @@ const appLifecycleController = window.WSC_APP_LIFECYCLE_CONTROLLER.create({
     getRunReachedStage,
     render,
     refreshRunTimerDisplay,
+    refreshJeopardyTimerDisplay,
+    refreshRelayTimerDisplay,
+    refreshRaceTimerDisplay,
     updateJumpFrame,
     renderExperience
   },
@@ -4848,10 +4852,63 @@ function getCampus2DIdentity() {
   const profile = state.auth.profile || {};
   return {
     userId: user?.id || null,
+    email: getCurrentUserEmail(),
+    alpacaName: profile.alpaca_name || "",
     displayName: getLiveDisplayName(),
     schoolName: profile.school_name || "",
+    country: profile.country || "",
+    wscEventCount: Number(profile.wsc_event_count) || 0,
+    highestWscRound: profile.highest_wsc_round || "",
     createdAt: profile.created_at || user?.created_at || null
   };
+}
+
+async function submitCampusFeedback(payload = {}) {
+  const session = state.auth.session || null;
+  const user = session?.user || null;
+  const profile = state.auth.profile || {};
+  const reporter = {
+    ...(payload.reporter || {}),
+    userId: user?.id || payload.reporter?.userId || null,
+    email: getCurrentUserEmail() || payload.reporter?.email || "",
+    alpacaName: profile.alpaca_name || payload.reporter?.alpacaName || "",
+    displayName: getLiveDisplayName(),
+    schoolName: profile.school_name || payload.reporter?.schoolName || "",
+    country: profile.country || payload.reporter?.country || ""
+  };
+  const headers = {
+    "Content-Type": "application/json"
+  };
+  if (session?.access_token) {
+    headers.Authorization = `Bearer ${session.access_token}`;
+  }
+
+  const response = await fetch(CAMPUS_FEEDBACK_ENDPOINT, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      ...payload,
+      reporter,
+      context: {
+        ...(payload.context || {}),
+        url: window.location.href,
+        userAgent: window.navigator.userAgent,
+        appMode: state.ui.appShellMode || "",
+        onlineView: state.live.onlineView || ""
+      }
+    })
+  });
+
+  let result = {};
+  try {
+    result = await response.json();
+  } catch (_error) {
+    result = {};
+  }
+  if (!response.ok) {
+    throw new Error(result.error || "The report email could not be sent yet.");
+  }
+  return result;
 }
 
 function destroyCampus2DOnlineMount() {
@@ -4891,7 +4948,8 @@ function syncCampus2DOnlineMount() {
     mount,
     client: getSupabaseClient(),
     identity: getCampus2DIdentity(),
-    onCampusZoneAction: handleCampus2DZoneAction
+    onCampusZoneAction: handleCampus2DZoneAction,
+    onFeedbackSubmit: submitCampusFeedback
   });
 }
 
@@ -7004,12 +7062,17 @@ function replaceMarkup(target, markup) {
   return nextNode;
 }
 
+function getRenderedExperienceRoot() {
+  return document.querySelector("[data-library-experience-window]") || refs.experiencePanel || null;
+}
+
 function refreshRunTimerDisplay(experience) {
-  if (!refs.experiencePanel || !experience || experience.type !== "run") {
+  const root = getRenderedExperienceRoot();
+  if (!root || !experience || experience.type !== "run") {
     return false;
   }
 
-  const timerCard = refs.experiencePanel.querySelector(".run-inline-footer .compact-race-timer-card.run");
+  const timerCard = root.querySelector(".run-inline-footer .compact-race-timer-card.run");
   if (!timerCard) {
     return false;
   }
@@ -7023,6 +7086,80 @@ function refreshRunTimerDisplay(experience) {
     timerCard,
     renderCompactRaceTimerCard("Time Left", experience.timeRemaining, GAME_CONFIG.runTotalTime, timerClass, "run")
   ));
+}
+
+function refreshJeopardyTimerDisplay(experience) {
+  const root = getRenderedExperienceRoot();
+  if (!root || !experience || experience.type !== "jeopardy" || !experience.active) {
+    return false;
+  }
+
+  const timerClass = getTimerVisualState(experience.active.timeRemaining, GAME_CONFIG.jeopardyAnswerTime, {
+    warningAt: 10,
+    dangerAt: 5
+  });
+  const timePill = root.querySelector("[data-jeopardy-time-pill]");
+  const questionPanel = root.querySelector("[data-question-timer-panel]");
+  if (!timePill || !questionPanel) {
+    return false;
+  }
+
+  ["normal", "warning", "danger"].forEach((className) => {
+    timePill.classList.remove(className);
+    questionPanel.classList.remove(className);
+  });
+  timePill.classList.add(timerClass);
+  questionPanel.classList.add(timerClass);
+  timePill.textContent = `${experience.active.timeRemaining}s on the clock`;
+  return true;
+}
+
+function refreshRelayTimerDisplay(experience) {
+  const root = getRenderedExperienceRoot();
+  if (!root || !experience || experience.type !== "relay" || !Number.isInteger(experience.buzzedTeamIndex)) {
+    return false;
+  }
+
+  const timerCard = root.querySelector(".relay-inline-timer .compact-race-timer-card.relay");
+  if (!timerCard) {
+    return false;
+  }
+
+  const timerClass = getTimerVisualState(experience.answerTimeRemaining, GAME_CONFIG.relayAnswerTime, {
+    warningAt: 10,
+    dangerAt: 5
+  });
+
+  return Boolean(replaceMarkup(
+    timerCard,
+    renderCompactRaceTimerCard("Answer timer", experience.answerTimeRemaining, GAME_CONFIG.relayAnswerTime, timerClass, "relay")
+  ));
+}
+
+function refreshRaceTimerDisplay(experience) {
+  const root = getRenderedExperienceRoot();
+  if (!root || !experience || experience.type !== "race") {
+    return false;
+  }
+
+  const timerClass = getTimerVisualState(experience.timeRemaining, experience.questionTime, {
+    warningAt: 10,
+    dangerAt: 5
+  });
+  const timePill = root.querySelector("[data-race-time-pill]");
+  const questionPanel = root.querySelector("[data-question-timer-panel]");
+  if (!timePill || !questionPanel) {
+    return false;
+  }
+
+  ["normal", "warning", "danger"].forEach((className) => {
+    timePill.classList.remove(className);
+    questionPanel.classList.remove(className);
+  });
+  timePill.classList.add(timerClass);
+  questionPanel.classList.add(timerClass);
+  timePill.textContent = `${experience.timeRemaining}s on the clock`;
+  return true;
 }
 
 function keepRouteBuilderInView() {
@@ -13849,7 +13986,7 @@ function renderRaceExperience() {
         </article>
       ` : renderGameQuestionPopup(`
         <article class="challenge-card race-question-card">
-          ${renderRaceQuestionPills(experience, currentLevel)}
+          ${renderRaceQuestionPills(experience, currentLevel, timerClass)}
 
           <div class="challenge-copy">
             ${renderPopupQuestionTimerPanel(question.prompt, experience.timeRemaining, experience.questionTime, timerClass)}
@@ -14024,17 +14161,21 @@ function resolveRaceQuestion(optionIndex, timedOut) {
   renderExperience();
 }
 
-function renderRaceQuestionPills(experience, currentLevel) {
+function renderRaceQuestionPills(experience, currentLevel, timerClass = "normal") {
   const pills = [
-    `Pressure stop ${experience.index + 1}`,
-    `Current level: ${currentLevel ? currentLevel.level : 1}`,
-    `Chances remaining: ${experience.lives}`,
-    `${experience.timeRemaining}s on the clock`
+    { text: `Pressure stop ${experience.index + 1}` },
+    { text: `Current level: ${currentLevel ? currentLevel.level : 1}` },
+    { text: `Chances remaining: ${experience.lives}` },
+    { text: `${experience.timeRemaining}s on the clock`, className: `race-clock-pill ${timerClass}`, attribute: "data-race-time-pill" }
   ];
 
   return `
     <div class="race-question-pills" aria-label="Race question status">
-      ${pills.map((pill) => `<span>${escapeHtml(pill)}</span>`).join("")}
+      ${pills.map((pill) => {
+        const classAttribute = pill.className ? ` class="${escapeHtml(pill.className)}"` : "";
+        const dataAttribute = pill.attribute ? ` ${pill.attribute}` : "";
+        return `<span${classAttribute}${dataAttribute}>${escapeHtml(pill.text)}</span>`;
+      }).join("")}
     </div>
   `;
 }
@@ -19913,14 +20054,11 @@ function getTimerVisualState(seconds, totalSeconds, options = {}) {
   return "normal";
 }
 
-function renderPopupQuestionTimerPanel(questionText, seconds, totalSeconds, stateClass = "normal") {
+function renderPopupQuestionTimerPanel(questionText, _seconds, totalSeconds, stateClass = "normal") {
   return `
-    <section class="popup-question-panel ${escapeHtml(stateClass)}">
+    <section class="popup-question-panel ${escapeHtml(stateClass)}" data-question-timer-panel data-race-question-panel data-race-total-seconds="${escapeHtml(totalSeconds)}">
       <div class="popup-question-copy">
         <h2 class="popup-question-text">${escapeHtml(questionText)}</h2>
-      </div>
-      <div class="popup-question-timer">
-        ${renderRaceTimerWidget(seconds, stateClass, totalSeconds)}
       </div>
     </section>
   `;

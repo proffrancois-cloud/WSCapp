@@ -309,7 +309,9 @@
         }
 
         experience.active.timeRemaining -= 1;
-        call(timers.renderExperiencePreservingScroll);
+        if (!call(timers.refreshJeopardyTimerDisplay, experience)) {
+          call(timers.renderExperiencePreservingScroll);
+        }
       }, 1000);
     }
 
@@ -336,7 +338,9 @@
         }
 
         experience.answerTimeRemaining -= 1;
-        call(timers.renderExperiencePreservingScroll);
+        if (!call(timers.refreshRelayTimerDisplay, experience)) {
+          call(timers.renderExperiencePreservingScroll);
+        }
       }, 1000);
     }
 
@@ -359,7 +363,9 @@
 
         experience.elapsedTime += 1;
         experience.timeRemaining -= 1;
-        call(timers.renderExperiencePreservingScroll);
+        if (!call(timers.refreshRaceTimerDisplay, experience)) {
+          call(timers.renderExperiencePreservingScroll);
+        }
       }, 1000);
     }
 

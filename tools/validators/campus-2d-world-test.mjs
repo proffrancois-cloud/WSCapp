@@ -285,10 +285,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706lobbybehind"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the lobby behind-zone cleanup.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706timerfix"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the timer display cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706lobbybehind")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706timerfix")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 
