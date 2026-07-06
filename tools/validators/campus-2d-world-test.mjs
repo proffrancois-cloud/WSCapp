@@ -353,6 +353,9 @@ if (!appShellCss.includes(".library-campus-card-grid-four") || !appShellCss.incl
 if (!onlineCss.includes(".campus2d-activity-mount .library-campus-card-grid-four") || !onlineCss.includes("repeat(2, minmax(0, 1fr)) !important")) {
   failures.push("Four-card Campus activity menus must stay 2x2 in the right panel.");
 }
+if (!onlineCss.includes(".library-id-choice-card-coming-soon") || !onlineCss.includes(".library-id-status-bubble")) {
+  failures.push("Unavailable amphitheatre cards must show an inline Available soon bubble instead of opening the full unavailable popup.");
+}
 if (!onlineCss.includes("--campus2d-header-height: 104px") || !onlineCss.includes("body.is-campus2d-view .hero-layout")) {
   failures.push("Campus 2D must keep a compact app-bar header with a centered layout.");
 }
@@ -390,6 +393,9 @@ for (const appNeedle of [
   "library-inline-game-shell",
   "Collaborative Writing",
   "library-campus-card-grid-four",
+  "showComingSoonNotice",
+  "CAMPUS_ACTIVITY_COMING_SOON_NOTICE",
+  "disabled aria-disabled=\"true\"",
   "openCampus2DDebateLab"
 ]) {
   if (!appJs.includes(appNeedle)) {

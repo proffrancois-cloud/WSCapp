@@ -4258,6 +4258,44 @@ body.is-online-mode .library-id-choice-card .online-card-prompt {
   justify-self: center;
 }
 
+body.is-online-mode .library-id-choice-card-coming-soon {
+  cursor: not-allowed !important;
+}
+
+body.is-online-mode .library-id-choice-card-coming-soon .tracker {
+  pointer-events: none;
+}
+
+body.is-online-mode .library-id-choice-card-coming-soon .online-card-frame,
+body.is-online-mode .library-id-choice-card-coming-soon:hover .online-card-frame,
+body.is-online-mode .library-id-choice-card-coming-soon:focus-visible .online-card-frame {
+  filter: saturate(0.84) brightness(0.95);
+  box-shadow: 0 0 18px rgba(var(--campus-modal-accent-rgb), 0.12);
+}
+
+body.is-online-mode .library-id-status-bubble {
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  min-height: 28px;
+  padding: 5px 12px;
+  border: 1px solid rgba(var(--campus-modal-accent-rgb), 0.48);
+  border-radius: 999px;
+  background: rgba(255, 246, 210, 0.14);
+  color: var(--campus-modal-accent);
+  font-size: clamp(0.68rem, 0.76vw, 0.82rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 246, 210, 0.1),
+    0 0 16px rgba(var(--campus-modal-accent-rgb), 0.16);
+}
+
 body.is-online-mode .library-id-art {
   width: clamp(84px, 7vw, 118px);
   height: clamp(84px, 7vw, 118px);
@@ -4410,6 +4448,17 @@ body.is-online-mode .library-id-subtitle {
   gap: 10px;
   padding: 13px;
   text-align: center;
+}
+
+.campus2d-activity-mount .library-id-choice-card-coming-soon .card-content {
+  grid-template-rows: minmax(70px, 1fr) auto auto;
+  gap: 8px;
+}
+
+.campus2d-activity-mount .library-id-status-bubble {
+  min-height: 24px;
+  padding: 4px 9px;
+  font-size: 0.62rem;
 }
 
 .campus2d-activity-mount .library-id-choice-card .library-id-title,

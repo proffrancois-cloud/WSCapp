@@ -106,6 +106,7 @@ const UNAVAILABLE_MODE_REASONS = Object.freeze({
   bowl: "Scholar's Bowl is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed.",
   quiz: "Scholar's Challenge is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed."
 });
+const CAMPUS_ACTIVITY_COMING_SOON_NOTICE = "Available soon";
 const DEBATE_LAB_ALONE_UNAVAILABLE_REASON = "Debate Lab alone is available soon. Please wait for the live Debate Lab setup.";
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
 const MULTIPLAYER_ALLOWED_EMAILS = new Set([
@@ -8010,10 +8011,12 @@ function renderMultiplayerAudienceCard({ audience, title, body, modeId, mood }) 
 function getLibraryCampusMenuConfig(type) {
   const campusConfig = CAMPUS_ACTIVITY_MENU_CONFIGS[type];
   if (campusConfig) {
+    const showComingSoonNotice = type === "debate-board-training";
     return {
       ...campusConfig,
       content: campusConfig.modes.map((mode) => renderLibraryModeChoiceCard(mode.modeId, mode.label, {
-        className: "library-mode-id-card campus-activity-id-card"
+        className: "library-mode-id-card campus-activity-id-card",
+        showComingSoonNotice
       })).join("")
     };
   }
@@ -8066,10 +8069,21 @@ function getLibraryCampusMenuConfig(type) {
 function renderLibraryModeChoiceCard(modeId, label, options = {}) {
   const option = getModeOption(modeId) || { title: label, mood: "wise" };
   const title = label || option.title || modeId;
+  const showComingSoonNotice = Boolean(options.showComingSoonNotice && isModeUnavailable(modeId));
+  const className = [
+    options.className || "library-mode-id-card",
+    showComingSoonNotice ? "library-id-choice-card-coming-soon" : ""
+  ].filter(Boolean).join(" ");
   return renderLibraryIdChoiceCard({
-    actionAttribute: `data-library-launch-mode="${escapeHtml(modeId)}"`,
+    actionAttribute: showComingSoonNotice
+      ? `disabled aria-disabled="true" title="${escapeHtml(CAMPUS_ACTIVITY_COMING_SOON_NOTICE)}"`
+      : `data-library-launch-mode="${escapeHtml(modeId)}"`,
     title,
-    className: options.className || "library-mode-id-card",
+    ariaLabel: showComingSoonNotice ? `${title}, ${CAMPUS_ACTIVITY_COMING_SOON_NOTICE}` : title,
+    className,
+    statusHtml: showComingSoonNotice
+      ? `<span class="library-id-status-bubble">${escapeHtml(CAMPUS_ACTIVITY_COMING_SOON_NOTICE)}</span>`
+      : "",
     mediaHtml: renderConfiguredMascotAsset(
       getModeAssetPath(modeId),
       option.mood || "wise",
@@ -8103,9 +8117,9 @@ function renderLibraryGuideResourceCard(resource) {
   });
 }
 
-function renderLibraryIdChoiceCard({ actionAttribute, title, mediaHtml, className = "" }) {
+function renderLibraryIdChoiceCard({ actionAttribute, title, mediaHtml, className = "", statusHtml = "", ariaLabel = title }) {
   return `
-    <button class="library-id-choice-card online-glow-card ${escapeHtml(className)}" type="button" ${actionAttribute} aria-label="${escapeHtml(title)}">
+    <button class="library-id-choice-card online-glow-card ${escapeHtml(className)}" type="button" ${actionAttribute} aria-label="${escapeHtml(ariaLabel)}">
       <span class="online-card-container noselect">
         <span class="online-card-canvas">
           ${renderLibraryCardTrackers()}
@@ -8114,6 +8128,7 @@ function renderLibraryIdChoiceCard({ actionAttribute, title, mediaHtml, classNam
               ${renderLibraryCardEffects()}
               <span class="online-card-art library-id-art">${mediaHtml}</span>
               <span class="title library-id-title">${escapeHtml(title)}</span>
+              ${statusHtml}
             </span>
           </span>
         </span>
@@ -8550,6 +8565,10 @@ function chooseLibraryMode(modeId) {
   }
 
   if (isModeUnavailable(modeId)) {
+    if (state.ui.libraryMenu?.type === "debate-board-training") {
+      renderLibraryCampusModal();
+      return;
+    }
     launchLibraryMode(modeId);
     return;
   }
