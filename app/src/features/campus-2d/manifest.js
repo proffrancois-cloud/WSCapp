@@ -156,7 +156,20 @@
       ],
       hotspots: [],
       npcs: [
-        npc("lobby-instructions-npc", "Instructions", 578, 285, "down", "red")
+        npc("lobby-instructions-npc", "Instructions", 578, 285, "down", "red", {
+          title: "PWA Academy",
+          body: [
+            "Welcome to PWA Academy!",
+            "",
+            "By entering our campus, you agree to respect the one and only rule: RESPECT. If, for any reason, you choose to break it, we believe you would no longer be welcome here. Our academy is free, and we strongly encourage you to participate by suggesting improvements or reporting issues.",
+            "",
+            "On campus, you will be able to explore the curriculum while interacting with other alpacas worldwide.",
+            "",
+            "You can find all lesson resources in the Library, the games in the Courtyard, and round-style activities in our amphitheater.",
+            "",
+            "Enjoy!"
+          ].join("\n")
+        })
       ],
       gameZones: [],
       behindZones: [
@@ -516,17 +529,16 @@
         npc("library-instructions-npc", "Instructions", 586, 233, "down", "red", {
           title: "Library Guide",
           body: [
-            "Welcome to the library.",
+            "Welcome to the library,",
             "",
             "In this room, you can focus on your learning journey.",
             "",
-            "On the three shelves to my left, you can find the curriculum's raw content, our library guide, and tools for navigating the curriculum.",
+            "- On the three shelves to my left, you can find the curriculum's raw content, our library guide, and tools for navigating the curriculum.",
+            "- On the screen in the blue area, you can sit and watch the Alpaca Channel: a compilation of videos focused on each part of the curriculum.",
+            "- You also have four computers available, which allow you to explore the larger Scholars' community and the resources they have shared.",
+            "- Finally, we invite you to sit around the table to discuss your WSC experience with other alpacas. Please note that you can also find all of our flashcards on the shelf behind it.",
             "",
-            "On the screen in the blue area, you can watch the Alpaca Channel: videos focused on each part of the curriculum.",
-            "",
-            "You also have four computers available. Use them to explore the larger Scholars' community and the resources they have shared.",
-            "",
-            "Finally, sit around the table to discuss your WSC experience with other alpacas. You can also find all of our flashcards on the shelf behind it."
+            "Pwaaaa!"
           ].join("\n")
         })
       ],
