@@ -3747,6 +3747,28 @@ body.is-online-mode .hero-best-strip {
   font-weight: 900;
 }
 
+.race-question-pills .race-clock-pill {
+  border-color: rgba(109, 31, 38, 0.42);
+  background: linear-gradient(180deg, #b42a36, #771822);
+  color: #fff7df;
+  box-shadow: 0 10px 18px rgba(109, 31, 38, 0.16);
+}
+
+.race-question-pills .race-clock-pill.warning {
+  border-color: rgba(137, 32, 40, 0.5);
+  background: linear-gradient(180deg, #d34242, #8c1e2a);
+  color: #fff7df;
+}
+
+.race-question-pills .race-clock-pill.danger {
+  border-color: rgba(87, 23, 29, 0.62);
+  background: linear-gradient(180deg, #ef4a4a, #6d1f26);
+  color: #fff7df;
+  box-shadow:
+    0 0 0 3px rgba(239, 74, 74, 0.14),
+    0 12px 22px rgba(109, 31, 38, 0.22);
+}
+
 .question-popup-window.run .challenge-mascot {
   background:
     linear-gradient(160deg, rgba(247, 234, 204, 0.9), rgba(235, 210, 153, 0.88));
@@ -3839,7 +3861,7 @@ body.is-online-mode .hero-best-strip {
 
 .popup-question-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   align-items: center;
   margin-bottom: 16px;
@@ -3916,8 +3938,10 @@ body.is-online-mode .hero-best-strip {
 }
 
 .meta-pill.timer {
-  background: rgba(200, 156, 68, 0.16);
-  color: var(--bg);
+  border: 1px solid rgba(109, 31, 38, 0.34);
+  background: linear-gradient(180deg, #b42a36, #771822);
+  color: #fff7df;
+  box-shadow: 0 8px 16px rgba(109, 31, 38, 0.12);
 }
 
 .options-grid {
@@ -4196,8 +4220,12 @@ body.is-online-mode .hero-best-strip {
 
 .jeopardy-turn-pill.danger,
 .meta-pill.timer.danger {
-  background: rgba(168, 118, 69, 0.18);
-  color: var(--ink);
+  border-color: rgba(87, 23, 29, 0.62);
+  background: linear-gradient(180deg, #ef4a4a, #6d1f26);
+  color: #fff7df;
+  box-shadow:
+    0 0 0 3px rgba(239, 74, 74, 0.14),
+    0 12px 22px rgba(109, 31, 38, 0.2);
 }
 
 .jeopardy-team-grid,
@@ -5463,8 +5491,10 @@ body.is-online-mode .hero-best-strip {
 .live-timer-pill {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(107, 78, 22, 0.1);
-  color: var(--bg);
+  border: 1px solid rgba(109, 31, 38, 0.32);
+  background: linear-gradient(180deg, #b42a36, #771822);
+  color: #fff7df;
+  box-shadow: 0 8px 16px rgba(109, 31, 38, 0.12);
 }
 
 .live-buzz-button {
@@ -7076,12 +7106,13 @@ body.is-online-mode .hero-best-strip {
 
 .race-timer-bar.warning span,
 .meta-pill.timer.warning {
-  background: rgba(185, 137, 83, 0.28);
-  color: var(--ink);
+  border-color: rgba(137, 32, 40, 0.5);
+  background: linear-gradient(180deg, #d34242, #8c1e2a);
+  color: #fff7df;
 }
 
 .race-timer-bar.danger span {
-  background: linear-gradient(90deg, #b98953, #8a6338);
+  background: linear-gradient(90deg, #ef4a4a, #6d1f26);
 }
 
 .race-lives-card span {
@@ -7850,12 +7881,12 @@ body.is-online-mode .hero-best-strip {
 }
 
 .run-inline-timer.warning {
-  border-color: rgba(200, 156, 68, 0.3);
+  border-color: rgba(137, 32, 40, 0.36);
 }
 
 .run-inline-timer.danger {
-  border-color: rgba(109, 31, 38, 0.28);
-  background: rgba(236, 205, 171, 0.9);
+  border-color: rgba(109, 31, 38, 0.38);
+  background: rgba(245, 219, 207, 0.92);
 }
 
 .compact-race-timer-card {
@@ -7865,9 +7896,11 @@ body.is-online-mode .hero-best-strip {
   min-width: 144px;
   padding: 12px 14px;
   border-radius: 20px;
-  background: rgba(236, 214, 165, 0.46);
-  border: 1px solid rgba(107, 78, 22, 0.14);
-  box-shadow: 0 12px 22px rgba(75, 47, 33, 0.07);
+  background:
+    radial-gradient(circle at top right, rgba(180, 42, 54, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 247, 223, 0.92), rgba(246, 222, 211, 0.94));
+  border: 1px solid rgba(109, 31, 38, 0.3);
+  box-shadow: 0 12px 22px rgba(109, 31, 38, 0.09);
 }
 
 .compact-race-timer-card > span {
@@ -7875,11 +7908,11 @@ body.is-online-mode .hero-best-strip {
   letter-spacing: 0.12em;
   font-size: 0.72rem;
   font-weight: 800;
-  color: var(--ink-soft);
+  color: #7a1b25;
 }
 
 .compact-race-timer-card > strong {
-  color: var(--bg);
+  color: #6d1f26;
   font-size: 1.05rem;
   line-height: 1;
 }
@@ -7890,12 +7923,20 @@ body.is-online-mode .hero-best-strip {
 }
 
 .compact-race-timer-card.warning {
-  border-color: rgba(200, 156, 68, 0.3);
+  border-color: rgba(137, 32, 40, 0.42);
+  background:
+    radial-gradient(circle at top right, rgba(211, 66, 66, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(255, 245, 220, 0.94), rgba(246, 215, 205, 0.96));
 }
 
 .compact-race-timer-card.danger {
-  border-color: rgba(109, 31, 38, 0.28);
-  background: rgba(236, 205, 171, 0.9);
+  border-color: rgba(87, 23, 29, 0.52);
+  background:
+    radial-gradient(circle at top right, rgba(239, 74, 74, 0.2), transparent 35%),
+    linear-gradient(180deg, rgba(255, 239, 219, 0.96), rgba(244, 206, 197, 0.98));
+  box-shadow:
+    0 0 0 3px rgba(239, 74, 74, 0.1),
+    0 14px 24px rgba(109, 31, 38, 0.16);
 }
 
 .compact-race-timer-card.relay {
@@ -14274,11 +14315,11 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-id-card {
-  width: min(460px, 100%);
+  width: min(780px, 100%);
   display: grid;
-  grid-template-columns: 124px 1fr;
+  grid-template-columns: 124px minmax(0, 1fr) minmax(150px, 0.72fr);
   gap: 18px;
-  align-items: center;
+  align-items: stretch;
   padding: 18px;
   border: 1px solid rgba(255, 238, 188, 0.38);
   border-radius: 8px;
@@ -14306,6 +14347,7 @@ body.is-campus2d-view .wizard-steps {
   min-width: 0;
   display: grid;
   gap: 10px;
+  align-content: center;
 }
 
 .campus2d-id-header {
@@ -14359,6 +14401,134 @@ body.is-campus2d-view .wizard-steps {
   overflow-wrap: anywhere;
 }
 
+.campus2d-id-trophies {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 232, 172, 0.22);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 16%, rgba(252, 209, 39, 0.18), transparent 42%),
+    rgba(255, 248, 223, 0.08);
+}
+
+.campus2d-id-trophies > strong,
+.campus2d-id-color-panel > strong {
+  color: #ffe6ac;
+  font-size: 0.78rem;
+  font-weight: 950;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.campus2d-id-trophy-list {
+  display: grid;
+  gap: 8px;
+}
+
+.campus2d-id-trophy {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 8px;
+  border: 1px solid rgba(252, 209, 39, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 248, 223, 0.1);
+  color: #fff7df;
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.campus2d-id-trophy-cup {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.campus2d-id-trophy-cup::before {
+  content: "WSC";
+  position: absolute;
+  inset: 2px 4px 7px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #7a4b12;
+  border-bottom-width: 4px;
+  border-radius: 4px 4px 8px 8px;
+  background: linear-gradient(180deg, #ffe6a3, #d39423);
+  color: #5a3309;
+  font-size: 0.42rem;
+  font-weight: 950;
+  line-height: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22);
+}
+
+.campus2d-id-trophy-cup::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 2px;
+  height: 5px;
+  border-radius: 2px 2px 5px 5px;
+  background: #7a4b12;
+}
+
+.campus2d-id-trophy-empty {
+  margin: 0;
+  color: rgba(255, 246, 223, 0.72);
+  font-size: 0.8rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.campus2d-id-color-panel {
+  display: grid;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.campus2d-id-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24px, 1fr));
+  gap: 7px;
+}
+
+.campus2d-id-color-swatch {
+  justify-self: center;
+  width: 24px;
+  height: 24px;
+}
+
+.campus2d-id-achievement-button,
+.campus2d-feedback-secondary {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 232, 172, 0.34);
+  border-radius: 8px;
+  background: rgba(255, 247, 223, 0.1);
+  color: #fff7df;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.campus2d-id-achievement-button:hover,
+.campus2d-id-achievement-button:focus-visible,
+.campus2d-feedback-secondary:hover,
+.campus2d-feedback-secondary:focus-visible {
+  outline: 0;
+  border-color: rgba(255, 248, 223, 0.82);
+  background: rgba(255, 247, 223, 0.18);
+}
+
 .campus2d-hud {
   position: static;
   display: grid;
@@ -14375,6 +14545,12 @@ body.is-campus2d-view .wizard-steps {
 .campus2d-player-card {
   min-width: 0;
   width: 100%;
+  cursor: pointer;
+}
+
+.campus2d-player-card:focus-visible {
+  outline: 3px solid rgba(252, 209, 39, 0.74);
+  outline-offset: 5px;
 }
 
 body.is-campus2d-view .hero-layout {
@@ -14652,7 +14828,7 @@ body.is-campus2d-view .hero-layout {
   left: 12px;
   bottom: 12px;
   z-index: 12240;
-  width: min(430px, calc(100% - 24px));
+  width: min(430px, calc(100% - 136px));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px;
@@ -14684,6 +14860,217 @@ body.is-campus2d-view .hero-layout {
 
 .campus2d-chat-submit {
   padding: 0 14px;
+}
+
+.campus2d-report-button {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 12240;
+  min-width: 96px;
+  min-height: 58px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 232, 172, 0.42);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 223, 0.96), rgba(222, 166, 68, 0.96));
+  color: #211306;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.32);
+}
+
+.campus2d-report-button:hover,
+.campus2d-report-button:focus-visible {
+  outline: 2px solid rgba(255, 248, 223, 0.88);
+  outline-offset: 3px;
+  background:
+    linear-gradient(180deg, #fff8df, #f0bd42);
+}
+
+.campus2d-feedback-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 12320;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(13, 10, 7, 0.42);
+  backdrop-filter: blur(8px);
+}
+
+.campus2d-feedback-card {
+  width: min(680px, 100%);
+  max-height: min(780px, calc(100dvh - 48px));
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255, 238, 188, 0.42);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(252, 209, 39, 0.16), transparent 30%),
+    rgba(29, 22, 14, 0.96);
+  color: #fff7df;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+  overflow: auto;
+}
+
+.campus2d-feedback-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.campus2d-feedback-title {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.campus2d-feedback-title h3 {
+  margin: 0;
+  color: #fff7df;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  line-height: 1;
+}
+
+.campus2d-feedback-title p,
+.campus2d-achievement-intro,
+.campus2d-achievement-submitter {
+  margin: 0;
+  color: rgba(255, 246, 223, 0.82);
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.28;
+}
+
+.campus2d-feedback-form {
+  display: grid;
+  gap: 12px;
+}
+
+.campus2d-report-switcher {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.campus2d-report-kind {
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 232, 172, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 247, 223, 0.1);
+  color: #fff7df;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.campus2d-report-kind.is-active,
+.campus2d-report-kind:hover,
+.campus2d-report-kind:focus-visible {
+  outline: 0;
+  border-color: rgba(252, 209, 39, 0.78);
+  background: rgba(252, 209, 39, 0.18);
+}
+
+.campus2d-form-field {
+  display: grid;
+  gap: 6px;
+  color: rgba(255, 230, 172, 0.82);
+  font-size: 0.78rem;
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.campus2d-form-field input,
+.campus2d-form-field textarea,
+.campus2d-form-field select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(255, 232, 172, 0.34);
+  border-radius: 8px;
+  background: rgba(255, 250, 236, 0.96);
+  color: #2b2117;
+  font: inherit;
+  font-weight: 850;
+}
+
+.campus2d-form-field input,
+.campus2d-form-field select {
+  min-height: 40px;
+  padding: 0 11px;
+}
+
+.campus2d-form-field textarea {
+  min-height: 128px;
+  padding: 10px 11px;
+  resize: vertical;
+}
+
+.campus2d-form-field input:focus,
+.campus2d-form-field textarea:focus,
+.campus2d-form-field select:focus {
+  outline: 2px solid rgba(238, 170, 58, 0.7);
+  outline-offset: 2px;
+}
+
+.campus2d-feedback-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.campus2d-achievement-actions {
+  justify-content: space-between;
+}
+
+.campus2d-feedback-submit:disabled {
+  opacity: 0.58;
+  cursor: wait;
+}
+
+.campus2d-feedback-status {
+  min-height: 1.2em;
+  margin: 0;
+  color: rgba(255, 246, 223, 0.82);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.campus2d-feedback-status[data-status="success"] {
+  color: #c8f5b7;
+}
+
+.campus2d-feedback-status[data-status="error"] {
+  color: #ffd1c6;
+}
+
+.campus2d-achievement-group {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 232, 172, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 247, 223, 0.08);
+}
+
+.campus2d-achievement-group legend {
+  padding: 0 6px;
+  color: #ffe6ac;
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
 }
 
 .campus2d-hotspot {
@@ -15219,8 +15606,17 @@ body.is-campus2d-view .hero-layout {
   .campus2d-chat-form {
     left: 8px;
     bottom: 8px;
-    width: min(360px, calc(100% - 16px));
+    width: min(360px, calc(100% - 116px));
     padding: 7px;
+  }
+
+  .campus2d-report-button {
+    right: 8px;
+    bottom: 8px;
+    min-width: 92px;
+    min-height: 50px;
+    padding: 0 12px;
+    font-size: 0.76rem;
   }
 
   .campus2d-chat-input {
@@ -15232,6 +15628,35 @@ body.is-campus2d-view .hero-layout {
   .campus2d-chat-submit {
     min-height: 34px;
     padding: 0 10px;
+  }
+
+  .campus2d-id-layer,
+  .campus2d-feedback-layer {
+    padding: 10px;
+  }
+
+  .campus2d-id-card {
+    grid-template-columns: 1fr;
+    max-height: calc(100dvh - 24px);
+    overflow: auto;
+  }
+
+  .campus2d-id-avatar {
+    width: 86px;
+    height: 104px;
+  }
+
+  .campus2d-feedback-card {
+    max-height: calc(100dvh - 24px);
+    padding: 14px;
+  }
+
+  .campus2d-report-switcher {
+    grid-template-columns: 1fr;
+  }
+
+  .campus2d-achievement-actions {
+    justify-content: flex-end;
   }
 
   .campus2d-settings-panel {
@@ -15880,6 +16305,53 @@ body.is-online-mode .campus2d-header-card-host .campus2d-profile-age {
   display: none !important;
 }
 
+body.is-online-mode .campus2d-id-card.online-glow-card {
+  width: min(780px, calc(100vw - 48px));
+  min-height: 0 !important;
+  cursor: default !important;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .online-card-container,
+body.is-online-mode .campus2d-id-card.online-glow-card .online-card-canvas,
+body.is-online-mode .campus2d-id-card.online-glow-card .online-card-frame {
+  min-height: 0;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .online-card-frame {
+  border-radius: 20px;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-content {
+  grid-template-columns: 124px minmax(0, 1fr) minmax(160px, 0.72fr);
+  grid-template-rows: 1fr;
+  align-items: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  gap: 18px;
+  min-height: 0;
+  padding: 18px;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-avatar,
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-details,
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-trophies {
+  position: relative;
+  z-index: 4;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-avatar {
+  align-self: center;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-details {
+  align-content: center;
+}
+
+body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-close {
+  position: relative;
+  z-index: 5;
+}
+
 @media (max-width: 980px) {
   .campus2d-header-card-host {
     right: 12px;
@@ -15917,6 +16389,18 @@ body.is-online-mode .campus2d-header-card-host .campus2d-profile-age {
 
   body.is-online-mode .campus2d-header-card-host .campus2d-profile-school {
     font-size: 0.68rem;
+  }
+
+  body.is-online-mode .campus2d-id-card.online-glow-card {
+    width: min(100%, calc(100vw - 20px));
+    max-height: calc(100dvh - 24px);
+    overflow: auto;
+  }
+
+  body.is-online-mode .campus2d-id-card.online-glow-card .campus2d-id-content {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
   }
 }
 

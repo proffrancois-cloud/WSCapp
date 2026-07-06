@@ -327,6 +327,11 @@ for (const runtimeNeedle of [
   "campus2d-controls-panel",
   "campus2d-header-card-host",
   "campus2d-player-card",
+  "campus2d-id-card online-glow-card",
+  "createOnlineIdCardShell",
+  "Alpaca name",
+  "Achievements",
+  "Coming soon",
   "campus2d-decorations",
   "campus2d-decoration",
   "campus2d-npcs",
@@ -341,7 +346,13 @@ for (const runtimeNeedle of [
   "resetPlayerCardTilt",
   "headerCardHost.append(playerCard)",
   "activityPanel.append(activityMount, debugPanel)",
-  "viewport.append(world, chatForm, npcDialogueLayer)",
+  "data-campus2d-report-open",
+  "viewport.append(world, chatForm, reportButton, npcDialogueLayer)",
+  "data-campus2d-open-self-card",
+  "data-campus2d-achievements-open",
+  "data-campus2d-report-form",
+  "data-campus2d-achievement-form",
+  "onFeedbackSubmit",
   "updateShellHeight",
   "typeNpcDialogueText(copy, cursor, message)",
   "campus2d-npc-dialogue is-text-only",
@@ -488,6 +499,12 @@ for (const styleNeedle of [
   ".campus2d-profile-avatar",
   ".campus2d-profile-art",
   ".campus2d-player-card.online-glow-card.is-pointer-tilting",
+  ".campus2d-id-card.online-glow-card",
+  ".campus2d-id-content",
+  ".campus2d-report-button",
+  ".campus2d-feedback-layer",
+  ".campus2d-id-trophies",
+  ".campus2d-id-color-panel",
   ".campus2d-settings-panel[hidden]",
   ".campus2d-portal",
   ".campus2d-debug-panel",
@@ -552,6 +569,9 @@ if (!/\.campus2d-activity-mount\s+\.library-section-picker-strip\.selected-secti
 }
 if (/openGameLauncher|campus2d-games-button|getGameLauncherHtml|data-campus2d-popup/.test(campusRuntime)) {
   failures.push("Campus 2D must not expose the old generic live-game launcher.");
+}
+if (/createIdCardField\("Account age"/.test(campusRuntime) || /createIdCardField\("Alpaca ID"/.test(campusRuntime)) {
+  failures.push("Campus 2D alpaca click cards must show alpaca name, school, and achievements without age or internal IDs.");
 }
 if (!/\.campus2d-entities\s*\{[^}]*pointer-events:\s*none/i.test(styles)) {
   failures.push("Campus 2D entity layer must not intercept seat or portal clicks.");

@@ -50,6 +50,11 @@
       behindZones: new Set(["lobby-behind-15"])
     })
   });
+  const ACHIEVEMENT_ROUNDS = Object.freeze([
+    Object.freeze({ value: "regional", label: "Regional" }),
+    Object.freeze({ value: "global", label: "Global" }),
+    Object.freeze({ value: "toc", label: "ToC" })
+  ]);
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -364,6 +369,10 @@
     let settingsPopupOpen = false;
     let backgroundMusicBlocked = false;
     let activeNpcDialogue = null;
+    let activeFeedbackDialog = null;
+    let feedbackStatus = null;
+    let feedbackSubmitting = false;
+    let achievementDrafts = [createAchievementDraft()];
     let npcTypingTimer = 0;
     let destroyed = false;
     const keys = new Set();
@@ -375,8 +384,13 @@
     const localPlayer = {
       clientId: localClientId,
       userId: identity.userId || null,
+      email: identity.email || "",
+      alpacaName: identity.alpacaName || identity.displayName || "",
       displayName: identity.displayName || "Guest",
       schoolName: identity.schoolName || "",
+      country: identity.country || "",
+      wscEventCount: Number(identity.wscEventCount) || 0,
+      highestWscRound: identity.highestWscRound || "",
       createdAt: identity.createdAt || null,
       roomId: room.id,
       x: spawn.x,
@@ -428,7 +442,10 @@
     const headerCardHost = createEl("div", "campus2d-header-card-host", { "data-campus2d-ui": "" });
     const hud = createEl("div", "campus2d-hud", { "data-campus2d-ui": "" });
     const playerCard = createEl("section", "campus2d-player-card online-glow-card", {
-      "aria-label": "Your alpaca card"
+      "aria-label": "Open your Alpaca ID",
+      role: "button",
+      tabindex: "0",
+      "data-campus2d-open-self-card": ""
     });
     const playerCardContainer = createEl("span", "online-card-container noselect");
     const playerCardCanvas = createEl("span", "online-card-canvas");
@@ -440,10 +457,9 @@
     const playerArt = createEl("span", "online-card-art campus2d-profile-art");
     const playerAvatarButton = createEl("button", "campus2d-profile-avatar", {
       type: "button",
-      title: "Choose alpaca color",
-      "aria-label": "Choose alpaca color",
-      "aria-expanded": "false",
-      "data-campus2d-color-toggle": ""
+      title: "Open your Alpaca ID",
+      "aria-label": "Open your Alpaca ID",
+      "data-campus2d-open-self-card": ""
     });
     const playerDetails = createEl("div", "subtitle campus2d-profile-details");
     const playerName = createEl("strong", "title campus2d-profile-name");
@@ -511,6 +527,11 @@
       "aria-label": "Send message",
       title: "Send"
     });
+    const reportButton = createEl("button", "campus2d-report-button", {
+      type: "button",
+      "data-campus2d-report-open": "",
+      "data-campus2d-ui": ""
+    });
     const debugPanel = createEl("aside", "campus2d-debug-panel", {
       "data-campus2d-ui": "",
       hidden: ""
@@ -568,6 +589,7 @@
     toneLabel.textContent = "Display tone";
     volumeLabel.textContent = "Music";
     chatButton.textContent = "Send";
+    reportButton.textContent = "Report";
     debugTitle.textContent = "Dev";
     Array.from({ length: 9 }, (_value, index) => {
       playerCardCanvas.append(createEl("span", `tracker tr-${index + 1}`, { "aria-hidden": "true" }));
@@ -662,7 +684,7 @@
     activityPanel.append(activityMount, debugPanel);
     world.append(mapImage, decorationsLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
     entitiesLayer.append(localElement);
-    viewport.append(world, chatForm, npcDialogueLayer);
+    viewport.append(world, chatForm, reportButton, npcDialogueLayer);
     root.append(viewport, activityPanel, settingsPanel);
     mountNode.replaceChildren(root);
     mountHeaderCard();
@@ -747,8 +769,8 @@
       playerCard.style.setProperty("--campus2d-color", color.hex);
       playerName.textContent = localPlayer.displayName || "Guest";
       playerSchool.textContent = localPlayer.schoolName || "Unknown school";
-      playerAvatarButton.title = `${color.label} alpaca. Choose color`;
-      playerAvatarButton.setAttribute("aria-label", `${color.label} alpaca. Choose color`);
+      playerAvatarButton.title = `${color.label} alpaca. Open your Alpaca ID`;
+      playerAvatarButton.setAttribute("aria-label", `${color.label} alpaca. Open your Alpaca ID`);
       applyAvatarPreview(playerAvatarButton, localPlayer);
       setPaletteOpen(paletteOpen);
     }
@@ -896,7 +918,12 @@
 
     function getPlayerProfilePayload(player) {
       return {
+        email: player.email || "",
+        alpacaName: player.alpacaName || "",
         schoolName: player.schoolName || "",
+        country: player.country || "",
+        wscEventCount: Number(player.wscEventCount) || 0,
+        highestWscRound: player.highestWscRound || "",
         createdAt: player.createdAt || null
       };
     }
@@ -1616,14 +1643,15 @@
       const width = viewport.clientWidth || 1;
       const height = viewport.clientHeight || 1;
       const fitScale = Math.min(width / room.width, height / room.height);
+      const coverScale = Math.max(width / room.width, height / room.height);
       const targetScale = width < 720 ? 0.76 : 0.86;
-      camera.scale = clamp(Math.max(fitScale, targetScale), fitScale, 1);
+      camera.scale = clamp(Math.max(coverScale, targetScale), fitScale, Math.max(coverScale, 1));
       const worldWidth = room.width * camera.scale;
       const worldHeight = room.height * camera.scale;
       const minX = Math.min(0, width - worldWidth);
       const minY = Math.min(0, height - worldHeight);
       camera.x = worldWidth <= width
-        ? 0
+        ? (width - worldWidth) / 2
         : clamp((width / 2) - (localPlayer.x * camera.scale), minX, 0);
       camera.y = worldHeight <= height
         ? (height - worldHeight) / 2
@@ -2016,7 +2044,12 @@
             direction: presence.direction || "down",
             colorId: presence.colorId || manifest.colors[0].id,
             seatId: presence.seatId || null,
+            email: presence.email || "",
+            alpacaName: presence.alpacaName || "",
             schoolName: presence.schoolName || "",
+            country: presence.country || "",
+            wscEventCount: Number(presence.wscEventCount) || 0,
+            highestWscRound: presence.highestWscRound || "",
             createdAt: presence.createdAt || null,
             moving: false
           });
@@ -2047,7 +2080,12 @@
         direction: payload.direction || previous.direction || "down",
         colorId: payload.colorId || previous.colorId || manifest.colors[0].id,
         seatId: payload.seatId || previous.seatId || null,
+        email: payload.email || previous.email || "",
+        alpacaName: payload.alpacaName || previous.alpacaName || "",
         schoolName: payload.schoolName || previous.schoolName || "",
+        country: payload.country || previous.country || "",
+        wscEventCount: Number(payload.wscEventCount ?? previous.wscEventCount) || 0,
+        highestWscRound: payload.highestWscRound || previous.highestWscRound || "",
         createdAt: payload.createdAt || previous.createdAt || null,
         moving: Boolean(previous.x !== payload.x || previous.y !== payload.y)
       };
@@ -2109,20 +2147,359 @@
       return row;
     }
 
+    function createAchievementDraft(source = {}) {
+      return {
+        fullName: String(source.fullName || "").trim(),
+        round: ACHIEVEMENT_ROUNDS.some((round) => round.value === source.round) ? source.round : ACHIEVEMENT_ROUNDS[0].value,
+        city: String(source.city || "").trim(),
+        approximateDate: String(source.approximateDate || "").trim()
+      };
+    }
+
+    function getReporterContact() {
+      return localPlayer.email || localPlayer.alpacaName || localPlayer.displayName || localPlayer.userId || "";
+    }
+
+    function getFeedbackReporterPayload() {
+      return {
+        userId: localPlayer.userId || null,
+        email: localPlayer.email || "",
+        alpacaName: localPlayer.alpacaName || localPlayer.displayName || "",
+        displayName: localPlayer.displayName || "",
+        schoolName: localPlayer.schoolName || "",
+        country: localPlayer.country || ""
+      };
+    }
+
+    function createField(label, name, value = "", options = {}) {
+      const field = createEl("label", "campus2d-form-field");
+      const text = createEl("span", "");
+      const control = createEl(options.multiline ? "textarea" : "input", "", {
+        name,
+        autocomplete: options.autocomplete || "off",
+        placeholder: options.placeholder || "",
+        maxlength: options.maxlength || (options.multiline ? "1200" : "160")
+      });
+      if (!options.multiline) {
+        control.type = options.type || "text";
+      } else {
+        control.rows = options.rows || "5";
+      }
+      if (options.required) {
+        control.required = true;
+      }
+      control.value = value || "";
+      text.textContent = label;
+      field.append(text, control);
+      return field;
+    }
+
+    function createSelectField(label, name, value, optionsList) {
+      const field = createEl("label", "campus2d-form-field");
+      const text = createEl("span", "");
+      const select = createEl("select", "", { name });
+      text.textContent = label;
+      optionsList.forEach((entry) => {
+        const option = createEl("option", "");
+        option.value = entry.value;
+        option.textContent = entry.label;
+        option.selected = entry.value === value;
+        select.append(option);
+      });
+      field.append(text, select);
+      return field;
+    }
+
+    function closeFeedbackDialog() {
+      activeFeedbackDialog = null;
+      feedbackStatus = null;
+      feedbackSubmitting = false;
+      root.querySelector("[data-campus2d-feedback-dialog]")?.remove();
+    }
+
+    function setFeedbackStatus(message, type = "info") {
+      feedbackStatus = message ? { message, type } : null;
+      const status = root.querySelector("[data-campus2d-feedback-status]");
+      if (status) {
+        status.textContent = message || "";
+        status.dataset.status = type;
+        status.hidden = !message;
+      }
+    }
+
+    function setFeedbackSubmitting(value) {
+      feedbackSubmitting = Boolean(value);
+      root.querySelectorAll("[data-campus2d-feedback-submit]").forEach((button) => {
+        button.disabled = feedbackSubmitting;
+      });
+    }
+
+    function createFeedbackShell(title, subtitle = "") {
+      root.querySelector("[data-campus2d-feedback-dialog]")?.remove();
+      const layer = createEl("div", "campus2d-feedback-layer", {
+        "data-campus2d-feedback-dialog": "",
+        "data-campus2d-ui": ""
+      });
+      const card = createEl("section", "campus2d-feedback-card", {
+        role: "dialog",
+        "aria-modal": "true",
+        "aria-label": title
+      });
+      const header = createEl("div", "campus2d-feedback-header");
+      const copy = createEl("div", "campus2d-feedback-title");
+      const heading = createEl("h3", "");
+      const closeButton = createEl("button", "campus2d-id-close", {
+        type: "button",
+        "aria-label": "Close",
+        "data-campus2d-feedback-close": ""
+      });
+      heading.textContent = title;
+      closeButton.textContent = "Close";
+      copy.append(heading);
+      if (subtitle) {
+        const paragraph = createEl("p", "");
+        paragraph.textContent = subtitle;
+        copy.append(paragraph);
+      }
+      header.append(copy, closeButton);
+      card.append(header);
+      layer.append(card);
+      root.append(layer);
+      return { layer, card };
+    }
+
+    function appendFeedbackStatus(parent) {
+      const status = createEl("p", "campus2d-feedback-status", {
+        "data-campus2d-feedback-status": "",
+        "aria-live": "polite"
+      });
+      if (feedbackStatus?.message) {
+        status.textContent = feedbackStatus.message;
+        status.dataset.status = feedbackStatus.type || "info";
+      } else {
+        status.hidden = true;
+      }
+      parent.append(status);
+    }
+
+    function openReportDialog(reportType = "person") {
+      activeFeedbackDialog = {
+        type: "report",
+        reportType: reportType === "problem" ? "problem" : "person"
+      };
+      feedbackStatus = null;
+      renderReportDialog();
+    }
+
+    function renderReportDialog() {
+      const currentType = activeFeedbackDialog?.reportType === "problem" ? "problem" : "person";
+      const { card } = createFeedbackShell("Report", "Send a report directly to the WSC app admin.");
+      const switcher = createEl("div", "campus2d-report-switcher", { role: "group", "aria-label": "Report type" });
+      [
+        ["person", "Report a person"],
+        ["problem", "Report a problem"]
+      ].forEach(([value, label]) => {
+        const button = createEl("button", `campus2d-report-kind ${currentType === value ? "is-active" : ""}`, {
+          type: "button",
+          "data-campus2d-report-kind": value,
+          "aria-pressed": String(currentType === value)
+        });
+        button.textContent = label;
+        switcher.append(button);
+      });
+
+      const form = createEl("form", "campus2d-feedback-form", { "data-campus2d-report-form": "" });
+      form.append(
+        switcher,
+        createField("What's your ID or email?", "reporterContact", getReporterContact(), { required: true, autocomplete: "email" }),
+        createField("What's the person's ID or the room with the issue?", "target", currentType === "problem" ? room.title : "", { required: true }),
+        createField("Describe the issue", "description", "", { multiline: true, required: true, rows: "6" })
+      );
+      const actions = createEl("div", "campus2d-feedback-actions");
+      const submitButton = createEl("button", "campus2d-feedback-submit button primary", {
+        type: "submit",
+        "data-campus2d-feedback-submit": ""
+      });
+      submitButton.textContent = "Send";
+      actions.append(submitButton);
+      form.append(actions);
+      appendFeedbackStatus(form);
+      card.append(form);
+      form.querySelector("input, textarea, select, button")?.focus({ preventScroll: true });
+    }
+
+    function collectAchievementDrafts(form) {
+      return achievementDrafts.map((_draft, index) => createAchievementDraft({
+        fullName: form.querySelector(`[name="achievement_${index}_fullName"]`)?.value || "",
+        round: form.querySelector(`[name="achievement_${index}_round"]`)?.value || "",
+        city: form.querySelector(`[name="achievement_${index}_city"]`)?.value || "",
+        approximateDate: form.querySelector(`[name="achievement_${index}_approximateDate"]`)?.value || ""
+      }));
+    }
+
+    function openAchievementDialog() {
+      activeFeedbackDialog = { type: "achievements" };
+      feedbackStatus = null;
+      achievementDrafts = achievementDrafts.length ? achievementDrafts : [createAchievementDraft()];
+      renderAchievementDialog();
+    }
+
+    function renderAchievementDialog() {
+      const { card } = createFeedbackShell("Share achievements", "");
+      const form = createEl("form", "campus2d-feedback-form campus2d-achievement-form", { "data-campus2d-achievement-form": "" });
+      const intro = createEl("p", "campus2d-achievement-intro");
+      intro.textContent = "You want to share you achievements? Let us know and we will add them to your ID! Please note that in order to make sure it is correct, we will need to double check with your legal name. We will not use your personal information for any other mean.";
+      const submitter = createEl("p", "campus2d-achievement-submitter");
+      submitter.textContent = `Submitting from ${getReporterContact() || "your Alpaccount"}`;
+      form.append(intro, submitter);
+
+      achievementDrafts.forEach((draft, index) => {
+        const group = createEl("fieldset", "campus2d-achievement-group");
+        const legend = createEl("legend", "");
+        legend.textContent = `Achievement ${index + 1}`;
+        group.append(
+          legend,
+          createField("Full name as displayed on the official WSC results", `achievement_${index}_fullName`, draft.fullName, { required: true }),
+          createSelectField("Round", `achievement_${index}_round`, draft.round, ACHIEVEMENT_ROUNDS),
+          createField("City", `achievement_${index}_city`, draft.city, { required: true }),
+          createField("Approximate date (month and year)", `achievement_${index}_approximateDate`, draft.approximateDate, {
+            required: true,
+            placeholder: "June 2026"
+          })
+        );
+        form.append(group);
+      });
+
+      const actions = createEl("div", "campus2d-feedback-actions campus2d-achievement-actions");
+      const addButton = createEl("button", "campus2d-feedback-secondary", {
+        type: "button",
+        "data-campus2d-add-achievement": ""
+      });
+      const submitButton = createEl("button", "campus2d-feedback-submit button primary", {
+        type: "submit",
+        "data-campus2d-feedback-submit": ""
+      });
+      addButton.textContent = "+ Add another achievement";
+      submitButton.textContent = "Submit";
+      actions.append(addButton, submitButton);
+      form.append(actions);
+      appendFeedbackStatus(form);
+      card.append(form);
+      form.querySelector("input, textarea, select, button")?.focus({ preventScroll: true });
+    }
+
+    async function submitFeedbackPayload(payload) {
+      if (feedbackSubmitting) {
+        return;
+      }
+      if (typeof options.onFeedbackSubmit !== "function") {
+        setFeedbackStatus("Email sending is not configured for this build yet.", "error");
+        return;
+      }
+      setFeedbackSubmitting(true);
+      setFeedbackStatus("Sending...", "info");
+      try {
+        await options.onFeedbackSubmit({
+          ...payload,
+          roomId: room.id,
+          roomTitle: room.title,
+          reporter: getFeedbackReporterPayload()
+        });
+        setFeedbackStatus("Sent. Thank you for helping keep the campus safe and accurate.", "success");
+      } catch (error) {
+        setFeedbackStatus(error?.message || "The email could not be sent yet.", "error");
+      } finally {
+        setFeedbackSubmitting(false);
+      }
+    }
+
+    function createTrophyPanel() {
+      const panel = createEl("aside", "campus2d-id-trophies", { "aria-label": "Achievements" });
+      const title = createEl("strong", "");
+      const list = createEl("div", "campus2d-id-trophy-list");
+      title.textContent = "Achievements";
+      const empty = createEl("p", "campus2d-id-trophy-empty");
+      empty.textContent = "Coming soon";
+      list.append(empty);
+      panel.append(title, list);
+      return panel;
+    }
+
+    function createIdColorPanel(player) {
+      const panel = createEl("section", "campus2d-id-color-panel", { "aria-label": "Choose alpaca color" });
+      const title = createEl("strong", "");
+      const grid = createEl("div", "campus2d-id-color-grid");
+      title.textContent = "Alpaca color";
+      manifest.colors.forEach((color) => {
+        const button = createEl("button", "campus2d-color-swatch campus2d-id-color-swatch", {
+          type: "button",
+          title: color.label,
+          "aria-label": color.label,
+          "data-campus2d-color": color.id
+        });
+        button.style.setProperty("--swatch", color.swatch || color.hex);
+        button.classList.toggle("is-active", color.id === player.colorId);
+        grid.append(button);
+      });
+      panel.append(title, grid);
+      return panel;
+    }
+
+    function createOnlineIdCardShell() {
+      const container = createEl("div", "online-card-container noselect");
+      const canvas = createEl("div", "online-card-canvas");
+      const frame = createEl("div", "online-card-frame");
+      const content = createEl("div", "card-content campus2d-id-content");
+      const glare = createEl("span", "card-glare", { "aria-hidden": "true" });
+      const cyberLines = createEl("span", "cyber-lines", { "aria-hidden": "true" });
+      const glowingElements = createEl("span", "glowing-elements", { "aria-hidden": "true" });
+      const particles = createEl("span", "card-particles", { "aria-hidden": "true" });
+      const corners = createEl("span", "corner-elements", { "aria-hidden": "true" });
+      const scanLine = createEl("span", "scan-line", { "aria-hidden": "true" });
+
+      Array.from({ length: 4 }).forEach(() => {
+        cyberLines.append(createEl("span", ""));
+        corners.append(createEl("span", ""));
+      });
+      ["glow-1", "glow-2", "glow-3"].forEach((className) => {
+        glowingElements.append(createEl("span", className));
+      });
+      Array.from({ length: 6 }).forEach(() => {
+        particles.append(createEl("span", ""));
+      });
+
+      content.append(glare, cyberLines);
+      frame.append(content);
+      canvas.append(frame);
+      container.append(canvas);
+
+      return {
+        container,
+        content,
+        glowingElements,
+        particles,
+        corners,
+        scanLine
+      };
+    }
+
     function openPlayerCard(player) {
       if (!player) {
         return;
       }
       closePlayerCard();
+      closeFeedbackDialog();
+      const isLocalPlayer = player.clientId === localPlayer.clientId;
       const layer = createEl("div", "campus2d-id-layer", {
         "data-campus2d-id-card": "",
         "data-campus2d-ui": ""
       });
-      const card = createEl("section", "campus2d-id-card", {
+      const card = createEl("section", `campus2d-id-card online-glow-card ${isLocalPlayer ? "is-local" : ""}`, {
         role: "dialog",
         "aria-modal": "true",
         "aria-label": "Alpaca ID card"
       });
+      const shell = createOnlineIdCardShell();
       const preview = createEl("span", "campus2d-id-avatar", { "aria-hidden": "true" });
       const details = createEl("div", "campus2d-id-details");
       const header = createEl("div", "campus2d-id-header");
@@ -2138,12 +2515,20 @@
       header.append(eyebrow, closeButton);
       details.append(
         header,
-        createIdCardField("Name", player.displayName || "Guest"),
-        createIdCardField("School", player.schoolName || "Unknown school"),
-        createIdCardField("Account age", formatAccountAge(player.createdAt))
+        createIdCardField("Alpaca name", player.displayName || player.alpacaName || "Guest"),
+        createIdCardField("School", player.schoolName || "Unknown school")
       );
+      if (isLocalPlayer) {
+        const achievementsButton = createEl("button", "campus2d-id-achievement-button", {
+          type: "button",
+          "data-campus2d-achievements-open": ""
+        });
+        achievementsButton.textContent = "Share achievements";
+        details.append(createIdColorPanel(player), achievementsButton);
+      }
       applyAvatarPreview(preview, player);
-      card.append(preview, details);
+      shell.content.append(preview, details, createTrophyPanel(), shell.glowingElements, shell.particles, shell.corners, shell.scanLine);
+      card.append(shell.container);
       layer.append(card);
       root.append(layer);
       closeButton.focus({ preventScroll: true });
@@ -2482,6 +2867,10 @@
 
     function handleKeyDown(event) {
       if (event.key === "Escape") {
+        if (activeFeedbackDialog) {
+          closeFeedbackDialog();
+          return;
+        }
         if (settingsPopupOpen) {
           setSettingsPanelOpen(false);
           return;
@@ -2518,6 +2907,14 @@
       }
       event.preventDefault();
       keys.add(event.key);
+    }
+
+    function handlePlayerCardKeyDown(event) {
+      if (!["Enter", " "].includes(event.key) || isTextEntryTarget(event.target)) {
+        return;
+      }
+      event.preventDefault();
+      openPlayerCard(localPlayer);
     }
 
     function handleKeyUp(event) {
@@ -2578,6 +2975,42 @@
         return;
       }
 
+      if (event.target.closest("[data-campus2d-feedback-close]") || event.target.matches("[data-campus2d-feedback-dialog]")) {
+        closeFeedbackDialog();
+        return;
+      }
+
+      const reportKindButton = event.target.closest("[data-campus2d-report-kind]");
+      if (reportKindButton) {
+        activeFeedbackDialog = {
+          type: "report",
+          reportType: reportKindButton.dataset.campus2dReportKind === "problem" ? "problem" : "person"
+        };
+        feedbackStatus = null;
+        renderReportDialog();
+        return;
+      }
+
+      const addAchievementButton = event.target.closest("[data-campus2d-add-achievement]");
+      if (addAchievementButton) {
+        const form = root.querySelector("[data-campus2d-achievement-form]");
+        achievementDrafts = form ? collectAchievementDrafts(form) : achievementDrafts;
+        achievementDrafts.push(createAchievementDraft());
+        feedbackStatus = null;
+        renderAchievementDialog();
+        return;
+      }
+
+      if (event.target.closest("[data-campus2d-achievements-open]")) {
+        openAchievementDialog();
+        return;
+      }
+
+      if (event.target.closest("[data-campus2d-report-open]")) {
+        openReportDialog("person");
+        return;
+      }
+
       const avatarButton = event.target.closest("[data-campus2d-avatar]");
       if (avatarButton) {
         openPlayerCard(getPlayerByClientId(avatarButton.dataset.campus2dAvatar));
@@ -2610,6 +3043,9 @@
           renderPalette();
           renderLocalCard();
           updatePlayerElement(localElement, localPlayer, performance.now());
+          if (root.querySelector("[data-campus2d-id-card]")) {
+            openPlayerCard(localPlayer);
+          }
           channel?.sendAvatar({
             x: localPlayer.x,
             y: localPlayer.y,
@@ -2620,6 +3056,11 @@
           });
           publishPresence(true);
         }
+        return;
+      }
+
+      if (event.target.closest("[data-campus2d-open-self-card]")) {
+        openPlayerCard(localPlayer);
         return;
       }
 
@@ -2666,6 +3107,47 @@
       }
     }
 
+    function handleRootSubmit(event) {
+      const reportForm = event.target.closest("[data-campus2d-report-form]");
+      if (reportForm) {
+        event.preventDefault();
+        const formData = new FormData(reportForm);
+        const reporterContact = String(formData.get("reporterContact") || "").trim();
+        const target = String(formData.get("target") || "").trim();
+        const description = String(formData.get("description") || "").trim();
+        if (!reporterContact || !target || !description) {
+          setFeedbackStatus("Please complete every field before sending.", "error");
+          return;
+        }
+        submitFeedbackPayload({
+          category: "report",
+          reportType: activeFeedbackDialog?.reportType === "problem" ? "problem" : "person",
+          reporterContact,
+          target,
+          description
+        });
+        return;
+      }
+
+      const achievementForm = event.target.closest("[data-campus2d-achievement-form]");
+      if (achievementForm) {
+        event.preventDefault();
+        achievementDrafts = collectAchievementDrafts(achievementForm);
+        const achievements = achievementDrafts
+          .map(createAchievementDraft)
+          .filter((entry) => entry.fullName || entry.city || entry.approximateDate);
+        if (!achievements.length || achievements.some((entry) => !entry.fullName || !entry.city || !entry.approximateDate)) {
+          setFeedbackStatus("Please complete every achievement field before submitting.", "error");
+          return;
+        }
+        submitFeedbackPayload({
+          category: "achievement_share",
+          reporterContact: getReporterContact(),
+          achievements
+        });
+      }
+    }
+
     function handleZoneTypeChange() {
       selectedZoneType = DEV_ZONE_TYPES.includes(zoneTypeSelect.value) ? zoneTypeSelect.value : "blocked";
       selectedZoneId = null;
@@ -2691,8 +3173,13 @@
 
     function setIdentity(nextIdentity = {}) {
       localPlayer.userId = nextIdentity.userId || null;
+      localPlayer.email = nextIdentity.email || "";
+      localPlayer.alpacaName = nextIdentity.alpacaName || nextIdentity.displayName || "";
       localPlayer.displayName = nextIdentity.displayName || "Guest";
       localPlayer.schoolName = nextIdentity.schoolName || "";
+      localPlayer.country = nextIdentity.country || "";
+      localPlayer.wscEventCount = Number(nextIdentity.wscEventCount) || 0;
+      localPlayer.highestWscRound = nextIdentity.highestWscRound || "";
       localPlayer.createdAt = nextIdentity.createdAt || null;
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderLocalCard();
@@ -2716,8 +3203,10 @@
     playerCard.addEventListener("pointermove", updatePlayerCardTilt);
     playerCard.addEventListener("pointerleave", resetPlayerCardTilt);
     playerCard.addEventListener("pointercancel", resetPlayerCardTilt);
+    playerCard.addEventListener("keydown", handlePlayerCardKeyDown);
     headerCardHost.addEventListener("click", handleRootClick);
     root.addEventListener("click", handleRootClick);
+    root.addEventListener("submit", handleRootSubmit);
     chatForm.addEventListener("submit", handleChatSubmit);
     toneInput.addEventListener("input", handleToneInput);
     volumeInput.addEventListener("input", handleVolumeInput);
@@ -2754,7 +3243,10 @@
         playerCard.removeEventListener("pointermove", updatePlayerCardTilt);
         playerCard.removeEventListener("pointerleave", resetPlayerCardTilt);
         playerCard.removeEventListener("pointercancel", resetPlayerCardTilt);
+        playerCard.removeEventListener("keydown", handlePlayerCardKeyDown);
         headerCardHost.removeEventListener("click", handleRootClick);
+        root.removeEventListener("click", handleRootClick);
+        root.removeEventListener("submit", handleRootSubmit);
         seatDirectionSelect.removeEventListener("change", handleSeatDirectionChange);
         channel?.destroy();
         backgroundMusic.pause();
