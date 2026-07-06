@@ -44,6 +44,7 @@
     return `
       <section class="mindmap-radial-map" aria-label="${helpers.escapeHtml(layout.title)}">
         <div class="mindmap-radial-scroll" aria-label="Adaptive radial mind map">
+          <div class="mindmap-radial-stage-frame">
             <div
               class="mindmap-radial-stage mindmap-orbit-stage"
               data-mindmap-orbit-stage
@@ -81,6 +82,7 @@
                 <span>${helpers.escapeHtml(entry.title)}</span>
               </button>
             `).join("")}
+            </div>
           </div>
         </div>
       </section>

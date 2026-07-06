@@ -1373,14 +1373,15 @@
 }
 
 .experience-panel--mindmap .mindmap-radial-scroll {
-  --mindmap-stage-visual-size: 604px;
+  --mindmap-stage-visual-size: 560px;
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  height: min(720px, max(360px, calc(var(--mindmap-stage-visual-size) + 36px)));
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: min(640px, max(420px, calc(var(--mindmap-stage-visual-size) + 36px)));
   overflow: hidden !important;
   overflow: clip !important;
   border-radius: 42px;
@@ -1398,16 +1399,27 @@
   -webkit-overflow-scrolling: auto;
 }
 
+.experience-panel--mindmap .mindmap-radial-stage-frame {
+  position: relative;
+  width: min(100%, var(--mindmap-stage-visual-size));
+  height: var(--mindmap-stage-visual-size);
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
 .experience-panel--mindmap .mindmap-radial-scroll::-webkit-scrollbar {
   display: none;
 }
 
 .experience-panel--mindmap .mindmap-radial-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   flex: 0 0 auto;
   isolation: isolate;
   overflow: visible;
   margin: 0;
-  transform: scale(var(--mindmap-stage-scale, 1));
+  transform: translate(-50%, -50%) scale(var(--mindmap-stage-scale, 1));
   transform-origin: center center;
   background:
     radial-gradient(circle at center, rgba(255, 250, 238, 0.9) 0 9%, rgba(255, 250, 238, 0.36) 9.2% 13%, transparent 13.4%),
@@ -1584,7 +1596,7 @@
   }
 
   .experience-panel--mindmap .mindmap-radial-scroll {
-    min-height: 500px;
+    height: max(360px, calc(var(--mindmap-stage-visual-size) + 32px));
     border-radius: 30px;
   }
 
@@ -1609,6 +1621,39 @@
 
 .raw-question-gallery .raw-quiz-option {
   background: rgba(255, 250, 238, 0.66);
+}
+
+.raw-question-gallery .raw-question-gallery-track {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 !important;
+  overflow: visible !important;
+  padding: 4px 0 18px !important;
+  scroll-behavior: auto;
+  scroll-padding-inline: 0;
+  scroll-snap-type: none;
+}
+
+.raw-question-gallery .raw-question-gallery-slide {
+  grid-area: 1 / 1;
+  width: min(100%, 920px);
+  max-width: 100%;
+  justify-self: center;
+  flex: none;
+  scroll-snap-align: none;
+}
+
+.raw-question-gallery .raw-question-gallery-slide:not(.active) {
+  display: none !important;
+}
+
+.raw-question-gallery .raw-question-gallery-slide.active {
+  display: flex;
+  opacity: 1;
+  filter: none;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .raw-question-gallery,

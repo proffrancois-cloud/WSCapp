@@ -2578,6 +2578,7 @@ const appLifecycleController = window.WSC_APP_LIFECYCLE_CONTROLLER.create({
   },
   events: {
     handleClick,
+    handlePointerDown,
     handleInput,
     handleSubmit,
     handleKeyDown,
@@ -2636,6 +2637,16 @@ const {
 window.addEventListener("message", handleLibraryResourceMessage);
 
 appLifecycleController.start();
+
+function handlePointerDown(event) {
+  const rawQuizPageButton = event.target.closest("[data-raw-quiz-page]");
+  if (!rawQuizPageButton) {
+    return;
+  }
+
+  event.preventDefault();
+  rawQuizPageButton.blur();
+}
 
 function handleClick(event) {
   const backToTop = event.target.closest("[data-back-to-top]");
@@ -3038,20 +3049,7 @@ function handleClick(event) {
   if (rawQuizPageButton) {
     event.preventDefault();
     event.stopPropagation();
-    rawQuizPageButton.blur();
-    const scrollPosition = getViewportScrollPosition();
-    renderPreservingScroll(() => {
-      shiftRawQuizPage(
-        rawQuizPageButton.dataset.rawQuizPage,
-        Number(rawQuizPageButton.dataset.rawQuizDirection),
-        Number(rawQuizPageButton.dataset.rawQuizTotal),
-        {
-          behavior: "auto",
-          preserveViewportScroll: scrollPosition
-        }
-      );
-    });
-    restoreViewportScrollPosition(scrollPosition);
+    activateRawQuizPageButton(rawQuizPageButton);
     return;
   }
 
@@ -3631,6 +3629,14 @@ function handleSubmit(event) {
 }
 
 function handleKeyDown(event) {
+  const rawQuizPageButton = event.target.closest?.("[data-raw-quiz-page]");
+  if (rawQuizPageButton && (event.key === "Enter" || event.key === " ")) {
+    event.preventDefault();
+    event.stopPropagation();
+    activateRawQuizPageButton(rawQuizPageButton);
+    return;
+  }
+
   if (state.ui.libraryEmbeddedDoc && event.key === "Escape") {
     event.preventDefault();
     closeLibraryEmbeddedDocViewer();
@@ -4360,11 +4366,26 @@ function render() {
   syncCampus2DOnlineMount();
   renderLiveOverlayMount();
   renderExperience();
+  syncRouteBuilderVisibility();
   renderCooperationModal();
   renderResourcesModal();
   renderAuthModal();
   renderLibraryCampusModal();
   syncPopupScrollLock();
+}
+
+function syncRouteBuilderVisibility() {
+  if (!refs.routeBuilder) {
+    return;
+  }
+
+  const hideRouteBuilder = state.ui.appShellMode === "local" && Boolean(state.selection.mode && state.experience);
+  refs.routeBuilder.classList.toggle("hidden", hideRouteBuilder);
+  if (hideRouteBuilder) {
+    refs.routeBuilder.setAttribute("aria-hidden", "true");
+  } else {
+    refs.routeBuilder.removeAttribute("aria-hidden");
+  }
 }
 
 function renderInsights() {
@@ -6807,9 +6828,16 @@ function syncRadialMindMapScroll() {
         || Number.parseFloat(getComputedStyle(stage).getPropertyValue("--map-size"))
         || stage.offsetWidth
         || 640;
-      const availableWidth = Math.max(260, map.clientWidth - 36);
-      const availableHeight = Math.max(260, map.clientHeight - 36);
-      const scale = Math.min(1, availableWidth / stageSize, availableHeight / stageSize);
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
+      const availableWidth = Math.max(260, map.clientWidth - 52);
+      const availableHeight = Math.max(260, Math.min(map.clientHeight || viewportHeight, viewportHeight - 180) - 52);
+      const maxVisualSize = Math.min(680, Math.max(420, viewportHeight - 260));
+      const scale = Math.min(
+        1,
+        availableWidth / stageSize,
+        availableHeight / stageSize,
+        maxVisualSize / stageSize
+      );
       const visualSize = Math.max(260, Math.round(stageSize * scale));
 
       stage.style.setProperty("--mindmap-stage-scale", scale.toFixed(4));
@@ -20939,6 +20967,31 @@ function selectRawQuizOption(quizKey, optionIndex) {
   renderExperiencePreservingScroll();
 }
 
+function activateRawQuizPageButton(button) {
+  if (!button || button.disabled) {
+    return;
+  }
+
+  const scrollPosition = getViewportScrollPosition();
+  button.blur();
+  renderPreservingScroll(() => {
+    shiftRawQuizPage(
+      button.dataset.rawQuizPage,
+      Number(button.dataset.rawQuizDirection),
+      Number(button.dataset.rawQuizTotal),
+      {
+        behavior: "auto",
+        preserveViewportScroll: scrollPosition
+      }
+    );
+  });
+  restoreViewportScrollPosition(scrollPosition);
+  window.requestAnimationFrame(() => {
+    restoreViewportScrollPosition(scrollPosition);
+    window.requestAnimationFrame(() => restoreViewportScrollPosition(scrollPosition));
+  });
+}
+
 function rememberRawQuestionGallerySlide(target) {
   const gallery = target?.closest?.("[data-raw-question-gallery]");
   const slide = target?.closest?.("[data-raw-question-gallery-slide]");
@@ -21041,6 +21094,15 @@ function syncRawQuestionGallery(gallery, options = {}) {
     const direction = Number(button.dataset.rawQuizDirection);
     button.disabled = direction < 0 ? safeIndex === 0 : safeIndex === slides.length - 1;
   });
+
+  if (gallery.classList.contains("raw-question-gallery")) {
+    viewport.scrollLeft = 0;
+    if (options.preserveViewportScroll) {
+      restoreViewportScrollPosition(options.preserveViewportScroll);
+      window.requestAnimationFrame(() => restoreViewportScrollPosition(options.preserveViewportScroll));
+    }
+    return true;
+  }
 
   window.requestAnimationFrame(() => {
     const targetLeft = targetSlide.offsetLeft - Math.max(0, (viewport.clientWidth - targetSlide.offsetWidth) / 2);

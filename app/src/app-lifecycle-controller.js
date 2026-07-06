@@ -52,6 +52,7 @@
       }
 
       bind(doc, "click", events.handleClick);
+      bind(doc, "pointerdown", events.handlePointerDown, { passive: false, capture: true });
       bind(doc, "input", events.handleInput);
       bind(doc, "submit", events.handleSubmit);
       bind(doc, "keydown", events.handleKeyDown);
