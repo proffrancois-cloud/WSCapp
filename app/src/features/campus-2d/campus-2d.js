@@ -79,7 +79,7 @@
     Object.freeze({ value: "global", label: "Global" }),
     Object.freeze({ value: "toc", label: "ToC" })
   ]);
-  const REWARD_ASSET_VERSION = "20260706pwaaresources";
+  const REWARD_ASSET_VERSION = "20260706debateaudiofree";
   const MAX_ID_REWARDS = 9;
   const ACHIEVEMENT_REWARD_TYPES = Object.freeze([
     Object.freeze({

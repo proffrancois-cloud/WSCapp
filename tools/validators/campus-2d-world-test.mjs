@@ -311,10 +311,10 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706pwaaresources"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the reward icon ID-card cleanup.");
+if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706debateaudiofree"')) {
+  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the Debate Lab audio and reward ID-card cleanup.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706pwaaresources")) {
+if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706debateaudiofree")) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 const serviceWorker = readApp("service-worker.js");
