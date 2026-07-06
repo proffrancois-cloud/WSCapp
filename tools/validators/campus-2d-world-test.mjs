@@ -258,6 +258,10 @@ if (!manifest) {
   if (!debateLab?.gameZones?.some((zone) => zone.mode === "train")) {
     failures.push("Debate Lab must include an orange train game zone.");
   }
+  const debateStageModerator = (debateLab?.npcs || []).find((npc) => npc.id === "debate-stage-moderator-npc");
+  if (!debateStageModerator || debateStageModerator.x !== 588 || debateStageModerator.y !== 309 || debateStageModerator.colorId !== "red") {
+    failures.push("Debate Lab must include the red stage moderator NPC at x=588 y=309.");
+  }
   expectZoneRect(debateLab, "blockedZones", "debate-lab-blocked-62", { x: 1036, y: 297, width: 30, height: 18 });
   expectZoneRect(debateLab, "behindZones", "debate-lab-behind-26", { x: 829, y: 434, width: 14, height: 19 });
   const wrongDebateSeats = (debateLab?.seats || []).filter((seat) => seat.direction !== "up");
@@ -309,6 +313,9 @@ for (const appNeedle of [
   "renderLibraryCampusSectionPicker",
   "renderLibraryInlineTopbar",
   "PWAA_PWAA_SHARED_DOC_URL",
+  "DEBATE_LAB_ALONE_UNAVAILABLE_REASON",
+  "Scholar's Bowl is available soon",
+  "Scholar's Challenge is available soon",
   "libraryEmbeddedDoc",
   "data-library-resource-doc",
   "renderLibraryEmbeddedDocOverlay",

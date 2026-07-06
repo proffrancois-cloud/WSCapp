@@ -16,8 +16,11 @@ const PWAA_PWAA_SHARED_DOC_URL = "https://docs.google.com/document/d/1H75m6OHX7Y
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
-  writing: "Collaborative Writing is available soon. We are keeping it closed for this public build."
+  writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
+  bowl: "Scholar's Bowl is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed.",
+  quiz: "Scholar's Challenge is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed."
 });
+const DEBATE_LAB_ALONE_UNAVAILABLE_REASON = "Debate Lab alone is available soon. Please wait for the live Debate Lab setup.";
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
 const MULTIPLAYER_ALLOWED_EMAILS = new Set([
   "moretfrancoisea@gmail.com",
@@ -8477,6 +8480,11 @@ function returnToLibraryResourceMenu() {
 }
 
 function chooseLibraryMode(modeId) {
+  if (isModeUnavailable(modeId)) {
+    launchLibraryMode(modeId);
+    return;
+  }
+
   if (shouldAskMultiplayerGameAudience(modeId)) {
     openMultiplayerGameChoice(modeId);
     return;
@@ -8562,6 +8570,7 @@ function chooseMultiplayerGameAudience(audience) {
 function launchMultiplayerGameAlone(choice) {
   const modeId = choice.modeId;
   const sectionIds = Array.isArray(choice.sectionIds) && choice.sectionIds.length ? choice.sectionIds : getOrderedSectionIds();
+  const forceUnavailableReason = modeId === "buildcase" ? DEBATE_LAB_ALONE_UNAVAILABLE_REASON : "";
 
   clearJeopardyTimer();
   clearExperienceTimers();
@@ -8586,9 +8595,11 @@ function launchMultiplayerGameAlone(choice) {
   state.selection.targetIds = sectionIds;
   state.selection.targetId = sectionIds[0] || null;
   state.selection.mode = modeId;
-  state.experience = isModeUnavailable(modeId)
-    ? buildUnavailableModeExperience(modeId)
-    : buildExperienceForMode(modeId);
+  state.experience = forceUnavailableReason
+    ? buildUnavailableModeExperience(modeId, forceUnavailableReason)
+    : isModeUnavailable(modeId)
+      ? buildUnavailableModeExperience(modeId)
+      : buildExperienceForMode(modeId);
   render();
   refs.experiencePanel?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -8856,14 +8867,14 @@ function buildRawContentExperience() {
       };
 }
 
-function buildUnavailableModeExperience(modeId) {
+function buildUnavailableModeExperience(modeId, reasonOverride = "") {
   const option = getModeOption(modeId) || { id: modeId, title: "Available soon", mood: "thinking" };
   return {
     type: "unavailable",
     modeId,
     title: option.title,
     mood: option.mood || "thinking",
-    reason: getModeUnavailableReason(modeId) || "This section is available soon."
+    reason: reasonOverride || getModeUnavailableReason(modeId) || "This section is available soon."
   };
 }
 

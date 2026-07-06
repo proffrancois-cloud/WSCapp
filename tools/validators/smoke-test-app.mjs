@@ -256,6 +256,72 @@ async function runModeSmoke(page, sectionName, modeId, expectedText) {
   });
 }
 
+async function runUnavailableModeSmoke(page, sectionName, modeId, expectedText) {
+  await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
+  await chooseLocalRoute(page);
+  await page.waitForFunction(() => window.WSC_APP_READY === true && document.querySelector(".mode-choice-board"));
+
+  await page.evaluate((targetSectionName) => {
+    const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
+      .find((button) => (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName));
+    if (!sectionButton) {
+      throw new Error(`Could not find section chip for "${targetSectionName}".`);
+    }
+    if (sectionButton.getAttribute("aria-pressed") !== "true") {
+      sectionButton.click();
+    }
+  }, sectionName);
+  await page.waitForFunction((targetSectionName) => {
+    return [...document.querySelectorAll("[data-toggle-mode-section]")]
+      .some((button) => (
+        (button.dataset.sectionTitle || button.textContent || "").includes(targetSectionName)
+        && button.getAttribute("aria-pressed") === "true"
+      )) && document.querySelector(".mode-choice-board.has-section-selection");
+  }, sectionName, { timeout: 8000 });
+
+  await page.evaluate((targetModeId) => {
+    if (typeof window.chooseMode !== "function") {
+      throw new Error("chooseMode is not available on window.");
+    }
+    window.chooseMode(targetModeId, "train");
+  }, modeId);
+  await page.waitForFunction(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
+    return !document.querySelector("#experiencePanel")?.classList.contains("hidden") &&
+      panelText.includes("Available soon");
+  }, null, { timeout: 8000 });
+
+  return page.evaluate(({ targetModeId, expectedText: expected }) => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
+    const unavailableFlow = {
+      controlledUnavailable: true,
+      unavailable: { panelText: panelText.slice(0, 240) },
+      questionCount: 0,
+      answeredCount: 0,
+      submitted: false,
+      resultsVisible: false,
+      resetVisible: false
+    };
+    return {
+      experienceHidden: Boolean(document.querySelector("#experiencePanel")?.classList.contains("hidden")),
+      containsExpectedText: panelText.includes(expected) && panelText.includes("Available soon"),
+      panelText: panelText.slice(0, 260),
+      rawCards: 0,
+      alpacardImages: 0,
+      channelCards: 0,
+      jeopardyControls: 0,
+      alpacapardyFlow: null,
+      quizFlow: targetModeId === "quiz" ? unavailableFlow : null,
+      raceFlow: null,
+      runFlow: null,
+      relayFlow: null,
+      jumpFlow: null,
+      mindmapFlow: null,
+      regularGuideFlow: null
+    };
+  }, { targetModeId: modeId, expectedText });
+}
+
 async function completeLocalAlpacapardyFlow(page) {
   await page.waitForSelector("[data-jeopardy-start]:not([disabled])", { timeout: 8000 });
   await page.evaluate(() => {
@@ -297,15 +363,21 @@ async function completeLocalAlpacapardyFlow(page) {
 
 async function completeLocalQuizFlow(page) {
   await page.waitForFunction(() => {
+    const panelText = document.querySelector("#experiencePanel")?.textContent || "";
     return document.querySelector("[data-quiz-option]")
       || document.querySelector(".quiz-warning")
-      || document.querySelector(".quiz-setup-card");
+      || document.querySelector(".quiz-setup-card")
+      || panelText.includes("Available soon");
   }, null, { timeout: 8000 });
 
   const unavailable = await page.evaluate(() => {
     const panelText = document.querySelector("#experiencePanel")?.textContent?.replace(/\s+/g, " ").trim() || "";
     return {
-      controlledUnavailable: Boolean(document.querySelector(".quiz-warning") || document.querySelector(".quiz-setup-card")),
+      controlledUnavailable: Boolean(
+        document.querySelector(".quiz-warning") ||
+        document.querySelector(".quiz-setup-card") ||
+        panelText.includes("Available soon")
+      ),
       missingDifficultyMessage: panelText.includes("questions for every difficulty") || panelText.includes("fixed 15-question quiz"),
       panelText: panelText.slice(0, 240)
     };
@@ -361,7 +433,24 @@ async function checkUnavailableTrainModeCards(page) {
   await page.goto(`${BASE_URL}/index.html`, { waitUntil: "networkidle", timeout: 60000 });
   await chooseLocalRoute(page);
   await page.waitForFunction(() => window.WSC_APP_READY === true && document.querySelector(".mode-choice-board"));
-  await ensureSectionAndModeReady(page, "We Are All in This to Get There", "quiz");
+
+  await page.evaluate(() => {
+    const sectionButton = [...document.querySelectorAll("[data-toggle-mode-section]")]
+      .find((button) => (button.dataset.sectionTitle || button.textContent || "").includes("We Are All in This to Get There"));
+    if (!sectionButton) {
+      throw new Error('Could not find section chip for "We Are All in This to Get There".');
+    }
+    if (sectionButton.getAttribute("aria-pressed") !== "true") {
+      sectionButton.click();
+    }
+  });
+  await page.waitForFunction(() => {
+    return [...document.querySelectorAll("[data-toggle-mode-section]")]
+      .some((button) => (
+        (button.dataset.sectionTitle || button.textContent || "").includes("We Are All in This to Get There")
+        && button.getAttribute("aria-pressed") === "true"
+      )) && document.querySelector(".mode-choice-board.has-section-selection");
+  }, null, { timeout: 8000 });
 
   await page.evaluate(() => {
     const modeMenuButton = document.querySelector('[data-toggle-mode-menu="train"]');
@@ -373,7 +462,7 @@ async function checkUnavailableTrainModeCards(page) {
   await page.waitForFunction(() => document.querySelector('[data-mode-choice-path="train"]')?.classList.contains("is-open"));
 
   return page.evaluate(() => {
-    const expected = ["writing"];
+    const expected = ["writing", "bowl", "quiz"];
     return Object.fromEntries(expected.map((modeId) => {
       const card = document.querySelector(`[data-pick-mode="${modeId}"][data-pick-mode-path="train"]`);
       return [modeId, {
@@ -1090,7 +1179,7 @@ async function main() {
     const alpacards = await runModeSmoke(page, "We Are All in This to Get There", "alpacard", "Alpacard");
     const channel = await runModeSmoke(page, "We Are All in This to Get There", "channel", "Alpaca Channel");
     const mindmap = await runModeSmoke(page, "We Are All in This to Get There", "mindmap", "Mind Map");
-    const quiz = await runModeSmoke(page, "We Are All in This to Get There", "quiz", "Scholar's Challenge");
+    const quiz = await runUnavailableModeSmoke(page, "We Are All in This to Get There", "quiz", "Scholar's Challenge");
     const race = await runModeSmoke(page, "We Are All in This to Get There", "race", "Survivalpaca");
     const run = await runModeSmoke(page, "We Are All in This to Get There", "run", "Alpaca Run");
     const relay = await runModeSmoke(page, "We Are All in This to Get There", "relay", "Alpaquiz");

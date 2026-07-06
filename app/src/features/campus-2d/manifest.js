@@ -718,6 +718,9 @@
       hotspots: [
         hotspot("debate-board", "lesson", "Debate board", 390, 30, 405, 175)
       ],
+      npcs: [
+        npc("debate-stage-moderator-npc", "Moderator", 588, 309, "down", "red")
+      ],
       gameZones: [
         gameZone("debate-board", "train", "Choose DebateLab, Scholar's Challenge, or Scholar's Bowl", 390, 30, 405, 175)
       ],
