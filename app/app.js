@@ -12,93 +12,7 @@ const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
-const PWAA_RESOURCE_LINKS = Object.freeze([
-  {
-    id: "official-syllabus",
-    label: "The Official Syllabus",
-    url: "https://themes.scholarscup.org/",
-    group: "syllabus"
-  },
-  {
-    id: "pwaa-new-notes",
-    label: "COMPLETELY REVAMPED AND NEW NOTES! You can still check out our old ones below!",
-    url: "https://docs.google.com/document/d/1H75m6OHX7YDKzI_F1yixmGGuHtUR5iiZrjlVBKiSxh8/edit?tab=t.0",
-    group: "guide",
-    featured: true
-  },
-  {
-    id: "introductory-questions",
-    label: "Introductory Questions",
-    url: "https://docs.google.com/document/d/1YYBhNP2q6fsTQsRZivXNUkvLtHfWlMXVuTdDNRaUmMM/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "progress-not-regress",
-    label: "Progress, not Regress",
-    url: "https://docs.google.com/document/d/1qbLFa4Ws3-BZ8BubteQBB-fG9ARkAkhOjae5X4CUQDE/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "more-to-do",
-    label: "More to do Than can Ever be Listed",
-    url: "https://docs.google.com/document/d/1C0llwXSM0CdS4-_Uastnh8rvMjQSCBQECl4QGZYSL3Y/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "end-is-nearish",
-    label: "The End is Nearish",
-    url: "https://docs.google.com/document/d/1D9uD_Pw_hhSn54PJkHyJtyU3Y4Pd2mIRn0BTV_DJFqA/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "draft-in-here",
-    label: "There's a Draft in Here",
-    url: "https://docs.google.com/document/d/16kMYaENlNrGCN4x9VypZaGTQ2l0uueuHC5zz-JfGzsg/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "all-in-this",
-    label: "We're All in This to Get There",
-    url: "https://docs.google.com/document/d/1inJZflFWBfc5kHqgF8YVg1Tc82a2AjVgnOQv5GuXFHU/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "sidewalk-starts",
-    label: "Where the Sidewalk Starts",
-    url: "https://docs.google.com/document/d/1TYJZRPFEYoFYJA3OcGq6YiwxIUXpo3wYkVwY23jo6Ds/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "monkey-prototype",
-    label: "Monkey See, Monkey Prototype",
-    url: "https://docs.google.com/document/d/1CIHNqNhxhpGIXBSnzHM7P7tpf_KejfMoqfnt44KYcTI/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "lovely-liminal",
-    label: "The Lovely and the Liminal",
-    url: "https://docs.google.com/document/d/1oohjSk-GyoDfxfhMchNz8Lz3viPGCVrkE4KYNHisAAQ/edit?tab=t.0",
-    group: "guide"
-  },
-  {
-    id: "concluding-questions",
-    label: "Concluding Questions",
-    url: "https://docs.google.com/document/d/1VsM13uv4Oz0viLNYGBzi3mLaGhsWbWxKCDUqUTqIkZc/edit?tab=t.0",
-    group: "guide"
-  }
-]);
-const PWAA_COMING_SOON_RESOURCES = Object.freeze([
-  "Going Pains",
-  "Home and Wandering",
-  "Where We're Going, We'll Still Need Them",
-  "Call of Duty-Free",
-  "Next Year in Futurism"
-]);
-const PWAA_WRITING_PROMPTS = Object.freeze([
-  "Many people these days live in airports. Imagine if you were in such a situation, how would it look?",
-  "A universal law demands that no artist can complete any book, song or piece of art, and MUST stop at 85% completion. How will it affect us common people?",
-  "Many people in the future may rely entirely on artificial intelligence to make decisions. If you lived in such a world, how would your daily life change?"
-]);
+const LIBRARY_RESOURCE_PROXY_ENDPOINT = "/api/embed-library-resource";
 const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
@@ -2569,7 +2483,7 @@ const LIBRARY_GUIDE_RESOURCES = Object.freeze([
     label: "PwaaPwaaRevolution",
     url: "https://pwaapwaarevolution.pwaaapwaarevolution.workers.dev/#",
     logo: "./assets/library-guides/pwaa-pwaa-revolution.png",
-    kind: "pwaa-resources"
+    proxyStrategy: "rewrite-google-doc-links"
   },
   {
     id: "ready-scholar-one",
@@ -2718,6 +2632,8 @@ const {
   scheduleDebateSpinTimer,
   scheduleDebateRevealTimer
 } = appLifecycleController;
+
+window.addEventListener("message", handleLibraryResourceMessage);
 
 appLifecycleController.start();
 
@@ -4461,17 +4377,20 @@ function renderSessionControls() {
   }
 
   const isOnline = state.ui.appShellMode === "online";
-  const shellLabel = isOnline ? "Stay solo" : "Join online";
+  const shellLabel = isOnline ? "Back to solo offline mode" : "Join online";
   const shellIcon = state.ui.appShellMode === "online"
     ? "./app-icons/icon-local-transparent.png?v=20260520train"
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
-  const soonLabel = canAccessMultiplayer() ? "Switch mode" : "Available soon";
+  const soonLabel = isOnline
+    ? "Back to solo offline mode"
+    : canAccessMultiplayer() ? "Switch mode" : "Available soon";
   const modeButton = `
     <button
       class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
       type="button"
       data-open-app-entry-gate
-      aria-label="${escapeHtml(shellLabel)}. Open Local or Online menu"
+      data-tooltip="${escapeHtml(soonLabel)}"
+      aria-label="${escapeHtml(shellLabel)}"
       title="${escapeHtml(soonLabel)}"
     >
       <img src="${shellIcon}" alt="" aria-hidden="true" />
@@ -8287,10 +8206,6 @@ function renderLibraryExperienceViewer() {
 }
 
 function getLibraryResourceEmbeddedDocs(resource) {
-  if (resource?.kind === "pwaa-resources") {
-    return PWAA_RESOURCE_LINKS;
-  }
-
   return Array.isArray(resource?.embeddedDocs) ? resource.embeddedDocs : [];
 }
 
@@ -8320,6 +8235,129 @@ function getEmbeddableGoogleDocUrl(url) {
   }
 
   return url;
+}
+
+function isEmbeddableGoogleDocUrl(url) {
+  try {
+    const parsedUrl = new URL(url, window.location.href);
+    const pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+    return parsedUrl.hostname === "docs.google.com" &&
+      pathParts[0] === "document" &&
+      pathParts[1] === "d" &&
+      Boolean(pathParts[2]);
+  } catch (_error) {
+    return false;
+  }
+}
+
+function getLibraryResourceProxyUrl(resource) {
+  const proxyUrl = new URL(LIBRARY_RESOURCE_PROXY_ENDPOINT, window.location.href);
+  proxyUrl.searchParams.set("url", resource.url);
+  return proxyUrl.toString();
+}
+
+function renderLibraryResourceProxyBootstrap({ proxyUrl, fallbackUrl, title }) {
+  return `
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>${escapeHtml(title || "Library resource")}</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: #fffaf0;
+      color: #4b2a19;
+      font: 700 15px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+  </style>
+</head>
+<body>
+  <span>Loading...</span>
+  <script>
+    (async function () {
+      const proxyUrl = ${JSON.stringify(proxyUrl)};
+      const fallbackUrl = ${JSON.stringify(fallbackUrl)};
+      try {
+        const probeUrl = new URL(proxyUrl);
+        probeUrl.searchParams.set("probe", "1");
+        const response = await fetch(probeUrl.toString(), { cache: "no-store" });
+        if (response.ok) {
+          window.location.replace(proxyUrl);
+          return;
+        }
+      } catch (error) {}
+      window.location.replace(fallbackUrl);
+    })();
+  </script>
+</body>
+</html>
+  `.trim();
+}
+
+function renderLibraryResourceIframe(resource) {
+  const title = resource.label || "Library resource";
+  if (resource.proxyStrategy === "rewrite-google-doc-links") {
+    const proxyUrl = getLibraryResourceProxyUrl(resource);
+    const srcdoc = renderLibraryResourceProxyBootstrap({
+      proxyUrl,
+      fallbackUrl: resource.url,
+      title
+    });
+    return `
+      <iframe
+        class="library-resource-iframe"
+        srcdoc="${escapeHtml(srcdoc)}"
+        title="${escapeHtml(title)}"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="clipboard-write; fullscreen; web-share"
+      ></iframe>
+    `;
+  }
+
+  const embedUrl = getEmbeddableGoogleDocUrl(resource.url);
+  return `
+    <iframe
+      class="library-resource-iframe"
+      src="${escapeHtml(embedUrl)}"
+      title="${escapeHtml(title)}"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="clipboard-write; fullscreen; web-share"
+    ></iframe>
+  `;
+}
+
+function handleLibraryResourceMessage(event) {
+  const message = event?.data;
+  if (window.location.origin !== "null" && event.origin !== window.location.origin) {
+    return;
+  }
+
+  if (!message || message.type !== "wsc-library-open-embedded-doc" || !state.ui.libraryResource) {
+    return;
+  }
+
+  const url = String(message.url || "");
+  if (!isEmbeddableGoogleDocUrl(url)) {
+    return;
+  }
+
+  state.ui.libraryEmbeddedDoc = {
+    id: url,
+    label: String(message.label || "Resource").trim().slice(0, 160) || "Resource",
+    url
+  };
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
 }
 
 function renderLibraryEmbeddedDocOverlay(doc) {
@@ -8352,84 +8390,7 @@ function renderLibraryEmbeddedDocOverlay(doc) {
   `;
 }
 
-function renderPwaaResourceCard(resource) {
-  const classNames = [
-    "pwaa-resource-card",
-    resource.featured ? "featured" : "",
-    resource.url ? "" : "disabled"
-  ].filter(Boolean).join(" ");
-
-  if (!resource.url) {
-    return `
-      <div class="${escapeHtml(classNames)}" aria-disabled="true">
-        <span>${escapeHtml(resource.label)}</span>
-        <small>Coming soon</small>
-      </div>
-    `;
-  }
-
-  return `
-    <button
-      class="${escapeHtml(classNames)}"
-      type="button"
-      data-library-resource-doc="${escapeHtml(resource.id || resource.url || "")}"
-    >
-      <span>${escapeHtml(resource.label)}</span>
-    </button>
-  `;
-}
-
-function renderPwaaResourceBrowser() {
-  const syllabus = PWAA_RESOURCE_LINKS.find((resource) => resource.group === "syllabus");
-  const guideCards = PWAA_RESOURCE_LINKS
-    .filter((resource) => resource.group === "guide")
-    .map(renderPwaaResourceCard)
-    .join("");
-  const comingSoonCards = PWAA_COMING_SOON_RESOURCES
-    .map((label) => renderPwaaResourceCard({ label }))
-    .join("");
-  const promptItems = PWAA_WRITING_PROMPTS
-    .map((prompt) => `<li>${escapeHtml(prompt)}</li>`)
-    .join("");
-
-  return `
-    <div class="pwaa-resource-browser">
-      <div class="pwaa-resource-browser-inner">
-        ${syllabus ? `
-          <div class="pwaa-resource-syllabus">
-            ${renderPwaaResourceCard({ ...syllabus, featured: true })}
-          </div>
-        ` : ""}
-        <section class="pwaa-resource-section">
-          <h3>Chapter-by-Chapter Guide</h3>
-          <div class="pwaa-resource-grid">
-            ${guideCards}
-            ${comingSoonCards}
-          </div>
-        </section>
-        <section class="pwaa-resource-prompts">
-          <h3>A few writing prompts:</h3>
-          <ul>${promptItems}</ul>
-        </section>
-      </div>
-    </div>
-  `;
-}
-
 function renderLibraryResourceViewer(resource) {
-  const resourceBodyHtml = resource.kind === "pwaa-resources"
-    ? renderPwaaResourceBrowser()
-    : `
-      <iframe
-        class="library-resource-iframe"
-        src="${escapeHtml(resource.url)}"
-        title="${escapeHtml(resource.label)}"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="clipboard-write; fullscreen; web-share"
-      ></iframe>
-    `;
-
   return `
     <div class="auth-modal-overlay library-campus-overlay library-resource-overlay" data-close-library-resource role="dialog" aria-modal="true" aria-labelledby="libraryResourceViewerTitle">
       <div class="auth-modal-window library-resource-window library-inline-window" data-library-resource-window>
@@ -8442,7 +8403,7 @@ function renderLibraryResourceViewer(resource) {
             closeLabel: "Close embedded resource",
             titleId: "libraryResourceViewerTitle"
           })}
-          ${resourceBodyHtml}
+          ${renderLibraryResourceIframe(resource)}
           ${renderLibraryEmbeddedDocOverlay(state.ui.libraryEmbeddedDoc)}
         </div>
       </div>

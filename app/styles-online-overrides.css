@@ -4834,3 +4834,69 @@ body.is-campus2d-view .hero-menu-trigger {
     display: none !important;
   }
 }
+
+body.is-campus2d-view .hero-online-button.switch-local {
+  position: relative !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 54px !important;
+  min-width: 54px !important;
+  height: 54px !important;
+  min-height: 54px !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  overflow: visible !important;
+}
+
+body.is-campus2d-view .hero-online-button.switch-local img {
+  width: 52px !important;
+  height: 52px !important;
+  max-width: 52px !important;
+  max-height: 52px !important;
+  object-fit: contain !important;
+}
+
+body.is-campus2d-view .hero-online-button.switch-local span {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+}
+
+body.is-campus2d-view .hero-online-button.switch-local::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  z-index: 90;
+  max-width: min(220px, 44vw);
+  padding: 7px 10px;
+  border: 1px solid rgba(101, 66, 37, 0.22);
+  border-radius: 10px;
+  background: #fff4d9;
+  color: #4f311d;
+  box-shadow: 0 10px 24px rgba(36, 23, 13, 0.22);
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-4px, -50%);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+
+body.is-campus2d-view .hero-online-button.switch-local:hover::after,
+body.is-campus2d-view .hero-online-button.switch-local:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
