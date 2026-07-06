@@ -1,14 +1,12 @@
 (function () {
   const PWA_RESET_VERSION = String(window.WSC_PWA_RESET_VERSION || "dev");
   const PWA_RESET_STORAGE_KEY = "wsc-pwa-reset-version";
-  const SERVICE_WORKER_URL = `./service-worker.js?v=${encodeURIComponent(PWA_RESET_VERSION)}`;
-  const UPDATE_CHECK_INTERVAL = 15 * 60 * 1000;
+  const SERVICE_WORKER_RETIRED_KEY = "wsc-service-worker-retired-version";
+  const RETIRE_RELOAD_KEY = "wsc-service-worker-retire-reload";
+  const CACHE_PREFIX = "wsc-routes-";
   const installButton = document.getElementById("installAppButton");
   const installStatus = document.getElementById("installStatus");
   const desktopContext = typeof window.WSC_DESKTOP_APP === "object" && window.WSC_DESKTOP_APP !== null;
-  let deferredInstallPrompt = null;
-  let hasRefreshedForUpdate = false;
-  let activeRegistration = null;
 
   function setInstallStatus(message) {
     if (installStatus) {
@@ -22,96 +20,84 @@
     }
   }
 
-  function isInstallableContext() {
+  function isServiceWorkerContext() {
     return (
-      window.isSecureContext ||
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1"
+      "serviceWorker" in navigator &&
+      (window.isSecureContext ||
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1")
     );
   }
 
-  async function resetPwaCachesForNewVersion() {
-    try {
-      const previousVersion = window.localStorage.getItem(PWA_RESET_STORAGE_KEY);
-      if (previousVersion === PWA_RESET_VERSION) {
-        return;
-      }
-
-      if ("caches" in window) {
-        const keys = await window.caches.keys();
-        await Promise.all(
-          keys
-            .filter((key) => key.startsWith("wsc-routes-"))
-            .map((key) => window.caches.delete(key))
-        );
-      }
-
-      window.localStorage.setItem(PWA_RESET_STORAGE_KEY, PWA_RESET_VERSION);
-    } catch (_error) {
-      // Cache reset is best-effort; registration still forces the worker URL to the new version.
-    }
+  function isRouteCache(cacheName) {
+    return typeof cacheName === "string" && cacheName.startsWith(CACHE_PREFIX);
   }
 
-  function reloadOnceForUpdatedServiceWorker() {
-    if (hasRefreshedForUpdate) {
-      return;
+  async function deleteRouteCaches() {
+    if (!("caches" in window)) {
+      return 0;
     }
 
-    hasRefreshedForUpdate = true;
-    window.location.reload();
+    const keys = await window.caches.keys();
+    const routeKeys = keys.filter(isRouteCache);
+    await Promise.all(routeKeys.map((key) => window.caches.delete(key)));
+    return routeKeys.length;
   }
 
-  function activateWaitingWorker(registration) {
-    const waitingWorker = registration && registration.waiting;
-    if (!waitingWorker) {
+  function registrationMatchesThisApp(registration) {
+    if (!registration || !registration.scope) {
       return false;
     }
 
-    setInstallStatus("Updating the app shell...");
-    waitingWorker.postMessage({ type: "SKIP_WAITING" });
+    const appScope = new URL("./", window.location.href).href;
+    return registration.scope === appScope || registration.scope.startsWith(appScope);
+  }
+
+  async function unregisterRouteServiceWorkers() {
+    if (!isServiceWorkerContext() || typeof navigator.serviceWorker.getRegistrations !== "function") {
+      return 0;
+    }
+
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    const routeRegistrations = registrations.filter(registrationMatchesThisApp);
+    await Promise.all(routeRegistrations.map((registration) => registration.unregister()));
+    return routeRegistrations.length;
+  }
+
+  function reloadOnceAfterRetire() {
+    try {
+      if (window.sessionStorage.getItem(RETIRE_RELOAD_KEY) === PWA_RESET_VERSION) {
+        return false;
+      }
+
+      window.sessionStorage.setItem(RETIRE_RELOAD_KEY, PWA_RESET_VERSION);
+    } catch (_error) {
+      if (window.__WSC_SERVICE_WORKER_RETIRE_RELOADED__) {
+        return false;
+      }
+      window.__WSC_SERVICE_WORKER_RETIRE_RELOADED__ = true;
+    }
+
+    window.location.reload();
     return true;
   }
 
-  function requestServiceWorkerUpdate() {
-    if (!activeRegistration || typeof activeRegistration.update !== "function") {
+  async function retireServiceWorkerRuntime() {
+    const hadController = Boolean(navigator.serviceWorker && navigator.serviceWorker.controller);
+    const removedCaches = await deleteRouteCaches();
+    const removedWorkers = await unregisterRouteServiceWorkers();
+
+    try {
+      window.localStorage.setItem(PWA_RESET_STORAGE_KEY, PWA_RESET_VERSION);
+      window.localStorage.setItem(SERVICE_WORKER_RETIRED_KEY, PWA_RESET_VERSION);
+    } catch (_error) {}
+
+    if ((hadController || removedWorkers > 0 || removedCaches > 0) && reloadOnceAfterRetire()) {
+      setInstallStatus("Cleared an old cached app shell. Reloading the fresh site...");
       return;
     }
 
-    activeRegistration.update().then(() => {
-      activateWaitingWorker(activeRegistration);
-    }).catch(() => {});
-  }
-
-  function watchServiceWorkerRegistration(registration) {
-    if (!registration) {
-      return;
-    }
-
-    activeRegistration = registration;
-    activateWaitingWorker(registration);
-    requestServiceWorkerUpdate();
-
-    registration.addEventListener("updatefound", () => {
-      const installingWorker = registration.installing;
-      if (!installingWorker) {
-        return;
-      }
-
-      installingWorker.addEventListener("statechange", () => {
-        if (installingWorker.state === "installed" && navigator.serviceWorker.controller) {
-          setInstallStatus("A fresher version of this route is ready. Reloading...");
-          activateWaitingWorker(registration);
-        }
-      });
-    });
-  }
-
-  function registerServiceWorker() {
-    return navigator.serviceWorker
-      .register(SERVICE_WORKER_URL, { updateViaCache: "none" })
-      .then((registration) => {
-        watchServiceWorkerRegistration(registration);
-      });
+    setInstallStatus("Updates now load directly from GitHub Pages.");
   }
 
   if (desktopContext) {
@@ -120,66 +106,28 @@
     return;
   }
 
-  if ("serviceWorker" in navigator && isInstallableContext()) {
-    window.addEventListener("load", () => {
-      resetPwaCachesForNewVersion()
-        .then(registerServiceWorker)
-        .catch(() => {
-          setInstallStatus("Open this route from a local server or deployed URL to unlock app install.");
-        });
-    });
+  setInstallButtonVisible(false);
 
-    navigator.serviceWorker.addEventListener("controllerchange", () => {
-      reloadOnceForUpdatedServiceWorker();
-    });
-
-    window.setInterval(requestServiceWorkerUpdate, UPDATE_CHECK_INTERVAL);
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") {
-        requestServiceWorkerUpdate();
+  if (isServiceWorkerContext()) {
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "WSC_SERVICE_WORKER_RETIRED") {
+        setInstallStatus("Cleared an old cached app shell. Reloading the fresh site...");
+        reloadOnceAfterRetire();
       }
     });
-  } else {
-    setInstallStatus("Open this route from a local server or deployed URL to unlock app install.");
-  }
 
-  if (window.matchMedia("(display-mode: standalone)").matches) {
-    setInstallStatus("Running in app mode. The route is ready to launch.");
-    setInstallButtonVisible(false);
+    window.addEventListener("load", () => {
+      retireServiceWorkerRuntime().catch(() => {
+        setInstallStatus("Updates now load directly from GitHub Pages.");
+      });
+    });
   } else {
-    setInstallStatus("This route is ready in the browser. Install becomes available on supported browsers.");
+    setInstallStatus("Updates now load directly from GitHub Pages.");
   }
 
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
-    deferredInstallPrompt = event;
-    setInstallButtonVisible(true);
-    setInstallStatus("Install is ready. Add this route to your device when you are ready.");
-  });
-
-  window.addEventListener("appinstalled", () => {
-    deferredInstallPrompt = null;
     setInstallButtonVisible(false);
-    setInstallStatus("App installed. You can launch the route from your apps list.");
+    setInstallStatus("Browser install is disabled so updates cannot get stuck behind an old app cache.");
   });
-
-  if (installButton) {
-    installButton.addEventListener("click", async () => {
-      if (!deferredInstallPrompt) {
-        setInstallStatus("Install is not available yet in this browser. Try a local server or deployed URL.");
-        return;
-      }
-
-      deferredInstallPrompt.prompt();
-      const choice = await deferredInstallPrompt.userChoice;
-      deferredInstallPrompt = null;
-      setInstallButtonVisible(false);
-
-      if (choice && choice.outcome === "accepted") {
-        setInstallStatus("Install accepted. Finish the route from your home screen or apps list.");
-      } else {
-        setInstallStatus("Install dismissed. You can come back to this stop later.");
-      }
-    });
-  }
 })();

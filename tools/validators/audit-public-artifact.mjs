@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 
 const artifactArg = process.argv[2];
@@ -11,6 +11,7 @@ const artifactRoot = resolve(process.cwd(), artifactArg);
 
 const requiredPaths = [
   "index.html",
+  "deploy-version.json",
   "app.js",
   "styles.css",
   "service-worker.js",
@@ -88,16 +89,33 @@ const missing = requiredPaths.filter((relativePath) => !existsSync(resolve(artif
 const forbidden = files.filter((relativePath) =>
   forbiddenPathPatterns.some((pattern) => pattern.test(relativePath))
 );
+const errors = [];
+
+if (!missing.includes("deploy-version.json") && !missing.includes("index.html")) {
+  try {
+    const deployVersion = JSON.parse(readFileSync(resolve(artifactRoot, "deploy-version.json"), "utf8"));
+    const indexHtml = readFileSync(resolve(artifactRoot, "index.html"), "utf8");
+    if (!deployVersion.version || !String(deployVersion.version).startsWith("git-")) {
+      errors.push("deploy-version.json must declare a git-* version.");
+    }
+    if (deployVersion.version && !indexHtml.includes(`window.WSC_PWA_RESET_VERSION = "${deployVersion.version}"`)) {
+      errors.push("index.html must use the deploy-version token.");
+    }
+  } catch (error) {
+    errors.push(`deploy-version.json could not be validated: ${error.message}`);
+  }
+}
 
 const report = {
   artifactRoot,
   fileCount: files.length,
   missing,
-  forbidden
+  forbidden,
+  errors
 };
 
 console.log(JSON.stringify(report, null, 2));
 
-if (missing.length || forbidden.length) {
+if (missing.length || forbidden.length || errors.length) {
   process.exitCode = 1;
 }

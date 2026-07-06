@@ -1,4 +1,5 @@
-import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -126,11 +127,74 @@ function removeLocalMetadataFiles(dir) {
   });
 }
 
+function getGitCommitSha() {
+  try {
+    return execFileSync("git", ["rev-parse", "HEAD"], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"]
+    }).trim();
+  } catch (_error) {
+    return "";
+  }
+}
+
+function getDeployVersion() {
+  const rawVersion = process.env.WSC_DEPLOY_VERSION || process.env.GITHUB_SHA || getGitCommitSha() || String(Date.now());
+  const normalized = rawVersion.trim().replace(/[^a-zA-Z0-9._-]/g, "").slice(0, 40);
+  return `git-${normalized || Date.now()}`;
+}
+
+function walkTextRuntimeFiles(dir, prefix = "") {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const relativePath = prefix ? `${prefix}/${entry.name}` : entry.name;
+    const absolutePath = join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      return walkTextRuntimeFiles(absolutePath, relativePath);
+    }
+
+    if (entry.isFile() && /\.(?:css|html|js|json|webmanifest)$/.test(entry.name)) {
+      return [absolutePath];
+    }
+
+    return [];
+  });
+}
+
+function stampDeployVersion() {
+  const indexPath = join(publicDistRoot, "index.html");
+  const indexHtml = readFileSync(indexPath, "utf8");
+  const sourceVersion = indexHtml.match(/window\.WSC_PWA_RESET_VERSION\s*=\s*"([^"]+)"/)?.[1];
+
+  if (!sourceVersion) {
+    throw new Error("Could not find WSC_PWA_RESET_VERSION in copied index.html.");
+  }
+
+  const deployVersion = getDeployVersion();
+  for (const filePath of walkTextRuntimeFiles(publicDistRoot)) {
+    const current = readFileSync(filePath, "utf8");
+    if (current.includes(sourceVersion)) {
+      writeFileSync(filePath, current.split(sourceVersion).join(deployVersion));
+    }
+  }
+
+  writeFileSync(
+    join(publicDistRoot, "deploy-version.json"),
+    `${JSON.stringify({
+      version: deployVersion,
+      sourceVersion,
+      target: targetName
+    }, null, 2)}\n`
+  );
+}
+
 rmSync(publicDistRoot, { recursive: true, force: true });
 mkdirSync(publicDistRoot, { recursive: true });
 
 copyRuntimeAllowlist();
 assertNoNestedOutputCopies();
+stampDeployVersion();
 
 removeLocalMetadataFiles(publicDistRoot);
 

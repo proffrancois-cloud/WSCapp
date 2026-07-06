@@ -317,28 +317,29 @@ if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
 }
-if (!indexHtml.includes('window.WSC_PWA_RESET_VERSION = "20260706amphifix"')) {
-  failures.push("index.html must bump WSC_PWA_RESET_VERSION for the Debate Lab audio and reward ID-card cleanup.");
+const pwaResetVersion = indexHtml.match(/window\.WSC_PWA_RESET_VERSION\s*=\s*"([^"]+)"/)?.[1];
+if (!pwaResetVersion) {
+  failures.push("index.html must declare WSC_PWA_RESET_VERSION.");
 }
-if (!indexHtml.includes("assets/icons/ui/settings.png?v=20260706amphifix")) {
+if (pwaResetVersion && !indexHtml.includes(`assets/icons/ui/settings.png?v=${pwaResetVersion}`)) {
   failures.push("Campus 2D menu Settings item must use the supplied Settings.png icon with the current cache token.");
 }
 const serviceWorker = readApp("service-worker.js");
-if (!serviceWorker.includes("./assets/mascot/library/final-pack/Collaborative Writing.png")) {
-  failures.push("Service worker must precache the Collaborative Writing card icon.");
+if (!serviceWorker.includes("self.registration.unregister()")) {
+  failures.push("Service worker must unregister itself so old GitHub Pages caches cannot pin stale app shells.");
 }
-if (!serviceWorker.includes("./assets/mascot/library/final-pack/card-crops/Collaborative Writing.png")) {
-  failures.push("Service worker must precache the Collaborative Writing cropped card icon.");
+if (serviceWorker.includes("cache.addAll") || serviceWorker.includes("STATIC_ASSETS")) {
+  failures.push("Service worker must not precache the app shell or static assets.");
 }
-for (const rewardAsset of [
-  "./assets/campus-2d/rewards/jac-khor.png",
-  "./assets/campus-2d/rewards/trophy.png",
-  "./assets/campus-2d/rewards/gold-medal.png",
-  "./assets/campus-2d/rewards/silver-medal.png"
-]) {
-  if (!serviceWorker.includes(rewardAsset)) {
-    failures.push(`Service worker must precache the ID-card reward asset ${rewardAsset}.`);
-  }
+if (serviceWorker.includes('addEventListener("fetch"') || serviceWorker.includes("addEventListener('fetch'")) {
+  failures.push("Service worker must not intercept fetches; GitHub Pages updates need to hit the network.");
+}
+const pwaRuntime = readApp("pwa.js");
+if (!pwaRuntime.includes("getRegistrations") || !pwaRuntime.includes("unregisterRouteServiceWorkers")) {
+  failures.push("pwa.js must unregister existing route service workers.");
+}
+if (pwaRuntime.includes(".register(")) {
+  failures.push("pwa.js must not register a new service worker.");
 }
 
 const appJs = readApp("app.js");
