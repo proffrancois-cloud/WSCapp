@@ -145,7 +145,8 @@ window.WSC_ASSETS = {
   "contexts": {
     "paths": {
       "learn": "./assets/mascot/library/final-pack/reading studious.png",
-      "play": "./assets/mascot/library/final-pack/Playing.png"
+      "play": "./assets/mascot/library/final-pack/Playing.png",
+      "train": "./assets/mascot/library/final-pack/Train-transparent.png"
     },
     "lenses": {
       "subject": "./assets/mascot/library/final-pack/BySubject.png",

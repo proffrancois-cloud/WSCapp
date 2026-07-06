@@ -409,6 +409,9 @@ const assetConfig = readApp("generated/current-runtime/assets-config.js");
 if (!assetConfig.includes('"writing": "./assets/mascot/library/final-pack/Collaborative Writing.png"')) {
   failures.push("Assets config must map Collaborative Writing to its supplied card icon.");
 }
+if (!assetConfig.includes('"train": "./assets/mascot/library/final-pack/Train-transparent.png"')) {
+  failures.push("Assets config must map the local Train path to the updated transparent training icon.");
+}
 const campusRuntime = readApp("src/features/campus-2d/campus-2d.js");
 for (const runtimeNeedle of [
   "data-campus2d-portal",
