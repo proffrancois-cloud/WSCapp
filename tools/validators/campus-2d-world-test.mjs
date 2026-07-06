@@ -345,12 +345,16 @@ if (pwaRuntime.includes(".register(")) {
   failures.push("pwa.js must not register a new service worker.");
 }
 const appShellCss = readApp("styles-app-shell.css");
+const lateShellCss = readApp("styles-late-shell-overrides.css");
 const onlineCss = readApp("styles-online-overrides.css");
 if (!appShellCss.includes(".library-campus-card-grid-four") || !appShellCss.includes("repeat(2, minmax(190px, 260px))")) {
   failures.push("Four-card Campus menus must render as a 2x2 grid in the shared shell CSS.");
 }
 if (!onlineCss.includes(".campus2d-activity-mount .library-campus-card-grid-four") || !onlineCss.includes("repeat(2, minmax(0, 1fr)) !important")) {
   failures.push("Four-card Campus activity menus must stay 2x2 in the right panel.");
+}
+if (/\.hero[^{]*\{[^}]*min-height:\s*190px\s*!important/.test(lateShellCss) || /body \.hero-copy\s*\{[^}]*top:\s*42%\s*!important/.test(lateShellCss)) {
+  failures.push("Header must not reserve retired achievement/progress tracker space in late shell overrides.");
 }
 
 const appJs = readApp("app.js");

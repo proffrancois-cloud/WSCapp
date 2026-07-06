@@ -1198,12 +1198,12 @@ body.is-online-mode .hero-progress-circles {
 
 @media (max-width: 900px) {
   .hero {
-    min-height: 190px !important;
+    min-height: 148px !important;
   }
 
   .hero-copy {
     width: min(70vw, 520px) !important;
-    top: 42% !important;
+    top: 50% !important;
   }
 
   .hero-progress-circles,
@@ -1420,11 +1420,11 @@ body.is-online-mode .hero-links > :not(.hero-menu-trigger) {
   body .hero,
   body.is-local-mode .hero,
   body.is-online-mode .hero {
-    min-height: 190px !important;
+    min-height: 148px !important;
   }
 
   body .hero-copy {
-    top: 42% !important;
+    top: 50% !important;
     width: min(66vw, 420px) !important;
   }
 
