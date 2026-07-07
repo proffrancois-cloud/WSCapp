@@ -4572,10 +4572,14 @@ function chooseAppEntryMode(mode) {
 }
 
 function switchToLocalMode() {
+  closeHeroMenu();
+  clearJeopardyTimer();
+  clearExperienceTimers();
+  clearLibraryCampusActivityState();
   state.ui.appEntryGateOpen = false;
   state.ui.appShellMode = "local";
-  state.ui.cooperationOpen = true;
-  state.ui.multiplayerGameChoice = null;
+  state.ui.cooperationOpen = false;
+  state.ui.authOpen = false;
   resetAlpacapardyLiveState();
   state.experience = null;
   state.selection.path = null;
@@ -7875,6 +7879,27 @@ function getLibraryCampusInlineMount() {
     return null;
   }
   return document.querySelector("[data-campus2d-activity-mount]");
+}
+
+function clearLibraryCampusActivityState() {
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
+  state.ui.rawMediaLightbox = null;
+  state.ui.rawMediaSwipeStartX = null;
+
+  const inlineMount = document.querySelector("[data-campus2d-activity-mount]");
+  if (inlineMount) {
+    inlineMount.innerHTML = "";
+  }
+
+  const modalMount = document.getElementById("libraryCampusModalMount");
+  if (modalMount) {
+    modalMount.innerHTML = "";
+  }
 }
 
 function renderLibraryCampusModal() {
