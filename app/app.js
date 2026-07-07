@@ -87,8 +87,12 @@ const GAME_CONFIG = {
   jumpObstacleSpeed: 0.036,
   jumpObstacleSpeedGain: 0.0045,
   jumpMaxObstacleSpeed: 0.078,
-  jumpGravity: 0.0029,
-  jumpImpulse: 1.05,
+  jumpReferenceStageWidth: 960,
+  jumpMinStageSpeedScale: 0.82,
+  jumpMaxStageSpeedScale: 1.7,
+  jumpDuckDurationMs: 920,
+  jumpGravity: 0.00245,
+  jumpImpulse: 1.08,
   buildCaseRoundCount: 5,
   relayDefaultQuestionCount: 20,
   relayQuestionOptions: [20],
@@ -17676,10 +17680,23 @@ function getJumpObstacleRequirement(experience) {
 
 function getJumpObstacleSpeed(experience) {
   const progression = experience.index + Math.floor(experience.distance / 120);
-  return Math.min(
+  const baseSpeed = Math.min(
     GAME_CONFIG.jumpMaxObstacleSpeed,
     GAME_CONFIG.jumpObstacleSpeed + progression * GAME_CONFIG.jumpObstacleSpeedGain
   );
+  return baseSpeed * getJumpStageSpeedScale();
+}
+
+function getJumpStageSpeedScale() {
+  const root = getRenderedExperienceRoot();
+  const stage = root?.querySelector?.("[data-jump-stage]");
+  const width = stage?.getBoundingClientRect?.().width || 0;
+  if (!Number.isFinite(width) || width <= 0) {
+    return 1;
+  }
+
+  const scale = GAME_CONFIG.jumpReferenceStageWidth / width;
+  return Math.min(GAME_CONFIG.jumpMaxStageSpeedScale, Math.max(GAME_CONFIG.jumpMinStageSpeedScale, scale));
 }
 
 function queueNextJumpObstacle(experience) {
@@ -17825,7 +17842,7 @@ function performJumpAction(action) {
         state.experience.runnerState = "running";
         updateJumpDom(state.experience);
       }
-    }, 620);
+    }, GAME_CONFIG.jumpDuckDurationMs);
   }
 
   updateJumpDom(experience);
@@ -17850,6 +17867,7 @@ function updateJumpFrame(experience, timestamp) {
   }
 
   experience.obstacle.x -= getJumpObstacleSpeed(experience) * delta;
+  updateJumpDom(experience);
 
   if (hasJumpCollision(experience)) {
     if (experience.obstacle.kind === "checkpoint") {
@@ -17870,14 +17888,22 @@ function updateJumpFrame(experience, timestamp) {
 
   if (experience.obstacle.x < -12) {
     queueNextJumpObstacle(experience);
+    updateJumpDom(experience);
   }
-
-  updateJumpDom(experience);
 }
 
 function hasJumpCollision(experience) {
   const obstacle = experience.obstacle;
-  if (!obstacle || obstacle.x < 18 || obstacle.x > 29) {
+  if (!obstacle) {
+    return false;
+  }
+
+  const visibleCollision = getVisibleJumpCollision(experience);
+  if (visibleCollision !== null) {
+    return visibleCollision;
+  }
+
+  if (obstacle.x < 18 || obstacle.x > 29) {
     return false;
   }
 
@@ -17890,6 +17916,60 @@ function hasJumpCollision(experience) {
   }
 
   return !experience.ducking && experience.runnerY < 36;
+}
+
+function getVisibleJumpCollision(experience) {
+  const root = getRenderedExperienceRoot();
+  const runner = root?.querySelector?.("[data-jump-runner]");
+  const obstacleElement = root?.querySelector?.("[data-jump-obstacle]");
+  if (!runner || !obstacleElement || typeof runner.getBoundingClientRect !== "function") {
+    return null;
+  }
+
+  const runnerRect = getJumpHitRect(runner.getBoundingClientRect(), experience.ducking ? "runner-ducking" : "runner");
+  const obstacleRect = getJumpHitRect(obstacleElement.getBoundingClientRect(), experience.obstacle.kind);
+  if (!runnerRect || !obstacleRect) {
+    return null;
+  }
+
+  if (experience.obstacle.kind === "flying") {
+    return !experience.ducking && rectsOverlapHorizontally(runnerRect, obstacleRect);
+  }
+
+  return rectsOverlap(runnerRect, obstacleRect);
+}
+
+function getJumpHitRect(rect, kind) {
+  if (!rect || rect.width <= 0 || rect.height <= 0) {
+    return null;
+  }
+
+  // Trim transparent sprite padding so gameplay matches the visible body/monster core.
+  const insets = {
+    runner: { left: 0.32, right: 0.32, top: 0.24, bottom: 0.12 },
+    "runner-ducking": { left: 0.26, right: 0.26, top: 0.36, bottom: 0.08 },
+    ground: { left: 0.32, right: 0.32, top: 0.28, bottom: 0.12 },
+    flying: { left: 0.34, right: 0.34, top: 0.2, bottom: 0.22 },
+    checkpoint: { left: 0.2, right: 0.2, top: 0.12, bottom: 0.1 }
+  }[kind] || { left: 0.28, right: 0.28, top: 0.2, bottom: 0.14 };
+
+  return {
+    left: rect.left + rect.width * insets.left,
+    right: rect.right - rect.width * insets.right,
+    top: rect.top + rect.height * insets.top,
+    bottom: rect.bottom - rect.height * insets.bottom
+  };
+}
+
+function rectsOverlap(left, right) {
+  return left.left < right.right &&
+    left.right > right.left &&
+    left.top < right.bottom &&
+    left.bottom > right.top;
+}
+
+function rectsOverlapHorizontally(left, right) {
+  return left.left < right.right && left.right > right.left;
 }
 
 function handleJumpObstacleHit(experience) {
