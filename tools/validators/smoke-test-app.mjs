@@ -739,7 +739,7 @@ async function completeLocalJumpFlow(page) {
   }), { started, stageVisible, actionButtons, jumped, jumpedState, ducked, duckedState, checkpoint, checkpointAnswer, checkpointFeedbackVisible, checkpointContinued, livesBeforeCheckpoint, livesAfterCheckpoint, summary });
 }
 
-async function driveJumpUntilCheckpoint(page, timeout = 30000) {
+async function driveJumpUntilCheckpoint(page, timeout = 40000) {
   const startedAt = Date.now();
   let actionCount = 0;
   let lastActionAt = 0;
@@ -747,13 +747,21 @@ async function driveJumpUntilCheckpoint(page, timeout = 30000) {
   while (Date.now() - startedAt < timeout) {
     const state = await page.evaluate(() => {
       const obstacle = document.querySelector("[data-jump-obstacle]");
-      const rawLeft = obstacle?.style.left || "";
-      const left = Number.parseFloat(rawLeft.replace("%", ""));
+      const runner = document.querySelector("[data-jump-runner]");
+      const runnerRect = runner?.getBoundingClientRect?.();
+      const obstacleRect = obstacle?.getBoundingClientRect?.();
+      const visualLead = runnerRect && obstacleRect
+        ? obstacleRect.left - runnerRect.right
+        : null;
+      const obstacleStillRelevant = runnerRect && obstacleRect
+        ? obstacleRect.right > runnerRect.left
+        : false;
       return {
         optionCount: document.querySelectorAll("[data-jump-option]:not([disabled])").length,
         kind: obstacle?.dataset.jumpObstacleKind || "",
-        left: Number.isFinite(left) ? left : null,
-        runnerState: document.querySelector("[data-jump-runner]")?.dataset.jumpRunnerState || "",
+        visualLead: Number.isFinite(visualLead) ? visualLead : null,
+        obstacleStillRelevant,
+        runnerState: runner?.dataset.jumpRunnerState || "",
         stageVisible: Boolean(document.querySelector("[data-jump-stage]"))
       };
     });
@@ -770,7 +778,12 @@ async function driveJumpUntilCheckpoint(page, timeout = 30000) {
       break;
     }
 
-    const canAct = Number.isFinite(state.left) && state.left <= 44 && state.left >= 24 && Date.now() - lastActionAt > 240;
+    const actionLead = state.kind === "flying" ? 80 : 60;
+    const canAct = Number.isFinite(state.visualLead) &&
+      state.visualLead <= actionLead &&
+      state.obstacleStillRelevant &&
+      state.runnerState !== "hurting" &&
+      Date.now() - lastActionAt > 240;
     if (canAct && state.kind === "ground" && state.runnerState !== "jumping") {
       const clicked = await clickFirstEnabled(page, '[data-jump-action="jump"]:not([disabled])');
       actionCount += clicked ? 1 : 0;
