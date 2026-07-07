@@ -374,12 +374,20 @@ if (!appJs.includes("renderOnlineHomeGameGrid")) {
   failures.push("Online game card grid renderer must remain available.");
 }
 const onlineGameChooserBlock = appJs.match(/function chooseOnlineGameType\([^]*?\n}\n/)?.[0] || "";
-const onlineLocalLaunchBlock = appJs.match(/function launchOnlineGameAsLocalMode\([^]*?\n}\n/)?.[0] || "";
-if (!onlineGameChooserBlock.includes("launchOnlineGameAsLocalMode") || onlineGameChooserBlock.includes("openMultiplayerGameChoice")) {
-  failures.push("Online game cards must launch the local game directly, without opening the multiplayer audience picker.");
+const onlineInlineLaunchBlock = appJs.match(/function launchOnlineGameInline\([^]*?\n}\n/)?.[0] || "";
+const gameAloneLaunchBlock = appJs.match(/function launchMultiplayerGameAlone\([^]*?\n}\n/)?.[0] || "";
+const campusModalRenderBlock = appJs.match(/function renderLibraryCampusModal\([^]*?\n}\n/)?.[0] || "";
+if (!onlineGameChooserBlock.includes("launchOnlineGameInline") || onlineGameChooserBlock.includes("openMultiplayerGameChoice")) {
+  failures.push("Online game cards must launch the alone-rules game inline, without opening the multiplayer audience picker.");
 }
-if (!onlineLocalLaunchBlock.includes("launchMultiplayerGameAlone") || onlineLocalLaunchBlock.includes("state.ui.multiplayerGameChoice =")) {
-  failures.push("Online local game launch must reuse the normal local game path instead of rendering a multiplayer choice.");
+if (!onlineInlineLaunchBlock.includes("launchMultiplayerGameAlone") || !onlineInlineLaunchBlock.includes("stayOnline: true") || onlineInlineLaunchBlock.includes("state.ui.multiplayerGameChoice =")) {
+  failures.push("Online inline game launch must reuse the alone-game rules without rendering a multiplayer choice.");
+}
+if (!gameAloneLaunchBlock.includes("stayOnline") || !gameAloneLaunchBlock.includes('state.ui.appShellMode = stayOnline ? "online" : "local"') || !gameAloneLaunchBlock.includes("state.ui.libraryExperience = stayOnline")) {
+  failures.push("Alone game launch must stay inside Alpaca Online when started from the campus.");
+}
+if (campusModalRenderBlock.includes("shouldUseModalMount") || campusModalRenderBlock.includes("MULTIPLAYER_GAME_MODE_IDS.has(state.ui.libraryExperience")) {
+  failures.push("Campus game experiences must render in the inline activity mount instead of forcing the global modal mount.");
 }
 for (const appNeedle of [
   "isCampusActivityInlineActive",
@@ -408,7 +416,7 @@ for (const appNeedle of [
   "CAMPUS_ACTIVITY_COMING_SOON_NOTICE",
   "disabled aria-disabled=\"true\"",
   "openCampus2DDebateLab",
-  "launchOnlineGameAsLocalMode"
+  "launchOnlineGameInline"
 ]) {
   if (!appJs.includes(appNeedle)) {
     failures.push(`app.js is missing inline Campus 2D activity support: ${appNeedle}.`);

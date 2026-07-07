@@ -5940,7 +5940,7 @@ function createEmptyArcadeState(gameType) {
 function chooseOnlineGameType(gameType) {
   const normalized = normalizeLiveGameType(gameType);
   const modeId = LIVE_GAME_TYPES[normalized]?.modeId || "jeopardy";
-  launchOnlineGameAsLocalMode(modeId, { gameType: normalized, source: "online" });
+  launchOnlineGameInline(modeId, { gameType: normalized, source: "online" });
 }
 
 function setupConnectedOnlineGameType(gameType) {
@@ -7905,14 +7905,8 @@ function clearLibraryCampusActivityState() {
 function renderLibraryCampusModal() {
   const inlineMount = getLibraryCampusInlineMount();
   const modalMount = getLibraryCampusModalMount();
-  const shouldUseModalMount = Boolean(
-    state.ui.libraryExperience &&
-    MULTIPLAYER_GAME_MODE_IDS.has(state.ui.libraryExperience.modeId)
-  );
-  const mount = shouldUseModalMount ? modalMount : (inlineMount || modalMount);
-  if (inlineMount && shouldUseModalMount) {
-    inlineMount.innerHTML = "";
-  } else if (inlineMount) {
+  const mount = inlineMount || modalMount;
+  if (inlineMount) {
     modalMount.innerHTML = "";
   }
   if (state.ui.libraryExperience && state.experience) {
@@ -8665,8 +8659,8 @@ function chooseLibraryMode(modeId) {
     return;
   }
 
-  if (shouldLaunchOnlineGameAsLocalMode(modeId)) {
-    launchOnlineGameAsLocalMode(modeId);
+  if (shouldLaunchOnlineGameInline(modeId)) {
+    launchOnlineGameInline(modeId);
     return;
   }
 
@@ -8690,7 +8684,7 @@ function openCampus2DDebateLab() {
   campus2dController?.openDebateLab?.();
 }
 
-function shouldLaunchOnlineGameAsLocalMode(modeId) {
+function shouldLaunchOnlineGameInline(modeId) {
   return Boolean(
     state.ui.appShellMode === "online" &&
     !state.live.currentSession &&
@@ -8703,7 +8697,7 @@ function getConnectedLiveGameTypeForMode(modeId) {
   return match?.gameType || null;
 }
 
-function launchOnlineGameAsLocalMode(modeId, options = {}) {
+function launchOnlineGameInline(modeId, options = {}) {
   if (!modeId || !MULTIPLAYER_GAME_MODE_IDS.has(modeId)) {
     return;
   }
@@ -8723,7 +8717,8 @@ function launchOnlineGameAsLocalMode(modeId, options = {}) {
     gameType: connectedGameType,
     returnMenuType,
     sectionIds,
-    source: options.source || "campus"
+    source: options.source || "campus",
+    stayOnline: true
   });
 }
 
@@ -8755,18 +8750,24 @@ function launchMultiplayerGameAlone(choice) {
   const modeId = choice.modeId;
   const sectionIds = Array.isArray(choice.sectionIds) && choice.sectionIds.length ? choice.sectionIds : getOrderedSectionIds();
   const forceUnavailableReason = modeId === "buildcase" ? DEBATE_LAB_ALONE_UNAVAILABLE_REASON : "";
+  const stayOnline = Boolean(
+    choice.stayOnline ||
+    (state.ui.appShellMode === "online" && !state.live.currentSession)
+  );
+  const returnMenuType = choice.returnMenuType || null;
 
   clearJeopardyTimer();
   clearExperienceTimers();
   resetAlpacapardyLiveState();
   closeHeroMenu();
   state.ui.appEntryGateOpen = false;
-  state.ui.appShellMode = "local";
+  state.ui.appShellMode = stayOnline ? "online" : "local";
   state.ui.cooperationOpen = false;
   state.ui.libraryMenu = null;
   state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
   state.ui.librarySectionPicker = null;
-  state.ui.libraryExperience = null;
+  state.ui.libraryExperience = stayOnline ? { modeId, returnMenuType } : null;
   state.ui.multiplayerGameChoice = null;
   state.ui.wizardTransition = "forward";
   state.ui.rawQuizSelections = {};
@@ -8774,6 +8775,9 @@ function launchMultiplayerGameAlone(choice) {
   state.ui.rawMediaLightbox = null;
   state.ui.rawMediaSwipeStartX = null;
   state.live.error = "";
+  if (stayOnline) {
+    state.live.onlineView = "campus";
+  }
   state.selection.path = getModePath(modeId) || "play";
   state.selection.lens = DEFAULT_LENS_ID;
   state.selection.targetIds = sectionIds;
@@ -8785,7 +8789,9 @@ function launchMultiplayerGameAlone(choice) {
       ? buildUnavailableModeExperience(modeId)
       : buildExperienceForMode(modeId);
   render();
-  refs.experiencePanel?.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (!stayOnline) {
+    refs.experiencePanel?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function launchMultiplayerGameConnected(choice) {
