@@ -17934,11 +17934,12 @@ function openJumpCheckpoint(experience) {
 }
 
 function updateJumpDom(experience) {
-  if (!refs.experiencePanel || !experience || experience.type !== "jump") {
+  const root = getRenderedExperienceRoot();
+  if (!root || !experience || experience.type !== "jump") {
     return;
   }
 
-  const runner = refs.experiencePanel.querySelector("[data-jump-runner]");
+  const runner = root.querySelector("[data-jump-runner]");
   if (runner) {
     const runnerState = getJumpRunnerState(experience);
     if (runner.dataset.jumpRunnerState !== runnerState) {
@@ -17952,7 +17953,7 @@ function updateJumpDom(experience) {
     runner.classList.toggle("state-running", runnerState === "running");
   }
 
-  const obstacle = refs.experiencePanel.querySelector("[data-jump-obstacle]");
+  const obstacle = root.querySelector("[data-jump-obstacle]");
   if (obstacle && experience.obstacle) {
     const obstacleKind = experience.obstacle.kind;
     if (obstacle.dataset.jumpObstacleKind !== obstacleKind) {
@@ -17965,12 +17966,12 @@ function updateJumpDom(experience) {
     obstacle.classList.toggle("checkpoint", obstacleKind === "checkpoint");
   }
 
-  const distance = refs.experiencePanel.querySelector("[data-jump-distance]");
+  const distance = root.querySelector("[data-jump-distance]");
   if (distance) {
     distance.textContent = `${Math.round(experience.distance)}m`;
   }
 
-  const lives = refs.experiencePanel.querySelector("[data-jump-lives]");
+  const lives = root.querySelector("[data-jump-lives]");
   if (lives) {
     lives.innerHTML = renderJumpLives(experience.lives);
   }
