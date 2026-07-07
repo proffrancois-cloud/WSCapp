@@ -1373,11 +1373,11 @@
 }
 
 .experience-panel--mindmap .mindmap-radial-scroll {
-  --mindmap-stage-visual-size: 560px;
+  --mindmap-stage-visual-size: 360px;
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  height: min(720px, max(360px, calc(var(--mindmap-stage-visual-size) + 36px)));
+  height: min(440px, max(320px, calc(var(--mindmap-stage-visual-size) + 36px)));
   min-height: 0;
   display: flex;
   align-items: center;
@@ -1596,7 +1596,7 @@
   }
 
   .experience-panel--mindmap .mindmap-radial-scroll {
-    height: max(360px, calc(var(--mindmap-stage-visual-size) + 32px));
+    height: max(320px, calc(var(--mindmap-stage-visual-size) + 32px));
     border-radius: 30px;
   }
 

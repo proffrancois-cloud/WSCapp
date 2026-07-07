@@ -6855,10 +6855,12 @@ function syncRadialMindMapScroll() {
         || Number.parseFloat(getComputedStyle(stage).getPropertyValue("--map-size"))
         || stage.offsetWidth
         || 640;
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1280;
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
       const availableWidth = Math.max(260, map.clientWidth - 52);
       const availableHeight = Math.max(260, Math.min(map.clientHeight || viewportHeight, viewportHeight - 180) - 52);
-      const maxVisualSize = Math.min(680, Math.max(420, viewportHeight - 260));
+      const compactMaxVisualSize = viewportWidth >= 760 ? 380 : 320;
+      const maxVisualSize = Math.min(compactMaxVisualSize, Math.max(280, viewportHeight - 260));
       const scale = Math.min(
         1,
         availableWidth / stageSize,
