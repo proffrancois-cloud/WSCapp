@@ -6839,12 +6839,16 @@ function shuffleAlpacard() {
 }
 
 function syncRadialMindMapScroll() {
-  if (!refs.experiencePanel || state.experience?.type !== "mindmap") {
+  if (state.experience?.type !== "mindmap") {
     return;
   }
 
   window.requestAnimationFrame(() => {
-    const maps = refs.experiencePanel.querySelectorAll(".mindmap-radial-scroll");
+    const roots = [...document.querySelectorAll(".experience-panel--mindmap")];
+    if (refs.experiencePanel && !roots.includes(refs.experiencePanel)) {
+      roots.push(refs.experiencePanel);
+    }
+    const maps = roots.flatMap((root) => [...root.querySelectorAll(".mindmap-radial-scroll")]);
     maps.forEach((map) => {
       const stage = map.querySelector(".mindmap-radial-stage");
       if (!stage) {

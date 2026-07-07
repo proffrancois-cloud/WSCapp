@@ -1419,7 +1419,7 @@
   isolation: isolate;
   overflow: visible;
   margin: 0;
-  transform: translate(-50%, -50%) scale(var(--mindmap-stage-scale, 1));
+  transform: translate(-50%, -50%) scale(var(--mindmap-stage-scale, 0.4));
   transform-origin: center center;
   background:
     radial-gradient(circle at center, rgba(255, 250, 238, 0.9) 0 9%, rgba(255, 250, 238, 0.36) 9.2% 13%, transparent 13.4%),
