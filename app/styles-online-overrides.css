@@ -4679,6 +4679,104 @@ body.is-online-mode .library-id-subtitle {
   max-width: 100%;
 }
 
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-map-shell {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(10px, 1.2vw, 14px);
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-map-stage {
+  width: 100%;
+  min-height: clamp(250px, 31vw, 390px);
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-shell {
+  position: static;
+  inset: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  transform: none;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1fr) minmax(112px, 136px);
+  gap: clamp(10px, 1.15vw, 14px);
+  padding: clamp(12px, 1.35vw, 16px);
+  overflow: hidden;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-question,
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-options,
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-footer {
+  min-width: 0;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-question h2 {
+  font-size: clamp(1.02rem, 1.55vw, 1.38rem);
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-options {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-options .option-button {
+  width: 100%;
+  min-width: 0;
+  padding: 9px;
+  gap: 7px;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-options .option-button > span:last-child {
+  font-size: clamp(0.78rem, 1.15vw, 0.98rem);
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-footer {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-items: stretch;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .compact-race-timer-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 136px;
+  padding: 10px;
+}
+
+body.is-online-mode .campus2d-activity-mount .library-experience-panel .compact-race-timer-card .race-timer-widget {
+  width: min(100%, 92px);
+}
+
+@media (max-width: 1180px) {
+  body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-card {
+    grid-template-columns: 1fr;
+  }
+
+  body.is-online-mode .campus2d-activity-mount .library-experience-panel .run-inline-footer {
+    grid-column: 1;
+    grid-row: auto;
+    grid-template-columns: repeat(auto-fit, minmax(118px, max-content));
+    justify-content: start;
+  }
+
+  body.is-online-mode .campus2d-activity-mount .library-experience-panel .compact-race-timer-card {
+    max-width: 156px;
+  }
+}
+
 body.is-online-mode .library-campus-window-channel .library-section-id-card.online-glow-card {
   min-height: clamp(158px, 13vw, 188px) !important;
 }
