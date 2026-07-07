@@ -7,7 +7,7 @@ const OFFICIAL_WSC_GUIDING_URL = "https://www.scholarscup.org/subjects/2026/guid
 const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
-const ASSET_CACHE_VERSION = "20260707trainicon";
+const ASSET_CACHE_VERSION = "20260707directgames";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
@@ -5940,7 +5940,7 @@ function createEmptyArcadeState(gameType) {
 function chooseOnlineGameType(gameType) {
   const normalized = normalizeLiveGameType(gameType);
   const modeId = LIVE_GAME_TYPES[normalized]?.modeId || "jeopardy";
-  openMultiplayerGameChoice(modeId, { gameType: normalized, source: "online" });
+  launchOnlineGameAsLocalMode(modeId, { gameType: normalized, source: "online" });
 }
 
 function setupConnectedOnlineGameType(gameType) {
@@ -8665,8 +8665,8 @@ function chooseLibraryMode(modeId) {
     return;
   }
 
-  if (shouldAskMultiplayerGameAudience(modeId)) {
-    openMultiplayerGameChoice(modeId);
+  if (shouldLaunchOnlineGameAsLocalMode(modeId)) {
+    launchOnlineGameAsLocalMode(modeId);
     return;
   }
 
@@ -8690,7 +8690,7 @@ function openCampus2DDebateLab() {
   campus2dController?.openDebateLab?.();
 }
 
-function shouldAskMultiplayerGameAudience(modeId) {
+function shouldLaunchOnlineGameAsLocalMode(modeId) {
   return Boolean(
     state.ui.appShellMode === "online" &&
     !state.live.currentSession &&
@@ -8703,7 +8703,7 @@ function getConnectedLiveGameTypeForMode(modeId) {
   return match?.gameType || null;
 }
 
-function openMultiplayerGameChoice(modeId, options = {}) {
+function launchOnlineGameAsLocalMode(modeId, options = {}) {
   if (!modeId || !MULTIPLAYER_GAME_MODE_IDS.has(modeId)) {
     return;
   }
@@ -8718,22 +8718,13 @@ function openMultiplayerGameChoice(modeId, options = {}) {
     .filter((sectionId) => sectionById[sectionId]);
   const connectedGameType = options.gameType || getConnectedLiveGameTypeForMode(modeId);
 
-  state.ui.libraryMenu = null;
-  state.ui.libraryResource = null;
-  state.ui.libraryEmbeddedDoc = null;
-  state.ui.librarySectionPicker = null;
-  state.ui.libraryExperience = null;
-  state.ui.multiplayerGameChoice = {
+  launchMultiplayerGameAlone({
     modeId,
     gameType: connectedGameType,
     returnMenuType,
     sectionIds,
-    source: options.source || "campus",
-    connectedReview: Boolean(options.connectedReview)
-  };
-  state.experience = null;
-  syncPopupScrollLock();
-  renderLibraryCampusModal();
+    source: options.source || "campus"
+  });
 }
 
 function closeMultiplayerGameChoice() {

@@ -373,6 +373,14 @@ if (/statsStrip|renderStats\(|renderOnlineScoreStrip|hero-progress-circles/.test
 if (!appJs.includes("renderOnlineHomeGameGrid")) {
   failures.push("Online game card grid renderer must remain available.");
 }
+const onlineGameChooserBlock = appJs.match(/function chooseOnlineGameType\([^]*?\n}\n/)?.[0] || "";
+const onlineLocalLaunchBlock = appJs.match(/function launchOnlineGameAsLocalMode\([^]*?\n}\n/)?.[0] || "";
+if (!onlineGameChooserBlock.includes("launchOnlineGameAsLocalMode") || onlineGameChooserBlock.includes("openMultiplayerGameChoice")) {
+  failures.push("Online game cards must launch the local game directly, without opening the multiplayer audience picker.");
+}
+if (!onlineLocalLaunchBlock.includes("launchMultiplayerGameAlone") || onlineLocalLaunchBlock.includes("state.ui.multiplayerGameChoice =")) {
+  failures.push("Online local game launch must reuse the normal local game path instead of rendering a multiplayer choice.");
+}
 for (const appNeedle of [
   "isCampusActivityInlineActive",
   "data-campus2d-activity-mount",
@@ -399,7 +407,8 @@ for (const appNeedle of [
   "showComingSoonNotice",
   "CAMPUS_ACTIVITY_COMING_SOON_NOTICE",
   "disabled aria-disabled=\"true\"",
-  "openCampus2DDebateLab"
+  "openCampus2DDebateLab",
+  "launchOnlineGameAsLocalMode"
 ]) {
   if (!appJs.includes(appNeedle)) {
     failures.push(`app.js is missing inline Campus 2D activity support: ${appNeedle}.`);

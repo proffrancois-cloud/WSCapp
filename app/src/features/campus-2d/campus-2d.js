@@ -27,7 +27,7 @@
   const DEBATE_CENTER_STAGE = Object.freeze({ x: 588, y: 309 });
   const DEBATE_SIDE_STAGE = Object.freeze({ x: 860, y: 245 });
   const DEBATE_BOARD_RECT = Object.freeze({ x: 390, y: 30, width: 405, height: 175 });
-  const DEBATE_LAB_LOGO_SRC = "./assets/mascot/library/final-pack/DebateLab.png?v=20260707trainicon";
+  const DEBATE_LAB_LOGO_SRC = "./assets/mascot/library/final-pack/DebateLab.png?v=20260707directgames";
   const DEBATE_NOTE_COLORS = Object.freeze([
     "#ffd166",
     "#6ec6ff",
@@ -80,7 +80,7 @@
     Object.freeze({ value: "global", label: "Global" }),
     Object.freeze({ value: "toc", label: "ToC" })
   ]);
-  const REWARD_ASSET_VERSION = "20260707trainicon";
+  const REWARD_ASSET_VERSION = "20260707directgames";
   const MAX_ID_REWARDS = 9;
   const ID_REWARD_TYPES = Object.freeze([
     Object.freeze({
