@@ -11,6 +11,7 @@ const publicDistRoot = join(appRoot, targetName === "vercel" ? "dist-vercel" : "
 
 const topLevelRuntimeFiles = [
   "index.html",
+  "cache-reset.html",
   "manifest.webmanifest",
   "service-worker.js",
   "pwa.js",
