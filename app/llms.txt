@@ -1,0 +1,29 @@
+# WSCapp
+
+WSCapp is a free unofficial World Scholar's Cup 2026 study app at https://wscapp.app/.
+
+It helps students prepare for the World Scholar's Cup 2026 theme, "Are We There Yet?", with interactive study routes, raw-content explanations, practice games, Alpacards, Debate Lab, and a room-scoped multiplayer campus.
+
+Important pages:
+
+- Home: https://wscapp.app/
+- WSC 2026 study guide: https://wscapp.app/wsc-2026-study-guide/
+- WSC 2026 practice: https://wscapp.app/wsc-2026-practice/
+- Debate Lab: https://wscapp.app/debate-lab/
+- Scholar's Challenge practice: https://wscapp.app/scholars-challenge/
+- Alpacards: https://wscapp.app/alpacards/
+- Multiplayer campus: https://wscapp.app/multiplayer-campus/
+
+Keywords and aliases:
+
+- WSCapp
+- WSC app
+- World Scholar's Cup app
+- World Scholars Cup app
+- World Scholar's Cup 2026 study app
+- WSC 2026 study guide
+- WSC 2026 practice
+
+Disclaimer:
+
+WSCapp is an independent, free, unofficial study app. It is not affiliated with or endorsed by World Scholar's Cup.

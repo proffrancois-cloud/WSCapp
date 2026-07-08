@@ -12,10 +12,16 @@ const publicDistRoot = join(appRoot, targetName === "vercel" ? "dist-vercel" : "
 const topLevelRuntimeFiles = [
   "index.html",
   "cache-reset.html",
+  "robots.txt",
+  "sitemap.xml",
+  "llms.txt",
+  "_headers",
+  "_redirects",
   "manifest.webmanifest",
   "service-worker.js",
   "pwa.js",
   "app.js",
+  "realtime-config.js",
   "supabase-config.js"
 ];
 
@@ -43,6 +49,15 @@ const runtimeScriptDirs = [
 const publicAssetDirs = [
   "app-icons",
   "assets"
+];
+
+const seoPageDirs = [
+  "wsc-2026-study-guide",
+  "wsc-2026-practice",
+  "debate-lab",
+  "scholars-challenge",
+  "alpacards",
+  "multiplayer-campus"
 ];
 
 function getTargetName() {
@@ -99,6 +114,7 @@ function copyRuntimeAllowlist() {
   generatedRuntimeFiles.forEach(copyAppPath);
   publicContentEntries.forEach(copyAppPath);
   publicAssetDirs.forEach(copyAppPath);
+  seoPageDirs.forEach(copyAppPath);
   runtimeScriptDirs.forEach(copyRuntimeScriptDirectory);
 }
 

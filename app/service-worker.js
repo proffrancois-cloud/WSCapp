@@ -1,7 +1,7 @@
 // Retired service worker.
 //
-// GitHub Pages already serves this app as static files. Keeping an app-shell
-// service worker on top of Pages made old deployments too easy to pin in
+// The hosted app is served as static files. Keeping an app-shell
+// service worker on top of the CDN made old deployments too easy to pin in
 // browsers that had previously installed the PWA. This worker exists only so
 // older registered workers update to this file, clear WSC caches, and unregister.
 

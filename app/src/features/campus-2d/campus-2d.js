@@ -4,6 +4,14 @@
   const STORAGE_DEV_ZONES_KEY = "wscCampus2dDevZones";
   const STORAGE_SETTINGS_KEY = "wscCampus2dSettings";
   const BACKGROUND_MUSIC_SRC = "./assets/campus-2d/audio/alpaca-campus-lofi-loop-3min-less-bass.mp3";
+  const realtimeDefaults = window.WSC_CAMPUS_2D_REALTIME?.DEFAULTS || {};
+  const MAX_PLAYERS_PER_ROOM = realtimeDefaults.MAX_PLAYERS_PER_ROOM || 50;
+  const MOVEMENT_SEND_INTERVAL_MS = realtimeDefaults.MOVEMENT_SEND_INTERVAL_MS || 200;
+  const SNAPSHOT_INTERVAL_MS = realtimeDefaults.SNAPSHOT_INTERVAL_MS || 100;
+  const CHAT_RATE_LIMIT_MAX_MESSAGES = realtimeDefaults.CHAT_RATE_LIMIT_MAX_MESSAGES || 2;
+  const CHAT_RATE_LIMIT_WINDOW_MS = realtimeDefaults.CHAT_RATE_LIMIT_WINDOW_MS || 3000;
+  const CHAT_MAX_LENGTH = realtimeDefaults.CHAT_MAX_LENGTH || 120;
+  const PRESENCE_SEND_INTERVAL_MS = 5000;
   const DEFAULT_SETTINGS = Object.freeze({
     tone: 0,
     volume: 16,
@@ -120,6 +128,11 @@
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
+  }
+
+  function readFiniteNumber(value, fallback = 0) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : fallback;
   }
 
   function getManifest() {
@@ -513,11 +526,13 @@
     const localClientId = identity.clientId || realtimeApi?.createClientId?.() || `campus2d-${Date.now()}`;
 
     let room = initialRoom;
-    let channel = null;
+    let transport = null;
     let animationFrameId = 0;
     let lastFrameAt = performance.now();
     let lastMoveSentAt = 0;
     let lastPresenceSentAt = 0;
+    let moveSequence = 0;
+    let chatSentAtMs = [];
     let camera = { scale: 1, x: 0, y: 0 };
     let activeTarget = null;
     let debugEnabled = false;
@@ -727,7 +742,7 @@
     const chatForm = createEl("form", "campus2d-chat-form", { "data-campus2d-ui": "" });
     const chatInput = createEl("input", "campus2d-chat-input", {
       type: "text",
-      maxlength: "140",
+      maxlength: String(CHAT_MAX_LENGTH),
       autocomplete: "off",
       placeholder: "Say something"
     });
@@ -1128,7 +1143,6 @@
     function getPlayerProfilePayload(player) {
       const idRewards = normalizeIdRewards(player);
       return {
-        email: player.email || "",
         alpacaName: player.alpacaName || "",
         schoolName: player.schoolName || "",
         country: player.country || "",
@@ -1848,7 +1862,7 @@
       if (!debateState || room.id !== DEBATE_ROOM_ID) {
         return;
       }
-      channel?.sendDebate({ debateState: cloneDebateState(debateState) });
+      transport?.sendDebate({ debateState: cloneDebateState(debateState) });
       publishPresence(true);
     }
 
@@ -1856,7 +1870,7 @@
       if (!payload || room.id !== DEBATE_ROOM_ID || !debateState) {
         return;
       }
-      channel?.sendDebateSignal({
+      transport?.sendDebateSignal({
         debateSignal: {
           roomId: DEBATE_ROOM_ID,
           sessionId: debateState.sessionId,
@@ -3014,8 +3028,7 @@
       renderDebugOverlay();
       updateDebugPanel();
       updatePlayerElement(localElement, localPlayer, performance.now());
-      renderRemotePlayers();
-      updateConnectedCount();
+      refreshRemotePlayers();
       updateCamera();
     }
 
@@ -3347,6 +3360,7 @@
       lastFrameAt = nowMs;
       stepMovement(deltaSeconds, nowMs);
       remotePlayers.forEach((player, clientId) => {
+        stepRemotePlayer(player, nowMs);
         const element = remoteElements.get(clientId);
         if (element) {
           updatePlayerElement(element, player, nowMs);
@@ -3357,15 +3371,15 @@
     }
 
     function publishPresence(force) {
-      if (!channel) {
+      if (!transport) {
         return;
       }
       const nowMs = Date.now();
-      if (!force && nowMs - lastPresenceSentAt < 750) {
+      if (!force && nowMs - lastPresenceSentAt < PRESENCE_SEND_INTERVAL_MS) {
         return;
       }
       lastPresenceSentAt = nowMs;
-      channel.updatePresence({
+      transport.updatePresence({
         x: localPlayer.x,
         y: localPlayer.y,
         direction: localPlayer.direction,
@@ -3379,48 +3393,58 @@
     }
 
     function publishMovement(force) {
-      if (!channel) {
+      if (!transport) {
         return;
       }
       const nowMs = Date.now();
-      if (force || nowMs - lastMoveSentAt > 120) {
+      if (force || nowMs - lastMoveSentAt >= MOVEMENT_SEND_INTERVAL_MS) {
         lastMoveSentAt = nowMs;
-        channel.sendMovement({
+        moveSequence += 1;
+        transport.sendMovement({
           x: localPlayer.x,
           y: localPlayer.y,
           direction: localPlayer.direction,
           colorId: localPlayer.colorId,
-          displayName: localPlayer.displayName,
+          moving: Boolean(localPlayer.moving),
           seatId: localPlayer.seatId || null,
-          ...getPlayerProfilePayload(localPlayer)
+          seq: moveSequence
         });
       }
       publishPresence(force);
     }
 
     function connectRealtime() {
-      if (channel) {
-        channel.destroy();
-        channel = null;
+      if (transport) {
+        transport.disconnect();
+        transport = null;
       }
-      if (!options.client || !realtimeApi?.createRoomChannel) {
+      if (!realtimeApi?.createTransport) {
         setStatus("Local");
         return;
       }
       setStatus("Connecting");
-      channel = realtimeApi.createRoomChannel({
-        client: options.client,
+      transport = realtimeApi.createTransport({ client: options.client, transport: options.transport });
+      if (!transport?.connect) {
+        transport = null;
+        setStatus("Local");
+        return;
+      }
+      const connected = transport.connect({
         roomId: room.id,
         localPlayer,
         handlers: {
           onStatus(status) {
-            setStatus(status === "SUBSCRIBED" ? "Online" : "Connecting");
+            const normalizedStatus = String(status || "").toUpperCase();
+            setStatus(["SUBSCRIBED", "OPEN", "ONLINE", "CONNECTED"].includes(normalizedStatus) ? "Online" : "Connecting");
           },
           onPresenceSync(presenceRows) {
             syncRemotePresence(presenceRows);
           },
           onMove(payload) {
             receiveRemoteMovement(payload);
+          },
+          onSnapshot(payload) {
+            receiveRoomSnapshot(payload);
           },
           onChat(payload) {
             receiveRemoteChat(payload);
@@ -3433,46 +3457,30 @@
           },
           onDebateSignal(payload) {
             receiveDebateSignal(payload);
+          },
+          onRoomFull() {
+            setStatus("Room full");
+          },
+          onError() {
+            setStatus("Local");
           }
         }
       });
-      if (!channel) {
+      if (!connected) {
+        transport = null;
         setStatus("Local");
-        return;
       }
-      channel.subscribe();
     }
 
-    function syncRemotePresence(presenceRows) {
-      const seen = new Set();
-      presenceRows
-        .filter((presence) => presence.roomId === room.id)
-        .forEach((presence) => {
-          const idRewards = normalizeIdRewards(presence);
-          seen.add(presence.clientId);
-          remotePlayers.set(presence.clientId, {
-            clientId: presence.clientId,
-            userId: presence.userId || null,
-            displayName: presence.displayName || "Guest",
-            roomId: room.id,
-            x: Number(presence.x) || 0,
-            y: Number(presence.y) || 0,
-            direction: presence.direction || "down",
-            colorId: presence.colorId || manifest.colors[0].id,
-            seatId: presence.seatId || null,
-            email: presence.email || "",
-            alpacaName: presence.alpacaName || "",
-            schoolName: presence.schoolName || "",
-            country: presence.country || "",
-            wscEventCount: Number(presence.wscEventCount) || 0,
-            highestWscRound: presence.highestWscRound || "",
-            idRewards,
-            achievements: idRewards,
-            debateAudio: presence.debateAudio || null,
-            createdAt: presence.createdAt || null,
-            moving: false
-          });
-        });
+    function hasPayloadField(payload, field) {
+      return Object.prototype.hasOwnProperty.call(payload || {}, field);
+    }
+
+    function getPayloadRoomId(payload) {
+      return String(payload?.roomId || "").trim();
+    }
+
+    function removeMissingRemotePlayers(seen) {
       [...remotePlayers.keys()].forEach((clientId) => {
         if (!seen.has(clientId)) {
           remotePlayers.delete(clientId);
@@ -3480,53 +3488,157 @@
           remoteElements.delete(clientId);
         }
       });
-      renderRemotePlayers();
-      updateConnectedCount();
+    }
+
+    function upsertRemotePlayer(payload, options = {}) {
+      if (!payload || typeof payload !== "object") {
+        return null;
+      }
+      const clientId = String(payload.clientId || "").trim();
+      const payloadRoomId = getPayloadRoomId(payload);
+      if (!clientId || clientId === localPlayer.clientId || (payloadRoomId && payloadRoomId !== room.id)) {
+        return null;
+      }
+      const previous = remotePlayers.get(clientId) || {};
+      const fallbackX = readFiniteNumber(previous.targetX, readFiniteNumber(previous.x, 0));
+      const fallbackY = readFiniteNumber(previous.targetY, readFiniteNumber(previous.y, 0));
+      const targetX = readFiniteNumber(payload.x, fallbackX);
+      const targetY = readFiniteNumber(payload.y, fallbackY);
+      const immediate = Boolean(options.immediate || !previous.clientId);
+      const nowMs = performance.now();
+      const fromX = immediate ? targetX : readFiniteNumber(previous.x, targetX);
+      const fromY = immediate ? targetY : readFiniteNumber(previous.y, targetY);
+      const distance = Math.hypot(targetX - fromX, targetY - fromY);
+      const hasMoving = hasPayloadField(payload, "moving");
+      const reportedMoving = hasMoving ? Boolean(payload.moving) : distance > 0.5;
+      const idRewards = normalizeIdRewards(payload.idRewards || payload.achievements || previous.idRewards || previous.achievements);
+      const durationMs = Math.max(50, Number(options.durationMs) || SNAPSHOT_INTERVAL_MS);
+      const seatId = hasPayloadField(payload, "seatId") ? (payload.seatId || null) : (previous.seatId || null);
+      const next = {
+        clientId,
+        userId: payload.userId || previous.userId || null,
+        displayName: payload.displayName || previous.displayName || "Guest",
+        roomId: room.id,
+        x: fromX,
+        y: fromY,
+        targetX,
+        targetY,
+        remoteFromX: fromX,
+        remoteFromY: fromY,
+        remoteTargetStartedAtMs: nowMs,
+        remoteTargetDurationMs: durationMs,
+        remoteMovingUntilMs: reportedMoving ? nowMs + Math.max(durationMs, MOVEMENT_SEND_INTERVAL_MS + SNAPSHOT_INTERVAL_MS) : nowMs,
+        direction: payload.direction || previous.direction || "down",
+        colorId: payload.colorId || previous.colorId || manifest.colors[0].id,
+        seatId,
+        email: "",
+        alpacaName: payload.alpacaName || previous.alpacaName || "",
+        schoolName: payload.schoolName || previous.schoolName || "",
+        country: payload.country || previous.country || "",
+        wscEventCount: readFiniteNumber(payload.wscEventCount, readFiniteNumber(previous.wscEventCount, 0)),
+        highestWscRound: payload.highestWscRound || previous.highestWscRound || "",
+        idRewards,
+        achievements: idRewards,
+        debateAudio: hasPayloadField(payload, "debateAudio") ? (payload.debateAudio || null) : (previous.debateAudio || null),
+        createdAt: payload.createdAt || previous.createdAt || null,
+        moving: Boolean(reportedMoving && !seatId)
+      };
+      if (immediate) {
+        next.x = targetX;
+        next.y = targetY;
+      }
+      remotePlayers.set(clientId, next);
+      return next;
+    }
+
+    function stepRemotePlayer(player, nowMs) {
+      const targetX = readFiniteNumber(player.targetX, player.x);
+      const targetY = readFiniteNumber(player.targetY, player.y);
+      const fromX = readFiniteNumber(player.remoteFromX, player.x);
+      const fromY = readFiniteNumber(player.remoteFromY, player.y);
+      const startedAtMs = readFiniteNumber(player.remoteTargetStartedAtMs, nowMs);
+      const durationMs = Math.max(1, readFiniteNumber(player.remoteTargetDurationMs, SNAPSHOT_INTERVAL_MS));
+      const progress = clamp((nowMs - startedAtMs) / durationMs, 0, 1);
+      player.x = fromX + ((targetX - fromX) * progress);
+      player.y = fromY + ((targetY - fromY) * progress);
+      if (progress >= 1) {
+        player.x = targetX;
+        player.y = targetY;
+        player.moving = Boolean(!player.seatId && nowMs < readFiniteNumber(player.remoteMovingUntilMs, 0));
+      } else {
+        player.moving = Boolean(!player.seatId);
+      }
+    }
+
+    function syncRemotePresence(presenceRows = []) {
+      const seen = new Set();
+      presenceRows
+        .filter((presence) => presence.roomId === room.id)
+        .slice(0, Math.max(0, MAX_PLAYERS_PER_ROOM - 1))
+        .forEach((presence) => {
+          const next = upsertRemotePlayer(presence, {
+            immediate: !remotePlayers.has(presence.clientId),
+            durationMs: SNAPSHOT_INTERVAL_MS
+          });
+          if (next) {
+            seen.add(next.clientId);
+          }
+        });
+      removeMissingRemotePlayers(seen);
+      refreshRemotePlayers();
       syncDebateStateFromPresence(presenceRows);
       updateDebateAudioContext();
     }
 
     function receiveRemoteMovement(payload) {
-      if (!payload || payload.clientId === localPlayer.clientId || payload.roomId !== room.id) {
+      if (!upsertRemotePlayer(payload, { durationMs: SNAPSHOT_INTERVAL_MS })) {
         return;
       }
-      const previous = remotePlayers.get(payload.clientId) || {};
-      const idRewards = normalizeIdRewards(payload.idRewards || payload.achievements || previous.idRewards || previous.achievements);
-      const next = {
-        clientId: payload.clientId,
-        userId: payload.userId || previous.userId || null,
-        displayName: payload.displayName || previous.displayName || "Guest",
-        roomId: room.id,
-        x: Number(payload.x) || Number(previous.x) || 0,
-        y: Number(payload.y) || Number(previous.y) || 0,
-        direction: payload.direction || previous.direction || "down",
-        colorId: payload.colorId || previous.colorId || manifest.colors[0].id,
-        seatId: payload.seatId || previous.seatId || null,
-        email: payload.email || previous.email || "",
-        alpacaName: payload.alpacaName || previous.alpacaName || "",
-        schoolName: payload.schoolName || previous.schoolName || "",
-        country: payload.country || previous.country || "",
-        wscEventCount: Number(payload.wscEventCount ?? previous.wscEventCount) || 0,
-        highestWscRound: payload.highestWscRound || previous.highestWscRound || "",
-        idRewards,
-        achievements: idRewards,
-        debateAudio: previous.debateAudio || null,
-        createdAt: payload.createdAt || previous.createdAt || null,
-        moving: Boolean(previous.x !== payload.x || previous.y !== payload.y)
-      };
-      remotePlayers.set(payload.clientId, next);
-      renderRemotePlayers();
-      updateConnectedCount();
+      refreshRemotePlayers();
+    }
+
+    function receiveRoomSnapshot(payload) {
+      const snapshot = payload?.snapshot || payload;
+      const snapshotRoomId = getPayloadRoomId(snapshot);
+      if (!snapshot || (snapshotRoomId && snapshotRoomId !== room.id)) {
+        return;
+      }
+      const players = Array.isArray(snapshot.players)
+        ? snapshot.players
+        : Array.isArray(snapshot.playerStates)
+          ? snapshot.playerStates
+          : [];
+      const seen = new Set();
+      players
+        .slice(0, Math.max(0, MAX_PLAYERS_PER_ROOM - 1))
+        .forEach((player) => {
+          const next = upsertRemotePlayer({
+            ...player,
+            roomId: snapshotRoomId || player.roomId || room.id
+          }, { durationMs: SNAPSHOT_INTERVAL_MS });
+          if (next) {
+            seen.add(next.clientId);
+          }
+        });
+      if (snapshot.full !== false) {
+        removeMissingRemotePlayers(seen);
+      }
+      if (snapshot.debateState) {
+        receiveRemoteDebate({ debateState: snapshot.debateState });
+      }
+      refreshRemotePlayers();
+      updateDebateAudioContext();
     }
 
     function receiveRemoteChat(payload) {
-      if (!payload || payload.clientId === localPlayer.clientId || payload.roomId !== room.id) {
+      const text = String(payload?.message || "").trim().slice(0, CHAT_MAX_LENGTH);
+      if (!text || !upsertRemotePlayer(payload, { durationMs: SNAPSHOT_INTERVAL_MS })) {
         return;
       }
-      receiveRemoteMovement(payload);
+      refreshRemotePlayers();
       const target = remoteElements.get(payload.clientId);
       if (target) {
-        showBubble(target, payload.message || "");
+        showBubble(target, text);
       }
     }
 
@@ -3540,6 +3652,11 @@
         }
         updatePlayerElement(element, player, performance.now());
       });
+    }
+
+    function refreshRemotePlayers() {
+      renderRemotePlayers();
+      updateConnectedCount();
     }
 
     function closePlayerCard() {
@@ -4117,7 +4234,7 @@
     }
 
     function showBubble(playerElement, message) {
-      const text = String(message || "").trim().slice(0, 140);
+      const text = String(message || "").trim().slice(0, CHAT_MAX_LENGTH);
       const chatStack = playerElement?._campus2d?.chatStack;
       if (!chatStack || !text) {
         return;
@@ -4134,23 +4251,52 @@
       }, CHAT_TTL_MS);
     }
 
-    function sendChat(message) {
-      const text = String(message || "").trim().slice(0, 140);
-      if (!text) {
-        return;
+    function normalizeChatMessage(message) {
+      return String(message || "").replace(/\s+/g, " ").trim().slice(0, CHAT_MAX_LENGTH);
+    }
+
+    function showChatValidation(message) {
+      chatInput.setCustomValidity(message || "");
+      if (message) {
+        chatInput.reportValidity();
+        window.setTimeout(() => {
+          if (chatInput.validationMessage === message) {
+            chatInput.setCustomValidity("");
+          }
+        }, 1400);
       }
+    }
+
+    function consumeChatRateLimit(nowMs = Date.now()) {
+      chatSentAtMs = chatSentAtMs.filter((sentAtMs) => nowMs - sentAtMs < CHAT_RATE_LIMIT_WINDOW_MS);
+      if (chatSentAtMs.length >= CHAT_RATE_LIMIT_MAX_MESSAGES) {
+        return false;
+      }
+      chatSentAtMs.push(nowMs);
+      return true;
+    }
+
+    function sendChat(message) {
+      const text = normalizeChatMessage(message);
+      if (!text) {
+        return false;
+      }
+      if (!consumeChatRateLimit()) {
+        showChatValidation("Please wait a moment before sending another message.");
+        return false;
+      }
+      showChatValidation("");
       showBubble(localElement, text);
-      channel?.sendChat({
+      transport?.sendChat({
         x: localPlayer.x,
         y: localPlayer.y,
         direction: localPlayer.direction,
         colorId: localPlayer.colorId,
-        displayName: localPlayer.displayName,
         seatId: localPlayer.seatId || null,
-        ...getPlayerProfilePayload(localPlayer),
         message: text
       });
       publishPresence(true);
+      return true;
     }
 
     function clampPointToRoom(point) {
@@ -4575,13 +4721,13 @@
           if (root.querySelector("[data-campus2d-id-card]")) {
             openPlayerCard(localPlayer);
           }
-          channel?.sendAvatar({
+          transport?.sendAvatar({
             x: localPlayer.x,
             y: localPlayer.y,
             direction: localPlayer.direction,
             colorId,
-            displayName: localPlayer.displayName,
-            ...getPlayerProfilePayload(localPlayer)
+            moving: Boolean(localPlayer.moving),
+            seatId: localPlayer.seatId || null
           });
           publishPresence(true);
         }
@@ -4699,9 +4845,10 @@
 
     function handleChatSubmit(event) {
       event.preventDefault();
-      sendChat(chatInput.value);
-      chatInput.value = "";
-      chatInput.focus({ preventScroll: true });
+      if (sendChat(chatInput.value)) {
+        chatInput.value = "";
+        chatInput.focus({ preventScroll: true });
+      }
     }
 
     function setIdentity(nextIdentity = {}) {
@@ -4789,7 +4936,7 @@
         root.removeEventListener("submit", handleRootSubmit);
         seatDirectionSelect.removeEventListener("change", handleSeatDirectionChange);
         debateAudioManager?.destroy();
-        channel?.destroy();
+        transport?.disconnect();
         backgroundMusic.pause();
         backgroundMusic.src = "";
         window.clearTimeout(settingsHighlightTimer);

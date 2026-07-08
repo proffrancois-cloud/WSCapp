@@ -48,3 +48,7 @@ jobs:
       - name: Verify Vercel artifact
         run: npm run verify:vercel
         working-directory: app
+
+      - name: Verify Cloudflare realtime worker
+        run: npm test
+        working-directory: workers/realtime

@@ -96,7 +96,7 @@
       return renderResetPasswordForm(context);
     }
 
-    return renderLoginForm(context);
+    return renderLoginForm(context, helpers);
   }
 
   function renderConnectedAlpaccount(context, helpers) {
@@ -123,9 +123,34 @@
     `;
   }
 
-  function renderLoginForm(context) {
+  function renderOAuthActions(context, helpers) {
+    const providers = Array.isArray(context.oauthProviders) ? context.oauthProviders : [];
+    if (!providers.length) {
+      return "";
+    }
+
+    return `
+      <div class="auth-provider-stack" aria-label="Social sign-in options">
+        ${providers.map((provider) => `
+          <button
+            class="auth-provider-button auth-provider-${helpers.escapeHtml(provider.provider)}"
+            type="button"
+            data-auth-oauth="${helpers.escapeHtml(provider.provider)}"
+            ${context.busy ? "disabled" : ""}
+          >
+            <span aria-hidden="true"><img src="./assets/mascot/library/final-pack/Discordlogo.png?v=20260707directgames" alt="" /></span>
+            <strong>${helpers.escapeHtml(provider.label || "Continue")}</strong>
+          </button>
+        `).join("")}
+      </div>
+      <div class="auth-divider" aria-hidden="true"><span>or</span></div>
+    `;
+  }
+
+  function renderLoginForm(context, helpers) {
     return `
       <form class="alpaccount-form" data-auth-form="login">
+        ${renderOAuthActions(context, helpers)}
         <label class="auth-field">
           <span>Alpaca name or email</span>
           <input name="identifier" type="text" autocomplete="username" required />
@@ -244,6 +269,7 @@
     renderNotice,
     renderBody,
     renderConnectedAlpaccount,
+    renderOAuthActions,
     renderLoginForm,
     renderSignupForm,
     renderForgotPasswordForm,

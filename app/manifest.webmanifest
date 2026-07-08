@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "WSC 2026 Study Routes",
-  "short_name": "WSC Routes",
-  "description": "Explore the 2026 World Scholar's Cup theme through routes, checkpoints, and challenges.",
+  "name": "WSCapp",
+  "short_name": "WSCapp",
+  "description": "A free unofficial World Scholar's Cup 2026 study app with routes, games, Debate Lab, Alpacards, and a multiplayer campus.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "./",

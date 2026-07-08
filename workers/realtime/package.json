@@ -1,0 +1,13 @@
+{
+  "name": "wscapp-realtime-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/realtime-worker.test.mjs",
+    "test:load": "node test/load-simulation.mjs",
+    "dev": "npx wrangler dev",
+    "deploy:dry-run": "npx wrangler deploy --dry-run",
+    "deploy": "npx wrangler deploy"
+  }
+}

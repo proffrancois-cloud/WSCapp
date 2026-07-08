@@ -1,8 +1,10 @@
 # WSCapp
 
-This is the active World Scholar's Cup 2026 app workspace.
+This is the active WSCapp workspace for the World Scholar's Cup 2026 theme.
 
-Live GitHub app URL: `https://proffrancois-cloud.github.io/WSCapp/`
+Canonical app URL: `https://wscapp.app/`
+
+Fallback GitHub app URL: `https://proffrancois-cloud.github.io/WSCapp/`
 
 GitHub repository: `https://github.com/proffrancois-cloud/WSCapp`
 
@@ -15,7 +17,9 @@ GitHub repository: `https://github.com/proffrancois-cloud/WSCapp`
 
 ## Current Runtime
 
-GitHub Pages publishes a built Pages artifact for `WSCapp`. Vercel can still publish `app/` via `vercel.json`. The browser loads `app/generated/current-runtime/`, extracted modules in `app/src/`, then the remaining orchestrator in `app/app.js`.
+Cloudflare Pages is the target canonical host for `wscapp.app`. GitHub Pages can remain as a fallback while the Cloudflare cutover is validated. The browser loads `app/generated/current-runtime/`, extracted modules in `app/src/`, then the remaining orchestrator in `app/app.js`.
+
+Realtime multiplayer is prepared for Cloudflare Durable Objects in `workers/realtime/`. Supabase remains responsible for auth, profiles, progress, and persistent app data.
 
 Use [CURRENT_ARCHITECTURE.md](/Users/francoismo/Documents/Playground/WSC/CURRENT_ARCHITECTURE.md) for the exact current folder map and [ARCHITECTURE_TARGET.md](/Users/francoismo/Documents/Playground/WSC/ARCHITECTURE_TARGET.md) for the long-term target.
 
@@ -26,6 +30,10 @@ cd /Users/francoismo/Documents/Playground/WSC/app
 npm run test:theme
 npm run test:smoke
 ```
+
+## Launch Checklist
+
+Use [docs/launch/cloudflare-supabase-cutover.md](/Users/francoismo/Documents/Playground/WSC/docs/launch/cloudflare-supabase-cutover.md) for Cloudflare Pages, Supabase Auth, realtime Worker, and search-indexing cutover steps.
 
 ## Cleanup Rule
 

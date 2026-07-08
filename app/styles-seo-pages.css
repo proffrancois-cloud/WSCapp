@@ -1,0 +1,152 @@
+:root {
+  color-scheme: light;
+  --ink: #24190f;
+  --muted: #6d5238;
+  --paper: #fff8e8;
+  --panel: #ffffff;
+  --line: rgba(98, 70, 42, 0.18);
+  --accent: #2f7d70;
+  --accent-strong: #195f55;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
+.seo-page {
+  min-height: 100vh;
+  padding: 28px clamp(18px, 5vw, 64px) 44px;
+}
+
+.seo-nav,
+.seo-hero,
+.seo-section {
+  width: min(920px, 100%);
+  margin-inline: auto;
+}
+
+.seo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(32px, 8vw, 72px);
+}
+
+.seo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.seo-brand img {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+}
+
+.seo-brand span {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.seo-open-app {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+.seo-hero {
+  display: grid;
+  gap: 18px;
+}
+
+.seo-kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.seo-lede {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.03rem, 2.4vw, 1.22rem);
+  font-weight: 650;
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.seo-card {
+  min-height: 136px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.seo-card h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.seo-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.seo-section {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 760px) {
+  .seo-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .seo-grid {
+    grid-template-columns: 1fr;
+  }
+}

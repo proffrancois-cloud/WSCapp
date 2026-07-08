@@ -10,6 +10,14 @@ create table if not exists public.alpaca_profiles (
   wsc_event_count integer default 0,
   highest_wsc_round text default 'none_yet',
   wsc_achievements jsonb not null default '[]'::jsonb,
+  last_auth_provider text default 'email',
+  auth_provider_id text,
+  discord_user_id text,
+  discord_username text,
+  discord_global_name text,
+  discord_avatar_url text,
+  discord_connected_at timestamptz,
+  last_sign_in_at timestamptz,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
@@ -22,6 +30,14 @@ alter table public.alpaca_profiles
   add column if not exists wsc_event_count integer default 0,
   add column if not exists highest_wsc_round text default 'none_yet',
   add column if not exists wsc_achievements jsonb not null default '[]'::jsonb,
+  add column if not exists last_auth_provider text default 'email',
+  add column if not exists auth_provider_id text,
+  add column if not exists discord_user_id text,
+  add column if not exists discord_username text,
+  add column if not exists discord_global_name text,
+  add column if not exists discord_avatar_url text,
+  add column if not exists discord_connected_at timestamptz,
+  add column if not exists last_sign_in_at timestamptz,
   add column if not exists created_at timestamptz default now(),
   add column if not exists updated_at timestamptz default now();
 
@@ -30,7 +46,87 @@ set email = lower(trim(auth_user.email))
 from auth.users as auth_user
 where profile.id = auth_user.id
   and auth_user.email is not null
-  and (profile.email is null or trim(profile.email) = '');
+  and (profile.email is null or trim(profile.email) = '')
+  and not exists (
+    select 1
+    from public.alpaca_profiles as other_profile
+    where other_profile.id <> profile.id
+      and other_profile.email = lower(trim(auth_user.email))
+  );
+
+update public.alpaca_profiles as profile
+set
+  last_auth_provider = lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', profile.last_auth_provider, 'email'))),
+  auth_provider_id = nullif(left(trim(coalesce(
+    auth_user.raw_user_meta_data ->> 'provider_id',
+    auth_user.raw_user_meta_data ->> 'sub',
+    auth_user.raw_user_meta_data ->> 'id',
+    profile.auth_provider_id,
+    ''
+  )), 128), ''),
+  discord_user_id = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%discord%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'provider_id',
+      auth_user.raw_user_meta_data ->> 'sub',
+      auth_user.raw_user_meta_data ->> 'id',
+      profile.discord_user_id,
+      ''
+    )), 128), '')
+    else profile.discord_user_id
+  end,
+  discord_username = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%discord%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'user_name',
+      auth_user.raw_user_meta_data ->> 'username',
+      auth_user.raw_user_meta_data ->> 'preferred_username',
+      auth_user.raw_user_meta_data ->> 'name',
+      profile.discord_username,
+      ''
+    )), 120), '')
+    else profile.discord_username
+  end,
+  discord_global_name = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%discord%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'global_name',
+      auth_user.raw_user_meta_data -> 'custom_claims' ->> 'global_name',
+      auth_user.raw_user_meta_data ->> 'full_name',
+      auth_user.raw_user_meta_data ->> 'name',
+      profile.discord_global_name,
+      ''
+    )), 160), '')
+    else profile.discord_global_name
+  end,
+  discord_avatar_url = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%discord%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'avatar_url',
+      auth_user.raw_user_meta_data ->> 'picture',
+      profile.discord_avatar_url,
+      ''
+    )), 500), '')
+    else profile.discord_avatar_url
+  end,
+  discord_connected_at = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%discord%'
+    then coalesce(auth_user.last_sign_in_at, profile.discord_connected_at, now())
+    else profile.discord_connected_at
+  end,
+  last_sign_in_at = coalesce(auth_user.last_sign_in_at, profile.last_sign_in_at)
+from auth.users as auth_user
+where profile.id = auth_user.id;
 
 update public.alpaca_profiles
 set
@@ -52,6 +148,7 @@ set
       then lower(trim(highest_wsc_round))
     else 'none_yet'
   end,
+  last_auth_provider = coalesce(nullif(lower(trim(last_auth_provider)), ''), 'email'),
   wsc_achievements = case
     when jsonb_typeof(coalesce(wsc_achievements, '[]'::jsonb)) = 'array'
       then coalesce(wsc_achievements, '[]'::jsonb)
@@ -67,6 +164,8 @@ alter table public.alpaca_profiles
   alter column school_name set not null,
   alter column wsc_event_count set not null,
   alter column highest_wsc_round set not null,
+  alter column last_auth_provider set default 'email',
+  alter column last_auth_provider set not null,
   alter column wsc_achievements set default '[]'::jsonb,
   alter column wsc_achievements set not null,
   alter column created_at set not null,
@@ -142,6 +241,14 @@ begin
 end;
 $$;
 
+create index if not exists alpaca_profiles_discord_user_id_idx
+  on public.alpaca_profiles (discord_user_id)
+  where discord_user_id is not null;
+
+create index if not exists alpaca_profiles_last_auth_provider_idx
+  on public.alpaca_profiles (last_auth_provider, last_sign_in_at desc)
+  where last_auth_provider is not null;
+
 alter table public.alpaca_profiles enable row level security;
 
 grant select, update on public.alpaca_profiles to authenticated;
@@ -205,6 +312,20 @@ declare
   clean_wsc_reward_date text := trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_date', ''));
   clean_wsc_achievement_round text := '';
   clean_wsc_achievements jsonb := coalesce(new.raw_user_meta_data -> 'wsc_achievements', '[]'::jsonb);
+  clean_last_auth_provider text := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', 'email')));
+  clean_auth_provider_id text := nullif(left(trim(coalesce(
+    new.raw_user_meta_data ->> 'provider_id',
+    new.raw_user_meta_data ->> 'sub',
+    new.raw_user_meta_data ->> 'id',
+    ''
+  )), 128), '');
+  has_discord_identity boolean := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+    or coalesce(new.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+    or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%discord%';
+  clean_discord_user_id text := null;
+  clean_discord_username text := null;
+  clean_discord_global_name text := null;
+  clean_discord_avatar_url text := null;
 begin
   if coalesce(new.is_anonymous, false) then
     return new;
@@ -223,6 +344,24 @@ begin
 
   if clean_email = '' then
     clean_email := lower(replace(new.id::text, '-', '') || '@alpaccount.local');
+  end if;
+
+  if exists (
+    select 1
+    from public.alpaca_profiles
+    where email = clean_email
+      and id <> new.id
+  ) then
+    clean_email := lower(replace(new.id::text, '-', '') || '@alpaccount.local');
+  end if;
+
+  if exists (
+    select 1
+    from public.alpaca_profiles
+    where alpaca_name = clean_alpaca_name
+      and id <> new.id
+  ) then
+    clean_alpaca_name := 'alpaca_' || left(replace(new.id::text, '-', ''), 24);
   end if;
 
   if clean_country = '' then
@@ -255,6 +394,38 @@ begin
     clean_wsc_reward_type := 'none_yet';
   end if;
 
+  if clean_last_auth_provider = '' then
+    clean_last_auth_provider := 'email';
+  end if;
+
+  if has_discord_identity then
+    clean_discord_user_id := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'provider_id',
+      new.raw_user_meta_data ->> 'sub',
+      new.raw_user_meta_data ->> 'id',
+      ''
+    )), 128), '');
+    clean_discord_username := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'user_name',
+      new.raw_user_meta_data ->> 'username',
+      new.raw_user_meta_data ->> 'preferred_username',
+      new.raw_user_meta_data ->> 'name',
+      ''
+    )), 120), '');
+    clean_discord_global_name := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'global_name',
+      new.raw_user_meta_data -> 'custom_claims' ->> 'global_name',
+      new.raw_user_meta_data ->> 'full_name',
+      new.raw_user_meta_data ->> 'name',
+      ''
+    )), 160), '');
+    clean_discord_avatar_url := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'avatar_url',
+      new.raw_user_meta_data ->> 'picture',
+      ''
+    )), 500), '');
+  end if;
+
   clean_wsc_achievement_round := case clean_highest_wsc_round
     when 'regional_round' then 'regional'
     when 'global_round' then 'global'
@@ -285,7 +456,15 @@ begin
     school_name,
     wsc_event_count,
     highest_wsc_round,
-    wsc_achievements
+    wsc_achievements,
+    last_auth_provider,
+    auth_provider_id,
+    discord_user_id,
+    discord_username,
+    discord_global_name,
+    discord_avatar_url,
+    discord_connected_at,
+    last_sign_in_at
   )
   values (
     new.id,
@@ -295,7 +474,15 @@ begin
     clean_school_name,
     clean_wsc_event_count,
     clean_highest_wsc_round,
-    clean_wsc_achievements
+    clean_wsc_achievements,
+    clean_last_auth_provider,
+    clean_auth_provider_id,
+    clean_discord_user_id,
+    clean_discord_username,
+    clean_discord_global_name,
+    clean_discord_avatar_url,
+    case when has_discord_identity then coalesce(new.last_sign_in_at, now()) else null end,
+    new.last_sign_in_at
   )
   on conflict (id) do update
     set
@@ -306,6 +493,14 @@ begin
       wsc_event_count = excluded.wsc_event_count,
       highest_wsc_round = excluded.highest_wsc_round,
       wsc_achievements = excluded.wsc_achievements,
+      last_auth_provider = excluded.last_auth_provider,
+      auth_provider_id = excluded.auth_provider_id,
+      discord_user_id = coalesce(excluded.discord_user_id, public.alpaca_profiles.discord_user_id),
+      discord_username = coalesce(excluded.discord_username, public.alpaca_profiles.discord_username),
+      discord_global_name = coalesce(excluded.discord_global_name, public.alpaca_profiles.discord_global_name),
+      discord_avatar_url = coalesce(excluded.discord_avatar_url, public.alpaca_profiles.discord_avatar_url),
+      discord_connected_at = coalesce(excluded.discord_connected_at, public.alpaca_profiles.discord_connected_at),
+      last_sign_in_at = coalesce(excluded.last_sign_in_at, public.alpaca_profiles.last_sign_in_at),
       updated_at = now();
 
   return new;
@@ -319,6 +514,218 @@ create trigger create_alpaca_profile_for_new_user
   execute function public.create_alpaca_profile_for_new_user();
 
 revoke all on function public.create_alpaca_profile_for_new_user() from public;
+
+create table if not exists public.alpaca_auth_events (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  provider text not null,
+  provider_user_id text,
+  discord_user_id text,
+  discord_username text,
+  discord_global_name text,
+  discord_avatar_url text,
+  event_type text not null default 'sign_in',
+  created_at timestamptz not null default now()
+);
+
+alter table public.alpaca_auth_events
+  add column if not exists user_id uuid references auth.users(id) on delete cascade,
+  add column if not exists provider text,
+  add column if not exists provider_user_id text,
+  add column if not exists discord_user_id text,
+  add column if not exists discord_username text,
+  add column if not exists discord_global_name text,
+  add column if not exists discord_avatar_url text,
+  add column if not exists event_type text default 'sign_in',
+  add column if not exists created_at timestamptz default now();
+
+update public.alpaca_auth_events
+set
+  provider = coalesce(nullif(lower(trim(provider)), ''), 'unknown'),
+  event_type = coalesce(nullif(lower(trim(event_type)), ''), 'sign_in'),
+  created_at = coalesce(created_at, now());
+
+alter table public.alpaca_auth_events
+  alter column user_id set not null,
+  alter column provider set default 'unknown',
+  alter column provider set not null,
+  alter column event_type set default 'sign_in',
+  alter column event_type set not null,
+  alter column created_at set default now(),
+  alter column created_at set not null;
+
+alter table public.alpaca_auth_events enable row level security;
+revoke all on public.alpaca_auth_events from anon, authenticated;
+
+create index if not exists alpaca_auth_events_user_created_idx
+  on public.alpaca_auth_events (user_id, created_at desc);
+
+create index if not exists alpaca_auth_events_discord_created_idx
+  on public.alpaca_auth_events (created_at desc)
+  where provider = 'discord';
+
+create or replace function public.sync_alpaca_profile_auth_identity()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  clean_email text := lower(trim(coalesce(new.email, '')));
+  clean_last_auth_provider text := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', 'email')));
+  clean_auth_provider_id text := nullif(left(trim(coalesce(
+    new.raw_user_meta_data ->> 'provider_id',
+    new.raw_user_meta_data ->> 'sub',
+    new.raw_user_meta_data ->> 'id',
+    ''
+  )), 128), '');
+  has_discord_identity boolean := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', ''))) = 'discord'
+    or coalesce(new.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
+    or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%discord%';
+  clean_discord_user_id text := null;
+  clean_discord_username text := null;
+  clean_discord_global_name text := null;
+  clean_discord_avatar_url text := null;
+  should_record_event boolean := false;
+begin
+  if coalesce(new.is_anonymous, false) then
+    return new;
+  end if;
+
+  if clean_last_auth_provider = '' then
+    clean_last_auth_provider := 'email';
+  end if;
+
+  if clean_email = '' then
+    clean_email := lower(replace(new.id::text, '-', '') || '@alpaccount.local');
+  end if;
+
+  if exists (
+    select 1
+    from public.alpaca_profiles
+    where email = clean_email
+      and id <> new.id
+  ) then
+    clean_email := lower(replace(new.id::text, '-', '') || '@alpaccount.local');
+  end if;
+
+  if has_discord_identity then
+    clean_discord_user_id := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'provider_id',
+      new.raw_user_meta_data ->> 'sub',
+      new.raw_user_meta_data ->> 'id',
+      ''
+    )), 128), '');
+    clean_discord_username := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'user_name',
+      new.raw_user_meta_data ->> 'username',
+      new.raw_user_meta_data ->> 'preferred_username',
+      new.raw_user_meta_data ->> 'name',
+      ''
+    )), 120), '');
+    clean_discord_global_name := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'global_name',
+      new.raw_user_meta_data -> 'custom_claims' ->> 'global_name',
+      new.raw_user_meta_data ->> 'full_name',
+      new.raw_user_meta_data ->> 'name',
+      ''
+    )), 160), '');
+    clean_discord_avatar_url := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'avatar_url',
+      new.raw_user_meta_data ->> 'picture',
+      ''
+    )), 500), '');
+  end if;
+
+  insert into public.alpaca_profiles (
+    id,
+    alpaca_name,
+    email,
+    country,
+    school_name,
+    wsc_event_count,
+    highest_wsc_round,
+    wsc_achievements,
+    last_auth_provider,
+    auth_provider_id,
+    discord_user_id,
+    discord_username,
+    discord_global_name,
+    discord_avatar_url,
+    discord_connected_at,
+    last_sign_in_at
+  )
+  values (
+    new.id,
+    'alpaca_' || left(replace(new.id::text, '-', ''), 24),
+    clean_email,
+    'Unknown',
+    'Unknown school',
+    0,
+    'none_yet',
+    '[]'::jsonb,
+    clean_last_auth_provider,
+    clean_auth_provider_id,
+    clean_discord_user_id,
+    clean_discord_username,
+    clean_discord_global_name,
+    clean_discord_avatar_url,
+    case when has_discord_identity then coalesce(new.last_sign_in_at, now()) else null end,
+    new.last_sign_in_at
+  )
+  on conflict (id) do update
+    set
+      last_auth_provider = excluded.last_auth_provider,
+      auth_provider_id = excluded.auth_provider_id,
+      discord_user_id = coalesce(excluded.discord_user_id, public.alpaca_profiles.discord_user_id),
+      discord_username = coalesce(excluded.discord_username, public.alpaca_profiles.discord_username),
+      discord_global_name = coalesce(excluded.discord_global_name, public.alpaca_profiles.discord_global_name),
+      discord_avatar_url = coalesce(excluded.discord_avatar_url, public.alpaca_profiles.discord_avatar_url),
+      discord_connected_at = coalesce(excluded.discord_connected_at, public.alpaca_profiles.discord_connected_at),
+      last_sign_in_at = coalesce(excluded.last_sign_in_at, public.alpaca_profiles.last_sign_in_at),
+      updated_at = now();
+
+  if tg_op = 'INSERT' then
+    should_record_event := new.last_sign_in_at is not null;
+  elsif tg_op = 'UPDATE' then
+    should_record_event := new.last_sign_in_at is not null
+      and new.last_sign_in_at is distinct from old.last_sign_in_at;
+  end if;
+
+  if should_record_event then
+    insert into public.alpaca_auth_events (
+      user_id,
+      provider,
+      provider_user_id,
+      discord_user_id,
+      discord_username,
+      discord_global_name,
+      discord_avatar_url,
+      event_type
+    )
+    values (
+      new.id,
+      clean_last_auth_provider,
+      clean_auth_provider_id,
+      clean_discord_user_id,
+      clean_discord_username,
+      clean_discord_global_name,
+      clean_discord_avatar_url,
+      'sign_in'
+    );
+  end if;
+
+  return new;
+end;
+$$;
+
+drop trigger if exists sync_alpaca_profile_auth_identity on auth.users;
+create trigger sync_alpaca_profile_auth_identity
+  after insert or update of raw_app_meta_data, raw_user_meta_data, email, last_sign_in_at on auth.users
+  for each row
+  execute function public.sync_alpaca_profile_auth_identity();
+
+revoke all on function public.sync_alpaca_profile_auth_identity() from public;
 
 create or replace function public.resolve_alpaca_login(p_alpaca_name text)
 returns text

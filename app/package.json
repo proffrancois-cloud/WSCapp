@@ -2,7 +2,7 @@
   "name": "wsc-alpaca-quiz",
   "version": "1.0.0",
   "private": true,
-  "description": "World Scholar's Cup 2026 Study Routes as a web app and desktop app.",
+  "description": "WSCapp, a free unofficial World Scholar's Cup 2026 study web app.",
   "main": "desktop/electron/main.js",
   "engines": {
     "node": "24.x",
@@ -15,7 +15,7 @@
     "build:vercel": "node ../tools/deployment/prepare-github-pages.mjs --target=vercel",
     "audit:pages": "node ../tools/validators/audit-public-artifact.mjs dist-pages",
     "audit:vercel": "node ../tools/validators/audit-public-artifact.mjs dist-vercel",
-    "verify": "npm run test:node-version && npm run test:classic-scripts && npm run test:campus2d && npm run test:theme && npm run test:smoke && npm run build:pages && npm run audit:pages",
+    "verify": "npm run test:node-version && npm run test:classic-scripts && npm run test:auth-privacy && npm run test:campus2d && npm run test:theme && npm run test:smoke && npm run build:pages && npm run audit:pages",
     "theme:extract": "node ../tools/generators/extract-current-2026-theme.mjs",
     "theme:build-question-bank": "node ../tools/generators/build-question-bank-from-theme.mjs ../content/themes/2026",
     "theme:validate": "node ../tools/validators/validate-theme.mjs ../content/themes/2026",
@@ -55,7 +55,7 @@
   },
   "build": {
     "appId": "org.worldscholarscup.study.routes",
-    "productName": "WSC 2026 Study Routes",
+    "productName": "WSCapp",
     "directories": {
       "buildResources": "desktop/icons",
       "output": "../builds/current"

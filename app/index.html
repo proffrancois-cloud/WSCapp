@@ -3,17 +3,66 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>WSC 2026 Study Routes | Are We There Yet?</title>
+    <title>WSCapp | Free World Scholar's Cup 2026 Study App</title>
     <meta
       name="description"
-      content="Explore the 2026 World Scholar's Cup theme through routes, checkpoints, and challenges."
+      content="WSCapp is a free unofficial World Scholar's Cup 2026 study app with interactive routes, practice games, Alpacards, Debate Lab, and a multiplayer campus."
     />
+    <meta
+      name="keywords"
+      content="WSCapp, WSC app, World Scholar's Cup, World Scholars Cup, WSC 2026 study app, Debate Lab, Scholar's Challenge, Alpacards"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <link rel="canonical" href="https://wscapp.app/" />
+    <meta property="og:site_name" content="WSCapp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WSCapp | Free World Scholar's Cup 2026 Study App" />
+    <meta
+      property="og:description"
+      content="Study the World Scholar's Cup 2026 theme with interactive routes, practice modes, Debate Lab, Alpacards, and a multiplayer campus."
+    />
+    <meta property="og:url" content="https://wscapp.app/" />
+    <meta property="og:image" content="https://wscapp.app/app-icons/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="WSCapp | Free WSC 2026 Study App" />
+    <meta
+      name="twitter:description"
+      content="A free unofficial World Scholar's Cup 2026 study app with routes, practice games, Debate Lab, and Alpacards."
+    />
+    <meta name="twitter:image" content="https://wscapp.app/app-icons/icon-512.png" />
     <meta name="theme-color" content="#8a6338" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="WSC Routes" />
-    <!-- Bump this value when static asset URLs need a fresh GitHub Pages cache key. -->
+    <meta name="apple-mobile-web-app-title" content="WSCapp" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "EducationalApplication"],
+        "name": "WSCapp",
+        "alternateName": ["WSC app", "World Scholar's Cup study app", "World Scholars Cup study app"],
+        "url": "https://wscapp.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "description": "A free unofficial World Scholar's Cup 2026 study app with interactive routes, practice games, Debate Lab, Alpacards, and a multiplayer campus.",
+        "keywords": "WSCapp, WSC app, World Scholar's Cup, World Scholars Cup, WSC 2026 study app, Debate Lab, Scholar's Challenge, Alpacards",
+        "publisher": {
+          "@type": "Person",
+          "name": "Francois Moret"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "isBasedOn": {
+          "@type": "Thing",
+          "name": "World Scholar's Cup 2026 theme"
+        }
+      }
+    </script>
+    <!-- Bump this value when static asset URLs need a fresh hosted-site cache key. -->
     <script>
       window.WSC_PWA_RESET_VERSION = "20260707directgames";
     </script>
@@ -28,17 +77,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css?v=20260707directgames" />
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script>
-      if (!["localhost", "127.0.0.1", "::1"].includes(window.location.hostname)) {
-        const insightsScript = document.createElement("script");
-        insightsScript.defer = true;
-        insightsScript.src = "/_vercel/insights/script.js";
-        document.head.appendChild(insightsScript);
-      }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
@@ -99,6 +137,9 @@
           </div>
           <div class="hero-copy">
             <h1>Are We There Yet?</h1>
+            <p class="hero-seo-disclaimer">
+              WSCapp is a free unofficial World Scholar's Cup 2026 study app. It is not affiliated with or endorsed by World Scholar's Cup.
+            </p>
             <div id="heroOnlineMount" class="hero-online-mount"></div>
             <div class="hero-actions hidden" aria-label="App install controls">
               <p id="installStatus" class="install-status">Checking app install support...</p>
@@ -163,6 +204,7 @@
     <script src="./src/modes/play/alpacapardy/alpacapardy-renderer.js?v=20260707directgames"></script>
     <script src="./src/modes/play/alpacapardy/alpacapardy-live.js?v=20260707directgames"></script>
     <script src="./src/modes/play/live-session-service.js?v=20260707directgames"></script>
+    <script src="./realtime-config.js?v=20260707directgames"></script>
     <script src="./src/features/campus-2d/manifest.js?v=20260707directgames"></script>
     <script src="./src/features/campus-2d/realtime.js?v=20260707directgames"></script>
     <script src="./src/features/campus-2d/debate-lab-rules.js?v=20260707directgames"></script>

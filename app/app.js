@@ -9,12 +9,13 @@ const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabas
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
 const ASSET_CACHE_VERSION = "20260707directgames";
 const appAuthService = window.WSC_AUTH_SERVICE || null;
+const AUTH_OAUTH_PROVIDERS = Object.freeze(Object.values(appAuthService?.oauthProviders || {}));
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
 const CONTACT_EMAIL_URL = "mailto:frenchease.admin@gmail.com";
 const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
 const LIBRARY_RESOURCE_PROXY_ENDPOINT = "/api/embed-library-resource";
-const DEFAULT_ONLINE_ALPACA_NAME = "Devalpacca";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
+const MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE = "Sign in with your Alpaccount to use multiplayer.";
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
   writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
   bowl: "Scholar's Bowl is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed.",
@@ -23,17 +24,6 @@ const UNAVAILABLE_MODE_REASONS = Object.freeze({
 const CAMPUS_ACTIVITY_COMING_SOON_NOTICE = "Available soon";
 const DEBATE_LAB_ALONE_UNAVAILABLE_REASON = "Debate Lab alone is available soon. Please wait for the live Debate Lab setup.";
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
-const MULTIPLAYER_ALLOWED_EMAILS = new Set([
-  "moretfrancoisea@gmail.com",
-  "francois.moret@ilg-ks.org",
-  "frenchease.admin@gmail.com",
-  "ballingballer6969@gmail.com"
-]);
-const MULTIPLAYER_ALLOWED_EMAIL_DOMAINS = new Set([
-  "ilg-ks.org",
-  "hcas.com.tw",
-  "ykc.edu.mk"
-]);
 const WSC_ROUND_OPTIONS = [
   { value: "none_yet", label: "None yet" },
   { value: "regional_round", label: "Regional Round" },
@@ -2688,6 +2678,12 @@ function handleClick(event) {
     return;
   }
 
+  const oauthButton = event.target.closest("[data-auth-oauth]");
+  if (oauthButton) {
+    connectWithOAuthProvider(oauthButton.dataset.authOauth);
+    return;
+  }
+
   const openAppEntryGate = event.target.closest("[data-open-app-entry-gate]");
   if (openAppEntryGate) {
     state.ui.appEntryGateOpen = true;
@@ -4425,7 +4421,7 @@ function renderSessionControls() {
     : "./assets/mascot/library/final-pack/Multiplayer.png?v=20260520train";
   const soonLabel = isOnline
     ? "Back to solo offline mode"
-    : canAccessMultiplayer() ? "Switch mode" : "Available soon";
+    : getMultiplayerAccessLabel("Switch mode");
   const modeButton = `
     <button
       class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
@@ -4488,6 +4484,7 @@ function renderAppEntryGate() {
   }
 
   const onlineAllowed = canAccessMultiplayer();
+  const onlineStatusLabel = getMultiplayerAccessLabel(getLiveDisplayName());
 
   refs.appEntryGateMount.innerHTML = `
     <div class="app-entry-gate-overlay" role="dialog" aria-modal="true" aria-label="App mode">
@@ -4513,7 +4510,7 @@ function renderAppEntryGate() {
               aria-hidden="true"
             />
             <strong>Join online</strong>
-            ${onlineAllowed ? `<small>${escapeHtml(DEFAULT_ONLINE_ALPACA_NAME)}</small>` : "<small>Available soon</small>"}
+            <small>${escapeHtml(onlineStatusLabel)}</small>
           </button>
         </div>
       </article>
@@ -7256,7 +7253,14 @@ function getCurrentUserEmail() {
 }
 
 function canAccessMultiplayer() {
-  return Boolean(MULTIPLAYER_PUBLIC_ENABLED);
+  return Boolean(MULTIPLAYER_PUBLIC_ENABLED && isSignedIn());
+}
+
+function getMultiplayerAccessLabel(allowedLabel = "Join online") {
+  if (!MULTIPLAYER_PUBLIC_ENABLED) {
+    return "Available soon";
+  }
+  return isSignedIn() ? allowedLabel : "Sign in required";
 }
 
 function canDismissAuthModal() {
@@ -7387,7 +7391,7 @@ function setupSupabaseAuth() {
       state.auth.message = "Choose a new password for your Alpaccount.";
     } else if (session && !isAnonymousUser(session.user)) {
       state.ui.authOpen = false;
-      loadAlpacaProfile();
+      syncAlpacaAuthIdentity().finally(() => loadAlpacaProfile());
       loadAlpacaProgress();
     } else {
       state.auth.profile = null;
@@ -7406,12 +7410,25 @@ function setupSupabaseAuth() {
     state.ui.authOpen = false;
 
     if (state.auth.session && !isAnonymousUser(state.auth.session.user)) {
-      loadAlpacaProfile();
+      syncAlpacaAuthIdentity().finally(() => loadAlpacaProfile());
       loadAlpacaProgress();
     }
 
     syncAuthChrome();
   });
+}
+
+async function syncAlpacaAuthIdentity() {
+  const client = getSupabaseClient();
+  const user = state.auth.session && state.auth.session.user;
+  if (!client || !user || isAnonymousUser(user) || !supabaseProfileService?.syncAuthIdentity) {
+    return;
+  }
+
+  const { error } = await supabaseProfileService.syncAuthIdentity(client, user);
+  if (error) {
+    console.warn("Unable to sync Supabase auth identity metadata.", error);
+  }
 }
 
 async function loadAlpacaProfile() {
@@ -7640,7 +7657,46 @@ async function connectToAlpaccount(formData, client) {
   state.auth.session = signInData.session;
   state.ui.authOpen = false;
   state.auth.message = "";
+  await syncAlpacaAuthIdentity();
   await loadAlpacaProfile();
+}
+
+async function connectWithOAuthProvider(provider) {
+  const client = getSupabaseClient();
+  clearAuthNotice();
+
+  if (!client) {
+    state.auth.error = "Supabase is not configured yet. Add the publishable key in supabase-config.js.";
+    syncAuthChrome();
+    return;
+  }
+
+  let oauthConfig;
+  try {
+    oauthConfig = appAuthService?.getOAuthSignInOptions
+      ? appAuthService.getOAuthSignInOptions(provider, getCurrentRedirectUrl())
+      : {
+          provider: String(provider || "").trim().toLowerCase(),
+          options: {
+            redirectTo: getCurrentRedirectUrl(),
+            scopes: "identify email"
+          }
+        };
+  } catch (error) {
+    state.auth.error = error.message || "That sign-in provider is not available yet.";
+    syncAuthChrome();
+    return;
+  }
+
+  state.auth.status = "submitting";
+  syncAuthChrome();
+
+  const { error } = await client.auth.signInWithOAuth(oauthConfig);
+  if (error) {
+    state.auth.status = "ready";
+    state.auth.error = error.message || "Discord sign-in could not start.";
+    syncAuthChrome();
+  }
 }
 
 async function sendPasswordReset(formData, client) {
@@ -7717,33 +7773,33 @@ async function ensureLiveAuthSession() {
     throw new Error("Supabase is not configured yet, so live multiplayer cannot start.");
   }
 
-  if (state.auth.session?.user) {
+  if (isSignedIn()) {
     return state.auth.session;
   }
 
-  if (!client.auth?.signInAnonymously) {
-    throw new Error("Anonymous guest sign-in is not available in this Supabase client.");
-  }
-
-  state.live.status = "joining";
-  state.live.message = "Connecting as guest...";
-  state.live.error = "";
-  renderExperience();
-
-  const { data: authData, error } = await client.auth.signInAnonymously();
-  if (error) {
-    throw error;
-  }
-
-  state.auth.session = authData.session || state.auth.session;
-  state.auth.profile = null;
+  state.live.status = "idle";
+  state.live.message = "";
+  state.live.error = MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE;
+  state.auth.error = "";
+  state.auth.message = MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE;
+  state.ui.authMode = "login";
+  state.ui.authOpen = true;
   syncAuthChrome();
-  return state.auth.session;
+  throw new Error(MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE);
 }
 
 function getLiveDisplayName() {
-  if (state.auth.profile?.alpaca_name && !isAnonymousUser()) {
-    return state.auth.profile.alpaca_name;
+  const user = state.auth.session?.user || null;
+  if (user && !isAnonymousUser(user)) {
+    const profileName = String(state.auth.profile?.alpaca_name || "").trim();
+    const metadataName = String(user?.user_metadata?.alpaca_name || user?.user_metadata?.user_name || "").trim();
+    if (profileName) {
+      return profileName;
+    }
+    if (metadataName) {
+      return metadataName;
+    }
+    return "Alpaccount";
   }
   return state.live.guestName || "Guest";
 }
@@ -7805,7 +7861,7 @@ function renderConnectedAlpaccount(busy) {
 }
 
 function renderLoginForm(busy) {
-  return authModalRenderer.renderLoginForm({ ...getAuthRenderContext(), busy });
+  return authModalRenderer.renderLoginForm({ ...getAuthRenderContext(), busy }, { escapeHtml });
 }
 
 function renderSignupForm(busy) {
@@ -7830,6 +7886,7 @@ function getAuthRenderContext() {
     error: state.auth.error,
     message: state.auth.message,
     profile: state.auth.profile,
+    oauthProviders: AUTH_OAUTH_PROVIDERS,
     roundOptions: WSC_ROUND_OPTIONS,
     rewardOptions: WSC_ID_REWARD_OPTIONS,
     canDismiss: canDismissAuthModal()
@@ -14480,6 +14537,7 @@ function getAlpacapardyLiveRenderContext() {
   return {
     available: Boolean(hasSupabaseConfig() && alpacapardyLiveSupabaseService && alpacapardyLive),
     accessAllowed: canAccessMultiplayer(),
+    requiresSignIn: Boolean(MULTIPLAYER_PUBLIC_ENABLED && !isSignedIn()),
     enabled,
     session: state.live.currentSession,
     player: state.live.currentPlayer,
@@ -14512,9 +14570,12 @@ function guardMultiplayerAccess() {
   if (canAccessMultiplayer()) {
     return true;
   }
-  state.live.error = isSignedIn()
-    ? "Available soon. Multiplayer is currently limited to approved school domains."
-    : "Available soon. Connect with an approved Alpaccount to test multiplayer.";
+  state.live.error = MULTIPLAYER_PUBLIC_ENABLED
+    ? MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE
+    : "Live multiplayer is available soon.";
+  if (MULTIPLAYER_PUBLIC_ENABLED && !isSignedIn()) {
+    state.ui.authMode = "login";
+  }
   renderLiveSurfaces();
   return false;
 }
@@ -19861,18 +19922,12 @@ function loadRawMastery() {
 
 function loadGuestAlpacaName() {
   const key = "wsc-live-guest-name";
-  const fallback = DEFAULT_ONLINE_ALPACA_NAME;
   try {
-    const current = localStorage.getItem(key);
-    const normalizedCurrent = String(current || "").trim();
-    if (normalizedCurrent.length >= 2 && !/^Guest\s+\d{4}$/i.test(normalizedCurrent)) {
-      return normalizedCurrent;
-    }
-    localStorage.setItem(key, fallback);
+    localStorage.removeItem(key);
   } catch (_error) {
-    return fallback;
+    return "Guest";
   }
-  return fallback;
+  return "Guest";
 }
 
 function saveStats() {

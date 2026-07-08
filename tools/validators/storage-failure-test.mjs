@@ -38,7 +38,7 @@ const storageGetResult = storageService.getJson("blocked", { fallback: true });
 const progressController = sandbox.window.WSC_CREATE_PROGRESS_STORAGE_CONTROLLER({
   storageService,
   progressService: null,
-  entryService: { getOnlineAlpacaName: () => "Devalpacca" }
+  entryService: { getOnlineAlpacaName: () => "Guest" }
 });
 const progressSaveResult = progressController.saveLocalProgress({
   stats: { sessions: 1 },

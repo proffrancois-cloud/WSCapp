@@ -97,7 +97,7 @@
       return;
     }
 
-    setInstallStatus("Updates now load directly from GitHub Pages.");
+    setInstallStatus("Updates now load directly from the hosted site.");
   }
 
   if (desktopContext) {
@@ -118,11 +118,11 @@
 
     window.addEventListener("load", () => {
       retireServiceWorkerRuntime().catch(() => {
-        setInstallStatus("Updates now load directly from GitHub Pages.");
+        setInstallStatus("Updates now load directly from the hosted site.");
       });
     });
   } else {
-    setInstallStatus("Updates now load directly from GitHub Pages.");
+    setInstallStatus("Updates now load directly from the hosted site.");
   }
 
   window.addEventListener("beforeinstallprompt", (event) => {

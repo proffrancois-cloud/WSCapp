@@ -1,0 +1,29 @@
+{
+  "name": "wscapp-realtime",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-08",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "realtime.wscapp.app",
+      "custom_domain": true
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CAMPUS_ROOM",
+        "class_name": "CampusRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["CampusRoom"]
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://wscapp.app,https://www.wscapp.app,https://proffrancois-cloud.github.io,http://localhost:4173,http://127.0.0.1:4173"
+  }
+}

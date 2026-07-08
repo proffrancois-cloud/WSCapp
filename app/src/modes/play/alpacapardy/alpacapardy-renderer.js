@@ -143,6 +143,10 @@
     const setupLocked = isMultiplayer && live.session && !live.isHost;
     const teamCountLocked = setupLocked || Boolean(live.session && live.players?.length > 1);
     const multiplayerLocked = !live.accessAllowed;
+    const multiplayerLockedLabel = live.requiresSignIn ? "Multiplayer · Sign in" : "Multiplayer · Available soon";
+    const multiplayerLockedHelp = live.requiresSignIn
+      ? "Sign in with a valid Alpaccount to use live multiplayer."
+      : "Live multiplayer is available soon.";
 
     const titleHtml = helpers.setupPanelTitleOptions?.hideSetupTitle ? "" : helpers.renderPanelTitle(
       "Alpacapardy",
@@ -192,10 +196,10 @@
                 data-jeopardy-play-mode="multiplayer"
                 ${live.session || multiplayerLocked ? "disabled" : ""}
               >
-                ${multiplayerLocked ? "Multiplayer · Available soon" : "Multiplayer"}
+                ${multiplayerLocked ? multiplayerLockedLabel : "Multiplayer"}
               </button>
             </div>
-            ${multiplayerLocked ? `<p class="setup-helper">Available soon. Live multiplayer is currently limited to the admin test accounts.</p>` : ""}
+            ${multiplayerLocked ? `<p class="setup-helper">${helpers.escapeHtml(multiplayerLockedHelp)}</p>` : ""}
           </div>` : ""}
 
           ${helpers.showInlinePlayMode && isMultiplayer ? renderLiveLobby(experience, helpers) : ""}
