@@ -462,7 +462,7 @@ async function checkUnavailableTrainModeCards(page) {
   await page.waitForFunction(() => document.querySelector('[data-mode-choice-path="train"]')?.classList.contains("is-open"));
 
   return page.evaluate(() => {
-    const expected = ["writing", "bowl", "quiz"];
+    const expected = ["writing", "buildcase", "bowl", "quiz"];
     return Object.fromEntries(expected.map((modeId) => {
       const card = document.querySelector(`[data-pick-mode="${modeId}"][data-pick-mode-path="train"]`);
       return [modeId, {

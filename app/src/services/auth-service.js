@@ -39,6 +39,20 @@
     return String(locationObject.href || "").split("#")[0].split("?")[0];
   }
 
+  function hasRecoveryType(params) {
+    return String(params.get("type") || "").trim().toLowerCase() === "recovery";
+  }
+
+  function getUrlParams(value) {
+    const rawValue = String(value || "").trim().replace(/^[?#]/, "");
+    return new URLSearchParams(rawValue);
+  }
+
+  function isPasswordRecoveryRedirect(locationObject = window.location) {
+    return hasRecoveryType(getUrlParams(locationObject.search))
+      || hasRecoveryType(getUrlParams(locationObject.hash));
+  }
+
   function firstMetadataValue(...values) {
     for (const value of values) {
       const cleanValue = String(value || "").trim();
@@ -139,6 +153,7 @@
     getOAuthProvider,
     getOAuthSignInOptions,
     getCurrentRedirectUrl,
+    isPasswordRecoveryRedirect,
     extractAuthIdentity,
     hasConfig,
     createClient

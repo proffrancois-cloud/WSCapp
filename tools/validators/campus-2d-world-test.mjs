@@ -367,6 +367,12 @@ const appJs = readApp("app.js");
 if (!appJs.includes("window.WSC_CAMPUS_2D.mount")) {
   failures.push("app.js does not mount WSC_CAMPUS_2D.");
 }
+if (!appJs.includes('const CAMPUS_DEV_ALPACA_NAME = "devalpaca"') || !/function\s+canUseCampusDevMode\(\)[\s\S]*normalizeAlpacaName\(state\.auth\.profile\?\.alpaca_name\)\s*===\s*CAMPUS_DEV_ALPACA_NAME/.test(appJs)) {
+  failures.push("Campus 2D dev mode must be restricted to the signed-in devalpaca profile.");
+}
+if (!/debugAllowed:\s*canUseCampusDevMode\(\)/.test(appJs) || !/setDebugAllowed\?\.\(identity\.debugAllowed\)/.test(appJs)) {
+  failures.push("Campus 2D identity sync must pass the devalpaca-only debugAllowed flag to the controller.");
+}
 if (/statsStrip|renderStats\(|renderOnlineScoreStrip|hero-progress-circles/.test(appJs)) {
   failures.push("Retired header achievement/progress tracker JS must stay removed from app.js.");
 }
@@ -473,6 +479,12 @@ for (const runtimeNeedle of [
   "campus2d-debug-panel",
   "campus2d-debug-zone",
   "wscCampus2dDevZones",
+  "let debugAllowed = Boolean(identity.debugAllowed || options.debugAllowed)",
+  "function setDebugAllowed(value)",
+  "debugEnabled = Boolean(value) && debugAllowed",
+  "if (!debugAllowed || isTextEntryTarget(event.target) || event.metaKey || event.ctrlKey || event.altKey)",
+  "setDebugAllowed(nextIdentity.debugAllowed)",
+  "setDebugAllowed,",
   "data-campus2d-zone-copy-selected",
   "data-campus2d-zone-paste",
   "data-campus2d-seat-direction",

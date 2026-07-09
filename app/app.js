@@ -8,6 +8,12 @@ const supabaseConfig = window.WSC_SUPABASE_CONFIG || {};
 const SUPABASE_URL = supabaseConfig.url || "https://bwogymstqrrmoxlwlhio.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = supabaseConfig.publishableKey || "";
 const ASSET_CACHE_VERSION = "20260707directgames";
+const APP_SETTINGS_STORAGE_KEY = "wscCampus2dSettings";
+const APP_BACKGROUND_MUSIC_SRC = "./assets/campus-2d/audio/alpaca-campus-lofi-loop-3min-less-bass.mp3";
+const APP_DEFAULT_SETTINGS = Object.freeze({
+  volume: 16,
+  muted: false
+});
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const AUTH_OAUTH_PROVIDERS = Object.freeze(Object.values(appAuthService?.oauthProviders || {}));
 const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
@@ -16,14 +22,18 @@ const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
 const LIBRARY_RESOURCE_PROXY_ENDPOINT = "/api/embed-library-resource";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE = "Sign in with your Alpaccount to use multiplayer.";
+const ALPACCOUNT_PROFILE_COMPLETION_MESSAGE = "Complete your Alpaccount profile to continue.";
 const UNAVAILABLE_MODE_REASONS = Object.freeze({
   writing: "Collaborative Writing is available soon. We are keeping it closed for this public build.",
+  buildcase: "Debate Lab is available soon. We are keeping it closed for this public build.",
   bowl: "Scholar's Bowl is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed.",
   quiz: "Scholar's Challenge is available soon. We are keeping it closed while the live Debate Lab flow is being reviewed."
 });
 const CAMPUS_ACTIVITY_COMING_SOON_NOTICE = "Available soon";
 const DEBATE_LAB_ALONE_UNAVAILABLE_REASON = "Debate Lab alone is available soon. Please wait for the live Debate Lab setup.";
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
+const GENERATED_ALPACA_NAME_PATTERN = /^alpaca_[a-f0-9]{24}$/i;
+const CAMPUS_DEV_ALPACA_NAME = "devalpaca";
 const WSC_ROUND_OPTIONS = [
   { value: "none_yet", label: "None yet" },
   { value: "regional_round", label: "Regional Round" },
@@ -38,6 +48,8 @@ const WSC_ID_REWARD_OPTIONS = [
   { value: "silver-medal", label: "Silver medal" }
 ];
 const WSC_ID_REWARD_VALUES = new Set(WSC_ID_REWARD_OPTIONS.map((option) => option.value));
+const WSC_ID_REWARD_FALLBACK_CITY = "N/A";
+const WSC_ID_REWARD_FALLBACK_DATE = "Not sure";
 
 const sectionById = Object.fromEntries(data.sections.map((section) => [section.id, section]));
 const subjectById = Object.fromEntries(data.subjects.map((subject) => [subject.id, subject]));
@@ -2340,6 +2352,7 @@ const state = {
     authOpen: false,
     authMode: "login",
     resourcesOpen: false,
+    appSettingsOpen: false,
     rawAssetSelections: {},
     rawQuizSelections: {},
     rawQuizPages: {},
@@ -2392,6 +2405,10 @@ const state = {
   stats: loadStats(),
   rawMastery: loadRawMastery()
 };
+
+let appSettings = loadSharedAppSettings();
+let appBackgroundMusic = null;
+let appBackgroundMusicBlocked = false;
 
 const refs = {
   heroMascot: document.getElementById("heroMascot"),
@@ -2654,11 +2671,12 @@ function handleClick(event) {
   if (openAuth) {
     closeHeroMenu();
     if (state.ui.appEntryGateOpen) {
-      state.ui.authMode = "login";
+      state.ui.authMode = getAuthModeForCurrentSession("login");
       syncAuthChrome();
       return;
     }
     state.ui.authOpen = true;
+    state.ui.authMode = getAuthModeForCurrentSession(state.ui.authMode || "login");
     syncPopupScrollLock();
     renderAuthModal();
     return;
@@ -2688,7 +2706,7 @@ function handleClick(event) {
   if (openAppEntryGate) {
     state.ui.appEntryGateOpen = true;
     state.ui.authOpen = false;
-    state.ui.authMode = "login";
+    state.ui.authMode = getAuthModeForCurrentSession("login");
     syncAuthChrome();
     return;
   }
@@ -2709,7 +2727,7 @@ function handleClick(event) {
 
   const appEntryLogin = event.target.closest("[data-app-entry-login]");
   if (appEntryLogin) {
-    state.ui.authMode = "login";
+    state.ui.authMode = getAuthModeForCurrentSession("login");
     syncAuthChrome();
     return;
   }
@@ -2795,9 +2813,11 @@ function handleClick(event) {
   const openResources = event.target.closest("[data-open-resources]");
   if (openResources) {
     state.ui.resourcesOpen = true;
+    state.ui.appSettingsOpen = false;
     closeHeroMenu();
     syncPopupScrollLock();
     renderResourcesModal();
+    renderAppSettingsModal();
     return;
   }
 
@@ -2807,8 +2827,21 @@ function handleClick(event) {
     if (campus2dController?.openSettings) {
       campus2dController.openSettings();
     } else {
-      window.dispatchEvent(new CustomEvent("wsc-campus-settings-open"));
+      openAppSettingsPanel();
     }
+    return;
+  }
+
+  const closeAppSettings = event.target.closest("[data-close-app-settings]");
+  const closeAppSettingsOverlay = event.target.closest("[data-app-settings-overlay]") && !event.target.closest("[data-app-settings-window]");
+  if (closeAppSettings || closeAppSettingsOverlay) {
+    closeAppSettingsPanel();
+    return;
+  }
+
+  const appSettingsMute = event.target.closest("[data-app-settings-mute]");
+  if (appSettingsMute) {
+    toggleAppSettingsMute();
     return;
   }
 
@@ -3594,6 +3627,15 @@ function handleClick(event) {
 }
 
 function handleInput(event) {
+  const appSettingsVolume = event.target.closest("[data-app-settings-volume]");
+  if (appSettingsVolume) {
+    updateSharedAppSettings({
+      volume: readSharedAppNumberSetting(appSettingsVolume.value, APP_DEFAULT_SETTINGS.volume, 0, 100),
+      muted: Number(appSettingsVolume.value) <= 0
+    });
+    return;
+  }
+
   const joinCodeInput = event.target.closest("[data-online-room-code-input]");
   if (joinCodeInput) {
     state.live.joinCodeDraft = alpacapardyLiveSupabaseService?.normalizeRoomCode
@@ -3704,6 +3746,12 @@ function handleKeyDown(event) {
     state.ui.resourcesOpen = false;
     syncPopupScrollLock();
     renderResourcesModal();
+    return;
+  }
+
+  if (state.ui.appSettingsOpen && event.key === "Escape") {
+    event.preventDefault();
+    closeAppSettingsPanel();
     return;
   }
 
@@ -4370,6 +4418,7 @@ function render() {
   syncRouteBuilderVisibility();
   renderCooperationModal();
   renderResourcesModal();
+  renderAppSettingsModal();
   renderAuthModal();
   renderLibraryCampusModal();
   syncPopupScrollLock();
@@ -4441,6 +4490,8 @@ function renderSessionControls() {
 
   if (!isSignedIn()) {
     refs.sessionControls.classList.remove("hidden");
+    refs.sessionControls.dataset.authState = "signed-out";
+    refs.sessionControls.dataset.menuLabel = "Log in";
     refs.sessionControls.innerHTML = `
       <div class="session-control-stack">
         <button
@@ -4458,6 +4509,8 @@ function renderSessionControls() {
   }
 
   refs.sessionControls.classList.remove("hidden");
+  refs.sessionControls.dataset.authState = "signed-in";
+  refs.sessionControls.dataset.menuLabel = "Log out";
   refs.sessionControls.innerHTML = `
     <div class="session-control-stack">
       <button
@@ -4521,17 +4574,32 @@ function renderAppEntryGate() {
 function renderAppEntryAuthPanel() {
   const context = getAuthRenderContext();
   const mode = context.mode || "login";
-  const title = context.signedIn
-    ? "Alpaccount"
+  const title = context.requiresProfileCompletion
+    ? "Complete Alpaccount"
     : mode === "signup"
       ? "Create Alpaccount"
       : mode === "forgot"
         ? "Recover Alpaccount"
         : mode === "reset"
           ? "New password"
+          : context.signedIn
+          ? "Alpaccount"
           : "Sign in";
 
-  if (context.signedIn) {
+  if (context.requiresProfileCompletion) {
+    return `
+      <section class="app-entry-auth-panel">
+        <div class="app-entry-auth-heading">
+          <p class="challenge-label">Alpaccount</p>
+          <h3>${escapeHtml(title)}</h3>
+        </div>
+        ${authModalRenderer.renderNotice(context, { escapeHtml })}
+        ${authModalRenderer.renderBody(context, { escapeHtml })}
+      </section>
+    `;
+  }
+
+  if (context.signedIn && mode !== "reset") {
     const profile = context.profile || {};
     return `
       <section class="app-entry-auth-panel signed-in">
@@ -4559,7 +4627,11 @@ function renderAppEntryAuthPanel() {
 function chooseAppEntryMode(mode) {
   if (mode === "online") {
     if (!canAccessMultiplayer()) {
-      state.ui.authMode = "login";
+      if (isSignedIn() && requiresAlpaccountProfileCompletion()) {
+        promptForAlpaccountProfileCompletion();
+      } else {
+        state.ui.authMode = "login";
+      }
       state.ui.appEntryGateOpen = true;
       syncAuthChrome();
       return;
@@ -4581,6 +4653,7 @@ function switchToLocalMode() {
   state.ui.appShellMode = "local";
   state.ui.cooperationOpen = false;
   state.ui.authOpen = false;
+  state.ui.appSettingsOpen = false;
   resetAlpacapardyLiveState();
   state.experience = null;
   state.selection.path = null;
@@ -4596,9 +4669,11 @@ function openAlpacaOnlineHub() {
   state.ui.appEntryGateOpen = false;
   state.ui.appShellMode = "online";
   state.ui.cooperationOpen = false;
+  state.ui.appSettingsOpen = false;
   state.ui.multiplayerGameChoice = null;
   state.ui.wizardTransition = "forward";
   state.live.onlineView = "campus";
+  pauseAppBackgroundMusic();
   state.selection.path = "play";
   state.selection.lens = DEFAULT_LENS_ID;
   state.selection.targetIds = [];
@@ -4759,7 +4834,8 @@ function getCampus2DIdentity() {
     highestWscRound: profile.highest_wsc_round || "",
     idRewards: profile.wsc_achievements || profile.achievements || [],
     achievements: profile.wsc_achievements || profile.achievements || [],
-    createdAt: profile.created_at || user?.created_at || null
+    createdAt: profile.created_at || user?.created_at || null,
+    debugAllowed: canUseCampusDevMode()
   };
 }
 
@@ -4832,7 +4908,7 @@ function syncCampus2DOnlineMount() {
   }
 
   if (campus2dController && campus2dMountElement === mount) {
-    campus2dController.setIdentity?.(getCampus2DIdentity());
+    syncCampus2DOnlineIdentity();
     return;
   }
 
@@ -4848,13 +4924,16 @@ function syncCampus2DOnlineMount() {
     mount,
     client: getSupabaseClient(),
     identity: getCampus2DIdentity(),
+    debugAllowed: canUseCampusDevMode(),
     onCampusZoneAction: handleCampus2DZoneAction,
     onFeedbackSubmit: submitCampusFeedback
   });
 }
 
 function syncCampus2DOnlineIdentity() {
-  campus2dController?.setIdentity?.(getCampus2DIdentity());
+  const identity = getCampus2DIdentity();
+  campus2dController?.setIdentity?.(identity);
+  campus2dController?.setDebugAllowed?.(identity.debugAllowed);
 }
 
 function getLiveOverlayMount() {
@@ -7147,6 +7226,10 @@ function hasActiveQuestionPopup() {
     return true;
   }
 
+  if (state.ui.appSettingsOpen) {
+    return true;
+  }
+
   if (state.ui.cooperationOpen) {
     return true;
   }
@@ -7203,6 +7286,7 @@ function syncPopupScrollLock() {
   const blockingOverlayOpen = Boolean(
     state.ui.appEntryGateOpen ||
     state.ui.resourcesOpen ||
+    state.ui.appSettingsOpen ||
     state.ui.cooperationOpen ||
     state.ui.authOpen ||
     (!campusActivityInline && (
@@ -7253,18 +7337,51 @@ function getCurrentUserEmail() {
 }
 
 function canAccessMultiplayer() {
-  return Boolean(MULTIPLAYER_PUBLIC_ENABLED && isSignedIn());
+  return Boolean(MULTIPLAYER_PUBLIC_ENABLED && isSignedIn() && !requiresAlpaccountProfileCompletion());
+}
+
+function canUseCampusDevMode() {
+  return Boolean(
+    isSignedIn() &&
+    normalizeAlpacaName(state.auth.profile?.alpaca_name) === CAMPUS_DEV_ALPACA_NAME
+  );
 }
 
 function getMultiplayerAccessLabel(allowedLabel = "Join online") {
   if (!MULTIPLAYER_PUBLIC_ENABLED) {
     return "Available soon";
   }
+  if (isSignedIn() && requiresAlpaccountProfileCompletion()) {
+    return "Complete profile";
+  }
   return isSignedIn() ? allowedLabel : "Sign in required";
 }
 
 function canDismissAuthModal() {
-  return state.ui.authMode !== "reset";
+  return state.ui.authMode !== "reset" && !requiresAlpaccountProfileCompletion();
+}
+
+function isPasswordRecoveryFlow() {
+  return state.ui.authMode === "reset";
+}
+
+function isPasswordRecoveryRedirect() {
+  return Boolean(
+    appAuthService?.isPasswordRecoveryRedirect
+      ? appAuthService.isPasswordRecoveryRedirect(window.location)
+      : (
+          new URLSearchParams(String(window.location.search || "").replace(/^\?/, "")).get("type") === "recovery" ||
+          new URLSearchParams(String(window.location.hash || "").replace(/^#/, "")).get("type") === "recovery"
+        )
+  );
+}
+
+function openPasswordRecoveryFlow(message = "Choose a new password for your Alpaccount.") {
+  state.ui.authMode = "reset";
+  state.ui.authOpen = true;
+  state.ui.appEntryGateOpen = false;
+  state.auth.error = "";
+  state.auth.message = message;
 }
 
 function syncAuthChrome() {
@@ -7287,6 +7404,38 @@ function normalizeAlpacaName(value) {
   return appAuthService?.normalizeAlpacaName
     ? appAuthService.normalizeAlpacaName(value)
     : String(value || "").trim().toLowerCase();
+}
+
+function isGeneratedAlpacaName(value) {
+  return GENERATED_ALPACA_NAME_PATTERN.test(normalizeAlpacaName(value));
+}
+
+function isPlaceholderProfileText(value, placeholders) {
+  const normalized = String(value || "").trim().toLowerCase();
+  return !normalized || placeholders.includes(normalized);
+}
+
+function requiresAlpaccountProfileCompletion(profile = state.auth.profile) {
+  if (!isSignedIn() || !profile) {
+    return false;
+  }
+
+  return Boolean(
+    isGeneratedAlpacaName(profile.alpaca_name) ||
+    isPlaceholderProfileText(profile.country, ["unknown"]) ||
+    isPlaceholderProfileText(profile.school_name, ["unknown", "unknown school"])
+  );
+}
+
+function getAuthModeForCurrentSession(fallbackMode = "login") {
+  return requiresAlpaccountProfileCompletion() ? "complete-profile" : fallbackMode;
+}
+
+function promptForAlpaccountProfileCompletion(message = ALPACCOUNT_PROFILE_COMPLETION_MESSAGE) {
+  state.auth.error = "";
+  state.auth.message = message;
+  state.ui.authMode = "complete-profile";
+  state.ui.authOpen = true;
 }
 
 function normalizeWscIdRewardType(value) {
@@ -7320,11 +7469,11 @@ function mapWscRoundToIdRewardRound(value) {
 function buildSignupWscIdRewards({ rewardType, round, city, approximateDate }) {
   const cleanRewardType = normalizeWscIdRewardType(rewardType);
   const cleanRound = mapWscRoundToIdRewardRound(round);
-  const cleanCity = String(city || "").trim();
-  const cleanApproximateDate = String(approximateDate || "").trim();
-  if (cleanRewardType === "none_yet" || !cleanRound || !cleanCity || !cleanApproximateDate) {
+  if (cleanRewardType === "none_yet" || !cleanRound) {
     return [];
   }
+  const cleanCity = String(city || "").trim() || WSC_ID_REWARD_FALLBACK_CITY;
+  const cleanApproximateDate = String(approximateDate || "").trim() || WSC_ID_REWARD_FALLBACK_DATE;
 
   return [{
     fullName: "",
@@ -7374,6 +7523,7 @@ function setupSupabaseAuth() {
     return;
   }
 
+  const hasRecoveryRedirect = isPasswordRecoveryRedirect();
   const client = getSupabaseClient();
   if (!client) {
     state.auth.status = "missing-client";
@@ -7381,14 +7531,16 @@ function setupSupabaseAuth() {
     return;
   }
 
+  if (hasRecoveryRedirect) {
+    openPasswordRecoveryFlow();
+  }
+
   client.auth.onAuthStateChange((eventName, session) => {
     state.auth.session = session || null;
     state.auth.status = "ready";
 
     if (eventName === "PASSWORD_RECOVERY") {
-      state.ui.authMode = "reset";
-      state.ui.authOpen = true;
-      state.auth.message = "Choose a new password for your Alpaccount.";
+      openPasswordRecoveryFlow();
     } else if (session && !isAnonymousUser(session.user)) {
       state.ui.authOpen = false;
       syncAlpacaAuthIdentity().finally(() => loadAlpacaProfile());
@@ -7407,9 +7559,14 @@ function setupSupabaseAuth() {
 
     state.auth.session = sessionData && sessionData.session ? sessionData.session : null;
     state.auth.status = "ready";
-    state.ui.authOpen = false;
+    if (isPasswordRecoveryFlow()) {
+      state.ui.authOpen = true;
+      state.ui.appEntryGateOpen = false;
+    } else {
+      state.ui.authOpen = false;
+    }
 
-    if (state.auth.session && !isAnonymousUser(state.auth.session.user)) {
+    if (state.auth.session && !isAnonymousUser(state.auth.session.user) && !isPasswordRecoveryFlow()) {
       syncAlpacaAuthIdentity().finally(() => loadAlpacaProfile());
       loadAlpacaProgress();
     }
@@ -7453,6 +7610,12 @@ async function loadAlpacaProfile() {
   }
 
   state.auth.profile = profile || null;
+  if (requiresAlpaccountProfileCompletion()) {
+    promptForAlpaccountProfileCompletion("Discord is connected. Finish your Alpaccount profile to continue.");
+  } else if (state.ui.authMode === "complete-profile") {
+    state.ui.authMode = "login";
+    state.ui.authOpen = false;
+  }
   syncAuthChrome();
 }
 
@@ -7516,6 +7679,8 @@ async function submitAuthForm(form) {
   try {
     if (action === "signup") {
       await createAlpaccount(new FormData(form), client);
+    } else if (action === "complete-profile") {
+      await completeAlpaccountProfile(new FormData(form), client);
     } else if (action === "forgot") {
       await sendPasswordReset(new FormData(form), client);
     } else if (action === "reset") {
@@ -7540,12 +7705,19 @@ async function createAlpaccount(formData, client) {
   const country = String(formData.get("country") || "").trim();
   const schoolName = String(formData.get("school_name") || "").trim();
   const wscEventCount = Number(formData.get("wsc_event_count") || 0);
-  const highestWscRound = String(formData.get("highest_wsc_round") || "").trim();
+  const highestWscRound = String(formData.get("highest_wsc_round") || "none_yet").trim() || "none_yet";
   const wscIdRewardType = normalizeWscIdRewardType(formData.get("wsc_id_reward_type"));
   const wscIdRewardCity = String(formData.get("wsc_id_reward_city") || "").trim();
   const wscIdRewardDate = String(formData.get("wsc_id_reward_date") || "").trim();
+  const hasSelectedWscIdReward = wscIdRewardType !== "none_yet";
+  const wscIdRewardCityForMetadata = hasSelectedWscIdReward
+    ? (wscIdRewardCity || WSC_ID_REWARD_FALLBACK_CITY)
+    : "";
+  const wscIdRewardDateForMetadata = hasSelectedWscIdReward
+    ? (wscIdRewardDate || WSC_ID_REWARD_FALLBACK_DATE)
+    : "";
 
-  if (!email || !alpacaName || !password || !country || !schoolName || !highestWscRound) {
+  if (!email || !alpacaName || !password || !country || !schoolName) {
     throw new Error("Please fill in every field to create your Alpaccount.");
   }
 
@@ -7557,15 +7729,15 @@ async function createAlpaccount(formData, client) {
     throw new Error("Please enter a valid number of WSC events.");
   }
 
-  if (wscIdRewardType !== "none_yet" && (!wscIdRewardCity || !wscIdRewardDate || highestWscRound === "none_yet")) {
-    throw new Error("To show a reward on your Alpaca ID, choose its round, city, and approximate date.");
+  if (hasSelectedWscIdReward && highestWscRound === "none_yet") {
+    throw new Error("To show a reward on your Alpaca ID, choose the WSC round for that reward or pick No medal or trophy yet.");
   }
 
   const wscIdRewards = buildSignupWscIdRewards({
     rewardType: wscIdRewardType,
     round: highestWscRound,
-    city: wscIdRewardCity,
-    approximateDate: wscIdRewardDate
+    city: wscIdRewardCityForMetadata,
+    approximateDate: wscIdRewardDateForMetadata
   });
 
   const availability = supabaseProfileService?.checkAlpacaNameAvailability
@@ -7591,8 +7763,8 @@ async function createAlpaccount(formData, client) {
         wsc_event_count: wscEventCount,
         highest_wsc_round: highestWscRound,
         wsc_id_reward_type: wscIdRewardType,
-        wsc_id_reward_city: wscIdRewardCity,
-        wsc_id_reward_date: wscIdRewardDate,
+        wsc_id_reward_city: wscIdRewardCityForMetadata,
+        wsc_id_reward_date: wscIdRewardDateForMetadata,
         wsc_achievements: wscIdRewards
       }
     }
@@ -7612,6 +7784,106 @@ async function createAlpaccount(formData, client) {
   if (signUpData.session) {
     await loadAlpacaProfile();
   }
+}
+
+async function completeAlpaccountProfile(formData, client) {
+  const user = state.auth.session?.user || null;
+  if (!user || isAnonymousUser(user)) {
+    throw new Error("Connect to your Alpaccount before completing your profile.");
+  }
+
+  const alpacaName = normalizeAlpacaName(formData.get("alpaca_name"));
+  const country = String(formData.get("country") || "").trim();
+  const schoolName = String(formData.get("school_name") || "").trim();
+  const wscEventCount = Number(formData.get("wsc_event_count") || 0);
+  const highestWscRound = String(formData.get("highest_wsc_round") || "none_yet").trim() || "none_yet";
+  const wscIdRewardType = normalizeWscIdRewardType(formData.get("wsc_id_reward_type"));
+  const wscIdRewardCity = String(formData.get("wsc_id_reward_city") || "").trim();
+  const wscIdRewardDate = String(formData.get("wsc_id_reward_date") || "").trim();
+  const hasSelectedWscIdReward = wscIdRewardType !== "none_yet";
+  const wscIdRewardCityForMetadata = hasSelectedWscIdReward
+    ? (wscIdRewardCity || WSC_ID_REWARD_FALLBACK_CITY)
+    : "";
+  const wscIdRewardDateForMetadata = hasSelectedWscIdReward
+    ? (wscIdRewardDate || WSC_ID_REWARD_FALLBACK_DATE)
+    : "";
+
+  if (!alpacaName || !country || !schoolName) {
+    throw new Error("Choose your alpaca name, country, and school to finish your Alpaccount.");
+  }
+
+  if (!ALPACA_NAME_PATTERN.test(alpacaName)) {
+    throw new Error("Your alpaca name needs 3-32 characters: letters, numbers, underscores, or hyphens.");
+  }
+
+  if (isGeneratedAlpacaName(alpacaName)) {
+    throw new Error("Choose a personal alpaca name instead of the automatic alpaca ID.");
+  }
+
+  if (isPlaceholderProfileText(country, ["unknown"]) || isPlaceholderProfileText(schoolName, ["unknown", "unknown school"])) {
+    throw new Error("Please replace the placeholder country and school before continuing.");
+  }
+
+  if (!Number.isInteger(wscEventCount) || wscEventCount < 0 || wscEventCount > 99) {
+    throw new Error("Please enter a valid number of WSC events.");
+  }
+
+  if (hasSelectedWscIdReward && highestWscRound === "none_yet") {
+    throw new Error("To show a reward on your Alpaca ID, choose the WSC round for that reward or pick No medal or trophy yet.");
+  }
+
+  const currentAlpacaName = normalizeAlpacaName(state.auth.profile?.alpaca_name);
+  if (alpacaName !== currentAlpacaName) {
+    const availability = supabaseProfileService?.checkAlpacaNameAvailability
+      ? await supabaseProfileService.checkAlpacaNameAvailability(client, alpacaName)
+      : await client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
+    if (availability.error) {
+      throw availability.error;
+    }
+
+    if (availability.data === false) {
+      throw new Error("That alpaca name is already taken. Try another one.");
+    }
+  }
+
+  const wscIdRewards = buildSignupWscIdRewards({
+    rewardType: wscIdRewardType,
+    round: highestWscRound,
+    city: wscIdRewardCityForMetadata,
+    approximateDate: wscIdRewardDateForMetadata
+  });
+
+  const payload = {
+    alpaca_name: alpacaName,
+    country,
+    school_name: schoolName,
+    wsc_event_count: wscEventCount,
+    highest_wsc_round: highestWscRound,
+    wsc_achievements: wscIdRewards
+  };
+
+  const { data: profile, error } = supabaseProfileService?.updateProfile
+    ? await supabaseProfileService.updateProfile(client, user.id, payload)
+    : await client
+        .from("alpaca_profiles")
+        .update(payload)
+        .eq("id", user.id)
+        .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,wsc_achievements")
+        .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+
+  state.auth.profile = {
+    ...(state.auth.profile || {}),
+    ...payload,
+    ...(profile || {})
+  };
+  state.auth.message = "Alpaccount saved. Welcome aboard.";
+  state.auth.error = "";
+  state.ui.authMode = "login";
+  state.ui.authOpen = false;
 }
 
 async function resolveLoginIdentifier(identifier, client) {
@@ -7731,6 +8003,7 @@ async function updateRecoveredPassword(formData, client) {
   }
 
   state.auth.message = "Password updated. You are connected to your Alpaccount.";
+  state.ui.authMode = "login";
   state.ui.authOpen = false;
   await loadAlpacaProfile();
 }
@@ -7774,6 +8047,14 @@ async function ensureLiveAuthSession() {
   }
 
   if (isSignedIn()) {
+    if (requiresAlpaccountProfileCompletion()) {
+      state.live.status = "idle";
+      state.live.message = "";
+      state.live.error = ALPACCOUNT_PROFILE_COMPLETION_MESSAGE;
+      promptForAlpaccountProfileCompletion();
+      syncAuthChrome();
+      throw new Error(ALPACCOUNT_PROFILE_COMPLETION_MESSAGE);
+    }
     return state.auth.session;
   }
 
@@ -7791,6 +8072,9 @@ async function ensureLiveAuthSession() {
 function getLiveDisplayName() {
   const user = state.auth.session?.user || null;
   if (user && !isAnonymousUser(user)) {
+    if (requiresAlpaccountProfileCompletion()) {
+      return "Alpaccount";
+    }
     const profileName = String(state.auth.profile?.alpaca_name || "").trim();
     const metadataName = String(user?.user_metadata?.alpaca_name || user?.user_metadata?.user_name || "").trim();
     if (profileName) {
@@ -7886,6 +8170,7 @@ function getAuthRenderContext() {
     error: state.auth.error,
     message: state.auth.message,
     profile: state.auth.profile,
+    requiresProfileCompletion: requiresAlpaccountProfileCompletion(),
     oauthProviders: AUTH_OAUTH_PROVIDERS,
     roundOptions: WSC_ROUND_OPTIONS,
     rewardOptions: WSC_ID_REWARD_OPTIONS,
@@ -7923,6 +8208,175 @@ function renderResourcesModal() {
       </div>
     </div>
   ` : "";
+}
+
+function getAppSettingsModalMount() {
+  let mount = document.getElementById("appSettingsModalMount");
+  if (!mount) {
+    mount = document.createElement("div");
+    mount.id = "appSettingsModalMount";
+    document.body.appendChild(mount);
+  }
+  return mount;
+}
+
+function renderAppSettingsModal() {
+  const mount = getAppSettingsModalMount();
+  if (!state.ui.appSettingsOpen) {
+    mount.innerHTML = "";
+    return;
+  }
+
+  const volumeLabel = formatSharedAppVolumeLabel(appSettings);
+  mount.innerHTML = `
+    <div class="auth-modal-overlay app-settings-overlay" data-app-settings-overlay role="dialog" aria-modal="true" aria-labelledby="appSettingsTitle">
+      <div class="auth-modal-window app-settings-window" data-app-settings-window>
+        <button class="popup-close-button" type="button" data-close-app-settings aria-label="Close settings">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="auth-modal-stack app-settings-stack">
+          <div class="app-settings-heading">
+            <p class="challenge-label">Settings</p>
+            <h3 id="appSettingsTitle">Music</h3>
+          </div>
+          <label class="app-settings-control">
+            <span class="app-settings-row">
+              <span>Music volume</span>
+              <span aria-live="polite">${escapeHtml(volumeLabel)}</span>
+            </span>
+            <input
+              class="app-settings-slider"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="${escapeHtml(String(appSettings.volume))}"
+              data-app-settings-volume
+            />
+          </label>
+          <div class="panel-actions">
+            <button class="button secondary" type="button" data-app-settings-mute aria-pressed="${appSettings.muted || appSettings.volume <= 0 ? "true" : "false"}">
+              ${escapeHtml(appSettings.muted || appSettings.volume <= 0 ? "Unmute" : "Mute")}
+            </button>
+            <button class="button primary" type="button" data-close-app-settings>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function readSharedAppNumberSetting(value, fallback, min, max) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) {
+    return fallback;
+  }
+  return Math.min(max, Math.max(min, Math.round(number)));
+}
+
+function normalizeSharedAppSettings(settings = {}) {
+  return {
+    volume: readSharedAppNumberSetting(settings.volume, APP_DEFAULT_SETTINGS.volume, 0, 100),
+    muted: Boolean(settings.muted)
+  };
+}
+
+function loadSharedAppSettings() {
+  try {
+    return normalizeSharedAppSettings(JSON.parse(localStorage.getItem(APP_SETTINGS_STORAGE_KEY) || "{}"));
+  } catch (_error) {
+    return normalizeSharedAppSettings();
+  }
+}
+
+function saveSharedAppSettings() {
+  try {
+    localStorage.setItem(APP_SETTINGS_STORAGE_KEY, JSON.stringify(appSettings));
+  } catch (_error) {
+    // Settings remain active for the current tab even if storage is unavailable.
+  }
+}
+
+function formatSharedAppVolumeLabel(settings = appSettings) {
+  if (settings.muted || settings.volume <= 0) {
+    return "Muted";
+  }
+  return `${settings.volume}%`;
+}
+
+function ensureAppBackgroundMusic() {
+  if (appBackgroundMusic) {
+    return appBackgroundMusic;
+  }
+  appBackgroundMusic = new Audio(APP_BACKGROUND_MUSIC_SRC);
+  appBackgroundMusic.loop = true;
+  appBackgroundMusic.preload = "auto";
+  appBackgroundMusic.setAttribute("playsinline", "");
+  return appBackgroundMusic;
+}
+
+function pauseAppBackgroundMusic() {
+  if (appBackgroundMusic) {
+    appBackgroundMusic.pause();
+  }
+}
+
+function syncAppBackgroundMusicPlayback({ play = state.ui.appSettingsOpen } = {}) {
+  if (state.ui.appShellMode === "online" || appSettings.muted || appSettings.volume <= 0) {
+    pauseAppBackgroundMusic();
+    return;
+  }
+
+  const music = ensureAppBackgroundMusic();
+  music.volume = Math.min(1, Math.max(0, appSettings.volume / 100));
+  music.muted = false;
+  if (!play || !music.paused) {
+    return;
+  }
+
+  const playback = music.play();
+  if (playback?.catch) {
+    playback
+      .then(() => {
+        appBackgroundMusicBlocked = false;
+      })
+      .catch(() => {
+        appBackgroundMusicBlocked = true;
+      });
+  }
+}
+
+function updateSharedAppSettings(patch = {}) {
+  appSettings = normalizeSharedAppSettings({ ...appSettings, ...patch });
+  saveSharedAppSettings();
+  renderAppSettingsModal();
+  syncAppBackgroundMusicPlayback({ play: state.ui.appSettingsOpen || appBackgroundMusicBlocked });
+}
+
+function openAppSettingsPanel() {
+  state.ui.appSettingsOpen = true;
+  state.ui.resourcesOpen = false;
+  syncPopupScrollLock();
+  renderResourcesModal();
+  renderAppSettingsModal();
+  syncAppBackgroundMusicPlayback({ play: true });
+}
+
+function closeAppSettingsPanel() {
+  state.ui.appSettingsOpen = false;
+  syncPopupScrollLock();
+  renderAppSettingsModal();
+}
+
+function toggleAppSettingsMute() {
+  if (appSettings.muted || appSettings.volume <= 0) {
+    updateSharedAppSettings({
+      muted: false,
+      volume: appSettings.volume > 0 ? appSettings.volume : APP_DEFAULT_SETTINGS.volume
+    });
+    return;
+  }
+  updateSharedAppSettings({ muted: true });
 }
 
 function getLibraryCampusModalMount() {
@@ -8174,7 +8628,12 @@ function getLibraryCampusMenuConfig(type) {
 function renderLibraryModeChoiceCard(modeId, label, options = {}) {
   const option = getModeOption(modeId) || { title: label, mood: "wise" };
   const title = label || option.title || modeId;
-  const showComingSoonNotice = Boolean(options.showComingSoonNotice && isModeUnavailable(modeId));
+  const canOpenOnlineDebateLab = Boolean(
+    modeId === "buildcase" &&
+    isAlpacaOnlineCampusView() &&
+    campus2dController?.openDebateLab
+  );
+  const showComingSoonNotice = Boolean(options.showComingSoonNotice && isModeUnavailable(modeId) && !canOpenOnlineDebateLab);
   const className = [
     options.className || "library-mode-id-card",
     showComingSoonNotice ? "library-id-choice-card-coming-soon" : ""
@@ -14570,10 +15029,15 @@ function guardMultiplayerAccess() {
   if (canAccessMultiplayer()) {
     return true;
   }
-  state.live.error = MULTIPLAYER_PUBLIC_ENABLED
-    ? MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE
-    : "Live multiplayer is available soon.";
-  if (MULTIPLAYER_PUBLIC_ENABLED && !isSignedIn()) {
+  const needsProfile = MULTIPLAYER_PUBLIC_ENABLED && isSignedIn() && requiresAlpaccountProfileCompletion();
+  state.live.error = !MULTIPLAYER_PUBLIC_ENABLED
+    ? "Live multiplayer is available soon."
+    : needsProfile
+      ? ALPACCOUNT_PROFILE_COMPLETION_MESSAGE
+      : MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE;
+  if (needsProfile) {
+    promptForAlpaccountProfileCompletion();
+  } else if (MULTIPLAYER_PUBLIC_ENABLED && !isSignedIn()) {
     state.ui.authMode = "login";
   }
   renderLiveSurfaces();
@@ -20194,7 +20658,7 @@ function renderMascot(mood, size, options = {}) {
 function renderHeroVisual() {
   const heroAsset = getAssetValue(["screens", "hero", "main"]);
   const content = heroAsset
-    ? renderAssetImage(heroAsset, "WSC 2026 Study Routes hero illustration", "hero-visual-asset", "hero-visual-image", true)
+    ? renderAssetImage(heroAsset, "WSCapp hero illustration", "hero-visual-asset", "hero-visual-image", true)
     : renderMascot("happy", "hero", { alt: "Hero alpaca", eager: true });
 
   return `<div class="hero-visual-slot">${content}</div>`;

@@ -11,6 +11,7 @@ const alpacapardyRendererPath = resolve(repoRoot, "app/src/modes/play/alpacapard
 
 const sandbox = {
   console,
+  URLSearchParams,
   window: {
     location: {
       href: "https://wscapp.app/?from=test#hash"
@@ -37,6 +38,25 @@ if (oauthConfig.provider !== "discord" || oauthConfig.options.redirectTo !== "ht
 }
 if (!String(oauthConfig.options.scopes || "").includes("identify") || !String(oauthConfig.options.scopes || "").includes("email")) {
   throw new Error("Discord OAuth scopes should request identify and email.");
+}
+
+if (!authService.isPasswordRecoveryRedirect({
+  search: "",
+  hash: "#access_token=test-token&refresh_token=test-refresh&type=recovery"
+})) {
+  throw new Error("Password recovery redirects in the URL hash should open the reset-password UI.");
+}
+if (!authService.isPasswordRecoveryRedirect({
+  search: "?code=test-code&type=recovery",
+  hash: ""
+})) {
+  throw new Error("Password recovery redirects in the URL query should open the reset-password UI.");
+}
+if (authService.isPasswordRecoveryRedirect({
+  search: "?type=signup",
+  hash: "#access_token=test-token"
+})) {
+  throw new Error("Non-recovery auth redirects must not open the reset-password UI.");
 }
 
 const discordUser = {
@@ -99,6 +119,18 @@ if (!updatePayload || updatePayload.discord_user_id !== "123456789" || updatePay
   throw new Error("syncAuthIdentity should send a minimal Discord analytics payload.");
 }
 
+await profileService.updateProfile(fakeClient, discordUser.id, {
+  alpaca_name: "realalpaca",
+  country: "France",
+  school_name: "WSC Test School",
+  wsc_event_count: 2,
+  highest_wsc_round: "global_round",
+  wsc_achievements: []
+});
+if (!updatePayload || updatePayload.alpaca_name !== "realalpaca" || updatePayload.school_name !== "WSC Test School") {
+  throw new Error("updateProfile should update public Alpaccount profile fields.");
+}
+
 const loginHtml = renderer.renderLoginForm({
   busy: false,
   oauthProviders: [authService.oauthProviders.discord]
@@ -116,12 +148,116 @@ if (!loginHtml.includes('data-auth-oauth="discord"') || !loginHtml.includes("Con
   throw new Error("Login form should render the Discord OAuth button.");
 }
 
+const recoveryHtml = renderer.renderBody({
+  mode: "reset",
+  signedIn: true,
+  busy: false
+}, {
+  escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+});
+if (!recoveryHtml.includes('data-auth-form="reset"') || recoveryHtml.includes("alpaccount-profile-card")) {
+  throw new Error("Password recovery sessions should show the reset form even though Supabase signs the user in temporarily.");
+}
+
+const signupHtml = renderer.renderSignupForm({
+  busy: false,
+  roundOptions: [
+    { value: "none_yet", label: "None yet" },
+    { value: "regional_round", label: "Regional Round" }
+  ],
+  rewardOptions: [
+    { value: "none_yet", label: "No medal or trophy yet" },
+    { value: "gold-medal", label: "Gold medal" }
+  ]
+}, {
+  escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+});
+
+if (signupHtml.includes('<option value="">Choose a round</option>')) {
+  throw new Error("Signup should default the WSC round to None yet for first-time participants.");
+}
+if (!signupHtml.includes("City for that reward <em>optional</em>") || !signupHtml.includes('placeholder="N/A"')) {
+  throw new Error("Signup reward city must be visibly optional with an N/A fallback.");
+}
+if (!signupHtml.includes("Approximate date <em>optional</em>") || !signupHtml.includes('placeholder="Not sure"')) {
+  throw new Error("Signup reward date must be visibly optional with a Not sure fallback.");
+}
+
+const completeProfileHtml = renderer.renderCompleteProfileForm({
+  busy: false,
+  profile: {
+    alpaca_name: "alpaca_ea97a8c30d184673819e1f9f",
+    country: "Unknown",
+    school_name: "Unknown school",
+    wsc_event_count: 0,
+    highest_wsc_round: "none_yet",
+    wsc_achievements: []
+  },
+  roundOptions: [
+    { value: "none_yet", label: "None yet" },
+    { value: "regional_round", label: "Regional Round" }
+  ],
+  rewardOptions: [
+    { value: "none_yet", label: "No medal or trophy yet" },
+    { value: "gold-medal", label: "Gold medal" }
+  ]
+}, {
+  escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+});
+
+if (!completeProfileHtml.includes('data-auth-form="complete-profile"')) {
+  throw new Error("Discord OAuth users with generated profiles should get a completion form.");
+}
+if (completeProfileHtml.includes("alpaca_ea97a8c30d184673819e1f9f") || completeProfileHtml.includes("Unknown school")) {
+  throw new Error("Profile completion must not prefill generated alpaca IDs or placeholder school values.");
+}
+if (completeProfileHtml.includes('name="email"') || completeProfileHtml.includes('type="password"')) {
+  throw new Error("Profile completion should not ask OAuth users for email or password again.");
+}
+if (!completeProfileHtml.includes('name="school_name"') || !completeProfileHtml.includes('name="wsc_id_reward_type"')) {
+  throw new Error("Profile completion should collect school and WSC reward details.");
+}
+
 const appSource = readFileSync(appSourcePath, "utf8");
 const alpacapardyRendererSource = readFileSync(alpacapardyRendererPath, "utf8");
+if (appSource.includes("choose its round, city, and approximate date")) {
+  throw new Error("Signup must not require reward city/date when creating an Alpaccount.");
+}
+if (!appSource.includes('const WSC_ID_REWARD_FALLBACK_CITY = "N/A"') || !appSource.includes('const WSC_ID_REWARD_FALLBACK_DATE = "Not sure"')) {
+  throw new Error("Signup reward fallback metadata constants are missing.");
+}
+if (!/const hasSelectedWscIdReward = wscIdRewardType !== "none_yet"/.test(appSource)) {
+  throw new Error("Signup must distinguish no-reward accounts from reward-bearing accounts.");
+}
 if (appSource.includes("signInAnonymously")) {
   throw new Error("Multiplayer must not silently create anonymous Supabase sessions.");
 }
-if (/Devalpacc?a/i.test(appSource)) {
+if (!appSource.includes("requiresAlpaccountProfileCompletion") || !appSource.includes("completeAlpaccountProfile")) {
+  throw new Error("OAuth-generated profiles should be blocked until users complete their public Alpaccount fields.");
+}
+if (!appSource.includes("openPasswordRecoveryFlow") || !appSource.includes('eventName === "PASSWORD_RECOVERY"')) {
+  throw new Error("Password recovery links should keep the reset-password UI open.");
+}
+const appSourceWithoutCampusDevName = appSource.replace(/const CAMPUS_DEV_ALPACA_NAME = "devalpaca";/g, "");
+if (/Devalpacc?a/i.test(appSourceWithoutCampusDevName)) {
   throw new Error("Multiplayer must not expose the legacy Devalpacca default account.");
 }
 if (/MULTIPLAYER_ALLOWED_EMAILS|MULTIPLAYER_ALLOWED_EMAIL_DOMAINS/.test(appSource)) {
@@ -134,5 +270,8 @@ if (/admin test accounts|approved school domains|approved Alpaccount/.test(`${ap
 console.log(JSON.stringify({
   provider: oauthConfig.provider,
   fields: Object.keys(identity).sort(),
-  renderer: "discord-button"
+  renderer: "discord-button",
+  passwordRecovery: "reset-form",
+  signupRewardFields: "optional",
+  oauthProfileCompletion: "required"
 }, null, 2));

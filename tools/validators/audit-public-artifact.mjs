@@ -31,6 +31,8 @@ const requiredPaths = [
   "src/features/campus-2d/manifest.js",
   "src/features/campus-2d/realtime.js",
   "src/features/campus-2d/campus-2d.js",
+  "world-scholars-cup-prep/index.html",
+  "wsc-practice/index.html",
   "wsc-2026-study-guide/index.html",
   "wsc-2026-practice/index.html",
   "debate-lab/index.html",

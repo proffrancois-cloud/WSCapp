@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#fff8e8;color:#2f2118;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#fff8e8;margin:0;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#fffaf2;border:1px solid #ead9bc;border-radius:24px;overflow:hidden;">
+            <tr>
+              <td align="center" style="padding:36px 28px 18px;">
+                <img src="https://wscapp.app/app-icons/icon-local-transparent.png" width="176" alt="WSCapp alpaca" style="display:block;width:176px;max-width:62%;height:auto;border:0;margin:0 auto 24px;" />
+                <h1 style="margin:0;color:#8b3128;font-size:40px;line-height:1.08;font-weight:800;">
+                  Confirm your Alpaccount
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 40px 18px;color:#2f2118;font-size:20px;line-height:1.5;">
+                <p style="margin:0 0 18px;">
+                  Welcome to WSCapp. Click the button below to validate this email address and finish creating your Alpaccount.
+                </p>
+                <p style="margin:0;">
+                  Once confirmed, you can sign in, save progress, and join the online campus with your own account.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding:18px 40px 28px;">
+                <a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#8b3128;color:#ffffff;text-decoration:none;font-size:20px;font-weight:800;line-height:1;border-radius:34px;padding:22px 38px;border:2px solid #0b83ff;">
+                  Confirm my Alpaccount
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 40px 24px;color:#4f3b2c;font-size:18px;line-height:1.5;">
+                <p style="margin:0 0 18px;">
+                  If you did not create an Alpaccount, you can safely ignore this email.
+                </p>
+                <p style="margin:0;font-style:italic;">
+                  Questions, issues, or ideas? Reply to this email or join the Discord community. The app keeps improving thanks to real scholar feedback.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding:4px 40px 30px;">
+                <a href="https://discord.gg/5m6tCSBy" style="display:inline-block;background:#f7c548;color:#1f160d;text-decoration:none;font-size:18px;font-weight:800;border-radius:28px;padding:18px 30px;">
+                  Join us on Discord
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 40px 34px;color:#5f4733;font-size:16px;line-height:1.5;">
+                <p style="margin:0 0 8px;">
+                  If the confirmation button does not work, copy and paste this link into your browser:
+                </p>
+                <p style="margin:0;word-break:break-all;">
+                  <a href="{{ .ConfirmationURL }}" style="color:#8b3128;">{{ .ConfirmationURL }}</a>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="background:#eadcc5;padding:28px 40px;color:#5a4634;font-size:16px;line-height:1.5;">
+                <p style="margin:0 0 12px;">
+                  WSCapp is an independent study-game project created to help alpacas engage with WSC-style preparation.
+                </p>
+                <p style="margin:0;">
+                  You are receiving this email because someone used this address to create an Alpaccount.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

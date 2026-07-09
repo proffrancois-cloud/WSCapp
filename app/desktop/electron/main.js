@@ -39,7 +39,7 @@ function createMainWindow() {
     minHeight: 820,
     autoHideMenuBar: true,
     show: false,
-    title: "WSC 2026 Study Routes",
+    title: "WSCapp",
     backgroundColor: "#f3e3bc",
     icon: resolveAppIcon(),
     webPreferences: {

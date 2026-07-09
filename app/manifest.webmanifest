@@ -2,7 +2,7 @@
   "id": "./",
   "name": "WSCapp",
   "short_name": "WSCapp",
-  "description": "A free unofficial World Scholar's Cup 2026 study app with routes, games, Debate Lab, Alpacards, and a multiplayer campus.",
+  "description": "A free unofficial World Scholar's Cup prep app with Challenge-style practice, Debate Lab, Alpacards, and a multiplayer study campus.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "./",

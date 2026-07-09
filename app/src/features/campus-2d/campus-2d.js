@@ -535,6 +535,7 @@
     let chatSentAtMs = [];
     let camera = { scale: 1, x: 0, y: 0 };
     let activeTarget = null;
+    let debugAllowed = Boolean(identity.debugAllowed || options.debugAllowed);
     let debugEnabled = false;
     let zoneEditorEnabled = false;
     let selectedZoneType = "blocked";
@@ -627,6 +628,7 @@
       "aria-label": "Alpaca Online 2D campus",
       tabindex: "-1"
     });
+    root.classList.toggle("is-debug-allowed", debugAllowed);
     const viewport = createEl("div", "campus2d-viewport");
     const world = createEl("div", "campus2d-world");
     const mapImage = createEl("img", "campus2d-map", {
@@ -1297,10 +1299,16 @@
     }
 
     function getRoomOverride(roomId = room.id) {
+      if (!debugAllowed) {
+        return null;
+      }
       return devZoneData.rooms?.[roomId] || null;
     }
 
     function ensureRoomOverride(targetRoom = room) {
+      if (!debugAllowed) {
+        return getRoomBaseZones(targetRoom);
+      }
       if (!devZoneData.rooms) {
         devZoneData.rooms = {};
       }
@@ -1315,6 +1323,9 @@
     }
 
     function getEditableZones(type = selectedZoneType) {
+      if (!debugAllowed) {
+        return [];
+      }
       const override = ensureRoomOverride(room);
       const key = getZoneConfig(type).key;
       if (!Array.isArray(override[key])) {
@@ -2922,8 +2933,20 @@
       renderDebugControls();
     }
 
+    function setDebugAllowed(value) {
+      const nextDebugAllowed = Boolean(value);
+      const changed = debugAllowed !== nextDebugAllowed;
+      debugAllowed = nextDebugAllowed;
+      root.classList.toggle("is-debug-allowed", debugAllowed);
+      if (!debugAllowed && debugEnabled) {
+        setDebugEnabled(false);
+      } else if (changed) {
+        renderRoom();
+      }
+    }
+
     function setDebugEnabled(value) {
-      debugEnabled = Boolean(value);
+      debugEnabled = Boolean(value) && debugAllowed;
       zoneEditorEnabled = debugEnabled;
       activeTarget = null;
       keys.clear();
@@ -2945,7 +2968,7 @@
     }
 
     function setZoneEditorEnabled(value) {
-      zoneEditorEnabled = Boolean(value);
+      zoneEditorEnabled = Boolean(value) && debugAllowed && debugEnabled;
       if (zoneEditorEnabled) {
         ensureRoomOverride(room);
         setDebugStatus("Zone editor ready");
@@ -4486,7 +4509,7 @@
         return;
       }
       if (event.key?.toLowerCase() === "d") {
-        if (isTextEntryTarget(event.target)) {
+        if (!debugAllowed || isTextEntryTarget(event.target) || event.metaKey || event.ctrlKey || event.altKey) {
           return;
         }
         event.preventDefault();
@@ -4864,6 +4887,7 @@
       localPlayer.achievements = idRewards;
       localPlayer.idRewards = idRewards;
       localPlayer.createdAt = nextIdentity.createdAt || null;
+      setDebugAllowed(nextIdentity.debugAllowed);
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderLocalCard();
       publishPresence(true);
@@ -4947,6 +4971,7 @@
         mountNode.replaceChildren();
       },
       setIdentity,
+      setDebugAllowed,
       setRoom,
       openDebateLab: openDebateLabPanel,
       openSettings: openSettingsPanel

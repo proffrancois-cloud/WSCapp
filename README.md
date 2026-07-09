@@ -1,6 +1,6 @@
 # WSCapp
 
-This is the active WSCapp workspace for the World Scholar's Cup 2026 theme.
+This is the active WSCapp workspace for the evergreen World Scholar's Cup prep app. The current seasonal content source is the 2026 theme.
 
 Canonical app URL: `https://wscapp.app/`
 

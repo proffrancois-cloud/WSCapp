@@ -1,6 +1,6 @@
 # Desktop Wrapper
 
-This folder contains the Electron wrapper for the WSC 2026 Study Routes app.
+This folder contains the Electron wrapper for WSCapp.
 
 ## Files
 

@@ -64,6 +64,29 @@
     return client.rpc("resolve_alpaca_login", { p_alpaca_name: alpacaName });
   }
 
+  async function updateProfile(client, userId, payload) {
+    const response = await client
+      .from("alpaca_profiles")
+      .update(payload)
+      .eq("id", userId)
+      .select(ID_PROFILE_COLUMNS)
+      .maybeSingle();
+
+    if (!response.error || !isMissingColumnError(response.error)) {
+      return response;
+    }
+
+    const fallbackPayload = { ...payload };
+    delete fallbackPayload.wsc_achievements;
+
+    return client
+      .from("alpaca_profiles")
+      .update(fallbackPayload)
+      .eq("id", userId)
+      .select(BASE_PROFILE_COLUMNS)
+      .maybeSingle();
+  }
+
   async function syncAuthIdentity(client, user) {
     const authService = window.WSC_AUTH_SERVICE || null;
     const payload = authService?.extractAuthIdentity
@@ -94,6 +117,7 @@
     upsertProgress,
     checkAlpacaNameAvailability,
     resolveAlpacaLogin,
+    updateProfile,
     syncAuthIdentity
   });
 }());

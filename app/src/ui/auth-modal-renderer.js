@@ -5,7 +5,9 @@
 
   function renderGate(context, helpers) {
     const mode = context.mode || "login";
-    const title = mode === "signup"
+    const title = context.requiresProfileCompletion || mode === "complete-profile"
+      ? "Complete your Alpaccount"
+      : mode === "signup"
       ? "Create an Alpaccount"
       : mode === "forgot"
         ? "Recover your Alpaccount"
@@ -25,7 +27,7 @@
             <div class="alpaccount-brand">
               <img src="./assets/icons/ui/signin.png?v=20260509t" alt="" />
               <div>
-                <p class="challenge-label">WSC Routes</p>
+                <p class="challenge-label">WSCapp</p>
                 <h3>${helpers.escapeHtml(title)}</h3>
                 <p>${helpers.escapeHtml(renderIntro(context))}</p>
               </div>
@@ -39,9 +41,8 @@
   }
 
   function renderIntro(context) {
-    if (context.signedIn) {
-      const name = context.profile && context.profile.alpaca_name ? context.profile.alpaca_name : "alpaca";
-      return `You are connected as ${name}.`;
+    if (context.requiresProfileCompletion || context.mode === "complete-profile") {
+      return "Discord is connected. Choose your alpaca name, school, and WSC details to finish your Alpaccount.";
     }
 
     if (context.mode === "signup") {
@@ -54,6 +55,11 @@
 
     if (context.mode === "reset") {
       return "The reset link worked. Set a new password to continue.";
+    }
+
+    if (context.signedIn) {
+      const name = context.profile && context.profile.alpaca_name ? context.profile.alpaca_name : "alpaca";
+      return `You are connected as ${name}.`;
     }
 
     return "Optional: connect to save your WSC progress across devices.";
@@ -80,6 +86,14 @@
   }
 
   function renderBody(context, helpers) {
+    if (context.mode === "reset") {
+      return renderResetPasswordForm(context);
+    }
+
+    if ((context.requiresProfileCompletion || context.mode === "complete-profile") && context.signedIn) {
+      return renderCompleteProfileForm(context, helpers);
+    }
+
     if (context.signedIn) {
       return renderConnectedAlpaccount(context, helpers);
     }
@@ -92,11 +106,47 @@
       return renderForgotPasswordForm(context);
     }
 
-    if (context.mode === "reset") {
-      return renderResetPasswordForm(context);
-    }
-
     return renderLoginForm(context, helpers);
+  }
+
+  function isGeneratedAlpacaName(value) {
+    return /^alpaca_[a-f0-9]{24}$/i.test(String(value || "").trim());
+  }
+
+  function cleanProfileValue(profile, key, blockedValues = []) {
+    const value = String(profile?.[key] || "").trim();
+    const normalized = value.toLowerCase();
+    return blockedValues.includes(normalized) ? "" : value;
+  }
+
+  function getSelectedProfileReward(profile) {
+    const idRewards = Array.isArray(profile?.wsc_achievements) ? profile.wsc_achievements : [];
+    return idRewards[0] || null;
+  }
+
+  function renderOptions(options, selectedValue, helpers) {
+    const selected = String(selectedValue || "");
+    return (options || []).map((option) => {
+      const value = String(option.value || "");
+      return `<option value="${helpers.escapeHtml(value)}"${value === selected ? " selected" : ""}>${helpers.escapeHtml(option.label)}</option>`;
+    }).join("");
+  }
+
+  function getProfileFieldDefaults(profile) {
+    const alpacaName = cleanProfileValue(profile, "alpaca_name");
+    const reward = getSelectedProfileReward(profile);
+    const wscEventCount = Number(profile?.wsc_event_count || 0);
+
+    return {
+      alpacaName: isGeneratedAlpacaName(alpacaName) ? "" : alpacaName,
+      country: cleanProfileValue(profile, "country", ["unknown"]),
+      schoolName: cleanProfileValue(profile, "school_name", ["unknown", "unknown school"]),
+      wscEventCount: Number.isInteger(wscEventCount) && wscEventCount >= 0 ? Math.min(wscEventCount, 99) : 0,
+      highestWscRound: String(profile?.highest_wsc_round || "none_yet") || "none_yet",
+      rewardType: String(reward?.rewardType || reward?.reward_type || "none_yet") || "none_yet",
+      rewardCity: String(reward?.city || "").trim(),
+      rewardDate: String(reward?.approximateDate || reward?.approximate_date || "").trim()
+    };
   }
 
   function renderConnectedAlpaccount(context, helpers) {
@@ -138,7 +188,7 @@
             data-auth-oauth="${helpers.escapeHtml(provider.provider)}"
             ${context.busy ? "disabled" : ""}
           >
-            <span aria-hidden="true"><img src="./assets/mascot/library/final-pack/Discordlogo.png?v=20260707directgames" alt="" /></span>
+            <span class="auth-provider-icon-shell" aria-hidden="true"><img class="auth-provider-icon" src="./assets/mascot/library/final-pack/Discordlogo.png?v=20260707directgames" alt="" width="25" height="25" loading="eager" decoding="async" /></span>
             <strong>${helpers.escapeHtml(provider.label || "Continue")}</strong>
           </button>
         `).join("")}
@@ -200,7 +250,6 @@
         <label class="auth-field">
           <span>Highest WSC round reached for your ID</span>
           <select name="highest_wsc_round" required>
-            <option value="">Choose a round</option>
             ${(context.roundOptions || []).map((option) => `<option value="${helpers.escapeHtml(option.value)}">${helpers.escapeHtml(option.label)}</option>`).join("")}
           </select>
         </label>
@@ -212,18 +261,72 @@
             </select>
           </label>
           <label class="auth-field">
-            <span>City for that reward</span>
-            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" placeholder="Bangkok" />
+            <span>City for that reward <em>optional</em></span>
+            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" placeholder="N/A" />
           </label>
           <label class="auth-field">
-            <span>Approximate date</span>
-            <input name="wsc_id_reward_date" type="text" placeholder="July 2026" />
+            <span>Approximate date <em>optional</em></span>
+            <input name="wsc_id_reward_date" type="text" placeholder="Not sure" />
           </label>
         </div>
-        <p class="auth-helper">If you already have a WSC reward, add its round, city, and month/year so your Alpaca ID can show the icon and info bubble. You can add more later from your ID card.</p>
+        <p class="auth-helper">If you already have a WSC reward, choose the reward and round. City and date are optional; blank details show as N/A and Not sure. If you have no reward yet, leave No medal or trophy yet selected.</p>
         <div class="panel-actions auth-actions">
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Create Alpaccount</button>
           <button class="button secondary" type="button" data-auth-mode="login">Back to login</button>
+        </div>
+      </form>
+    `;
+  }
+
+  function renderCompleteProfileForm(context, helpers) {
+    const defaults = getProfileFieldDefaults(context.profile || {});
+
+    return `
+      <form class="alpaccount-form" data-auth-form="complete-profile">
+        <div class="auth-form-grid">
+          <label class="auth-field">
+            <span>Alpaca name</span>
+            <input name="alpaca_name" type="text" autocomplete="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9_-]{2,31}" value="${helpers.escapeHtml(defaults.alpacaName)}" required />
+          </label>
+          <label class="auth-field">
+            <span>Country</span>
+            <input name="country" type="text" autocomplete="country-name" value="${helpers.escapeHtml(defaults.country)}" required />
+          </label>
+          <label class="auth-field">
+            <span>School name</span>
+            <input name="school_name" type="text" autocomplete="organization" value="${helpers.escapeHtml(defaults.schoolName)}" required />
+          </label>
+          <label class="auth-field">
+            <span>WSC events attended</span>
+            <input name="wsc_event_count" type="number" min="0" max="99" step="1" value="${helpers.escapeHtml(defaults.wscEventCount)}" required />
+          </label>
+        </div>
+        <label class="auth-field">
+          <span>Highest WSC round reached for your ID</span>
+          <select name="highest_wsc_round" required>
+            ${renderOptions(context.roundOptions, defaults.highestWscRound, helpers)}
+          </select>
+        </label>
+        <div class="auth-form-grid">
+          <label class="auth-field">
+            <span>Best WSC reward for your ID</span>
+            <select name="wsc_id_reward_type" required>
+              ${renderOptions(context.rewardOptions, defaults.rewardType, helpers)}
+            </select>
+          </label>
+          <label class="auth-field">
+            <span>City for that reward <em>optional</em></span>
+            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" placeholder="N/A" value="${helpers.escapeHtml(defaults.rewardCity)}" />
+          </label>
+          <label class="auth-field">
+            <span>Approximate date <em>optional</em></span>
+            <input name="wsc_id_reward_date" type="text" placeholder="Not sure" value="${helpers.escapeHtml(defaults.rewardDate)}" />
+          </label>
+        </div>
+        <p class="auth-helper">Pick the public alpaca name and school details other scholars will see. Reward city and date are optional; blank reward details show as N/A and Not sure.</p>
+        <div class="panel-actions auth-actions">
+          <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Save Alpaccount</button>
+          <button class="button secondary" type="button" data-auth-signout ${context.busy ? "disabled" : ""}>Sign out</button>
         </div>
       </form>
     `;
@@ -272,6 +375,7 @@
     renderOAuthActions,
     renderLoginForm,
     renderSignupForm,
+    renderCompleteProfileForm,
     renderForgotPasswordForm,
     renderResetPasswordForm
   });

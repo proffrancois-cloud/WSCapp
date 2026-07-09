@@ -396,7 +396,7 @@ body.is-online-mode .hero-best-strip {
 
 .auth-provider-button {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: 38px minmax(0, 1fr);
   gap: 12px;
   align-items: center;
   min-height: 52px;
@@ -423,11 +423,14 @@ body.is-online-mode .hero-best-strip {
   transform: none;
 }
 
-.auth-provider-button span {
+.auth-provider-button > span,
+.auth-provider-button .auth-provider-icon-shell {
   display: inline-grid;
   place-items: center;
   width: 38px;
+  min-width: 38px;
   height: 38px;
+  min-height: 38px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.16);
   font-size: 0.68rem;
@@ -436,9 +439,17 @@ body.is-online-mode .hero-best-strip {
   text-transform: uppercase;
 }
 
-.auth-provider-button img {
-  width: 25px;
-  height: 25px;
+.auth-provider-button img,
+.auth-provider-button > span img,
+.auth-provider-button .auth-provider-icon,
+.auth-provider-button .auth-provider-icon-shell img {
+  display: block;
+  width: 25px !important;
+  min-width: 25px !important;
+  max-width: 25px !important;
+  height: 25px !important;
+  min-height: 25px !important;
+  max-height: 25px !important;
   object-fit: contain;
 }
 
@@ -4979,7 +4990,7 @@ body.is-campus2d-view .hero-layout {
 body.is-campus2d-view .hero-copy {
   position: absolute !important;
   left: 50% !important;
-  top: 50% !important;
+  top: 54% !important;
   width: min(46vw, 560px) !important;
   min-height: 0 !important;
   transform: translate(-50%, -50%) !important;
@@ -5008,8 +5019,8 @@ body.is-campus2d-view .hero-menu-trigger {
 }
 
 body.is-campus2d-view .hero-online-button.switch-local {
-  --campus2d-local-switch-size: clamp(30px, calc(var(--campus2d-header-height, 104px) * 0.38), 40px);
-  --campus2d-local-switch-image-size: min(26px, calc(var(--campus2d-local-switch-size) - 10px));
+  --campus2d-local-switch-size: clamp(48px, calc(var(--campus2d-header-height, 104px) * 0.48), 56px);
+  --campus2d-local-switch-image-size: min(48px, calc(var(--campus2d-local-switch-size) - 4px));
   position: relative !important;
   display: inline-grid !important;
   place-items: center !important;
@@ -5027,8 +5038,8 @@ body.is-campus2d-view .hero-online-button.switch-local img {
   display: block !important;
   width: var(--campus2d-local-switch-image-size) !important;
   height: var(--campus2d-local-switch-image-size) !important;
-  max-width: calc(100% - 10px) !important;
-  max-height: calc(100% - 10px) !important;
+  max-width: calc(100% - 4px) !important;
+  max-height: calc(100% - 4px) !important;
   min-width: 0 !important;
   min-height: 0 !important;
   object-fit: contain !important;
@@ -5081,20 +5092,139 @@ body.is-campus2d-view .hero-online-button.switch-local:focus-visible::after {
   transform: translate(0, -50%);
 }
 
+.hero-product-subhead,
+.hero-product-body,
 .hero-seo-disclaimer {
-  max-width: min(520px, 92vw);
-  margin: 0.35rem auto 0;
-  color: rgba(74, 45, 25, 0.76);
-  font-size: clamp(0.72rem, 1.8vw, 0.86rem);
-  font-weight: 760;
-  line-height: 1.3;
   letter-spacing: 0;
   text-align: center;
 }
 
+.hero-product-subhead {
+  max-width: min(520px, 92vw);
+  margin: 0.2rem auto 0;
+  color: #fff1cf;
+  font-size: clamp(0.92rem, 1.7vw, 1.08rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.hero-product-body {
+  max-width: min(560px, 92vw);
+  margin: 0.08rem auto 0;
+  color: rgba(255, 241, 207, 0.9);
+  font-size: clamp(0.76rem, 1.25vw, 0.9rem);
+  font-weight: 820;
+  line-height: 1.18;
+}
+
+.hero-seo-disclaimer {
+  max-width: min(520px, 92vw);
+  margin: 0.18rem auto 0;
+  color: rgba(255, 241, 207, 0.78);
+  font-size: clamp(0.6rem, 1vw, 0.72rem);
+  font-weight: 760;
+  line-height: 1.18;
+}
+
 @media (max-width: 640px) {
+  .hero-product-subhead {
+    font-size: 0.82rem;
+  }
+
+  .hero-product-body {
+    font-size: 0.7rem;
+  }
+
   .hero-seo-disclaimer {
     max-width: min(360px, 86vw);
-    font-size: 0.72rem;
+    font-size: 0.58rem;
   }
+}
+
+/* Shared header menu parity: local and multiplayer expose the same arc items. */
+body .hero-links > button.hero-link-icon.hero-settings-icon,
+body.is-local-mode .hero-links > button.hero-link-icon.hero-settings-icon,
+body.is-online-mode .hero-links > button.hero-link-icon.hero-settings-icon {
+  display: flex !important;
+}
+
+body .hero-links > .session-controls::after,
+body.is-local-mode .hero-links > .session-controls::after,
+body.is-online-mode .hero-links > .session-controls::after {
+  content: attr(data-menu-label) !important;
+}
+
+body .hero-links > .session-controls:not([data-menu-label])::after {
+  content: "Log in" !important;
+}
+
+body .hero-links.is-open > .hero-discord-link,
+body.is-local-mode .hero-links.is-open > .hero-discord-link,
+body.is-online-mode .hero-links.is-open > .hero-discord-link {
+  transform: translate(126px, -30px) scale(1) rotate(0deg) !important;
+}
+
+body .hero-links.is-open > button.hero-link-icon.hero-settings-icon,
+body.is-local-mode .hero-links.is-open > button.hero-link-icon.hero-settings-icon,
+body.is-online-mode .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translate(118px, 34px) scale(1) rotate(0deg) !important;
+}
+
+body .hero-links.is-open > .session-controls,
+body.is-local-mode .hero-links.is-open > .session-controls,
+body.is-online-mode .hero-links.is-open > .session-controls {
+  transform: translate(104px, 92px) scale(1) rotate(0deg) !important;
+}
+
+body .hero-links.is-open > button.hero-link-icon.hero-resources-icon,
+body.is-local-mode .hero-links.is-open > button.hero-link-icon.hero-resources-icon,
+body.is-online-mode .hero-links.is-open > button.hero-link-icon.hero-resources-icon {
+  transform: translate(72px, 176px) scale(1) rotate(0deg) !important;
+}
+
+body .hero-links.is-open > a.hero-link-icon,
+body.is-local-mode .hero-links.is-open > a.hero-link-icon,
+body.is-online-mode .hero-links.is-open > a.hero-link-icon {
+  transform: translate(48px, 254px) scale(1) rotate(0deg) !important;
+}
+
+.app-settings-window {
+  max-width: min(420px, calc(100vw - 28px));
+}
+
+.app-settings-stack {
+  gap: 18px;
+}
+
+.app-settings-heading h3 {
+  margin: 0;
+  color: #4f311d;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  letter-spacing: 0;
+}
+
+.app-settings-control {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(101, 66, 37, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 246, 223, 0.72);
+}
+
+.app-settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: #4f311d;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.app-settings-slider {
+  width: 100%;
+  accent-color: #7a4a26;
 }

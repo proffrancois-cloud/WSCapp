@@ -52,6 +52,8 @@ const publicAssetDirs = [
 ];
 
 const seoPageDirs = [
+  "world-scholars-cup-prep",
+  "wsc-practice",
   "wsc-2026-study-guide",
   "wsc-2026-practice",
   "debate-lab",
