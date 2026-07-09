@@ -536,6 +536,23 @@ for (const runtimeNeedle of [
 if (/joinCode|Join by code|Share the join code|Enter the host's join code|data-campus2d-debate-code-input|campus2d-debate-code-input/.test(campusRuntime)) {
   failures.push("Debate Lab should use the shared amphitheatre signup flow, not a join-code flow.");
 }
+if (!/function\s+createEl[\s\S]*value\s*===\s*true[\s\S]*value\s*!==\s*false/.test(campusRuntime)) {
+  failures.push("Campus 2D element creation must not write disabled='false' or other false boolean attributes.");
+}
+if (!/hostSide:\s*""/.test(campusRuntime) || /const\s+side\s*=\s*normalizeDebateSide\(debateDraft\.hostSide\)/.test(campusRuntime) || !/if\s*\(side\)\s*\{[\s\S]*next\.teams\[side\]\.push/.test(campusRuntime)) {
+  failures.push("Debate Lab room creation must not automatically place the host as the first PRO speaker.");
+}
+for (const debateSyncNeedle of [
+  "Room created. Choose PRO or CON; everyone can join now.",
+  "if (senderClientId === localPlayer.clientId)",
+  "maybePublishDebateStateForPresence(seen)",
+  "debatePanelOpen = true",
+  "debatePanelOpen || isDebateBlocking(debateState)"
+]) {
+  if (!campusRuntime.includes(debateSyncNeedle)) {
+    failures.push(`Debate Lab multiplayer sync is missing ${debateSyncNeedle}.`);
+  }
+}
 if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRuntime)) {
   failures.push("Campus 2D yellow seat zones must be non-walkable, not regular walking areas.");
 }
