@@ -16,7 +16,7 @@ const APP_DEFAULT_SETTINGS = Object.freeze({
 });
 const appAuthService = window.WSC_AUTH_SERVICE || null;
 const AUTH_OAUTH_PROVIDERS = Object.freeze(Object.values(appAuthService?.oauthProviders || {}));
-const DISCORD_INVITE_URL = "https://discord.gg/5m6tCSBy";
+const DISCORD_INVITE_URL = "https://discord.gg/FyJCPMrs9";
 const CONTACT_EMAIL_URL = "mailto:support@wscapp.app";
 const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
 const LIBRARY_RESOURCE_PROXY_ENDPOINT = "/api/embed-library-resource";
