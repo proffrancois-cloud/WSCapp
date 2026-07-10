@@ -10,6 +10,28 @@ const PORT = Number(process.env.WSC_SMOKE_PORT || 4173);
 const BASE_URL = `http://localhost:${PORT}`;
 const DEFAULT_CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
+const appSource = fs.readFileSync(path.join(APP_DIR, "app.js"), "utf8");
+
+function getFunctionSource(source, name) {
+  const marker = `function ${name}(`;
+  const start = source.indexOf(marker);
+  if (start < 0) {
+    throw new Error(`Could not find ${name} in app.js`);
+  }
+  const nextFunction = source.indexOf("\nfunction ", start + marker.length);
+  return source.slice(start, nextFunction < 0 ? source.length : nextFunction);
+}
+
+const launchOnlineGameInlineSource = getFunctionSource(appSource, "launchOnlineGameInline");
+if (launchOnlineGameInlineSource.includes("launchMultiplayerGameAlone")) {
+  throw new Error("Online campus games must not launch through the solo/local multiplayer fallback.");
+}
+
+const renderLiveOverlayMountSource = getFunctionSource(appSource, "renderLiveOverlayMount");
+if (renderLiveOverlayMountSource.includes("renderLiveOverlayLayer")) {
+  throw new Error("Live game signup must stay inside the campus columns, not the full-screen waiting overlay.");
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }

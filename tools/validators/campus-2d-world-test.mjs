@@ -383,17 +383,20 @@ const onlineGameChooserBlock = appJs.match(/function chooseOnlineGameType\([^]*?
 const onlineInlineLaunchBlock = appJs.match(/function launchOnlineGameInline\([^]*?\n}\n/)?.[0] || "";
 const gameAloneLaunchBlock = appJs.match(/function launchMultiplayerGameAlone\([^]*?\n}\n/)?.[0] || "";
 const campusModalRenderBlock = appJs.match(/function renderLibraryCampusModal\([^]*?\n}\n/)?.[0] || "";
-if (!onlineGameChooserBlock.includes("launchOnlineGameInline") || onlineGameChooserBlock.includes("openMultiplayerGameChoice")) {
-  failures.push("Online game cards must launch the alone-rules game inline, without opening the multiplayer audience picker.");
+if (!onlineGameChooserBlock.includes("launchMultiplayerGameConnected") || onlineGameChooserBlock.includes("launchOnlineGameInline") || onlineGameChooserBlock.includes("openMultiplayerGameChoice")) {
+  failures.push("Online game cards must open the connected live setup, not the old solo inline fallback or audience picker.");
 }
-if (!onlineInlineLaunchBlock.includes("launchMultiplayerGameAlone") || !onlineInlineLaunchBlock.includes("stayOnline: true") || onlineInlineLaunchBlock.includes("state.ui.multiplayerGameChoice =")) {
-  failures.push("Online inline game launch must reuse the alone-game rules without rendering a multiplayer choice.");
+if (!onlineInlineLaunchBlock.includes("launchMultiplayerGameConnected") || onlineInlineLaunchBlock.includes("launchMultiplayerGameAlone") || onlineInlineLaunchBlock.includes("stayOnline: true") || onlineInlineLaunchBlock.includes("state.ui.multiplayerGameChoice =")) {
+  failures.push("Online inline game launch must use the connected live setup instead of the solo/local rules.");
 }
 if (!gameAloneLaunchBlock.includes("stayOnline") || !gameAloneLaunchBlock.includes('state.ui.appShellMode = stayOnline ? "online" : "local"') || !gameAloneLaunchBlock.includes("state.ui.libraryExperience = stayOnline")) {
   failures.push("Alone game launch must stay inside Alpaca Online when started from the campus.");
 }
 if (campusModalRenderBlock.includes("shouldUseModalMount") || campusModalRenderBlock.includes("MULTIPLAYER_GAME_MODE_IDS.has(state.ui.libraryExperience")) {
   failures.push("Campus game experiences must render in the inline activity mount instead of forcing the global modal mount.");
+}
+if (!campusModalRenderBlock.includes("shouldRenderCampusLiveGamePanel")) {
+  failures.push("Live game setup and lobby must render in the campus activity columns.");
 }
 for (const appNeedle of [
   "isCampusActivityInlineActive",

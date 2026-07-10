@@ -1449,6 +1449,43 @@ body.is-campus2d-view .wizard-steps {
   overflow: hidden;
 }
 
+.campus2d-activity-mount .online-hub-shell-inline {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+  gap: 12px;
+  padding: 0;
+  overflow: auto;
+}
+
+.campus2d-activity-mount .online-hub-shell-inline .online-hub-card {
+  min-width: 0;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.campus2d-activity-mount .online-hub-shell-inline .online-feature-card {
+  min-height: 0;
+}
+
+.campus2d-activity-mount .online-hub-shell-inline .online-feature-card h2 {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+.campus2d-activity-mount .online-hub-shell-inline .online-create-game-grid,
+.campus2d-activity-mount .online-hub-shell-inline .live-player-count-grid,
+.campus2d-activity-mount .online-hub-shell-inline .live-category-grid {
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+}
+
+.campus2d-activity-mount .online-hub-shell-inline .live-player-grid {
+  grid-template-columns: 1fr;
+}
+
 .campus2d-controls-panel {
   display: none;
 }

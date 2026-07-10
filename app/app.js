@@ -4795,31 +4795,7 @@ function renderWizard() {
 }
 
 function renderAlpacaOnlineHub() {
-  const busy = ["loading", "joining", "creating", "starting"].includes(state.live.status);
-  const currentSession = state.live.currentSession;
-  const roster = getAlpacaOnlineRoster();
-  const roomPlayers = state.live.players || [];
-  const isHost = getAlpacapardyLiveIdentityContext().isHost;
-  const canStart = getAlpacapardyLiveRenderContext().canStart;
-  const onGamePage = Boolean(currentSession || state.live.onlineView === "game");
-
-  if (!onGamePage) {
-    return renderCampus2DOnlineShell();
-  }
-
-  return `
-    <section class="online-hub-shell ${onGamePage ? "online-hub-shell-game" : "online-hub-shell-home"}">
-      <aside class="online-hub-column online-hub-left">
-        ${renderOnlineLiveSidebar({ busy, currentSession, roomPlayers, roster })}
-      </aside>
-
-      <main class="online-hub-main ${onGamePage ? "" : "online-hub-main-wide"}">
-        ${onGamePage
-          ? renderOnlineCreateGamePanel({ currentSession, roomPlayers, isHost, canStart, busy })
-          : renderOnlineHomeGameGrid()}
-      </main>
-    </section>
-  `;
+  return renderCampus2DOnlineShell();
 }
 
 function getLiveOverlayRenderContext() {
@@ -4832,11 +4808,7 @@ function getLiveOverlayRenderContext() {
 }
 
 function isAlpacaOnlineCampusView() {
-  return Boolean(
-    state.ui.appShellMode === "online" &&
-    !state.live.currentSession &&
-    state.live.onlineView !== "game"
-  );
+  return state.ui.appShellMode === "online";
 }
 
 function renderCampus2DOnlineShell() {
@@ -4979,9 +4951,7 @@ function getLiveOverlayMount() {
 
 function renderLiveOverlayMount() {
   const mount = getLiveOverlayMount();
-  const html = state.ui.appShellMode === "online"
-    ? renderLiveOverlayLayer(getLiveOverlayRenderContext())
-    : "";
+  const html = "";
 
   if (!html) {
     mount.innerHTML = "";
@@ -6412,7 +6382,7 @@ function createEmptyArcadeState(gameType) {
 function chooseOnlineGameType(gameType) {
   const normalized = normalizeLiveGameType(gameType);
   const modeId = LIVE_GAME_TYPES[normalized]?.modeId || "jeopardy";
-  launchOnlineGameInline(modeId, { gameType: normalized, source: "online" });
+  launchMultiplayerGameConnected({ modeId, gameType: normalized });
 }
 
 function setupConnectedOnlineGameType(gameType) {
@@ -7690,8 +7660,8 @@ function syncPopupScrollLock() {
       state.ui.multiplayerGameChoice
     )) ||
     state.ui.rawMediaLightbox ||
-    state.live.launchCountdownText ||
-    (state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
+    (!campusActivityInline && state.live.launchCountdownText) ||
+    (!campusActivityInline && state.ui.appShellMode === "online" && state.live.currentSession?.status === "lobby")
   );
   const shouldLock = state.ui.appShellMode === "online"
     ? blockingOverlayOpen
@@ -8816,6 +8786,10 @@ function renderLibraryCampusModal() {
   if (inlineMount) {
     modalMount.innerHTML = "";
   }
+  if (shouldRenderCampusLiveGamePanel()) {
+    mount.innerHTML = renderCampusLiveGamePanel();
+    return;
+  }
   if (state.ui.libraryExperience && state.experience) {
     mount.innerHTML = renderLibraryExperienceViewer();
     return;
@@ -8842,6 +8816,34 @@ function renderLibraryCampusModal() {
   }
 
   mount.innerHTML = "";
+}
+
+function shouldRenderCampusLiveGamePanel() {
+  return Boolean(
+    state.ui.appShellMode === "online" &&
+    (state.live.onlineView === "game" || state.live.currentSession)
+  );
+}
+
+function renderCampusLiveGamePanel() {
+  const context = getLiveOverlayRenderContext();
+  const roster = getAlpacaOnlineRoster();
+  return `
+    <section class="online-hub-shell online-hub-shell-game online-hub-shell-inline">
+      <aside class="online-hub-column online-hub-left">
+        ${renderOnlineLiveSidebar({
+          busy: context.busy,
+          currentSession: context.currentSession,
+          roomPlayers: context.roomPlayers,
+          roster
+        })}
+      </aside>
+
+      <main class="online-hub-main">
+        ${renderOnlineCreateGamePanel(context)}
+      </main>
+    </section>
+  `;
 }
 
 function renderLibraryCampusMenu(type) {
@@ -9652,13 +9654,10 @@ function launchOnlineGameInline(modeId, options = {}) {
     .filter((sectionId) => sectionById[sectionId]);
   const connectedGameType = options.gameType || getConnectedLiveGameTypeForMode(modeId);
 
-  launchMultiplayerGameAlone({
+  launchMultiplayerGameConnected({
     modeId,
     gameType: connectedGameType,
-    returnMenuType,
-    sectionIds,
-    source: options.source || "campus",
-    stayOnline: true
+    returnMenuType
   });
 }
 
