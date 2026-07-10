@@ -110,6 +110,18 @@ assert.equal(realtime.DEFAULTS.CHAT_RATE_LIMIT_WINDOW_MS, 3000);
 assert.equal(realtime.DEFAULTS.CHAT_MAX_LENGTH, 120);
 assert.equal(realtime.MOVEMENT_PAYLOAD_FIELDS.includes("email"), false);
 assert.equal(realtime.MOVEMENT_PAYLOAD_FIELDS.includes("displayName"), false);
+
+const campusSource = readApp("src/features/campus-2d/campus-2d.js");
+assert.match(
+  campusSource,
+  /Number\(incoming\.updatedAtMs\) > Number\(current\.updatedAtMs\) \? incoming : current/,
+  "Scholar's Challenge merges should keep current setup state when timestamps tie."
+);
+assert.match(
+  campusSource,
+  /incoming\.updatedAtMs > challengeState\.updatedAtMs \|\| hasChallengeMergeDelta\(incoming, challengeState\)/,
+  "Scholar's Challenge should only accept equal-timestamp state when it carries mergeable participant or answer deltas."
+);
 const filteredPresenceClientIds = Array.from(realtime.flattenPresenceState({
     local: [{ clientId: "local-1", roomId: "room-a", updatedAtMs: 3 }],
     sameA: [{ clientId: "same-a", roomId: "room-a", updatedAtMs: 2 }],

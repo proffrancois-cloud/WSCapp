@@ -2195,7 +2195,7 @@
       if (current.sessionId !== incoming.sessionId) {
         return cloneChallengeState(incoming);
       }
-      const newer = incoming.updatedAtMs >= current.updatedAtMs ? incoming : current;
+      const newer = Number(incoming.updatedAtMs) > Number(current.updatedAtMs) ? incoming : current;
       const older = newer === incoming ? current : incoming;
       const merged = cloneChallengeState(newer);
       merged.participants = mergeChallengeParticipants(older.participants || [], newer.participants || []);
@@ -2289,7 +2289,7 @@
         }
         return true;
       }
-      return incoming.updatedAtMs >= challengeState.updatedAtMs || hasChallengeMergeDelta(incoming, challengeState);
+      return incoming.updatedAtMs > challengeState.updatedAtMs || hasChallengeMergeDelta(incoming, challengeState);
     }
 
     function receiveRemoteChallenge(payload) {
