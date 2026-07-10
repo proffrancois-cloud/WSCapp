@@ -101,6 +101,7 @@ const realtimeSandbox = vm.createContext({
 loadClassicScript("src/features/campus-2d/realtime.js", realtimeSandbox);
 const realtime = realtimeSandbox.window.WSC_CAMPUS_2D_REALTIME;
 assert.equal(realtime.EVENTS.debateSignal, "campus2d.debate.signal");
+assert.equal(realtime.EVENTS.challenge, "campus2d.scholars-challenge.state");
 assert.equal(realtime.DEFAULTS.MAX_PLAYERS_PER_ROOM, 50);
 assert.equal(realtime.DEFAULTS.MOVEMENT_SEND_INTERVAL_MS, 200);
 assert.equal(realtime.DEFAULTS.SNAPSHOT_INTERVAL_MS, 100);
@@ -213,8 +214,15 @@ await channel.sendDebateSignal({
     description: { type: "offer", sdp: "fake" }
   }
 });
+await channel.sendChallenge({
+  scholarsChallenge: {
+    sessionId: "challenge-1",
+    status: "signup",
+    participants: [{ clientId: "local-1", displayName: "Local" }]
+  }
+});
 
-assert.equal(sentMessages.length, 3);
+assert.equal(sentMessages.length, 4);
 assert.equal(sentMessages[0].event, "campus2d.avatar.move");
 assert.equal(sentMessages[0].payload.x, 12);
 assert.equal(sentMessages[0].payload.seq, 7);
@@ -227,6 +235,9 @@ assert.equal(sentMessages[1].payload.message.length, 120);
 assert.equal(sentMessages[2].event, "campus2d.debate.signal");
 assert.equal(sentMessages[2].payload.debateSignal.toClientId, "remote-1");
 assert.equal(sentMessages[2].payload.debateSignal.type, "offer");
+assert.equal(sentMessages[3].event, "campus2d.scholars-challenge.state");
+assert.equal(sentMessages[3].payload.scholarsChallenge.sessionId, "challenge-1");
+assert.equal(sentMessages[3].payload.clientId, "local-1");
 
 let roomFullPayload = null;
 const fullPresenceState = Object.fromEntries(Array.from({ length: 49 }, (_value, index) => [

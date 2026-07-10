@@ -25,7 +25,7 @@ create table if not exists public.alpacapardy_live_sessions (
   constraint alpacapardy_live_sessions_game_type_check check (game_type in ('alpacapardy', 'run', 'quiz', 'race', 'alpaquiz')),
   constraint alpacapardy_live_sessions_status_check check (status in ('lobby', 'playing', 'finished', 'abandoned', 'archived')),
   constraint alpacapardy_live_sessions_visibility_check check (visibility in ('public', 'private')),
-  constraint alpacapardy_live_sessions_max_players_check check (max_players between 2 and 4)
+  constraint alpacapardy_live_sessions_max_players_check check (max_players between 2 and 6)
 );
 
 create table if not exists public.alpacapardy_live_players (
@@ -40,7 +40,7 @@ create table if not exists public.alpacapardy_live_players (
   joined_at timestamptz not null default now(),
   last_seen_at timestamptz not null default now(),
   constraint alpacapardy_live_players_role_check check (role in ('host', 'player', 'spectator')),
-  constraint alpacapardy_live_players_team_index_check check (team_index is null or team_index between 0 and 3),
+  constraint alpacapardy_live_players_team_index_check check (team_index is null or team_index between 0 and 5),
   constraint alpacapardy_live_players_connection_check check (connection_status in ('online', 'offline')),
   constraint alpacapardy_live_players_display_name_check check (char_length(trim(display_name)) between 2 and 64)
 );
@@ -65,11 +65,11 @@ alter table public.alpacapardy_live_sessions
   add constraint alpacapardy_live_sessions_status_check check (status in ('lobby', 'playing', 'finished', 'abandoned', 'archived')),
   add constraint alpacapardy_live_sessions_game_type_check check (game_type in ('alpacapardy', 'run', 'quiz', 'race', 'alpaquiz')),
   add constraint alpacapardy_live_sessions_visibility_check check (visibility in ('public', 'private')),
-  add constraint alpacapardy_live_sessions_max_players_check check (max_players between 2 and 4);
+  add constraint alpacapardy_live_sessions_max_players_check check (max_players between 2 and 6);
 
 alter table public.alpacapardy_live_players
   drop constraint if exists alpacapardy_live_players_team_index_check,
-  add constraint alpacapardy_live_players_team_index_check check (team_index is null or team_index between 0 and 3);
+  add constraint alpacapardy_live_players_team_index_check check (team_index is null or team_index between 0 and 5);
 
 create unique index if not exists alpacapardy_live_players_session_user_key
   on public.alpacapardy_live_players(session_id, user_id);

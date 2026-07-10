@@ -1284,6 +1284,10 @@ button {
   align-items: center;
 }
 
+.online-room-mini.has-color-picker {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
 .online-current-room {
   grid-template-columns: 1fr;
 }

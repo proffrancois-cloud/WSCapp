@@ -31,6 +31,11 @@ const UNAVAILABLE_MODE_REASONS = Object.freeze({
 });
 const CAMPUS_ACTIVITY_COMING_SOON_NOTICE = "Available soon";
 const DEBATE_LAB_ALONE_UNAVAILABLE_REASON = "Debate Lab alone is available soon. Please wait for the live Debate Lab setup.";
+const SCHOLARS_CHALLENGE_LEVEL_PATTERNS = Object.freeze({
+  10: Object.freeze([1, 2, 3, 3, 4, 4, 4, 5, 5, 5]),
+  20: Object.freeze([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5]),
+  30: Object.freeze([1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5])
+});
 const ALPACA_NAME_PATTERN = appAuthService?.alpacaNamePattern || /^[a-z0-9][a-z0-9_-]{2,31}$/;
 const GENERATED_ALPACA_NAME_PATTERN = /^alpaca_[a-f0-9]{24}$/i;
 const CAMPUS_DEV_ALPACA_NAME = "devalpaca";
@@ -76,7 +81,7 @@ const GAME_CONFIG = {
   jeopardyAnswerTime: 30,
   jeopardyDefaultTeams: 2,
   jeopardyMinTeams: 2,
-  jeopardyMaxTeams: 4,
+  jeopardyMaxTeams: 6,
   runRegionalLevelOneCount: 10,
   runRegionalLevelTwoCount: 5,
   runGlobalLevelThreeCount: 3,
@@ -103,8 +108,10 @@ const GAME_CONFIG = {
   relayWrongPenalty: 50,
   relayDefaultTeams: 2,
   relayMinTeams: 2,
-  relayMaxTeams: 4
+  relayMaxTeams: 6
 };
+const LIVE_SIGNUP_DURATION_MS = 2 * 60 * 1000;
+const LIVE_PLAYER_COUNT_OPTIONS = Object.freeze([2, 3, 4, 5, 6]);
 const LIVE_GAME_TYPES = Object.freeze({
   alpacapardy: {
     gameType: "alpacapardy",
@@ -112,15 +119,15 @@ const LIVE_GAME_TYPES = Object.freeze({
     label: "Alpacapardy",
     status: "Ready now",
     minPlayers: 2,
-    maxPlayers: 4
+    maxPlayers: 6
   },
   run: {
     gameType: "run",
     modeId: "run",
     label: "Alpaca Run",
-    status: "2 alpacas",
+    status: "2-6 alpacas",
     minPlayers: 2,
-    maxPlayers: 2
+    maxPlayers: 6
   },
   quiz: {
     gameType: "quiz",
@@ -128,7 +135,7 @@ const LIVE_GAME_TYPES = Object.freeze({
     label: "Quiz",
     status: "Kahoot style",
     minPlayers: 2,
-    maxPlayers: 4,
+    maxPlayers: 6,
     questionCount: 10,
     timerSeconds: 20
   },
@@ -147,7 +154,7 @@ const LIVE_GAME_TYPES = Object.freeze({
     label: "Alpaquiz",
     status: "Buzz first",
     minPlayers: 2,
-    maxPlayers: 4,
+    maxPlayers: 6,
     questionCount: 20,
     timerSeconds: 20,
     answerSeconds: 4
@@ -2398,6 +2405,8 @@ const state = {
     waitingVideoSessionId: null,
     waitingVideos: [],
     waitingVideoIndex: 0,
+    pendingPlayerCounts: {},
+    pendingGameCategoryIds: {},
     pendingRunColor: LIVE_ALPACA_COLORS[0]?.id || "cream",
     guestName: loadGuestAlpacaName()
   },
@@ -2765,6 +2774,24 @@ function handleClick(event) {
   const liveCreateGame = event.target.closest("[data-live-create-game]");
   if (liveCreateGame) {
     createSelectedLiveGameRoom();
+    return;
+  }
+
+  const livePlayerCount = event.target.closest("[data-live-player-count]");
+  if (livePlayerCount) {
+    setPendingLivePlayerCount(getCurrentLiveGameType(), Number(livePlayerCount.dataset.livePlayerCount));
+    return;
+  }
+
+  const liveCategoryChoice = event.target.closest("[data-live-category-choice]");
+  if (liveCategoryChoice) {
+    togglePendingLiveGameCategory(getCurrentLiveGameType(), liveCategoryChoice.dataset.liveCategoryChoice);
+    return;
+  }
+
+  const liveSignupAction = event.target.closest("[data-live-signup-action]");
+  if (liveSignupAction) {
+    handleLiveSignupAction(liveSignupAction.dataset.liveSignupAction);
     return;
   }
 
@@ -4926,7 +4953,11 @@ function syncCampus2DOnlineMount() {
     identity: getCampus2DIdentity(),
     debugAllowed: canUseCampusDevMode(),
     onCampusZoneAction: handleCampus2DZoneAction,
-    onFeedbackSubmit: submitCampusFeedback
+    onFeedbackSubmit: submitCampusFeedback,
+    scholarsChallenge: {
+      buildQuestionPlan: buildCampusScholarsChallengeQuestionPlan,
+      getSectionTitle: (sectionId) => sectionById[sectionId]?.title || ""
+    }
   });
 }
 
@@ -4994,6 +5025,7 @@ function patchLiveWaitingOverlay(currentOverlay, nextOverlay) {
   replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-waiting-top");
   replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-player-grid");
   replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-color-picker", ".live-waiting-channel");
+  replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-signup-status");
   replaceLiveWaitingPart(currentOverlay, nextOverlay, ".live-waiting-actions");
   currentOverlay.scrollTop = overlayScrollTop;
   window.requestAnimationFrame(() => {
@@ -5184,7 +5216,7 @@ function renderOnlineHomeGameCard(gameType) {
 function getOnlineGameCardDescription(gameType) {
   const descriptions = {
     alpacapardy: "Shared clue board, team strategy, and quick answers.",
-    run: "Two alpacas race across the map toward Yale.",
+    run: "Two to six alpacas race across the map toward Yale.",
     quiz: "Timed live questions with a fast leaderboard.",
     race: "Sudden-death survival with lives on the line.",
     alpaquiz: "Buzz first, answer fast, and control the turn."
@@ -5231,24 +5263,106 @@ function renderOnlineAlpacapardyLiveGame() {
 
 function renderOnlineArcadeSetup(gameType, busy) {
   const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
+  const setupReady = canCreateLiveGameSetup(gameType);
   const rules = {
-    run: "2 players. Each alpaca gets different all-theme questions and races across the shared progress map.",
-    quiz: "2-4 players. Kahoot-style shared questions, timed answers, and a leaderboard after every question.",
+    run: "Each alpaca gets different all-theme questions and races across the shared progress map.",
+    quiz: "Kahoot-style shared questions, timed answers, and a leaderboard after every question.",
     race: "2 players. Sudden death, 3 lives each, one alpaca answers per turn.",
-    alpaquiz: "2-4 players. Everyone sees the same all-theme question. First buzz controls the answer."
+    alpaquiz: "Pick 4 guiding sections. Everyone sees the same question, then the first buzz controls the answer."
   };
 
   return `
     <section class="online-arcade-setup">
       <p>${escapeHtml(rules[gameType] || "Create a live game room.")}</p>
       <div class="race-launch-pills">
-        <span>${game.minPlayers}-${game.maxPlayers} alpacas</span>
-        <span>All themes</span>
-        <span>Live room code</span>
+        <span>${game.minPlayers === game.maxPlayers ? `${game.maxPlayers} alpacas` : `${game.minPlayers}-${game.maxPlayers} alpacas`}</span>
+        <span>2:00 signup window</span>
+        <span>${gameType === "alpaquiz" ? "4 guiding sections" : "All themes"}</span>
       </div>
+      ${renderLivePlayerCountPicker(gameType, busy)}
+      ${renderLiveGameCategoryPicker(gameType, busy)}
       ${gameType === "run" ? renderLiveRunSetupColorPicker() : ""}
       <div class="panel-actions">
-        <button class="button primary" type="button" data-live-create-game ${busy ? "disabled" : ""}>Create ${escapeHtml(game.label)}</button>
+        <button class="button primary" type="button" data-live-create-game ${busy || !setupReady ? "disabled" : ""}>Create ${escapeHtml(game.label)}</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderLivePlayerCountPicker(gameType, busy = false) {
+  const normalized = normalizeLiveGameType(gameType);
+  const options = getLivePlayerCountOptions(normalized);
+  const selectedCount = getPendingLivePlayerCount(normalized);
+  if (options.length <= 1) {
+    return `
+      <section class="live-player-count-picker">
+        <strong>Players</strong>
+        <p class="setup-helper">${options[0] || 2} alpacas sign up for this game.</p>
+      </section>
+    `;
+  }
+
+  return `
+    <section class="live-player-count-picker">
+      <strong>How many players can sign up?</strong>
+      <div class="setup-count-grid live-player-count-grid" role="group" aria-label="Players allowed">
+        ${options.map((count) => `
+          <button
+            class="setup-count-button ${selectedCount === count ? "active" : ""}"
+            type="button"
+            data-live-player-count="${count}"
+            aria-pressed="${selectedCount === count ? "true" : "false"}"
+            ${busy ? "disabled" : ""}
+          >
+            ${count} players
+          </button>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderLiveGameCategoryPicker(gameType, busy = false) {
+  const normalized = normalizeLiveGameType(gameType);
+  if (normalized !== "alpaquiz") {
+    return "";
+  }
+
+  const selectedIds = getPendingLiveGameCategoryIds(normalized);
+  const selectedSet = new Set(selectedIds);
+  const options = getJeopardySetupOptions();
+  const requiredCount = GAME_CONFIG.jeopardyMinGroups;
+  return `
+    <section class="live-category-picker">
+      <div>
+        <strong>Guiding sections</strong>
+        <p class="setup-helper">${selectedIds.length}/${requiredCount} selected</p>
+      </div>
+      <div class="setup-option-grid live-category-grid" role="group" aria-label="Guiding sections">
+        ${options.map((option) => {
+          const active = selectedSet.has(option.id);
+          return `
+            <button
+              class="setup-option-button ${active ? "active" : ""}"
+              type="button"
+              data-live-category-choice="${escapeHtml(option.id)}"
+              aria-pressed="${active ? "true" : "false"}"
+              ${busy ? "disabled" : ""}
+            >
+              ${renderConfiguredMascotAsset(
+                getWizardCardAsset(option.asset),
+                option.mood || "wise",
+                "small",
+                {
+                  alt: "",
+                  slotClass: "mascot-slot setup-option-mascot-slot",
+                  imageClass: "mascot-image setup-option-mascot-image"
+                }
+              )}
+              <span>${escapeHtml(option.title)}</span>
+            </button>
+          `;
+        }).join("")}
       </div>
     </section>
   `;
@@ -5271,13 +5385,11 @@ function renderOnlineWaitingPopup({ currentSession, roomPlayers, isHost, canStar
     <div class="online-waiting-popup" role="status">
       <div>
         <p class="challenge-label">Room ${escapeHtml(currentSession.room_code || "ROOM")}</p>
-        <h3>Waiting for alpacas to join</h3>
-        <p>${escapeHtml(isHost ? "You are hosting. Share the room code, then start when enough alpacas arrive." : "Waiting for the host to start the game.")}</p>
+        <h3>Signup is open</h3>
+        <p>${escapeHtml(isHost ? "You are hosting. The game launches when the roster fills." : "Waiting for the signup window to close or the roster to fill.")}</p>
       </div>
-      <div class="panel-actions">
-        <button class="button primary" type="button" data-jeopardy-live-start ${!canStart || busy ? "disabled" : ""}>Start Alpacapardy</button>
-        <button class="button secondary" type="button" data-jeopardy-live-leave>Cancel the game</button>
-      </div>
+      ${renderLiveSignupRoster(roomPlayers)}
+      ${renderLiveSignupStatusBlock({ currentSession, roomPlayers, isHost, busy, startLabel: "Start Alpacapardy" })}
     </div>
   `;
 }
@@ -5285,20 +5397,80 @@ function renderOnlineWaitingPopup({ currentSession, roomPlayers, isHost, canStar
 function renderOnlineArcadeWaitingRoom({ currentSession, roomPlayers, isHost, busy }) {
   const gameType = getCurrentLiveGameType();
   const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
-  const canStart = canStartSelectedLiveGame();
 
   return `
     <div class="online-waiting-popup" role="status">
       <div>
         <p class="challenge-label">Room ${escapeHtml(currentSession.room_code || "ROOM")}</p>
-        <h3>Waiting for alpacas to join</h3>
-        <p>${escapeHtml(isHost ? `You are hosting ${game.label}. Share the room code, then start when enough alpacas arrive.` : `Waiting for the host to start ${game.label}.`)}</p>
+        <h3>Signup is open</h3>
+        <p>${escapeHtml(isHost ? `You are hosting ${game.label}. The game launches when the roster fills.` : `Waiting for ${game.label} to fill or for the host to decide after signup.`)}</p>
       </div>
-      <div class="panel-actions">
-        ${isHost ? `<button class="button primary" type="button" data-live-start-game ${!canStart || busy ? "disabled" : ""}>Start ${escapeHtml(game.label)}</button>` : ""}
-        <button class="button secondary" type="button" data-jeopardy-live-leave>Cancel the game</button>
-      </div>
+      ${gameType === "run" && state.live.currentPlayer ? renderLiveRunColorPicker(roomPlayers) : ""}
+      ${renderLiveSignupRoster(roomPlayers)}
+      ${renderLiveSignupStatusBlock({ currentSession, roomPlayers, isHost, busy, startLabel: `Start ${game.label}` })}
     </div>
+  `;
+}
+
+function renderLiveSignupRoster(roomPlayers) {
+  const players = getLivePlayablePlayers(roomPlayers);
+  return `
+    <section class="live-signup-roster" aria-label="Signed up alpacas">
+      <strong>Signed up alpacas</strong>
+      <div class="live-player-grid">
+        ${players.map(renderLivePlayerCard).join("") || `<p class="online-muted">Waiting for the first signup.</p>`}
+      </div>
+    </section>
+  `;
+}
+
+function renderLiveSignupStatusBlock({ currentSession, roomPlayers, isHost, busy, startLabel }) {
+  const details = getLiveSignupDetails(currentSession, roomPlayers);
+  const timerText = details.filled
+    ? "Roster filled"
+    : details.expired
+      ? "Signup closed"
+      : `${formatCountdown(details.remainingSeconds)} left to sign up`;
+  const playerText = `${details.playerCount}/${details.maxPlayers} alpaca${details.maxPlayers === 1 ? "" : "s"}`;
+
+  if (details.needsHostDecision) {
+    return `
+      <section class="live-signup-status ${isHost ? "needs-decision" : ""}">
+        <div class="live-signup-timer-row">
+          <strong>${escapeHtml(timerText)}</strong>
+          <span>${escapeHtml(playerText)}</span>
+        </div>
+        <p>${escapeHtml(isHost
+          ? details.canStartCurrent
+            ? `Only ${details.playerCount} signed up. Is that okay?`
+            : `Only ${details.playerCount} signed up. This game needs at least ${details.minPlayers}.`
+          : "Signup is closed. Waiting for the host to choose what happens next.")}</p>
+        ${isHost ? `
+          <div class="panel-actions live-signup-actions">
+            ${details.canStartCurrent ? `<button class="button primary" type="button" data-live-signup-action="start-current" ${busy ? "disabled" : ""}>${escapeHtml(startLabel)} with ${details.playerCount}</button>` : ""}
+            <button class="button secondary" type="button" data-live-signup-action="restart" ${busy ? "disabled" : ""}>Restart 2:00 signup</button>
+            <button class="button secondary" type="button" data-live-signup-action="cancel" ${busy ? "disabled" : ""}>Cancel game</button>
+          </div>
+        ` : ""}
+      </section>
+    `;
+  }
+
+  return `
+    <section class="live-signup-status">
+      <div class="live-signup-timer-row">
+        <strong>${escapeHtml(timerText)}</strong>
+        <span>${escapeHtml(playerText)}</span>
+      </div>
+      <p>${escapeHtml(details.filled
+        ? "All seats are filled. Launching the game now."
+        : `Waiting for ${details.waitingFor} more alpaca${details.waitingFor === 1 ? "" : "s"}.`)}</p>
+      ${isHost ? `
+        <div class="panel-actions live-signup-actions">
+          <button class="button secondary" type="button" data-live-signup-action="cancel" ${busy ? "disabled" : ""}>Cancel game</button>
+        </div>
+      ` : ""}
+    </section>
   `;
 }
 
@@ -5326,10 +5498,13 @@ function renderLiveWaitingOverlay({ currentSession, roomPlayers, isHost, canStar
   const gameType = normalizeLiveGameType(currentSession.game_type);
   const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.alpacapardy;
   const players = getLivePlayablePlayers(roomPlayers);
+  const signupDetails = getLiveSignupDetails(currentSession, roomPlayers);
   const waitingVideos = getLiveWaitingVideos(currentSession.id);
-  const launchCopy = canStart
-    ? "Enough alpacas are here. Launching automatically..."
-    : `Waiting for ${Math.max(0, game.minPlayers - players.length)} more alpaca${game.minPlayers - players.length === 1 ? "" : "s"}.`;
+  const launchCopy = signupDetails.filled
+    ? "Roster filled. Launching automatically..."
+    : signupDetails.expired
+      ? "Signup closed. Waiting for the host decision."
+      : `${formatCountdown(signupDetails.remainingSeconds)} left to sign up.`;
 
   return `
     <div
@@ -5343,14 +5518,18 @@ function renderLiveWaitingOverlay({ currentSession, roomPlayers, isHost, canStar
         <div class="live-waiting-top">
           <p class="challenge-label">Room ${escapeHtml(currentSession.room_code || "ROOM")}</p>
           <h2>Waiting for alpacas to join</h2>
-          <p>${escapeHtml(`${game.label} · ${players.length}/${Number(currentSession.max_players) || game.maxPlayers} alpacas connected. ${launchCopy}`)}</p>
+          <p>${escapeHtml(`${game.label} · ${players.length}/${signupDetails.maxPlayers} alpacas connected. ${launchCopy}`)}</p>
         </div>
+        ${gameType === "run" && state.live.currentPlayer ? renderLiveRunColorPicker(roomPlayers) : ""}
+        ${renderLiveSignupRoster(roomPlayers)}
         ${renderLiveWaitingVideoRail(waitingVideos)}
-        <div class="panel-actions live-waiting-actions">
-          ${isHost && gameType === "alpacapardy" ? `<button class="button primary" type="button" data-jeopardy-live-start ${!canStart || busy ? "disabled" : ""}>Start now</button>` : ""}
-          ${isHost && gameType !== "alpacapardy" ? `<button class="button primary" type="button" data-live-start-game ${!canStart || busy ? "disabled" : ""}>Start now</button>` : ""}
-          <button class="button secondary" type="button" data-jeopardy-live-leave>Cancel the game</button>
-        </div>
+        ${renderLiveSignupStatusBlock({
+          currentSession,
+          roomPlayers,
+          isHost,
+          busy,
+          startLabel: gameType === "alpacapardy" ? "Start Alpacapardy" : `Start ${game.label}`
+        })}
       </article>
     </div>
   `;
@@ -5612,7 +5791,7 @@ function renderLiveRunColorPicker(roomPlayers) {
 
 function renderLiveRunGame(arcadeState, roomPlayers) {
   const userId = state.auth.session?.user?.id || "";
-  const players = getLivePlayablePlayers(roomPlayers).slice(0, 2);
+  const players = getLivePlayablePlayers(roomPlayers);
   const selfPlayer = players.find((player) => player.user_id === userId) || players[0] || null;
 
   return `
@@ -5654,7 +5833,7 @@ function renderLiveRunMap(arcadeState, players) {
         const routeIndex = getLiveRunRouteIndex(playerProgress);
         const stop = ALPACA_RUN_ROUTE[routeIndex] || ALPACA_RUN_ROUTE[0];
         const colorId = arcadeState.colorsByUserId?.[player.user_id] || "cream";
-        const offset = index === 0 ? -18 : 18;
+        const offset = (index - ((players.length - 1) / 2)) * 16;
         return `
           <div
             class="run-travel-marker live-run-player-marker"
@@ -5764,34 +5943,76 @@ function renderLiveRaceGame(arcadeState, roomPlayers) {
   const activeUserId = arcadeState.activeUserId;
   const question = arcadeState.questions?.[arcadeState.questionIndex] || null;
   const userId = state.auth.session?.user?.id || "";
-  const canAnswer = userId === activeUserId && !arcadeState.revealed && !arcadeState.finished;
+  const activePlayer = players.find((player) => player.user_id === activeUserId) || players[0] || null;
+  const orderedPlayers = [
+    ...(activePlayer ? [activePlayer] : []),
+    ...players.filter((player) => player.user_id !== activePlayer?.user_id)
+  ];
 
   return `
     <section class="live-race-shell">
-      <div class="live-race-lives">
-        ${players.map((player) => `
-          <article class="${player.user_id === activeUserId ? "active" : ""}">
-            <strong>${escapeHtml(player.display_name)}</strong>
-            <div class="race-lives-row">${renderLiveRaceLives(arcadeState.livesByUserId?.[player.user_id] ?? 3)}</div>
-          </article>
-        `).join("")}
-      </div>
       ${arcadeState.finished ? renderLiveWinnerCard(arcadeState, players) : `
-        <article class="live-question-panel self">
-          <p class="challenge-label">${escapeHtml(players.find((player) => player.user_id === activeUserId)?.display_name || "Next alpaca")} answers now</p>
-          <h3>${escapeHtml(question?.prompt || "Loading question...")}</h3>
-          <div class="raw-quiz-options">
-            ${(question?.options || []).map((option, optionIndex) => `
-              <button class="raw-quiz-option option-button ${arcadeState.revealed && optionIndex === question.answerIndex ? "correct" : ""}" type="button" data-live-answer="${optionIndex}" ${canAnswer ? "" : "disabled"}>
-                ${renderOptionToken(optionIndex)}
-                <span>${escapeHtml(option)}</span>
-              </button>
-            `).join("")}
-          </div>
+        <div class="live-race-player-stack">
+          ${orderedPlayers.map((player) => renderLiveRacePlayerPanel(player, arcadeState, question, {
+            isActive: player.user_id === activeUserId,
+            canAnswer: userId === player.user_id && player.user_id === activeUserId && !arcadeState.revealed && !arcadeState.finished
+          })).join("")}
+        </div>
+        <div class="panel-actions live-race-turn-actions">
           ${arcadeState.revealed ? `<button class="button primary small" type="button" data-live-next>Next turn</button>` : ""}
-        </article>
+        </div>
       `}
     </section>
+  `;
+}
+
+function renderLiveRacePlayerPanel(player, arcadeState, question, options = {}) {
+  const lives = arcadeState.livesByUserId?.[player.user_id] ?? GAME_CONFIG.raceLives;
+  const level = Number(question?.rawLevel) || Math.max(1, Math.ceil((Number(question?.displayLevel) || 100) / 100));
+  const secondsLeft = Math.max(0, Math.ceil((Number(arcadeState.turnDeadlineAt || 0) - Date.now()) / 1000));
+  const selectedIndex = Number.isInteger(arcadeState.selectedIndex) ? arcadeState.selectedIndex : null;
+  const panelClasses = [
+    "live-race-player-panel",
+    "live-question-panel",
+    options.isActive ? "active" : "opponent",
+    player.user_id === state.auth.session?.user?.id ? "self" : ""
+  ].filter(Boolean).join(" ");
+
+  return `
+    <article class="${escapeHtml(panelClasses)}">
+      <div class="live-race-stat-row">
+        <span>Pressure stop ${Math.min((Number(arcadeState.questionIndex) || 0) + 1, arcadeState.questions?.length || 1)}</span>
+        <span>Current level: ${level}</span>
+        <span>Chances remaining: ${lives}</span>
+        <strong class="live-timer-pill">${arcadeState.revealed ? "Locked" : `${secondsLeft}s on the clock`}</strong>
+      </div>
+      <div class="live-question-head">
+        <strong>${escapeHtml(player.display_name)}</strong>
+        <span>${escapeHtml(options.isActive ? "answering now" : "opponent view")}</span>
+      </div>
+      <h3>${escapeHtml(question?.prompt || "Loading question...")}</h3>
+      <div class="raw-quiz-options live-race-options">
+        ${(question?.options || []).map((answer, optionIndex) => {
+          let classes = "raw-quiz-option option-button";
+          if (arcadeState.revealed) {
+            if (optionIndex === question.answerIndex) {
+              classes += " correct";
+            } else if (optionIndex === selectedIndex) {
+              classes += " wrong";
+            }
+          } else if (optionIndex === selectedIndex) {
+            classes += " active";
+          }
+          return `
+            <button class="${classes}" type="button" data-live-answer="${optionIndex}" ${options.canAnswer ? "" : "disabled"}>
+              ${renderOptionToken(optionIndex)}
+              <span>${escapeHtml(answer)}</span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+      <div class="race-lives-row live-race-panel-lives">${renderLiveRaceLives(lives)}</div>
+    </article>
   `;
 }
 
@@ -5934,17 +6155,44 @@ function renderLiveWinnerCard(arcadeState, players) {
 function renderOnlineRoomListItem(room, busy) {
   const players = room.players || [];
   const playerCount = players.filter((player) => ["host", "player"].includes(player.role)).length;
-  const maxPlayers = Number(room.max_players) || 2;
   const gameType = normalizeLiveGameType(room.game_type);
+  const signup = getLiveSignupDetails(room, players);
 
   return `
-    <article class="online-room-mini">
+    <article class="online-room-mini ${gameType === "run" && signup.canJoin ? "has-color-picker" : ""}">
       <div>
         <strong>${escapeHtml(room.room_code || "ROOM")}</strong>
-        <span>${escapeHtml(getLiveGameLabel(gameType))} · ${playerCount}/${maxPlayers} alpacas waiting</span>
+        <span>${escapeHtml(getLiveGameLabel(gameType))} · ${playerCount}/${signup.maxPlayers} alpacas waiting</span>
+        <small>${escapeHtml(signup.canJoin ? `${formatCountdown(signup.remainingSeconds)} to sign up` : signup.filled ? "Roster filled" : "Signup closed")}</small>
       </div>
-      <button class="button secondary" type="button" data-jeopardy-live-join="${escapeHtml(room.id)}" ${busy || playerCount >= maxPlayers ? "disabled" : ""}>Join</button>
+      ${gameType === "run" && signup.canJoin ? renderLiveRunLobbyColorPicker(room) : ""}
+      <button class="button secondary" type="button" data-jeopardy-live-join="${escapeHtml(room.id)}" ${busy || !signup.canJoin ? "disabled" : ""}>Join</button>
     </article>
+  `;
+}
+
+function renderLiveRunLobbyColorPicker(room) {
+  const selectedColor = getAvailableLiveRunJoinColorId(room, getLiveRunSetupColorId());
+  const hostColor = room?.settings?.runHostColor || "";
+  return `
+    <div class="live-run-lobby-color-picker" aria-label="Choose Alpaca Run color">
+      ${LIVE_ALPACA_COLORS.map((color) => {
+        const disabled = Boolean(hostColor && hostColor === color.id);
+        const selected = selectedColor === color.id;
+        return `
+          <button
+            class="live-run-lobby-color-chip ${selected ? "active" : ""}"
+            type="button"
+            data-live-run-setup-color="${escapeHtml(color.id)}"
+            aria-pressed="${selected ? "true" : "false"}"
+            title="${escapeHtml(disabled ? `Host chose ${color.label}` : color.label)}"
+            ${disabled ? "disabled" : ""}
+          >
+            ${renderLiveRunAlpacaToken(color.id, "tiny")}
+          </button>
+        `;
+      }).join("")}
+    </div>
   `;
 }
 
@@ -5980,6 +6228,148 @@ function getOpenLiveRoomsByGame(rooms = []) {
 function getOpenRoomsForGame(gameType) {
   const normalized = normalizeLiveGameType(gameType);
   return (state.live.openSessions || []).filter((room) => normalizeLiveGameType(room.game_type) === normalized);
+}
+
+function getLivePlayerCountOptions(gameType) {
+  const game = LIVE_GAME_TYPES[normalizeLiveGameType(gameType)] || LIVE_GAME_TYPES.alpacapardy;
+  return LIVE_PLAYER_COUNT_OPTIONS.filter((count) => count >= game.minPlayers && count <= game.maxPlayers);
+}
+
+function getPendingLivePlayerCount(gameType) {
+  const normalized = normalizeLiveGameType(gameType);
+  const game = LIVE_GAME_TYPES[normalized] || LIVE_GAME_TYPES.alpacapardy;
+  const options = getLivePlayerCountOptions(normalized);
+  if (normalized === "alpacapardy" && state.experience?.type === "jeopardy") {
+    return options.includes(Number(state.experience.setupTeamCount)) ? Number(state.experience.setupTeamCount) : options[0];
+  }
+  const requested = Number(state.live.pendingPlayerCounts?.[normalized]);
+  return options.includes(requested) ? requested : Math.min(game.maxPlayers, Math.max(game.minPlayers, options[0] || game.minPlayers));
+}
+
+function setPendingLivePlayerCount(gameType, count) {
+  const normalized = normalizeLiveGameType(gameType);
+  const options = getLivePlayerCountOptions(normalized);
+  const nextCount = Number(count);
+  if (!options.includes(nextCount)) {
+    return;
+  }
+  state.live.pendingPlayerCounts = {
+    ...(state.live.pendingPlayerCounts || {}),
+    [normalized]: nextCount
+  };
+  renderLiveSurfaces();
+}
+
+function getPendingLiveGameCategoryIds(gameType) {
+  const normalized = normalizeLiveGameType(gameType);
+  const existing = Array.isArray(state.live.pendingGameCategoryIds?.[normalized])
+    ? state.live.pendingGameCategoryIds[normalized]
+    : [];
+  const optionIds = new Set(getJeopardySetupOptions().map((option) => option.id));
+  const filtered = existing.filter((categoryId) => optionIds.has(categoryId));
+  if (filtered.length) {
+    return filtered.slice(0, GAME_CONFIG.jeopardyMinGroups);
+  }
+  return getDefaultTargetSetupCategoryIds().slice(0, GAME_CONFIG.jeopardyMinGroups);
+}
+
+function togglePendingLiveGameCategory(gameType, categoryId) {
+  const normalized = normalizeLiveGameType(gameType);
+  if (normalized !== "alpaquiz") {
+    return;
+  }
+  const optionIds = new Set(getJeopardySetupOptions().map((option) => option.id));
+  if (!optionIds.has(categoryId)) {
+    return;
+  }
+
+  const current = new Set(getPendingLiveGameCategoryIds(normalized));
+  if (current.has(categoryId)) {
+    current.delete(categoryId);
+  } else if (current.size < GAME_CONFIG.jeopardyMinGroups) {
+    current.add(categoryId);
+  } else {
+    return;
+  }
+
+  state.live.pendingGameCategoryIds = {
+    ...(state.live.pendingGameCategoryIds || {}),
+    [normalized]: Array.from(current)
+  };
+  renderLiveSurfaces();
+}
+
+function canCreateLiveGameSetup(gameType) {
+  const normalized = normalizeLiveGameType(gameType);
+  if (normalized === "alpaquiz") {
+    return getPendingLiveGameCategoryIds(normalized).length === GAME_CONFIG.jeopardyMinGroups;
+  }
+  return true;
+}
+
+function getLiveSessionMaxPlayers(session, gameType = normalizeLiveGameType(session?.game_type)) {
+  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.alpacapardy;
+  const requested = Number(session?.settings?.requestedMaxPlayers || session?.max_players);
+  return Math.max(game.minPlayers, Math.min(game.maxPlayers, requested || game.maxPlayers));
+}
+
+function buildLiveSignupSettings(gameType, maxPlayers, existingSettings = {}) {
+  const normalized = normalizeLiveGameType(gameType);
+  const nowMs = Date.now();
+  return {
+    ...(existingSettings || {}),
+    gameType: normalized,
+    requestedMaxPlayers: getLiveSessionMaxPlayers({ game_type: normalized, max_players: maxPlayers }, normalized),
+    signupDurationMs: LIVE_SIGNUP_DURATION_MS,
+    signupStartedAtMs: nowMs,
+    signupEndsAtMs: nowMs + LIVE_SIGNUP_DURATION_MS
+  };
+}
+
+function getLiveSignupDetails(session, players = state.live.players, nowMs = Date.now()) {
+  const gameType = normalizeLiveGameType(session?.game_type || state.live.selectedGameType);
+  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.alpacapardy;
+  const settings = session?.settings || {};
+  const maxPlayers = getLiveSessionMaxPlayers(session, gameType);
+  const playablePlayers = getLivePlayablePlayers(players);
+  const playerCount = playablePlayers.length;
+  const fallbackStartedAtMs = Date.parse(session?.created_at || session?.updated_at || "") || nowMs;
+  const signupStartedAtMs = Number(settings.signupStartedAtMs) || fallbackStartedAtMs;
+  const signupDurationMs = Number(settings.signupDurationMs) || LIVE_SIGNUP_DURATION_MS;
+  const signupEndsAtMs = Number(settings.signupEndsAtMs) || (signupStartedAtMs + signupDurationMs);
+  const remainingMs = Math.max(0, signupEndsAtMs - nowMs);
+  const filled = playerCount >= maxPlayers;
+  const expired = remainingMs <= 0;
+  const canStartCurrent = playerCount >= game.minPlayers && playerCount <= maxPlayers;
+  return {
+    gameType,
+    game,
+    playablePlayers,
+    playerCount,
+    minPlayers: game.minPlayers,
+    maxPlayers,
+    signupStartedAtMs,
+    signupEndsAtMs,
+    remainingMs,
+    remainingSeconds: Math.ceil(remainingMs / 1000),
+    filled,
+    expired,
+    waitingFor: Math.max(0, maxPlayers - playerCount),
+    canStartCurrent,
+    needsHostDecision: Boolean(session?.status === "lobby" && expired && !filled),
+    canJoin: Boolean(session?.status === "lobby" && !filled && !expired)
+  };
+}
+
+function canStartLiveGameWithPlayers(gameType, players = state.live.players, session = state.live.currentSession, options = {}) {
+  const details = getLiveSignupDetails(session, players);
+  if (details.playerCount < details.minPlayers || details.playerCount > details.maxPlayers) {
+    return false;
+  }
+  if (details.filled) {
+    return true;
+  }
+  return Boolean(options.allowUnderfilled && details.expired && details.canStartCurrent);
 }
 
 function normalizeLiveGameType(gameType) {
@@ -8633,7 +9023,17 @@ function renderLibraryModeChoiceCard(modeId, label, options = {}) {
     isAlpacaOnlineCampusView() &&
     campus2dController?.openDebateLab
   );
-  const showComingSoonNotice = Boolean(options.showComingSoonNotice && isModeUnavailable(modeId) && !canOpenOnlineDebateLab);
+  const canOpenOnlineScholarsChallenge = Boolean(
+    modeId === "quiz" &&
+    isAlpacaOnlineCampusView() &&
+    campus2dController?.openScholarsChallenge
+  );
+  const showComingSoonNotice = Boolean(
+    options.showComingSoonNotice &&
+    isModeUnavailable(modeId) &&
+    !canOpenOnlineDebateLab &&
+    !canOpenOnlineScholarsChallenge
+  );
   const className = [
     options.className || "library-mode-id-card",
     showComingSoonNotice ? "library-id-choice-card-coming-soon" : ""
@@ -9170,6 +9570,11 @@ function chooseLibraryMode(modeId) {
     return;
   }
 
+  if (modeId === "quiz" && isAlpacaOnlineCampusView() && campus2dController?.openScholarsChallenge) {
+    openCampus2DScholarsChallenge();
+    return;
+  }
+
   if (isModeUnavailable(modeId)) {
     if (state.ui.libraryMenu?.type === "debate-board-training") {
       renderLibraryCampusModal();
@@ -9202,6 +9607,19 @@ function openCampus2DDebateLab() {
   syncPopupScrollLock();
   renderLibraryCampusModal();
   campus2dController?.openDebateLab?.();
+}
+
+function openCampus2DScholarsChallenge() {
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = null;
+  state.experience = null;
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
+  campus2dController?.openScholarsChallenge?.();
 }
 
 function shouldLaunchOnlineGameInline(modeId) {
@@ -9964,6 +10382,49 @@ function buildPatternQuestionSequence(pattern, pools, allowReuse = true) {
 
 function getUnavailableRawGameReason() {
   return gameQuestionService.getUnavailableReason(getTargetLabel());
+}
+
+function normalizeCampusChallengeQuestion(question, index) {
+  const options = Array.isArray(question?.options) ? question.options.slice(0, 5) : [];
+  const answerIndex = Number(question?.answerIndex);
+  return {
+    id: String(question?.id || `scholars-challenge-${index + 1}`),
+    prompt: String(question?.prompt || ""),
+    options,
+    answerIndex: Number.isInteger(answerIndex) ? answerIndex : -1,
+    rawLevel: Math.max(1, Math.min(5, Number(question?.rawLevel) || 1)),
+    displayLevel: Number(question?.displayLevel) || (Math.max(1, Math.min(5, Number(question?.rawLevel) || 1)) * 100),
+    sectionId: String(question?.sectionId || ""),
+    guidingSection: sectionById[question?.sectionId]?.title || question?.guidingSection || "",
+    explanation: String(question?.visibleCorrectExplanation || question?.explanation || "")
+  };
+}
+
+function buildCampusScholarsChallengeQuestionPlan(questionCount) {
+  const count = Number(questionCount);
+  const pattern = SCHOLARS_CHALLENGE_LEVEL_PATTERNS[count];
+  if (!pattern) {
+    return {
+      unavailableReason: "Choose 10, 20, or 30 questions.",
+      questions: []
+    };
+  }
+
+  const sectionIds = data.sections.map((section) => section.id);
+  const entries = getRawEntriesForQuizSectionIds(sectionIds);
+  const pools = buildRawQuestionPoolsFromEntries(entries);
+  if (!hasRequiredRawLevels(pools, [1, 2, 3, 4, 5])) {
+    return {
+      unavailableReason: "The current question bank does not have every Scholar's Challenge level yet.",
+      questions: []
+    };
+  }
+
+  const questions = buildPatternQuestionSequence(pattern, pools, false);
+  return {
+    unavailableReason: questions.length === pattern.length ? null : getUnavailableRawGameReason(),
+    questions: questions.map(normalizeCampusChallengeQuestion)
+  };
 }
 
 function buildAlpacaRunQuestionPlan(entries = null) {
@@ -14990,8 +15451,6 @@ function getAlpacapardyLiveRenderContext() {
   const enabled = Boolean(experience?.playMode === "multiplayer" && state.live.currentSession);
   const user = state.auth.session?.user || null;
   const isHost = Boolean(state.live.currentSession && user && state.live.currentSession.host_user_id === user.id);
-  const playerCount = state.live.players.filter((player) => ["host", "player"].includes(player.role)).length;
-  const maxPlayers = Number(state.live.currentSession?.max_players || experience?.setupTeamCount || GAME_CONFIG.jeopardyDefaultTeams);
 
   return {
     available: Boolean(hasSupabaseConfig() && alpacapardyLiveSupabaseService && alpacapardyLive),
@@ -15008,7 +15467,7 @@ function getAlpacapardyLiveRenderContext() {
     userId: user?.id || null,
     isHost,
     isGuest: Boolean(user && isAnonymousUser(user)),
-    canStart: Boolean(isHost && playerCount >= 2 && playerCount <= maxPlayers),
+    canStart: Boolean(isHost && canStartLiveGameWithPlayers("alpacapardy", state.live.players, state.live.currentSession)),
     canOpenTile: enabled ? canOpenAlpacapardyLiveTile() : true,
     canAnswerFocus: enabled ? canAnswerAlpacapardyLiveFocus() : true,
     canCloseFocus: enabled ? canCloseAlpacapardyLiveFocus() : true,
@@ -15070,6 +15529,23 @@ function getAlpacapardyLiveIdentityContext() {
     playerId: state.live.currentPlayer?.id || null,
     isHost: Boolean(state.live.currentSession && user && state.live.currentSession.host_user_id === user.id)
   };
+}
+
+async function findBlockingLiveSessionForGame(client, gameType) {
+  if (!client || !alpacapardyLiveSupabaseService) {
+    return null;
+  }
+  const normalized = normalizeLiveGameType(gameType);
+  const response = alpacapardyLiveSupabaseService.listActiveSessions
+    ? await alpacapardyLiveSupabaseService.listActiveSessions(client, { gameType: normalized, limit: 12 })
+    : await alpacapardyLiveSupabaseService.listOpenSessions(client, { gameType: normalized, limit: 12 });
+  if (response.error) {
+    throw response.error;
+  }
+  return (response.data || []).find((session) => (
+    session.id !== state.live.currentSession?.id &&
+    ["lobby", "playing"].includes(session.status)
+  )) || null;
 }
 
 function setJeopardyPlayMode(playMode) {
@@ -15162,6 +15638,7 @@ async function syncAlpacapardyLiveNow({ renderAfter = false } = {}) {
     if (state.live.currentSession) {
       await refreshAlpacapardyLiveSessionState({ renderAfter });
       await maybeAutoRevealTimedLiveGame();
+      await maybeAutoResolveTimedRace();
       await maybeAutoResolveTimedAlpaquiz();
     } else {
       await refreshAlpacapardyLiveLobbySilently();
@@ -15183,6 +15660,26 @@ async function maybeAutoRevealTimedLiveGame() {
     return;
   }
   await emitLiveEvent({ type: "quiz.revealed", payload: {} });
+}
+
+async function maybeAutoResolveTimedRace() {
+  if (!getAlpacapardyLiveIdentityContext().isHost || getCurrentLiveGameType() !== "race") {
+    return;
+  }
+  const arcadeState = getArcadeState("race");
+  if (!arcadeState.started || arcadeState.finished || arcadeState.revealed || !arcadeState.activeUserId) {
+    return;
+  }
+  if (Number(arcadeState.turnDeadlineAt || 0) > Date.now()) {
+    return;
+  }
+  await emitLiveEvent({
+    type: "race.answered",
+    payload: {
+      userId: arcadeState.activeUserId,
+      optionIndex: -1
+    }
+  });
 }
 
 async function maybeAutoResolveTimedAlpaquiz() {
@@ -15268,11 +15765,20 @@ async function createArcadeLiveRoom(gameType) {
   }
 
   const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
+  const requestedMaxPlayers = getPendingLivePlayerCount(gameType);
   const selectedRunColor = gameType === "run" ? getLiveRunSetupColorId() : "";
+  const setupCategoryIds = gameType === "alpaquiz" ? getPendingLiveGameCategoryIds(gameType) : [];
   try {
+    if (!canCreateLiveGameSetup(gameType)) {
+      throw new Error(`${game.label} needs ${GAME_CONFIG.jeopardyMinGroups} guiding sections before creating a room.`);
+    }
     const session = await ensureLiveAuthSession();
     const client = getSupabaseClient();
     const user = session.user;
+    const blockingSession = await findBlockingLiveSessionForGame(client, gameType);
+    if (blockingSession) {
+      throw new Error(`${game.label} is already active in room ${blockingSession.room_code || "ROOM"}. Join that signup or wait for it to finish.`);
+    }
     state.live.status = "creating";
     state.live.error = "";
     state.live.message = `Creating ${game.label} room...`;
@@ -15281,13 +15787,14 @@ async function createArcadeLiveRoom(gameType) {
     const created = await alpacapardyLiveSupabaseService.createSession(client, {
       gameType,
       hostUserId: user.id,
-      maxPlayers: game.maxPlayers,
-      settings: {
+      maxPlayers: requestedMaxPlayers,
+      settings: buildLiveSignupSettings(gameType, requestedMaxPlayers, {
         gameType,
         label: game.label,
-        allThemes: true,
+        allThemes: setupCategoryIds.length === 0,
+        ...(setupCategoryIds.length ? { setupCategoryIds } : {}),
         ...(selectedRunColor ? { runHostColor: selectedRunColor } : {})
-      }
+      })
     });
     if (created.error) {
       throw created.error;
@@ -15352,6 +15859,10 @@ async function createAlpacapardyLiveRoom() {
     const session = await ensureLiveAuthSession();
     const client = getSupabaseClient();
     const user = session.user;
+    const blockingSession = await findBlockingLiveSessionForGame(client, "alpacapardy");
+    if (blockingSession) {
+      throw new Error(`Alpacapardy is already active in room ${blockingSession.room_code || "ROOM"}. Join that signup or wait for it to finish.`);
+    }
     state.live.status = "creating";
     state.live.error = "";
     state.live.message = "Creating live room...";
@@ -15360,7 +15871,7 @@ async function createAlpacapardyLiveRoom() {
     const created = await alpacapardyLiveSupabaseService.createSession(client, {
       hostUserId: user.id,
       maxPlayers: experience.setupTeamCount,
-      settings: buildAlpacapardyLiveSettings(experience)
+      settings: buildLiveSignupSettings("alpacapardy", experience.setupTeamCount, buildAlpacapardyLiveSettings(experience))
     });
     if (created.error) {
       throw created.error;
@@ -15427,7 +15938,11 @@ async function joinAlpacapardyLiveRoom(sessionId) {
     }
 
     const players = liveSession.players || [];
-    const teamIndex = alpacapardyLiveSupabaseService.findNextTeamIndex(players, liveSession.max_players);
+    const signupDetails = getLiveSignupDetails(liveSession, players);
+    if (!signupDetails.canJoin) {
+      throw new Error(signupDetails.filled ? "This room is already full." : "Signup is closed for this room.");
+    }
+    const teamIndex = alpacapardyLiveSupabaseService.findNextTeamIndex(players, signupDetails.maxPlayers);
     if (teamIndex < 0) {
       throw new Error("This room is already full.");
     }
@@ -15462,6 +15977,17 @@ async function joinAlpacapardyLiveRoom(sessionId) {
     subscribeAlpacapardySession(liveSession.id);
     startAlpacapardyLiveHeartbeat();
     startAlpacapardyLiveSync();
+    if (gameType === "run") {
+      const colorId = getAvailableLiveRunJoinColorId(liveSession, getLiveRunSetupColorId());
+      state.live.pendingRunColor = colorId;
+      await emitLiveEvent({
+        type: "run.color_selected",
+        payload: {
+          userId: authSession.user.id,
+          colorId
+        }
+      });
+    }
     await refreshAlpacapardyLiveSessionState({ renderAfter: true });
   } catch (error) {
     state.live.status = "idle";
@@ -15509,8 +16035,9 @@ async function joinAlpacapardyLiveRoomByCode(formData) {
   }
 }
 
-function buildAlpacapardyLiveSettings(experience) {
+function buildAlpacapardyLiveSettings(experience, existingSettings = {}) {
   return {
+    ...(existingSettings || {}),
     setupTeamCount: experience.setupTeamCount,
     setupCategoryIds: experience.setupCategoryIds || [],
     selectionLens: state.selection.lens,
@@ -15541,7 +16068,10 @@ async function syncAlpacapardyLiveSettings() {
   const client = getSupabaseClient();
   const response = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
     max_players: state.experience.setupTeamCount,
-    settings: buildAlpacapardyLiveSettings(state.experience)
+    settings: {
+      ...buildAlpacapardyLiveSettings(state.experience, state.live.currentSession.settings || {}),
+      requestedMaxPlayers: state.experience.setupTeamCount
+    }
   });
   if (!response.error) {
     state.live.currentSession = response.data;
@@ -15622,10 +16152,7 @@ function maybeAutoStartReadyLiveGame() {
   }
 
   const gameType = getCurrentLiveGameType();
-  const canStart = gameType === "alpacapardy"
-    ? getAlpacapardyLiveRenderContext().canStart
-    : canStartSelectedLiveGame();
-  if (!canStart) {
+  if (!canStartLiveGameWithPlayers(gameType, state.live.players, state.live.currentSession)) {
     return;
   }
 
@@ -15642,6 +16169,58 @@ function maybeAutoStartReadyLiveGame() {
     }
     state.live.autoStartBusy = false;
   }, 900);
+}
+
+async function handleLiveSignupAction(action) {
+  if (!state.live.currentSession || !getAlpacapardyLiveIdentityContext().isHost) {
+    return;
+  }
+
+  if (action === "cancel") {
+    await leaveAlpacapardyLiveRoom();
+    return;
+  }
+
+  if (action === "restart") {
+    await restartLiveSignupCountdown();
+    return;
+  }
+
+  if (action === "start-current") {
+    if (getCurrentLiveGameType() === "alpacapardy") {
+      await startAlpacapardyLiveGame({ allowUnderfilled: true });
+    } else {
+      await startSelectedLiveGame({ allowUnderfilled: true });
+    }
+  }
+}
+
+async function restartLiveSignupCountdown() {
+  if (!state.live.currentSession || !alpacapardyLiveSupabaseService || !getAlpacapardyLiveIdentityContext().isHost) {
+    return;
+  }
+
+  const gameType = getCurrentLiveGameType();
+  const client = getSupabaseClient();
+  const maxPlayers = getLiveSessionMaxPlayers(state.live.currentSession, gameType);
+  state.live.status = "updating";
+  state.live.error = "";
+  renderLiveSurfaces();
+
+  const updated = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
+    status: "lobby",
+    is_open: true,
+    max_players: maxPlayers,
+    settings: buildLiveSignupSettings(gameType, maxPlayers, state.live.currentSession.settings || {})
+  });
+  state.live.status = "idle";
+  if (updated.error) {
+    state.live.error = updated.error.message || "Unable to restart signup.";
+  } else {
+    state.live.currentSession = updated.data;
+    state.live.message = "Signup restarted for 2 minutes.";
+  }
+  renderLiveSurfaces();
 }
 
 function compareLivePlayers(left, right) {
@@ -15932,6 +16511,7 @@ function reduceLiveRaceState(stateValue, event) {
     const currentIndex = Math.max(0, order.indexOf(next.activeUserId));
     next.activeUserId = order[(currentIndex + 1) % Math.max(1, order.length)] || next.activeUserId;
     next.questionIndex = (next.questionIndex + 1) % Math.max(1, next.questions.length);
+    next.turnDeadlineAt = Date.now() + (GAME_CONFIG.raceQuestionTime * 1000);
     next.revealed = false;
     next.selectedIndex = null;
     next.lastCorrect = null;
@@ -15998,27 +16578,22 @@ function reduceLiveAlpaquizState(stateValue, event) {
   return next;
 }
 
-function canStartSelectedLiveGame() {
+function canStartSelectedLiveGame(options = {}) {
   if (!state.live.currentSession || !getAlpacapardyLiveIdentityContext().isHost) {
     return false;
   }
   const gameType = getCurrentLiveGameType();
-  const game = LIVE_GAME_TYPES[gameType] || LIVE_GAME_TYPES.run;
-  const players = getLivePlayablePlayers();
-  if (players.length < game.minPlayers || players.length > game.maxPlayers) {
-    return false;
-  }
-  return true;
+  return canStartLiveGameWithPlayers(gameType, getLivePlayablePlayers(), state.live.currentSession, options);
 }
 
-async function startSelectedLiveGame() {
+async function startSelectedLiveGame(options = {}) {
   const gameType = getCurrentLiveGameType();
   if (gameType === "alpacapardy") {
-    startAlpacapardyLiveGame();
+    startAlpacapardyLiveGame(options);
     return;
   }
-  if (!canStartSelectedLiveGame()) {
-    state.live.error = `${getLiveGameLabel(gameType)} needs enough alpacas before starting.`;
+  if (!canStartSelectedLiveGame(options)) {
+    state.live.error = `${getLiveGameLabel(gameType)} needs a filled roster, or host approval after signup closes.`;
     renderLiveSurfaces();
     return;
   }
@@ -16028,7 +16603,7 @@ async function startSelectedLiveGame() {
   renderLiveSurfaces();
 
   const players = getLivePlayablePlayers();
-  const statePayload = buildArcadeStartState(gameType, players);
+  const statePayload = buildArcadeStartState(gameType, players, state.live.currentSession?.settings || {});
   const event = await emitLiveEvent({
     type: `${gameType}.started`,
     payload: { state: statePayload }
@@ -16044,11 +16619,12 @@ async function startSelectedLiveGame() {
   const updated = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
     status: "playing",
     is_open: false,
+    max_players: players.length,
     current_state: statePayload,
     settings: {
       ...(state.live.currentSession.settings || {}),
       gameType,
-      allThemes: true
+      requestedMaxPlayers: players.length
     }
   });
   if (!updated.error) {
@@ -16088,7 +16664,16 @@ function getLiveRunColorAssignments(players) {
   return assignments;
 }
 
-function buildArcadeStartState(gameType, players) {
+function getAvailableLiveRunJoinColorId(session, preferredColorId) {
+  const palette = LIVE_ALPACA_COLORS.map((color) => color.id);
+  const hostColor = session?.settings?.runHostColor || "";
+  if (palette.includes(preferredColorId) && preferredColorId !== hostColor) {
+    return preferredColorId;
+  }
+  return palette.find((colorId) => colorId !== hostColor) || palette[0] || "cream";
+}
+
+function buildArcadeStartState(gameType, players, settings = {}) {
   const playerOrder = players.map((player) => player.user_id);
   const scoresByUserId = Object.fromEntries(playerOrder.map((userId) => [userId, 0]));
   if (gameType === "run") {
@@ -16129,6 +16714,7 @@ function buildArcadeStartState(gameType, players) {
       finished: false,
       questionIndex: 0,
       activeUserId: playerOrder[0],
+      turnDeadlineAt: Date.now() + (GAME_CONFIG.raceQuestionTime * 1000),
       playerOrder,
       questions: buildAllThemeQuestionSequence(Array.from({ length: 24 }, (_, index) => (index % 5) + 1), true),
       livesByUserId: Object.fromEntries(playerOrder.map((userId) => [userId, 3])),
@@ -16141,7 +16727,12 @@ function buildArcadeStartState(gameType, players) {
     started: true,
     finished: false,
     questionIndex: 0,
-    questions: buildAllThemeQuestionSequence(Array.from({ length: LIVE_GAME_TYPES.alpaquiz.questionCount }, (_, index) => (index % 5) + 1), true),
+    questions: buildLiveGameQuestionSequence(
+      Array.from({ length: LIVE_GAME_TYPES.alpaquiz.questionCount }, (_, index) => (index % 5) + 1),
+      true,
+      0,
+      settings
+    ),
     scoresByUserId,
     playerOrder,
     buzzedUserId: null,
@@ -16155,6 +16746,18 @@ function buildArcadeStartState(gameType, players) {
 
 function buildAllThemeQuestionSequence(pattern, allowReuse = true, salt = 0) {
   const pools = buildRawQuestionPoolsFromEntries(getRawEntriesForRouteSelection("section", "all"));
+  const rotatedPattern = pattern.slice(salt).concat(pattern.slice(0, salt));
+  return buildPatternQuestionSequence(rotatedPattern, pools, allowReuse);
+}
+
+function buildLiveGameQuestionSequence(pattern, allowReuse = true, salt = 0, settings = {}) {
+  const categoryIds = Array.isArray(settings.setupCategoryIds)
+    ? settings.setupCategoryIds.map((categoryId) => normalizeSectionId(categoryId)).filter((categoryId) => sectionById[categoryId])
+    : [];
+  const entries = categoryIds.length
+    ? getRawEntriesForRunSetupCategoryIds(categoryIds)
+    : getRawEntriesForRouteSelection("section", "all");
+  const pools = buildRawQuestionPoolsFromEntries(entries);
   const rotatedPattern = pattern.slice(salt).concat(pattern.slice(0, salt));
   return buildPatternQuestionSequence(rotatedPattern, pools, allowReuse);
 }
@@ -16269,7 +16872,7 @@ function clonePlain(value) {
   return JSON.parse(JSON.stringify(value || {}));
 }
 
-async function startAlpacapardyLiveGame() {
+async function startAlpacapardyLiveGame(options = {}) {
   const experience = state.experience;
   if (!isAlpacapardyLiveActive() || !getAlpacapardyLiveIdentityContext().isHost || experience.started) {
     return;
@@ -16287,13 +16890,14 @@ async function startAlpacapardyLiveGame() {
     }
 
     const players = state.live.players.filter((player) => ["host", "player"].includes(player.role)).sort(compareLivePlayers);
-    if (players.length < 2 || players.length > GAME_CONFIG.jeopardyMaxTeams) {
+    if (!canStartLiveGameWithPlayers("alpacapardy", players, state.live.currentSession, options)) {
       state.live.status = "idle";
-      state.live.error = "Live Alpacapardy needs 2 to 4 players.";
+      state.live.error = "Live Alpacapardy needs a filled roster, or host approval after signup closes.";
       renderLiveSurfaces();
       return;
     }
 
+    experience.setupTeamCount = players.length;
     const board = buildConfiguredJeopardyBoard(experience.setupCategoryIds);
     const teams = alpacapardyEngine.createTeamsFromPlayers(players);
     const startedEvent = await emitAlpacapardyLiveEvent(alpacapardyLive.createBoardStartedEvent({ board, teams, activeTeamIndex: 0 }));
@@ -16307,9 +16911,13 @@ async function startAlpacapardyLiveGame() {
     const updated = await alpacapardyLiveSupabaseService.updateSession(client, state.live.currentSession.id, {
       status: "playing",
       is_open: false,
+      max_players: players.length,
       board_state: { board },
       current_state: { activeTeamIndex: 0 },
-      settings: buildAlpacapardyLiveSettings(experience)
+      settings: {
+        ...buildAlpacapardyLiveSettings(experience, state.live.currentSession.settings || {}),
+        requestedMaxPlayers: players.length
+      }
     });
     if (!updated.error) {
       const previousStatus = state.live.currentSession?.status;

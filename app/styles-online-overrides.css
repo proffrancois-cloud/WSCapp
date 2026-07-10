@@ -2435,6 +2435,148 @@ body.is-campus2d-view .wizard-steps {
   white-space: nowrap;
 }
 
+.campus2d-challenge-panel {
+  gap: 12px;
+}
+
+.campus2d-challenge-header {
+  background:
+    linear-gradient(135deg, rgba(255, 183, 86, 0.18), rgba(112, 194, 119, 0.11));
+}
+
+.campus2d-challenge-count-grid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.campus2d-challenge-count-grid .campus2d-challenge-button {
+  min-height: 64px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 4px;
+  padding: 8px;
+  font-size: 1.05rem;
+}
+
+.campus2d-challenge-count-grid .campus2d-challenge-button span {
+  color: rgba(255, 247, 223, 0.74);
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.campus2d-challenge-roster {
+  display: grid;
+  gap: 8px;
+}
+
+.campus2d-challenge-roster-row,
+.campus2d-challenge-ranking-row {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  color: #fff7df;
+  font-size: 0.83rem;
+  font-weight: 900;
+}
+
+.campus2d-challenge-roster-row {
+  grid-template-columns: 42px minmax(0, 1fr);
+}
+
+.campus2d-challenge-roster-row span,
+.campus2d-challenge-ranking-row span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campus2d-challenge-avatar {
+  width: 38px;
+  height: 44px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 700% 800%;
+  background-position: var(--campus2d-sprite-x) var(--campus2d-sprite-y);
+  image-rendering: pixelated;
+  transform: scaleX(var(--campus2d-flip));
+  transform-origin: center bottom;
+  filter: drop-shadow(0 4px 5px rgba(15, 9, 2, 0.38));
+}
+
+.campus2d-challenge-signup-form {
+  display: grid;
+  gap: 10px;
+}
+
+.campus2d-challenge-question-list {
+  display: grid;
+  gap: 12px;
+}
+
+.campus2d-challenge-question.raw-quiz-card {
+  margin: 0;
+  border-color: rgba(255, 232, 172, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 248, 223, 0.08);
+  color: #fff7df;
+}
+
+.campus2d-challenge-question .raw-quiz-prompt,
+.campus2d-challenge-question .quiz-question-number {
+  color: #fff7df;
+}
+
+.campus2d-challenge-question .raw-quiz-level,
+.campus2d-challenge-question .meta-pill {
+  border-color: rgba(255, 232, 172, 0.24);
+  background: rgba(255, 248, 223, 0.1);
+  color: #ffe6ac;
+}
+
+.campus2d-challenge-question .raw-quiz-options {
+  grid-template-columns: 1fr;
+}
+
+.campus2d-challenge-question .raw-quiz-option {
+  border-color: rgba(255, 232, 172, 0.26);
+  background: rgba(255, 248, 223, 0.1);
+  color: #fff7df;
+}
+
+.campus2d-challenge-question .raw-quiz-option:hover,
+.campus2d-challenge-question .raw-quiz-option:focus-visible,
+.campus2d-challenge-question .raw-quiz-option.active {
+  border-color: rgba(255, 232, 172, 0.76);
+  background: rgba(255, 183, 86, 0.2);
+}
+
+.campus2d-challenge-ranking {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.campus2d-challenge-ranking-row {
+  padding: 8px;
+  border: 1px solid rgba(255, 232, 172, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 248, 223, 0.07);
+}
+
+.campus2d-challenge-ranking-row strong {
+  color: #ffe6ac;
+  font-size: 0.84rem;
+  font-weight: 950;
+}
+
 .campus2d-player-card {
   min-width: 0;
   width: 100%;

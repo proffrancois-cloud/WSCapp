@@ -999,6 +999,76 @@
   gap: 16px;
 }
 
+.live-player-count-picker,
+.live-category-picker,
+.live-signup-roster,
+.live-signup-status {
+  display: grid;
+  gap: 10px;
+}
+
+.live-player-count-picker > strong,
+.live-category-picker strong,
+.live-signup-roster > strong {
+  color: var(--bg);
+}
+
+.live-player-count-grid {
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+}
+
+.live-category-picker > div:first-child {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.live-category-grid {
+  max-height: min(42vh, 360px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.live-signup-status {
+  padding: 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(107, 78, 22, 0.14);
+  background: rgba(255, 252, 242, 0.74);
+}
+
+.live-signup-status.needs-decision {
+  border-color: rgba(183, 58, 44, 0.28);
+  background: rgba(255, 244, 232, 0.86);
+}
+
+.live-signup-timer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.live-signup-timer-row strong {
+  color: var(--bg);
+  font-size: 1rem;
+}
+
+.live-signup-timer-row span {
+  color: var(--ink-soft);
+  font-weight: 900;
+}
+
+.live-signup-status p {
+  margin: 0;
+}
+
+.live-signup-actions {
+  justify-content: flex-start;
+}
+
 .live-color-picker {
   display: grid;
   gap: 10px;
@@ -1048,6 +1118,11 @@
 .live-alpaca-token.small {
   width: 44px;
   height: 44px;
+}
+
+.live-alpaca-token.tiny {
+  width: 30px;
+  height: 30px;
 }
 
 .live-alpaca-token.map {
@@ -1227,6 +1302,50 @@
   background: rgba(240, 211, 143, 0.54);
 }
 
+.live-race-player-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.live-race-player-panel.active {
+  border-color: rgba(200, 156, 68, 0.48);
+  box-shadow: 0 0 0 4px rgba(200, 156, 68, 0.12);
+}
+
+.live-race-stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  align-items: center;
+}
+
+.live-race-stat-row span,
+.live-race-stat-row strong {
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(107, 78, 22, 0.12);
+  background: rgba(247, 234, 204, 0.72);
+  color: var(--bg);
+  font-size: 0.84rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.live-race-options .raw-quiz-option:disabled {
+  cursor: default;
+}
+
+.live-race-panel-lives {
+  justify-self: start;
+}
+
+.live-race-turn-actions {
+  justify-content: center;
+}
+
 .live-kahoot-option.correct,
 .live-round-results article.correct {
   border-color: rgba(59, 142, 91, 0.38);
@@ -1258,7 +1377,8 @@
   .online-home-game-grid,
   .live-kahoot-options,
   .live-split-board,
-  .live-run-player-area {
+  .live-run-player-area,
+  .live-race-stat-row {
     grid-template-columns: 1fr;
   }
 }
@@ -3013,4 +3133,35 @@ body .question-popup-overlay.train-tip .question-popup-window {
 
 .live-run-setup-color-picker .live-color-chip {
   min-height: 86px;
+}
+
+.live-run-lobby-color-picker {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.live-run-lobby-color-chip {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(107, 78, 22, 0.14);
+  background: rgba(255, 252, 242, 0.82);
+  cursor: pointer;
+}
+
+.live-run-lobby-color-chip.active {
+  border-color: rgba(200, 156, 68, 0.58);
+  box-shadow: inset 0 0 0 2px rgba(200, 156, 68, 0.22);
+}
+
+.live-run-lobby-color-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.36;
+  filter: grayscale(0.7);
 }

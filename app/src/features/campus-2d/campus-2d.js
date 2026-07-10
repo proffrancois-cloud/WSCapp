@@ -23,6 +23,7 @@
   const debateAudioApi = window.WSC_CAMPUS_2D_DEBATE_AUDIO;
   const DEBATE_ROOM_ID = "debate-lab";
   const DEBATE_SCHEMA = "campus2d.debate.v1";
+  const SCHOLARS_CHALLENGE_SCHEMA = "campus2d.scholars-challenge.v1";
   const DEBATE_BOARD_ID = "debate-board";
   const DEBATE_MODERATOR_NPC_ID = "debate-stage-moderator-npc";
   const DEBATE_MIN_TEAM_SIZE = 2;
@@ -36,6 +37,13 @@
   const DEBATE_SIDE_STAGE = Object.freeze({ x: 860, y: 245 });
   const DEBATE_BOARD_RECT = Object.freeze({ x: 390, y: 30, width: 405, height: 175 });
   const DEBATE_LAB_LOGO_SRC = "./assets/mascot/library/final-pack/DebateLab.png?v=20260709debatejoin";
+  const SCHOLARS_CHALLENGE_SIGNUP_MS = 5 * 60 * 1000;
+  const SCHOLARS_CHALLENGE_SETUPS = Object.freeze({
+    10: Object.freeze({ questionCount: 10, durationMs: 3 * 60 * 1000, label: "10 questions" }),
+    20: Object.freeze({ questionCount: 20, durationMs: 6 * 60 * 1000, label: "20 questions" }),
+    30: Object.freeze({ questionCount: 30, durationMs: 9 * 60 * 1000, label: "30 questions" })
+  });
+  const SCHOLARS_CHALLENGE_QUESTION_COUNTS = Object.freeze([10, 20, 30]);
   const DEBATE_NOTE_COLORS = Object.freeze([
     "#ffd166",
     "#6ec6ff",
@@ -526,6 +534,7 @@
     const initialRoom = getRoom(savedRoomId) || getRoom(manifest.defaultRoomId);
     const realtimeApi = getRealtimeApi();
     const localClientId = identity.clientId || realtimeApi?.createClientId?.() || `campus2d-${Date.now()}`;
+    const challengeApi = options.scholarsChallenge || {};
 
     let room = initialRoom;
     let transport = null;
@@ -569,6 +578,13 @@
     let lastDebateClockKey = "";
     let lastDebateClockSecond = -1;
     let lastDebatePresenceSignature = "";
+    let challengeState = null;
+    let challengeDraftQuestionCount = 30;
+    let challengePanelStatus = "";
+    let challengePanelOpen = false;
+    let lastChallengeClockKey = "";
+    let lastChallengeClockSecond = -1;
+    let lastChallengePresenceSignature = "";
     let debateAudioStatus = {
       enabled: false,
       muted: false,
@@ -1582,6 +1598,10 @@
     }
 
     function activateGameZone(entry) {
+      if (room.id === DEBATE_ROOM_ID && challengeState && (isChallengeBlocking(challengeState) || getChallengeClock(challengeState)?.phase?.id === "ended")) {
+        openScholarsChallengePanel();
+        return;
+      }
       const mode = entry.mode || entry.kind || "game";
       const handled = options.onCampusZoneAction?.({
         roomId: room.id,
@@ -1782,8 +1802,11 @@
     }
 
     function getDebatePresencePayload() {
-      const payload = { debateRoom: null, debateAudio: null };
+      const payload = { debateRoom: null, debateAudio: null, scholarsChallenge: null };
       if (room.id !== DEBATE_ROOM_ID || !debateState) {
+        if (room.id === DEBATE_ROOM_ID && challengeState?.hostClientId === localPlayer.clientId) {
+          payload.scholarsChallenge = cloneChallengeState(challengeState);
+        }
         return payload;
       }
       if (debateState.hostClientId === localPlayer.clientId) {
@@ -1800,6 +1823,9 @@
           canSend: Boolean(debateAudioStatus.canSend),
           updatedAtMs: Date.now()
         };
+      }
+      if (challengeState?.hostClientId === localPlayer.clientId) {
+        payload.scholarsChallenge = cloneChallengeState(challengeState);
       }
       return payload;
     }
@@ -1839,6 +1865,346 @@
         noteColor,
         joinedAtMs: Date.now()
       };
+    }
+
+    function normalizeChallengeQuestionCount(value) {
+      const count = Number(value);
+      return SCHOLARS_CHALLENGE_SETUPS[count] ? count : 30;
+    }
+
+    function getChallengeSetup(questionCount = challengeDraftQuestionCount) {
+      return SCHOLARS_CHALLENGE_SETUPS[normalizeChallengeQuestionCount(questionCount)] || SCHOLARS_CHALLENGE_SETUPS[30];
+    }
+
+    function buildChallengePlan(questionCount) {
+      if (typeof challengeApi.buildQuestionPlan !== "function") {
+        return {
+          unavailableReason: "Scholar's Challenge questions are not loaded yet.",
+          questions: []
+        };
+      }
+      const plan = challengeApi.buildQuestionPlan(normalizeChallengeQuestionCount(questionCount));
+      return {
+        unavailableReason: String(plan?.unavailableReason || ""),
+        questions: Array.isArray(plan?.questions) ? plan.questions : []
+      };
+    }
+
+    function normalizeChallengeQuestion(entry, index = 0) {
+      const options = Array.isArray(entry?.options)
+        ? entry.options.map((option) => String(option || "").trim()).filter(Boolean).slice(0, 5)
+        : [];
+      const answerIndex = Number(entry?.answerIndex);
+      if (!entry?.prompt || options.length < 2 || !Number.isInteger(answerIndex) || answerIndex < 0 || answerIndex >= options.length) {
+        return null;
+      }
+      const rawLevel = Math.max(1, Math.min(5, Number(entry?.rawLevel) || Math.ceil((Number(entry?.displayLevel) || 100) / 100) || 1));
+      return {
+        id: String(entry.id || `scholars-challenge-question-${index + 1}`),
+        prompt: String(entry.prompt || "").trim(),
+        options,
+        answerIndex,
+        rawLevel,
+        displayLevel: Number(entry.displayLevel) || rawLevel * 100,
+        sectionId: String(entry.sectionId || ""),
+        guidingSection: String(entry.guidingSection || ""),
+        explanation: String(entry.explanation || "")
+      };
+    }
+
+    function normalizeChallengeParticipant(entry) {
+      const clientId = String(entry?.clientId || "").trim();
+      if (!clientId) {
+        return null;
+      }
+      const colorId = manifest.colors.some((color) => color.id === entry?.colorId)
+        ? entry.colorId
+        : manifest.colors[0].id;
+      return {
+        clientId,
+        userId: entry?.userId || null,
+        displayName: String(entry?.displayName || "Guest").trim().slice(0, 80) || "Guest",
+        colorId,
+        joinedAtMs: Number(entry?.joinedAtMs) || Date.now()
+      };
+    }
+
+    function normalizeChallengeParticipants(entries = []) {
+      const seen = new Set();
+      const participants = [];
+      (Array.isArray(entries) ? entries : []).forEach((entry) => {
+        const participant = normalizeChallengeParticipant(entry);
+        if (!participant || seen.has(participant.clientId)) {
+          return;
+        }
+        seen.add(participant.clientId);
+        participants.push(participant);
+      });
+      return participants.sort((left, right) => left.joinedAtMs - right.joinedAtMs);
+    }
+
+    function createLocalChallengeParticipant() {
+      return {
+        clientId: localPlayer.clientId,
+        userId: localPlayer.userId || null,
+        displayName: localPlayer.displayName || "Guest",
+        colorId: localPlayer.colorId || manifest.colors[0].id,
+        joinedAtMs: Date.now()
+      };
+    }
+
+    function getChallengeParticipant(state, clientId) {
+      return (state?.participants || []).find((participant) => participant.clientId === clientId) || null;
+    }
+
+    function isLocalChallengeParticipant(state = challengeState) {
+      return Boolean(getChallengeParticipant(state, localPlayer.clientId));
+    }
+
+    function isLocalChallengeHost(state = challengeState) {
+      return Boolean(state?.hostClientId && state.hostClientId === localPlayer.clientId);
+    }
+
+    function normalizeChallengeSelectedAnswers(value, questions = []) {
+      const source = value && typeof value === "object" ? value : {};
+      const answers = {};
+      Object.entries(source).forEach(([questionIndex, optionIndex]) => {
+        const index = Number(questionIndex);
+        const selected = Number(optionIndex);
+        const question = questions[index];
+        if (!question || !Number.isInteger(index) || !Number.isInteger(selected) || selected < 0 || selected >= question.options.length) {
+          return;
+        }
+        answers[index] = selected;
+      });
+      return answers;
+    }
+
+    function getChallengeScore(questions = [], selectedAnswers = {}) {
+      return questions.reduce((score, question, index) => (
+        Number(selectedAnswers[index]) === question.answerIndex ? score + 1 : score
+      ), 0);
+    }
+
+    function normalizeChallengeResponses(value, participants = [], questions = []) {
+      const source = value && typeof value === "object" ? value : {};
+      const participantIds = new Set(participants.map((participant) => participant.clientId));
+      const responses = {};
+      Object.entries(source).forEach(([clientId, entry]) => {
+        if (!participantIds.has(clientId)) {
+          return;
+        }
+        const selectedAnswers = normalizeChallengeSelectedAnswers(entry?.selectedAnswers, questions);
+        responses[clientId] = {
+          selectedAnswers,
+          score: getChallengeScore(questions, selectedAnswers),
+          answeredCount: Object.keys(selectedAnswers).length,
+          updatedAtMs: Number(entry?.updatedAtMs) || 0
+        };
+      });
+      return responses;
+    }
+
+    function normalizeChallengeState(value) {
+      if (!value || typeof value !== "object") {
+        return null;
+      }
+      const nowMs = Date.now();
+      const questionCount = normalizeChallengeQuestionCount(value.questionCount);
+      const setup = getChallengeSetup(questionCount);
+      const status = ["setup", "signup", "running", "ended"].includes(value.status) ? value.status : "setup";
+      const questions = (Array.isArray(value.questions) ? value.questions : [])
+        .map(normalizeChallengeQuestion)
+        .filter(Boolean)
+        .slice(0, questionCount);
+      const participants = normalizeChallengeParticipants(value.participants);
+      const createdAtMs = Number(value.createdAtMs) || nowMs;
+      const signupStartedAtMs = Number(value.signupStartedAtMs) || (status === "setup" ? null : createdAtMs);
+      const signupEndsAtMs = Number(value.signupEndsAtMs) || (signupStartedAtMs ? signupStartedAtMs + SCHOLARS_CHALLENGE_SIGNUP_MS : null);
+      const startedAtMs = Number(value.startedAtMs) || (signupEndsAtMs && status !== "setup" ? signupEndsAtMs : null);
+      const endsAtMs = Number(value.endsAtMs) || (startedAtMs ? startedAtMs + setup.durationMs : null);
+      return {
+        schema: SCHOLARS_CHALLENGE_SCHEMA,
+        roomId: DEBATE_ROOM_ID,
+        sessionId: String(value.sessionId || createDebateId("scholars-challenge")),
+        hostClientId: String(value.hostClientId || "").trim(),
+        hostName: String(value.hostName || "Host").trim().slice(0, 80) || "Host",
+        questionCount,
+        durationMs: setup.durationMs,
+        signupDurationMs: SCHOLARS_CHALLENGE_SIGNUP_MS,
+        questions,
+        participants,
+        responses: normalizeChallengeResponses(value.responses, participants, questions),
+        status,
+        createdAtMs,
+        updatedAtMs: Number(value.updatedAtMs) || createdAtMs,
+        signupStartedAtMs,
+        signupEndsAtMs,
+        startedAtMs,
+        endsAtMs,
+        endedAtMs: Number(value.endedAtMs) || null
+      };
+    }
+
+    function cloneChallengeState(state = challengeState) {
+      return state ? JSON.parse(JSON.stringify(state)) : null;
+    }
+
+    function touchChallengeState(state) {
+      state.updatedAtMs = Date.now();
+      return state;
+    }
+
+    function getChallengeTiming(state = challengeState) {
+      if (!state) {
+        return null;
+      }
+      const setup = getChallengeSetup(state.questionCount);
+      const signupStartedAtMs = Number(state.signupStartedAtMs || state.createdAtMs || Date.now());
+      const signupEndsAtMs = Number(state.signupEndsAtMs || (signupStartedAtMs + SCHOLARS_CHALLENGE_SIGNUP_MS));
+      const startedAtMs = Number(state.startedAtMs || signupEndsAtMs);
+      const endsAtMs = Number(state.endsAtMs || (startedAtMs + setup.durationMs));
+      return { signupStartedAtMs, signupEndsAtMs, startedAtMs, endsAtMs, durationMs: setup.durationMs };
+    }
+
+    function getChallengeClock(state = challengeState, nowMs = Date.now()) {
+      if (!state) {
+        return null;
+      }
+      if (state.status === "setup") {
+        return { phase: { id: "setup", label: "Setup" }, remaining: 0, total: 0 };
+      }
+      if (state.status === "ended") {
+        return { phase: { id: "ended", label: "Results" }, remaining: 0, total: 0 };
+      }
+      const timing = getChallengeTiming(state);
+      if (!timing) {
+        return null;
+      }
+      if (state.status === "signup" && nowMs < timing.signupEndsAtMs) {
+        return {
+          phase: { id: "signup", label: "Signup" },
+          remaining: Math.max(0, Math.ceil((timing.signupEndsAtMs - nowMs) / 1000)),
+          total: Math.ceil(SCHOLARS_CHALLENGE_SIGNUP_MS / 1000)
+        };
+      }
+      if (nowMs < timing.endsAtMs) {
+        return {
+          phase: { id: "running", label: "Challenge" },
+          remaining: Math.max(0, Math.ceil((timing.endsAtMs - nowMs) / 1000)),
+          total: Math.ceil(timing.durationMs / 1000)
+        };
+      }
+      return { phase: { id: "ended", label: "Results" }, remaining: 0, total: Math.ceil(timing.durationMs / 1000) };
+    }
+
+    function getChallengeClockKey(clock) {
+      return clock ? clock.phase.id : "none";
+    }
+
+    function isChallengeBlocking(state = challengeState) {
+      const phaseId = getChallengeClock(state)?.phase?.id || "";
+      return ["setup", "signup", "running"].includes(phaseId);
+    }
+
+    function buildChallengeRankings(state = challengeState) {
+      const responses = state?.responses || {};
+      return (state?.participants || [])
+        .map((participant) => {
+          const response = responses[participant.clientId] || { selectedAnswers: {}, score: 0, answeredCount: 0 };
+          return {
+            participant,
+            score: Number(response.score) || 0,
+            answeredCount: Number(response.answeredCount) || 0,
+            updatedAtMs: Number(response.updatedAtMs) || 0
+          };
+        })
+        .sort((left, right) => (
+          right.score - left.score ||
+          right.answeredCount - left.answeredCount ||
+          left.updatedAtMs - right.updatedAtMs ||
+          left.participant.displayName.localeCompare(right.participant.displayName)
+        ))
+        .map((entry, index) => ({ ...entry, rank: index + 1 }));
+    }
+
+    function getLocalChallengeResponse(state = challengeState) {
+      return state?.responses?.[localPlayer.clientId] || { selectedAnswers: {}, score: 0, answeredCount: 0 };
+    }
+
+    function mergeChallengeParticipants(...participantLists) {
+      const byClientId = new Map();
+      participantLists.flat().forEach((entry) => {
+        const participant = normalizeChallengeParticipant(entry);
+        if (!participant) {
+          return;
+        }
+        const existing = byClientId.get(participant.clientId);
+        byClientId.set(participant.clientId, {
+          ...existing,
+          ...participant,
+          joinedAtMs: Math.min(existing?.joinedAtMs || participant.joinedAtMs, participant.joinedAtMs)
+        });
+      });
+      return normalizeChallengeParticipants(Array.from(byClientId.values()));
+    }
+
+    function mergeChallengeResponses(currentResponses = {}, incomingResponses = {}, questions = []) {
+      const responses = {};
+      const clientIds = new Set([...Object.keys(currentResponses || {}), ...Object.keys(incomingResponses || {})]);
+      clientIds.forEach((clientId) => {
+        const currentResponse = currentResponses?.[clientId] || null;
+        const incomingResponse = incomingResponses?.[clientId] || null;
+        const currentUpdatedAtMs = Number(currentResponse?.updatedAtMs) || 0;
+        const incomingUpdatedAtMs = Number(incomingResponse?.updatedAtMs) || 0;
+        const selected = incomingUpdatedAtMs >= currentUpdatedAtMs ? incomingResponse : currentResponse;
+        const selectedAnswers = normalizeChallengeSelectedAnswers(selected?.selectedAnswers, questions);
+        responses[clientId] = {
+          selectedAnswers,
+          score: getChallengeScore(questions, selectedAnswers),
+          answeredCount: Object.keys(selectedAnswers).length,
+          updatedAtMs: Math.max(currentUpdatedAtMs, incomingUpdatedAtMs)
+        };
+      });
+      return responses;
+    }
+
+    function hasChallengeMergeDelta(incoming, current = challengeState) {
+      if (!incoming || !current || incoming.sessionId !== current.sessionId) {
+        return false;
+      }
+      if ((incoming.questions || []).length > (current.questions || []).length) {
+        return true;
+      }
+      const currentParticipantIds = new Set((current.participants || []).map((participant) => participant.clientId));
+      if ((incoming.participants || []).some((participant) => !currentParticipantIds.has(participant.clientId))) {
+        return true;
+      }
+      return Object.entries(incoming.responses || {}).some(([clientId, response]) => (
+        Number(response?.updatedAtMs) > Number(current.responses?.[clientId]?.updatedAtMs || 0)
+      ));
+    }
+
+    function mergeChallengeState(current, incoming) {
+      if (!current) {
+        return cloneChallengeState(incoming);
+      }
+      if (!incoming) {
+        return cloneChallengeState(current);
+      }
+      if (current.sessionId !== incoming.sessionId) {
+        return cloneChallengeState(incoming);
+      }
+      const newer = incoming.updatedAtMs >= current.updatedAtMs ? incoming : current;
+      const older = newer === incoming ? current : incoming;
+      const merged = cloneChallengeState(newer);
+      merged.participants = mergeChallengeParticipants(older.participants || [], newer.participants || []);
+      if (!merged.questions?.length && older.questions?.length) {
+        merged.questions = cloneChallengeState(older.questions) || [];
+      }
+      merged.responses = mergeChallengeResponses(older.responses || {}, newer.responses || {}, merged.questions || []);
+      merged.updatedAtMs = Math.max(Number(current.updatedAtMs) || 0, Number(incoming.updatedAtMs) || 0);
+      return normalizeChallengeState(merged);
     }
 
     function removeLocalDebateRole(state) {
@@ -1882,6 +2248,86 @@
       }
       transport?.sendDebate({ debateState: cloneDebateState(debateState) });
       publishPresence(true);
+    }
+
+    function setChallengeState(nextState, options = {}) {
+      const normalized = normalizeChallengeState(nextState);
+      challengeState = normalized;
+      if (room.id === DEBATE_ROOM_ID && isChallengeBlocking(challengeState)) {
+        challengePanelOpen = true;
+        debatePanelOpen = false;
+      }
+      if (Object.prototype.hasOwnProperty.call(options, "status")) {
+        challengePanelStatus = options.status || "";
+      }
+      if (options.render !== false) {
+        renderDebateUi();
+      }
+      if (options.broadcast && challengeState) {
+        publishChallengeState();
+      }
+    }
+
+    function publishChallengeState() {
+      if (!challengeState || room.id !== DEBATE_ROOM_ID) {
+        return;
+      }
+      transport?.sendChallenge?.({ scholarsChallenge: cloneChallengeState(challengeState) });
+      publishPresence(true);
+    }
+
+    function shouldAcceptChallengeState(incoming) {
+      if (!incoming) {
+        return false;
+      }
+      if (!challengeState) {
+        return true;
+      }
+      if (incoming.sessionId !== challengeState.sessionId) {
+        if (isChallengeBlocking(challengeState) && incoming.updatedAtMs < challengeState.updatedAtMs) {
+          return false;
+        }
+        return true;
+      }
+      return incoming.updatedAtMs >= challengeState.updatedAtMs || hasChallengeMergeDelta(incoming, challengeState);
+    }
+
+    function receiveRemoteChallenge(payload) {
+      const senderClientId = String(payload?.clientId || "");
+      if (senderClientId === localPlayer.clientId) {
+        return;
+      }
+      if (payload && payload.scholarsChallenge === null && payload.clearedSessionId && payload.clearedSessionId === challengeState?.sessionId) {
+        challengeState = null;
+        challengePanelOpen = false;
+        challengePanelStatus = "";
+        renderDebateUi();
+        return;
+      }
+      const incoming = normalizeChallengeState(payload?.scholarsChallenge || payload?.challengeState || payload);
+      if (!shouldAcceptChallengeState(incoming)) {
+        return;
+      }
+      setChallengeState(mergeChallengeState(challengeState, incoming), { render: true, status: "" });
+      if (senderClientId && challengeState?.hostClientId === localPlayer.clientId) {
+        publishChallengeState();
+      }
+    }
+
+    function syncChallengeStateFromPresence(presenceRows = []) {
+      const latest = presenceRows
+        .map((presence) => normalizeChallengeState(presence?.scholarsChallenge))
+        .filter(Boolean)
+        .sort((left, right) => left.updatedAtMs - right.updatedAtMs)
+        .reduce((merged, nextState) => {
+          if (!merged || merged.sessionId !== nextState.sessionId) {
+            return nextState;
+          }
+          return mergeChallengeState(merged, nextState);
+        }, null);
+      if (latest && shouldAcceptChallengeState(latest)) {
+        setChallengeState(mergeChallengeState(challengeState, latest), { render: true, status: "" });
+      }
     }
 
     function sendDebateSignal(payload) {
@@ -1972,9 +2418,187 @@
       }
     }
 
+    function createChallengeSetupState() {
+      if (room.id !== DEBATE_ROOM_ID) {
+        return;
+      }
+      if (isDebateBlocking(debateState)) {
+        challengePanelStatus = "A Debate Lab room is already active.";
+        challengePanelOpen = true;
+        debatePanelOpen = false;
+        renderDebateUi();
+        return;
+      }
+      if (isChallengeBlocking(challengeState)) {
+        challengePanelStatus = "A Scholar's Challenge is already active.";
+        challengePanelOpen = true;
+        debatePanelOpen = false;
+        renderDebateUi();
+        return;
+      }
+      const nowMs = Date.now();
+      const setup = getChallengeSetup(challengeDraftQuestionCount);
+      setChallengeState({
+        schema: SCHOLARS_CHALLENGE_SCHEMA,
+        roomId: DEBATE_ROOM_ID,
+        sessionId: createDebateId("scholars-challenge"),
+        hostClientId: localPlayer.clientId,
+        hostName: localPlayer.displayName || "Host",
+        questionCount: setup.questionCount,
+        durationMs: setup.durationMs,
+        participants: [],
+        responses: {},
+        questions: [],
+        status: "setup",
+        createdAtMs: nowMs,
+        updatedAtMs: nowMs
+      }, {
+        broadcast: true,
+        status: "Choose the number of questions, then validate."
+      });
+    }
+
+    function setChallengeQuestionCount(questionCount) {
+      const count = normalizeChallengeQuestionCount(questionCount);
+      challengeDraftQuestionCount = count;
+      if (challengeState && isLocalChallengeHost() && challengeState.status === "setup") {
+        const next = cloneChallengeState();
+        next.questionCount = count;
+        next.durationMs = getChallengeSetup(count).durationMs;
+        touchChallengeState(next);
+        setChallengeState(next, { broadcast: true, status: "" });
+        return;
+      }
+      renderDebateUi();
+    }
+
+    function validateChallengeSetup() {
+      if (!challengeState || !isLocalChallengeHost() || challengeState.status !== "setup") {
+        return;
+      }
+      const setup = getChallengeSetup(challengeState.questionCount);
+      const plan = buildChallengePlan(setup.questionCount);
+      if (plan.unavailableReason || plan.questions.length !== setup.questionCount) {
+        challengePanelStatus = plan.unavailableReason || "This Challenge set could not be built yet.";
+        renderDebateUi();
+        return;
+      }
+      const nowMs = Date.now();
+      const participant = createLocalChallengeParticipant();
+      const next = cloneChallengeState();
+      next.questionCount = setup.questionCount;
+      next.durationMs = setup.durationMs;
+      next.questions = plan.questions;
+      next.participants = [participant];
+      next.responses = {
+        [participant.clientId]: {
+          selectedAnswers: {},
+          score: 0,
+          answeredCount: 0,
+          updatedAtMs: nowMs
+        }
+      };
+      next.status = "signup";
+      next.signupStartedAtMs = nowMs;
+      next.signupEndsAtMs = nowMs + SCHOLARS_CHALLENGE_SIGNUP_MS;
+      next.startedAtMs = next.signupEndsAtMs;
+      next.endsAtMs = next.startedAtMs + setup.durationMs;
+      next.endedAtMs = null;
+      touchChallengeState(next);
+      setChallengeState(next, { broadcast: true, status: "Signup is open." });
+    }
+
+    function joinChallenge() {
+      const clock = getChallengeClock(challengeState);
+      if (!challengeState || clock?.phase?.id !== "signup") {
+        challengePanelStatus = "Signup is closed.";
+        renderDebateUi();
+        return;
+      }
+      if (isLocalChallengeParticipant()) {
+        challengePanelStatus = "You are already signed up.";
+        renderDebateUi();
+        return;
+      }
+      const nowMs = Date.now();
+      const participant = createLocalChallengeParticipant();
+      const next = cloneChallengeState();
+      next.participants = normalizeChallengeParticipants([...(next.participants || []), participant]);
+      next.responses = {
+        ...(next.responses || {}),
+        [participant.clientId]: {
+          selectedAnswers: {},
+          score: 0,
+          answeredCount: 0,
+          updatedAtMs: nowMs
+        }
+      };
+      touchChallengeState(next);
+      setChallengeState(next, { broadcast: true, status: "Signed up for the challenge." });
+    }
+
+    function answerChallengeQuestion(questionIndex, optionIndex) {
+      const clock = getChallengeClock(challengeState);
+      if (!challengeState || clock?.phase?.id !== "running" || !isLocalChallengeParticipant()) {
+        return;
+      }
+      const index = Number(questionIndex);
+      const selected = Number(optionIndex);
+      const question = challengeState.questions[index];
+      if (!question || !Number.isInteger(selected) || selected < 0 || selected >= question.options.length) {
+        return;
+      }
+      const nowMs = Date.now();
+      const next = cloneChallengeState();
+      const previous = next.responses?.[localPlayer.clientId] || {};
+      const selectedAnswers = {
+        ...(previous.selectedAnswers || {}),
+        [index]: selected
+      };
+      next.responses = {
+        ...(next.responses || {}),
+        [localPlayer.clientId]: {
+          selectedAnswers,
+          score: getChallengeScore(next.questions, selectedAnswers),
+          answeredCount: Object.keys(selectedAnswers).length,
+          updatedAtMs: nowMs
+        }
+      };
+      touchChallengeState(next);
+      setChallengeState(next, { broadcast: true, status: "" });
+    }
+
+    function clearChallengeState() {
+      if (!challengeState || !isLocalChallengeHost()) {
+        challengePanelStatus = "Only the host can clear this Challenge.";
+        renderDebateUi();
+        return;
+      }
+      const clearedSessionId = challengeState.sessionId;
+      challengeState = null;
+      challengePanelStatus = "";
+      challengePanelOpen = false;
+      transport?.sendChallenge?.({ scholarsChallenge: null, clearedSessionId });
+      renderDebateUi();
+      publishPresence(true);
+    }
+
+    function startNewChallengeSetup() {
+      challengeState = null;
+      challengePanelStatus = "";
+      challengePanelOpen = true;
+      debatePanelOpen = false;
+      createChallengeSetupState();
+    }
+
     function createDebateRoom() {
       if (isDebateBlocking(debateState)) {
         debatePanelStatus = "A Debate Lab room is already active.";
+        renderDebateUi();
+        return;
+      }
+      if (isChallengeBlocking(challengeState)) {
+        debatePanelStatus = "A Scholar's Challenge is already active.";
         renderDebateUi();
         return;
       }
@@ -2669,6 +3293,282 @@
       }
     }
 
+    function createChallengeActionButton(label, action, className = "", attributes = {}) {
+      const button = createTextElement("button", `campus2d-debate-button campus2d-challenge-button ${className}`.trim(), label, {
+        type: "button",
+        "data-campus2d-challenge-action": action,
+        "data-campus2d-ui": "",
+        ...attributes
+      });
+      if (attributes.disabled) {
+        button.disabled = true;
+      }
+      return button;
+    }
+
+    function renderChallengeSummary(panel, clock) {
+      if (!challengeState) {
+        return;
+      }
+      const setup = getChallengeSetup(challengeState.questionCount);
+      const card = createEl("section", "campus2d-debate-card campus2d-challenge-summary");
+      const header = createEl("div", "campus2d-debate-summary-header");
+      header.append(
+        createTextElement("span", "campus2d-debate-eyebrow", clock?.phase?.label || "Challenge"),
+        createTextElement("strong", "", `Hosted by ${challengeState.hostName || "Host"}`)
+      );
+      const title = createTextElement("h3", "", `${setup.label} · ${formatDebateClock(Math.ceil(setup.durationMs / 1000))}`);
+      const timer = createEl("div", "campus2d-debate-timer-card campus2d-challenge-timer-card");
+      timer.append(
+        createTextElement("span", "", clock?.phase?.id === "signup" ? "Signup closes in" : clock?.phase?.id === "running" ? "Time left" : "Status"),
+        createTextElement("strong", "", clock && clock.phase.id !== "setup" && clock.phase.id !== "ended" ? formatDebateClock(clock.remaining) : "--:--", {
+          "data-campus2d-challenge-timer-value": ""
+        }),
+        createTextElement("em", "", clock?.phase?.label || "Ready", { "data-campus2d-challenge-phase": "" })
+      );
+      card.append(header, title, timer);
+      panel.append(card);
+    }
+
+    function createChallengeAvatar(participant) {
+      const avatar = createEl("span", "campus2d-challenge-avatar", { "aria-hidden": "true" });
+      const color = getColor(manifest, participant.colorId);
+      const frame = getFrame("right", false, true, performance.now());
+      avatar.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
+      avatar.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
+      avatar.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
+      avatar.style.setProperty("--campus2d-flip", String(frame.flip));
+      return avatar;
+    }
+
+    function renderChallengeRoster(panel) {
+      const card = createEl("section", "campus2d-debate-card campus2d-challenge-roster-card");
+      const count = challengeState?.participants?.length || 0;
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Signed up"),
+        createTextElement("h3", "", `${count} ${count === 1 ? "alpaca" : "alpacas"}`)
+      );
+      const roster = createEl("div", "campus2d-challenge-roster");
+      if (!count) {
+        roster.append(createTextElement("p", "campus2d-debate-muted", "No one has signed up yet."));
+      } else {
+        challengeState.participants.forEach((participant) => {
+          const row = createEl("div", "campus2d-challenge-roster-row");
+          row.append(createChallengeAvatar(participant), createTextElement("span", "", participant.displayName || "Guest"));
+          roster.append(row);
+        });
+      }
+      card.append(roster);
+      panel.append(card);
+    }
+
+    function renderChallengeSetupControls(panel) {
+      if (!challengeState) {
+        return;
+      }
+      const card = createEl("form", "campus2d-debate-card campus2d-challenge-setup", {
+        "data-campus2d-challenge-setup-form": "",
+        "data-campus2d-ui": ""
+      });
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", isLocalChallengeHost() ? "Host setup" : "Setup"),
+        createTextElement("h3", "", isLocalChallengeHost() ? "Choose the Challenge length" : `${challengeState.hostName || "The host"} is setting up the Challenge.`)
+      );
+      if (isLocalChallengeHost()) {
+        const countGroup = createEl("div", "campus2d-challenge-count-grid", { role: "group", "aria-label": "Number of questions" });
+        SCHOLARS_CHALLENGE_QUESTION_COUNTS.forEach((count) => {
+          const setup = getChallengeSetup(count);
+          const button = createChallengeActionButton(`${count}`, "set-count", challengeState.questionCount === count ? "is-active" : "", {
+            "data-campus2d-challenge-count": String(count),
+            "aria-pressed": String(challengeState.questionCount === count)
+          });
+          button.append(createTextElement("span", "", `${formatDebateClock(Math.ceil(setup.durationMs / 1000))}`));
+          countGroup.append(button);
+        });
+        const actions = createEl("div", "campus2d-debate-actions");
+        actions.append(createTextElement("button", "campus2d-debate-button campus2d-challenge-button primary", "Validate", {
+          type: "submit",
+          "data-campus2d-ui": ""
+        }));
+        card.append(countGroup, actions);
+      } else {
+        card.append(createTextElement("p", "campus2d-debate-muted", "Other amphitheater tools are locked until setup is finished or cleared."));
+      }
+      panel.append(card);
+    }
+
+    function renderChallengeSignupControls(panel, clock) {
+      renderChallengeRoster(panel);
+      const card = createEl("section", "campus2d-debate-card campus2d-challenge-signup");
+      const signedUp = isLocalChallengeParticipant();
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", signedUp ? "Your signup" : "Join"),
+        createTextElement("h3", "", signedUp ? "You are signed up." : "Sign up for the challenge")
+      );
+      if (signedUp) {
+        card.append(createTextElement("p", "campus2d-debate-muted", `${formatDebateClock(clock.remaining)} until questions open.`));
+      } else {
+        const form = createEl("form", "campus2d-challenge-signup-form", {
+          "data-campus2d-challenge-signup-form": "",
+          "data-campus2d-ui": ""
+        });
+        const label = createEl("label", "campus2d-debate-check campus2d-challenge-check");
+        const checkbox = createEl("input", "", {
+          type: "checkbox",
+          name: "signup",
+          value: "yes",
+          "data-campus2d-ui": ""
+        });
+        label.append(checkbox, createTextElement("span", "", "Sign up for the challenge"));
+        const actions = createEl("div", "campus2d-debate-actions");
+        actions.append(createTextElement("button", "campus2d-debate-button campus2d-challenge-button primary", "Validate", {
+          type: "submit",
+          "data-campus2d-ui": ""
+        }));
+        form.append(label, actions);
+        card.append(form);
+      }
+      panel.append(card);
+    }
+
+    function renderChallengeQuestionCard(question, questionIndex, selectedAnswers, canAnswer, isEnded) {
+      const selectedIndex = selectedAnswers[questionIndex];
+      const article = createEl("article", "raw-quiz-card quiz-question-card campus2d-challenge-question");
+      const top = createEl("div", "raw-quiz-top quiz-question-top");
+      top.append(
+        createTextElement("span", "raw-quiz-level", `Level ${question.displayLevel || question.rawLevel * 100}`),
+        createTextElement("span", "meta-pill section", challengeApi.getSectionTitle?.(question.sectionId) || question.guidingSection || "Guiding Section")
+      );
+      article.append(
+        top,
+        createTextElement("p", "quiz-question-number", `Question ${questionIndex + 1}`),
+        createTextElement("p", "raw-quiz-prompt", question.prompt)
+      );
+      const optionsGrid = createEl("div", "raw-quiz-options");
+      question.options.forEach((option, optionIndex) => {
+        let classes = "raw-quiz-option option-button";
+        if (selectedIndex === optionIndex) {
+          classes += " active";
+        }
+        if (isEnded) {
+          if (optionIndex === question.answerIndex) {
+            classes += " correct";
+          } else if (selectedIndex === optionIndex) {
+            classes += " wrong";
+          }
+        }
+        const button = createEl("button", classes, {
+          type: "button",
+          "data-campus2d-challenge-question": String(questionIndex),
+          "data-campus2d-challenge-option": String(optionIndex),
+          "aria-pressed": String(selectedIndex === optionIndex),
+          disabled: (!canAnswer || isEnded) ? "true" : null
+        });
+        if (!canAnswer || isEnded) {
+          button.disabled = true;
+        }
+        button.append(createTextElement("span", "option-token", String.fromCharCode(65 + optionIndex)), createTextElement("span", "", option));
+        optionsGrid.append(button);
+      });
+      article.append(optionsGrid);
+      return article;
+    }
+
+    function renderChallengeRunningControls(panel, clock) {
+      const signedUp = isLocalChallengeParticipant();
+      const response = getLocalChallengeResponse();
+      const answeredCount = Number(response.answeredCount) || 0;
+      const card = createEl("section", "campus2d-debate-card campus2d-challenge-progress");
+      card.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Questions open"),
+        createTextElement("h3", "", signedUp ? `${answeredCount}/${challengeState.questions.length} answered` : "Signup is closed")
+      );
+      card.append(createTextElement("p", "campus2d-debate-muted", signedUp
+        ? "Click an answer for each question before the timer reaches zero."
+        : "Only alpacas who signed up before the countdown ended can answer this round."));
+      panel.append(card);
+      if (!signedUp) {
+        return;
+      }
+      const list = createEl("div", "campus2d-challenge-question-list");
+      challengeState.questions.forEach((question, questionIndex) => {
+        list.append(renderChallengeQuestionCard(question, questionIndex, response.selectedAnswers || {}, true, false));
+      });
+      panel.append(list);
+      updateChallengeTimerDisplays(clock);
+    }
+
+    function renderChallengeResults(panel) {
+      const response = getLocalChallengeResponse();
+      const localRank = buildChallengeRankings().find((entry) => entry.participant.clientId === localPlayer.clientId);
+      const scoreCard = createEl("section", "campus2d-debate-card campus2d-challenge-result-card");
+      scoreCard.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Your result"),
+        createTextElement("h3", "", isLocalChallengeParticipant()
+          ? `${Number(response.score) || 0}/${challengeState.questions.length} correct`
+          : "You were not signed up.")
+      );
+      scoreCard.append(createTextElement("p", "campus2d-debate-muted", localRank ? `Rank ${localRank.rank} of ${challengeState.participants.length}` : "Ranking includes the signed-up alpacas."));
+      panel.append(scoreCard);
+
+      const rankCard = createEl("section", "campus2d-debate-card campus2d-challenge-ranking-card");
+      rankCard.append(
+        createTextElement("p", "campus2d-debate-eyebrow", "Ranking"),
+        createTextElement("h3", "", "Best to worse")
+      );
+      const list = createEl("ol", "campus2d-challenge-ranking");
+      buildChallengeRankings().forEach((entry) => {
+        const row = createEl("li", "campus2d-challenge-ranking-row");
+        row.append(
+          createChallengeAvatar(entry.participant),
+          createTextElement("span", "", entry.participant.displayName || "Guest"),
+          createTextElement("strong", "", `${entry.score}/${challengeState.questions.length}`)
+        );
+        list.append(row);
+      });
+      rankCard.append(list);
+      const actions = createEl("div", "campus2d-debate-actions");
+      actions.append(createChallengeActionButton("New Challenge", "new", "primary"));
+      if (isLocalChallengeHost()) {
+        actions.append(createChallengeActionButton("Clear results", "clear", "secondary"));
+      }
+      rankCard.append(actions);
+      panel.append(rankCard);
+    }
+
+    function renderChallengePanel() {
+      const panel = createEl("section", "campus2d-debate-panel campus2d-challenge-panel", {
+        "data-campus2d-challenge-panel": "",
+        "data-campus2d-ui": "",
+        "aria-label": "Scholar's Challenge multiplayer"
+      });
+      const header = createEl("header", "campus2d-debate-header campus2d-challenge-header");
+      header.append(createTextElement("p", "campus2d-debate-eyebrow", "Multiplayer"), createTextElement("h2", "", "Scholar's Challenge"));
+      panel.append(header);
+      if (challengePanelStatus) {
+        panel.append(createTextElement("p", "campus2d-debate-status", challengePanelStatus, { "aria-live": "polite" }));
+      }
+      if (!challengeState) {
+        panel.append(createTextElement("p", "campus2d-debate-muted", "Open a new Challenge setup from the amphitheater board."));
+        activityMount.replaceChildren(panel);
+        return;
+      }
+      const clock = getChallengeClock(challengeState);
+      renderChallengeSummary(panel, clock);
+      if (clock?.phase?.id === "setup") {
+        renderChallengeSetupControls(panel);
+      } else if (clock?.phase?.id === "signup") {
+        renderChallengeSignupControls(panel, clock);
+      } else if (clock?.phase?.id === "running") {
+        renderChallengeRunningControls(panel, clock);
+      } else {
+        renderChallengeResults(panel);
+      }
+      activityMount.replaceChildren(panel);
+      lastChallengeClockKey = getChallengeClockKey(clock);
+      updateChallengeTimerDisplays(clock);
+    }
+
     function renderDebatePanel() {
       const focusSnapshot = getDebateFocusSnapshot();
       const panel = createEl("section", "campus2d-debate-panel", {
@@ -2717,7 +3617,35 @@
       screen.style.top = `${DEBATE_BOARD_RECT.y}px`;
       screen.style.width = `${DEBATE_BOARD_RECT.width}px`;
       screen.style.height = `${DEBATE_BOARD_RECT.height}px`;
-      if (debateState?.status === "running") {
+      const challengeClock = getChallengeClock(challengeState);
+      const showChallengeScreen = Boolean(
+        challengeState &&
+        !isDebateBlocking(debateState) &&
+        (isChallengeBlocking(challengeState) || challengePanelOpen || challengeClock?.phase?.id === "ended")
+      );
+      if (showChallengeScreen) {
+        const phaseId = challengeClock?.phase?.id || "setup";
+        const title = phaseId === "signup"
+          ? `${formatDebateClock(challengeClock.remaining)} to sign up`
+          : phaseId === "running"
+            ? "Question list open"
+            : phaseId === "ended"
+              ? "Results ready"
+              : "Setup in progress";
+        const helper = phaseId === "signup"
+          ? "Click the board to sign up for the challenge"
+          : phaseId === "running"
+            ? `${formatDebateClock(challengeClock.remaining)} left`
+            : phaseId === "ended"
+              ? "Click the board to see ranking"
+              : `${challengeState.hostName || "Host"} is choosing the round`;
+        screen.append(
+          createTextElement("span", "campus2d-debate-screen-label", "Scholar's Challenge"),
+          createTextElement("strong", "campus2d-debate-screen-title", title),
+          createTextElement("span", "campus2d-debate-screen-phase", challengeClock?.phase?.label || "Setup", { "data-campus2d-challenge-phase": "" }),
+          createTextElement("em", "campus2d-debate-screen-timer", helper, { "data-campus2d-challenge-timer": "" })
+        );
+      } else if (debateState?.status === "running") {
         screen.append(
           createTextElement("span", "campus2d-debate-screen-label", "Live Debate Lab"),
           createTextElement("strong", "campus2d-debate-screen-topic", getDebateMotion()),
@@ -2746,11 +3674,15 @@
 
     function renderDebateUi() {
       renderDebateWorldScreen();
+      if (room.id === DEBATE_ROOM_ID && challengePanelOpen) {
+        renderChallengePanel();
+        return;
+      }
       if (room.id === DEBATE_ROOM_ID && debatePanelOpen) {
         renderDebatePanel();
         return;
       }
-      if (activityMount.querySelector("[data-campus2d-debate-panel]")) {
+      if (activityMount.querySelector("[data-campus2d-debate-panel], [data-campus2d-challenge-panel]")) {
         activityMount.replaceChildren();
       }
     }
@@ -2759,9 +3691,34 @@
       if (room.id !== DEBATE_ROOM_ID) {
         return false;
       }
+      if (isChallengeBlocking(challengeState)) {
+        challengePanelOpen = true;
+        debatePanelOpen = false;
+        challengePanelStatus = "A Scholar's Challenge is already active.";
+        renderDebateUi();
+        showBubble(localElement, "Scholar's Challenge is active");
+        return true;
+      }
       debatePanelOpen = true;
+      challengePanelOpen = false;
       renderDebateUi();
       showBubble(localElement, "Debate Lab is open in the right panel");
+      return true;
+    }
+
+    function openScholarsChallengePanel() {
+      if (room.id !== DEBATE_ROOM_ID) {
+        return false;
+      }
+      challengePanelOpen = true;
+      debatePanelOpen = false;
+      challengePanelStatus = "";
+      if (!challengeState || (!isChallengeBlocking(challengeState) && getChallengeClock(challengeState)?.phase?.id !== "ended")) {
+        createChallengeSetupState();
+      } else {
+        renderDebateUi();
+      }
+      showBubble(localElement, "Scholar's Challenge is open in the right panel");
       return true;
     }
 
@@ -2783,8 +3740,37 @@
       });
     }
 
+    function updateChallengeTimerDisplays(clock = getChallengeClock(challengeState)) {
+      const phaseText = clock?.phase?.label || (challengeState ? "Setup" : "Ready");
+      let timerText = "";
+      let timerValueText = "";
+      if (clock?.phase?.id === "signup") {
+        timerText = `${formatDebateClock(clock.remaining)} to sign up for the challenge`;
+        timerValueText = formatDebateClock(clock.remaining);
+      } else if (clock?.phase?.id === "running") {
+        timerText = formatDebateClock(clock.remaining);
+        timerValueText = timerText;
+      } else if (clock?.phase?.id === "ended") {
+        timerText = "Results ready";
+        timerValueText = "--:--";
+      } else if (clock?.phase?.id === "setup") {
+        timerText = "Setup";
+        timerValueText = "--:--";
+      }
+      root.querySelectorAll("[data-campus2d-challenge-phase]").forEach((element) => {
+        element.textContent = phaseText;
+      });
+      root.querySelectorAll("[data-campus2d-challenge-timer-value]").forEach((element) => {
+        element.textContent = timerValueText;
+      });
+      root.querySelectorAll("[data-campus2d-challenge-timer]").forEach((element) => {
+        element.textContent = timerText;
+      });
+    }
+
     function updateDebateRuntime(nowMs) {
       updateDebateNpcElements(nowMs);
+      updateChallengeRuntime(nowMs);
       if (room.id !== DEBATE_ROOM_ID || !debateState) {
         return;
       }
@@ -2803,6 +3789,25 @@
         return;
       }
       updateDebateTimerDisplays(Date.now());
+    }
+
+    function updateChallengeRuntime(nowMs = Date.now()) {
+      if (room.id !== DEBATE_ROOM_ID || !challengeState) {
+        return;
+      }
+      const second = Math.floor(Date.now() / 1000);
+      if (second === lastChallengeClockSecond) {
+        return;
+      }
+      lastChallengeClockSecond = second;
+      const clock = getChallengeClock(challengeState);
+      const clockKey = getChallengeClockKey(clock);
+      if (clockKey !== lastChallengeClockKey && (challengePanelOpen || debateLayer.querySelector("[data-campus2d-challenge-timer]"))) {
+        lastChallengeClockKey = clockKey;
+        renderDebateUi();
+        return;
+      }
+      updateChallengeTimerDisplays(clock);
     }
 
     function renderPortals() {
@@ -3135,6 +4140,7 @@
       }
       if (nextRoom.id !== DEBATE_ROOM_ID || room.id !== DEBATE_ROOM_ID) {
         debatePanelOpen = false;
+        challengePanelOpen = false;
       }
       room = nextRoom;
       const nextSpawn = room.spawnPoints[spawnId] || room.spawnPoints.default;
@@ -3489,6 +4495,7 @@
       }
       setStatus("Connecting");
       lastDebatePresenceSignature = "";
+      lastChallengePresenceSignature = "";
       transport = realtimeApi.createTransport({ client: options.client, transport: options.transport });
       if (!transport?.connect) {
         transport = null;
@@ -3520,6 +4527,9 @@
           },
           onDebate(payload) {
             receiveRemoteDebate(payload);
+          },
+          onChallenge(payload) {
+            receiveRemoteChallenge(payload);
           },
           onDebateSignal(payload) {
             receiveDebateSignal(payload);
@@ -3607,6 +4617,7 @@
         idRewards,
         achievements: idRewards,
         debateAudio: hasPayloadField(payload, "debateAudio") ? (payload.debateAudio || null) : (previous.debateAudio || null),
+        scholarsChallenge: hasPayloadField(payload, "scholarsChallenge") ? (payload.scholarsChallenge || null) : (previous.scholarsChallenge || null),
         createdAt: payload.createdAt || previous.createdAt || null,
         moving: Boolean(reportedMoving && !seatId)
       };
@@ -3654,7 +4665,9 @@
       removeMissingRemotePlayers(seen);
       refreshRemotePlayers();
       syncDebateStateFromPresence(presenceRows);
+      syncChallengeStateFromPresence(presenceRows);
       maybePublishDebateStateForPresence(seen);
+      maybePublishChallengeStateForPresence(seen);
       updateDebateAudioContext();
     }
 
@@ -3674,6 +4687,18 @@
       }
       if (!isLocalDebateHost() || !isDebateBlocking(debateState)) {
         lastDebatePresenceSignature = debatePresenceSignature;
+      }
+    }
+
+    function maybePublishChallengeStateForPresence(seenClientIds) {
+      const challengePresenceSignature = Array.from(seenClientIds || []).sort().join("|");
+      if (isLocalChallengeHost() && isChallengeBlocking(challengeState) && challengePresenceSignature !== lastChallengePresenceSignature) {
+        lastChallengePresenceSignature = challengePresenceSignature;
+        publishChallengeState();
+        return;
+      }
+      if (!isLocalChallengeHost() || !isChallengeBlocking(challengeState)) {
+        lastChallengePresenceSignature = challengePresenceSignature;
       }
     }
 
@@ -3706,8 +4731,13 @@
       if (snapshot.debateState) {
         receiveRemoteDebate({ debateState: snapshot.debateState });
       }
+      syncChallengeStateFromPresence(players);
+      if (snapshot.scholarsChallenge || snapshot.challengeState) {
+        receiveRemoteChallenge({ scholarsChallenge: snapshot.scholarsChallenge || snapshot.challengeState });
+      }
       refreshRemotePlayers();
       maybePublishDebateStateForPresence(seen);
+      maybePublishChallengeStateForPresence(seen);
       updateDebateAudioContext();
     }
 
@@ -4645,6 +5675,31 @@
       handleZoneEditorPointerUp(event);
     }
 
+    function handleChallengeClick(event) {
+      const answerButton = event.target.closest("[data-campus2d-challenge-question][data-campus2d-challenge-option]");
+      if (answerButton) {
+        event.preventDefault();
+        answerChallengeQuestion(answerButton.dataset.campus2dChallengeQuestion, answerButton.dataset.campus2dChallengeOption);
+        return true;
+      }
+
+      const actionButton = event.target.closest("[data-campus2d-challenge-action]");
+      if (!actionButton) {
+        return false;
+      }
+
+      event.preventDefault();
+      const action = actionButton.dataset.campus2dChallengeAction;
+      if (action === "set-count") {
+        setChallengeQuestionCount(actionButton.dataset.campus2dChallengeCount);
+      } else if (action === "new") {
+        startNewChallengeSetup();
+      } else if (action === "clear") {
+        clearChallengeState();
+      }
+      return true;
+    }
+
     function handleDebateClick(event) {
       const draftTopicButton = event.target.closest("[data-campus2d-debate-create-topic]");
       if (draftTopicButton) {
@@ -4728,6 +5783,10 @@
           event.preventDefault();
           event.stopPropagation();
         }
+        return;
+      }
+
+      if (handleChallengeClick(event)) {
         return;
       }
 
@@ -4864,6 +5923,26 @@
     }
 
     function handleRootSubmit(event) {
+      const challengeSetupForm = event.target.closest("[data-campus2d-challenge-setup-form]");
+      if (challengeSetupForm) {
+        event.preventDefault();
+        validateChallengeSetup();
+        return;
+      }
+
+      const challengeSignupForm = event.target.closest("[data-campus2d-challenge-signup-form]");
+      if (challengeSignupForm) {
+        event.preventDefault();
+        const confirmed = Boolean(challengeSignupForm.querySelector("input[type='checkbox']")?.checked);
+        if (!confirmed) {
+          challengePanelStatus = "Check the signup box before validating.";
+          renderDebateUi();
+          return;
+        }
+        joinChallenge();
+        return;
+      }
+
       const debateCreateForm = event.target.closest("[data-campus2d-debate-create-form]");
       if (debateCreateForm) {
         event.preventDefault();
@@ -5032,6 +6111,7 @@
       setDebugAllowed,
       setRoom,
       openDebateLab: openDebateLabPanel,
+      openScholarsChallenge: openScholarsChallengePanel,
       openSettings: openSettingsPanel
     };
   }

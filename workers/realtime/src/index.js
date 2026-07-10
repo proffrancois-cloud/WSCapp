@@ -90,6 +90,7 @@ export function sanitizePlayerPayload(payload = {}, fallback = {}) {
     createdAt: nullableText(payload.createdAt || fallback.createdAt || "", 80),
     debateRoom: nullableText(payload.debateRoom || fallback.debateRoom || "", 80),
     debateAudio: payload.debateAudio && typeof payload.debateAudio === "object" ? payload.debateAudio : fallback.debateAudio || null,
+    scholarsChallenge: payload.scholarsChallenge && typeof payload.scholarsChallenge === "object" ? payload.scholarsChallenge : fallback.scholarsChallenge || null,
     updatedAtMs: Date.now()
   };
 }
@@ -244,6 +245,10 @@ export class CampusRoom {
     }
     if (envelope.type === "debate") {
       this.broadcast("debate", this.withSender(ws, payload));
+      return;
+    }
+    if (envelope.type === "challenge") {
+      this.broadcast("challenge", this.withSender(ws, payload));
       return;
     }
     if (envelope.type === "debateSignal") {

@@ -38,6 +38,7 @@
     "createdAt",
     "debateRoom",
     "debateAudio",
+    "scholarsChallenge",
     "updatedAtMs"
   ]);
   const DEFAULTS = Object.freeze({
@@ -56,7 +57,8 @@
     chat: "campus2d.chat.message",
     avatar: "campus2d.avatar.update",
     debate: "campus2d.debate.state",
-    debateSignal: "campus2d.debate.signal"
+    debateSignal: "campus2d.debate.signal",
+    challenge: "campus2d.scholars-challenge.state"
   });
   const DIRECTIONS = new Set(["up", "down", "left", "right"]);
 
@@ -160,6 +162,7 @@
       createdAt: toNullableString(payload.createdAt, 80),
       debateRoom: toNullableString(payload.debateRoom, 80),
       debateAudio: payload.debateAudio && typeof payload.debateAudio === "object" ? payload.debateAudio : null,
+      scholarsChallenge: payload.scholarsChallenge && typeof payload.scholarsChallenge === "object" ? payload.scholarsChallenge : null,
       updatedAtMs: Date.now()
     };
     delete result.email;
@@ -263,7 +266,8 @@
       .on("broadcast", { event: EVENTS.chat }, (payload) => handlers.onChat?.(payload.payload || payload))
       .on("broadcast", { event: EVENTS.avatar }, (payload) => handlers.onAvatar?.(payload.payload || payload))
       .on("broadcast", { event: EVENTS.debate }, (payload) => handlers.onDebate?.(payload.payload || payload))
-      .on("broadcast", { event: EVENTS.debateSignal }, (payload) => handlers.onDebateSignal?.(payload.payload || payload));
+      .on("broadcast", { event: EVENTS.debateSignal }, (payload) => handlers.onDebateSignal?.(payload.payload || payload))
+      .on("broadcast", { event: EVENTS.challenge }, (payload) => handlers.onChallenge?.(payload.payload || payload));
 
     function subscribe() {
       channel.subscribe(async (status) => {
@@ -352,6 +356,7 @@
       sendAvatar: (payload) => send(EVENTS.avatar, payload),
       sendDebate: (payload) => send(EVENTS.debate, payload),
       sendDebateSignal: (payload) => send(EVENTS.debateSignal, payload),
+      sendChallenge: (payload) => send(EVENTS.challenge, payload),
       destroy
     };
   }
@@ -397,6 +402,9 @@
       },
       sendDebateSignal(payload) {
         return connection?.sendDebateSignal(payload) || Promise.resolve(null);
+      },
+      sendChallenge(payload) {
+        return connection?.sendChallenge(payload) || Promise.resolve(null);
       }
     };
   }
@@ -487,6 +495,10 @@
       }
       if (envelope.type === "debateSignal") {
         handlers.onDebateSignal?.(payload);
+        return;
+      }
+      if (envelope.type === "challenge") {
+        handlers.onChallenge?.(payload);
         return;
       }
       if (envelope.type === "room_full") {
@@ -617,6 +629,9 @@
       },
       sendDebateSignal(payload) {
         return sendCompact("debateSignal", payload);
+      },
+      sendChallenge(payload) {
+        return sendCompact("challenge", payload);
       }
     };
   }
@@ -698,6 +713,9 @@
       },
       sendDebateSignal(payload) {
         return active.sendDebateSignal(payload);
+      },
+      sendChallenge(payload) {
+        return active.sendChallenge(payload);
       }
     };
   }
