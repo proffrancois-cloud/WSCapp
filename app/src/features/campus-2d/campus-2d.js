@@ -52,7 +52,7 @@
   const WALK_FRAME_MS = 115;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
-  const ALPACA_COLLISION_RADIUS = 28;
+  const ALPACA_COLLISION_RADIUS = 20;
   const ALPACA_COLLISION_DISTANCE = ALPACA_COLLISION_RADIUS * 2;
   const MIN_DEV_ZONE_SIZE = 12;
   const DEV_ZONE_PASTE_OFFSET = 16;
@@ -533,6 +533,7 @@
     let lastFrameAt = performance.now();
     let lastMoveSentAt = 0;
     let lastPresenceSentAt = 0;
+    let lastPublishedMoving = false;
     let moveSequence = 0;
     let chatSentAtMs = [];
     let camera = { scale: 1, x: 0, y: 0 };
@@ -2563,6 +2564,9 @@
       if (!debateAudioStatus.enabled) {
         return "Microphone off.";
       }
+      if (debateState?.status === "setup") {
+        return "Microphone ready. Audio opens when the debate starts.";
+      }
       if (debateAudioStatus.muted) {
         return "Muted.";
       }
@@ -2570,6 +2574,13 @@
         return "Microphone live.";
       }
       return "Listening. Your microphone opens only when the debate route allows it.";
+    }
+
+    function getDebateAudioRouteText() {
+      if (debateAudioStatus.enabled && debateState?.status === "setup") {
+        return "Waiting for debate start";
+      }
+      return debateAudioStatus.routeLabel || "Audio idle";
     }
 
     function getDebateAudioPeerText() {
@@ -2583,7 +2594,7 @@
         element.textContent = getDebateAudioStatusText();
       });
       root.querySelectorAll("[data-campus2d-debate-audio-route]").forEach((element) => {
-        element.textContent = debateAudioStatus.routeLabel || "Audio idle";
+        element.textContent = getDebateAudioRouteText();
       });
       root.querySelectorAll("[data-campus2d-debate-audio-peers]").forEach((element) => {
         element.textContent = getDebateAudioPeerText();
@@ -2605,7 +2616,7 @@
       });
       const route = createEl("div", "campus2d-debate-audio-route");
       route.append(
-        createTextElement("span", "", debateAudioStatus.routeLabel || "Audio idle", { "data-campus2d-debate-audio-route": "" }),
+        createTextElement("span", "", getDebateAudioRouteText(), { "data-campus2d-debate-audio-route": "" }),
         createTextElement("em", "", getDebateAudioPeerText(), { "data-campus2d-debate-audio-peers": "" })
       );
       card.append(status, route);
@@ -2679,6 +2690,7 @@
         renderDebateCreateControls(panel);
       } else {
         renderDebateRoomSummary(panel);
+        renderDebateAudioControls(panel);
         const teams = createEl("div", "campus2d-debate-team-grid");
         renderDebateTeamCard("pro", teams);
         renderDebateTeamCard("con", teams);
@@ -2687,7 +2699,6 @@
         renderDebateSignupControls(panel);
         renderDebateStartControls(panel);
         renderDebateRunningControls(panel);
-        renderDebateAudioControls(panel);
         renderDebateNotes(panel);
       }
       activityMount.replaceChildren(panel);
@@ -3329,11 +3340,16 @@
 
     function stepMovement(deltaSeconds, nowMs) {
       if (debugEnabled) {
+        const wasMoving = Boolean(localPlayer.moving);
         activeTarget = null;
         localPlayer.moving = false;
         updatePlayerElement(localElement, localPlayer, nowMs);
+        if (wasMoving) {
+          publishMovement(true);
+        }
         return;
       }
+      const wasMoving = Boolean(localPlayer.moving);
       const keyboardVector = getKeyboardVector();
       let vector = keyboardVector;
       if (!vector.x && !vector.y && activeTarget) {
@@ -3354,6 +3370,9 @@
       if (!length) {
         localPlayer.moving = false;
         updatePlayerElement(localElement, localPlayer, nowMs);
+        if (wasMoving) {
+          publishMovement(true);
+        }
         return;
       }
 
@@ -3363,6 +3382,9 @@
         activeTarget = null;
         localPlayer.moving = false;
         updatePlayerElement(localElement, localPlayer, nowMs);
+        if (wasMoving) {
+          publishMovement(true);
+        }
         return;
       }
 
@@ -3437,15 +3459,18 @@
         return;
       }
       const nowMs = Date.now();
-      if (force || nowMs - lastMoveSentAt >= MOVEMENT_SEND_INTERVAL_MS) {
+      const moving = Boolean(localPlayer.moving);
+      const stoppedSinceLastPublish = lastPublishedMoving && !moving;
+      if (force || stoppedSinceLastPublish || nowMs - lastMoveSentAt >= MOVEMENT_SEND_INTERVAL_MS) {
         lastMoveSentAt = nowMs;
         moveSequence += 1;
+        lastPublishedMoving = moving;
         transport.sendMovement({
           x: localPlayer.x,
           y: localPlayer.y,
           direction: localPlayer.direction,
           colorId: localPlayer.colorId,
-          moving: Boolean(localPlayer.moving),
+          moving,
           seatId: localPlayer.seatId || null,
           seq: moveSequence
         });
@@ -3551,7 +3576,8 @@
       const fromY = immediate ? targetY : readFiniteNumber(previous.y, targetY);
       const distance = Math.hypot(targetX - fromX, targetY - fromY);
       const hasMoving = hasPayloadField(payload, "moving");
-      const reportedMoving = hasMoving ? Boolean(payload.moving) : distance > 0.5;
+      const hasRemoteTravel = distance > 0.5;
+      const reportedMoving = hasMoving ? Boolean(payload.moving) && hasRemoteTravel : hasRemoteTravel;
       const idRewards = normalizeIdRewards(payload.idRewards || payload.achievements || previous.idRewards || previous.achievements);
       const durationMs = Math.max(50, Number(options.durationMs) || SNAPSHOT_INTERVAL_MS);
       const seatId = hasPayloadField(payload, "seatId") ? (payload.seatId || null) : (previous.seatId || null);

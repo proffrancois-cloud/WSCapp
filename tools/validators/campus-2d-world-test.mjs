@@ -553,6 +553,13 @@ for (const debateSyncNeedle of [
     failures.push(`Debate Lab multiplayer sync is missing ${debateSyncNeedle}.`);
   }
 }
+if (!/function\s+renderDebatePanel[\s\S]*renderDebateRoomSummary\(panel\);\s*renderDebateAudioControls\(panel\);\s*const\s+teams\s*=\s*createEl\("div",\s*"campus2d-debate-team-grid"\)/.test(campusRuntime)) {
+  failures.push("Debate Lab audio controls must render near the top of an active room so the mic button is immediately reachable.");
+}
+if (!/function\s+getDebateAudioStatusText[\s\S]*debateState\?\.status\s*===\s*"setup"[\s\S]*Microphone ready\. Audio opens when the debate starts\./.test(campusRuntime)
+  || !/function\s+getDebateAudioRouteText[\s\S]*Waiting for debate start/.test(campusRuntime)) {
+  failures.push("Debate Lab audio should show a ready/waiting state during setup instead of looking unavailable.");
+}
 if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRuntime)) {
   failures.push("Campus 2D yellow seat zones must be non-walkable, not regular walking areas.");
 }
@@ -586,8 +593,17 @@ if (!/function\s+showBubble[\s\S]*chatStack\.append\(bubble\)[\s\S]*chatStack\.c
 if (!/const\s+WALK_FRAME_COLUMNS\s*=\s*7/.test(campusRuntime)) {
   failures.push("Campus 2D walking alpacas must use the seven-frame PNG walk strip.");
 }
+if (!/const\s+ALPACA_COLLISION_RADIUS\s*=\s*20/.test(campusRuntime)) {
+  failures.push("Campus 2D alpaca personal space should stay close to the 41px visual sprite width.");
+}
 if (!/function\s+getFrame\(direction,\s*isSitting\s*=\s*false,\s*isMoving\s*=\s*false,\s*nowMs\s*=\s*0\)[\s\S]*isMoving\s*\?\s*getWalkFrameColumn\(nowMs\)\s*:\s*WALK_IDLE_FRAME/.test(campusRuntime)) {
   failures.push("Campus 2D walking alpacas must animate by switching sprite columns only while moving.");
+}
+if (!/let\s+lastPublishedMoving\s*=\s*false/.test(campusRuntime) || !/const\s+stoppedSinceLastPublish\s*=\s*lastPublishedMoving\s*&&\s*!moving/.test(campusRuntime)) {
+  failures.push("Campus 2D movement must publish a final moving=false update when a local alpaca stops.");
+}
+if (!/const\s+hasRemoteTravel\s*=\s*distance\s*>\s*0\.5/.test(campusRuntime) || !/const\s+reportedMoving\s*=\s*hasMoving\s*\?\s*Boolean\(payload\.moving\)\s*&&\s*hasRemoteTravel\s*:\s*hasRemoteTravel/.test(campusRuntime)) {
+  failures.push("Campus 2D remote alpacas must not keep walking in place when the incoming position no longer changes.");
 }
 if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
   failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
