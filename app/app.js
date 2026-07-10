@@ -80,7 +80,7 @@ const GAME_CONFIG = {
   jeopardyValues: [100, 200, 300, 400, 500],
   jeopardyAnswerTime: 30,
   jeopardyDefaultTeams: 2,
-  jeopardyMinTeams: 2,
+  jeopardyMinTeams: 1,
   jeopardyMaxTeams: 6,
   runRegionalLevelOneCount: 10,
   runRegionalLevelTwoCount: 5,
@@ -111,22 +111,22 @@ const GAME_CONFIG = {
   relayMaxTeams: 6
 };
 const LIVE_SIGNUP_DURATION_MS = 2 * 60 * 1000;
-const LIVE_PLAYER_COUNT_OPTIONS = Object.freeze([2, 3, 4, 5, 6]);
+const LIVE_PLAYER_COUNT_OPTIONS = Object.freeze([1, 2, 3, 4, 5, 6]);
 const LIVE_GAME_TYPES = Object.freeze({
   alpacapardy: {
     gameType: "alpacapardy",
     modeId: "jeopardy",
     label: "Alpacapardy",
     status: "Ready now",
-    minPlayers: 2,
+    minPlayers: 1,
     maxPlayers: 6
   },
   run: {
     gameType: "run",
     modeId: "run",
     label: "Alpaca Run",
-    status: "2-6 alpacas",
-    minPlayers: 2,
+    status: "1-6 alpacas",
+    minPlayers: 1,
     maxPlayers: 6
   },
   quiz: {
@@ -134,7 +134,7 @@ const LIVE_GAME_TYPES = Object.freeze({
     modeId: "quiz",
     label: "Quiz",
     status: "Kahoot style",
-    minPlayers: 2,
+    minPlayers: 1,
     maxPlayers: 6,
     questionCount: 10,
     timerSeconds: 20
@@ -144,7 +144,7 @@ const LIVE_GAME_TYPES = Object.freeze({
     modeId: "race",
     label: "Survivalpaca",
     status: "Sudden death",
-    minPlayers: 2,
+    minPlayers: 1,
     maxPlayers: 2,
     lives: 3
   },
@@ -153,7 +153,7 @@ const LIVE_GAME_TYPES = Object.freeze({
     modeId: "relay",
     label: "Alpaquiz",
     status: "Buzz first",
-    minPlayers: 2,
+    minPlayers: 1,
     maxPlayers: 6,
     questionCount: 20,
     timerSeconds: 20,
@@ -5216,7 +5216,7 @@ function renderOnlineHomeGameCard(gameType) {
 function getOnlineGameCardDescription(gameType) {
   const descriptions = {
     alpacapardy: "Shared clue board, team strategy, and quick answers.",
-    run: "Two to six alpacas race across the map toward Yale.",
+    run: "One to six alpacas race across the map toward Yale.",
     quiz: "Timed live questions with a fast leaderboard.",
     race: "Sudden-death survival with lives on the line.",
     alpaquiz: "Buzz first, answer fast, and control the turn."
@@ -5267,7 +5267,7 @@ function renderOnlineArcadeSetup(gameType, busy) {
   const rules = {
     run: "Each alpaca gets different all-theme questions and races across the shared progress map.",
     quiz: "Kahoot-style shared questions, timed answers, and a leaderboard after every question.",
-    race: "2 players. Sudden death, 3 lives each, one alpaca answers per turn.",
+    race: "1 or 2 players. Sudden death, 3 lives each, one alpaca answers per turn.",
     alpaquiz: "Pick 4 guiding sections. Everyone sees the same question, then the first buzz controls the answer."
   };
 
@@ -5314,7 +5314,7 @@ function renderLivePlayerCountPicker(gameType, busy = false) {
             aria-pressed="${selectedCount === count ? "true" : "false"}"
             ${busy ? "disabled" : ""}
           >
-            ${count} players
+            ${count} ${count === 1 ? "player" : "players"}
           </button>
         `).join("")}
       </div>
@@ -5793,6 +5793,7 @@ function renderLiveRunGame(arcadeState, roomPlayers) {
   const userId = state.auth.session?.user?.id || "";
   const players = getLivePlayablePlayers(roomPlayers);
   const selfPlayer = players.find((player) => player.user_id === userId) || players[0] || null;
+  const hasOpponents = players.some((player) => player.user_id !== userId);
 
   return `
     <section class="live-run-shell">
@@ -5800,7 +5801,7 @@ function renderLiveRunGame(arcadeState, roomPlayers) {
       <div class="live-run-player-area">
         ${selfPlayer ? renderLiveRunPlayerPanel(selfPlayer, arcadeState) : `<p class="online-muted">Waiting for your alpaca profile.</p>`}
         <div class="live-run-opponent-status">
-          ${players.filter((player) => player.user_id !== userId).map((player) => {
+          ${hasOpponents ? players.filter((player) => player.user_id !== userId).map((player) => {
             const playerProgress = arcadeState.progress?.[player.user_id] || {};
             const colorId = arcadeState.colorsByUserId?.[player.user_id] || "cream";
             return `
@@ -5812,7 +5813,7 @@ function renderLiveRunGame(arcadeState, roomPlayers) {
                 </div>
               </article>
             `;
-          }).join("") || `<p class="online-muted">Waiting for the other alpaca.</p>`}
+          }).join("") : `<p class="online-muted">Solo run. Clear the map at your own pace.</p>`}
         </div>
       </div>
     </section>
@@ -6143,11 +6144,12 @@ function renderLiveLeaderboard(leaderboard) {
 
 function renderLiveWinnerCard(arcadeState, players) {
   const winner = players.find((player) => player.user_id === arcadeState.winnerUserId);
+  const solo = players.length <= 1;
   return `
     <article class="live-winner-card">
-      <p class="challenge-label">Winner</p>
-      <h3>${escapeHtml(winner?.display_name || "Winning alpaca")}</h3>
-      <p>The other alpaca ran out of lives.</p>
+      <p class="challenge-label">${solo ? "Route over" : "Winner"}</p>
+      <h3>${escapeHtml(solo ? (players[0]?.display_name || "Solo alpaca") : (winner?.display_name || "Winning alpaca"))}</h3>
+      <p>${escapeHtml(solo ? "You ran out of chances on the route." : "The other alpaca ran out of lives.")}</p>
     </article>
   `;
 }

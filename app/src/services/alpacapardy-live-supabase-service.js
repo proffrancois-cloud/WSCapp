@@ -369,7 +369,7 @@
   }
 
   function clampPlayerCount(value) {
-    return Math.max(2, Math.min(6, Number(value) || 2));
+    return Math.max(1, Math.min(6, Number(value) || 1));
   }
 
   window.WSC_ALPACAPARDY_LIVE_SUPABASE_SERVICE = Object.freeze({
