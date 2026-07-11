@@ -128,11 +128,13 @@
       const isPortrait = viewport.height > viewport.width;
       const needsLandscape = landscapePreferred && isPortrait;
       const isLandscapeTouch = landscapePreferred && !isPortrait;
+      const isCompactTouchKeyboard = isLandscapeTouch && viewport.height <= 260;
 
       doc.body.classList.toggle("is-touch-device", touchCapable);
       doc.body.classList.toggle("prefers-landscape-device", landscapePreferred);
       doc.body.classList.toggle("needs-landscape", needsLandscape);
       doc.body.classList.toggle("is-touch-landscape", isLandscapeTouch);
+      doc.body.classList.toggle("is-compact-touch-keyboard", isCompactTouchKeyboard);
       doc.documentElement.classList.toggle("needs-landscape", needsLandscape);
 
       renderOrientationGate(needsLandscape);

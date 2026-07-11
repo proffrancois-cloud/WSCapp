@@ -2551,6 +2551,68 @@ body.needs-landscape #routeBuilder.wizard.card-panel {
   }
 }
 
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .auth-modal-stack.alpaccount-stack {
+  gap: 6px !important;
+  padding: 8px 28px 10px !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-brand {
+  grid-template-columns: 40px minmax(0, 1fr) !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-brand img {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: end !important;
+  gap: 6px 10px !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-divider,
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-provider-stack,
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-text-button {
+  display: none !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-field {
+  gap: 4px !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-field span {
+  font-size: 0.72rem !important;
+  line-height: 1 !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-field input {
+  min-height: 44px !important;
+  padding: 10px 12px !important;
+  border-radius: 12px !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-actions {
+  grid-column: 1 / -1 !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  margin-top: 0 !important;
+  flex-wrap: nowrap !important;
+}
+
+body.is-compact-touch-keyboard .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-actions .button {
+  width: auto !important;
+  min-width: 112px !important;
+  flex: 0 0 auto !important;
+  min-height: 44px !important;
+  padding: 8px 12px !important;
+  font-size: 0.76rem !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
 @media (hover: hover) and (pointer: fine) and (max-width: 1100px) and (max-height: 700px) {
   body .experience-panel.card-panel:has(.jeopardy-board-shell) {
     min-height: 0 !important;

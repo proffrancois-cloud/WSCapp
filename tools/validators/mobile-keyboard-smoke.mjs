@@ -25,6 +25,8 @@ const DEFAULT_CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Goog
 const PHONE_LANDSCAPE = { width: 844, height: 390 };
 const KEYBOARD_LANDSCAPE = { width: 844, height: 270 };
 const SMALL_KEYBOARD_LANDSCAPE = { width: 667, height: 240 };
+const OLD_IPHONE_LAYOUT_LANDSCAPE = { width: 667, height: 375 };
+const OLD_IPHONE_VISUAL_KEYBOARD = { width: 667, height: 240 };
 
 function normalizeExternalBaseUrl(rawUrl) {
   if (!rawUrl) {
@@ -251,6 +253,9 @@ function pushAuditFailures(failures, label, audit, options = {}) {
   if (options.activeName && audit.activeElement?.name !== options.activeName) {
     failures.push(`${label}: expected active field ${options.activeName}, got ${JSON.stringify(audit.activeElement)}`);
   }
+  if (options.requiredBodyClass && !audit.bodyClass.includes(options.requiredBodyClass)) {
+    failures.push(`${label}: expected body class ${options.requiredBodyClass}, got ${audit.bodyClass}`);
+  }
   if (audit.activeElement && audit.activeElement.visibleAreaRatio < 0.92) {
     failures.push(`${label}: active field is not visible enough while keyboard-sized (${JSON.stringify(audit.activeElement)})`);
   }
@@ -266,6 +271,37 @@ function pushAuditFailures(failures, label, audit, options = {}) {
       failures.push(`${label}: ${element.selector} center is not hit-testable`);
     }
   }
+}
+
+async function installVisualViewportShim(page, initialViewport) {
+  await page.addInitScript((viewport) => {
+    const state = {
+      width: viewport.width,
+      height: viewport.height
+    };
+    const visualViewport = new EventTarget();
+
+    Object.defineProperties(visualViewport, {
+      width: { get: () => state.width },
+      height: { get: () => state.height },
+      offsetLeft: { get: () => 0 },
+      offsetTop: { get: () => 0 },
+      pageLeft: { get: () => window.scrollX || 0 },
+      pageTop: { get: () => window.scrollY || 0 },
+      scale: { get: () => 1 }
+    });
+
+    Object.defineProperty(window, "visualViewport", {
+      configurable: true,
+      get: () => visualViewport
+    });
+
+    window.__WSC_TEST_SET_VISUAL_VIEWPORT__ = (nextViewport) => {
+      state.width = nextViewport.width;
+      state.height = nextViewport.height;
+      visualViewport.dispatchEvent(new Event("resize"));
+    };
+  }, initialViewport);
 }
 
 async function runAuthKeyboardScenario(browser) {
@@ -353,6 +389,49 @@ async function runAuthKeyboardScenario(browser) {
   }
 }
 
+async function runOldIphoneSafariKeyboardScenario(browser) {
+  const context = await browser.newContext({
+    viewport: OLD_IPHONE_LAYOUT_LANDSCAPE,
+    hasTouch: true,
+    isMobile: true,
+    deviceScaleFactor: 2,
+    serviceWorkers: "block"
+  });
+  const page = await context.newPage();
+  await installVisualViewportShim(page, OLD_IPHONE_LAYOUT_LANDSCAPE);
+  const messages = [];
+  page.on("console", (message) => messages.push({ type: message.type(), text: message.text() }));
+  page.on("pageerror", (error) => messages.push({ type: "pageerror", text: error.message }));
+
+  try {
+    await page.goto(`${BASE_URL}/index.html`, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.waitForFunction(() => window.WSC_APP_READY === true, null, { timeout: 60000 });
+    await chooseLocalRoute(page);
+    await openAuthModal(page);
+    await focusWithTap(page, ".alpaccount-form[data-auth-form='login'] input[name='identifier']");
+    await page.evaluate((viewport) => {
+      window.__WSC_TEST_SET_VISUAL_VIEWPORT__?.(viewport);
+    }, OLD_IPHONE_VISUAL_KEYBOARD);
+    await waitForViewportCssHeight(page, OLD_IPHONE_VISUAL_KEYBOARD.height + 4);
+    await page.waitForFunction(() => document.body.classList.contains("is-compact-touch-keyboard"), null, { timeout: 8000 });
+    await page.waitForTimeout(120);
+
+    return {
+      audit: await collectKeyboardAudit(page, [
+        ".auth-modal-overlay",
+        ".auth-modal-window",
+        ".alpaccount-form[data-auth-form='login'] input[name='identifier']",
+        ".alpaccount-form[data-auth-form='login'] input[name='password']",
+        ".alpaccount-form[data-auth-form='login'] .auth-actions",
+        ".alpaccount-form[data-auth-form='login'] button[type='submit']"
+      ]),
+      messages
+    };
+  } finally {
+    await context.close();
+  }
+}
+
 async function main() {
   const { chromium } = loadPlaywright();
   const server = externalBaseUrl
@@ -372,6 +451,7 @@ async function main() {
       executablePath: process.env.CHROME_PATH || (fs.existsSync(DEFAULT_CHROME_PATH) ? DEFAULT_CHROME_PATH : undefined)
     });
     const result = await runAuthKeyboardScenario(browser);
+    const oldIphoneSafari = await runOldIphoneSafariKeyboardScenario(browser);
     await browser.close();
     browser = null;
 
@@ -386,6 +466,12 @@ async function main() {
       minimumVisibleAreaRatio: 0.75,
       requireHitTest: true
     });
+    pushAuditFailures(failures, "Old iPhone Safari visual keyboard login", oldIphoneSafari.audit, {
+      activeName: "identifier",
+      requiredBodyClass: "is-compact-touch-keyboard",
+      minimumVisibleAreaRatio: 0.75,
+      requireHitTest: true
+    });
     pushAuditFailures(failures, "Signup top auth modal keyboard", result.signupTopAudit, {
       activeName: "email",
       minimumVisibleAreaRatio: 0.5,
@@ -397,7 +483,7 @@ async function main() {
       requireHitTest: true
     });
 
-    const severeMessages = result.messages.filter((message) =>
+    const severeMessages = [...result.messages, ...oldIphoneSafari.messages].filter((message) =>
       ["error", "pageerror"].includes(message.type) &&
       !message.text.includes("Failed to load resource") &&
       message.text !== "Permissions policy violation: compute-pressure is not allowed in this document."
@@ -412,6 +498,7 @@ async function main() {
       mode: MODE,
       keyboardViewport: KEYBOARD_LANDSCAPE,
       ...result,
+      oldIphoneSafari,
       failures
     }, null, 2));
 
