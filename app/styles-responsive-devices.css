@@ -79,15 +79,22 @@
     min-height: 48px !important;
   }
 
-  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry {
-    width: max(var(--bubble-width), 108px) !important;
-    min-height: 60px !important;
-    padding: 9px 12px !important;
+  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry,
+  body.is-touch-landscape .experience-panel--mindmap [data-open-mindmap-entry] {
+    width: max(var(--bubble-width), 140px) !important;
+    min-width: 140px !important;
+    height: auto !important;
+    min-height: 82px !important;
+    box-sizing: border-box !important;
+    padding: 12px 14px !important;
+    touch-action: manipulation;
     transform: translate(-50%, -50%) scale(var(--mindmap-touch-target-scale, 1.8)) !important;
   }
 
   body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry:hover,
-  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry:focus-visible {
+  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry:focus-visible,
+  body.is-touch-landscape .experience-panel--mindmap [data-open-mindmap-entry]:hover,
+  body.is-touch-landscape .experience-panel--mindmap [data-open-mindmap-entry]:focus-visible {
     transform: translate(-50%, -50%) scale(var(--mindmap-touch-target-scale, 1.8)) !important;
   }
 

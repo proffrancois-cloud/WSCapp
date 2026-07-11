@@ -19081,7 +19081,33 @@ function getJumpQuestionValue(question) {
 }
 
 function getJumpObstacleRequirement(experience) {
-  return 2 + getJumpQuestionLevel(experience.currentQuestion);
+  const requirement = 2 + getJumpQuestionLevel(experience.currentQuestion);
+  if (isCompactTouchJumpStage()) {
+    return Math.min(requirement, 2);
+  }
+
+  return requirement;
+}
+
+function isCompactTouchJumpStage() {
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    return false;
+  }
+
+  const touchLandscape = document.body?.classList?.contains("is-touch-landscape") ||
+    (typeof window.matchMedia === "function" &&
+      window.matchMedia("(any-pointer: coarse) and (orientation: landscape)").matches);
+  if (!touchLandscape) {
+    return false;
+  }
+
+  const root = getRenderedExperienceRoot();
+  const stage = root?.querySelector?.("[data-jump-stage]");
+  const rect = typeof stage?.getBoundingClientRect === "function" ? stage.getBoundingClientRect() : null;
+  const stageWidth = rect?.width || window.innerWidth || 0;
+  const stageHeight = rect?.height || window.innerHeight || 0;
+
+  return stageWidth <= 760 || stageHeight <= 360 || window.innerHeight <= 520;
 }
 
 function getJumpObstacleSpeed(experience) {
@@ -19337,6 +19363,10 @@ function getVisibleJumpCollision(experience) {
   const obstacleRect = getJumpHitRect(obstacleElement.getBoundingClientRect(), experience.obstacle.kind);
   if (!runnerRect || !obstacleRect) {
     return null;
+  }
+
+  if (experience.obstacle.kind === "checkpoint" && isCompactTouchJumpStage()) {
+    return rectsOverlapHorizontally(runnerRect, obstacleRect);
   }
 
   if (experience.obstacle.kind === "flying") {
