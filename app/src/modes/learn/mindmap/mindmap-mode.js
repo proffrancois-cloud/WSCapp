@@ -97,40 +97,36 @@
 
     const { entry, index } = bundle;
 
-    return `
-      <div class="auth-modal-overlay" data-close-mindmap-popup role="dialog" aria-modal="true" aria-label="${helpers.escapeHtml(entry.title)}">
-        <div class="auth-modal-window mindmap-entry-window" data-mindmap-popup-window>
-          <button class="popup-close-button" type="button" data-close-mindmap-popup aria-label="Close entry details">
-            <span aria-hidden="true">×</span>
-          </button>
-          <div class="auth-modal-stack mindmap-entry-stack">
-            <h3>${helpers.escapeHtml(entry.title)}</h3>
-            ${helpers.renderRawMasteryToggle(entry)}
-            ${(entry.rawOfficialText || (entry.rawOfficialBullets && entry.rawOfficialBullets.length)) ? `
-              <div class="raw-block">
-                <strong>Raw official text</strong>
-                ${entry.rawOfficialText ? `<p>${helpers.renderTextWithBreaks(entry.rawOfficialText)}</p>` : ""}
-                ${entry.rawOfficialBullets && entry.rawOfficialBullets.length ? helpers.renderAlpacaList(entry.rawOfficialBullets) : ""}
-              </div>
-            ` : ""}
-            ${entry.studentExplanation ? `
-              <div class="raw-block">
-                <strong>Student explanation</strong>
-                <p>${helpers.renderTextWithBreaks(entry.studentExplanation)}</p>
-                ${helpers.renderRawStudentAssets(entry, index)}
-              </div>
-            ` : ""}
-            ${entry.whyItMatters ? `
-              <div class="raw-block">
-                <strong>Why it matters</strong>
-                <p>${helpers.renderTextWithBreaks(entry.whyItMatters)}</p>
-              </div>
-            ` : ""}
-            ${helpers.renderRawQuizPager(entry, index)}
+    return renderInlineDetail({
+      title: entry.title,
+      closeAttribute: "data-close-mindmap-popup",
+      windowAttribute: "data-mindmap-popup-window",
+      closeLabel: "Close entry details",
+      body: `
+        ${helpers.renderRawMasteryToggle(entry)}
+        ${(entry.rawOfficialText || (entry.rawOfficialBullets && entry.rawOfficialBullets.length)) ? `
+          <div class="raw-block">
+            <strong>Raw official text</strong>
+            ${entry.rawOfficialText ? `<p>${helpers.renderTextWithBreaks(entry.rawOfficialText)}</p>` : ""}
+            ${entry.rawOfficialBullets && entry.rawOfficialBullets.length ? helpers.renderAlpacaList(entry.rawOfficialBullets) : ""}
           </div>
-        </div>
-      </div>
-    `;
+        ` : ""}
+        ${entry.studentExplanation ? `
+          <div class="raw-block">
+            <strong>Student explanation</strong>
+            <p>${helpers.renderTextWithBreaks(entry.studentExplanation)}</p>
+            ${helpers.renderRawStudentAssets(entry, index)}
+          </div>
+        ` : ""}
+        ${entry.whyItMatters ? `
+          <div class="raw-block">
+            <strong>Why it matters</strong>
+            <p>${helpers.renderTextWithBreaks(entry.whyItMatters)}</p>
+          </div>
+        ` : ""}
+        ${helpers.renderRawQuizPager(entry, index)}
+      `
+    }, helpers);
   }
 
   function renderGuidePopup(experience, helpers) {
@@ -145,19 +141,32 @@
       return "";
     }
 
+    return renderInlineDetail({
+      title: guide.sectionTitle || guide.title,
+      closeAttribute: "data-close-mindmap-guide-popup",
+      windowAttribute: "data-mindmap-guide-popup-window",
+      closeLabel: "Close guide details",
+      extraClass: "mindmap-guide-window",
+      body: `
+        ${helpers.renderRegularGuideDocument(guide)}
+        ${helpers.renderRegularGuideQuestionBlock(section)}
+      `
+    }, helpers);
+  }
+
+  function renderInlineDetail({ title, closeAttribute, windowAttribute, closeLabel, body, extraClass = "" }, helpers) {
     return `
-      <div class="auth-modal-overlay" data-close-mindmap-guide-popup role="dialog" aria-modal="true" aria-label="${helpers.escapeHtml(guide.sectionTitle || guide.title)} guide">
-        <div class="auth-modal-window mindmap-entry-window mindmap-guide-window" data-mindmap-guide-popup-window>
-          <button class="popup-close-button" type="button" data-close-mindmap-guide-popup aria-label="Close guide details">
+      <article class="mindmap-inline-detail mindmap-entry-window ${helpers.escapeHtml(extraClass)}" data-mindmap-inline-detail ${windowAttribute}>
+        <div class="mindmap-inline-detail-top">
+          <h3>${helpers.escapeHtml(title)}</h3>
+          <button class="library-inline-close mindmap-inline-close" type="button" ${closeAttribute} aria-label="${helpers.escapeHtml(closeLabel)}">
             <span aria-hidden="true">×</span>
           </button>
-          <div class="auth-modal-stack mindmap-entry-stack">
-            <h3>${helpers.escapeHtml(guide.sectionTitle || guide.title)}</h3>
-            ${helpers.renderRegularGuideDocument(guide)}
-            ${helpers.renderRegularGuideQuestionBlock(section)}
-          </div>
         </div>
-      </div>
+        <div class="mindmap-entry-stack">
+          ${body}
+        </div>
+      </article>
     `;
   }
 

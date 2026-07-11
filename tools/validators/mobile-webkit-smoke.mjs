@@ -1136,28 +1136,28 @@ async function completeMobileMindMapRound(page) {
     footerButtons: document.querySelectorAll(".learn-footer-card-button").length
   }));
 
-  let popupAudit = null;
-  let popupTargets = [];
-  let popupOpened = initialCounts.entries === 0;
-  let popupClosed = initialCounts.entries === 0;
+  let detailAudit = null;
+  let detailTargets = [];
+  let detailOpened = initialCounts.entries === 0;
+  let detailClosed = initialCounts.entries === 0;
   if (initialCounts.entries > 0) {
     await centerFirstMatchingElement(page, "[data-open-mindmap-entry]");
     await tapFirst(page, "[data-open-mindmap-entry]");
-    await page.waitForSelector("[data-mindmap-popup-window]", { timeout: 10000 });
-    await waitForVisibleArea(page, "[data-mindmap-popup-window]", 0.65);
-    popupOpened = true;
-    popupAudit = await collectAudit(page, [
-      ".auth-modal-overlay",
+    await page.waitForSelector("[data-mindmap-inline-detail]", { timeout: 10000 });
+    await waitForVisibleArea(page, "[data-mindmap-inline-detail]", 0.45);
+    detailOpened = true;
+    detailAudit = await collectAudit(page, [
+      "[data-mindmap-inline-detail]",
       "[data-mindmap-popup-window]",
-      "[data-close-mindmap-popup].popup-close-button"
+      "[data-close-mindmap-popup].mindmap-inline-close"
     ]);
-    popupTargets = await collectTouchTargets(page, ["[data-close-mindmap-popup].popup-close-button"]);
-    await tapFirst(page, "[data-close-mindmap-popup].popup-close-button");
+    detailTargets = await collectTouchTargets(page, ["[data-close-mindmap-popup].mindmap-inline-close"]);
+    await tapFirst(page, "[data-close-mindmap-popup].mindmap-inline-close");
     await page.waitForFunction(() => !document.querySelector("[data-mindmap-popup-window]"), null, { timeout: 10000 });
-    popupClosed = true;
+    detailClosed = true;
   }
 
-  return page.evaluate(({ stageAudit, stageTargets, popupAudit, popupTargets, initialCounts, popupOpened, popupClosed }) => ({
+  return page.evaluate(({ stageAudit, stageTargets, detailAudit, detailTargets, initialCounts, detailOpened, detailClosed }) => ({
     id: "mindmap",
     label: "Mind Map",
     started: Boolean(document.querySelector(".mindmap-shell")),
@@ -1166,20 +1166,20 @@ async function completeMobileMindMapRound(page) {
     guides: initialCounts.guides,
     navButtons: initialCounts.navButtons,
     footerButtons: initialCounts.footerButtons,
-    popupOpened,
-    popupClosed,
+    detailOpened,
+    detailClosed,
     stageAudit,
     stageTargets,
-    popupAudit,
-    popupTargets
+    detailAudit,
+    detailTargets
   }), {
     stageAudit,
     stageTargets,
-    popupAudit,
-    popupTargets,
+    detailAudit,
+    detailTargets,
     initialCounts,
-    popupOpened,
-    popupClosed
+    detailOpened,
+    detailClosed
   });
 }
 
@@ -1381,20 +1381,20 @@ function pushMobileLearnRoundFailures(failures, viewportLabel, learnState) {
   }
 
   if (learnState.id === "mindmap") {
-    if (learnState.stages < 1 || learnState.entries < 1 || !learnState.popupOpened || !learnState.popupClosed) {
-      failures.push(`${label}: mind map stage or entry popup did not complete (${JSON.stringify(learnState)})`);
+    if (learnState.stages < 1 || learnState.entries < 1 || !learnState.detailOpened || !learnState.detailClosed) {
+      failures.push(`${label}: mind map stage or inline detail did not complete (${JSON.stringify(learnState)})`);
     }
     pushAuditFailures(failures, `${label} stage`, learnState.stageAudit, {
       insideViewport: true,
       minimumVisibleAreaRatio: 0.18
     });
     pushTouchTargetFailures(failures, `${label} stage`, learnState.stageTargets || []);
-    if (learnState.popupAudit) {
-      pushAuditFailures(failures, `${label} popup`, learnState.popupAudit, {
+    if (learnState.detailAudit) {
+      pushAuditFailures(failures, `${label} inline detail`, learnState.detailAudit, {
         insideViewport: true,
-        minimumVisibleAreaRatio: 0.55
+        minimumVisibleAreaRatio: 0.45
       });
-      pushTouchTargetFailures(failures, `${label} popup`, learnState.popupTargets || []);
+      pushTouchTargetFailures(failures, `${label} inline detail`, learnState.detailTargets || []);
     }
   }
 

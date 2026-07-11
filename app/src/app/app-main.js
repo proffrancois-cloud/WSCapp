@@ -2362,6 +2362,7 @@ const state = {
     wizardTransition: "forward",
     appEntryGateOpen: true,
     appShellMode: null,
+    appEntryGuestPromptOpen: false,
     cooperationOpen: false,
     authOpen: false,
     authMode: "login",
@@ -2723,6 +2724,7 @@ function handleClick(event) {
   const openAppEntryGate = event.target.closest("[data-open-app-entry-gate]");
   if (openAppEntryGate) {
     state.ui.appEntryGateOpen = true;
+    state.ui.appEntryGuestPromptOpen = false;
     state.ui.authOpen = false;
     state.ui.authMode = getAuthModeForCurrentSession("login");
     syncAuthChrome();
@@ -2732,6 +2734,24 @@ function handleClick(event) {
   const appEntryChoice = event.target.closest("[data-app-entry-choice]");
   if (appEntryChoice) {
     chooseAppEntryMode(appEntryChoice.dataset.appEntryChoice);
+    return;
+  }
+
+  const appEntryGuestContinue = event.target.closest("[data-app-entry-guest-continue]");
+  if (appEntryGuestContinue) {
+    state.ui.appEntryGuestPromptOpen = false;
+    openAlpacaOnlineHub();
+    return;
+  }
+
+  const appEntryGuestAccount = event.target.closest("[data-app-entry-guest-account]");
+  if (appEntryGuestAccount) {
+    state.ui.appEntryGuestPromptOpen = false;
+    state.ui.appEntryGateOpen = true;
+    state.ui.authOpen = false;
+    state.ui.authMode = "signup";
+    clearAuthNotice();
+    syncAuthChrome();
     return;
   }
 
@@ -4724,11 +4744,11 @@ function renderSessionControls() {
   const soonLabel = isOnline
     ? "Back to solo offline mode"
     : getMultiplayerAccessLabel("Switch mode");
-  const modeButton = `
+  const renderModeButton = (placement) => `
     <button
-      class="session-mode-button session-mode-icon-button hero-online-button ${isOnline ? "switch-local" : "switch-online"}"
+      class="session-mode-button session-mode-icon-button ${placement === "hero" ? "hero-online-button" : "session-header-mode-button"} ${isOnline ? "switch-local" : "switch-online"}"
       type="button"
-      data-open-app-entry-gate
+      data-app-entry-choice="${isOnline ? "local" : "online"}"
       data-tooltip="${escapeHtml(soonLabel)}"
       aria-label="${escapeHtml(shellLabel)}"
       title="${escapeHtml(soonLabel)}"
@@ -4737,6 +4757,7 @@ function renderSessionControls() {
       <span>${escapeHtml(shellLabel)}</span>
     </button>
   `;
+  const modeButton = renderModeButton("hero");
   if (refs.heroOnlineMount) {
     setAppHtml(refs.heroOnlineMount, modeButton, "session-mode-button");
   }
@@ -4789,7 +4810,7 @@ function renderAppEntryGate() {
     return;
   }
 
-  const onlineAllowed = canAccessMultiplayer();
+  const onlineAllowed = canEnterMultiplayerWorld();
   const onlineStatusLabel = getMultiplayerAccessLabel(getLiveDisplayName());
 
   setAppHtml(refs.appEntryGateMount, `
@@ -4819,9 +4840,26 @@ function renderAppEntryGate() {
             <small>${escapeHtml(onlineStatusLabel)}</small>
           </button>
         </div>
+        ${state.ui.appEntryGuestPromptOpen ? renderAppEntryGuestPrompt() : ""}
       </article>
     </div>
   `, "app-entry-gate");
+}
+
+function renderAppEntryGuestPrompt() {
+  return `
+    <section class="app-entry-guest-prompt" role="dialog" aria-modal="true" aria-labelledby="appEntryGuestPromptTitle">
+      <div class="app-entry-guest-prompt-copy">
+        <p class="challenge-label">Guest mode</p>
+        <h3 id="appEntryGuestPromptTitle">Continue as a guest?</h3>
+        <p>You can enter the multiplayer world as a guest. We strongly recommend creating a free Alpaccount for the full experience, saved progress, and smoother live games.</p>
+      </div>
+      <div class="panel-actions app-entry-guest-actions">
+        <button class="button secondary" type="button" data-app-entry-guest-continue>Continue as a guest without account</button>
+        <button class="button primary" type="button" data-app-entry-guest-account>Create an account</button>
+      </div>
+    </section>
+  `;
 }
 
 function renderAppEntryAuthPanel() {
@@ -4879,13 +4917,24 @@ function renderAppEntryAuthPanel() {
 
 function chooseAppEntryMode(mode) {
   if (mode === "online") {
-    if (!canAccessMultiplayer()) {
-      if (isSignedIn() && requiresAlpaccountProfileCompletion()) {
-        promptForAlpaccountProfileCompletion();
-      } else {
-        state.ui.authMode = "login";
-      }
+    if (!MULTIPLAYER_PUBLIC_ENABLED) {
       state.ui.appEntryGateOpen = true;
+      syncAuthChrome();
+      return;
+    }
+
+    if (isSignedIn() && requiresAlpaccountProfileCompletion()) {
+      promptForAlpaccountProfileCompletion();
+      state.ui.appEntryGateOpen = true;
+      syncAuthChrome();
+      return;
+    }
+
+    if (!isSignedIn()) {
+      state.ui.appEntryGateOpen = true;
+      state.ui.appEntryGuestPromptOpen = true;
+      state.ui.authOpen = false;
+      clearAuthNotice();
       syncAuthChrome();
       return;
     }
@@ -4903,6 +4952,7 @@ function switchToLocalMode() {
   clearExperienceTimers();
   clearLibraryCampusActivityState();
   state.ui.appEntryGateOpen = false;
+  state.ui.appEntryGuestPromptOpen = false;
   state.ui.appShellMode = "local";
   state.ui.cooperationOpen = false;
   state.ui.authOpen = false;
@@ -4920,6 +4970,7 @@ function switchToLocalMode() {
 
 function openAlpacaOnlineHub() {
   state.ui.appEntryGateOpen = false;
+  state.ui.appEntryGuestPromptOpen = false;
   state.ui.appShellMode = "online";
   state.ui.cooperationOpen = false;
   state.ui.appSettingsOpen = false;
@@ -7943,6 +7994,7 @@ function keepRouteBuilderInView() {
 }
 
 function hasActiveQuestionPopup() {
+  const campusActivityInline = isCampusActivityInlineActive();
   if (state.ui.appEntryGateOpen) {
     return true;
   }
@@ -7963,7 +8015,17 @@ function hasActiveQuestionPopup() {
     return true;
   }
 
-  if (state.ui.libraryMenu || state.ui.libraryResource || state.ui.libraryEmbeddedDoc || state.ui.librarySectionPicker || state.ui.libraryExperience || state.ui.multiplayerGameChoice) {
+  if (
+    !campusActivityInline &&
+    (
+      state.ui.libraryMenu ||
+      state.ui.libraryResource ||
+      state.ui.libraryEmbeddedDoc ||
+      state.ui.librarySectionPicker ||
+      state.ui.libraryExperience ||
+      state.ui.multiplayerGameChoice
+    )
+  ) {
     return true;
   }
 
@@ -7992,7 +8054,7 @@ function hasActiveQuestionPopup() {
   }
 
   if (experience.type === "mindmap") {
-    return Boolean(experience.activeEntryKey || experience.activeGuideSectionId);
+    return false;
   }
 
   if (experience.type === "race") {
@@ -8063,6 +8125,10 @@ function canAccessMultiplayer() {
   return Boolean(MULTIPLAYER_PUBLIC_ENABLED && isSignedIn() && !requiresAlpaccountProfileCompletion());
 }
 
+function canEnterMultiplayerWorld() {
+  return Boolean(MULTIPLAYER_PUBLIC_ENABLED && !(isSignedIn() && requiresAlpaccountProfileCompletion()));
+}
+
 function canUseCampusDevMode() {
   return Boolean(
     isSignedIn() &&
@@ -8077,7 +8143,7 @@ function getMultiplayerAccessLabel(allowedLabel = "Join online") {
   if (isSignedIn() && requiresAlpaccountProfileCompletion()) {
     return "Complete profile";
   }
-  return isSignedIn() ? allowedLabel : "Sign in required";
+  return isSignedIn() ? allowedLabel : "Guest mode available";
 }
 
 function canDismissAuthModal() {
@@ -9420,30 +9486,34 @@ function renderLibraryInlineTopbar({
 function renderLibraryCampusSectionPicker(picker) {
   const modeId = picker.modeId || "";
   const option = getModeOption(modeId) || { title: "Learn" };
-  const selectedSectionId = normalizeSectionId(picker.selectedSectionId);
+  const allowMultipleSections = canLibraryModeSelectMultipleSections(modeId, picker);
+  const selectedSectionIds = getLibrarySectionPickerSelectedSectionIds(picker);
   const returnMenuType = picker.returnMenuType || null;
   const sourceConfig = getLibraryCampusMenuConfig(returnMenuType);
   const theme = sourceConfig.theme || "library";
-  const hasSelectedSection = Boolean(selectedSectionId && sectionById[selectedSectionId]);
-  const selectedSection = hasSelectedSection ? renderLibrarySectionChoiceChip(selectedSectionId, true) : "";
+  const hasSelectedSection = selectedSectionIds.length > 0;
+  const selectedSectionSet = new Set(selectedSectionIds);
+  const selectedSectionLabel = allowMultipleSections ? "Selected guiding sections" : "Selected guiding section";
+  const pickerInstruction = allowMultipleSections ? "Choose one or more guiding sections" : "Choose one guiding section";
+  const selectedSections = selectedSectionIds.map((sectionId) => renderLibrarySectionChoiceChip(sectionId, true)).join("");
   return `
     <div class="auth-modal-overlay library-campus-overlay library-section-picker-overlay library-campus-theme-${escapeHtml(theme)}" data-close-library-section-picker role="dialog" aria-modal="true" aria-labelledby="librarySectionPickerTitle">
       <div class="auth-modal-window library-campus-window library-section-picker-window library-campus-theme-${escapeHtml(theme)} library-inline-window" data-library-section-picker-window>
         <div class="auth-modal-stack library-campus-stack library-section-picker-stack">
           ${renderLibraryInlineTopbar({
             title: option.title || "Learn",
-            scope: "Choose one guiding section",
+            scope: pickerInstruction,
             backAttribute: returnMenuType ? "data-library-section-picker-back" : "",
             closeAttribute: "data-close-library-section-picker",
             closeLabel: "Close section picker",
             titleId: "librarySectionPickerTitle"
           })}
-          <div class="selected-section-chip-strip library-section-picker-strip" aria-label="Choose one guiding section">
-            ${getOrderedSectionIds().map((sectionId) => renderLibrarySectionChoiceChip(sectionId, sectionId === selectedSectionId)).join("")}
+          <div class="selected-section-chip-strip library-section-picker-strip" aria-label="${escapeHtml(pickerInstruction)}">
+            ${getOrderedSectionIds().map((sectionId) => renderLibrarySectionChoiceChip(sectionId, selectedSectionSet.has(sectionId))).join("")}
           </div>
-          ${selectedSection ? `
-            <div class="selected-section-selected-row library-section-picker-selected" aria-label="Selected guiding section">
-              ${selectedSection}
+          ${selectedSections ? `
+            <div class="selected-section-selected-row library-section-picker-selected" aria-label="${escapeHtml(selectedSectionLabel)}">
+              ${selectedSections}
             </div>
           ` : ""}
           <div class="library-section-picker-actions">
@@ -10043,6 +10113,7 @@ function openLibrarySectionPicker(modeId) {
   }
 
   const returnMenuType = state.ui.libraryMenu?.type || state.ui.librarySectionPicker?.returnMenuType || null;
+  const allowMultipleSections = canLibraryModeSelectMultipleSections(modeId);
 
   state.ui.libraryMenu = null;
   state.ui.libraryResource = null;
@@ -10052,10 +10123,32 @@ function openLibrarySectionPicker(modeId) {
   state.ui.librarySectionPicker = {
     modeId,
     returnMenuType,
-    selectedSectionId: ""
+    allowMultipleSections,
+    selectedSectionId: "",
+    selectedSectionIds: []
   };
   syncPopupScrollLock();
   renderLibraryCampusModal();
+}
+
+function canLibraryModeSelectMultipleSections(modeId, picker = null) {
+  return Boolean(
+    isAlpacaOnlineCampusView() &&
+    (picker?.allowMultipleSections || ["channel", "alpacard"].includes(modeId))
+  );
+}
+
+function getLibrarySectionPickerSelectedSectionIds(picker) {
+  if (!picker) {
+    return [];
+  }
+
+  const rawSectionIds = canLibraryModeSelectMultipleSections(picker.modeId, picker)
+    ? picker.selectedSectionIds
+    : [picker.selectedSectionId];
+  return [...new Set((Array.isArray(rawSectionIds) ? rawSectionIds : [])
+    .map((sectionId) => normalizeSectionId(sectionId))
+    .filter((sectionId) => sectionById[sectionId]))];
 }
 
 function selectLibrarySectionPickerSection(sectionId) {
@@ -10063,6 +10156,20 @@ function selectLibrarySectionPickerSection(sectionId) {
   if (!state.ui.librarySectionPicker || !sectionById[normalizedSectionId]) {
     return;
   }
+  if (canLibraryModeSelectMultipleSections(state.ui.librarySectionPicker.modeId, state.ui.librarySectionPicker)) {
+    const selectedSectionIds = getLibrarySectionPickerSelectedSectionIds(state.ui.librarySectionPicker);
+    const nextSectionIds = selectedSectionIds.includes(normalizedSectionId)
+      ? selectedSectionIds.filter((selectedSectionId) => selectedSectionId !== normalizedSectionId)
+      : [...selectedSectionIds, normalizedSectionId];
+    state.ui.librarySectionPicker = {
+      ...state.ui.librarySectionPicker,
+      selectedSectionIds: nextSectionIds,
+      selectedSectionId: nextSectionIds[0] || ""
+    };
+    renderLibraryCampusModal();
+    return;
+  }
+
   state.ui.librarySectionPicker = {
     ...state.ui.librarySectionPicker,
     selectedSectionId: normalizedSectionId
@@ -10076,12 +10183,12 @@ function launchLibraryModeFromSectionPicker() {
     return;
   }
 
-  const selectedSectionId = normalizeSectionId(picker.selectedSectionId);
-  if (!sectionById[selectedSectionId]) {
+  const selectedSectionIds = getLibrarySectionPickerSelectedSectionIds(picker);
+  if (!selectedSectionIds.length) {
     return;
   }
 
-  launchLibraryMode(picker.modeId, [selectedSectionId], picker.returnMenuType);
+  launchLibraryMode(picker.modeId, selectedSectionIds, picker.returnMenuType);
 }
 
 function closeLibrarySectionPickerPanel() {
@@ -13250,6 +13357,7 @@ function openMindMapEntry(entryKey) {
   experience.activeGuideSectionId = null;
   syncPopupScrollLock();
   renderExperience();
+  scrollMindMapInlineDetailIntoView();
 }
 
 function closeMindMapEntry() {
@@ -13276,6 +13384,7 @@ function openMindMapGuide(sectionId) {
   experience.activeGuideSectionId = normalizedSectionId;
   syncPopupScrollLock();
   renderExperience();
+  scrollMindMapInlineDetailIntoView();
 }
 
 function closeMindMapGuide() {
@@ -13289,6 +13398,14 @@ function closeMindMapGuide() {
   experience.activeGuideSectionId = null;
   syncPopupScrollLock();
   renderExperience();
+}
+
+function scrollMindMapInlineDetailIntoView() {
+  window.requestAnimationFrame(() => {
+    const root = getRenderedExperienceRoot();
+    const detail = root?.querySelector?.("[data-mindmap-inline-detail]");
+    detail?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
 }
 
 function renderMindMapGuidePopup() {
