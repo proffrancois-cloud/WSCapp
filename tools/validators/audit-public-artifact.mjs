@@ -19,6 +19,7 @@ const requiredPaths = [
   "app.js",
   "realtime-config.js",
   "styles.css",
+  "styles-responsive-devices.css",
   "service-worker.js",
   "manifest.webmanifest",
   "generated/current-runtime/data.js",

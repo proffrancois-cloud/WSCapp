@@ -9,11 +9,21 @@
   }
 
   function setJson(key, value) {
-    window.localStorage.setItem(key, JSON.stringify(value));
+    try {
+      window.localStorage.setItem(key, JSON.stringify(value));
+      return { ok: true, key };
+    } catch (error) {
+      return { ok: false, key, error };
+    }
   }
 
   function remove(key) {
-    window.localStorage.removeItem(key);
+    try {
+      window.localStorage.removeItem(key);
+      return { ok: true, key };
+    } catch (error) {
+      return { ok: false, key, error };
+    }
   }
 
   window.WSC_STORAGE_SERVICE = Object.freeze({

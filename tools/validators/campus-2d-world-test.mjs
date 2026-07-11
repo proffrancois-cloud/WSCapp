@@ -311,8 +311,8 @@ for (const scriptPath of [
     failures.push(`index.html does not load ${scriptPath}.`);
   }
 }
-if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf("app.js")) {
-  failures.push("Campus 2D runtime must load before app.js.");
+if (indexHtml.indexOf("src/features/campus-2d/campus-2d.js") > indexHtml.indexOf("src/app/app-main.js")) {
+  failures.push("Campus 2D runtime must load before src/app/app-main.js.");
 }
 if (indexHtml.includes("20260524coop2")) {
   failures.push("index.html still uses the stale 20260524coop2 PWA cache token.");
@@ -363,9 +363,9 @@ if (/\.hero[^{]*\{[^}]*min-height:\s*190px\s*!important/.test(lateShellCss) || /
   failures.push("Header must not reserve retired achievement/progress tracker space in late shell overrides.");
 }
 
-const appJs = readApp("app.js");
+const appJs = readApp("src/app/app-main.js");
 if (!appJs.includes("window.WSC_CAMPUS_2D.mount")) {
-  failures.push("app.js does not mount WSC_CAMPUS_2D.");
+  failures.push("src/app/app-main.js does not mount WSC_CAMPUS_2D.");
 }
 if (!appJs.includes('const CAMPUS_DEV_ALPACA_NAME = "devalpaca"') || !/function\s+canUseCampusDevMode\(\)[\s\S]*normalizeAlpacaName\(state\.auth\.profile\?\.alpaca_name\)\s*===\s*CAMPUS_DEV_ALPACA_NAME/.test(appJs)) {
   failures.push("Campus 2D dev mode must be restricted to the signed-in devalpaca profile.");
@@ -374,7 +374,7 @@ if (!/debugAllowed:\s*canUseCampusDevMode\(\)/.test(appJs) || !/setDebugAllowed\
   failures.push("Campus 2D identity sync must pass the devalpaca-only debugAllowed flag to the controller.");
 }
 if (/statsStrip|renderStats\(|renderOnlineScoreStrip|hero-progress-circles/.test(appJs)) {
-  failures.push("Retired header achievement/progress tracker JS must stay removed from app.js.");
+  failures.push("Retired header achievement/progress tracker JS must stay removed from src/app/app-main.js.");
 }
 if (!appJs.includes("renderOnlineHomeGameGrid")) {
   failures.push("Online game card grid renderer must remain available.");
@@ -428,7 +428,7 @@ for (const appNeedle of [
   "launchOnlineGameInline"
 ]) {
   if (!appJs.includes(appNeedle)) {
-    failures.push(`app.js is missing inline Campus 2D activity support: ${appNeedle}.`);
+    failures.push(`src/app/app-main.js is missing inline Campus 2D activity support: ${appNeedle}.`);
   }
 }
 const assetConfig = readApp("generated/current-runtime/assets-config.js");

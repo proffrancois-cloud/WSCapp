@@ -9,6 +9,7 @@
     const timers = deps.timers || {};
     const live = deps.live || {};
     const experienceLifecycle = deps.experience || {};
+    const domService = deps.domService || win.WSC_APP_DOM_SERVICE || null;
     const liveSyncIntervalMs = Number(deps.liveSyncIntervalMs) || 900;
     const liveHeartbeatIntervalMs = Number(deps.liveHeartbeatIntervalMs) || 25000;
     const timerIds = {
@@ -68,7 +69,11 @@
       call(startup.preloadExperienceAudio);
       call(startup.setupSupabaseAuth);
       if (refs.heroMascot && typeof startup.renderHeroVisual === "function") {
-        refs.heroMascot.innerHTML = startup.renderHeroVisual();
+        if (domService?.setHtml) {
+          domService.setHtml(refs.heroMascot, startup.renderHeroVisual(), "app-lifecycle-controller");
+        } else {
+          refs.heroMascot.textContent = startup.renderHeroVisual();
+        }
       }
       call(startup.renderInsights);
       call(startup.render);

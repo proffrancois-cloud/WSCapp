@@ -10,7 +10,12 @@ const expectedImports = [
   "styles-late-shell-overrides.css",
   "styles-route-builder-overrides.css",
   "styles-learn-mode-overrides.css",
-  "styles-online-overrides.css"
+  "styles-online-overrides.css",
+  "styles-responsive-devices.css"
+];
+
+const allowedUnreferencedChunks = [
+  "styles-seo-pages.css"
 ];
 
 const artifactArgIndex = process.argv.indexOf("--artifact");
@@ -60,7 +65,9 @@ const missingImports = expectedImports.filter((fileName) => !actualImports.inclu
 const unexpectedImports = actualImports.filter((fileName) => !expectedImports.includes(fileName));
 const orderMatches = JSON.stringify(actualImports) === JSON.stringify(expectedImports);
 const missingFiles = expectedImports.filter((fileName) => !existsSync(resolve(appRoot, fileName)));
-const unreferencedChunks = sourceChunks.filter((fileName) => !expectedImports.includes(fileName));
+const unreferencedChunks = sourceChunks.filter((fileName) => {
+  return !expectedImports.includes(fileName) && !allowedUnreferencedChunks.includes(fileName);
+});
 const unexpectedPaths = actualImportEntries
   .filter((entry) => entry.pathname !== `./${entry.fileName}`)
   .map((entry) => entry.href);
@@ -72,6 +79,7 @@ const report = {
   actualImports,
   actualImportHrefs: actualImportEntries.map((entry) => entry.href),
   sourceChunks,
+  allowedUnreferencedChunks,
   orderMatches,
   missingImports,
   unexpectedImports,

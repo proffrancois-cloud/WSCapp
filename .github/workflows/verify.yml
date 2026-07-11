@@ -35,8 +35,8 @@ jobs:
         run: npm ci
         working-directory: app
 
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
         working-directory: app
 
       - name: Verify app
@@ -44,10 +44,6 @@ jobs:
         working-directory: app
         env:
           VITE_BASE: /WSCapp/
-
-      - name: Verify Vercel artifact
-        run: npm run verify:vercel
-        working-directory: app
 
       - name: Verify Cloudflare realtime worker
         run: npm test

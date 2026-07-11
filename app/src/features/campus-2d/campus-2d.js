@@ -539,6 +539,7 @@
     let room = initialRoom;
     let transport = null;
     let animationFrameId = 0;
+    let cameraResizeFrameId = 0;
     let lastFrameAt = performance.now();
     let lastMoveSentAt = 0;
     let lastPresenceSentAt = 0;
@@ -1555,6 +1556,53 @@
       setPaletteOpen(paletteOpen);
     }
 
+    function isTouchOptimizedCampus() {
+      return Boolean(
+        document.body.classList.contains("is-touch-device") ||
+        document.body.classList.contains("is-touch-landscape") ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia?.("(any-pointer: coarse)")?.matches
+      );
+    }
+
+    function getMinimumWorldHitSize() {
+      if (!isTouchOptimizedCampus()) {
+        return 0;
+      }
+      const scale = Math.max(0.25, Number(camera.scale) || 1);
+      return Math.ceil(48 / scale);
+    }
+
+    function setInteractiveZoneButtonRect(button, zone) {
+      button.dataset.campus2dInteractiveX = String(zone.x);
+      button.dataset.campus2dInteractiveY = String(zone.y);
+      button.dataset.campus2dInteractiveWidth = String(zone.width);
+      button.dataset.campus2dInteractiveHeight = String(zone.height);
+      applyInteractiveZoneButtonRect(button);
+    }
+
+    function applyInteractiveZoneButtonRect(button) {
+      const zone = {
+        x: readFiniteNumber(button.dataset.campus2dInteractiveX),
+        y: readFiniteNumber(button.dataset.campus2dInteractiveY),
+        width: Math.max(1, readFiniteNumber(button.dataset.campus2dInteractiveWidth, 1)),
+        height: Math.max(1, readFiniteNumber(button.dataset.campus2dInteractiveHeight, 1))
+      };
+      const minHitSize = getMinimumWorldHitSize();
+      const width = Math.max(zone.width, minHitSize);
+      const height = Math.max(zone.height, minHitSize);
+      button.style.left = `${zone.x - ((width - zone.width) / 2)}px`;
+      button.style.top = `${zone.y - ((height - zone.height) / 2)}px`;
+      button.style.width = `${width}px`;
+      button.style.height = `${height}px`;
+    }
+
+    function syncInteractiveZoneHitTargets() {
+      root.style.setProperty("--campus2d-camera-scale", camera.scale.toFixed(4));
+      root.style.setProperty("--campus2d-world-hit-target", `${getMinimumWorldHitSize()}px`);
+      root.querySelectorAll("[data-campus2d-interactive-x]").forEach(applyInteractiveZoneButtonRect);
+    }
+
     function renderHotspots() {
       hotspotsLayer.replaceChildren(...getClickableGameZones().map((entry) => {
         const button = createEl("button", "campus2d-hotspot campus2d-game-zone", {
@@ -1563,10 +1611,7 @@
           "data-campus2d-hotspot": entry.id,
           "aria-label": entry.label || entry.mode || "Game zone"
         });
-        button.style.left = `${entry.zone.x}px`;
-        button.style.top = `${entry.zone.y}px`;
-        button.style.width = `${entry.zone.width}px`;
-        button.style.height = `${entry.zone.height}px`;
+        setInteractiveZoneButtonRect(button, entry.zone);
         return button;
       }));
     }
@@ -3819,10 +3864,7 @@
           "data-campus2d-portal": entry.id,
           "aria-label": `Go to ${targetRoom?.title || entry.targetRoomId}`
         });
-        button.style.left = `${entry.zone.x}px`;
-        button.style.top = `${entry.zone.y}px`;
-        button.style.width = `${entry.zone.width}px`;
-        button.style.height = `${entry.zone.height}px`;
+        setInteractiveZoneButtonRect(button, entry.zone);
         return button;
       }));
     }
@@ -3835,10 +3877,7 @@
           "data-campus2d-seat": seat.id,
           "aria-label": `Sit ${seat.id}`
         });
-        button.style.left = `${seat.zone.x}px`;
-        button.style.top = `${seat.zone.y}px`;
-        button.style.width = `${seat.zone.width}px`;
-        button.style.height = `${seat.zone.height}px`;
+        setInteractiveZoneButtonRect(button, seat.zone);
         return button;
       }));
     }
@@ -4104,11 +4143,14 @@
 
       const shellTop = shell.getBoundingClientRect().top;
       const viewportHeight = window.visualViewport?.height || window.innerHeight || 0;
-      const availableHeight = Math.max(360, Math.floor(viewportHeight - shellTop));
+      const rawAvailableHeight = Math.floor(viewportHeight - shellTop);
+      const minimumHeight = viewportHeight < 360 ? Math.max(220, rawAvailableHeight) : 360;
+      const availableHeight = Math.max(minimumHeight, rawAvailableHeight);
       shell.style.setProperty("--campus2d-shell-height", `${availableHeight}px`);
     }
 
     function updateCamera() {
+      cameraResizeFrameId = 0;
       updateShellHeight();
       const width = viewport.clientWidth || 1;
       const height = viewport.clientHeight || 1;
@@ -4127,7 +4169,15 @@
         ? (height - worldHeight) / 2
         : clamp((height / 2) - (localPlayer.y * camera.scale), minY, 0);
       world.style.transform = `translate(${camera.x}px, ${camera.y}px) scale(${camera.scale})`;
+      syncInteractiveZoneHitTargets();
       updateNpcDialoguePosition();
+    }
+
+    function requestCameraUpdate() {
+      if (cameraResizeFrameId || destroyed) {
+        return;
+      }
+      cameraResizeFrameId = window.requestAnimationFrame(updateCamera);
     }
 
     function setRoom(roomId, spawnId = "default") {
@@ -6036,7 +6086,10 @@
     connectRealtime();
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
-    window.addEventListener("resize", updateCamera);
+    window.addEventListener("resize", requestCameraUpdate);
+    window.addEventListener("orientationchange", requestCameraUpdate);
+    window.visualViewport?.addEventListener("resize", requestCameraUpdate);
+    window.visualViewport?.addEventListener("scroll", requestCameraUpdate);
     window.addEventListener("pointerdown", handleAudioUnlock, { passive: true });
     window.addEventListener("keydown", handleAudioUnlock);
     window.addEventListener("wsc-campus-settings-open", handleOpenSettingsEvent);
@@ -6076,9 +6129,15 @@
       destroy() {
         destroyed = true;
         window.cancelAnimationFrame(animationFrameId);
+        if (cameraResizeFrameId) {
+          window.cancelAnimationFrame(cameraResizeFrameId);
+        }
         window.removeEventListener("keydown", handleKeyDown);
         window.removeEventListener("keyup", handleKeyUp);
-        window.removeEventListener("resize", updateCamera);
+        window.removeEventListener("resize", requestCameraUpdate);
+        window.removeEventListener("orientationchange", requestCameraUpdate);
+        window.visualViewport?.removeEventListener("resize", requestCameraUpdate);
+        window.visualViewport?.removeEventListener("scroll", requestCameraUpdate);
         window.removeEventListener("pointerdown", handleAudioUnlock);
         window.removeEventListener("keydown", handleAudioUnlock);
         window.removeEventListener("wsc-campus-settings-open", handleOpenSettingsEvent);

@@ -6,7 +6,7 @@ const repoRoot = resolve(import.meta.dirname, "../..");
 const authServicePath = resolve(repoRoot, "app/src/services/auth-service.js");
 const profileServicePath = resolve(repoRoot, "app/src/services/supabase-profile-service.js");
 const authRendererPath = resolve(repoRoot, "app/src/ui/auth-modal-renderer.js");
-const appSourcePath = resolve(repoRoot, "app/app.js");
+const appSourcePath = resolve(repoRoot, "app/src/app/app-main.js");
 const alpacapardyRendererPath = resolve(repoRoot, "app/src/modes/play/alpacapardy/alpacapardy-renderer.js");
 
 const sandbox = {

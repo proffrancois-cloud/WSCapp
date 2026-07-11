@@ -1,0 +1,3249 @@
+/* Final device hardening layer: mobile/tablet landscape, safe areas, and compact touch layouts. */
+:root {
+  --wsc-safe-top: env(safe-area-inset-top, 0px);
+  --wsc-safe-right: env(safe-area-inset-right, 0px);
+  --wsc-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --wsc-safe-left: env(safe-area-inset-left, 0px);
+  --wsc-viewport-width: 100vw;
+  --wsc-viewport-height: 100vh;
+}
+
+@media (hover: none) and (pointer: coarse) and (orientation: landscape), (max-width: 940px) and (max-height: 620px) {
+  body.is-touch-landscape .raw-media-lightbox-overlay.raw-media-lightbox-overlay--anchored {
+    position: fixed !important;
+    inset: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+    min-height: var(--wsc-viewport-height) !important;
+    height: var(--wsc-viewport-height) !important;
+    padding:
+      max(8px, var(--wsc-safe-top))
+      max(10px, var(--wsc-safe-right))
+      max(8px, var(--wsc-safe-bottom))
+      max(10px, var(--wsc-safe-left)) !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-overlay.raw-media-lightbox-overlay--anchored .raw-media-lightbox-window,
+  body.is-touch-landscape .raw-media-lightbox-window {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: min(760px, calc(100vw - max(20px, var(--wsc-safe-left)) - max(20px, var(--wsc-safe-right)))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-stack,
+  body.is-touch-landscape .raw-media-lightbox-overlay--anchored .raw-media-lightbox-stack {
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-top h3 {
+    font-size: 1rem !important;
+    line-height: 1.08 !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-frame {
+    grid-template-columns: 48px minmax(0, 1fr) 48px !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-asset,
+  body.is-touch-landscape .raw-media-lightbox-overlay--anchored .raw-media-lightbox-asset {
+    min-height: min(45vh, calc(var(--wsc-viewport-height) - 154px)) !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-image,
+  body.is-touch-landscape .raw-media-lightbox-overlay--anchored .raw-media-lightbox-image,
+  body.is-touch-landscape .raw-media-lightbox-video-thumb {
+    max-height: calc(var(--wsc-viewport-height) - 176px) !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-note {
+    font-size: 0.78rem !important;
+    line-height: 1.25 !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-footer {
+    gap: 8px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.15 !important;
+  }
+
+  body.is-touch-landscape .raw-media-lightbox-nav {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+
+  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry {
+    width: max(var(--bubble-width), 108px) !important;
+    min-height: 60px !important;
+    padding: 9px 12px !important;
+    transform: translate(-50%, -50%) scale(var(--mindmap-touch-target-scale, 1.8)) !important;
+  }
+
+  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry:hover,
+  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry:focus-visible {
+    transform: translate(-50%, -50%) scale(var(--mindmap-touch-target-scale, 1.8)) !important;
+  }
+
+  body.is-touch-landscape .experience-panel--mindmap .mindmap-radial-entry span {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.72rem !important;
+    line-height: 1.06 !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  body.is-touch-landscape .mindmap-entry-window {
+    width: min(760px, calc(100vw - max(20px, var(--wsc-safe-left)) - max(20px, var(--wsc-safe-right)))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+  }
+
+  body.is-touch-landscape .mindmap-entry-stack {
+    gap: 10px !important;
+  }
+
+  body.is-touch-landscape .mindmap-entry-stack h3 {
+    font-size: 1.16rem !important;
+    line-height: 1.08 !important;
+  }
+
+  body.is-touch-landscape .alpacard-shell {
+    gap: 8px !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  body.is-touch-landscape .alpacard-meta-row {
+    gap: 6px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.1 !important;
+  }
+
+  body.is-touch-landscape .alpacard-badge {
+    min-height: 32px !important;
+    padding: 5px 8px !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0 !important;
+  }
+
+  body.is-touch-landscape .alpacard-stage {
+    height: clamp(144px, calc(var(--wsc-viewport-height) - 238px), 320px) !important;
+  }
+
+  body.is-touch-landscape .alpacard-card {
+    gap: 8px !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .alpacard-viewport {
+    border-radius: 18px !important;
+  }
+
+  body.is-touch-landscape .alpacard-nav-button {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+  }
+
+  body.is-touch-landscape .alpacard-nav-button--previous {
+    left: 8px !important;
+  }
+
+  body.is-touch-landscape .alpacard-nav-button--next {
+    right: 8px !important;
+  }
+
+  body.is-touch-landscape .alpacard-thumbnails {
+    padding: 0 1px 4px !important;
+  }
+
+  body.is-touch-landscape .alpacard-thumbnail-track {
+    height: 52px !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .alpacard-thumb {
+    width: 48px !important;
+    height: 52px !important;
+    min-width: 48px !important;
+    min-height: 52px !important;
+  }
+
+  body.is-touch-landscape .alpacard-thumb.is-active {
+    width: 82px !important;
+  }
+
+  body.is-touch-landscape .alpacard-controls {
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .alpacard-flip-button {
+    min-width: 96px !important;
+    min-height: 46px !important;
+    padding-block: 8px !important;
+  }
+
+  body.is-touch-landscape .alpacard-back-heading h3 {
+    font-size: 1.14rem !important;
+    line-height: 1.05 !important;
+  }
+
+  body.is-touch-landscape .alpacard-back-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .alpacard-field {
+    padding: 7px 8px !important;
+  }
+
+  body.is-touch-landscape .alpacard-field span,
+  body.is-touch-landscape .alpacard-field p,
+  body.is-touch-landscape .alpacard-connection-row span {
+    font-size: 0.72rem !important;
+    line-height: 1.16 !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 980px) and (max-height: 760px) {
+  body:not(.is-touch-landscape) .mode-choice-board,
+  body:not(.is-touch-landscape) .mode-choice-board.has-open-mode-column,
+  body:not(.is-touch-landscape) .mode-choice-board.has-opening-mode-column,
+  body:not(.is-touch-landscape) .mode-choice-board:has(.mode-choice-column.is-open) {
+    width: min(100%, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    min-height: min(520px, calc(100vh - 24px)) !important;
+    margin-inline: auto !important;
+    overflow: visible !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column {
+    left: 8px !important;
+    width: 92px !important;
+    height: 92px !important;
+    transform: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column-learn {
+    top: 26px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column-play {
+    top: 134px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column-train {
+    top: 242px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path="play"] .mode-choice-column-train,
+  body:not(.is-touch-landscape) .mode-choice-board.is-mode-path-play .mode-choice-column-train {
+    left: auto !important;
+    right: 8px !important;
+    top: 26px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body:not(.is-touch-landscape) .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body:not(.is-touch-landscape) .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body:not(.is-touch-landscape) .mode-choice-board.is-mode-path-train .mode-choice-column-train,
+  body:not(.is-touch-landscape) .mode-choice-board:has(.mode-choice-column-learn.is-open) .mode-choice-column-learn,
+  body:not(.is-touch-landscape) .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play,
+  body:not(.is-touch-landscape) .mode-choice-board:has(.mode-choice-column-train.is-open) .mode-choice-column-train {
+    left: 116px !important;
+    right: 12px !important;
+    top: 26px !important;
+    width: auto !important;
+    max-width: none !important;
+    height: min(420px, calc(100vh - 86px)) !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body:not(.is-touch-landscape) .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body:not(.is-touch-landscape) .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play {
+    right: 116px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) .mode-choice-heading,
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column.is-targeting .mode-choice-heading,
+  body:not(.is-touch-landscape) .mode-choice-board[data-active-path] .mode-choice-column.is-open .mode-choice-heading,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-targeting .mode-choice-heading,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-heading,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-heading {
+    left: 50% !important;
+    width: 76px !important;
+    height: 76px !important;
+    min-width: 76px !important;
+    min-height: 76px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-heading,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-heading {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-column.is-opening .mode-choice-card-grid {
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 2px !important;
+    align-content: start !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card,
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid > .mode-card,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid > .mode-card,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid > .wizard-choice-card,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid > .wizard-choice-card,
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card:nth-child(n) {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    inline-size: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 72px !important;
+    max-height: none !important;
+    padding: 8px 10px !important;
+    box-sizing: border-box !important;
+    justify-self: stretch !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:hover,
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:focus-visible,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:hover,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:focus-visible {
+    transform: translateY(-1px) scale(1.01) !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .card-top,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .card-top {
+    min-width: 0 !important;
+    gap: 10px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-slot,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-slot,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-slot,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-slot {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    max-width: 46px !important;
+    flex: 0 0 46px !important;
+    transform: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-image,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-image {
+    width: auto !important;
+    max-width: 46px !important;
+    height: 46px !important;
+    max-height: 46px !important;
+    object-fit: contain !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-copy {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    display: block !important;
+    text-align: left !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy h3,
+  body:not(.is-touch-landscape) .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-copy h3 {
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    font-size: clamp(0.78rem, 1.35vw, 0.96rem) !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    text-align: left !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-column.is-opening .mode-choice-card-grid {
+    grid-auto-rows: 82px !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card:nth-child(n) {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    inline-size: 100% !important;
+    width: 100% !important;
+    max-inline-size: none !important;
+    max-width: none !important;
+    min-inline-size: 0 !important;
+    min-width: 0 !important;
+    height: 82px !important;
+    min-height: 82px !important;
+    max-height: 82px !important;
+    display: flex !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    aspect-ratio: auto !important;
+    border: 1px solid rgba(98, 62, 31, 0.18) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 249, 230, 0.94) !important;
+    box-shadow: 0 5px 12px rgba(84, 52, 28, 0.1) !important;
+    clip-path: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n):hover,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n):focus-visible,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n):hover,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n):focus-visible {
+    transform: translateY(-1px) scale(1.01) !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .card-top,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .card-top {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection[data-active-path] .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body:not(.is-touch-landscape) .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+    max-width: none !important;
+    width: auto !important;
+    font-size: clamp(0.82rem, 1.3vw, 0.98rem) !important;
+    line-height: 1.08 !important;
+  }
+}
+
+html {
+  min-height: 100%;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+#orientationGateMount[hidden] {
+  display: none !important;
+}
+
+body.needs-landscape {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+body.needs-landscape .page-shell,
+body.needs-landscape .layout {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+body.needs-landscape #routeBuilder.wizard.card-panel {
+  inline-size: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+  width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+  min-width: 0 !important;
+  max-width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+  margin-inline: auto !important;
+  transform: none !important;
+}
+
+.orientation-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  padding:
+    max(20px, var(--wsc-safe-top))
+    max(18px, var(--wsc-safe-right))
+    max(22px, var(--wsc-safe-bottom))
+    max(18px, var(--wsc-safe-left));
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 245, 215, 0.44), transparent 30%),
+    linear-gradient(180deg, rgba(93, 57, 29, 0.99), rgba(55, 35, 23, 0.99));
+  color: #fff1cf;
+}
+
+.orientation-gate-card {
+  width: min(520px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 24px 22px 22px;
+  border: 1px solid rgba(255, 241, 207, 0.26);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 241, 207, 0.14), transparent 42%),
+    rgba(55, 35, 22, 0.72);
+  box-shadow: 0 18px 46px rgba(22, 12, 7, 0.3);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.orientation-gate-device {
+  width: 116px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border: 4px solid #f3d99f;
+  border-radius: 20px;
+  transform: rotate(-8deg);
+  box-shadow:
+    inset 0 0 0 2px rgba(79, 49, 29, 0.36),
+    0 16px 28px rgba(22, 12, 7, 0.24);
+}
+
+.orientation-gate-device span {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #f3d99f;
+  justify-self: end;
+  margin-right: 10px;
+}
+
+.orientation-gate-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.orientation-gate h2 {
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  font-weight: 850;
+  margin: 0;
+  color: #fff7df;
+  font-size: clamp(1.45rem, 5.8vw, 2.15rem);
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+.orientation-gate p {
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  max-width: 32rem;
+  margin: 0;
+  color: rgba(255, 241, 207, 0.84);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.orientation-gate-button {
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  font-weight: 800;
+  min-width: 154px;
+  min-height: 48px;
+}
+
+@media (any-pointer: coarse) {
+  .button,
+  .mini-button,
+  .tile-button,
+  .option-button,
+  .raw-quiz-option,
+  .selected-section-chip,
+  .mode-choice-heading,
+  .alpacard-nav-button,
+  .mindmap-gallery-nav,
+  .regular-guide-nav-chip {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .hero-menu-trigger,
+  .hero-link-icon,
+  .session-mode-button,
+  .session-signout-button,
+  .campus2d-debate-button,
+  .campus2d-challenge-button,
+  .campus2d-mute-button,
+  .campus2d-color-swatch,
+  .campus2d-chat-submit,
+  .campus2d-report-button,
+  .campus2d-profile-avatar,
+  .campus2d-avatar,
+  .campus2d-hotspot,
+  .campus2d-portal,
+  .campus2d-seat {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  .campus2d-color-swatch {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .campus2d-palette {
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .campus2d-chat-input {
+    min-height: 44px !important;
+  }
+
+  body.is-touch-device .campus2d-hotspots,
+  body.is-touch-landscape .campus2d-hotspots {
+    z-index: 124;
+  }
+
+  body.is-touch-device .campus2d-portals,
+  body.is-touch-landscape .campus2d-portals {
+    z-index: 125;
+  }
+
+  body.is-touch-device .campus2d-seats,
+  body.is-touch-landscape .campus2d-seats {
+    z-index: 126;
+  }
+
+  .selected-section-chip-strip:hover .selected-section-chip,
+  .selected-section-chip-strip .selected-section-chip:hover,
+  .selected-section-chip-strip .selected-section-chip:focus-visible,
+  .selected-section-chip.active,
+  .selected-section-chip[aria-pressed="true"],
+  .selected-section-chip-strip .selected-section-chip:has(+ .selected-section-chip:hover),
+  .selected-section-chip-strip .selected-section-chip:hover + .selected-section-chip,
+  .selected-section-chip-strip .selected-section-chip:has(+ .selected-section-chip + .selected-section-chip:hover),
+  .selected-section-chip-strip .selected-section-chip:hover + .selected-section-chip + .selected-section-chip {
+    opacity: 1 !important;
+    transform: none !important;
+    min-height: 46px !important;
+  }
+
+  .mode-choice-column:hover .mode-choice-heading {
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (max-width: 1180px) {
+  body.is-touch-landscape .page-shell {
+    width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    max-width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    margin:
+      max(8px, var(--wsc-safe-top))
+      auto
+      max(12px, var(--wsc-safe-bottom)) !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-touch-landscape .layout {
+    margin-top: 10px !important;
+    padding-top: 0 !important;
+    gap: 12px !important;
+    perspective: none !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-touch-landscape .layout::before {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .hero,
+  body.is-touch-landscape.is-local-mode .hero,
+  body.is-touch-landscape.is-online-mode .hero {
+    min-height: 112px !important;
+    padding: 0 !important;
+    border-radius: 18px !important;
+    overflow: visible !important;
+  }
+
+  body.is-touch-landscape .hero-layout,
+  body.is-touch-landscape.is-local-mode .hero-layout,
+  body.is-touch-landscape.is-online-mode .hero-layout {
+    min-height: 112px !important;
+  }
+
+  body.is-touch-landscape .hero-copy {
+    width: min(58vw, 520px) !important;
+  }
+
+  body.is-touch-landscape .hero h1 {
+    font-size: clamp(2rem, 8vh, 3rem) !important;
+    line-height: 0.9 !important;
+    white-space: normal !important;
+    text-wrap: balance;
+  }
+
+  body.is-touch-landscape .hero-online-mount {
+    top: 44% !important;
+    min-height: 46px !important;
+  }
+
+  body.is-touch-landscape .hero-online-button {
+    width: 72px !important;
+    min-width: 72px !important;
+    gap: 1px !important;
+  }
+
+  body.is-touch-landscape .hero-online-button img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  body.is-touch-landscape .hero-online-button span,
+  body.is-touch-landscape .session-mode-button.hero-online-button span {
+    font-family: "Inter Tight", Inter, system-ui, sans-serif !important;
+    font-size: 0.58rem !important;
+    line-height: 1 !important;
+  }
+
+  body.is-touch-landscape .hero-progress-circles,
+  body.is-touch-landscape.is-local-mode .hero-progress-circles,
+  body.is-touch-landscape.is-online-mode .hero-progress-circles {
+    width: min(30vw, 230px) !important;
+    right: max(12px, var(--wsc-safe-right)) !important;
+  }
+
+  body.is-touch-landscape .hero-links,
+  body.is-touch-landscape.is-local-mode .hero-links,
+  body.is-touch-landscape.is-online-mode .hero-links {
+    width: min(392px, calc(100vw - 24px - var(--wsc-safe-left))) !important;
+    height: 250px !important;
+  }
+
+  body.is-touch-landscape .hero-menu-trigger {
+    left: max(12px, var(--wsc-safe-left)) !important;
+    top: 14px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  body.is-touch-landscape .hero-links > :not(.hero-menu-trigger),
+  body.is-touch-landscape.is-local-mode .hero-links > :not(.hero-menu-trigger),
+  body.is-touch-landscape.is-online-mode .hero-links > :not(.hero-menu-trigger) {
+    width: 154px !important;
+    min-width: 154px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    transform: none !important;
+    transform-origin: center !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open::before {
+    transform: translate(-22px, 42px) scale(0.7) rotate(0deg) !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > .hero-discord-link {
+    left: 8px !important;
+    top: 64px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > .session-controls {
+    left: 170px !important;
+    top: 64px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > button.hero-link-icon {
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > a.hero-link-icon {
+    left: 170px !important;
+    top: 126px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+    left: 8px !important;
+    top: 126px !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > button.hero-link-icon.hero-resources-icon {
+    left: 8px !important;
+    top: 188px !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open .session-control-stack,
+  body.is-touch-landscape .hero-links.is-open .session-mode-button,
+  body.is-touch-landscape .hero-links.is-open .session-signout-button {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    min-height: 54px !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > :not(.hero-menu-trigger) img,
+  body.is-touch-landscape .hero-links.is-open .session-controls img {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+  }
+
+  body.is-touch-landscape .wizard.card-panel,
+  body.is-touch-landscape .experience-panel.card-panel,
+  body.is-touch-landscape .card-panel {
+    border-radius: 20px !important;
+    padding: 14px !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape #routeBuilder.wizard.card-panel,
+  body.is-touch-landscape #routeBuilder.wizard.card-panel:hover,
+  body.is-touch-landscape #routeBuilder.wizard.card-panel:focus-within {
+    inline-size: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    margin-inline: auto !important;
+    justify-self: stretch !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .section-heading {
+    gap: 10px !important;
+    margin-bottom: 8px !important;
+  }
+
+  body.is-touch-landscape .section-heading h2,
+  body.is-touch-landscape .panel-title h2 {
+    font-size: clamp(1.35rem, 4.2vw, 2rem) !important;
+    line-height: 1 !important;
+    text-wrap: balance;
+  }
+
+  body.is-touch-landscape .selected-section-chip-strip {
+    min-height: 58px !important;
+    padding: 8px 10px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-padding-inline: 10px !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(94, 64, 33, 0.34) transparent;
+    box-shadow:
+      inset 18px 0 18px -24px rgba(85, 54, 28, 0.52),
+      inset -18px 0 18px -24px rgba(85, 54, 28, 0.52) !important;
+  }
+
+  body.is-touch-landscape .selected-section-chip {
+    min-width: 46px !important;
+    min-height: 46px !important;
+    height: 46px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board,
+  body.is-touch-landscape .mode-choice-board.has-open-mode-column,
+  body.is-touch-landscape .mode-choice-board.has-opening-mode-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    inline-size: min(100%, calc(100vw - 48px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    width: min(100%, calc(100vw - 48px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    max-width: calc(100vw - 48px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 4px auto 0 !important;
+    padding: 8px 4px 12px !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-padding-inline: 12px !important;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(94, 64, 33, 0.34) transparent;
+    -webkit-overflow-scrolling: touch;
+    box-shadow:
+      inset 18px 0 18px -24px rgba(85, 54, 28, 0.52),
+      inset -18px 0 18px -24px rgba(85, 54, 28, 0.52) !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column,
+  body.is-touch-landscape .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.has-active-mode-column .mode-choice-column,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) .mode-choice-column {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    flex: 0 0 clamp(204px, 29vw, 282px) !important;
+    width: clamp(204px, 29vw, 282px) !important;
+    height: 236px !important;
+    min-height: 236px !important;
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-snap-align: center;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) {
+    flex-basis: 92px !important;
+    width: 92px !important;
+    min-width: 92px !important;
+    height: 92px !important;
+    min-height: 92px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-train .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-learn.is-open) .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-train.is-open) .mode-choice-column-train {
+    flex-basis: min(56vw, 360px) !important;
+    width: min(56vw, 360px) !important;
+    height: 280px !important;
+    min-height: 280px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column.is-targeting .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column.is-open .mode-choice-heading {
+    width: 88px !important;
+    height: 88px !important;
+    pointer-events: auto !important;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  body.is-touch-landscape .mode-choice-heading * {
+    pointer-events: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-heading h3 {
+    font-size: 0.92rem !important;
+  }
+
+  body.is-touch-landscape .mode-choice-card-grid {
+    transform: none !important;
+    transform-origin: center center !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid {
+    position: absolute !important;
+    inset: 58px 10px 10px !important;
+    width: auto !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    align-content: start !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    pointer-events: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column-play.is-open .mode-choice-card-grid .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column-train.is-open .mode-choice-card-grid .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column-learn.is-open .mode-choice-card-grid .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card:nth-child(n) {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    inline-size: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 58px !important;
+    padding: 6px 8px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-self: stretch !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-slot {
+    width: 38px !important;
+    height: 38px !important;
+    flex: 0 0 38px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy {
+    min-width: 0 !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy h3 {
+    max-width: none !important;
+    font-size: 0.78rem !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+  }
+
+  body.is-touch-landscape .question-popup-overlay,
+  body.is-touch-landscape.with-popup .question-popup-overlay {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    min-height: var(--wsc-viewport-height) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    height: var(--wsc-viewport-height) !important;
+    padding:
+      max(8px, var(--wsc-safe-top))
+      max(10px, var(--wsc-safe-right))
+      max(8px, var(--wsc-safe-bottom))
+      max(10px, var(--wsc-safe-left)) !important;
+  }
+
+  body.is-touch-landscape .question-popup-window {
+    width: min(1040px, calc(100vw - max(20px, var(--wsc-safe-left)) - max(20px, var(--wsc-safe-right)))) !important;
+    max-height: calc(100vh - max(18px, var(--wsc-safe-top)) - max(18px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(100dvh - max(18px, var(--wsc-safe-top)) - max(18px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(18px, var(--wsc-safe-top)) - max(18px, var(--wsc-safe-bottom))) !important;
+    padding: 48px 14px 14px !important;
+    border-radius: 20px !important;
+  }
+
+  body.is-touch-landscape .auth-modal-overlay,
+  body.is-touch-landscape .library-embedded-doc-overlay,
+  body.is-touch-landscape .raw-media-lightbox-overlay {
+    inset: 0 !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    min-height: var(--wsc-viewport-height) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    height: var(--wsc-viewport-height) !important;
+    padding:
+      max(8px, var(--wsc-safe-top))
+      max(10px, var(--wsc-safe-right))
+      max(8px, var(--wsc-safe-bottom))
+      max(10px, var(--wsc-safe-left)) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .auth-modal-window,
+  body.is-touch-landscape .library-embedded-doc-window,
+  body.is-touch-landscape .raw-media-lightbox-window {
+    max-width: calc(100vw - max(20px, var(--wsc-safe-left)) - max(20px, var(--wsc-safe-right))) !important;
+    max-height: calc(100vh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(100dvh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .app-settings-window {
+    width: min(420px, calc(100vw - max(24px, var(--wsc-safe-left)) - max(24px, var(--wsc-safe-right)))) !important;
+  }
+
+  body.is-touch-landscape .auth-modal-window .popup-close-button,
+  body.is-touch-landscape .library-embedded-doc-window .popup-close-button,
+  body.is-touch-landscape .raw-media-lightbox-window .popup-close-button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body.is-touch-landscape .app-settings-slider {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body.is-touch-landscape .challenge-card,
+  body.is-touch-landscape .question-popup-window .challenge-card,
+  body.is-touch-landscape .question-popup-window .feedback-card {
+    grid-template-columns: minmax(104px, 140px) minmax(0, 1fr) !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  body.is-touch-landscape .options-grid,
+  body.is-touch-landscape .jump-question-card .options-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  body.is-touch-landscape .option-button,
+  body.is-touch-landscape .raw-quiz-option {
+    min-height: 46px !important;
+    padding: 8px 10px !important;
+    line-height: 1.18 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay .challenge-card.relay-no-mascot {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) {
+    padding-top: 12px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .challenge-card {
+    padding: 10px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .question-popup-stack,
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .challenge-copy {
+    gap: 8px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .question-meta {
+    margin-bottom: 6px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .challenge-copy h2 {
+    margin-bottom: 6px !important;
+    font-size: clamp(1rem, 4.4vh, 1.25rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .relay-answer-status,
+  body.is-touch-landscape .question-popup-window.relay:has([data-relay-option]:not([disabled])) .relay-inline-timer .compact-race-timer-card {
+    padding: 8px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell:has(.feedback-card) .run-inline-card {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell:has(.feedback-card) {
+    max-height: calc(100vh - 104px) !important;
+    max-height: calc(100dvh - 104px) !important;
+    max-height: calc(var(--wsc-viewport-height) - 104px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has([data-jump-option]) {
+    padding-top: 12px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has([data-jump-option]) .jump-question-card {
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has([data-jump-option]) .game-note-list {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has([data-jump-option]) .challenge-label {
+    margin: 0 !important;
+    font-size: 0.72rem !important;
+    line-height: 1.1 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has([data-jump-option]) .popup-question-panel {
+    margin-bottom: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has([data-jump-option]) .popup-question-text {
+    font-size: clamp(1rem, 4.4vh, 1.25rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump:has(.feedback-card) .answer-options-grid {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump .feedback-card {
+    grid-template-columns: minmax(72px, 108px) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump .feedback-card .checkpoint-visual-slot {
+    width: min(96px, 100%) !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump .feedback-card h3 {
+    margin-bottom: 4px !important;
+    font-size: clamp(1rem, 4vh, 1.25rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump .feedback-card p {
+    display: -webkit-box !important;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+    font-size: 0.86rem !important;
+    line-height: 1.22 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jump .feedback-card .run-actions {
+    margin-top: 8px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .challenge-card:has(.feedback-card) .answer-options-grid {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .challenge-card:has(.feedback-card) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .challenge-card:has(.feedback-card) .challenge-mascot {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .feedback-card {
+    grid-template-columns: minmax(72px, 112px) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .feedback-card .checkpoint-visual-slot {
+    width: min(96px, 100%) !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .feedback-card h3 {
+    margin-bottom: 4px !important;
+    font-size: clamp(1rem, 4vh, 1.35rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .feedback-card p {
+    line-height: 1.25 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.jeopardy .feedback-actions {
+    margin-top: 10px !important;
+  }
+
+  body.is-touch-landscape .jeopardy-board {
+    grid-template-columns: repeat(var(--jeopardy-columns, 4), minmax(156px, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  body.is-touch-landscape .mode-shell {
+    gap: 10px !important;
+  }
+
+  body.is-touch-landscape .jeopardy-board-shell {
+    gap: 8px !important;
+    padding-top: 0 !important;
+  }
+
+  body.is-touch-landscape .jeopardy-team-grid {
+    grid-template-columns: repeat(4, minmax(88px, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .jeopardy-team-card {
+    min-height: 52px !important;
+    padding: 8px !important;
+    border-radius: 14px !important;
+  }
+
+  body.is-touch-landscape .jeopardy-team-card strong {
+    font-size: 1rem !important;
+  }
+
+  body.is-touch-landscape .jeopardy-team-card .team-label {
+    font-size: 0.64rem !important;
+  }
+
+  body.is-touch-landscape .jeopardy-category {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  body.is-touch-landscape .experience-panel.card-panel:has(.jeopardy-board-shell) {
+    padding: 8px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-title {
+    gap: 6px !important;
+    margin-bottom: 4px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-title h2 {
+    margin-bottom: 0 !important;
+    font-size: clamp(1.1rem, 5vh, 1.55rem) !important;
+    line-height: 1 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-actions {
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-actions .button {
+    min-height: 44px !important;
+    padding: 8px 12px !important;
+    font-size: 0.78rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-hub-link {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 8px 0 !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-title p,
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-title .meta-line,
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .mode-stats {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .mode-shell {
+    gap: 5px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-grid {
+    width: min(500px, 100%) !important;
+    justify-self: center !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    column-gap: 8px !important;
+    row-gap: 1px !important;
+    min-height: 44px !important;
+    padding: 4px 8px !important;
+    border-radius: 12px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card strong {
+    font-size: 0.88rem !important;
+    line-height: 1 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card .team-label {
+    font-size: 0.72rem !important;
+    line-height: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card > span:not(.team-label) {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-board-shell {
+    gap: 4px !important;
+    padding: 0 2px 2px !important;
+    overflow-x: auto !important;
+    inline-size: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(94, 64, 33, 0.34) transparent;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-board {
+    inline-size: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    grid-template-columns: repeat(var(--jeopardy-columns, 4), minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category {
+    min-width: 0 !important;
+    padding: 5px !important;
+    border-radius: 12px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-heading {
+    margin-bottom: 3px !important;
+    min-height: 34px !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    display: grid !important;
+    place-items: center !important;
+    border: 1px solid rgba(107, 78, 22, 0.14) !important;
+    border-radius: 10px !important;
+    background: rgba(255, 247, 222, 0.9) !important;
+    pointer-events: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-art {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-heading * {
+    pointer-events: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-safe-area {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 3px 6px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label {
+    font-size: clamp(0.64rem, 1.6vh, 0.74rem) !important;
+    letter-spacing: 0 !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label.tight,
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label.compact {
+    font-size: clamp(0.68rem, 1.35vh, 0.74rem) !important;
+    line-height: 1 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-stack {
+    gap: 3px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .tile-button {
+    min-height: 44px !important;
+    padding: 0 !important;
+    border-radius: 11px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-face.open {
+    aspect-ratio: 320 / 82 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-face.done {
+    aspect-ratio: 320 / 76 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-safe-area {
+    padding: 0 8px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-copy.value {
+    font-size: clamp(1rem, 4.6vh, 1.35rem) !important;
+  }
+
+  body.is-touch-landscape .jump-stage {
+    min-height: 330px !important;
+  }
+
+  body.is-touch-landscape .run-map-stage {
+    min-height: 300px !important;
+  }
+
+  body.is-touch-landscape .campus2d-root {
+    --campus2d-panel-width: clamp(250px, 34vw, 360px);
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
+  body.is-touch-landscape {
+    background-size: 760px 1013px;
+  }
+
+  body.is-touch-landscape .hero,
+  body.is-touch-landscape.is-local-mode .hero,
+  body.is-touch-landscape.is-online-mode .hero {
+    min-height: 78px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .hero-layout,
+  body.is-touch-landscape.is-local-mode .hero-layout,
+  body.is-touch-landscape.is-online-mode .hero-layout {
+    min-height: 78px !important;
+  }
+
+  body.is-touch-landscape .hero-copy {
+    left: 50% !important;
+    top: 50% !important;
+    width: min(58vw, 440px) !important;
+  }
+
+  body.is-touch-landscape .hero h1 {
+    font-size: clamp(1.55rem, 8vh, 2.25rem) !important;
+  }
+
+  body.is-touch-landscape .hero-online-mount,
+  body.is-touch-landscape .hero-progress-circles,
+  body.is-touch-landscape.is-local-mode .hero-progress-circles,
+  body.is-touch-landscape.is-online-mode .hero-progress-circles {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .hero-menu-trigger {
+    top: 12px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  body.is-touch-landscape .hero-links,
+  body.is-touch-landscape.is-local-mode .hero-links,
+  body.is-touch-landscape.is-online-mode .hero-links {
+    height: 250px !important;
+  }
+
+  body.is-touch-landscape .wizard.card-panel,
+  body.is-touch-landscape .experience-panel.card-panel,
+  body.is-touch-landscape .card-panel {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  body.is-touch-landscape .experience-panel .panel-title {
+    margin-bottom: 6px !important;
+    gap: 8px !important;
+  }
+
+  body.is-touch-landscape .experience-panel .panel-title h2 {
+    margin-bottom: 2px !important;
+    font-size: clamp(1.3rem, 7vh, 1.85rem) !important;
+  }
+
+  body.is-touch-landscape .experience-panel .panel-title p {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .experience-panel .panel-title .meta-line {
+    display: block !important;
+    margin-top: 2px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.1 !important;
+  }
+
+  body.is-touch-landscape .mode-shell {
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .mode-stats {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .jeopardy-team-grid {
+    grid-template-columns: repeat(4, minmax(72px, 1fr)) !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board,
+  body.is-touch-landscape .mode-choice-board.has-open-mode-column,
+  body.is-touch-landscape .mode-choice-board.has-opening-mode-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) {
+    max-height: calc(100vh - 150px) !important;
+    max-height: calc(100dvh - 150px) !important;
+    max-height: calc(var(--wsc-viewport-height) - 150px) !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column,
+  body.is-touch-landscape .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.has-active-mode-column .mode-choice-column,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) .mode-choice-column {
+    height: 204px !important;
+    min-height: 204px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-train .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-learn.is-open) .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-train.is-open) .mode-choice-column-train {
+    height: 230px !important;
+    min-height: 230px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-card-grid {
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window {
+    padding: 42px 10px 10px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.run,
+  body.is-touch-landscape .question-popup-window.race,
+  body.is-touch-landscape .question-popup-window.jump,
+  body.is-touch-landscape .question-popup-window.relay {
+    width: min(760px, calc(100vw - max(20px, var(--wsc-safe-left)) - max(20px, var(--wsc-safe-right)))) !important;
+    max-height: calc(100vh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(100dvh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:has(.feedback-card) .race-question-card {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:has(.feedback-card) .question-popup-stack {
+    gap: 0 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race .feedback-card {
+    grid-template-columns: minmax(0, 1fr) !important;
+    max-height: calc(100vh - 92px) !important;
+    max-height: calc(100dvh - 92px) !important;
+    max-height: calc(var(--wsc-viewport-height) - 92px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .question-popup-window.race .feedback-card .checkpoint-visual {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) {
+    padding-top: 12px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .race-question-card {
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .race-question-pills {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .race-question-pills span {
+    min-width: 0 !important;
+    padding: 5px 6px !important;
+    font-size: 0.66rem !important;
+    line-height: 1.05 !important;
+    text-align: center !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .popup-question-panel {
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .popup-question-text {
+    display: -webkit-box !important;
+    overflow: hidden !important;
+    font-size: clamp(0.95rem, 4.1vh, 1.16rem) !important;
+    line-height: 1.08 !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .answer-options-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.race:not(:has(.feedback-card)) .option-button {
+    min-height: 44px !important;
+    padding: 6px 8px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.12 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) {
+    padding-top: 12px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .question-popup-stack {
+    gap: 8px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-popup-team-shell {
+    gap: 8px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-popup-team-header {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-popup-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-team-card.popup {
+    min-height: 84px !important;
+    padding: 14px 12px 12px 74px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-team-card.popup .relay-keycap {
+    top: 16px !important;
+    left: 14px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-team-card.popup .team-label {
+    font-size: 0.7rem !important;
+    line-height: 1 !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-team-card.popup .relay-score {
+    font-size: 1.05rem !important;
+  }
+
+  body.is-touch-landscape .question-popup-window.relay:not(:has([data-relay-option]:not([disabled]))):not(:has(.feedback-card)) .relay-team-card.popup .relay-state {
+    font-size: 0.72rem !important;
+    line-height: 1.1 !important;
+  }
+
+  body.is-touch-landscape .challenge-card,
+  body.is-touch-landscape .question-popup-window .challenge-card,
+  body.is-touch-landscape .question-popup-window .feedback-card {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.is-touch-landscape .challenge-mascot,
+  body.is-touch-landscape .jump-question-genie-card {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .jump-stage {
+    min-height: min(280px, calc(100vh - 116px)) !important;
+    min-height: min(280px, calc(100dvh - 116px)) !important;
+    min-height: min(280px, calc(var(--wsc-viewport-height) - 116px)) !important;
+  }
+
+  body.is-touch-landscape .jump-hud {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  body.is-touch-landscape .jump-hud-card {
+    min-height: 54px !important;
+    padding: 8px !important;
+  }
+
+  body.is-touch-landscape .run-map-shell {
+    padding: 10px !important;
+  }
+
+  body.is-touch-landscape .run-map-stage {
+    min-height: min(260px, calc(100vh - 128px)) !important;
+    min-height: min(260px, calc(100dvh - 128px)) !important;
+    min-height: min(260px, calc(var(--wsc-viewport-height) - 128px)) !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell {
+    top: 8px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-height: calc(100vh - 132px) !important;
+    max-height: calc(100dvh - 132px) !important;
+    max-height: calc(var(--wsc-viewport-height) - 132px) !important;
+    gap: 8px !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    transform: none !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .run-inline-shell:has(.feedback-card) {
+    max-height: calc(100vh - 100px) !important;
+    max-height: calc(100dvh - 100px) !important;
+    max-height: calc(var(--wsc-viewport-height) - 100px) !important;
+  }
+
+  body.is-touch-landscape .run-inline-card {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .run-inline-question h2 {
+    display: -webkit-box !important;
+    overflow: hidden !important;
+    font-size: 1rem !important;
+    line-height: 1.12 !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  body.is-touch-landscape .run-inline-options {
+    margin-top: 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .run-inline-options .option-button {
+    min-height: 44px !important;
+    padding: 6px 8px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.12 !important;
+  }
+
+  body.is-touch-landscape .run-inline-footer {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .run-inline-footer .compact-race-timer-card,
+  body.is-touch-landscape .run-inline-footer .run-inline-timer {
+    flex: 1 1 120px !important;
+    min-width: 0 !important;
+    min-height: 44px !important;
+    padding: 7px 8px !important;
+    border-radius: 14px !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell .feedback-card {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 0 !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell .feedback-card .checkpoint-visual {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell .feedback-card h3 {
+    margin-bottom: 4px !important;
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell .feedback-card p {
+    display: -webkit-box !important;
+    overflow: hidden !important;
+    font-size: 0.82rem !important;
+    line-height: 1.16 !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+  }
+
+  body.is-touch-landscape .run-inline-shell .run-actions {
+    margin-top: 8px !important;
+  }
+
+  body.is-touch-landscape .run-status-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.is-touch-landscape .run-status-card {
+    padding: 8px !important;
+  }
+
+  body.is-touch-landscape .campus2d-online-shell {
+    height: calc(100vh - 96px) !important;
+    height: calc(100dvh - 96px) !important;
+    height: calc(var(--wsc-viewport-height) - 96px) !important;
+  }
+
+  body.is-touch-landscape .campus2d-root {
+    --campus2d-panel-width: clamp(220px, 32vw, 300px);
+  }
+
+  body.is-touch-landscape .campus2d-activity-panel {
+    font-size: 0.9rem;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (max-height: 620px) {
+  body.is-touch-landscape.is-local-experience-open .hero {
+    display: none !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 1500px) and (max-height: 820px) {
+  body .page-shell {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    overflow-x: clip !important;
+  }
+
+  body .layout {
+    overflow-x: clip !important;
+  }
+
+  body.is-local-mode .layout {
+    perspective: none !important;
+  }
+
+  body.is-local-mode .layout::before {
+    display: none !important;
+  }
+
+  body .wizard.card-panel {
+    transform: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  body .hero-links.is-open {
+    position: fixed !important;
+    left: 12px !important;
+    top: 10px !important;
+    width: min(400px, calc(100vw - 24px)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 62px 8px 8px !important;
+    border: 1px solid rgba(101, 66, 31, 0.16) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 248, 226, 0.98) !important;
+    box-shadow: 0 10px 28px rgba(73, 45, 24, 0.18) !important;
+    z-index: 1200 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  body .hero-links.is-open::before {
+    display: none !important;
+  }
+
+  body .hero-links.is-open .hero-menu-trigger {
+    position: absolute !important;
+    left: 8px !important;
+    top: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    transform: none !important;
+  }
+
+  body .hero-links.is-open > .hero-discord-link,
+  body .hero-links.is-open > button.hero-link-icon,
+  body .hero-links.is-open > a.hero-link-icon,
+  body .hero-links.is-open > .session-controls {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 154px !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    filter: none !important;
+    transition: none !important;
+    transform: translate(0, 0) scale(1) rotate(0deg) !important;
+  }
+
+  body .hero-links.is-open > .hero-discord-link {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  body .hero-links.is-open > .session-controls {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  body .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  body .hero-links.is-open > button.hero-link-icon.hero-resources-icon {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+
+  body .hero-links.is-open > a.hero-link-icon {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  body .hero-links.is-open .session-signout-button,
+  body .hero-links.is-open .session-mode-button {
+    width: 100% !important;
+    min-width: 44px !important;
+    height: 54px !important;
+    min-height: 44px !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (min-width: 1000px) {
+  body:not(.is-touch-landscape) .page-shell {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    overflow-x: clip !important;
+  }
+
+  body:not(.is-touch-landscape) .layout {
+    perspective: none !important;
+    overflow-x: clip !important;
+  }
+
+  body:not(.is-touch-landscape) .layout::before {
+    display: none !important;
+  }
+
+  body:not(.is-touch-landscape) #routeBuilder.wizard.card-panel,
+  body:not(.is-touch-landscape) #routeBuilder.wizard.card-panel:hover,
+  body:not(.is-touch-landscape) #routeBuilder.wizard.card-panel:focus-within {
+    inline-size: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px) !important;
+    margin-inline: auto !important;
+    justify-self: stretch !important;
+    transform: none !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > .hero-discord-link,
+  body:not(.is-touch-landscape) .hero-links.is-open > button.hero-link-icon,
+  body:not(.is-touch-landscape) .hero-links.is-open > a.hero-link-icon,
+  body:not(.is-touch-landscape) .hero-links.is-open > .session-controls,
+  body:not(.is-touch-landscape) .hero-links.is-open .session-mode-button,
+  body:not(.is-touch-landscape) .hero-links.is-open .session-signout-button {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open {
+    position: fixed !important;
+    left: max(12px, var(--wsc-safe-left)) !important;
+    top: max(10px, var(--wsc-safe-top)) !important;
+    width: min(400px, calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 62px 8px 8px !important;
+    border: 1px solid rgba(101, 66, 31, 0.16) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 248, 226, 0.98) !important;
+    box-shadow: 0 10px 28px rgba(73, 45, 24, 0.18) !important;
+    z-index: 1200 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open::before {
+    display: none !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open .hero-menu-trigger {
+    position: absolute !important;
+    left: 8px !important;
+    top: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    transform: none !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > .hero-discord-link,
+  body:not(.is-touch-landscape) .hero-links.is-open > button.hero-link-icon,
+  body:not(.is-touch-landscape) .hero-links.is-open > a.hero-link-icon,
+  body:not(.is-touch-landscape) .hero-links.is-open > .session-controls {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 154px !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    height: 54px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    filter: none !important;
+    transition: none !important;
+    transform: translate(0, 0) scale(1) rotate(0deg) !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > .hero-discord-link {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > .session-controls {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > button.hero-link-icon.hero-resources-icon {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+
+  body:not(.is-touch-landscape) .hero-links.is-open > a.hero-link-icon {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  body:not(.is-touch-landscape) .mode-choice-card-grid .wizard-choice-card {
+    min-width: 120px !important;
+    min-height: 44px !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (min-width: 1180px) and (max-width: 1600px) {
+  body.is-touch-landscape .page-shell {
+    width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    max-width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-touch-landscape .layout {
+    perspective: none !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-touch-landscape .layout::before {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .wizard.card-panel {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape #routeBuilder.wizard.card-panel,
+  body.is-touch-landscape #routeBuilder.wizard.card-panel:hover,
+  body.is-touch-landscape #routeBuilder.wizard.card-panel:focus-within {
+    inline-size: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    margin-inline: auto !important;
+    justify-self: stretch !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board,
+  body.is-touch-landscape .mode-choice-board.has-open-mode-column,
+  body.is-touch-landscape .mode-choice-board.has-opening-mode-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    inline-size: min(100%, calc(100vw - 56px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    width: min(100%, calc(100vw - 56px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    max-width: calc(100vw - 56px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 10px auto 0 !important;
+    padding: 10px 6px 14px !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .mode-choice-column,
+  body.is-touch-landscape .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.has-active-mode-column .mode-choice-column,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) .mode-choice-column {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    flex: 0 0 clamp(250px, 24vw, 330px) !important;
+    width: clamp(250px, 24vw, 330px) !important;
+    height: 278px !important;
+    min-height: 278px !important;
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-snap-align: center;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) {
+    flex-basis: 108px !important;
+    width: 108px !important;
+    min-width: 108px !important;
+    height: 108px !important;
+    min-height: 108px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-train .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-learn.is-open) .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-train.is-open) .mode-choice-column-train {
+    flex-basis: min(58vw, 700px) !important;
+    width: min(58vw, 700px) !important;
+    height: 300px !important;
+    min-height: 300px !important;
+    transform: none !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (max-width: 740px) {
+  body.is-touch-landscape .campus2d-root {
+    --campus2d-panel-width: 210px;
+  }
+
+  body.is-touch-landscape .mode-choice-board,
+  body.is-touch-landscape .mode-choice-board.has-open-mode-column,
+  body.is-touch-landscape .mode-choice-board.has-opening-mode-column,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column.is-open) {
+    inline-size: min(100%, calc(100vw - 64px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    width: min(100%, calc(100vw - 64px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    max-width: calc(100vw - 64px - var(--wsc-safe-left) - var(--wsc-safe-right)) !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-train .mode-choice-column-train {
+    flex-basis: min(72vw, 360px) !important;
+    width: min(72vw, 360px) !important;
+  }
+
+  body.is-touch-landscape .jeopardy-board {
+    grid-template-columns: repeat(var(--jeopardy-columns, 4), minmax(0, 1fr)) !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (max-height: 430px) {
+  body.is-touch-landscape .experience-panel.card-panel:has(.jeopardy-board-shell) {
+    padding: 6px !important;
+    border-radius: 16px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-title {
+    gap: 4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-title h2 {
+    font-size: clamp(1rem, 4.2vh, 1.28rem) !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-actions {
+    gap: 5px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-actions .button,
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .panel-hub-link {
+    min-height: 44px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    font-size: 0.72rem !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .mode-shell {
+    gap: 4px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-grid {
+    width: min(430px, 100%) !important;
+    gap: 3px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card {
+    min-height: 36px !important;
+    padding: 3px 7px !important;
+    border-radius: 10px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card strong {
+    font-size: 0.78rem !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card .team-label {
+    font-size: 0.66rem !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-board {
+    gap: 4px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category {
+    padding: 4px !important;
+    border-radius: 10px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-heading {
+    min-height: 28px !important;
+    margin-bottom: 2px !important;
+    border-radius: 8px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-safe-area {
+    padding: 2px 4px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label,
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label.tight,
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label.compact {
+    font-size: clamp(0.58rem, 1.65vh, 0.68rem) !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-stack {
+    gap: 2px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .tile-button {
+    min-height: 46px !important;
+    border-radius: 9px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-face.open {
+    aspect-ratio: 320 / 72 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-face.done {
+    aspect-ratio: 320 / 66 !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-safe-area {
+    padding-inline: 6px !important;
+  }
+
+  body.is-touch-landscape .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-copy.value {
+    font-size: clamp(0.92rem, 4vh, 1.16rem) !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 1100px) and (max-height: 700px) {
+  body .experience-panel.card-panel:has(.jeopardy-board-shell) {
+    min-height: 0 !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .panel-title {
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 6px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .panel-title h2 {
+    margin-bottom: 0 !important;
+    font-size: 1.55rem !important;
+    line-height: 1 !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .panel-title p,
+  body .experience-panel:has(.jeopardy-board-shell) .panel-title .meta-line,
+  body .experience-panel:has(.jeopardy-board-shell) .mode-stats {
+    display: none !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .panel-actions {
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .panel-actions .button {
+    min-height: 40px !important;
+    padding: 7px 12px !important;
+    font-size: 0.78rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .panel-hub-link {
+    min-height: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 7px 0 !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .mode-shell,
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-board-shell {
+    gap: 5px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-board-shell {
+    padding: 0 2px 2px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-grid {
+    width: min(520px, 100%) !important;
+    justify-self: center !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    min-height: 40px !important;
+    padding: 5px 8px !important;
+    border-radius: 12px !important;
+    column-gap: 8px !important;
+    row-gap: 1px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card strong {
+    font-size: 0.9rem !important;
+    line-height: 1 !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card .team-label {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    font-size: 0.58rem !important;
+    line-height: 1.05 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-team-card > span:not(.team-label) {
+    display: none !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-board {
+    width: min(880px, 100%) !important;
+    min-width: 0 !important;
+    grid-template-columns: repeat(var(--jeopardy-columns, 4), minmax(150px, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category {
+    padding: 5px !important;
+    border-radius: 12px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-heading {
+    margin-bottom: 3px !important;
+    min-height: 34px !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    display: grid !important;
+    place-items: center !important;
+    border: 1px solid rgba(107, 78, 22, 0.14) !important;
+    border-radius: 10px !important;
+    background: rgba(255, 247, 222, 0.9) !important;
+    pointer-events: none !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-art {
+    display: none !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-safe-area {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 3px 6px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-safe-area {
+    padding: 0 8px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label {
+    font-size: 0.64rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label.tight,
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-category-label.compact {
+    font-size: 0.68rem !important;
+    line-height: 1 !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-stack {
+    gap: 3px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .tile-button {
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 11px !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-face.open {
+    aspect-ratio: 320 / 78 !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-face.done {
+    aspect-ratio: 320 / 72 !important;
+  }
+
+  body .experience-panel:has(.jeopardy-board-shell) .jeopardy-tile-copy.value {
+    font-size: 1.3rem !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orientation-gate-device,
+  body.is-touch-landscape .hero-links.is-open::before,
+  body.is-touch-landscape .hero-links.is-open > :not(.hero-menu-trigger) {
+    transition: none !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 1500px) and (max-height: 820px) {
+  body #routeBuilder.wizard.card-panel,
+  body #routeBuilder.wizard.card-panel:hover,
+  body #routeBuilder.wizard.card-panel:focus-within {
+    inline-size: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px) !important;
+    margin-inline: auto !important;
+    justify-self: stretch !important;
+    transform: none !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1501px) {
+  body .page-shell {
+    max-width: calc(100vw - 24px) !important;
+    overflow-x: clip !important;
+  }
+
+  body.is-local-mode .layout {
+    overflow-x: clip !important;
+  }
+
+  body.is-local-mode .layout::before {
+    display: none !important;
+  }
+
+  body #routeBuilder.wizard.card-panel,
+  body #routeBuilder.wizard.card-panel:hover,
+  body #routeBuilder.wizard.card-panel:focus-within {
+    inline-size: min(1680px, calc(100vw - 24px)) !important;
+    width: min(1680px, calc(100vw - 24px)) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px) !important;
+    margin-inline: auto !important;
+    justify-self: center !important;
+    transform: none !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) {
+  body.is-touch-landscape .hero-links,
+  body.is-touch-landscape.is-local-mode .hero-links,
+  body.is-touch-landscape.is-online-mode .hero-links {
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open,
+  body.is-touch-landscape.is-local-mode .hero-links.is-open,
+  body.is-touch-landscape.is-online-mode .hero-links.is-open {
+    position: fixed !important;
+    left: max(12px, var(--wsc-safe-left)) !important;
+    top: max(10px, var(--wsc-safe-top)) !important;
+    width: min(332px, calc(100vw - 24px - var(--wsc-safe-left) - var(--wsc-safe-right))) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    padding: 58px 9px 9px !important;
+    border: 1px solid rgba(101, 66, 31, 0.16) !important;
+    border-radius: 16px !important;
+    background: rgba(255, 248, 226, 0.98) !important;
+    box-shadow: 0 8px 18px rgba(73, 45, 24, 0.14) !important;
+    z-index: 1200 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open::before {
+    display: none !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open .hero-menu-trigger {
+    position: absolute !important;
+    left: 8px !important;
+    top: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > .hero-discord-link,
+  body.is-touch-landscape .hero-links.is-open > button.hero-link-icon,
+  body.is-touch-landscape .hero-links.is-open > a.hero-link-icon,
+  body.is-touch-landscape .hero-links.is-open > .session-controls {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    padding: 6px 8px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(101, 66, 31, 0.1) !important;
+    background: rgba(255, 255, 255, 0.36) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    filter: none !important;
+    transition: none !important;
+    transform: translate(0, 0) scale(1) rotate(0deg) !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > .hero-discord-link {
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > .session-controls {
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > button.hero-link-icon.hero-settings-icon {
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > button.hero-link-icon.hero-resources-icon {
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > a.hero-link-icon {
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open .session-signout-button,
+  body.is-touch-landscape .hero-links.is-open .session-mode-button {
+    width: 34px !important;
+    min-width: 44px !important;
+    height: 38px !important;
+    min-height: 44px !important;
+    flex: 0 0 44px !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open img,
+  body.is-touch-landscape .hero-links.is-open .session-controls img,
+  body.is-touch-landscape .hero-links.is-open .session-signout-button img,
+  body.is-touch-landscape .hero-links.is-open .hero-link-icon img,
+  body.is-touch-landscape .hero-links.is-open .hero-discord-link img {
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+    flex: 0 0 34px !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open .session-control-stack {
+    width: 44px !important;
+    min-width: 44px !important;
+    flex: 0 0 44px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  body.is-touch-landscape .hero-discord-link::after,
+  body.is-touch-landscape .hero-links > button.hero-link-icon::after,
+  body.is-touch-landscape .hero-links > a.hero-link-icon::after,
+  body.is-touch-landscape .hero-links > .session-controls::after {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: block !important;
+    color: #4f311d !important;
+    font-family: "Inter Tight", Inter, system-ui, sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 850 !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+  }
+
+  body.is-touch-landscape .hero-links.is-open > :not(.hero-menu-trigger)::after,
+  body.is-touch-landscape .hero-links.is-open > .session-controls::after {
+    white-space: normal !important;
+  }
+
+  body.is-touch-landscape .auth-modal-overlay,
+  body.is-touch-landscape .library-embedded-doc-overlay,
+  body.is-touch-landscape .raw-media-lightbox-overlay {
+    inset: 0 !important;
+    padding:
+      max(8px, var(--wsc-safe-top))
+      max(10px, var(--wsc-safe-right))
+      max(8px, var(--wsc-safe-bottom))
+      max(10px, var(--wsc-safe-left)) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .auth-modal-window,
+  body.is-touch-landscape .library-embedded-doc-window,
+  body.is-touch-landscape .raw-media-lightbox-window {
+    max-width: calc(100vw - max(20px, var(--wsc-safe-left)) - max(20px, var(--wsc-safe-right))) !important;
+    max-height: calc(100vh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(100dvh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape .auth-modal-window .popup-close-button,
+  body.is-touch-landscape .library-embedded-doc-window .popup-close-button,
+  body.is-touch-landscape .raw-media-lightbox-window .popup-close-button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body.is-touch-landscape .app-settings-slider {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-board.has-section-selection .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column.is-targeting .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column.is-open .mode-choice-heading {
+    pointer-events: auto !important;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  body.is-touch-landscape .mode-choice-heading * {
+    pointer-events: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-heading,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-heading {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid {
+    position: absolute !important;
+    inset: 58px 10px 10px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    z-index: 30 !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid > .mode-card,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid > .mode-card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    inline-size: clamp(132px, 16vw, 180px) !important;
+    width: clamp(132px, 16vw, 180px) !important;
+    max-inline-size: clamp(132px, 16vw, 180px) !important;
+    max-width: clamp(132px, 16vw, 180px) !important;
+    min-width: 0 !important;
+    min-height: 58px !important;
+    height: auto !important;
+    justify-self: center !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    padding: 8px 10px !important;
+    border: 1px solid rgba(98, 62, 31, 0.18) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 249, 230, 0.94) !important;
+    box-shadow: 0 5px 12px rgba(84, 52, 28, 0.1) !important;
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
+    transition: none !important;
+    transform: none !important;
+    z-index: 31 !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-slot {
+    inline-size: 42px !important;
+    width: 42px !important;
+    max-inline-size: 42px !important;
+    max-width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 42px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .card-top,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .card-top {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+    inline-size: 42px !important;
+    width: 42px !important;
+    max-inline-size: 42px !important;
+    max-width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 42px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-image {
+    width: auto !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-copy {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    display: block !important;
+    transform: none !important;
+    text-align: left !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-copy h3 {
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    font-size: clamp(0.78rem, 1.3vw, 0.98rem) !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    writing-mode: horizontal-tb !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (min-width: 1180px) and (max-width: 1600px) {
+  body.is-touch-landscape .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-train .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-learn.is-open) .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-train.is-open) .mode-choice-column-train {
+    flex-basis: min(58vw, 700px) !important;
+    width: min(58vw, 700px) !important;
+    height: 300px !important;
+    min-height: 300px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid {
+    inset: 64px 14px 14px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    align-content: start !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card,
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid > .mode-card,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid > .mode-card {
+    inline-size: clamp(170px, 15vw, 210px) !important;
+    width: clamp(170px, 15vw, 210px) !important;
+    max-inline-size: clamp(170px, 15vw, 210px) !important;
+    max-width: clamp(170px, 15vw, 210px) !important;
+    min-height: 64px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+    inline-size: 42px !important;
+    width: 42px !important;
+    max-inline-size: 42px !important;
+    max-width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 42px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-image {
+    width: auto !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    display: block !important;
+    text-align: left !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+    max-width: none !important;
+    width: auto !important;
+    white-space: normal !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) {
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .card-top,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .card-top,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .card-top,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .card-top {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+    inline-size: 42px !important;
+    width: 42px !important;
+    max-inline-size: 42px !important;
+    max-width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 42px !important;
+    transform: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-image {
+    width: auto !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    display: block !important;
+    text-align: left !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-card-grid .wizard-choice-card .wizard-choice-copy h3 {
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel.experience-panel--rawcontent,
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel.experience-panel--regularguide,
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel:has(.raw-content-shell),
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel:has(.regular-guide-shell) {
+    max-height: calc(100vh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(100dvh - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    max-height: calc(var(--wsc-viewport-height) - max(16px, var(--wsc-safe-top)) - max(16px, var(--wsc-safe-bottom))) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel.experience-panel--rawcontent .panel-hub-link,
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel.experience-panel--regularguide .panel-hub-link,
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel:has(.raw-content-shell) .panel-hub-link,
+  body.is-touch-landscape.is-local-experience-open .experience-panel.card-panel:has(.regular-guide-shell) .panel-hub-link {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 10px 6px !important;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 980px) {
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) {
+    flex: 0 0 62px !important;
+    width: 62px !important;
+    min-width: 62px !important;
+    height: 62px !important;
+    min-height: 62px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path] .mode-choice-column:not(.is-open):not(.is-targeting) .mode-choice-heading {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-board[data-active-path="learn"] .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board[data-active-path="play"] .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board[data-active-path="train"] .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-learn .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-play .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board.is-mode-path-train .mode-choice-column-train,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-learn.is-open) .mode-choice-column-learn,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-play.is-open) .mode-choice-column-play,
+  body.is-touch-landscape .mode-choice-board:has(.mode-choice-column-train.is-open) .mode-choice-column-train {
+    flex: 1 1 calc(100% - 140px) !important;
+    width: calc(100% - 140px) !important;
+    max-width: min(70vw, 620px) !important;
+    min-width: 0 !important;
+    height: min(236px, calc(var(--wsc-viewport-height) - 150px)) !important;
+    min-height: min(236px, calc(var(--wsc-viewport-height) - 150px)) !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid,
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-column.is-opening .mode-choice-card-grid {
+    inset: 0 6px 6px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: clamp(46px, 13vh, 54px) !important;
+    gap: 6px !important;
+    width: auto !important;
+    height: auto !important;
+    align-content: start !important;
+    overflow: hidden !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body.is-touch-landscape .mode-choice-board.has-section-selection[data-active-path] .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .mode-choice-column.is-open .mode-choice-card-grid > .wizard-choice-card:nth-child(n),
+  body.is-touch-landscape .mode-choice-board.has-section-selection:has(.mode-choice-column.is-opening) .mode-choice-column.is-opening .mode-choice-card-grid > .wizard-choice-card:nth-child(n) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    inline-size: 100% !important;
+    width: 100% !important;
+    max-inline-size: none !important;
+    max-width: none !important;
+    height: clamp(46px, 13vh, 54px) !important;
+    min-height: clamp(46px, 13vh, 54px) !important;
+    max-height: clamp(46px, 13vh, 54px) !important;
+    padding: 5px 7px !important;
+    justify-self: stretch !important;
+    clip-path: none !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .card-top,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .card-top {
+    gap: 7px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-slot {
+    inline-size: 34px !important;
+    width: 34px !important;
+    max-inline-size: 34px !important;
+    max-width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    flex: 0 0 34px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-card .wizard-choice-image,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-card .wizard-choice-image {
+    max-width: 34px !important;
+    height: 34px !important;
+    max-height: 34px !important;
+  }
+
+  body.is-touch-landscape .mode-choice-column.is-open .mode-choice-card-grid .wizard-choice-copy h3,
+  body.is-touch-landscape .mode-choice-column.is-opening .mode-choice-card-grid .wizard-choice-copy h3 {
+    font-size: clamp(0.75rem, 1.9vh, 0.84rem) !important;
+    line-height: 1.04 !important;
+  }
+}
+
+@media (any-pointer: coarse) {
+  .selected-section-chip-strip::-webkit-scrollbar,
+  .mode-choice-board::-webkit-scrollbar,
+  .jeopardy-board-shell::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .selected-section-chip-strip::-webkit-scrollbar-thumb,
+  .mode-choice-board::-webkit-scrollbar-thumb,
+  .jeopardy-board-shell::-webkit-scrollbar-thumb {
+    background: rgba(94, 64, 33, 0.34);
+    border-radius: 999px;
+  }
+}

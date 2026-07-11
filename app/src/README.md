@@ -2,12 +2,18 @@
 
 This folder is the transition layer between the current single-file app and the target reusable engine.
 
-The app still boots through `app/index.html` and `app/app.js`, but new engine pieces should be extracted here first instead of adding more logic to `app.js`.
+The app still boots through `app/index.html`, with `app/app.js` kept as a tiny compatibility guard. The legacy runtime now lives in `src/app/app-main.js`, and new engine pieces should be extracted here first instead of adding more logic to either bootstrap path.
 
 ## Current Files
 
 ```text
-src/
+  src/
+  app/
+    app-main.js # Temporary legacy runtime bridge while feature areas migrate into smaller modules.
+    progress-storage-controller.js # Owns local stats/raw-mastery persistence and blocked-storage fallbacks.
+    app-dom-service.js # Owns trusted HTML parsing/writes so legacy renderers use one audited DOM boundary.
+    device-presentation-controller.js # Owns touch/desktop viewport classes, landscape gate, and compact keyboard visibility.
+    app-settings-controller.js # Owns music settings modal state, storage, and local background playback.
   theme/
     section-ids.js       # Converts future canonical section IDs to the current runtime IDs and back.
   services/
@@ -54,4 +60,8 @@ src/
 
 ## Migration Rule
 
-For now, keep a small compatibility wrapper in `app.js` whenever a helper is moved here. That lets us extract the engine step by step while keeping the published app behavior identical.
+For now, keep a small compatibility wrapper in `app-main.js` whenever a helper is moved from the legacy runtime. That lets us extract the engine step by step while keeping the published app behavior identical.
+
+## PWA Policy
+
+The web shell keeps standalone/landscape manifest metadata for browser and home-screen compatibility, but the in-app install prompt stays hidden while `pwa.js` retires old service workers and route caches. This avoids mobile users getting stuck on stale cached app shells. Re-enabling install should include a new cache/update strategy plus source and artifact updates to `test:pwa-mobile-shell` and `test:pwa-retirement-runtime`.

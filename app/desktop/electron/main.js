@@ -1,6 +1,7 @@
 const { app, BrowserWindow, shell } = require("electron");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
+const { getMainWindowOptions } = require("./window-config");
 
 const ROOT_DIR = path.join(__dirname, "..", "..");
 const INDEX_PATH = path.join(ROOT_DIR, "index.html");
@@ -16,40 +17,8 @@ function isAppIndexUrl(url) {
   }
 }
 
-function resolveAppIcon() {
-  if (process.platform === "win32") {
-    return path.join(ROOT_DIR, "desktop", "icons", "app.ico");
-  }
-
-  if (process.platform === "darwin") {
-    const icnsPath = path.join(ROOT_DIR, "desktop", "icons", "app.icns");
-    return require("node:fs").existsSync(icnsPath)
-      ? icnsPath
-      : path.join(ROOT_DIR, "desktop", "icons", "app.png");
-  }
-
-  return path.join(ROOT_DIR, "desktop", "icons", "app.png");
-}
-
 function createMainWindow() {
-  const window = new BrowserWindow({
-    width: 1440,
-    height: 960,
-    minWidth: 1180,
-    minHeight: 820,
-    autoHideMenuBar: true,
-    show: false,
-    title: "WSCapp",
-    backgroundColor: "#f3e3bc",
-    icon: resolveAppIcon(),
-    webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
-      contextIsolation: true,
-      sandbox: false,
-      nodeIntegration: false,
-      navigateOnDragDrop: false
-    }
-  });
+  const window = new BrowserWindow(getMainWindowOptions({ rootDir: ROOT_DIR }));
 
   window.once("ready-to-show", () => {
     window.show();
@@ -98,15 +67,25 @@ function createMainWindow() {
   window.loadFile(INDEX_PATH);
 }
 
-app.whenReady().then(() => {
-  createMainWindow();
+function startApp() {
+  app.whenReady().then(() => {
+    createMainWindow();
 
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createMainWindow();
-    }
+    app.on("activate", () => {
+      if (BrowserWindow.getAllWindows().length === 0) {
+        createMainWindow();
+      }
+    });
   });
-});
+}
+
+startApp();
+
+module.exports = {
+  createMainWindow,
+  isAppIndexUrl,
+  startApp
+};
 
 app.on("open-file", (event) => {
   event.preventDefault();

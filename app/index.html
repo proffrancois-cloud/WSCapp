@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>WSCapp | Practice smarter. Debate better. Study together in your free WSC prep campus.</title>
     <meta
       name="description"
@@ -75,13 +75,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter+Tight:wght@400;600;700;800;900&family=Shadows+Into+Light+Two&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css?v=20260709debatejoin" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
+    <div id="orientationGateMount" hidden></div>
     <div id="appEntryGateMount"></div>
     <div id="cooperationModalMount"></div>
     <div class="page-shell">
@@ -177,6 +178,10 @@
     <script src="./src/services/asset-service.js?v=20260709debatejoin"></script>
     <script src="./src/services/storage-service.js?v=20260709debatejoin"></script>
     <script src="./src/services/progress-service.js?v=20260709debatejoin"></script>
+    <script src="./src/app/progress-storage-controller.js?v=20260709debatejoin"></script>
+    <script src="./src/app/app-dom-service.js?v=20260709debatejoin"></script>
+    <script src="./src/app/device-presentation-controller.js?v=20260709debatejoin"></script>
+    <script src="./src/app/app-settings-controller.js?v=20260709debatejoin"></script>
     <script src="./src/services/video-service.js?v=20260709debatejoin"></script>
     <script src="./src/services/game-question-service.js?v=20260709debatejoin"></script>
     <script src="./src/services/scholars-bowl-service.js?v=20260709debatejoin"></script>
@@ -210,6 +215,7 @@
     <script src="./src/features/campus-2d/debate-lab-audio.js?v=20260709debatejoin"></script>
     <script src="./src/features/campus-2d/campus-2d.js?v=20260709debatejoin"></script>
     <script src="./src/app-lifecycle-controller.js?v=20260709debatejoin"></script>
+    <script src="./src/app/app-main.js?v=20260709debatejoin"></script>
     <script src="./app.js?v=20260709debatejoin"></script>
     <script src="./pwa.js?v=20260709debatejoin"></script>
   </body>

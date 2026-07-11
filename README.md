@@ -27,9 +27,23 @@ Use [CURRENT_ARCHITECTURE.md](/Users/francoismo/Documents/Playground/WSC/CURRENT
 
 ```zsh
 cd /Users/francoismo/Documents/Playground/WSC/app
-npm run test:theme
-npm run test:smoke
+npm run verify
 ```
+
+`npm run verify` checks the source app and the `dist-pages` public artifact used by
+the GitHub/Cloudflare-style static deployment path for `wscapp.app`, including
+landscape mobile/tablet, Windows-sized desktop, PWA shell retirement, WebKit,
+Firefox, keyboard, and visual snapshot smoke tests.
+
+After a production deploy, run:
+
+```zsh
+cd /Users/francoismo/Documents/Playground/WSC/app
+npm run test:wscapp-live
+```
+
+That command runs the same core device/browser checks directly against
+`https://wscapp.app/`.
 
 ## Launch Checklist
 

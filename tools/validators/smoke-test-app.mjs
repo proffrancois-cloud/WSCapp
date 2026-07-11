@@ -10,13 +10,13 @@ const PORT = Number(process.env.WSC_SMOKE_PORT || 4173);
 const BASE_URL = `http://localhost:${PORT}`;
 const DEFAULT_CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
-const appSource = fs.readFileSync(path.join(APP_DIR, "app.js"), "utf8");
+const appSource = fs.readFileSync(path.join(APP_DIR, "src/app/app-main.js"), "utf8");
 
 function getFunctionSource(source, name) {
   const marker = `function ${name}(`;
   const start = source.indexOf(marker);
   if (start < 0) {
-    throw new Error(`Could not find ${name} in app.js`);
+    throw new Error(`Could not find ${name} in src/app/app-main.js`);
   }
   const nextFunction = source.indexOf("\nfunction ", start + marker.length);
   return source.slice(start, nextFunction < 0 ? source.length : nextFunction);
