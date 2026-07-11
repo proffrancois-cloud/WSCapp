@@ -8387,6 +8387,11 @@ async function loadAlpacaProgress() {
 async function submitAuthForm(form) {
   const action = form.dataset.authForm;
   const client = getSupabaseClient();
+  const activeElement = document.activeElement;
+
+  if (activeElement instanceof HTMLElement && form.contains(activeElement)) {
+    activeElement.blur();
+  }
 
   clearAuthNotice();
 

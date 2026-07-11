@@ -24,6 +24,7 @@ const MODE = externalBaseUrl ? "remote" : SERVER_DIR === APP_DIR ? "source" : "a
 const DEFAULT_CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const PHONE_LANDSCAPE = { width: 844, height: 390 };
 const KEYBOARD_LANDSCAPE = { width: 844, height: 270 };
+const SMALL_KEYBOARD_LANDSCAPE = { width: 667, height: 240 };
 
 function normalizeExternalBaseUrl(rawUrl) {
   if (!rawUrl) {
@@ -294,7 +295,20 @@ async function runAuthKeyboardScenario(browser) {
       ".auth-modal-overlay",
       ".auth-modal-window",
       ".alpaccount-form[data-auth-form='login'] input[name='identifier']",
-      ".alpaccount-form[data-auth-form='login'] input[name='password']"
+      ".alpaccount-form[data-auth-form='login'] input[name='password']",
+      ".alpaccount-form[data-auth-form='login'] button[type='submit']"
+    ]);
+
+    await page.setViewportSize(SMALL_KEYBOARD_LANDSCAPE);
+    await waitForViewportCssHeight(page, SMALL_KEYBOARD_LANDSCAPE.height + 4);
+    await page.waitForTimeout(120);
+    const loginSmallAudit = await collectKeyboardAudit(page, [
+      ".auth-modal-overlay",
+      ".auth-modal-window",
+      ".alpaccount-form[data-auth-form='login'] input[name='identifier']",
+      ".alpaccount-form[data-auth-form='login'] input[name='password']",
+      ".alpaccount-form[data-auth-form='login'] .auth-actions",
+      ".alpaccount-form[data-auth-form='login'] button[type='submit']"
     ]);
 
     await page.setViewportSize(PHONE_LANDSCAPE);
@@ -329,6 +343,7 @@ async function runAuthKeyboardScenario(browser) {
 
     return {
       loginAudit,
+      loginSmallAudit,
       signupTopAudit,
       signupBottomAudit,
       messages
@@ -364,6 +379,11 @@ async function main() {
     pushAuditFailures(failures, "Login auth modal keyboard", result.loginAudit, {
       activeName: "identifier",
       minimumVisibleAreaRatio: 0.5,
+      requireHitTest: true
+    });
+    pushAuditFailures(failures, "Small phone login auth modal keyboard", result.loginSmallAudit, {
+      activeName: "identifier",
+      minimumVisibleAreaRatio: 0.75,
       requireHitTest: true
     });
     pushAuditFailures(failures, "Signup top auth modal keyboard", result.signupTopAudit, {

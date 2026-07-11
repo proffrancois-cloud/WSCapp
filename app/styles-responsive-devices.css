@@ -2491,12 +2491,18 @@ body.needs-landscape #routeBuilder.wizard.card-panel {
 
   body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-actions {
     grid-column: 1 / -1 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
     gap: 6px !important;
     margin-top: 0 !important;
     flex-wrap: nowrap !important;
   }
 
   body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-actions .button {
+    width: auto !important;
+    min-width: 112px !important;
+    flex: 0 0 auto !important;
     min-height: 44px !important;
     padding: 8px 12px !important;
     font-size: 0.76rem !important;
@@ -2504,11 +2510,44 @@ body.needs-landscape #routeBuilder.wizard.card-panel {
     white-space: nowrap !important;
   }
 
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .auth-notice {
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.05 !important;
+  }
+
   body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-text-button {
     grid-column: 1 / -1 !important;
     min-height: 28px !important;
     font-size: 0.72rem !important;
     line-height: 1.1 !important;
+  }
+}
+
+@media (any-pointer: coarse) and (orientation: landscape) and (max-height: 260px) {
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .auth-modal-stack.alpaccount-stack {
+    gap: 6px !important;
+    padding: 8px 28px 10px !important;
+  }
+
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-brand {
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+  }
+
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-brand img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] {
+    gap: 6px 10px !important;
+  }
+
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-provider-stack,
+  body.is-touch-landscape .auth-modal-window.alpaccount-window .alpaccount-form[data-auth-form="login"] .auth-text-button {
+    display: none !important;
   }
 }
 
