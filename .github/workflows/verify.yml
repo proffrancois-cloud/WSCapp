@@ -40,7 +40,7 @@ jobs:
         working-directory: app
 
       - name: Verify app
-        run: npm run verify
+        run: xvfb-run --auto-servernum npm run verify
         working-directory: app
         env:
           VITE_BASE: /WSCapp/
