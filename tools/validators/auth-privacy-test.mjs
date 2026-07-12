@@ -7,6 +7,7 @@ const authServicePath = resolve(repoRoot, "app/src/services/auth-service.js");
 const profileServicePath = resolve(repoRoot, "app/src/services/supabase-profile-service.js");
 const authRendererPath = resolve(repoRoot, "app/src/ui/auth-modal-renderer.js");
 const appSourcePath = resolve(repoRoot, "app/src/app/app-main.js");
+const stylesPath = resolve(repoRoot, "app/styles-online-overrides.css");
 const alpacapardyRendererPath = resolve(repoRoot, "app/src/modes/play/alpacapardy/alpacapardy-renderer.js");
 
 const sandbox = {
@@ -32,12 +33,22 @@ if (!authService || !profileService || !renderer) {
   throw new Error("Auth modules were not registered.");
 }
 
-const oauthConfig = authService.getOAuthSignInOptions("discord", "https://wscapp.app/");
-if (oauthConfig.provider !== "discord" || oauthConfig.options.redirectTo !== "https://wscapp.app/") {
+const discordOauthConfig = authService.getOAuthSignInOptions("discord", "https://wscapp.app/");
+if (discordOauthConfig.provider !== "discord" || discordOauthConfig.options.redirectTo !== "https://wscapp.app/") {
   throw new Error("Discord OAuth provider options are incorrect.");
 }
-if (!String(oauthConfig.options.scopes || "").includes("identify") || !String(oauthConfig.options.scopes || "").includes("email")) {
+if (!String(discordOauthConfig.options.scopes || "").includes("identify") || !String(discordOauthConfig.options.scopes || "").includes("email")) {
   throw new Error("Discord OAuth scopes should request identify and email.");
+}
+const googleOauthConfig = authService.getOAuthSignInOptions("google", "https://wscapp.app/");
+if (googleOauthConfig.provider !== "google" || googleOauthConfig.options.redirectTo !== "https://wscapp.app/") {
+  throw new Error("Google OAuth provider options are incorrect.");
+}
+if ("scopes" in googleOauthConfig.options) {
+  throw new Error("Google OAuth should use Supabase's default Google scopes unless explicitly needed.");
+}
+if (!authService.oauthProviders.google?.iconSrc?.includes("google%20signup.png")) {
+  throw new Error("Google OAuth should use the provided google signup mascot icon.");
 }
 
 if (!authService.isPasswordRecoveryRedirect({
@@ -84,6 +95,31 @@ if (identity.discord_user_id !== "123456789" || identity.discord_username !== "a
 }
 if ("email" in identity || "user_metadata" in identity) {
   throw new Error("Auth identity payload must not include raw email or raw metadata.");
+}
+
+const googleUser = {
+  id: "user-google-1",
+  email: "private-google@example.test",
+  app_metadata: {
+    provider: "google",
+    providers: ["google"]
+  },
+  user_metadata: {
+    sub: "google-subject-123",
+    full_name: "Google Alpaca",
+    avatar_url: "https://lh3.googleusercontent.com/a/test-avatar",
+    email: "private-google@example.test"
+  }
+};
+const googleIdentity = authService.extractAuthIdentity(googleUser, new Date("2026-07-08T00:00:00.000Z"));
+if (googleIdentity.last_auth_provider !== "google" || googleIdentity.google_user_id !== "google-subject-123") {
+  throw new Error("Google identity fields were not extracted.");
+}
+if (googleIdentity.google_full_name !== "Google Alpaca" || !googleIdentity.google_avatar_url.includes("googleusercontent")) {
+  throw new Error("Google profile name/avatar fields were not extracted.");
+}
+if ("email" in googleIdentity || "user_metadata" in googleIdentity || "discord_user_id" in googleIdentity) {
+  throw new Error("Google identity payload must not include raw email, raw metadata, or Discord fields.");
 }
 
 let updatePayload = null;
@@ -133,7 +169,7 @@ if (!updatePayload || updatePayload.alpaca_name !== "realalpaca" || updatePayloa
 
 const loginHtml = renderer.renderLoginForm({
   busy: false,
-  oauthProviders: [authService.oauthProviders.discord]
+  oauthProviders: [authService.oauthProviders.discord, authService.oauthProviders.google]
 }, {
   escapeHtml(value) {
     return String(value)
@@ -146,6 +182,9 @@ const loginHtml = renderer.renderLoginForm({
 
 if (!loginHtml.includes('data-auth-oauth="discord"') || !loginHtml.includes("Continue with Discord")) {
   throw new Error("Login form should render the Discord OAuth button.");
+}
+if (!loginHtml.includes('data-auth-oauth="google"') || !loginHtml.includes("Continue with Google") || !loginHtml.includes("google%20signup.png")) {
+  throw new Error("Login form should render the Google OAuth button with the provided icon.");
 }
 
 const recoveryHtml = renderer.renderBody({
@@ -167,6 +206,7 @@ if (!recoveryHtml.includes('data-auth-form="reset"') || recoveryHtml.includes("a
 
 const signupHtml = renderer.renderSignupForm({
   busy: false,
+  oauthProviders: [authService.oauthProviders.discord, authService.oauthProviders.google],
   roundOptions: [
     { value: "none_yet", label: "None yet" },
     { value: "regional_round", label: "Regional Round" }
@@ -193,6 +233,9 @@ if (!signupHtml.includes("City for that reward <em>optional</em>") || !signupHtm
 }
 if (!signupHtml.includes("Approximate date <em>optional</em>") || !signupHtml.includes('placeholder="Not sure"')) {
   throw new Error("Signup reward date must be visibly optional with a Not sure fallback.");
+}
+if (!signupHtml.includes('data-auth-oauth="discord"') || !signupHtml.includes('data-auth-oauth="google"')) {
+  throw new Error("Signup form should offer Discord and Google OAuth on the same provider row.");
 }
 
 const completeProfileHtml = renderer.renderCompleteProfileForm({
@@ -237,6 +280,7 @@ if (!completeProfileHtml.includes('name="school_name"') || !completeProfileHtml.
 }
 
 const appSource = readFileSync(appSourcePath, "utf8");
+const stylesSource = readFileSync(stylesPath, "utf8");
 const alpacapardyRendererSource = readFileSync(alpacapardyRendererPath, "utf8");
 if (appSource.includes("choose its round, city, and approximate date")) {
   throw new Error("Signup must not require reward city/date when creating an Alpaccount.");
@@ -256,6 +300,23 @@ if (!appSource.includes("requiresAlpaccountProfileCompletion") || !appSource.inc
 if (!appSource.includes("openPasswordRecoveryFlow") || !appSource.includes('eventName === "PASSWORD_RECOVERY"')) {
   throw new Error("Password recovery links should keep the reset-password UI open.");
 }
+if (!appSource.includes('refs.sessionControls.setAttribute("data-open-auth", "")')
+  || !appSource.includes('refs.sessionControls.removeAttribute("data-auth-signout")')) {
+  throw new Error("Signed-out header session controls should open the Alpaccount login from the whole menu item.");
+}
+if (!appSource.includes('refs.sessionControls.removeAttribute("data-open-auth")')
+  || !appSource.includes('refs.sessionControls.setAttribute("data-auth-signout", "")')) {
+  throw new Error("Signed-in header session controls should not retain the login action.");
+}
+if (/Discord is connected/.test(`${appSource}\n${readFileSync(authRendererPath, "utf8")}`)) {
+  throw new Error("OAuth completion copy must not be Discord-specific now that Google sign-in is available.");
+}
+if (!/\.auth-provider-stack\s*\{[\s\S]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/.test(stylesSource)) {
+  throw new Error("Discord and Google OAuth buttons should share one row on normal modal widths.");
+}
+if (!/\.auth-provider-google/.test(stylesSource)) {
+  throw new Error("Google OAuth button styling is missing.");
+}
 const appSourceWithoutCampusDevName = appSource.replace(/const CAMPUS_DEV_ALPACA_NAME = "devalpaca";/g, "");
 if (/Devalpacc?a/i.test(appSourceWithoutCampusDevName)) {
   throw new Error("Multiplayer must not expose the legacy Devalpacca default account.");
@@ -268,10 +329,12 @@ if (/admin test accounts|approved school domains|approved Alpaccount/.test(`${ap
 }
 
 console.log(JSON.stringify({
-  provider: oauthConfig.provider,
+  providers: [discordOauthConfig.provider, googleOauthConfig.provider],
   fields: Object.keys(identity).sort(),
-  renderer: "discord-button",
+  googleFields: Object.keys(googleIdentity).sort(),
+  renderer: "discord-google-buttons",
   passwordRecovery: "reset-form",
+  headerLoginMenu: "whole-item-opens-auth",
   signupRewardFields: "optional",
   oauthProfileCompletion: "required"
 }, null, 2));

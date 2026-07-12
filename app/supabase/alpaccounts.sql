@@ -17,6 +17,10 @@ create table if not exists public.alpaca_profiles (
   discord_global_name text,
   discord_avatar_url text,
   discord_connected_at timestamptz,
+  google_user_id text,
+  google_full_name text,
+  google_avatar_url text,
+  google_connected_at timestamptz,
   last_sign_in_at timestamptz,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
@@ -37,6 +41,10 @@ alter table public.alpaca_profiles
   add column if not exists discord_global_name text,
   add column if not exists discord_avatar_url text,
   add column if not exists discord_connected_at timestamptz,
+  add column if not exists google_user_id text,
+  add column if not exists google_full_name text,
+  add column if not exists google_avatar_url text,
+  add column if not exists google_connected_at timestamptz,
   add column if not exists last_sign_in_at timestamptz,
   add column if not exists created_at timestamptz default now(),
   add column if not exists updated_at timestamptz default now();
@@ -123,6 +131,55 @@ set
       or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%discord%'
     then coalesce(auth_user.last_sign_in_at, profile.discord_connected_at, now())
     else profile.discord_connected_at
+  end,
+  google_user_id = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'google'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'google'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%google%'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%accounts.google.com%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'provider_id',
+      auth_user.raw_user_meta_data ->> 'sub',
+      auth_user.raw_user_meta_data ->> 'id',
+      profile.google_user_id,
+      ''
+    )), 128), '')
+    else profile.google_user_id
+  end,
+  google_full_name = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'google'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'google'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%google%'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%accounts.google.com%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'full_name',
+      auth_user.raw_user_meta_data ->> 'name',
+      auth_user.raw_user_meta_data ->> 'user_name',
+      profile.google_full_name,
+      ''
+    )), 160), '')
+    else profile.google_full_name
+  end,
+  google_avatar_url = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'google'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'google'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%google%'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%accounts.google.com%'
+    then nullif(left(trim(coalesce(
+      auth_user.raw_user_meta_data ->> 'avatar_url',
+      auth_user.raw_user_meta_data ->> 'picture',
+      profile.google_avatar_url,
+      ''
+    )), 500), '')
+    else profile.google_avatar_url
+  end,
+  google_connected_at = case
+    when lower(trim(coalesce(auth_user.raw_app_meta_data ->> 'provider', ''))) = 'google'
+      or coalesce(auth_user.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'google'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%google%'
+      or lower(coalesce(auth_user.raw_user_meta_data ->> 'iss', '')) like '%accounts.google.com%'
+    then coalesce(auth_user.last_sign_in_at, profile.google_connected_at, now())
+    else profile.google_connected_at
   end,
   last_sign_in_at = coalesce(auth_user.last_sign_in_at, profile.last_sign_in_at)
 from auth.users as auth_user
@@ -245,6 +302,10 @@ create index if not exists alpaca_profiles_discord_user_id_idx
   on public.alpaca_profiles (discord_user_id)
   where discord_user_id is not null;
 
+create index if not exists alpaca_profiles_google_user_id_idx
+  on public.alpaca_profiles (google_user_id)
+  where google_user_id is not null;
+
 create index if not exists alpaca_profiles_last_auth_provider_idx
   on public.alpaca_profiles (last_auth_provider, last_sign_in_at desc)
   where last_auth_provider is not null;
@@ -322,10 +383,17 @@ declare
   has_discord_identity boolean := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', ''))) = 'discord'
     or coalesce(new.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
     or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%discord%';
+  has_google_identity boolean := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', ''))) = 'google'
+    or coalesce(new.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'google'
+    or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%google%'
+    or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%accounts.google.com%';
   clean_discord_user_id text := null;
   clean_discord_username text := null;
   clean_discord_global_name text := null;
   clean_discord_avatar_url text := null;
+  clean_google_user_id text := null;
+  clean_google_full_name text := null;
+  clean_google_avatar_url text := null;
 begin
   if coalesce(new.is_anonymous, false) then
     return new;
@@ -426,6 +494,26 @@ begin
     )), 500), '');
   end if;
 
+  if has_google_identity then
+    clean_google_user_id := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'provider_id',
+      new.raw_user_meta_data ->> 'sub',
+      new.raw_user_meta_data ->> 'id',
+      ''
+    )), 128), '');
+    clean_google_full_name := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'full_name',
+      new.raw_user_meta_data ->> 'name',
+      new.raw_user_meta_data ->> 'user_name',
+      ''
+    )), 160), '');
+    clean_google_avatar_url := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'avatar_url',
+      new.raw_user_meta_data ->> 'picture',
+      ''
+    )), 500), '');
+  end if;
+
   clean_wsc_achievement_round := case clean_highest_wsc_round
     when 'regional_round' then 'regional'
     when 'global_round' then 'global'
@@ -464,6 +552,10 @@ begin
     discord_global_name,
     discord_avatar_url,
     discord_connected_at,
+    google_user_id,
+    google_full_name,
+    google_avatar_url,
+    google_connected_at,
     last_sign_in_at
   )
   values (
@@ -482,6 +574,10 @@ begin
     clean_discord_global_name,
     clean_discord_avatar_url,
     case when has_discord_identity then coalesce(new.last_sign_in_at, now()) else null end,
+    clean_google_user_id,
+    clean_google_full_name,
+    clean_google_avatar_url,
+    case when has_google_identity then coalesce(new.last_sign_in_at, now()) else null end,
     new.last_sign_in_at
   )
   on conflict (id) do update
@@ -500,6 +596,10 @@ begin
       discord_global_name = coalesce(excluded.discord_global_name, public.alpaca_profiles.discord_global_name),
       discord_avatar_url = coalesce(excluded.discord_avatar_url, public.alpaca_profiles.discord_avatar_url),
       discord_connected_at = coalesce(excluded.discord_connected_at, public.alpaca_profiles.discord_connected_at),
+      google_user_id = coalesce(excluded.google_user_id, public.alpaca_profiles.google_user_id),
+      google_full_name = coalesce(excluded.google_full_name, public.alpaca_profiles.google_full_name),
+      google_avatar_url = coalesce(excluded.google_avatar_url, public.alpaca_profiles.google_avatar_url),
+      google_connected_at = coalesce(excluded.google_connected_at, public.alpaca_profiles.google_connected_at),
       last_sign_in_at = coalesce(excluded.last_sign_in_at, public.alpaca_profiles.last_sign_in_at),
       updated_at = now();
 
@@ -524,6 +624,9 @@ create table if not exists public.alpaca_auth_events (
   discord_username text,
   discord_global_name text,
   discord_avatar_url text,
+  google_user_id text,
+  google_full_name text,
+  google_avatar_url text,
   event_type text not null default 'sign_in',
   created_at timestamptz not null default now()
 );
@@ -536,6 +639,9 @@ alter table public.alpaca_auth_events
   add column if not exists discord_username text,
   add column if not exists discord_global_name text,
   add column if not exists discord_avatar_url text,
+  add column if not exists google_user_id text,
+  add column if not exists google_full_name text,
+  add column if not exists google_avatar_url text,
   add column if not exists event_type text default 'sign_in',
   add column if not exists created_at timestamptz default now();
 
@@ -564,6 +670,10 @@ create index if not exists alpaca_auth_events_discord_created_idx
   on public.alpaca_auth_events (created_at desc)
   where provider = 'discord';
 
+create index if not exists alpaca_auth_events_google_created_idx
+  on public.alpaca_auth_events (created_at desc)
+  where provider = 'google';
+
 create or replace function public.sync_alpaca_profile_auth_identity()
 returns trigger
 language plpgsql
@@ -582,10 +692,17 @@ declare
   has_discord_identity boolean := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', ''))) = 'discord'
     or coalesce(new.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'discord'
     or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%discord%';
+  has_google_identity boolean := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', ''))) = 'google'
+    or coalesce(new.raw_app_meta_data -> 'providers', '[]'::jsonb) ? 'google'
+    or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%google%'
+    or lower(coalesce(new.raw_user_meta_data ->> 'iss', '')) like '%accounts.google.com%';
   clean_discord_user_id text := null;
   clean_discord_username text := null;
   clean_discord_global_name text := null;
   clean_discord_avatar_url text := null;
+  clean_google_user_id text := null;
+  clean_google_full_name text := null;
+  clean_google_avatar_url text := null;
   should_record_event boolean := false;
 begin
   if coalesce(new.is_anonymous, false) then
@@ -637,6 +754,26 @@ begin
     )), 500), '');
   end if;
 
+  if has_google_identity then
+    clean_google_user_id := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'provider_id',
+      new.raw_user_meta_data ->> 'sub',
+      new.raw_user_meta_data ->> 'id',
+      ''
+    )), 128), '');
+    clean_google_full_name := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'full_name',
+      new.raw_user_meta_data ->> 'name',
+      new.raw_user_meta_data ->> 'user_name',
+      ''
+    )), 160), '');
+    clean_google_avatar_url := nullif(left(trim(coalesce(
+      new.raw_user_meta_data ->> 'avatar_url',
+      new.raw_user_meta_data ->> 'picture',
+      ''
+    )), 500), '');
+  end if;
+
   insert into public.alpaca_profiles (
     id,
     alpaca_name,
@@ -653,6 +790,10 @@ begin
     discord_global_name,
     discord_avatar_url,
     discord_connected_at,
+    google_user_id,
+    google_full_name,
+    google_avatar_url,
+    google_connected_at,
     last_sign_in_at
   )
   values (
@@ -671,6 +812,10 @@ begin
     clean_discord_global_name,
     clean_discord_avatar_url,
     case when has_discord_identity then coalesce(new.last_sign_in_at, now()) else null end,
+    clean_google_user_id,
+    clean_google_full_name,
+    clean_google_avatar_url,
+    case when has_google_identity then coalesce(new.last_sign_in_at, now()) else null end,
     new.last_sign_in_at
   )
   on conflict (id) do update
@@ -682,6 +827,10 @@ begin
       discord_global_name = coalesce(excluded.discord_global_name, public.alpaca_profiles.discord_global_name),
       discord_avatar_url = coalesce(excluded.discord_avatar_url, public.alpaca_profiles.discord_avatar_url),
       discord_connected_at = coalesce(excluded.discord_connected_at, public.alpaca_profiles.discord_connected_at),
+      google_user_id = coalesce(excluded.google_user_id, public.alpaca_profiles.google_user_id),
+      google_full_name = coalesce(excluded.google_full_name, public.alpaca_profiles.google_full_name),
+      google_avatar_url = coalesce(excluded.google_avatar_url, public.alpaca_profiles.google_avatar_url),
+      google_connected_at = coalesce(excluded.google_connected_at, public.alpaca_profiles.google_connected_at),
       last_sign_in_at = coalesce(excluded.last_sign_in_at, public.alpaca_profiles.last_sign_in_at),
       updated_at = now();
 
@@ -701,6 +850,9 @@ begin
       discord_username,
       discord_global_name,
       discord_avatar_url,
+      google_user_id,
+      google_full_name,
+      google_avatar_url,
       event_type
     )
     values (
@@ -711,6 +863,9 @@ begin
       clean_discord_username,
       clean_discord_global_name,
       clean_discord_avatar_url,
+      clean_google_user_id,
+      clean_google_full_name,
+      clean_google_avatar_url,
       'sign_in'
     );
   end if;

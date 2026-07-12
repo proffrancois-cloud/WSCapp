@@ -428,6 +428,7 @@ body.is-online-mode .hero-best-strip {
 
 .auth-provider-stack {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -496,6 +497,22 @@ body.is-online-mode .hero-best-strip {
   font-weight: 900;
 }
 
+.auth-provider-google {
+  border-color: rgba(212, 157, 45, 0.36);
+  background: linear-gradient(135deg, #ffffff, #fff6df);
+  color: #3a2918;
+  box-shadow: 0 14px 28px rgba(112, 75, 24, 0.16);
+}
+
+.auth-provider-google .auth-provider-icon-shell {
+  background: rgba(248, 232, 188, 0.72);
+}
+
+.auth-provider-google:hover,
+.auth-provider-google:focus-visible {
+  box-shadow: 0 16px 30px rgba(112, 75, 24, 0.22);
+}
+
 .auth-divider {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -505,6 +522,12 @@ body.is-online-mode .hero-best-strip {
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .auth-provider-stack {
+    grid-template-columns: 1fr;
+  }
 }
 
 .auth-divider::before,

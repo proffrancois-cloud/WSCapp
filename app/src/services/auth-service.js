@@ -4,7 +4,13 @@
     discord: Object.freeze({
       provider: "discord",
       label: "Continue with Discord",
+      iconSrc: "./assets/mascot/library/final-pack/Discordlogo.png?v=20260707directgames",
       scopes: "identify email"
+    }),
+    google: Object.freeze({
+      provider: "google",
+      label: "Continue with Google",
+      iconSrc: "./assets/mascot/library/final-pack/google%20signup.png?v=20260712googleoauth"
     })
   });
 
@@ -26,12 +32,16 @@
       throw new Error("That sign-in provider is not available yet.");
     }
 
+    const options = {
+      redirectTo
+    };
+    if (config.scopes) {
+      options.scopes = config.scopes;
+    }
+
     return {
       provider: config.provider,
-      options: {
-        redirectTo,
-        scopes: config.scopes
-      }
+      options
     };
   }
 
@@ -76,6 +86,11 @@
       .filter(Boolean);
   }
 
+  function hasAuthProvider(providers, userMetadata, provider) {
+    return providers.includes(provider)
+      || new RegExp(provider, "i").test(firstMetadataValue(userMetadata.iss));
+  }
+
   function extractAuthIdentity(user, now = new Date()) {
     if (!user || !user.id) {
       return null;
@@ -84,8 +99,9 @@
     const userMetadata = user.user_metadata || {};
     const providers = getUserProviders(user);
     const lastAuthProvider = providers[0] || (user.email ? "email" : "unknown");
-    const isDiscord = providers.includes("discord")
-      || /discord/i.test(firstMetadataValue(userMetadata.iss));
+    const isDiscord = hasAuthProvider(providers, userMetadata, "discord");
+    const isGoogle = hasAuthProvider(providers, userMetadata, "google")
+      || /accounts\.google\.com/i.test(firstMetadataValue(userMetadata.iss));
     const providerId = limitText(
       userMetadata.provider_id || userMetadata.sub || userMetadata.id,
       128
@@ -98,7 +114,7 @@
       last_sign_in_at: timestamp
     };
 
-    if (!isDiscord) {
+    if (!isDiscord && !isGoogle) {
       return payload;
     }
 
@@ -106,23 +122,41 @@
       ? userMetadata.custom_claims
       : {};
 
-    payload.discord_user_id = limitText(
-      userMetadata.provider_id || userMetadata.sub || customClaims.id || userMetadata.id,
-      128
-    ) || null;
-    payload.discord_username = limitText(
-      userMetadata.user_name || userMetadata.username || userMetadata.preferred_username || userMetadata.name,
-      120
-    ) || null;
-    payload.discord_global_name = limitText(
-      userMetadata.global_name || customClaims.global_name || userMetadata.full_name || userMetadata.name,
-      160
-    ) || null;
-    payload.discord_avatar_url = limitText(
-      userMetadata.avatar_url || userMetadata.picture,
-      500
-    ) || null;
-    payload.discord_connected_at = timestamp;
+    if (isDiscord) {
+      payload.discord_user_id = limitText(
+        userMetadata.provider_id || userMetadata.sub || customClaims.id || userMetadata.id,
+        128
+      ) || null;
+      payload.discord_username = limitText(
+        userMetadata.user_name || userMetadata.username || userMetadata.preferred_username || userMetadata.name,
+        120
+      ) || null;
+      payload.discord_global_name = limitText(
+        userMetadata.global_name || customClaims.global_name || userMetadata.full_name || userMetadata.name,
+        160
+      ) || null;
+      payload.discord_avatar_url = limitText(
+        userMetadata.avatar_url || userMetadata.picture,
+        500
+      ) || null;
+      payload.discord_connected_at = timestamp;
+    }
+
+    if (isGoogle) {
+      payload.google_user_id = limitText(
+        userMetadata.provider_id || userMetadata.sub || userMetadata.id,
+        128
+      ) || null;
+      payload.google_full_name = limitText(
+        userMetadata.full_name || userMetadata.name || userMetadata.user_name,
+        160
+      ) || null;
+      payload.google_avatar_url = limitText(
+        userMetadata.avatar_url || userMetadata.picture,
+        500
+      ) || null;
+      payload.google_connected_at = timestamp;
+    }
 
     return payload;
   }

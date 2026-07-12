@@ -4766,6 +4766,10 @@ function renderSessionControls() {
     refs.sessionControls.classList.remove("hidden");
     refs.sessionControls.dataset.authState = "signed-out";
     refs.sessionControls.dataset.menuLabel = "Log in";
+    refs.sessionControls.setAttribute("data-open-auth", "");
+    refs.sessionControls.removeAttribute("data-auth-signout");
+    refs.sessionControls.setAttribute("aria-label", "Open Alpaccount login");
+    refs.sessionControls.setAttribute("title", "Log in");
     setAppHtml(refs.sessionControls, `
       <div class="session-control-stack">
         <button
@@ -4785,6 +4789,10 @@ function renderSessionControls() {
   refs.sessionControls.classList.remove("hidden");
   refs.sessionControls.dataset.authState = "signed-in";
   refs.sessionControls.dataset.menuLabel = "Log out";
+  refs.sessionControls.removeAttribute("data-open-auth");
+  refs.sessionControls.setAttribute("data-auth-signout", "");
+  refs.sessionControls.setAttribute("aria-label", "Log out of your Alpaccount");
+  refs.sessionControls.setAttribute("title", "Log out");
   setAppHtml(refs.sessionControls, `
     <div class="session-control-stack">
       <button
@@ -8400,7 +8408,7 @@ async function loadAlpacaProfile() {
 
   state.auth.profile = profile || null;
   if (requiresAlpaccountProfileCompletion()) {
-    promptForAlpaccountProfileCompletion("Discord is connected. Finish your Alpaccount profile to continue.");
+    promptForAlpaccountProfileCompletion("Your sign-in is connected. Finish your Alpaccount profile to continue.");
   } else if (state.ui.authMode === "complete-profile") {
     state.ui.authMode = "login";
     state.ui.authOpen = false;
@@ -8744,8 +8752,7 @@ async function connectWithOAuthProvider(provider) {
       : {
           provider: String(provider || "").trim().toLowerCase(),
           options: {
-            redirectTo: getCurrentRedirectUrl(),
-            scopes: "identify email"
+            redirectTo: getCurrentRedirectUrl()
           }
         };
   } catch (error) {
@@ -8760,7 +8767,7 @@ async function connectWithOAuthProvider(provider) {
   const { error } = await client.auth.signInWithOAuth(oauthConfig);
   if (error) {
     state.auth.status = "ready";
-    state.auth.error = error.message || "Discord sign-in could not start.";
+    state.auth.error = error.message || "Sign-in could not start.";
     syncAuthChrome();
   }
 }

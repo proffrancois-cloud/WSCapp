@@ -42,7 +42,7 @@
 
   function renderIntro(context) {
     if (context.requiresProfileCompletion || context.mode === "complete-profile") {
-      return "Discord is connected. Choose your alpaca name, school, and WSC details to finish your Alpaccount.";
+      return "Your sign-in is connected. Choose your alpaca name, school, and WSC details to finish your Alpaccount.";
     }
 
     if (context.mode === "signup") {
@@ -188,7 +188,7 @@
             data-auth-oauth="${helpers.escapeHtml(provider.provider)}"
             ${context.busy ? "disabled" : ""}
           >
-            <span class="auth-provider-icon-shell" aria-hidden="true"><img class="auth-provider-icon" src="./assets/mascot/library/final-pack/Discordlogo.png?v=20260707directgames" alt="" width="25" height="25" loading="eager" decoding="async" /></span>
+            <span class="auth-provider-icon-shell" aria-hidden="true"><img class="auth-provider-icon" src="${helpers.escapeHtml(provider.iconSrc || "./assets/mascot/library/final-pack/Discordlogo.png?v=20260707directgames")}" alt="" width="25" height="25" loading="eager" decoding="async" /></span>
             <strong>${helpers.escapeHtml(provider.label || "Continue")}</strong>
           </button>
         `).join("")}
@@ -221,6 +221,7 @@
   function renderSignupForm(context, helpers) {
     return `
       <form class="alpaccount-form" data-auth-form="signup">
+        ${renderOAuthActions(context, helpers)}
         <div class="auth-form-grid">
           <label class="auth-field">
             <span>Email address</span>

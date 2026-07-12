@@ -1,6 +1,6 @@
 (function () {
   const BASE_PROFILE_COLUMNS = "alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,created_at";
-  const AUTH_PROFILE_COLUMNS = "last_auth_provider,auth_provider_id,discord_user_id,discord_username,discord_global_name,discord_avatar_url,discord_connected_at,last_sign_in_at";
+  const AUTH_PROFILE_COLUMNS = "last_auth_provider,auth_provider_id,discord_user_id,discord_username,discord_global_name,discord_avatar_url,discord_connected_at,google_user_id,google_full_name,google_avatar_url,google_connected_at,last_sign_in_at";
   const ID_PROFILE_COLUMNS = `${BASE_PROFILE_COLUMNS},wsc_achievements`;
   const FULL_PROFILE_COLUMNS = `${ID_PROFILE_COLUMNS},${AUTH_PROFILE_COLUMNS}`;
 
@@ -8,7 +8,7 @@
     const message = String(error?.message || "");
     return error?.code === "42703"
       || /wsc_achievements/i.test(message)
-      || /last_auth_provider|auth_provider_id|discord_user_id|discord_username|discord_global_name|discord_avatar_url|discord_connected_at|last_sign_in_at/i.test(message);
+      || /last_auth_provider|auth_provider_id|discord_user_id|discord_username|discord_global_name|discord_avatar_url|discord_connected_at|google_user_id|google_full_name|google_avatar_url|google_connected_at|last_sign_in_at/i.test(message);
   }
 
   async function fetchProfile(client, userId) {
