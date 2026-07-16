@@ -69,9 +69,12 @@
 
   function renderDocument(guide, helpers) {
     if (guide?.htmlContent) {
+      const isBookGuide = guide.htmlContent.includes("regular-guide-book");
       return `
-        <div class="regular-guide-document" aria-label="${helpers.escapeHtml(`${guide.sectionTitle || guide.title} guide content`)}">
-          ${guide.htmlContent}
+        <div class="regular-guide-document${isBookGuide ? " regular-guide-document--book" : ""}" aria-label="${helpers.escapeHtml(`${guide.sectionTitle || guide.title} guide content`)}">
+          <div class="regular-guide-document-inner">
+            ${guide.htmlContent}
+          </div>
         </div>
       `;
     }
