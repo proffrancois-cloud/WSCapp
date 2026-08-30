@@ -8736,18 +8736,21 @@ async function connectToAlpaccount(formData, client) {
 }
 
 async function connectWithOAuthProvider(provider) {
-  const client = getSupabaseClient();
-  clearAuthNotice();
-
-  if (!client) {
-    state.auth.error = "Supabase is not configured yet. Add the publishable key in supabase-config.js.";
-    syncAuthChrome();
+  if (state.auth.status === "submitting") {
     return;
   }
 
-  let oauthConfig;
+  clearAuthNotice();
+  state.auth.status = "submitting";
+  syncAuthChrome();
+
   try {
-    oauthConfig = appAuthService?.getOAuthSignInOptions
+    const client = getSupabaseClient();
+    if (!client || typeof appAuthService?.assertOAuthProviderEnabled !== "function") {
+      throw new Error("The sign-in service is unavailable. Please try again.");
+    }
+
+    const oauthConfig = appAuthService?.getOAuthSignInOptions
       ? appAuthService.getOAuthSignInOptions(provider, getCurrentRedirectUrl())
       : {
           provider: String(provider || "").trim().toLowerCase(),
@@ -8755,19 +8758,19 @@ async function connectWithOAuthProvider(provider) {
             redirectTo: getCurrentRedirectUrl()
           }
         };
+
+    await appAuthService.assertOAuthProviderEnabled(provider, {
+      url: SUPABASE_URL,
+      publishableKey: SUPABASE_PUBLISHABLE_KEY
+    });
+
+    const { error } = await client.auth.signInWithOAuth(oauthConfig);
+    if (error) {
+      throw error;
+    }
   } catch (error) {
-    state.auth.error = error.message || "That sign-in provider is not available yet.";
-    syncAuthChrome();
-    return;
-  }
-
-  state.auth.status = "submitting";
-  syncAuthChrome();
-
-  const { error } = await client.auth.signInWithOAuth(oauthConfig);
-  if (error) {
     state.auth.status = "ready";
-    state.auth.error = error.message || "Sign-in could not start.";
+    state.auth.error = error?.message || "Sign-in could not start. Please try again.";
     syncAuthChrome();
   }
 }
