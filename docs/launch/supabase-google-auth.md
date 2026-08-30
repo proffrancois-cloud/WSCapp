@@ -16,8 +16,12 @@ The callback is the Supabase URL, not the WSCapp home page.
 
 Configure the consent screen for the intended public audience. Request only
 `openid`, `email`, and `profile`; WSCapp does not need Drive, Gmail, or other
-Google account permissions. A client left in testing mode is limited to its
-configured test users.
+Google account permissions.
+
+When the request contains only these identity scopes, users need not be listed
+as test users; the Testing-mode warning and seven-day authorization expiry do
+not apply. Adding any other OAuth scope removes this exception.
+[Google — Manage App Audience](https://support.google.com/cloud/answer/15549945?hl=en).
 
 In Supabase, open Authentication → Sign In / Providers → Google, enter the
 client ID and client secret, and enable Google. Keep nonce checks enabled and
