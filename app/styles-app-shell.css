@@ -5,7 +5,7 @@
   --cream: #ecd9aa;
   --cream-soft: #f3e3bc;
   --cream-strong: #e1be67;
-  --gold: #c89c44;
+  --gold: #825f1f;
   --navy: #6b4e16;
   --sky: #b98953;
   --ink: #412a17;
@@ -776,8 +776,10 @@ button {
   top: 14px;
   right: 14px;
   z-index: 3;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   display: inline-grid;
   place-items: center;
   border: 1px solid rgba(107, 78, 22, 0.16);
@@ -939,7 +941,8 @@ button {
 
 .meta-pill.subject {
   background: var(--subject-soft, rgba(200, 156, 68, 0.12));
-  color: var(--subject-color, var(--bg));
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--subject-color, var(--gold)) 42%, transparent);
 }
 
 .meta-pill.timer {
@@ -5902,8 +5905,8 @@ body {
 .selected-section-selected-row .selected-section-chip {
   width: auto !important;
   min-width: 0 !important;
-  height: 38px !important;
-  min-height: 38px !important;
+  height: 44px !important;
+  min-height: 44px !important;
   padding: 4px 12px 4px 7px !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -7355,16 +7358,10 @@ body .mode-choice-board.has-section-selection:has(.mode-choice-column.is-open) .
   text-align: center !important;
 }
 
-/* May 23 pathstage34: app-wide Google font requested by the user. */
+/* Retain the handwriting face as an opt-in accent instead of overriding every component. */
 
 :root {
   --wsc-app-font: "Shadows Into Light Two", "Inter Tight", system-ui, sans-serif;
-}
-
-body,
-body *:not(svg):not(path) {
-  font-family: var(--wsc-app-font) !important;
-  letter-spacing: 0 !important;
 }
 
 /* May 23 pathstage36: Raw Content and Guide questions use the Mind Map slideshow pattern. */
@@ -7744,7 +7741,7 @@ body .hero-links > button.hero-link-icon.hero-settings-icon::after {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 14px;
   height: 100%;
   padding: clamp(16px, 2.2vw, 28px);
@@ -7853,6 +7850,18 @@ body .hero-links > button.hero-link-icon.hero-settings-icon::after {
   border: 1px solid rgba(252, 209, 39, 0.22);
   border-radius: 18px;
   background: #fffaf0;
+}
+
+.library-resource-external-fallback {
+  margin: 0;
+  color: #fff6df;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.library-resource-external-fallback a {
+  color: #ffe08a;
+  font-weight: 850;
 }
 
 .library-embedded-doc-overlay {
@@ -8044,4 +8053,35 @@ body .hero-links > button.hero-link-icon.hero-settings-icon::after {
 
 .library-campus-window-channel .library-campus-card-grid {
   gap: clamp(12px, 1.4vw, 18px);
+}
+.boot-failure-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: color-mix(in srgb, #17140f 82%, transparent);
+}
+
+.boot-failure-panel {
+  width: min(100%, 560px);
+  padding: clamp(24px, 6vw, 48px);
+  border: 2px solid #825f1f;
+  border-radius: 24px;
+  background: #fffaf0;
+  color: #211c14;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.42);
+  text-align: center;
+}
+
+.boot-failure-panel h1 {
+  margin: 0 0 12px;
+  font-family: var(--font-display, Cardo, Georgia, serif);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+.boot-failure-panel p {
+  margin: 0 0 24px;
+  line-height: 1.6;
 }

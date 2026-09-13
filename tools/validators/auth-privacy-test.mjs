@@ -9,6 +9,7 @@ const authRendererPath = resolve(repoRoot, "app/src/ui/auth-modal-renderer.js");
 const appSourcePath = resolve(repoRoot, "app/src/app/app-main.js");
 const stylesPath = resolve(repoRoot, "app/styles-online-overrides.css");
 const alpacapardyRendererPath = resolve(repoRoot, "app/src/modes/play/alpacapardy/alpacapardy-renderer.js");
+const alpaccountsSqlPath = resolve(repoRoot, "app/supabase/alpaccounts.sql");
 
 const sandbox = {
   console,
@@ -70,58 +71,7 @@ if (authService.isPasswordRecoveryRedirect({
   throw new Error("Non-recovery auth redirects must not open the reset-password UI.");
 }
 
-const discordUser = {
-  id: "user-1",
-  email: "private@example.test",
-  app_metadata: {
-    provider: "discord",
-    providers: ["discord"]
-  },
-  user_metadata: {
-    provider_id: "123456789",
-    user_name: "alpaca_scholar",
-    global_name: "Alpaca Scholar",
-    avatar_url: "https://cdn.discordapp.com/avatars/123/avatar.png",
-    email: "private@example.test"
-  }
-};
-const identity = authService.extractAuthIdentity(discordUser, new Date("2026-07-08T00:00:00.000Z"));
-
-if (identity.last_auth_provider !== "discord") {
-  throw new Error("Discord identity should record the provider.");
-}
-if (identity.discord_user_id !== "123456789" || identity.discord_username !== "alpaca_scholar") {
-  throw new Error("Discord identity fields were not extracted.");
-}
-if ("email" in identity || "user_metadata" in identity) {
-  throw new Error("Auth identity payload must not include raw email or raw metadata.");
-}
-
-const googleUser = {
-  id: "user-google-1",
-  email: "private-google@example.test",
-  app_metadata: {
-    provider: "google",
-    providers: ["google"]
-  },
-  user_metadata: {
-    sub: "google-subject-123",
-    full_name: "Google Alpaca",
-    avatar_url: "https://lh3.googleusercontent.com/a/test-avatar",
-    email: "private-google@example.test"
-  }
-};
-const googleIdentity = authService.extractAuthIdentity(googleUser, new Date("2026-07-08T00:00:00.000Z"));
-if (googleIdentity.last_auth_provider !== "google" || googleIdentity.google_user_id !== "google-subject-123") {
-  throw new Error("Google identity fields were not extracted.");
-}
-if (googleIdentity.google_full_name !== "Google Alpaca" || !googleIdentity.google_avatar_url.includes("googleusercontent")) {
-  throw new Error("Google profile name/avatar fields were not extracted.");
-}
-if ("email" in googleIdentity || "user_metadata" in googleIdentity || "discord_user_id" in googleIdentity) {
-  throw new Error("Google identity payload must not include raw email, raw metadata, or Discord fields.");
-}
-
+const testUserId = "user-1";
 let updatePayload = null;
 const fakeClient = {
   from(tableName) {
@@ -133,13 +83,13 @@ const fakeClient = {
         updatePayload = payload;
         return {
           eq(column, value) {
-            if (column !== "id" || value !== discordUser.id) {
-              throw new Error("syncAuthIdentity should update the signed-in user's profile.");
+            if (column !== "id" || value !== testUserId) {
+              throw new Error("updateProfile should update only the signed-in user's profile.");
             }
             return {
               select() {
                 return {
-                  maybeSingle: async () => ({ data: { id: discordUser.id }, error: null })
+                  maybeSingle: async () => ({ data: { id: testUserId }, error: null })
                 };
               }
             };
@@ -150,12 +100,7 @@ const fakeClient = {
   }
 };
 
-await profileService.syncAuthIdentity(fakeClient, discordUser);
-if (!updatePayload || updatePayload.discord_user_id !== "123456789" || updatePayload.email) {
-  throw new Error("syncAuthIdentity should send a minimal Discord analytics payload.");
-}
-
-await profileService.updateProfile(fakeClient, discordUser.id, {
+await profileService.updateProfile(fakeClient, testUserId, {
   alpaca_name: "realalpaca",
   country: "France",
   school_name: "WSC Test School",
@@ -282,6 +227,40 @@ if (!completeProfileHtml.includes('name="school_name"') || !completeProfileHtml.
 const appSource = readFileSync(appSourcePath, "utf8");
 const stylesSource = readFileSync(stylesPath, "utf8");
 const alpacapardyRendererSource = readFileSync(alpacapardyRendererPath, "utf8");
+const authRendererSource = readFileSync(authRendererPath, "utf8");
+const alpaccountsSqlSource = readFileSync(alpaccountsSqlPath, "utf8");
+if (typeof profileService.syncAuthIdentity === "function"
+  || typeof authService.extractAuthIdentity === "function"
+  || appSource.includes("syncAlpacaAuthIdentity")) {
+  throw new Error("OAuth identity metadata must be synchronized by the trusted auth.users trigger, not by client-writable profile updates.");
+}
+if (!alpaccountsSqlSource.includes("create trigger sync_alpaca_profile_auth_identity")
+  || !alpaccountsSqlSource.includes("after insert or update of raw_app_meta_data, raw_user_meta_data, email, last_sign_in_at on auth.users")
+  || /grant\s+select\s*,\s*update\s+on\s+public\.alpaca_profiles/i.test(alpaccountsSqlSource)
+  || !/grant\s+update\s*\([\s\S]*?alpaca_name[\s\S]*?wsc_achievements[\s\S]*?\)\s+on\s+public\.alpaca_profiles\s+to\s+authenticated/i.test(alpaccountsSqlSource)) {
+  throw new Error("Profile identity columns must be trigger-managed while authenticated users can update only public self-service fields.");
+}
+if (typeof profileService.resolveAlpacaLogin === "function"
+  || appSource.includes("resolve_alpaca_login")
+  || /alpaca name or email/i.test(authRendererSource)) {
+  throw new Error("Alpaccount login and recovery must stay email-only and must not resolve public names to private emails.");
+}
+if (!alpaccountsSqlSource.includes("drop function if exists public.resolve_alpaca_login(text)")
+  || /create\s+or\s+replace\s+function\s+public\.resolve_alpaca_login/i.test(alpaccountsSqlSource)
+  || /grant\s+execute\s+on\s+function\s+public\.resolve_alpaca_login/i.test(alpaccountsSqlSource)) {
+  throw new Error("The Supabase setup must explicitly drop the legacy alpaca-name email resolver and never recreate or grant it.");
+}
+if (typeof profileService.checkAlpacaNameAvailability === "function"
+  || appSource.includes('rpc("is_alpaca_name_available"')
+  || !alpaccountsSqlSource.includes("drop function if exists public.is_alpaca_name_available(text)")
+  || /create\s+or\s+replace\s+function\s+public\.is_alpaca_name_available/i.test(alpaccountsSqlSource)
+  || /grant\s+execute\s+on\s+function\s+public\.is_alpaca_name_available/i.test(alpaccountsSqlSource)) {
+  throw new Error("Alpaca-name uniqueness must be enforced by the write constraint without a public enumeration RPC.");
+}
+if (!authRendererSource.includes('minlength="8" maxlength="128"')
+  || !appSource.includes("password.length < 8 || password.length > 128")) {
+  throw new Error("Alpaccount password creation and recovery must enforce the 8-128 character policy in UI and logic.");
+}
 if (appSource.includes("choose its round, city, and approximate date")) {
   throw new Error("Signup must not require reward city/date when creating an Alpaccount.");
 }
@@ -330,8 +309,8 @@ if (/admin test accounts|approved school domains|approved Alpaccount/.test(`${ap
 
 console.log(JSON.stringify({
   providers: [discordOauthConfig.provider, googleOauthConfig.provider],
-  fields: Object.keys(identity).sort(),
-  googleFields: Object.keys(googleIdentity).sort(),
+  identitySync: "trusted-auth-users-trigger",
+  profileUpdateGrant: "public-self-service-columns-only",
   renderer: "discord-google-buttons",
   passwordRecovery: "reset-form",
   headerLoginMenu: "whole-item-opens-auth",

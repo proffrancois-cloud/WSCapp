@@ -67,7 +67,7 @@ function getProxyScript() {
       type: "wsc-library-open-embedded-doc",
       url: url.toString(),
       label: (anchor.textContent || "Resource").trim().slice(0, 160)
-    }, window.location.origin);
+    }, "*");
   }, true);
 })();
 </script>
@@ -113,6 +113,30 @@ async function readLimitedText(fetchResponse) {
   return Buffer.concat(chunks.map((chunk) => Buffer.from(chunk))).toString("utf8");
 }
 
+async function fetchAllowedResource(initialUrl, options = {}) {
+  let targetUrl = getAllowedTargetUrl(initialUrl);
+  for (let redirectCount = 0; redirectCount <= 3; redirectCount += 1) {
+    const upstream = await fetch(targetUrl.toString(), {
+      ...options,
+      redirect: "manual",
+      headers: {
+        "User-Agent": "WSC-App-Library-Embed/1.0",
+        ...(options.headers || {})
+      }
+    });
+    if (upstream.status < 300 || upstream.status >= 400) {
+      return { upstream, targetUrl };
+    }
+
+    const location = upstream.headers.get("location");
+    if (!location || redirectCount === 3) {
+      throw new Error("Library resource redirected too many times.");
+    }
+    targetUrl = getAllowedTargetUrl(new URL(location, targetUrl).toString());
+  }
+  throw new Error("Unable to load library resource.");
+}
+
 module.exports = async function handler(request, response) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     return sendText(response, 405, "Method not allowed.", {
@@ -131,18 +155,8 @@ module.exports = async function handler(request, response) {
     });
   }
 
-  if (request.method === "HEAD" || requestUrl.searchParams.get("probe") === "1") {
-    response.statusCode = 204;
-    response.end();
-    return undefined;
-  }
-
   try {
-    const upstream = await fetch(targetUrl.toString(), {
-      headers: {
-        "User-Agent": "WSC-App-Library-Embed/1.0"
-      }
-    });
+    const { upstream, targetUrl: finalTargetUrl } = await fetchAllowedResource(targetUrl);
     if (!upstream.ok) {
       return sendText(response, upstream.status, "Unable to load library resource.", {
         "Content-Type": "text/plain; charset=utf-8"
@@ -156,10 +170,20 @@ module.exports = async function handler(request, response) {
       });
     }
 
+    if (request.method === "HEAD" || requestUrl.searchParams.get("probe") === "1") {
+      await upstream.body?.cancel?.();
+      response.statusCode = 204;
+      response.end();
+      return undefined;
+    }
+
     const html = await readLimitedText(upstream);
-    return sendText(response, 200, injectIntoHtml(html, targetUrl), {
+    return sendText(response, 200, injectIntoHtml(html, finalTargetUrl), {
       "Cache-Control": "public, max-age=300",
+      "Content-Security-Policy": "default-src 'none'; base-uri https:; img-src https: data: blob:; media-src https: blob:; style-src 'unsafe-inline' https:; script-src 'unsafe-inline' https:; font-src https: data:; connect-src https:; frame-src https:; form-action https:; sandbox allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox",
       "Content-Type": "text/html; charset=utf-8",
+      "Referrer-Policy": "no-referrer",
+      "X-Content-Type-Options": "nosniff",
       "X-Robots-Tag": "noindex"
     });
   } catch (error) {

@@ -350,7 +350,7 @@
           })}
           <h3>${helpers.escapeHtml(title)}</h3>
         </button>
-        <div class="mode-choice-card-grid">
+        <div class="mode-choice-card-grid" aria-hidden="${isOpen ? "false" : "true"}" ${isOpen ? "" : "inert"}>
           ${options.map((option) => renderModeChoiceCard(option, pathId, context, helpers)).join("")}
         </div>
       </section>

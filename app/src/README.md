@@ -48,7 +48,6 @@ The app still boots through `app/index.html`, with `app/app.js` kept as a tiny c
         raw-content-mastery.js # Owns Raw Content mastered toggle, back-to-top, and entry-level channel action rendering.
         raw-content-mode.js # Owns Raw Content shell rendering and multi-section entry grouping.
     play/
-      live-session-service.js # Owns transport-neutral live session/player/event snapshots for future realtime play.
       alpaquiz/
         alpaquiz-engine.js # Owns Alpaquiz question pattern, difficulty selection, answer scoring, and result summaries.
         alpaquiz-renderer.js # Owns Alpaquiz setup, question page, result footer, and feedback HTML.
