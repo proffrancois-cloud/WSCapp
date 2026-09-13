@@ -6,9 +6,15 @@
   const CHAT_RATE_LIMIT_MAX_MESSAGES = 2;
   const CHAT_RATE_LIMIT_WINDOW_MS = 3000;
   const CHAT_MAX_LENGTH = 120;
+  const RESTRICTED_CHAT_TERMS = Object.freeze([
+    "asshole", "bastard", "bitch", "cunt", "dickhead", "dumbass", "faggot", "fuck",
+    "idiot", "kike", "kill yourself", "kys", "loser", "moron", "motherfucker", "nigga",
+    "nigger", "retard", "shithead", "shut up", "slut", "spic", "stupid", "whore",
+    "abruti", "abrutie", "con", "conne", "connard", "connasse", "encule", "fdp",
+    "ferme ta gueule", "imbecile", "merde", "pute", "salope", "ta gueule", "va te faire foutre"
+  ]);
   const MOVEMENT_PAYLOAD_FIELDS = Object.freeze([
     "clientId",
-    "userId",
     "roomId",
     "x",
     "y",
@@ -21,7 +27,6 @@
   ]);
   const PUBLIC_PRESENCE_FIELDS = Object.freeze([
     "clientId",
-    "userId",
     "roomId",
     "displayName",
     "x",
@@ -29,13 +34,7 @@
     "direction",
     "colorId",
     "seatId",
-    "schoolName",
     "alpacaName",
-    "country",
-    "wscEventCount",
-    "highestWscRound",
-    "idRewards",
-    "createdAt",
     "debateRoom",
     "debateAudio",
     "scholarsChallenge",
@@ -48,6 +47,7 @@
     CHAT_RATE_LIMIT_MAX_MESSAGES,
     CHAT_RATE_LIMIT_WINDOW_MS,
     CHAT_MAX_LENGTH,
+    RESTRICTED_CHAT_TERMS,
     MOVEMENT_PAYLOAD_FIELDS,
     PUBLIC_PRESENCE_FIELDS
   });
@@ -107,6 +107,41 @@
     return String(value || "").replace(/\s+/g, " ").trim().slice(0, maxLength);
   }
 
+  function normalizeModerationText(value) {
+    return String(value || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[@4]/g, "a")
+      .replace(/3/g, "e")
+      .replace(/[1!|]/g, "i")
+      .replace(/0/g, "o")
+      .replace(/[5$]/g, "s")
+      .replace(/7/g, "t")
+      .replace(/(.)\1+/g, "$1")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+  }
+
+  function moderateChatMessage(value) {
+    const message = sanitizeText(value);
+    const normalized = normalizeModerationText(message);
+    const restrictedTerm = RESTRICTED_CHAT_TERMS.find((term) => {
+      const normalizedTerm = normalizeModerationText(term);
+      if (normalizedTerm.includes(" ")) {
+        return normalized.includes(normalizedTerm);
+      }
+      const tokenPattern = new RegExp(`(^|\\s)${normalizedTerm}(?=\\s|$)`);
+      const obfuscatedPattern = new RegExp(`(^|\\s)${normalizedTerm.split("").join("\\s*")}(?=\\s|$)`);
+      return tokenPattern.test(normalized) || obfuscatedPattern.test(normalized);
+    });
+    return {
+      allowed: Boolean(message && !restrictedTerm),
+      message,
+      reason: restrictedTerm ? "restricted-language" : (message ? "" : "empty")
+    };
+  }
+
   function compactMovementPayload(payload = {}) {
     const result = {
       x: toFiniteNumber(payload.x),
@@ -123,13 +158,13 @@
   }
 
   function compactChatPayload(payload = {}) {
-    const message = sanitizeText(payload.message);
-    if (!message) {
+    const moderation = moderateChatMessage(payload.message);
+    if (!moderation.allowed) {
       return null;
     }
     return {
       ...compactMovementPayload(payload),
-      message
+      message: moderation.message
     };
   }
 
@@ -138,14 +173,8 @@
   }
 
   function compactPublicPlayerPayload(payload = {}) {
-    const idRewards = Array.isArray(payload.idRewards)
-      ? payload.idRewards.slice(0, 9)
-      : Array.isArray(payload.achievements)
-        ? payload.achievements.slice(0, 9)
-        : [];
     const result = {
       clientId: toOptionalString(payload.clientId, 120),
-      userId: toNullableString(payload.userId, 160),
       roomId: toOptionalString(payload.roomId, 80),
       displayName: sanitizeText(payload.displayName || payload.alpacaName || "Guest", 80) || "Guest",
       x: toFiniteNumber(payload.x),
@@ -153,13 +182,7 @@
       direction: sanitizeDirection(payload.direction),
       colorId: sanitizeColorId(payload.colorId),
       seatId: sanitizeSeatId(payload.seatId),
-      schoolName: sanitizeText(payload.schoolName || "", 120),
       alpacaName: sanitizeText(payload.alpacaName || payload.displayName || "", 80),
-      country: sanitizeText(payload.country || "", 80),
-      wscEventCount: Math.max(0, Math.floor(toFiniteNumber(payload.wscEventCount, 0))),
-      highestWscRound: sanitizeText(payload.highestWscRound || "", 80),
-      idRewards,
-      createdAt: toNullableString(payload.createdAt, 80),
       debateRoom: toNullableString(payload.debateRoom, 80),
       debateAudio: payload.debateAudio && typeof payload.debateAudio === "object" ? payload.debateAudio : null,
       scholarsChallenge: payload.scholarsChallenge && typeof payload.scholarsChallenge === "object" ? payload.scholarsChallenge : null,
@@ -224,7 +247,6 @@
         schema: SCHEMA,
         kind: "presence",
         clientId,
-        userId: localPlayer.userId || null,
         displayName: sanitizeText(localPlayer.displayName || "Guest", 80) || "Guest",
         roomId,
         x: toFiniteNumber(localPlayer.x),
@@ -232,8 +254,6 @@
         direction: sanitizeDirection(localPlayer.direction),
         colorId: sanitizeColorId(localPlayer.colorId),
         seatId: sanitizeSeatId(localPlayer.seatId),
-        schoolName: sanitizeText(localPlayer.schoolName || "", 120),
-        createdAt: localPlayer.createdAt || null,
         updatedAtMs: nowMs,
         ...extra
       };
@@ -448,9 +468,6 @@
     const base = endpoint.endsWith("/") ? endpoint.slice(0, -1) : endpoint;
     const url = new URL(`${base}/${encodeURIComponent(sanitizeTopicPart(roomId))}`);
     url.searchParams.set("clientId", localPlayer.clientId || createClientId());
-    if (localPlayer.userId) {
-      url.searchParams.set("userId", localPlayer.userId);
-    }
     return url.toString();
   }
 
@@ -540,8 +557,7 @@
       return sendEnvelope(type, {
         ...compactPayload,
         roomId,
-        clientId,
-        userId: localPlayer?.userId || null
+        clientId
       });
     }
 
@@ -763,6 +779,7 @@
     createCloudflareWebSocketTransport,
     createRoomChannel,
     flattenPresenceState,
+    moderateChatMessage,
     compactPublicPlayerPayload
   });
 }());

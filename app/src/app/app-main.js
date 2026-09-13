@@ -20,6 +20,7 @@ const AUTH_OAUTH_PROVIDERS = Object.freeze(Object.values(appAuthService?.oauthPr
 const DISCORD_INVITE_URL = "https://discord.gg/FyJCPMrs9";
 const CONTACT_EMAIL_URL = "mailto:support@wscapp.app";
 const CAMPUS_FEEDBACK_ENDPOINT = "/api/send-feedback-email";
+const CAMPUS_FEEDBACK_EMAIL = "frenchease.admin@gmail.com";
 const LIBRARY_RESOURCE_PROXY_ENDPOINT = "/api/embed-library-resource";
 const MULTIPLAYER_PUBLIC_ENABLED = true;
 const MULTIPLAYER_SIGN_IN_REQUIRED_MESSAGE = "Sign in with your Alpaccount to use multiplayer.";
@@ -2349,6 +2350,10 @@ const rawContentService = window.WSC_CREATE_RAW_CONTENT_SERVICE
   : null;
 
 let progressStorageController = null;
+let authSessionGeneration = 0;
+let activeAuthIdentity = "guest";
+let alpacaProgressSaveQueue = Promise.resolve();
+let supabaseLoaderListenersBound = false;
 
 const state = {
   selection: {
@@ -2427,17 +2432,14 @@ let devicePresentationController = null;
 let appSettingsController = null;
 
 const refs = {
-  heroMascot: document.getElementById("heroMascot"),
   pageShell: document.querySelector(".page-shell"),
   sessionControls: document.getElementById("sessionControls"),
   heroOnlineMount: document.getElementById("heroOnlineMount"),
   appEntryGateMount: document.getElementById("appEntryGateMount"),
   cooperationModalMount: document.getElementById("cooperationModalMount"),
-  insightGrid: document.getElementById("insightGrid"),
   orientationGateMount: document.getElementById("orientationGateMount"),
   routeBuilder: document.getElementById("routeBuilder"),
   routeBuilderTitle: document.getElementById("routeBuilderTitle"),
-  choiceSummary: document.getElementById("choiceSummary"),
   wizardRailMount: document.getElementById("wizardRailMount"),
   wizardSteps: document.getElementById("wizardSteps"),
   experiencePanel: document.getElementById("experiencePanel"),
@@ -2601,8 +2603,6 @@ const appLifecycleController = window.WSC_APP_LIFECYCLE_CONTROLLER.create({
     hydrateKnowledgeBank,
     preloadExperienceAudio,
     setupSupabaseAuth,
-    renderHeroVisual,
-    renderInsights,
     render
   },
   events: {
@@ -2688,6 +2688,7 @@ function handleClick(event) {
 
   const openAuth = event.target.closest("[data-open-auth]");
   if (openAuth) {
+    rememberDialogTrigger(openAuth);
     closeHeroMenu();
     if (state.ui.appEntryGateOpen) {
       state.ui.authMode = getAuthModeForCurrentSession("login");
@@ -2868,6 +2869,7 @@ function handleClick(event) {
 
   const openResources = event.target.closest("[data-open-resources]");
   if (openResources) {
+    rememberDialogTrigger(openResources);
     state.ui.resourcesOpen = true;
     state.ui.appSettingsOpen = false;
     closeHeroMenu();
@@ -2879,6 +2881,7 @@ function handleClick(event) {
 
   const openCampusSettings = event.target.closest("[data-open-campus-settings]");
   if (openCampusSettings) {
+    rememberDialogTrigger(openCampusSettings);
     closeHeroMenu();
     if (campus2dController?.openSettings) {
       campus2dController.openSettings();
@@ -2901,6 +2904,12 @@ function handleClick(event) {
     return;
   }
 
+  const appSettingsAccount = event.target.closest("[data-app-settings-account]");
+  if (appSettingsAccount) {
+    handleAppSettingsAccountAction();
+    return;
+  }
+
   const heroMenuButton = event.target.closest("[data-toggle-hero-menu]");
   if (heroMenuButton) {
     toggleHeroMenu(heroMenuButton);
@@ -2915,14 +2924,16 @@ function handleClick(event) {
     state.ui.authOpen = false;
     syncPopupScrollLock();
     renderAuthModal();
+    restoreDialogTriggerFocus();
     return;
   }
 
   const closeResources = event.target.closest("[data-close-resources]");
-  if (closeResources && (!event.target.closest("[data-resources-window]") || event.target.closest(".popup-close-button"))) {
+  if (closeResources && (!event.target.closest("[data-resources-window]") || closeResources.tagName === "BUTTON")) {
     state.ui.resourcesOpen = false;
     syncPopupScrollLock();
     renderResourcesModal();
+    restoreDialogTriggerFocus();
     return;
   }
 
@@ -3688,7 +3699,7 @@ function handleInput(event) {
     updateSharedAppSettings({
       volume: readSharedAppNumberSetting(appSettingsVolume.value, APP_DEFAULT_SETTINGS.volume, 0, 100),
       muted: Number(appSettingsVolume.value) <= 0
-    });
+    }, { render: false });
     return;
   }
 
@@ -3732,6 +3743,12 @@ function handleKeyDown(event) {
     event.preventDefault();
     event.stopPropagation();
     activateRawQuizPageButton(rawQuizPageButton);
+    return;
+  }
+
+  const activeDialog = getTopmostOpenDialog();
+  if (activeDialog && event.key === "Tab") {
+    trapFocusInDialog(event, activeDialog);
     return;
   }
 
@@ -3802,6 +3819,7 @@ function handleKeyDown(event) {
     state.ui.resourcesOpen = false;
     syncPopupScrollLock();
     renderResourcesModal();
+    restoreDialogTriggerFocus();
     return;
   }
 
@@ -3824,6 +3842,17 @@ function handleKeyDown(event) {
     state.ui.authOpen = false;
     syncPopupScrollLock();
     renderAuthModal();
+    restoreDialogTriggerFocus();
+    return;
+  }
+
+  if (
+    event.key === "Escape" &&
+    state.ui.appShellMode !== "online" &&
+    document.querySelector(".question-popup-overlay[role='dialog']")
+  ) {
+    event.preventDefault();
+    closeCurrentExperience();
     return;
   }
 
@@ -3894,6 +3923,80 @@ function handleKeyDown(event) {
 
   event.preventDefault();
   buzzRelayTeam(teamIndex);
+}
+
+function getTopmostOpenDialog() {
+  return Array.from(document.querySelectorAll('[role="dialog"][aria-modal="true"]'))
+    .filter((dialog) => !dialog.closest("[hidden]") && dialog.getClientRects().length)
+    .at(-1) || null;
+}
+
+function getDialogFocusableElements(dialog) {
+  return Array.from(dialog?.querySelectorAll([
+    "button:not([disabled])",
+    "a[href]",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(", ")) || []).filter((element) => {
+    return !element.closest("[inert], [aria-hidden='true']") && element.getClientRects().length;
+  });
+}
+
+function trapFocusInDialog(event, dialog) {
+  const focusable = getDialogFocusableElements(dialog);
+  if (!focusable.length) {
+    event.preventDefault();
+    dialog.setAttribute("tabindex", "-1");
+    dialog.focus({ preventScroll: true });
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (!dialog.contains(document.activeElement)) {
+    event.preventDefault();
+    (event.shiftKey ? last : first).focus({ preventScroll: true });
+    return;
+  }
+  if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus({ preventScroll: true });
+  } else if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus({ preventScroll: true });
+  }
+}
+
+function rememberDialogTrigger(trigger) {
+  const heroLinks = trigger?.closest?.(".hero-links");
+  state.ui.dialogReturnFocus = heroLinks?.querySelector("[data-toggle-hero-menu]") || trigger || null;
+}
+
+function scheduleDialogInitialFocus(dialogSelector, preferredSelector) {
+  window.requestAnimationFrame(() => {
+    const dialog = document.querySelector(dialogSelector);
+    if (!dialog?.isConnected || dialog.contains(document.activeElement)) {
+      return;
+    }
+    const preferred = preferredSelector ? dialog.querySelector(preferredSelector) : null;
+    const target = preferred || getDialogFocusableElements(dialog)[0] || dialog;
+    if (target === dialog) {
+      dialog.setAttribute("tabindex", "-1");
+    }
+    target.focus({ preventScroll: true });
+  });
+}
+
+function restoreDialogTriggerFocus() {
+  const trigger = state.ui.dialogReturnFocus;
+  state.ui.dialogReturnFocus = null;
+  window.requestAnimationFrame(() => {
+    if (trigger?.isConnected && !trigger.closest("[inert]")) {
+      trigger.focus({ preventScroll: true });
+    }
+  });
 }
 
 function handleTouchStart(event) {
@@ -4016,9 +4119,7 @@ function toggleHeroMenu(button) {
     return;
   }
 
-  const isOpen = links.classList.toggle("is-open");
-  button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  button.setAttribute("aria-label", isOpen ? "Close header menu" : "Open header menu");
+  setHeroMenuOpen(links, !links.classList.contains("is-open"));
 }
 
 function closeHeroMenu() {
@@ -4026,8 +4127,30 @@ function closeHeroMenu() {
   if (!links) {
     return;
   }
-  links.classList.remove("is-open");
-  links.querySelector("[data-toggle-hero-menu]")?.setAttribute("aria-expanded", "false");
+  setHeroMenuOpen(links, false);
+}
+
+function setHeroMenuOpen(links, isOpen) {
+  if (!links) {
+    return;
+  }
+
+  links.classList.toggle("is-open", isOpen);
+  const button = links.querySelector("[data-toggle-hero-menu]");
+  button?.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  button?.setAttribute("aria-label", isOpen ? "Close header menu" : "Open header menu");
+
+  Array.from(links.children).forEach((item) => {
+    if (item === button) {
+      return;
+    }
+    item.toggleAttribute("inert", !isOpen);
+    item.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  });
+
+  if (!isOpen && button && links.contains(document.activeElement) && document.activeElement !== button) {
+    button.focus({ preventScroll: true });
+  }
 }
 
 function primeModeChoiceCardSpread(column) {
@@ -4041,6 +4164,13 @@ function primeModeChoiceCardSpread(column) {
 }
 
 function scheduleModeChoiceCardSpread(column, board) {
+  if (isCompactPortraitPresentationActive()) {
+    clearModeChoiceCardSpread(column);
+    column.classList.add("is-open");
+    column.classList.remove("is-closing");
+    return;
+  }
+
   if (isTouchLandscapePresentationActive()) {
     column.classList.remove("is-open");
     column.querySelector(".mode-choice-card-grid")?.getBoundingClientRect();
@@ -4239,6 +4369,10 @@ function isTouchLandscapePresentationActive() {
   return document.body.classList.contains("is-touch-landscape");
 }
 
+function isCompactPortraitPresentationActive() {
+  return window.innerWidth <= 760 && window.innerHeight >= window.innerWidth;
+}
+
 function revealTouchModeChoiceMenu(column) {
   if (!isTouchLandscapePresentationActive()) {
     return;
@@ -4342,6 +4476,15 @@ function syncModeChoiceBoardStateClasses(board) {
   });
 }
 
+function setModeChoiceColumnInteractive(column, isInteractive) {
+  const grid = column?.querySelector(".mode-choice-card-grid");
+  if (!grid) {
+    return;
+  }
+  grid.toggleAttribute("inert", !isInteractive);
+  grid.setAttribute("aria-hidden", isInteractive ? "false" : "true");
+}
+
 function toggleModeChoiceMenu(button) {
   const column = button.closest(".mode-choice-column");
   if (!column) {
@@ -4364,7 +4507,7 @@ function toggleModeChoiceMenu(button) {
   const isOpen = column.classList.contains("is-open");
   const openColumn = board.querySelector(".mode-choice-column.is-open");
   const isSwitching = Boolean(openColumn && openColumn !== column);
-  const animationMs = 1240;
+  const animationMs = isCompactPortraitPresentationActive() ? 0 : 1240;
 
   if (board._modeChoiceTimer) {
     window.clearTimeout(board._modeChoiceTimer);
@@ -4398,7 +4541,8 @@ function toggleModeChoiceMenu(button) {
     board.classList.add("is-menu-closing");
     board.removeAttribute("data-active-path");
     syncModeChoiceBoardStateClasses(board);
-    button.setAttribute("aria-expanded", "false");
+    setModeMenuButtonExpanded(button, false);
+    setModeChoiceColumnInteractive(column, false);
     board._modeChoiceTimer = window.setTimeout(() => {
       clearModeChoiceCardSpread(column);
       clearModeChoiceColumnPosition(column);
@@ -4410,16 +4554,17 @@ function toggleModeChoiceMenu(button) {
     return;
   }
 
-  if (isSwitching && openColumn) {
+  if (isSwitching && openColumn && !isCompactPortraitPresentationActive()) {
     freezeModeChoiceColumnAtCurrentPosition(openColumn, board);
   }
   state.ui.openModeChoicePath = pathId;
   board.dataset.activePath = pathId;
   board.classList.toggle("is-menu-switching", isSwitching);
   board.querySelectorAll("[data-toggle-mode-menu]").forEach((menuButton) => {
-    menuButton.setAttribute("aria-expanded", menuButton === button ? "true" : "false");
+    setModeMenuButtonExpanded(menuButton, menuButton === button);
   });
   board.querySelectorAll(".mode-choice-column").forEach((item) => {
+    setModeChoiceColumnInteractive(item, item === column);
     item.classList.toggle("is-targeting", item === column);
     if (item === column) {
       item.classList.remove("is-closing");
@@ -4434,9 +4579,11 @@ function toggleModeChoiceMenu(button) {
   if (openColumn && openColumn !== column) {
     openColumn.classList.add("is-closing");
     openColumn.classList.remove("is-open", "is-opening", "is-targeting");
-    moveModeChoiceColumnToCollapsedSlot(openColumn);
+    if (!isCompactPortraitPresentationActive()) {
+      moveModeChoiceColumnToCollapsedSlot(openColumn);
+    }
   }
-  button.setAttribute("aria-expanded", "true");
+  setModeMenuButtonExpanded(button, true);
   syncModeChoiceBoardStateClasses(board);
 
   clearModeChoiceColumnPosition(column);
@@ -4459,11 +4606,21 @@ function toggleModeChoiceMenu(button) {
       clearModeChoiceCardSpread(item);
       clearModeChoiceColumnPosition(item);
       item.classList.remove("is-open", "is-closing", "is-opening", "is-targeting");
+      setModeChoiceColumnInteractive(item, false);
     });
     board._modeChoiceTimer = null;
     board.classList.remove("is-menu-switching", "is-menu-closing");
     syncModeChoiceBoardStateClasses(board);
   }, animationMs);
+}
+
+function setModeMenuButtonExpanded(button, isExpanded) {
+  if (!button) {
+    return;
+  }
+  const title = String(button.querySelector("h3")?.textContent || button.dataset.toggleModeMenu || "Mode").trim();
+  button.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+  button.setAttribute("aria-label", `${isExpanded ? "Close" : "Open"} ${title} menu`);
 }
 
 function continueTargetSelection() {
@@ -4644,7 +4801,6 @@ function render() {
   syncDevicePresentationState();
   renderSessionControls();
   renderAppEntryGate();
-  renderSummary();
   renderWizard();
   syncCampus2DOnlineMount();
   renderLiveOverlayMount();
@@ -4713,22 +4869,6 @@ function syncRouteBuilderVisibility() {
   } else {
     refs.routeBuilder.removeAttribute("aria-hidden");
   }
-}
-
-function renderInsights() {
-  if (!refs.insightGrid) {
-    return;
-  }
-  setAppHtml(refs.insightGrid, data.insights
-    .map(
-      (insight) => `
-        <article class="insight-card">
-          <strong>${escapeHtml(insight.title)}</strong>
-          <span>${escapeHtml(insight.body)}</span>
-        </article>
-      `
-    )
-    .join(""), "insights");
 }
 
 function renderSessionControls() {
@@ -4824,7 +4964,11 @@ function renderAppEntryGate() {
   setAppHtml(refs.appEntryGateMount, `
     <div class="app-entry-gate-overlay" role="dialog" aria-modal="true" aria-label="App mode">
       <article class="app-entry-gate-window">
-        ${renderAppEntryAuthPanel()}
+        <div class="app-entry-choice-heading">
+          <p class="challenge-label">Start here</p>
+          <h2>How do you want to study?</h2>
+          <p>Solo works offline and does not require an account.</p>
+        </div>
         <div class="app-entry-choice-grid">
           <button class="app-entry-choice-card primary-choice" type="button" data-app-entry-choice="local">
             <span>LOCAL</span>
@@ -4848,15 +4992,22 @@ function renderAppEntryGate() {
             <small>${escapeHtml(onlineStatusLabel)}</small>
           </button>
         </div>
+        ${renderAppEntryAuthPanel()}
         ${state.ui.appEntryGuestPromptOpen ? renderAppEntryGuestPrompt() : ""}
       </article>
     </div>
   `, "app-entry-gate");
+  const entryFocusSelector = state.ui.appEntryGuestPromptOpen
+    ? "[data-app-entry-guest-continue]"
+    : ["signup", "forgot", "reset"].includes(state.ui.authMode)
+      ? ".app-entry-auth-panel input:not([disabled])"
+      : "[data-app-entry-choice='local']";
+  scheduleDialogInitialFocus("#appEntryGateMount [role='dialog']", entryFocusSelector);
 }
 
 function renderAppEntryGuestPrompt() {
   return `
-    <section class="app-entry-guest-prompt" role="dialog" aria-modal="true" aria-labelledby="appEntryGuestPromptTitle">
+    <section class="app-entry-guest-prompt" aria-labelledby="appEntryGuestPromptTitle">
       <div class="app-entry-guest-prompt-copy">
         <p class="challenge-label">Guest mode</p>
         <h3 id="appEntryGuestPromptTitle">Continue as a guest?</h3>
@@ -5011,44 +5162,6 @@ function returnToAlpacaOnlineHub() {
     state.experience.playMode = "multiplayer";
   }
   renderLiveSurfaces();
-}
-
-function renderSummary() {
-  if (!refs.choiceSummary) {
-    return;
-  }
-
-  if (state.ui.appShellMode === "online") {
-    clearAppHtml(refs.choiceSummary);
-    refs.choiceSummary.classList.add("hidden");
-    return;
-  }
-
-  const chips = [];
-  const { path, mode } = state.selection;
-  const selectedIds = getSelectedSectionIds();
-
-  if (path) {
-    chips.push(renderSummaryChip("Route", getPathOption(path).label));
-  }
-  if (selectedIds.length) {
-    chips.push(renderSummaryChip("Guiding Sections", getTargetLabel()));
-  }
-  if (mode) {
-    chips.push(renderSummaryChip("Next Stop", getModeOption(mode).title));
-  }
-
-  setAppHtml(refs.choiceSummary, chips.join(""), "choice-summary");
-  refs.choiceSummary.classList.toggle("hidden", chips.length === 0);
-}
-
-function renderSummaryChip(label, value) {
-  return `
-    <div class="summary-chip">
-      <span>${escapeHtml(label)}:</span>
-      <strong>${escapeHtml(value)}</strong>
-    </div>
-  `;
 }
 
 function renderWizard() {
@@ -5211,6 +5324,8 @@ function syncCampus2DOnlineMount() {
     debugAllowed: canUseCampusDevMode(),
     onCampusZoneAction: handleCampus2DZoneAction,
     onFeedbackSubmit: submitCampusFeedback,
+    feedbackEmail: CAMPUS_FEEDBACK_EMAIL,
+    onAccountAction: handleCampusAccountAction,
     scholarsChallenge: {
       buildQuestionPlan: buildCampusScholarsChallengeQuestionPlan,
       getSectionTitle: (sectionId) => sectionById[sectionId]?.title || ""
@@ -7093,14 +7208,88 @@ function renderExperienceContent() {
   return "";
 }
 
-function syncExperienceRenderEffects() {
+function syncExperienceRenderEffects(options = {}) {
   syncExperienceTimers();
   syncPopupScrollLock();
   syncRadialMindMapScroll();
   syncMindMapOrbitAnimation();
   syncRawQuestionGalleries();
+  syncExperienceFeedbackAccessibility(options);
+  if (options.focusDialog) {
+    scheduleGameDialogInitialFocus();
+  }
   scheduleCompactTouchFeedbackVisibility();
   scheduleCompactTouchPopupAnswerVisibility();
+}
+
+function scheduleGameDialogInitialFocus() {
+  window.requestAnimationFrame(() => {
+    const dialog = refs.experiencePanel?.querySelector(".question-popup-overlay[role='dialog']");
+    if (!dialog?.isConnected) {
+      return;
+    }
+    const target = dialog.querySelector([
+      "[data-race-option]:not([disabled])",
+      "[data-relay-option]:not([disabled])",
+      "[data-jump-option]:not([disabled])",
+      "[data-run-option]:not([disabled])",
+      "[data-jeopardy-option]:not([disabled])",
+      "[data-close-experience]"
+    ].join(", "));
+    target?.focus({ preventScroll: true });
+  });
+}
+
+function syncExperienceFeedbackAccessibility(options = {}) {
+  if (!refs.experiencePanel) {
+    return;
+  }
+
+  const feedbackElements = Array.from(refs.experiencePanel.querySelectorAll(".raw-quiz-feedback, .feedback-card"));
+  feedbackElements.forEach((feedback) => {
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    feedback.setAttribute("tabindex", "-1");
+  });
+
+  const pendingKey = state.ui.pendingQuizFeedbackKey || "";
+  const keyedFeedback = pendingKey
+    ? feedbackElements.find((feedback) => feedback.dataset.quizFeedbackKey === pendingKey)
+    : null;
+  const feedbackToFocus = keyedFeedback || (options.focusFeedback ? feedbackElements[0] : null);
+  state.ui.pendingQuizFeedbackKey = null;
+
+  if (!feedbackToFocus) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    if (feedbackToFocus.isConnected) {
+      feedbackToFocus.focus({ preventScroll: true });
+    }
+  });
+}
+
+function isExperienceAnswerControl(element) {
+  return Boolean(element?.matches?.([
+    "[data-quiz-submit]",
+    "[data-race-option]",
+    "[data-relay-option]",
+    "[data-jump-option]",
+    "[data-run-option]",
+    "[data-jeopardy-option]",
+    "[data-bowl-option]"
+  ].join(", ")));
+}
+
+function isExperienceDialogLaunchControl(element) {
+  return Boolean(element?.matches?.([
+    "[data-race-start]",
+    "[data-relay-start]",
+    "[data-jump-start]",
+    "[data-run-start]",
+    "[data-jeopardy-tile]"
+  ].join(", ")));
 }
 
 function scheduleCompactTouchFeedbackVisibility() {
@@ -7200,6 +7389,8 @@ function revealCompactTouchPopupAnswers() {
 }
 
 function renderExperience() {
+  const focusFeedbackAfterRender = isExperienceAnswerControl(document.activeElement);
+  const focusDialogAfterRender = isExperienceDialogLaunchControl(document.activeElement);
   if (state.ui.appShellMode === "online") {
     refs.experiencePanel.classList.add("hidden");
     syncExperiencePanelTypeClass(null);
@@ -7211,7 +7402,10 @@ function renderExperience() {
         state.ui.rawMediaSwipeStartX = null;
       }
       renderLibraryCampusModal();
-      syncExperienceRenderEffects();
+      syncExperienceRenderEffects({
+        focusFeedback: focusFeedbackAfterRender,
+        focusDialog: focusDialogAfterRender
+      });
       return;
     }
 
@@ -7242,7 +7436,10 @@ function renderExperience() {
   }
 
   setAppHtml(refs.experiencePanel, renderExperienceContent(), "experience-content");
-  syncExperienceRenderEffects();
+  syncExperienceRenderEffects({
+    focusFeedback: focusFeedbackAfterRender,
+    focusDialog: focusDialogAfterRender
+  });
 }
 
 function syncExperiencePanelTypeClass(type) {
@@ -7633,6 +7830,7 @@ function syncAlpacardCarouselState(options = {}) {
   const counter = refs.experiencePanel.querySelector("[data-alpacard-counter]");
   const category = refs.experiencePanel.querySelector("[data-alpacard-current-category]");
   const flipLabel = refs.experiencePanel.querySelector("[data-alpacard-flip-label]");
+  const flipButton = refs.experiencePanel.querySelector("[data-alpacard-flip]");
   const previousButton = refs.experiencePanel.querySelector('[data-alpacard-nav="previous"]');
   const nextButton = refs.experiencePanel.querySelector('[data-alpacard-nav="next"]');
   const slides = refs.experiencePanel.querySelectorAll("[data-alpacard-slide]");
@@ -7651,6 +7849,11 @@ function syncAlpacardCarouselState(options = {}) {
     slide.setAttribute("aria-hidden", isActive ? "false" : "true");
     if (stage) {
       stage.classList.toggle("is-flipped", isActive && Boolean(state.experience.flipped));
+      const front = stage.querySelector("[data-alpacard-front]");
+      const back = stage.querySelector("[data-alpacard-back]");
+      const showBack = isActive && Boolean(state.experience.flipped);
+      front?.setAttribute("aria-hidden", showBack ? "true" : "false");
+      back?.setAttribute("aria-hidden", showBack ? "false" : "true");
     }
   });
 
@@ -7669,7 +7872,12 @@ function syncAlpacardCarouselState(options = {}) {
   }
 
   if (flipLabel) {
-    flipLabel.textContent = "Flip";
+    flipLabel.textContent = state.experience.flipped ? "Show image" : "Show details";
+  }
+
+  if (flipButton) {
+    flipButton.setAttribute("aria-pressed", state.experience.flipped ? "true" : "false");
+    flipButton.setAttribute("aria-label", state.experience.flipped ? "Show card image" : "Show card details");
   }
 
   if (previousButton) {
@@ -8185,6 +8393,7 @@ function syncAuthChrome() {
   renderSessionControls();
   renderAppEntryGate();
   renderAuthModal();
+  renderAppSettingsModal();
   syncCampus2DOnlineIdentity();
   if (state.experience?.type === "jeopardy") {
     renderExperience();
@@ -8195,6 +8404,31 @@ function syncAuthChrome() {
 function clearAuthNotice() {
   state.auth.error = "";
   state.auth.message = "";
+}
+
+function openAlpaccountLogin() {
+  clearAuthNotice();
+  state.ui.authMode = getAuthModeForCurrentSession("login");
+  state.ui.authOpen = true;
+  syncAuthChrome();
+}
+
+function handleCampusAccountAction({ action } = {}) {
+  if (action === "logout") {
+    signOutOfAlpaccount();
+    return;
+  }
+  openAlpaccountLogin();
+}
+
+function handleAppSettingsAccountAction() {
+  state.ui.appSettingsOpen = false;
+  renderAppSettingsModal();
+  if (isSignedIn()) {
+    signOutOfAlpaccount();
+    return;
+  }
+  openAlpaccountLogin();
 }
 
 function normalizeAlpacaName(value) {
@@ -8282,6 +8516,9 @@ function buildSignupWscIdRewards({ rewardType, round, city, approximateDate }) {
 }
 
 function getCurrentRedirectUrl() {
+  if (IS_DESKTOP_APP) {
+    return "https://wscapp.app/";
+  }
   return appAuthService?.getCurrentRedirectUrl
     ? appAuthService.getCurrentRedirectUrl(window.location)
     : window.location.href.split("#")[0].split("?")[0];
@@ -8313,6 +8550,43 @@ function getSupabaseClient() {
   return state.auth.client;
 }
 
+function getAuthIdentity(session = state.auth.session) {
+  const user = session?.user || null;
+  if (!user || isAnonymousUser(user)) {
+    return "guest";
+  }
+  return `user:${String(user.id || "").trim().toLowerCase()}`;
+}
+
+function applyAuthSession(session) {
+  const nextSession = session || null;
+  const nextIdentity = getAuthIdentity(nextSession);
+  state.auth.session = nextSession;
+
+  if (nextIdentity === activeAuthIdentity) {
+    return false;
+  }
+
+  activeAuthIdentity = nextIdentity;
+  authSessionGeneration += 1;
+  const controller = getProgressStorageController();
+  controller?.setScope?.(nextIdentity);
+  const localProgress = controller?.loadLocalProgress?.();
+  state.stats = normalizeStats(localProgress?.stats);
+  state.rawMastery = normalizeRawMastery(localProgress?.rawMastery);
+
+  if (state.experience?.type === "rawcontent") {
+    renderExperience();
+  }
+  return true;
+}
+
+function isCurrentAuthRequest(userId, generation) {
+  return generation === authSessionGeneration
+    && String(state.auth.session?.user?.id || "") === String(userId || "")
+    && !isAnonymousUser(state.auth.session?.user);
+}
+
 function setupSupabaseAuth() {
   if (!hasSupabaseConfig()) {
     state.auth.status = "missing-config";
@@ -8323,7 +8597,8 @@ function setupSupabaseAuth() {
   const hasRecoveryRedirect = isPasswordRecoveryRedirect();
   const client = getSupabaseClient();
   if (!client) {
-    state.auth.status = "missing-client";
+    bindSupabaseLoaderEvents();
+    state.auth.status = window.WSC_SUPABASE_LOADER?.status === "loading" ? "loading-client" : "missing-client";
     state.ui.authOpen = false;
     return;
   }
@@ -8333,14 +8608,14 @@ function setupSupabaseAuth() {
   }
 
   client.auth.onAuthStateChange((eventName, session) => {
-    state.auth.session = session || null;
+    applyAuthSession(session);
     state.auth.status = "ready";
 
     if (eventName === "PASSWORD_RECOVERY") {
       openPasswordRecoveryFlow();
     } else if (session && !isAnonymousUser(session.user)) {
       state.ui.authOpen = false;
-      syncAlpacaAuthIdentity().finally(() => loadAlpacaProfile());
+      loadAlpacaProfile();
       loadAlpacaProgress();
     } else {
       state.auth.profile = null;
@@ -8354,7 +8629,7 @@ function setupSupabaseAuth() {
       state.auth.error = error.message;
     }
 
-    state.auth.session = sessionData && sessionData.session ? sessionData.session : null;
+    applyAuthSession(sessionData && sessionData.session ? sessionData.session : null);
     state.auth.status = "ready";
     if (isPasswordRecoveryFlow()) {
       state.ui.authOpen = true;
@@ -8364,7 +8639,7 @@ function setupSupabaseAuth() {
     }
 
     if (state.auth.session && !isAnonymousUser(state.auth.session.user) && !isPasswordRecoveryFlow()) {
-      syncAlpacaAuthIdentity().finally(() => loadAlpacaProfile());
+      loadAlpacaProfile();
       loadAlpacaProgress();
     }
 
@@ -8372,17 +8647,22 @@ function setupSupabaseAuth() {
   });
 }
 
-async function syncAlpacaAuthIdentity() {
-  const client = getSupabaseClient();
-  const user = state.auth.session && state.auth.session.user;
-  if (!client || !user || isAnonymousUser(user) || !supabaseProfileService?.syncAuthIdentity) {
+function bindSupabaseLoaderEvents() {
+  if (supabaseLoaderListenersBound) {
     return;
   }
-
-  const { error } = await supabaseProfileService.syncAuthIdentity(client, user);
-  if (error) {
-    console.warn("Unable to sync Supabase auth identity metadata.", error);
-  }
+  supabaseLoaderListenersBound = true;
+  window.addEventListener("wsc:supabase-ready", () => {
+    state.auth.client = null;
+    setupSupabaseAuth();
+    syncAuthChrome();
+  });
+  window.addEventListener("wsc:supabase-unavailable", () => {
+    if (!state.auth.client) {
+      state.auth.status = "missing-client";
+      syncAuthChrome();
+    }
+  });
 }
 
 async function loadAlpacaProfile() {
@@ -8391,6 +8671,8 @@ async function loadAlpacaProfile() {
   if (!client || !user || isAnonymousUser(user)) {
     return;
   }
+  const requestGeneration = authSessionGeneration;
+  const requestUserId = user.id;
 
   const { data: profile, error } = supabaseProfileService?.fetchProfile
     ? await supabaseProfileService.fetchProfile(client, user.id)
@@ -8399,6 +8681,10 @@ async function loadAlpacaProfile() {
         .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,created_at")
         .eq("id", user.id)
         .maybeSingle();
+
+  if (!isCurrentAuthRequest(requestUserId, requestGeneration)) {
+    return;
+  }
 
   if (error) {
     state.auth.error = error.message;
@@ -8422,6 +8708,9 @@ async function loadAlpacaProgress() {
   if (!client || !user || isAnonymousUser(user)) {
     return;
   }
+  const requestGeneration = authSessionGeneration;
+  const requestUserId = user.id;
+  const localProgress = getProgressStorageController()?.loadLocalProgress?.() || null;
 
   let data;
   let error;
@@ -8436,12 +8725,14 @@ async function loadAlpacaProgress() {
     data = response.data;
     error = response.error;
   } catch (_error) {
-    saveProgressLocally();
+    return;
+  }
+
+  if (!isCurrentAuthRequest(requestUserId, requestGeneration)) {
     return;
   }
 
   if (error) {
-    saveProgressLocally();
     return;
   }
 
@@ -8455,7 +8746,9 @@ async function loadAlpacaProgress() {
     return;
   }
 
-  saveAlpacaProgress();
+  if (localProgress?.hasStoredProgress) {
+    saveAlpacaProgress();
+  }
 }
 
 async function submitAuthForm(form) {
@@ -8470,7 +8763,9 @@ async function submitAuthForm(form) {
   clearAuthNotice();
 
   if (!client) {
-    state.auth.error = "Supabase is not configured yet. Add the publishable key in supabase-config.js.";
+    state.auth.error = state.auth.status === "loading-client"
+      ? "The sign-in service is still loading. Try again in a moment."
+      : "The sign-in service is unavailable. Local study mode still works.";
     syncAuthChrome();
     return;
   }
@@ -8523,6 +8818,14 @@ async function createAlpaccount(formData, client) {
     throw new Error("Please fill in every field to create your Alpaccount.");
   }
 
+  if (password.length < 8 || password.length > 128) {
+    throw new Error("Choose a password with 8-128 characters.");
+  }
+
+  if (email.length > 254 || country.length > 80 || schoolName.length > 160 || wscIdRewardCity.length > 120 || wscIdRewardDate.length > 80) {
+    throw new Error("One or more Alpaccount fields are too long.");
+  }
+
   if (!ALPACA_NAME_PATTERN.test(alpacaName)) {
     throw new Error("Your alpaca name needs 3-32 characters: letters, numbers, underscores, or hyphens.");
   }
@@ -8541,17 +8844,6 @@ async function createAlpaccount(formData, client) {
     city: wscIdRewardCityForMetadata,
     approximateDate: wscIdRewardDateForMetadata
   });
-
-  const availability = supabaseProfileService?.checkAlpacaNameAvailability
-    ? await supabaseProfileService.checkAlpacaNameAvailability(client, alpacaName)
-    : await client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
-  if (availability.error) {
-    throw availability.error;
-  }
-
-  if (availability.data === false) {
-    throw new Error("That alpaca name is already taken. Try another one.");
-  }
 
   const { data: signUpData, error } = await client.auth.signUp({
     email,
@@ -8576,7 +8868,7 @@ async function createAlpaccount(formData, client) {
     throw error;
   }
 
-  state.auth.session = signUpData.session || state.auth.session;
+  applyAuthSession(signUpData.session || state.auth.session);
   state.auth.message = signUpData.session
     ? "Alpaccount created. Welcome aboard."
     : "Alpaccount created. Please confirm your email, then come back to connect.";
@@ -8626,26 +8918,16 @@ async function completeAlpaccountProfile(formData, client) {
     throw new Error("Please replace the placeholder country and school before continuing.");
   }
 
+  if (country.length > 80 || schoolName.length > 160 || wscIdRewardCity.length > 120 || wscIdRewardDate.length > 80) {
+    throw new Error("One or more Alpaccount fields are too long.");
+  }
+
   if (!Number.isInteger(wscEventCount) || wscEventCount < 0 || wscEventCount > 99) {
     throw new Error("Please enter a valid number of WSC events.");
   }
 
   if (hasSelectedWscIdReward && highestWscRound === "none_yet") {
     throw new Error("To show a reward on your Alpaca ID, choose the WSC round for that reward or pick No medal or trophy yet.");
-  }
-
-  const currentAlpacaName = normalizeAlpacaName(state.auth.profile?.alpaca_name);
-  if (alpacaName !== currentAlpacaName) {
-    const availability = supabaseProfileService?.checkAlpacaNameAvailability
-      ? await supabaseProfileService.checkAlpacaNameAvailability(client, alpacaName)
-      : await client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
-    if (availability.error) {
-      throw availability.error;
-    }
-
-    if (availability.data === false) {
-      throw new Error("That alpaca name is already taken. Try another one.");
-    }
   }
 
   const wscIdRewards = buildSignupWscIdRewards({
@@ -8673,6 +8955,10 @@ async function completeAlpaccountProfile(formData, client) {
         .select("alpaca_name,country,school_name,wsc_event_count,highest_wsc_round,wsc_achievements")
         .maybeSingle();
 
+  if (error?.code === "23505" || /alpaca[_ ]name.*(already|duplicate|unique)|duplicate key/i.test(String(error?.message || ""))) {
+    throw new Error("That alpaca name is already taken. Try another one.");
+  }
+
   if (error) {
     throw error;
   }
@@ -8688,35 +8974,25 @@ async function completeAlpaccountProfile(formData, client) {
   state.ui.authOpen = false;
 }
 
-async function resolveLoginIdentifier(identifier, client) {
+async function resolveLoginIdentifier(identifier) {
   const value = String(identifier || "").trim().toLowerCase();
   if (!value) {
-    throw new Error("Enter your alpaca name or email address.");
+    throw new Error("Enter your email address.");
   }
 
-  if (value.includes("@")) {
-    return value;
+  if (value.length > 254) {
+    throw new Error("Enter a valid email address.");
   }
 
-  const { data: email, error } = supabaseProfileService?.resolveAlpacaLogin
-    ? await supabaseProfileService.resolveAlpacaLogin(client, normalizeAlpacaName(value))
-    : await client.rpc("resolve_alpaca_login", {
-        p_alpaca_name: normalizeAlpacaName(value)
-      });
-
-  if (error) {
-    throw error;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+    throw new Error("Use the email address connected to your Alpaccount.");
   }
 
-  if (!email) {
-    throw new Error("No Alpaccount found for that alpaca name.");
-  }
-
-  return email;
+  return value;
 }
 
 async function connectToAlpaccount(formData, client) {
-  const email = await resolveLoginIdentifier(formData.get("identifier"), client);
+  const email = await resolveLoginIdentifier(formData.get("identifier"));
   const password = String(formData.get("password") || "");
 
   if (!password) {
@@ -8728,10 +9004,9 @@ async function connectToAlpaccount(formData, client) {
     throw error;
   }
 
-  state.auth.session = signInData.session;
+  applyAuthSession(signInData.session);
   state.ui.authOpen = false;
   state.auth.message = "";
-  await syncAlpacaAuthIdentity();
   await loadAlpacaProfile();
 }
 
@@ -8776,7 +9051,7 @@ async function connectWithOAuthProvider(provider) {
 }
 
 async function sendPasswordReset(formData, client) {
-  const email = await resolveLoginIdentifier(formData.get("identifier"), client);
+  const email = await resolveLoginIdentifier(formData.get("identifier"));
   const { error } = await client.auth.resetPasswordForEmail(email, {
     redirectTo: getCurrentRedirectUrl()
   });
@@ -8793,8 +9068,8 @@ async function updateRecoveredPassword(formData, client) {
   const password = String(formData.get("password") || "");
   const confirmPassword = String(formData.get("confirm_password") || "");
 
-  if (!password || password.length < 6) {
-    throw new Error("Choose a password with at least 6 characters.");
+  if (!password || password.length < 8 || password.length > 128) {
+    throw new Error("Choose a password with 8-128 characters.");
   }
 
   if (password !== confirmPassword) {
@@ -8831,7 +9106,7 @@ async function signOutOfAlpaccount() {
     return;
   }
 
-  state.auth.session = null;
+  applyAuthSession(null);
   state.auth.profile = null;
   resetAlpacapardyLiveState({ keepGuestName: true });
   if (state.ui.appShellMode === "online") {
@@ -8898,6 +9173,9 @@ function renderAuthModal() {
   }
 
   setAppHtml(refs.authModalMount, authModalRenderer.renderModal(getAuthRenderContext(), { escapeHtml }), "auth-modal");
+  if (state.ui.authOpen) {
+    scheduleDialogInitialFocus("#authModalMount [role='dialog']", "input:not([disabled]), button:not([disabled])");
+  }
 }
 
 function renderAuthGate() {
@@ -8975,7 +9253,8 @@ function getAuthRenderContext() {
     message: state.auth.message,
     profile: state.auth.profile,
     requiresProfileCompletion: requiresAlpaccountProfileCompletion(),
-    oauthProviders: AUTH_OAUTH_PROVIDERS,
+    oauthProviders: IS_DESKTOP_APP ? [] : AUTH_OAUTH_PROVIDERS,
+    passwordRecoveryAvailable: !IS_DESKTOP_APP,
     roundOptions: WSC_ROUND_OPTIONS,
     rewardOptions: WSC_ID_REWARD_OPTIONS,
     canDismiss: canDismissAuthModal()
@@ -9012,6 +9291,9 @@ function renderResourcesModal() {
       </div>
     </div>
   ` : "", "resources-modal");
+  if (state.ui.resourcesOpen) {
+    scheduleDialogInitialFocus("#resourcesModalMount [role='dialog']", "[data-close-resources]");
+  }
 }
 
 function getAppSettingsController() {
@@ -9029,8 +9311,17 @@ function getAppSettingsController() {
       setHtml: setAppHtml,
       clearHtml: clearAppHtml,
       escapeHtml,
+      getAccountState: () => ({
+        signedIn: isSignedIn(),
+        label: isSignedIn() ? getLiveDisplayName() : "Guest"
+      }),
       syncPopupScrollLock,
-      renderResourcesModal
+      renderResourcesModal,
+      scheduleDialogInitialFocus: () => scheduleDialogInitialFocus(
+        "#appSettingsModalMount [role='dialog']",
+        "[data-app-settings-volume]"
+      ),
+      restoreDialogTriggerFocus
     });
   }
   return appSettingsController;
@@ -9061,8 +9352,8 @@ function syncAppBackgroundMusicPlayback(options) {
   getAppSettingsController()?.syncPlayback(options);
 }
 
-function updateSharedAppSettings(patch = {}) {
-  getAppSettingsController()?.update(patch);
+function updateSharedAppSettings(patch = {}, options = {}) {
+  getAppSettingsController()?.update(patch, options);
 }
 
 function openAppSettingsPanel() {
@@ -9661,69 +9952,18 @@ function getLibraryResourceProxyUrl(resource) {
   return proxyUrl.toString();
 }
 
-function renderLibraryResourceProxyBootstrap({ proxyUrl, fallbackUrl, title }) {
-  return `
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>${escapeHtml(title || "Library resource")}</title>
-  <style>
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      background: #fffaf0;
-      color: #4b2a19;
-      font: 700 15px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body {
-      display: grid;
-      place-items: center;
-    }
-  </style>
-</head>
-<body>
-  <span>Loading...</span>
-  <script>
-    (async function () {
-      const proxyUrl = ${JSON.stringify(proxyUrl)};
-      const fallbackUrl = ${JSON.stringify(fallbackUrl)};
-      try {
-        const probeUrl = new URL(proxyUrl);
-        probeUrl.searchParams.set("probe", "1");
-        const response = await fetch(probeUrl.toString(), { cache: "no-store" });
-        if (response.ok) {
-          window.location.replace(proxyUrl);
-          return;
-        }
-      } catch (error) {}
-      window.location.replace(fallbackUrl);
-    })();
-  </script>
-</body>
-</html>
-  `.trim();
-}
-
 function renderLibraryResourceIframe(resource) {
   const title = resource.label || "Library resource";
   if (resource.proxyStrategy === "rewrite-google-doc-links") {
     const proxyUrl = getLibraryResourceProxyUrl(resource);
-    const srcdoc = renderLibraryResourceProxyBootstrap({
-      proxyUrl,
-      fallbackUrl: resource.url,
-      title
-    });
     return `
       <iframe
         class="library-resource-iframe"
-        srcdoc="${escapeHtml(srcdoc)}"
+        src="${escapeHtml(proxyUrl)}"
         title="${escapeHtml(title)}"
         loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="clipboard-write; fullscreen; web-share"
+        referrerpolicy="no-referrer"
+        sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
       ></iframe>
     `;
   }
@@ -9743,7 +9983,11 @@ function renderLibraryResourceIframe(resource) {
 
 function handleLibraryResourceMessage(event) {
   const message = event?.data;
-  if (window.location.origin !== "null" && event.origin !== window.location.origin) {
+  const resourceFrame = document.querySelector(".library-resource-iframe");
+  if (!resourceFrame || event.source !== resourceFrame.contentWindow) {
+    return;
+  }
+  if (event.origin !== "null" && event.origin !== window.location.origin) {
     return;
   }
 
@@ -9809,6 +10053,9 @@ function renderLibraryResourceViewer(resource) {
             titleId: "libraryResourceViewerTitle"
           })}
           ${renderLibraryResourceIframe(resource)}
+          <p class="library-resource-external-fallback">
+            If the embedded page is unavailable, <a href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">open this resource in a new tab</a>.
+          </p>
           ${renderLibraryEmbeddedDocOverlay(state.ui.libraryEmbeddedDoc)}
         </div>
       </div>
@@ -9945,7 +10192,7 @@ function chooseLibraryMode(modeId) {
   }
 
   if (shouldLaunchOnlineGameInline(modeId)) {
-    launchOnlineGameInline(modeId);
+    openMultiplayerGameChoice(modeId);
     return;
   }
 
@@ -9954,6 +10201,38 @@ function chooseLibraryMode(modeId) {
     return;
   }
   launchLibraryMode(modeId);
+}
+
+function openMultiplayerGameChoice(modeId, options = {}) {
+  if (!modeId || !MULTIPLAYER_GAME_MODE_IDS.has(modeId)) {
+    return;
+  }
+
+  const returnMenuType = options.returnMenuType ||
+    state.ui.libraryMenu?.type ||
+    state.ui.librarySectionPicker?.returnMenuType ||
+    state.ui.libraryExperience?.returnMenuType ||
+    null;
+  const sectionIds = (Array.isArray(options.sectionIds) && options.sectionIds.length
+    ? options.sectionIds
+    : getOrderedSectionIds())
+    .map((sectionId) => normalizeSectionId(sectionId))
+    .filter((sectionId) => sectionById[sectionId]);
+
+  state.ui.libraryMenu = null;
+  state.ui.libraryResource = null;
+  state.ui.libraryEmbeddedDoc = null;
+  state.ui.librarySectionPicker = null;
+  state.ui.libraryExperience = null;
+  state.ui.multiplayerGameChoice = {
+    modeId,
+    gameType: options.gameType || getConnectedLiveGameTypeForMode(modeId),
+    returnMenuType,
+    sectionIds,
+    stayOnline: true
+  };
+  syncPopupScrollLock();
+  renderLibraryCampusModal();
 }
 
 function openCampus2DDebateLab() {
@@ -12608,7 +12887,13 @@ function renderRawQuizFeedback(question, selectedOption) {
   }
 
   return `
-    <div class="raw-quiz-feedback ${selectedOption.correct ? "correct" : "incorrect"}">
+    <div
+      class="raw-quiz-feedback ${selectedOption.correct ? "correct" : "incorrect"}"
+      data-quiz-feedback-key="${escapeHtml(getRawQuizQuestionKey(question))}"
+      role="status"
+      aria-live="polite"
+      tabindex="-1"
+    >
       <strong>${feedback.heading}</strong>
       ${feedback.paragraphs.map((paragraph) => `<p>${renderTextWithBreaks(paragraph)}</p>`).join("")}
       ${feedback.takeaway ? `<p class="raw-quiz-takeaway"><span>Takeaway:</span> ${renderTextWithBreaks(feedback.takeaway)}</p>` : ""}
@@ -15560,7 +15845,7 @@ function renderRaceExperience() {
         <article class="race-launch-panel card-panel">
           <p class="race-launch-kicker">Timed Survival Route</p>
           <div class="race-launch-pills">
-            <span>The timer only starts once you begin and paused after your answer to review.</span>
+            <span>The timer only starts once you begin and pauses after your answer for review.</span>
             <span>Each stop gives you ${GAME_CONFIG.raceQuestionTime} seconds to answer.</span>
             <span>${GAME_CONFIG.raceLives} chances stand between you and a lost route.</span>
           </div>
@@ -19657,7 +19942,7 @@ function answerJumpQuestion(optionIndex) {
     isCorrect
   });
 
-  renderExperience();
+  renderExperiencePreservingScroll();
 }
 
 function continueJumpRoute() {
@@ -19687,7 +19972,7 @@ function continueJumpRoute() {
   experience.runnerState = "running";
   queueNextJumpObstacle(experience);
   experience.lastFrameAt = null;
-  renderExperience();
+  renderExperiencePreservingScroll();
 }
 
 function renderRunExperience() {
@@ -19852,9 +20137,19 @@ function renderGameQuestionPopup(content, modeClass = "", options = {}) {
     `;
   }
 
-  const showClose = options.showClose !== false;
+  const dialogLabels = {
+    buildcase: "Debate Lab activity",
+    jeopardy: "Alpacapardy question",
+    jump: "Alpaca Jump question",
+    race: "Survivalpaca question",
+    relay: "Alpaquiz question",
+    run: "Alpaca Run question"
+  };
+  const primaryModeClass = String(modeClass || "").split(/\s+/)[0];
+  const dialogLabel = options.dialogLabel || dialogLabels[primaryModeClass] || "Game question";
+  const showClose = options.showClose !== false || state.ui.appShellMode !== "online";
   return `
-    <div class="question-popup-overlay ${escapeHtml(modeClass)}" role="dialog" aria-modal="true">
+    <div class="question-popup-overlay ${escapeHtml(modeClass)}" role="dialog" aria-modal="true" aria-label="${escapeHtml(dialogLabel)}">
       <div class="question-popup-window ${escapeHtml(modeClass)}">
         ${showClose ? renderExperienceCloseButton("popup-close-button") : ""}
         <div class="question-popup-stack">
@@ -21474,10 +21769,13 @@ function saveRawMastery() {
 function saveProgressLocally() {
   const controller = getProgressStorageController();
   if (controller?.saveLocalProgress) {
-    controller.saveLocalProgress({
+    const result = controller.saveLocalProgress({
       stats: state.stats,
       rawMastery: state.rawMastery
     });
+    if (!result?.ok) {
+      console.warn("Unable to save local progress.", result?.failedKeys || []);
+    }
     return;
   }
 
@@ -21495,29 +21793,54 @@ function saveProgressLocally() {
   }
 }
 
-async function saveAlpacaProgress() {
+function cloneProgressSnapshot(value, fallback) {
+  try {
+    return JSON.parse(JSON.stringify(value));
+  } catch (_error) {
+    return fallback;
+  }
+}
+
+function saveAlpacaProgress() {
   const client = getSupabaseClient();
   const user = state.auth.session && state.auth.session.user;
   if (!client || !user || isAnonymousUser(user)) {
-    return;
+    return Promise.resolve();
   }
+  const requestGeneration = authSessionGeneration;
+  const requestUserId = user.id;
+  const statsSnapshot = cloneProgressSnapshot(state.stats, getDefaultStats());
+  const masterySnapshot = cloneProgressSnapshot(state.rawMastery, {});
 
-  try {
-    if (supabaseProfileService?.upsertProgress) {
-      await supabaseProfileService.upsertProgress(client, user.id, state.stats, state.rawMastery);
-    } else {
-      await client
-        .from("alpaca_progress")
-        .upsert({
-          user_id: user.id,
-          game_stats: state.stats,
-          raw_mastered_entries: state.rawMastery,
-          updated_at: new Date().toISOString()
-        }, { onConflict: "user_id" });
-    }
-  } catch (_error) {
-    // Local progress remains available if the Supabase progress table is not installed yet.
-  }
+  alpacaProgressSaveQueue = alpacaProgressSaveQueue
+    .catch(() => undefined)
+    .then(async () => {
+      if (!isCurrentAuthRequest(requestUserId, requestGeneration)) {
+        return;
+      }
+
+      const response = supabaseProfileService?.upsertProgress
+        ? await supabaseProfileService.upsertProgress(client, requestUserId, statsSnapshot, masterySnapshot)
+        : await client
+            .from("alpaca_progress")
+            .upsert({
+              user_id: requestUserId,
+              game_stats: statsSnapshot,
+              raw_mastered_entries: masterySnapshot,
+              updated_at: new Date().toISOString()
+            }, { onConflict: "user_id" });
+
+      if (response?.error) {
+        throw response.error;
+      }
+    })
+    .catch((error) => {
+      if (isCurrentAuthRequest(requestUserId, requestGeneration)) {
+        console.warn("Unable to sync Alpaccount progress; the local account copy is preserved.", error);
+      }
+    });
+
+  return alpacaProgressSaveQueue;
 }
 
 function getAssetValue(path, fallback = null) {
@@ -21733,15 +22056,6 @@ function renderMascot(mood, size, options = {}) {
   }
 
   return alpacaAvatar(getFallbackMood(mood), size);
-}
-
-function renderHeroVisual() {
-  const heroAsset = getAssetValue(["screens", "hero", "main"]);
-  const content = heroAsset
-    ? renderAssetImage(heroAsset, "WSCapp hero illustration", "hero-visual-asset", "hero-visual-image", true)
-    : renderMascot("happy", "hero", { alt: "Hero alpaca", eager: true });
-
-  return `<div class="hero-visual-slot">${content}</div>`;
 }
 
 function renderLessonVisual(type) {
@@ -22707,6 +23021,7 @@ function selectRawQuizOption(quizKey, optionIndex) {
     ...state.ui.rawQuizSelections,
     [quizKey]: optionIndex
   };
+  state.ui.pendingQuizFeedbackKey = quizKey;
 
   renderExperiencePreservingScroll();
 }

@@ -1,10 +1,30 @@
 (function () {
-  const STATS_KEY = "wsc-alpaca-stats";
-  const RAW_MASTERY_KEY = "wsc-alpaca-raw-mastery";
+  const LEGACY_STATS_KEY = "wsc-alpaca-stats";
+  const LEGACY_RAW_MASTERY_KEY = "wsc-alpaca-raw-mastery";
+  const STORAGE_PREFIX = "wsc-alpaca-progress:v2";
+  const MISSING_VALUE = Object.freeze({ missing: true });
 
   function createProgressStorageController(options = {}) {
     const storageService = options.storageService || null;
     const progressService = options.progressService || null;
+    let activeScope = normalizeScope(options.scope);
+
+    function normalizeScope(value) {
+      const normalized = String(value || "guest")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9:_-]+/g, "_")
+        .slice(0, 96);
+      return normalized || "guest";
+    }
+
+    function getScopeKeys(scope = activeScope) {
+      const safeScope = normalizeScope(scope);
+      return {
+        stats: `${STORAGE_PREFIX}:${safeScope}:stats`,
+        rawMastery: `${STORAGE_PREFIX}:${safeScope}:raw-mastery`
+      };
+    }
 
     function getJson(key, fallback) {
       if (storageService?.getJson) {
@@ -33,21 +53,49 @@
       }
     }
 
+    function migrateLegacyGuestProgress(keys) {
+      if (activeScope !== "guest") {
+        return;
+      }
+
+      const scopedStats = getJson(keys.stats, MISSING_VALUE);
+      const scopedRawMastery = getJson(keys.rawMastery, MISSING_VALUE);
+      if (scopedStats !== MISSING_VALUE || scopedRawMastery !== MISSING_VALUE) {
+        return;
+      }
+
+      const legacyStats = getJson(LEGACY_STATS_KEY, MISSING_VALUE);
+      const legacyRawMastery = getJson(LEGACY_RAW_MASTERY_KEY, MISSING_VALUE);
+      if (legacyStats !== MISSING_VALUE) {
+        setJson(keys.stats, legacyStats);
+      }
+      if (legacyRawMastery !== MISSING_VALUE) {
+        setJson(keys.rawMastery, legacyRawMastery);
+      }
+    }
+
     function loadLocalProgress() {
       const statsFallback = progressService?.getDefaultStats ? progressService.getDefaultStats() : {};
-      const stats = getJson(STATS_KEY, statsFallback);
-      const rawMastery = getJson(RAW_MASTERY_KEY, {});
+      const keys = getScopeKeys();
+      migrateLegacyGuestProgress(keys);
+      const storedStats = getJson(keys.stats, MISSING_VALUE);
+      const storedRawMastery = getJson(keys.rawMastery, MISSING_VALUE);
+      const stats = storedStats === MISSING_VALUE ? statsFallback : storedStats;
+      const rawMastery = storedRawMastery === MISSING_VALUE ? {} : storedRawMastery;
 
       return {
         stats: progressService?.normalizeStats ? progressService.normalizeStats(stats) : stats,
-        rawMastery: progressService?.normalizeRawMastery ? progressService.normalizeRawMastery(rawMastery) : rawMastery
+        rawMastery: progressService?.normalizeRawMastery ? progressService.normalizeRawMastery(rawMastery) : rawMastery,
+        hasStoredProgress: storedStats !== MISSING_VALUE || storedRawMastery !== MISSING_VALUE,
+        scope: activeScope
       };
     }
 
     function saveLocalProgress(progress = {}) {
+      const keys = getScopeKeys();
       const writes = [
-        setJson(STATS_KEY, progress.stats || {}),
-        setJson(RAW_MASTERY_KEY, progress.rawMastery || {})
+        setJson(keys.stats, progress.stats || {}),
+        setJson(keys.rawMastery, progress.rawMastery || {})
       ];
       const failedKeys = writes
         .filter((result) => !result?.ok)
@@ -60,9 +108,21 @@
       };
     }
 
+    function setScope(scope) {
+      activeScope = normalizeScope(scope);
+      return activeScope;
+    }
+
+    function getScope() {
+      return activeScope;
+    }
+
     return Object.freeze({
+      getScope,
+      getScopeKeys,
       loadLocalProgress,
-      saveLocalProgress
+      saveLocalProgress,
+      setScope
     });
   }
 

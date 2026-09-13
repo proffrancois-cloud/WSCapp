@@ -7,6 +7,7 @@ const batches = (process.env.WSC_LOAD_BATCHES || "10,25,50")
   .filter((value) => Number.isInteger(value) && value > 0);
 const durationMs = Number(process.env.WSC_LOAD_DURATION_MS || 10000);
 const movementIntervalMs = 200;
+const requestOrigin = process.env.WSC_REALTIME_ORIGIN || "http://localhost:4173";
 
 if (typeof WebSocket !== "function") {
   throw new Error("This load simulation requires a Node runtime with global WebSocket support.");
@@ -47,7 +48,9 @@ async function runBatch(size) {
   await Promise.all(Array.from({ length: size }, async (_value, index) => {
     const url = new URL(endpoint);
     url.searchParams.set("clientId", `load-${size}-${index}`);
-    const ws = new WebSocket(url);
+    const ws = new WebSocket(url, {
+      headers: { Origin: requestOrigin }
+    });
     sockets.push(ws);
     ws.addEventListener("open", () => {
       opens += 1;

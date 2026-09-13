@@ -110,6 +110,9 @@ assert.equal(realtime.DEFAULTS.CHAT_RATE_LIMIT_WINDOW_MS, 3000);
 assert.equal(realtime.DEFAULTS.CHAT_MAX_LENGTH, 120);
 assert.equal(realtime.MOVEMENT_PAYLOAD_FIELDS.includes("email"), false);
 assert.equal(realtime.MOVEMENT_PAYLOAD_FIELDS.includes("displayName"), false);
+assert.equal(realtime.moderateChatMessage("Thanks, scholar!").allowed, true);
+assert.equal(realtime.moderateChatMessage("you are a c0nnard").allowed, false);
+assert.equal(realtime.moderateChatMessage("f.u.c.k").allowed, false);
 
 const campusSource = readApp("src/features/campus-2d/campus-2d.js");
 assert.match(

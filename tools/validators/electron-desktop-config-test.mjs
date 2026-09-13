@@ -7,19 +7,24 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../.
 const APP_DIR = path.join(ROOT, "app");
 const requireApp = createRequire(path.join(APP_DIR, "package.json"));
 const packageJson = JSON.parse(fs.readFileSync(path.join(APP_DIR, "package.json"), "utf8"));
+const indexSource = fs.readFileSync(path.join(APP_DIR, "index.html"), "utf8");
 const appMainSource = fs.readFileSync(path.join(APP_DIR, "src/app/app-main.js"), "utf8");
 const { getMainWindowOptions, resolveAppIcon } = requireApp("./desktop/electron/window-config.js");
+const { isSafeExternalUrl } = requireApp("./desktop/electron/navigation-policy.js");
 
 const failures = [];
 const expectedFiles = [
   "index.html",
   "styles.css",
   "app.js",
-  "data.js",
-  "knowledge-bank.js",
+  "realtime-config.js",
+  "generated/current-runtime/data.js",
+  "generated/current-runtime/knowledge-bank.js",
+  "generated/current-runtime/raw-content-bank.js",
   "desktop/electron/main.js",
   "desktop/electron/preload.js",
   "desktop/electron/window-config.js",
+  "desktop/electron/navigation-policy.js",
   "desktop/icons/app.ico",
   "desktop/icons/app.icns",
   "desktop/icons/app.png"
@@ -27,7 +32,8 @@ const expectedFiles = [
 const syntaxCheckedFiles = [
   "desktop/electron/main.js",
   "desktop/electron/preload.js",
-  "desktop/electron/window-config.js"
+  "desktop/electron/window-config.js",
+  "desktop/electron/navigation-policy.js"
 ];
 
 function assert(condition, message) {
@@ -66,8 +72,18 @@ assert(hasBuildFilePattern("styles-*.css"), "Electron package should include spl
 assert(hasBuildFilePattern("desktop/electron/**/*"), "Electron package should include desktop/electron files");
 assert(hasBuildFilePattern("assets/**/*"), "Electron package should include local assets");
 assert(hasBuildFilePattern("src/**/*"), "Electron package should include app src modules");
+assert(hasBuildFilePattern("generated/**/*"), "Electron package should include the canonical generated runtime");
+assert(hasBuildFilePattern("realtime-config.js"), "Electron package should include the Cloudflare realtime configuration loaded by index.html");
+assert(indexSource.includes('http-equiv="Content-Security-Policy"'), "Electron file: runtime should receive a baseline CSP from index.html");
+assert(!/Content-Security-Policy[\s\S]{0,800}unsafe-eval/.test(indexSource), "Electron CSP must not allow unsafe-eval");
+for (const legacyRuntimeFile of ["data.js", "knowledge-bank.js", "alpaca-channel.js", "raw-content-bank.js", "assets-config.js"]) {
+  assert(!hasBuildFilePattern(legacyRuntimeFile), `Electron package should not include unused legacy runtime file: ${legacyRuntimeFile}`);
+}
 assert(appMainSource.includes("const IS_DESKTOP_APP = Boolean(window.WSC_DESKTOP_APP);"), "app runtime should normalize the Electron desktop bridge once.");
 assert(!appMainSource.includes("window.WSC_DESKTOP_APP === true"), "app runtime should not compare the Electron desktop bridge object to true.");
+assert(appMainSource.includes('if (IS_DESKTOP_APP) {\n    return "https://wscapp.app/";'), "desktop email confirmation redirects should use the hosted app instead of file://");
+assert(appMainSource.includes("oauthProviders: IS_DESKTOP_APP ? [] : AUTH_OAUTH_PROVIDERS"), "desktop auth should hide OAuth flows that cannot return to file://");
+assert(appMainSource.includes("passwordRecoveryAvailable: !IS_DESKTOP_APP"), "desktop auth should hide password recovery until an app protocol callback exists");
 
 const macTargets = packageJson.build.mac.target || [];
 const winTargets = packageJson.build.win.target || [];
@@ -105,9 +121,16 @@ for (const [platform, options] of Object.entries(optionsByPlatform)) {
   assert(path.isAbsolute(options.icon), `${platform}: icon path should be absolute`);
   assert(path.isAbsolute(options.webPreferences.preload), `${platform}: preload path should be absolute`);
   assert(options.webPreferences.contextIsolation === true, `${platform}: contextIsolation should be enabled`);
+  assert(options.webPreferences.sandbox === true, `${platform}: renderer sandbox should be enabled`);
   assert(options.webPreferences.nodeIntegration === false, `${platform}: nodeIntegration should be disabled`);
   assert(options.webPreferences.navigateOnDragDrop === false, `${platform}: navigateOnDragDrop should be disabled`);
 }
+
+assert(isSafeExternalUrl("https://example.com/resource") === true, "Electron should allow HTTPS external resources");
+assert(isSafeExternalUrl("mailto:team@example.com") === true, "Electron should allow mailto links");
+assert(isSafeExternalUrl("javascript:alert(1)") === false, "Electron must reject javascript URLs");
+assert(isSafeExternalUrl("data:text/html,unsafe") === false, "Electron must reject data URLs");
+assert(isSafeExternalUrl("file:///tmp/other.html") === false, "Electron must reject arbitrary file URLs as external links");
 
 const report = {
   checkedPlatforms: Object.keys(optionsByPlatform),

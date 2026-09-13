@@ -14,7 +14,7 @@
     "Movement Without Arrival"
   ],
   "enrichedFrom": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
-  "questionsUpdatedFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/WSC_2026_QUESTIONS_100_200_300_V9_1_DEDUPED_100_200_SAME_CONTENT_CHOICES.csv",
+  "questionsUpdatedFrom": "WSC_2026_QUESTIONS_100_200_300_V9_1_DEDUPED_100_200_SAME_CONTENT_CHOICES.csv",
   "questionsUpdatedAt": "2026-05-26T08:33:17.568200+00:00",
   "regularGuides": [
     {
@@ -168,15 +168,15 @@
       "renderMode": "inline-html"
     }
   ],
-  "regularGuidesBuiltFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/Guides",
+  "regularGuidesBuiltFrom": "Guides",
   "regularGuidesBuiltAt": "2026-05-11T21:37:19.117624+00:00",
   "questionFeedbackUpdatedFrom": "WSC_Codex_Question_Feedback_FULL_PORTABLE_PERSONALIZED_100_200_300_APPLIED.docx",
   "questionFeedbackUpdatedAt": "2026-05-10T21:16:35.283Z",
-  "subjectConnectionsUpdatedFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/subject conenctions.xlsx",
+  "subjectConnectionsUpdatedFrom": "subject conenctions.xlsx",
   "subjectConnectionsUpdatedAt": "2026-05-11T10:23:33.430Z",
   "videoRoutingUpdatedAt": "2026-05-11T11:04:10.587Z",
   "videoRoutingUpdatedFrom": "User-confirmed May 11 video-only routing list",
-  "regularGuideTransferTablesBuiltFrom": "/Users/francoismo/Desktop/Pro/ILG - MORET FRANCOIS/FLE/2025-2026/WSC/May 9/WSC_2026_Transfer_Tables_By_Guiding_Section",
+  "regularGuideTransferTablesBuiltFrom": "WSC_2026_Transfer_Tables_By_Guiding_Section",
   "questionLevelPolicy": "Final XLSX source of truth: levels 100/200 live on raw-content entries; level 300 lives on section guideQuestions; levels 400/500 live in fullVoyageQuestions and are routed to games by primary/secondary guiding section associations.",
   "questionChoiceRepairs": {
     "updatedAt": "2026-05-12T21:02:31.945216+00:00",
@@ -186,14 +186,14 @@
       "introductory-questions / Things We Commit To but Do Not Finish / level 200"
     ]
   },
-  "finalQuestionBankUpdatedFrom": "/Users/francoismo/Documents/Playground/WSC/output/questions/WSC_2026_ALL_LEVELS_100_500_FINAL_QUESTION_BANK.xlsx",
+  "finalQuestionBankUpdatedFrom": "output/questions/WSC_2026_ALL_LEVELS_100_500_FINAL_QUESTION_BANK.xlsx",
   "finalQuestionBankUpdatedAt": "2026-05-13T23:30:50.260137+00:00",
   "archivedQuestionsBeforeFinalBank": {
-    "csv": "/Users/francoismo/Documents/Playground/WSC/output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.csv",
-    "json": "/Users/francoismo/Documents/Playground/WSC/output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.json",
+    "csv": "output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.csv",
+    "json": "output/questions/archive/WSC_2026_archived_questions_before_final_bank_20260514_012637.json",
     "count": 396
   },
-  "regularGuidesB1RewriteSyncedAt": "2026-07-16T03:23:13.325112+00:00",
+  "regularGuidesB1RewriteSyncedAt": "2026-07-14T13:09:32.362239+00:00",
   "regularGuidesB1RewriteSections": [
     "introductory-questions",
     "progress-not-regress",

@@ -16,6 +16,21 @@ Create or verify a Pages project with these settings:
 
 The repo also includes root `wrangler.jsonc` for direct Pages deploys of `app/dist-pages`.
 
+### Pages Functions environment
+
+The feedback endpoint is a Pages Function. Configure the following bindings in both the Production and Preview environments before deploying it:
+
+| Binding | Required | Purpose |
+| --- | --- | --- |
+| `RESEND_API_KEY` | Yes | Secret API key used to send the report email. |
+| `WSC_FEEDBACK_FROM_EMAIL` | Yes | Resend-verified sender, for example `WSCapp <reports@wscapp.app>`. |
+| `SUPABASE_PUBLISHABLE_KEY` | Yes for person reports | Browser-safe project key used only to verify the reporter's bearer token. |
+| `SUPABASE_URL` | Recommended | Supabase project URL; the current project URL is the code fallback. |
+| `WSC_ADMIN_EMAIL` | Optional | Report destination; defaults to the current admin address. |
+| `WSC_ALLOWED_ORIGINS` | Optional | Comma-separated extra trusted origins for previews. |
+
+Keep `RESEND_API_KEY` in Cloudflare's encrypted Secrets surface, not in `wrangler.jsonc` or Git. After changing a binding, redeploy and verify both a signed-in person report and a guest problem report. A missing mail key/sender intentionally returns `503`; a missing Supabase publishable key prevents authenticated person reports from being verified.
+
 Current Cloudflare state:
 
 - Pages project `wscapp` exists.

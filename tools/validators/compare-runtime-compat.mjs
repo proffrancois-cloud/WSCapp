@@ -95,10 +95,43 @@ const ALL_COMPARE_KEYS = [
 ];
 
 const ACTIVE_RUNTIME_ACCEPTED_DELTAS = Object.freeze({
-  fullVoyageQuestions: "The legacy root runtime has no Full Voyage list; the generated runtime restores the Vercel level 400/500 questions loaded by the app.",
-  firstGuideQuestion: "Legacy root runtime and generated runtime preserve different guide-question ordering; counts still match.",
-  firstFullVoyage: "The legacy root runtime has no Full Voyage first item; the generated runtime starts with the restored Vercel Full Voyage order."
+  entries: {
+    expectedGeneratedIncrease: 2,
+    reason: "The two reviewed pilots add the missing mass-tourism and rehearsal entries."
+  },
+  quizQuestions: {
+    expectedGeneratedIncrease: 5,
+    reason: "The two reviewed pilots add five entry-level rehearsal and mass-tourism questions."
+  },
+  guideQuestions: {
+    expectedGeneratedIncrease: 4,
+    reason: "The two reviewed pilots add four section-level transfer and current-stimulus questions."
+  },
+  fullVoyageQuestions: {
+    expectedGeneratedIncrease: 230,
+    reason: "The legacy root runtime has no Full Voyage list; the generated runtime restores the Vercel level 400/500 questions loaded by the app."
+  },
+  firstGuideQuestion: {
+    expectedGeneratedValue: "L300_call-of-duty-free_1_290",
+    reason: "Legacy root runtime and generated runtime preserve different guide-question ordering."
+  },
+  firstFullVoyage: {
+    expectedGeneratedValue: "FV400_001",
+    reason: "The legacy root runtime has no Full Voyage first item; the generated runtime starts with the restored Full Voyage order."
+  }
 });
+
+function matchesAcceptedDifference(current, generated, policy) {
+  if (Object.hasOwn(policy, "expectedGeneratedIncrease")) {
+    return typeof current === "number" &&
+      typeof generated === "number" &&
+      generated - current === policy.expectedGeneratedIncrease;
+  }
+  if (Object.hasOwn(policy, "expectedGeneratedValue")) {
+    return JSON.stringify(generated) === JSON.stringify(policy.expectedGeneratedValue);
+  }
+  return false;
+}
 
 function getCompareKeys(profile) {
   if (profile === "strict") {
@@ -130,13 +163,20 @@ for (const key of getCompareKeys(PROFILE)) {
 }
 
 if (PROFILE !== "strict") {
-  Object.entries(ACTIVE_RUNTIME_ACCEPTED_DELTAS).forEach(([key, reason]) => {
+  Object.entries(ACTIVE_RUNTIME_ACCEPTED_DELTAS).forEach(([key, policy]) => {
     if (JSON.stringify(current[key]) !== JSON.stringify(generated[key])) {
+      if (!matchesAcceptedDifference(current[key], generated[key], policy)) {
+        errors.push(
+          `${key} has an unapproved legacy/runtime delta: current=${JSON.stringify(current[key])} ` +
+          `generated=${JSON.stringify(generated[key])}`
+        );
+        return;
+      }
       acceptedDifferences.push({
         key,
         current: current[key],
         generated: generated[key],
-        reason
+        reason: policy.reason
       });
     }
   });

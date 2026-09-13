@@ -23,30 +23,41 @@
         "question.call-of-duty-free.100.001",
         "question.call-of-duty-free.200.001"
       ],
-      "title": "From Roadside Stops to Hotels",
+      "title": "From Route Shelter to the Modern Hotel",
       "guidingSection": "Call of Duty-Free",
       "rawOfficialText": "People on the road have historically needed places to park themselves too. With your team, explore the history of inns and hotels, including what might be the oldest hotel in the world. What differentiates a hotel from earlier forms of accommodation, such as post houses?",
       "links": [
         {
-          "label": "History of hotels article",
-          "url": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury"
+          "label": "WSC link L211 — history of inns and hotels",
+          "url": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury",
+          "officialLinkId": "L211",
+          "role": "curriculum"
         },
         {
-          "label": "YouTube video on Nishiyama Onsen Keiunkan",
-          "url": "https://www.youtube.com/watch?v=_8W2LIfl5RE"
+          "label": "WSC link L212 — Tom Scott visits the world’s oldest hotel",
+          "url": "https://www.youtube.com/watch?v=_8W2LIfl5RE",
+          "officialLinkId": "L212",
+          "role": "curriculum"
         },
         {
-          "label": "Guinness record for the oldest hotel",
-          "url": "https://www.guinnessworldrecords.com/world-records/oldest-hotel"
+          "label": "UNESCO — The Persian Caravanserai",
+          "url": "https://whc.unesco.org/en/list/1668/",
+          "role": "validation"
         },
         {
-          "label": "Nishiyama Onsen Keiunkan official English site",
-          "url": "https://www.keiunkan.co.jp/en/"
+          "label": "Guinness World Records — oldest hotel",
+          "url": "https://www.guinnessworldrecords.com/world-records/oldest-hotel",
+          "role": "validation"
+        },
+        {
+          "label": "Nishiyama Onsen Keiunkan — official English site",
+          "url": "https://www.keiunkan.co.jp/en/",
+          "role": "primary"
         }
       ],
-      "studentExplanation": "Travelers have always needed support spaces: places to stop, sleep, feed animals, exchange news, wait safely, or continue a route the next day. Earlier forms such as caravanserais, monasteries, inns, taverns, and post houses were mainly tied to survival, trade, pilgrimage, or transport systems. A hotel became more specialized: a commercial place mainly designed to host travelers with comfort, privacy, service, and sometimes status. Nishiyama Onsen Keiunkan in Japan, recognized by Guinness as the world’s oldest hotel, makes the idea concrete: hospitality can become a centuries-long institution, not just a night’s shelter.\n\nThe supplemental notes make the timeline clearer: caravanserais, post houses, inns, and monasteries were not all “hotels”; they solved older route problems such as safety, animals, news, food, and shelter. Modern hotels become more specialized commercial spaces, and Nishiyama Onsen Keiunkan is useful because it shows hospitality as an institution that can survive renovations, changing roads, and changing travelers. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
-      "whyItMatters": "At the entry level, this helps students understand that hotels are part of a long infrastructure of movement. At the section level, it opens Call of Duty-Free by showing that travel depends not only on roads, ships, or vehicles, but also on stopover systems. At the year-theme level, it connects to “Are We There Yet?” because inns, post houses, and hotels are spaces of the in-between: you are no longer at home, but not fully at your final destination either.",
-      "takeaway": "Travel creates support spaces, and those spaces evolve as movement, comfort, commerce, and tourism change",
+      "studentExplanation": "Travel needs more than a road. It needs places where people, animals, messages, and goods can pause safely. A post house belonged to a relay network: it helped riders, mail, officials, or horses continue a route. A caravanserai supported caravans with water, food, shelter, stables, storage, and security. Its location and courtyard design responded to geography, climate, and danger. Because merchants met there, it could also become a place for markets, news, languages, and ideas. Inns and taverns sold food and lodging; monasteries often sheltered pilgrims. These places overlap, but they did not do the same job.\n\nThe modern hotel became a more specialized commercial institution. It increasingly sold a private room, standardized service, comfort, and sometimes status or an experience worth visiting for its own sake. Nishiyama Onsen Keiunkan, founded in 705 and recognized by Guinness as the oldest hotel, shows continuity across centuries. It does not mean the building or the service stayed unchanged: survival required adaptation.\n\nThe key comparison is functional. Ask what a stop was built to support, who could use it, what moved through it, and how it helped the next stage of the journey.",
+      "whyItMatters": "This entry supplies the section’s first principle: movement depends on places of temporary arrival. It also prevents a common quiz mistake. A caravanserai is not simply an old hotel, and a post house is not simply a cheaper one; each belonged to a different transport, trade, or hospitality system. That distinction returns later when goods move through entrepôts and transshipment points.",
+      "takeaway": "A stopover is infrastructure: its design reveals what is moving, what it needs, and who controls the route.",
       "subjects": [
         "History"
       ],
@@ -73,8 +84,8 @@
         "Oldest Hotel in the World",
         "Educational video for timeline"
       ],
-      "debateRelevance": "Useful when debating whether travel infrastructure should be judged only by movement or also by the stopover spaces that make journeys possible.",
-      "counterargument": "Some earlier lodging spaces were so different from modern hotels that calling the whole development a single evolution can oversimplify local histories.",
+      "debateRelevance": "Useful for debates about whether infrastructure should be judged by speed alone or by the safety, care, exchange, and access it provides between destinations.",
+      "counterargument": "There is no single straight line from caravanserai to hotel. Different lodging systems coexisted, borrowed from one another, and developed for different local needs.",
       "specialAssets": [
         {
           "kind": "timeline",
@@ -84,7 +95,7 @@
           "points": [
             {
               "title": "Ancient World",
-              "note": "Some of the earliest formal lodging services appeared in ancient civilizations where merchants, officials, and travelers needed places to stay between centers of power and trade.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: ancient inn lodging archaeology Mesopotamia Roman mansio or ancient lodging site; use a real archaeological/historical image.",
+              "note": "Some of the earliest formal lodging services appeared in ancient civilizations where merchants, officials, and travelers needed places to stay between centers of power and trade.",
               "src": "assets/raw-content/call-of-duty-free/image4.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -93,16 +104,21 @@
             },
             {
               "title": "Caravanserais",
-              "note": "Caravanserais developed along trade routes such as the Silk Road as protected courtyard stops for traders, animals, goods, food, and rest.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: real caravanserai Silk Road courtyard Wikimedia Commons.",
+              "note": "Caravanserais were planned stops on long trade routes. They offered water, food, shelter, stables, storage, and security; their location and courtyard architecture adapted to geography and climate. Because merchants met there, they also carried news, languages, and ideas.",
               "src": "assets/raw-content/call-of-duty-free/image5.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
               "imageLicense": "Exact/source-preserved real timeline image",
-              "links": []
+              "links": [
+                {
+                  "label": "UNESCO — The Persian Caravanserai",
+                  "url": "https://whc.unesco.org/en/list/1668/"
+                }
+              ]
             },
             {
               "title": "Greece and Rome",
-              "note": "Greek hospitality had a moral dimension, while Romans built mansiones and mutationes along roads for officials, messengers, soldiers, and organized travel.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Roman mansio remains Roman road lodging archaeological site.",
+              "note": "Greek hospitality had a moral dimension, while Romans built mansiones and mutationes along roads for officials, messengers, soldiers, and organized travel.",
               "src": "assets/raw-content/call-of-duty-free/image6.png",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -111,7 +127,7 @@
             },
             {
               "title": "Medieval Monasteries",
-              "note": "Medieval monasteries often sheltered pilgrims and travelers, showing that lodging could be charitable and religious rather than commercial.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: medieval monastery guest house pilgrims lodging.",
+              "note": "Medieval monasteries often sheltered pilgrims and travelers, showing that lodging could be charitable and religious rather than commercial.",
               "src": "assets/raw-content/call-of-duty-free/image7.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -120,7 +136,7 @@
             },
             {
               "title": "Inns and Taverns",
-              "note": "As trade and town life grew, inns and taverns became paid lodging and social spaces where travelers could sleep, eat, exchange news, and continue their journey.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: historic inn tavern medieval Europe public domain.",
+              "note": "As trade and town life grew, inns and taverns became paid lodging and social spaces where travelers could sleep, eat, exchange news, and continue their journey.",
               "src": "assets/raw-content/call-of-duty-free/image8.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -129,7 +145,7 @@
             },
             {
               "title": "The Word “Hotel”",
-              "note": "The word hotel comes from French hôtel and gradually came to refer to lodging places offering more specialized hospitality and comfort.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: early hotel France 17th century historic hotel exterior.",
+              "note": "The word hotel comes from French hôtel and gradually came to refer to lodging places offering more specialized hospitality and comfort.",
               "src": "assets/raw-content/call-of-duty-free/image9.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -138,7 +154,7 @@
             },
             {
               "title": "Renaissance and Grand Travel",
-              "note": "As elite travel expanded, wealthier travelers expected better lodging in major cities such as Venice, Paris, and London.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: historical Venice inn grand tour lodging painting public domain.",
+              "note": "As elite travel expanded, wealthier travelers expected better lodging in major cities such as Venice, Paris, and London.",
               "src": "assets/raw-content/call-of-duty-free/image10.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -147,7 +163,7 @@
             },
             {
               "title": "First Modern Hotels",
-              "note": "By the late 18th century, modern hotels offered private rooms, dining, and more standardized service, helping define the hotel as more than a roadside stop.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: first modern hotel Grand Hotel London 18th century hotel historical image.",
+              "note": "By the late 18th century, modern hotels offered private rooms, dining, and more standardized service, helping define the hotel as more than a roadside stop.",
               "src": "assets/raw-content/call-of-duty-free/image11.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -156,7 +172,7 @@
             },
             {
               "title": "Railways, Steamships, and the Hotel Boom",
-              "note": "The 19th century transformed travel scale: railways and steamships made hotels central to business, leisure, and urban growth.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: 19th century railway hotel historical photograph.",
+              "note": "The 19th century transformed travel scale: railways and steamships made hotels central to business, leisure, and urban growth.",
               "src": "assets/raw-content/call-of-duty-free/image12.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -165,7 +181,7 @@
             },
             {
               "title": "Grand Hotels and Modern Comfort",
-              "note": "By the late 19th and early 20th centuries, grand hotels became symbols of luxury, status, elevators, telephones, plumbing, concierge service, and room service.\nImage requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: grand hotel belle epoque lobby historical photograph.",
+              "note": "By the late 19th and early 20th centuries, grand hotels became symbols of luxury, status, elevators, telephones, plumbing, concierge service, and room service.",
               "src": "assets/raw-content/call-of-duty-free/image13.jpeg",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",
@@ -277,21 +293,31 @@
       "rawOfficialText": "The rise of hotels coincided with the rise of tourism—travel for leisure, instead of for migration or business. Historians trace the roots of modern tourism to the grand tours of the 17th and 18th centuries, in which young aristocrats would travel across Europe as a rite of passage. Review a typical grand tourist itinerary, then discuss with your team: in what sense does this tradition continue today?",
       "links": [
         {
-          "label": "Historic UK — The Grand Tour",
-          "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+          "label": "WSC link L213 — Historic UK: The Grand Tour",
+          "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/",
+          "officialLinkId": "L213",
+          "role": "curriculum"
         },
         {
-          "label": "ThoughtCo — The Grand Tour of Europe",
-          "url": "https://www.thoughtco.com/grand-tour-of-europe-1435014"
+          "label": "WSC link L214 — a typical Grand Tour itinerary",
+          "url": "https://www.thoughtco.com/grand-tour-of-europe-1435014",
+          "officialLinkId": "L214",
+          "role": "curriculum"
         },
         {
           "label": "Britannica — Grand Tour",
-          "url": "https://www.britannica.com/topic/grand-tour"
+          "url": "https://www.britannica.com/topic/grand-tour",
+          "role": "validation"
+        },
+        {
+          "label": "The Metropolitan Museum of Art — The Grand Tour",
+          "url": "https://www.metmuseum.org/de/essays/the-grand-tour",
+          "role": "museum-validation"
         }
       ],
-      "studentExplanation": "In the 17th and 18th centuries, many wealthy young British aristocrats took a long European journey called the Grand Tour. It was meant to complete their education by exposing them to language, art, classical ruins, manners, diplomacy, and elite social life. The typical route moved from Britain to France and then into Italy, with major stops such as Paris, Lyon, Venice, Florence, Rome, and Naples. The Grand Tour helps students see one of the birthplaces of modern tourism: travel was no longer only for business, migration, war, or pilgrimage. It became a cultural experience, a rite of passage, and a way of shaping identity and status.\n\nAdd the social map: the Grand Tour was mainly a wealthy British rite of passage in the seventeenth and eighteenth centuries, moving through France and Italy and sometimes the Low Countries or German states. It turned travel into education, status, language practice, art collecting, and social networking, which is why it belongs between schooling, tourism, and adulthood. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
-      "whyItMatters": "At the entry level, this shows how travel became educational, cultural, and social rather than only practical. At the section level, it explains why hotels and tourism developed together: once travel became desirable in itself, systems grew to host and guide travelers. At the year-theme level, it connects to “Are We There Yet?” because the Grand Tour turns the journey itself into the point: the traveler is not only trying to arrive somewhere, but to be changed by the road.",
-      "takeaway": "Many travelers still use travel to gain culture, identity, memories, status, and personal growth",
+      "studentExplanation": "The Grand Tour was a long European journey taken mainly by wealthy young British men in the 17th and 18th centuries. Paris could provide language, manners, and elite society; Italy offered Renaissance art, classical ruins, architecture, and cities such as Venice, Florence, Rome, and Naples. Travelers might use tutors, guides, letters of credit, and family networks. The trip could last months or years, so time and money were part of the qualification.\n\nIt was called educational, but it also performed class. A traveler returned with art, stories, contacts, taste, and proof that he had access to places and people unavailable to most of society. Modern study abroad, gap years, graduation trips, and travel used for personal branding can repeat parts of this logic. The comparison is useful only if we also notice what changed: modern leisure travel reaches many more people, while passports, income, free time, and social position still shape who can go where.\n\nThe Grand Tour therefore sits at the hinge between travel as necessity and tourism as a chosen experience. It also sets up the next branch: what had to change before tourism could move beyond an elite?",
+      "whyItMatters": "This entry explains why the journey itself can become the product. It connects education, identity, collecting, hospitality, and status, while making the class boundary visible. Without that boundary, the later rise of mass tourism has no clear contrast.",
+      "takeaway": "The Grand Tour turned mobility into education and status, but its length, cost, and networks kept it mainly elite.",
       "subjects": [
         "History"
       ],
@@ -314,8 +340,8 @@
         "Naples",
         "Typical Grand Tour Activities"
       ],
-      "debateRelevance": "Useful when debating whether educational travel genuinely broadens people or mainly performs class, status, and cultural polish.",
-      "counterargument": "Modern study abroad and gap years can resemble the Grand Tour, but they also differ because many travelers are not aristocrats and travel is far more accessible.",
+      "debateRelevance": "Useful for debating whether educational travel broadens a person, displays privilege, or does both at the same time.",
+      "counterargument": "Modern study abroad or gap years can resemble the Grand Tour without reproducing its exact aristocratic purpose, route, or level of privilege.",
       "specialAssets": [
         {
           "kind": "route-map",
@@ -462,8 +488,101 @@
       "sectionTitle": "Call of Duty-Free"
     },
     {
-      "id": "raw.call-of-duty-free.003",
+      "id": "raw.call-of-duty-free.006",
       "order": 3,
+      "sectionId": "call-of-duty-free",
+      "mediaIds": [],
+      "questionIds": [
+        "question.call-of-duty-free.100.006",
+        "question.call-of-duty-free.200.006"
+      ],
+      "title": "How Tourism Became Mass Tourism",
+      "guidingSection": "Call of Duty-Free",
+      "rawOfficialText": "The grand tour was a privilege afforded mainly to the nobility and the wealthy. It took the emergence of the railway, the ocean liner, and the passenger jet, along with the rise of a middle class with enough disposable income, to bring tourism to the masses. Explore the history of leisure travel, then discuss with your team: why do certain places attract more tourists? Is it possible to attract too many?",
+      "links": [
+        {
+          "label": "WSC link L215 — BBC Bitesize: Mass tourism",
+          "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3",
+          "officialLinkId": "L215",
+          "role": "curriculum"
+        },
+        {
+          "label": "BBC Bitesize — Lake District impacts case study",
+          "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/6",
+          "role": "constitutive-sublink"
+        },
+        {
+          "label": "BBC Bitesize — Lake District management case study",
+          "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/7",
+          "role": "constitutive-sublink"
+        },
+        {
+          "label": "UN Tourism — international tourist arrivals in 2025",
+          "url": "https://pre-webunwto.s3.eu-west-1.amazonaws.com/s3fs-public/2026-01/260120-international-tourist-arrivals-up-4-in-2025-reflecting-strong-travel-demand-around-the-world-en.pdf",
+          "role": "current-context",
+          "asOf": "2026-01-20"
+        },
+        {
+          "label": "City of Venice — 2025 access-fee results",
+          "url": "https://live.comune.venezia.it/it/2025/08/contributo-di-accesso-i-numeri-del-2025",
+          "role": "current-context",
+          "asOf": "2025-08-04"
+        }
+      ],
+      "studentExplanation": "Mass tourism means large numbers of visitors going to the same place at roughly the same time. It did not appear because people suddenly became curious. Several barriers fell together. Railways, ocean liners, cars, and passenger jets made journeys faster, more regular, and often cheaper. Paid leave, higher living standards, and disposable income gave more middle-class families both time and money to travel. Tour operators and package holidays then bundled transport, accommodation, and transfers, reducing cost, planning, and uncertainty. Later, budget airlines and social media strengthened the same effect.\n\nPlaces attract tourists through a mix of access, climate, scenery, heritage, events, price, safety, infrastructure, and reputation. Success can reinforce itself: more visitors support more flights, hotels, restaurants, and online visibility, which can attract still more visitors. A place has “too many” tourists when visitor pressure exceeds what its environment, housing, streets, services, heritage, or residents can absorb without serious harm. This is overtourism; it is about concentration and capacity, not a claim that every tourist is bad.\n\nA useful current scale check is UN Tourism’s estimate of 1.52 billion international tourist arrivals in 2025. “Arrivals” counts trips involving an overnight stay, not 1.52 billion different people. Venice’s 2025 access-fee figures are another evidence lesson: revenue and paid access permits issued show that a policy operated, but do not by themselves prove how many people entered or that crowding fell.",
+      "whyItMatters": "This is the missing bridge in the section. The Grand Tour explains elite tourism; this entry explains how technology, labor rights, income, and business organization widened access. It also separates three questions that quizzes may combine: what caused mass tourism, why destinations become concentrated, and how communities manage the costs.",
+      "takeaway": "Mass tourism emerges when transport, free time, income, and travel services scale together; overtourism begins when that flow outruns local capacity.",
+      "subjects": [
+        "History",
+        "Economics & Trade",
+        "Geography / Human Geography",
+        "Sociology"
+      ],
+      "bigIdeas": [
+        "Infrastructure Shapes Behavior",
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "examples": [
+        "Railways and ocean liners",
+        "Passenger jets",
+        "Paid leave and disposable income",
+        "Tour operators and package holidays",
+        "Budget airlines",
+        "Destination attraction",
+        "Carrying capacity",
+        "Overtourism",
+        "Lake District case study",
+        "Venice access fee"
+      ],
+      "debateRelevance": "Useful for debating whether widening access to travel can be celebrated while limiting the damage caused by concentrated visitor flows.",
+      "counterargument": "Tourism pressure is not determined by visitor numbers alone. Season, location, transport, regulation, visitor behavior, and local planning can make the same number manageable or harmful.",
+      "legacyBigIdeas": [
+        "Tourism",
+        "Access & Crowding"
+      ],
+      "primaryBigIdea": "Infrastructure Shapes Behavior",
+      "secondaryBigIdeas": [
+        "Movement Without Arrival",
+        "Thresholds & Irreversibility",
+        "Visible vs Real"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Infrastructure Shapes Behavior",
+        "secondaryBigIdeas": [
+          "Movement Without Arrival",
+          "Thresholds & Irreversibility",
+          "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "Call of Duty-Free"
+    },
+    {
+      "id": "raw.call-of-duty-free.003",
+      "order": 4,
       "sectionId": "call-of-duty-free",
       "mediaIds": [
         "asset.call-of-duty-free.raw.golden-age-flying-boat-cabin-16x9",
@@ -476,28 +595,42 @@
       ],
       "title": "The Golden Age of Travel… or Just a Golden Myth?",
       "guidingSection": "Call of Duty-Free",
-      "rawOfficialText": "Some people long for the so-called “Golden Age of Travel”: an era of opulent ocean liners, spacious flying boats, and wealthy travelers dressed to impress. They contrast this glowing picture with cramped modern airplanes and images of bad tourist behavior. Whether or not such a golden era ever existed, discuss: what should be done to improve the travel experience today, and does travel make people act in ways they would not at home?",
+      "rawOfficialText": "Some people (and American politicians) long for the so-called “Golden Age of Travel”: an era of opulent ocean liners, spacious flying boats, and wealthy travelers dressed to impress. They contrast this glowing picture with the cramped seats on modern airplanes and images of barefooted passengers clipping their nails at 30,000 feet. Whether or not such a golden era ever existed—historians have their doubts (alternate link)—discuss with your team: what, if anything, should be done to improve the travel experience today? Be sure to consider the psychology behind tourist misbehavior: is there something about traveling that encourages people to act in ways they wouldn’t at home?",
       "links": [
         {
-          "label": "Atlantic — The Golden Age of Flying Wasn’t All That Golden",
-          "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+          "label": "WSC link L216 — call to restore a ‘Golden Age of Travel’",
+          "url": "https://www.independent.co.uk/travel/news-and-advice/sean-duffy-transport-secretary-air-travel-thanksgiving-request-b2869798.html",
+          "officialLinkId": "L216",
+          "role": "curriculum"
         },
         {
-          "label": "Tourism Management — Tourist misbehavior and informal social control",
-          "url": "https://www.sciencedirect.com/science/article/pii/S0261517720301849"
+          "label": "WSC link L217 — The Atlantic: the golden age was not all golden",
+          "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/",
+          "officialLinkId": "L217",
+          "role": "curriculum"
         },
         {
-          "label": "Tourist misbehavior abstract / accessible summary",
-          "url": "https://www.researchgate.net/publication/347308508_Tourist_misbehavior_Psychological_closeness_to_fellow_consumers_and_informal_social_control"
+          "label": "WSC link L218 — corrected archive copy of The Atlantic article",
+          "url": "https://web.archive.org/web/20250717203429/https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/",
+          "canonicalUrl": "https://web.archive.org/web/20250717203429/https:/www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/",
+          "officialLinkId": "L218",
+          "role": "curriculum-alternate"
         },
         {
-          "label": "Overtourism socio-psychology overview",
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7305059/"
+          "label": "WSC link L219 — BBC: why tourists behave badly on holiday",
+          "url": "https://www.bbc.com/travel/article/20240718-why-do-tourists-behave-badly-on-holiday",
+          "officialLinkId": "L219",
+          "role": "curriculum"
+        },
+        {
+          "label": "Tiaki Promise — visitor behavior guidance in New Zealand",
+          "url": "https://www.tiakinewzealand.com/",
+          "role": "curriculum-sublink"
         }
       ],
-      "studentExplanation": "People often imagine a “Golden Age of Travel” when ocean liners were elegant, planes were spacious, and passengers dressed well. But that picture is only partly true. Older travel could be glamorous for the wealthy, but it was also expensive, less accessible, less safe, and not always comfortable. The real question is why the past looks better in memory. Once travel becomes ordinary, crowded, cheap enough for more people, and filmed constantly, its problems become more visible. Tourist misbehavior adds another layer: when people are away from home, anonymous, and less connected to local norms, they may feel fewer social brakes. That means bad travel behavior is not just about rude individuals; it is also about crowding, social distance, status, and how tourism changes behavior.\n\nThe sources stress that nostalgia is doing a lot of work here. Ocean liners, early aviation, and formal passenger culture could look elegant, but they were also expensive, exclusive, slower, and less safe; modern “golden age” campaigns often use manners and dress as symbols for bigger anxieties about crowding, delays, and loss of shared rules. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
-      "whyItMatters": "At the entry level, this helps students separate nostalgia from historical reality. At the section level, it deepens Call of Duty-Free by showing that tourism is not only infrastructure and destinations, but also behavior and expectations. At the year-theme level, it connects to “Are We There Yet?” because it asks whether travel has really declined, or whether people experience it differently once the extraordinary becomes routine.",
-      "takeaway": "Travel experiences are shaped by memory, access, class, crowding, behavior, and expectations—not just comfort",
+      "studentExplanation": "The “Golden Age of Travel” combines a historical claim with a feeling. The image usually selects spacious cabins, formal clothes, elegant meals, and wealthy passengers. It often leaves out price, exclusion, noise, danger, smoke, long journeys, limited routes, and the people doing the service work. Mass tourism makes the comparison harder: modern travel may feel crowded partly because many more people can use it. Wider access is not the same as better comfort, but it changes whose experience appears in the picture.\n\nThe WSC links also separate civility from nostalgia. Asking passengers to dress better may signal shared norms, but clothes do not fix seat design, delays, alcohol policy, staffing, or stressful airports. Tourist misbehavior has several possible mechanisms. Distance from home can weaken familiar social checks; anonymity in a crowd can produce deindividuation; paying for a holiday can create entitlement; and social media can reward dramatic or risky performances. These are pressures, not excuses and not proof that travel automatically changes everyone.\n\nA strong answer therefore tests two things separately: was the past truly better, and which changes to systems or norms could improve behavior now?",
+      "whyItMatters": "This entry trains students to distinguish evidence from a selective image of the past, then to connect individual behavior with the environment around it. It also corrects a weak explanation: tourists do not misbehave simply because they are tourists.",
+      "takeaway": "Nostalgia selects evidence, while travel behavior grows from an interaction between people, norms, crowds, incentives, and infrastructure.",
       "subjects": [
         "Psychology",
         "Sociology"
@@ -513,8 +646,8 @@
         "The ordinary travel problem",
         "Tourist misbehavior and social distance"
       ],
-      "debateRelevance": "Useful when debating whether travel has declined or whether wider access, crowding, and constant visibility have changed expectations.",
-      "counterargument": "Some modern travel problems are real regressions in comfort and dignity, not only nostalgia or changed expectations.",
+      "debateRelevance": "Useful for debates about whether better travel requires better manners, better design and regulation, or both.",
+      "counterargument": "Critiquing nostalgia should not erase real modern losses in comfort, reliability, or public behavior; some complaints describe measurable problems.",
       "visualSections": [
         {
           "title": "Golden age or golden myth?",
@@ -611,7 +744,7 @@
     },
     {
       "id": "raw.call-of-duty-free.004",
-      "order": 4,
+      "order": 5,
       "sectionId": "call-of-duty-free",
       "mediaIds": [
         "asset.call-of-duty-free.raw.deep-exchange-tourism",
@@ -631,36 +764,30 @@
       ],
       "title": "Traveling Differently: The Search for “Authentic” Tourism",
       "guidingSection": "Call of Duty-Free",
-      "rawOfficialText": "Although nothing beats a Jet2 Holiday, tourists are increasingly avoiding tours that shuffle everyone through the same overcrowded museums and restaurants in favor of more “authentic” travel experiences. Explore niche forms of travel—heritage tourism, ecotourism, gastrotourism, agritourism, monastic retreats, voluntourism, edutourism, wellness retreats, and dark tourism—and consider what role social media may have had in promoting them. How realistic is deep exchange and learning while on holiday?",
+      "rawOfficialText": "Although nothing beats a Jet2 Holiday, tourists are increasingly avoiding tours that shuffle everyone through the same overcrowded museums and restaurants in favor of more “authentic” travel experiences. Explore the following niche forms of travel and consider what role social media may have had in promoting them. How realistic is it to engage in deep exchange and learning while on holiday?\n\nheritage tourism | ecotourism | gastrotourism | agritourism | monastic retreats\nvoluntourism | edutourism | wellness retreats | dark tourism",
       "links": [
         {
-          "label": "World Heritage image pool",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=World%20Heritage%20tourism"
+          "label": "WSC link L220 — Sixth Tone: The World According to Xiaohongshu",
+          "url": "https://www.sixthtone.com/news/1016254",
+          "officialLinkId": "L220",
+          "role": "curriculum"
         },
         {
-          "label": "Petra gallery/category",
-          "url": "https://commons.wikimedia.org/wiki/Category:Petra"
+          "label": "The Guardian — social-media pressure on Balearic sites",
+          "url": "https://www.theguardian.com/world/2025/may/19/balearics-hit-back-at-selfie-tourism-as-sites-become-overwhelmed",
+          "role": "current-context",
+          "asOf": "2025-05-19"
         },
         {
-          "label": "Chernobyl disaster category",
-          "url": "https://commons.wikimedia.org/wiki/Category:Chernobyl_disaster"
-        },
-        {
-          "label": "Disaster memorials category",
-          "url": "https://commons.wikimedia.org/wiki/Category:Disaster_memorials"
-        },
-        {
-          "label": "Overtourism and social media example — Guardian",
-          "url": "https://www.theguardian.com/world/2025/may/19/balearics-hit-back-at-selfie-tourism-as-sites-become-overwhelmed"
-        },
-        {
-          "label": "Overtourism and social media example — Reuters Dolomites",
-          "url": "https://www.reuters.com/business/environment/no-selfies-please-dolomites-push-back-against-overtourism-ahead-games-2026-01-15/"
+          "label": "Reuters — Dolomites push back against selfie tourism",
+          "url": "https://www.reuters.com/business/environment/no-selfies-please-dolomites-push-back-against-overtourism-ahead-games-2026-01-15/",
+          "role": "current-context",
+          "asOf": "2026-01-15"
         }
       ],
-      "studentExplanation": "Many travelers now say they want something more “authentic” than the same overcrowded museums, restaurants, and landmarks. This creates a paradox. Social media can help people discover quieter places and more meaningful forms of travel, but it can also send huge crowds to those same places until they become trends. Heritage tourism, ecotourism, gastrotourism, agritourism, monastic retreats, voluntourism, edutourism, wellness retreats, and dark tourism all promise a different kind of journey. Some genuinely encourage learning and respect; others can become another way of consuming places, people, or suffering.\n\nUse Xiaohongshu and Instagram tourism as the practical case: a niche bookstore, food stall, monastery, farm, or historic site can become famous because people want something “real,” then become less authentic because everyone repeats the same photo. The key is not to decide that heritage, eco-, gastro-, or dark tourism is automatically good or bad; ask who benefits, who performs, and what gets consumed. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
-      "whyItMatters": "At the entry level, this helps students understand why niche tourism has grown and why “authenticity” is difficult to define. At the section level, it pushes Call of Duty-Free beyond hotels and transport into the meaning travelers want from travel. At the year-theme level, it connects to “Are We There Yet?” by asking whether travel is really about reaching a place, or about the kind of experience and identity travelers hope to find there.",
-      "takeaway": "Whether travel can create real learning and respect, or just turn new experiences into another product",
+      "studentExplanation": "“Authentic” tourism promises contact with something less staged than a standard tour: local food, a farm, a pilgrimage route, a monastery, an ecosystem, a historical community, or a place connected with suffering. Each niche changes the traveler’s stated purpose, but the label does not guarantee a good result. Ecotourism can support conservation or add pressure to a fragile habitat. Voluntourism can help a locally led project or place the visitor’s experience above local needs. Dark tourism can preserve memory or turn suffering into a backdrop.\n\nThe Xiaohongshu case in the official WSC link shows how recommendation platforms redirect travel. Users share detailed guides and saved locations that can help people find places outside standard tour routes. Yet the same visibility can send many visitors to one bookstore, street, café, or viewpoint. The loop is: search for something “undiscovered” → post a repeatable image or route → algorithmic visibility → concentrated arrivals → a more staged and crowded place.\n\nDeep exchange is possible, but it depends on time, language, reciprocity, local control, and who benefits. Feeling transformed is evidence about the traveler; it is not automatically evidence that the host community benefited or that the encounter was deep.",
+      "whyItMatters": "This entry turns “authenticity” from a compliment into a question that can be tested. It connects niche tourism to social-media discovery, mass-tourism concentration, local power, and the gap between a traveler’s intention and a destination’s outcome.",
+      "takeaway": "A niche label describes a motive; authenticity depends on relationships, power, time, and consequences.",
       "subjects": [
         "Sociology",
         "Media / Film"
@@ -684,8 +811,8 @@
         "Dark tourism",
         "Can niche tourism really create deep exchange?"
       ],
-      "debateRelevance": "Useful when debating whether niche tourism creates real exchange or simply turns new places and experiences into more consumable content.",
-      "counterargument": "Niche tourism can sometimes support conservation, learning, and local economies when it is planned carefully and led by communities.",
+      "debateRelevance": "Useful for debating whether tourism can create reciprocal learning or whether it mainly turns places, cultures, and suffering into experiences for visitors.",
+      "counterargument": "Online visibility and niche tourism can distribute income, support conservation, and help visitors learn when communities control the terms and visitor pressure is managed.",
       "visualGallery": [
         {
           "kind": "text-slide",
@@ -905,7 +1032,7 @@
     },
     {
       "id": "raw.call-of-duty-free.005",
-      "order": 5,
+      "order": 6,
       "sectionId": "call-of-duty-free",
       "mediaIds": [
         "asset.call-of-duty-free.raw.goods-transfer-network",
@@ -931,52 +1058,67 @@
       ],
       "title": "When Goods Travel: The World of Trade Hubs",
       "guidingSection": "Call of Duty-Free",
-      "rawOfficialText": "People aren’t the only things that travel; goods do too. Before long-distance shipping, a trader who did not want to confront the full length of a trade road might transport goods to or from an entrepôt. These market towns were not destinations but waystations where goods were imported, stored, and traded again without being subject to local duties. Learn terms and places: entrepôts, waystations, free-trade zones, transshipment, caravanserai, Silk Road, Piraeus, Tyrus, Lothal, Carthage, Shimoda & Hakodate, Malacca, Istanbul, Chicago, Hong Kong.",
+      "rawOfficialText": "People aren’t the only things that travel, of course; goods do too. Before the era of long-distance shipping, a trader who didn’t want to confront the full length of a trade road might transport his goods to or from an entrepôt. These bustling market towns were not destinations but waystations where goods were imported, stored, and traded again without being subject to local duties. Learn more about the terms and places below as you explore the history of getting goods from here to there to an Amazon Prime truck.\n\nentrepôts | waystations | free-trade zones | transshipment | caravanserai\nSilk Road | Piraeus | Tyrus | Lothal | Carthage\nShimoda & Hakodate | Malacca | Istanbul | Chicago | Hong Kong",
       "links": [
         {
-          "label": "Silk Road — Britannica",
-          "url": "https://www.britannica.com/topic/Silk-Road-trade-route"
+          "label": "UNESCO — The Persian Caravanserai",
+          "url": "https://whc.unesco.org/en/list/1668/",
+          "role": "primary-validation"
         },
         {
-          "label": "Maps of the Silk Road — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Silk_Road"
+          "label": "UNESCO — Silk Roads: Chang’an–Tianshan Corridor",
+          "url": "https://whc.unesco.org/en/list/1442/",
+          "role": "primary-validation"
         },
         {
-          "label": "Ports and harbours in Hong Kong — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Category:Ports_and_harbours_in_Hong_Kong"
+          "label": "Britannica — Silk Road",
+          "url": "https://www.britannica.com/topic/Silk-Road-trade-route",
+          "role": "reference"
         },
         {
-          "label": "Container port image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=container%20port"
+          "label": "World Customs Organization — free-zone definition",
+          "url": "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/conventions/pf_revised_kyoto_conv/kyoto_new/spand.aspx?p=1",
+          "role": "primary-validation"
         },
         {
-          "label": "Caravanserai image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=caravanserai"
+          "label": "UN Trade and Development — shipping networks and transshipment hubs",
+          "url": "https://resilientmaritimelogistics.unctad.org/guidebook/32-shipping-network",
+          "role": "primary-validation"
         },
         {
-          "label": "Piraeus port image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Piraeus%20port"
+          "label": "Hong Kong Customs — free-port cargo clearance",
+          "url": "https://www.customs.gov.hk/en/service-enforcement-information/cargo-clearance/",
+          "role": "primary-validation"
         },
         {
-          "label": "Lothal image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Lothal"
+          "label": "U.S. Office of the Historian — the opening of Japan",
+          "url": "https://history.state.gov/milestones/1830-1860/opening-to-japan",
+          "role": "primary-validation"
         },
         {
-          "label": "Carthage ancient port image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Carthage%20ancient%20port"
+          "label": "UNESCO — Lothal",
+          "url": "https://whc.unesco.org/en/tentativelists/5918/",
+          "role": "primary-validation"
         },
         {
-          "label": "Malacca port image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Malacca%20port"
+          "label": "UNESCO — Carthage",
+          "url": "https://whc.unesco.org/en/list/37/",
+          "role": "primary-validation"
         },
         {
-          "label": "Chicago freight image search — Wikimedia Commons",
-          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Chicago%20rail%20freight"
+          "label": "Wikimedia Commons — maps of the Silk Road",
+          "url": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Silk_Road",
+          "role": "media-source"
+        },
+        {
+          "label": "Wikimedia Commons — container ports",
+          "url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=container%20port",
+          "role": "media-source"
         }
       ],
-      "studentExplanation": "Journeys are not only about people. Goods also move through routes, stops, transfer points, ports, warehouses, and trade policies. An entrepôt, a caravanserai, a waystation, a free-trade zone, or a transshipment point is not usually the final destination. It is a place where goods pause, change hands, avoid or delay duties, move from one vehicle to another, or connect one economy to another. From the Silk Road to Hong Kong and Chicago, trade hubs show that the modern world is built on things being constantly in transit: not fully here, not fully there, but moving through systems.\n\nThe extra notes help define the vocabulary: an entrepot stores and redistributes goods, a free-trade zone changes the tax and customs rules, transshipment combines routes through a middle point, and ports such as Hong Kong, Istanbul, Chicago, Lothal, Tyre, or Malacca matter because goods often “arrive” several times before reaching a buyer. Use this to connect travel with support systems: what moves, where it pauses, how services or hubs make movement possible, and why arrival depends on many places that are not the destination.",
-      "whyItMatters": "At the entry level, this helps students understand that trade depends on routes and stopovers as much as human travel does. At the section level, it completes Call of Duty-Free by showing that movement includes goods, capital, customs, storage, and policy. At the year-theme level, it connects to “Are We There Yet?” because modern economies depend on things that are always between origins and destinations.",
-      "takeaway": "Goods rarely move in one simple jump; they depend on intermediate places that organize transit, storage, policy, and exchange",
+      "studentExplanation": "Goods rarely travel from producer to buyer in one uninterrupted trip. An entrepôt is a commercial hub where goods are imported, stored, and re-exported or traded onward. A waystation is the broadest term: an intermediate stop. A free-trade zone is defined by a customs and tax regime, not by a particular building. Transshipment is an operation: cargo moves from one vessel or transport route to another at an intermediate point.\n\nA caravanserai is different from all four. It is a route institution and a physical lodging complex for caravans, people, animals, and goods. Its water, food, storage, shelter, security, and courtyard design helped a network function across difficult terrain. Trade there could occur, but a caravanserai is not simply an entrepôt, and it is not a legal free-trade zone. This is why it belongs in both the history of accommodation and the history of goods.\n\nThe named places reveal different eras and modes of connection: Silk Road corridors and caravan stops; ancient ports such as Lothal, Tyre, and Carthage; maritime crossroads such as Malacca and Istanbul; treaty ports such as Shimoda and Hakodate; and rail, lake, air, or container hubs such as Chicago and Hong Kong. A hub is not passive. Storage, customs rules, security, geography, and transfer capacity let it redirect trade and gain power from being “in between.”",
+      "whyItMatters": "This entry gives precise vocabulary for questions that otherwise look similar. A place, a legal regime, and a transfer operation can all help goods continue, but they are not interchangeable. It also closes the section’s loop: the same journey may depend on a hotel for a traveler, a caravanserai for a caravan, an entrepôt for inventory, and a transshipment port for containers.",
+      "takeaway": "Intermediate hubs do not merely delay goods; they store, sort, protect, tax, transfer, and redirect them.",
       "subjects": [
         "Economics & Trade",
         "Geography / Human Geography"
@@ -1005,8 +1147,8 @@
         "Istanbul",
         "Chicago"
       ],
-      "debateRelevance": "Useful when debating whether trade hubs should be seen as mere middle points or as powerful places that shape economies and routes.",
-      "counterargument": "A trade hub can be important, but final destinations, producers, workers, and consumers also shape trade systems.",
+      "debateRelevance": "Useful for debating whether middle points merely serve trade or actively shape markets, borders, labor, and political power.",
+      "counterargument": "Hub power is never automatic. Routes can move when costs, policy, conflict, technology, or environmental conditions change.",
       "visualSections": [
         {
           "title": "Key trade words",
@@ -1178,10 +1320,15 @@
             {
               "kind": "text-slide",
               "title": "Shimoda & Hakodate",
-              "note": "Japanese ports opened to foreign trade in the 19th century, marking a forced re-entry into international exchange networks.",
+              "note": "Under the 1854 Treaty of Kanagawa, Shimoda and Hakodate first opened to American ships for supplies and assistance, not yet to general foreign trade. Later treaties widened commercial access. The distinction matters because ‘opening a port’ can describe different rights.",
               "imageGuidance": "The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Shimoda port Hakodate port historical Japan real image.",
               "videoGuidance": "The agent must use /youtubesearch to find a clear educational video, ideally 5–7 minutes maximum or shorter. Prefer student-friendly explainers; avoid promotional travel-only videos unless they teach the concept clearly. Search target: opening of Japan Shimoda Hakodate ports explained.",
-              "links": [],
+              "links": [
+                {
+                  "label": "U.S. Office of the Historian — the opening of Japan",
+                  "url": "https://history.state.gov/milestones/1830-1860/opening-to-japan"
+                }
+              ],
               "src": "assets/raw-content/call-of-duty-free/image30.png",
               "preserveOriginalColor": true,
               "imageMode": "exact-source-image",

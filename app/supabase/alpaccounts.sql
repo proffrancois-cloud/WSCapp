@@ -49,6 +49,44 @@ alter table public.alpaca_profiles
   add column if not exists created_at timestamptz default now(),
   add column if not exists updated_at timestamptz default now();
 
+create or replace function public.is_valid_wsc_achievements(value jsonb)
+returns boolean
+language plpgsql
+immutable
+set search_path = ''
+as $$
+declare
+  item jsonb;
+begin
+  if jsonb_typeof(value) <> 'array'
+    or jsonb_array_length(value) > 1
+    or pg_column_size(value) > 4096
+  then
+    return false;
+  end if;
+
+  for item in
+    select entry
+    from jsonb_array_elements(value) as entries(entry)
+  loop
+    if jsonb_typeof(item) <> 'object'
+      or coalesce(item ->> 'rewardType', '') not in ('jac-khor', 'trophy', 'gold-medal', 'silver-medal')
+      or coalesce(item ->> 'round', '') not in ('regional', 'global', 'toc')
+      or char_length(coalesce(item ->> 'fullName', '')) > 160
+      or char_length(coalesce(item ->> 'city', '')) > 120
+      or char_length(coalesce(item ->> 'approximateDate', '')) > 80
+    then
+      return false;
+    end if;
+  end loop;
+
+  return true;
+exception
+  when others then
+    return false;
+end;
+$$;
+
 update public.alpaca_profiles as profile
 set email = lower(trim(auth_user.email))
 from auth.users as auth_user
@@ -197,8 +235,8 @@ set
       then lower(trim(email))
     else lower(replace(id::text, '-', '') || '@alpaccount.local')
   end,
-  country = coalesce(nullif(trim(country), ''), 'Unknown'),
-  school_name = coalesce(nullif(trim(school_name), ''), 'Unknown school'),
+  country = left(coalesce(nullif(trim(country), ''), 'Unknown'), 80),
+  school_name = left(coalesce(nullif(trim(school_name), ''), 'Unknown school'), 160),
   wsc_event_count = least(greatest(coalesce(wsc_event_count, 0), 0), 99),
   highest_wsc_round = case
     when lower(trim(coalesce(highest_wsc_round, ''))) in ('none_yet', 'regional_round', 'global_round', 'tournament_of_champions')
@@ -207,7 +245,7 @@ set
   end,
   last_auth_provider = coalesce(nullif(lower(trim(last_auth_provider)), ''), 'email'),
   wsc_achievements = case
-    when jsonb_typeof(coalesce(wsc_achievements, '[]'::jsonb)) = 'array'
+    when public.is_valid_wsc_achievements(coalesce(wsc_achievements, '[]'::jsonb))
       then coalesce(wsc_achievements, '[]'::jsonb)
     else '[]'::jsonb
   end,
@@ -295,6 +333,38 @@ begin
         jsonb_typeof(wsc_achievements) = 'array'
       );
   end if;
+
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.alpaca_profiles'::regclass
+      and conname = 'alpaca_profiles_country_length_check'
+  ) then
+    alter table public.alpaca_profiles
+      add constraint alpaca_profiles_country_length_check check (char_length(country) between 1 and 80);
+  end if;
+
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.alpaca_profiles'::regclass
+      and conname = 'alpaca_profiles_school_name_length_check'
+  ) then
+    alter table public.alpaca_profiles
+      add constraint alpaca_profiles_school_name_length_check check (char_length(school_name) between 1 and 160);
+  end if;
+
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.alpaca_profiles'::regclass
+      and conname = 'alpaca_profiles_wsc_achievements_shape_check'
+  ) then
+    alter table public.alpaca_profiles
+      add constraint alpaca_profiles_wsc_achievements_shape_check check (
+        public.is_valid_wsc_achievements(wsc_achievements)
+      );
+  end if;
 end;
 $$;
 
@@ -312,7 +382,17 @@ create index if not exists alpaca_profiles_last_auth_provider_idx
 
 alter table public.alpaca_profiles enable row level security;
 
-grant select, update on public.alpaca_profiles to authenticated;
+revoke all on public.alpaca_profiles from anon;
+revoke update on public.alpaca_profiles from authenticated;
+grant select on public.alpaca_profiles to authenticated;
+grant update (
+  alpaca_name,
+  country,
+  school_name,
+  wsc_event_count,
+  highest_wsc_round,
+  wsc_achievements
+) on public.alpaca_profiles to authenticated;
 
 drop policy if exists "Users can view their own alpaca profile" on public.alpaca_profiles;
 create policy "Users can view their own alpaca profile"
@@ -364,13 +444,13 @@ as $$
 declare
   clean_alpaca_name text := lower(trim(coalesce(new.raw_user_meta_data ->> 'alpaca_name', '')));
   clean_email text := lower(trim(coalesce(new.email, '')));
-  clean_country text := trim(coalesce(new.raw_user_meta_data ->> 'country', ''));
-  clean_school_name text := trim(coalesce(new.raw_user_meta_data ->> 'school_name', ''));
+  clean_country text := left(trim(coalesce(new.raw_user_meta_data ->> 'country', '')), 80);
+  clean_school_name text := left(trim(coalesce(new.raw_user_meta_data ->> 'school_name', '')), 160);
   clean_wsc_event_count integer := 0;
   clean_highest_wsc_round text := lower(trim(coalesce(new.raw_user_meta_data ->> 'highest_wsc_round', '')));
   clean_wsc_reward_type text := lower(replace(trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_type', 'none_yet')), '_', '-'));
-  clean_wsc_reward_city text := trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_city', ''));
-  clean_wsc_reward_date text := trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_date', ''));
+  clean_wsc_reward_city text := left(trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_city', '')), 120);
+  clean_wsc_reward_date text := left(trim(coalesce(new.raw_user_meta_data ->> 'wsc_id_reward_date', '')), 80);
   clean_wsc_achievement_round text := '';
   clean_wsc_achievements jsonb := coalesce(new.raw_user_meta_data -> 'wsc_achievements', '[]'::jsonb);
   clean_last_auth_provider text := lower(trim(coalesce(new.raw_app_meta_data ->> 'provider', 'email')));
@@ -446,7 +526,7 @@ begin
     clean_highest_wsc_round := 'none_yet';
   end if;
 
-  if jsonb_typeof(clean_wsc_achievements) <> 'array' then
+  if not public.is_valid_wsc_achievements(clean_wsc_achievements) then
     clean_wsc_achievements := '[]'::jsonb;
   end if;
 
@@ -882,38 +962,12 @@ create trigger sync_alpaca_profile_auth_identity
 
 revoke all on function public.sync_alpaca_profile_auth_identity() from public;
 
-create or replace function public.resolve_alpaca_login(p_alpaca_name text)
-returns text
-language sql
-security definer
-stable
-set search_path = ''
-as $$
-  select email
-  from public.alpaca_profiles
-  where alpaca_name = lower(trim(p_alpaca_name))
-  limit 1;
-$$;
+-- Never expose the auth email associated with a public alpaca name.
+-- Keep this explicit drop so applying the setup also removes the legacy RPC
+-- from projects that ran an older revision of this file.
+drop function if exists public.resolve_alpaca_login(text);
 
-revoke all on function public.resolve_alpaca_login(text) from public;
-grant execute on function public.resolve_alpaca_login(text) to anon, authenticated;
-
-create or replace function public.is_alpaca_name_available(p_alpaca_name text)
-returns boolean
-language sql
-security definer
-stable
-set search_path = ''
-as $$
-  select not exists (
-    select 1
-    from public.alpaca_profiles
-    where alpaca_name = lower(trim(p_alpaca_name))
-  );
-$$;
-
-revoke all on function public.is_alpaca_name_available(text) from public;
-grant execute on function public.is_alpaca_name_available(text) to anon, authenticated;
+drop function if exists public.is_alpaca_name_available(text);
 
 create table if not exists public.alpaca_progress (
   user_id uuid primary key references auth.users(id) on delete cascade,

@@ -1,107 +1,100 @@
 # Security Notes
 
-This app is a static browser app. Anything shipped under `app/` is public once
-deployed to Vercel or GitHub Pages.
+WSCapp is not only a static browser bundle. The repository currently contains:
 
-## Supabase Browser Config
+- the public web shell under `app/`;
+- Cloudflare Pages and Vercel Functions under `functions/` and `api/`;
+- a Cloudflare Worker/Durable Object realtime service under `workers/realtime/`;
+- an Electron desktop wrapper under `app/desktop/electron/`.
 
-`app/supabase-config.js` contains the Supabase project URL and publishable
-browser key. This key is not treated as a secret. It identifies the Supabase
-project to the browser client.
+Anything shipped under `app/` is public. GitHub Pages, a plain local server, Electron, Cloudflare Pages, and Vercel do not expose the same server APIs or response headers, so each runtime must be reviewed separately.
 
-The classic browser shell still loads Supabase from jsDelivr, pinned to
-`@supabase/supabase-js@2.108.1`. Bundling Supabase through npm is deferred until
-the non-bundled classic shell is migrated or wrapped by a build step.
+## Supabase browser configuration
 
-Security must come from Supabase configuration:
+`app/supabase-config.js` contains the Supabase project URL and publishable browser key. The key is intentionally public and is never an authorization boundary. The classic shell loads `@supabase/supabase-js@2.108.1` asynchronously from jsDelivr; the app can still boot in local mode if that optional dependency is unavailable.
 
-- Row Level Security must be enabled on every public table that the browser can
-  read or write.
-- Policies must limit each user to their own Alpaccount profile/progress unless
-  the feature intentionally exposes shared room data.
-- Server-only secrets must never be added to this repo or any static artifact.
+Security must come from the deployed database and auth configuration:
 
-Do not commit:
+- enable Row Level Security on every browser-reachable table;
+- restrict profiles and progress to the current authenticated user unless a field is deliberately public;
+- apply the SQL migrations in the active project, then test them with anonymous and two distinct authenticated accounts;
+- never add a service-role key, database password, JWT signing secret, OAuth secret, Resend key, or deployment credential to the repository or a public artifact.
 
-- Supabase service role keys.
-- Database passwords.
-- JWT signing secrets.
-- OAuth client secrets.
-- Vercel tokens or deployment credentials.
-- Private API keys for third-party services.
+`app/supabase/alpaccounts.sql` now removes the public alpaca-name-to-email resolver, limits profile updates to self-service columns, and defines account-scoped progress policies. Source SQL is not proof that the active project has those policies. Confirm that `resolve_alpaca_login(text)` and anonymous account-lookup RPCs are absent in production.
 
-## Current Database Surfaces
+`app/supabase/alpacapardy_live.sql` contains the legacy/live game room surfaces. Their RPC/RLS, persistence, host authority, and moderation model require a separate production review before making durable multiplayer claims.
 
-`app/supabase/alpaccounts.sql` defines Alpaccount profiles and progress. It
-enables RLS and grants authenticated users access to their own profile data.
+## Authentication, profile, and local progress
 
-`app/supabase/alpacapardy_live.sql` defines legacy/future live game room tables.
-It enables RLS and currently gates live-room access through authenticated users
-and the admin-tester helper policies in that script.
+Local mode works without signing in. Sign-in and password recovery are email-only; the browser no longer resolves alpaca names to email addresses. Duplicate or invalid account data is reported generically.
 
-The 2D campus uses Supabase Realtime presence/broadcast for online campus
-state. Presence and broadcast data should be treated as live session messages,
-not persisted authoritative MMO state.
+The default online guest display name is `Guest`. Public Worker player snapshots strip school, country, rewards, email, and client-supplied user IDs. This does not replace a privacy policy, retention/deletion controls, or a product decision about whether school and country should be collected at all.
 
-## Current Client Behavior
+Browser progress uses versioned guest/account namespaces. Switching accounts invalidates stale remote loads, and remote saves are serialized. Account data and UUID-keyed local records still persist on a shared device until storage is cleared. Remote sync still replaces an entire snapshot and has no explicit revision/merge protocol, so conflict behavior remains a known limitation.
 
-The main app allows local mode without signing in. Alpaccount sign-in is
-optional for progress sync.
+All browser-storage writes are non-fatal. The app continues when storage is unavailable and can expose a local-progress warning.
 
-Alpaccount sign-in and password reset are email-only. The browser client no
-longer resolves alpaca names to email addresses, and the SQL setup drops
-`resolve_alpaca_login(text)`. The signup form also avoids an anonymous
-preflight name-availability response; duplicate or invalid account data is
-reported with generic wording.
+## Pages/Vercel Functions
 
-The 2D campus multiplayer entry can run with the existing authenticated or
-anonymous Supabase session path used by live games. The visible default online
-alpaca identity remains `Devalpacca` in the main app entry card.
+Cloudflare adapters and Vercel handlers expose:
 
-Live Alpacapardy and arcade room features remain separate from 2D campus
-presence. Their RPC/RLS, persistence, and moderation design must be reviewed
-before making new durable multiplayer claims.
+- `POST /api/send-feedback-email`;
+- `GET /api/embed-library-resource`.
 
-Browser storage writes are non-fatal. If local progress cannot be saved, the
-app keeps running and can show a local-progress warning on the entry surface.
-The 2D campus room/color preferences use the same safe browser-storage
-boundary.
+The feedback endpoint enforces an origin allowlist, a 32 KiB request limit in both the platform adapter and handler, bounded fields, a honeypot, and an in-memory per-client rate limit. Reporting another person requires a valid Supabase bearer token. Required Cloudflare bindings are documented in `docs/launch/cloudflare-supabase-cutover.md`.
 
-Future Vercel artifacts are configured with baseline static headers in
-`vercel.json`: CSP, `X-Content-Type-Options`, `Referrer-Policy`,
-`Permissions-Policy`, and `X-Frame-Options`. This repo change does not deploy
-Vercel.
+Residual feedback risks:
 
-## Safe HTML Boundary
+- the rate-limit map is per warm isolate, not globally durable;
+- forwarded client IP headers depend on correct platform configuration;
+- guest problem reports do not use CAPTCHA or another proof-of-human mechanism;
+- Supabase and Resend fetches still need operational timeout/alerting policy;
+- tests exercise local handlers, not the deployed mail provider or production bindings.
 
-The classic app still uses HTML-string renderers, so the current containment
-strategy is an explicit boundary rather than a full renderer rewrite.
+The library proxy uses a host allowlist, revalidates redirects, probes the upstream resource, caps size/type, applies a sandbox CSP, and is rendered in an opaque sandboxed iframe. It does not sanitize arbitrary upstream HTML; containment therefore depends on the allowlist, iframe sandbox, CSP, and browser behavior. Keep the allowlist narrow and add timeouts/rate limits before expanding it.
 
-`app/src/app/app-dom-service.js` is the only approved source file allowed to
-write `innerHTML` or parse trusted markup. It exposes `trustedHtml`,
-`setTrustedHtml`, `setHtml`, `htmlToText`, and `escapeHtml`.
+These APIs are available on Cloudflare Pages and Vercel when configured. They are not provided by GitHub Pages, a plain static server, or the Electron `file:` runtime; the UI must keep its explicit fallback/disabled behavior there.
 
-Generated guide/content HTML is treated as trusted build-time content. Future
-user-generated values must use `textContent`, `escapeHtml`, or equivalent
-escaping before display. Do not pass user-generated text to `trustedHtml`.
+## Realtime and multiplayer
 
-`npm run test:html-boundary` verifies the boundary helpers and an XSS-looking
-fixture. `npm run test:html-sinks` scans source files and fails if direct HTML
-sinks appear outside `app-dom-service.js`.
+The 2D campus prefers the Cloudflare Worker/Durable Object endpoint and can fall back to Supabase Realtime during rollout. The Worker currently:
 
-## Review Checklist
+- rejects missing or unapproved `Origin` headers;
+- caps rooms, message size, coordinates, nested payloads, chat length, and per-event/global message rates;
+- strips private player fields and ignores a query-string `userId`;
+- allocates unique client IDs when requested IDs collide.
 
-- Confirm RLS is enabled for every table reachable from browser code.
-- Confirm policies have been applied in the active Supabase project, not only
-  stored in SQL files.
-- Confirm Realtime channels do not expose private profile or progress data.
-- Confirm `resolve_alpaca_login(text)` is absent in the active Supabase project.
-- Confirm anonymous users cannot call name-availability/account-lookup RPCs.
-- Confirm anonymous sign-in is intentionally enabled or disabled for the live
-  features that use it.
-- Confirm the pinned Supabase browser dependency is reviewed before updating.
-- Confirm Vercel headers are still compatible before publishing a Vercel build.
-- Confirm new user-generated text is escaped or rendered as text, not trusted
-  HTML.
-- Confirm no service-role or deployment secrets appear in source, generated
-  files, build artifacts, screenshots, docs, or browser-visible config.
+These are containment measures, not authentication. `Origin` can be forged by non-browser clients. The Worker does not yet validate a WSCapp session ticket/JWT or enforce authenticated host/team/role permissions. Challenge and debate events remain substantially client-authoritative, and peers may receive answer/score state that a modified client can exploit. The Supabase fallback does not automatically inherit the Worker's filtering and rate limits.
+
+Before treating the campus as a trusted public multiplayer service, add:
+
+- short-lived server-issued session tickets and role authorization;
+- server-owned question, timer, answer, and scoring state;
+- parity tests for the Supabase fallback or removal of that fallback;
+- durable abuse controls, room-creation limits, moderation, block/mute, and audit trails;
+- WebRTC identity/permission checks and explicit TURN/privacy policy where audio is enabled.
+
+## Browser and Electron boundaries
+
+Vercel configuration and the Cloudflare `_headers` artifact define CSP, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and framing protections. `index.html` also carries a baseline CSP for `file:`/static runtimes. The current CSP still needs `'unsafe-inline'` for the classic shell and permits a pinned jsDelivr dependency without Subresource Integrity; bundling and hashing scripts is the preferred long-term fix.
+
+Electron enables sandboxing, context isolation, disables Node integration, and applies a protocol allowlist to external navigation. OAuth and password-recovery flows that cannot safely return to `file:` are hidden in desktop mode. Packaging tests must ensure every script referenced by `index.html`, including `realtime-config.js`, is included.
+
+The retired-PWA path unregisters old service workers and clears legacy route caches. A future PWA reintroduction needs a fresh cache and update-security review.
+
+## Safe HTML boundary
+
+The classic app still uses HTML-string renderers. `app/src/app/app-dom-service.js` is the only approved source file allowed to write `innerHTML` or parse trusted markup. Generated guide/content HTML is treated as trusted build-time content. User-supplied data must use `textContent`, `escapeHtml`, or an equivalent sanitizer and must never be passed to `trustedHtml`.
+
+`npm run test:html-boundary` verifies the helpers and an XSS-looking fixture. `npm run test:html-sinks` fails if direct HTML sinks appear outside the approved service.
+
+## Release review checklist
+
+- Apply and test Supabase RLS/RPC changes in the active project with anonymous, account A, and account B sessions.
+- Verify the production Cloudflare/Vercel headers and Pages Function bindings, not only repository configuration.
+- Exercise feedback size/rate/auth paths and a real Resend delivery in a non-production inbox.
+- Test proxy redirects, MIME/size limits, timeout behavior, and sandbox escape attempts in a browser.
+- Test Worker WebSocket authorization, payload secrecy, rate limits, load, and fallback parity.
+- Verify account switching, stale remote loads, storage failure, conflicts, and clearing data on a shared device.
+- Scan the final public artifact for secrets, local paths, authoring prompts, direct HTML sinks, and oversized assets.
+- Confirm no service-role or deployment secret appears in source, generated files, artifacts, screenshots, logs, or docs.

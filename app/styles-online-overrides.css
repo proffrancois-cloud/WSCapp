@@ -137,6 +137,28 @@ body.is-online-mode .hero-best-strip {
   background: rgba(255, 252, 242, 0.72);
 }
 
+.app-entry-choice-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.app-entry-choice-heading h2,
+.app-entry-choice-heading p {
+  margin: 0;
+}
+
+.app-entry-choice-heading h2 {
+  color: var(--bg);
+  font-family: "Cardo", Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  line-height: 1;
+}
+
+.app-entry-choice-heading > p:last-child {
+  color: var(--ink-soft);
+  font-weight: 750;
+}
+
 .app-entry-auth-panel.signed-in {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -727,6 +749,33 @@ body.is-online-mode .hero-best-strip {
   .online-room-mini,
   .online-current-room {
     grid-template-columns: 1fr;
+  }
+
+  .app-entry-gate-overlay {
+    align-items: start;
+    padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom));
+  }
+
+  .app-entry-gate-window {
+    width: 100%;
+    max-height: calc(100dvh - max(20px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    gap: 14px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .app-entry-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .app-entry-choice-card {
+    min-height: 132px;
+    padding: 12px;
+  }
+
+  .app-entry-choice-logo {
+    max-height: 52px;
   }
 }
 
@@ -1774,6 +1823,7 @@ body.is-campus2d-view .wizard-steps {
   --campus2d-sprite-x: 50%;
   --campus2d-sprite-y: 0%;
   --campus2d-flip: 1;
+  --campus2d-avatar-scale: 1;
   position: absolute;
   left: 0;
   top: 0;
@@ -1789,7 +1839,7 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-player.is-sitting .campus2d-avatar {
-  transform: scaleX(var(--campus2d-flip));
+  --campus2d-avatar-scale: 1.34;
 }
 
 .campus2d-player.is-npc .campus2d-avatar {
@@ -1825,7 +1875,7 @@ body.is-campus2d-view .wizard-steps {
   filter: drop-shadow(0 4px 5px rgba(15, 9, 2, 0.38));
   image-rendering: pixelated;
   pointer-events: auto;
-  transform: scaleX(var(--campus2d-flip));
+  transform: scale(var(--campus2d-avatar-scale)) scaleX(var(--campus2d-flip));
   transform-origin: center bottom;
 }
 
@@ -2901,6 +2951,34 @@ body.is-campus2d-view .hero-layout {
   gap: 7px;
 }
 
+.campus2d-account-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 232, 172, 0.18);
+}
+
+.campus2d-account-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.campus2d-account-copy .campus2d-setting-value {
+  max-width: 170px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.campus2d-account-button {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 12px;
+}
+
 .campus2d-slider {
   width: 100%;
   min-width: 0;
@@ -3199,22 +3277,73 @@ body.is-campus2d-view .hero-layout {
   color: #ffd1c6;
 }
 
+.campus2d-feedback-email-fallback {
+  justify-self: start;
+  min-height: 38px;
+  margin-top: -4px;
+  text-decoration: none;
+}
+
 .campus2d-hotspot {
   position: absolute;
-  border: 0;
+  border: 1px solid rgba(255, 224, 138, 0.34);
   border-radius: 999px;
-  background: rgba(255, 214, 112, 0.01);
+  background: rgba(255, 214, 112, 0.08);
   cursor: pointer;
   pointer-events: auto;
 }
 
 .campus2d-portal {
   position: absolute;
-  border: 1px solid rgba(63, 164, 255, 0);
+  border: 2px solid rgba(111, 204, 255, 0.58);
   border-radius: 8px;
-  background: rgba(63, 164, 255, 0);
+  background: linear-gradient(180deg, rgba(73, 172, 255, 0.08), rgba(54, 143, 255, 0.2));
   cursor: pointer;
   pointer-events: auto;
+  box-shadow: inset 0 0 18px rgba(77, 184, 255, 0.12), 0 0 0 2px rgba(16, 52, 91, 0.1);
+}
+
+.campus2d-portal-marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(228, 248, 255, 0.84);
+  border-radius: 999px;
+  background: rgba(19, 86, 143, 0.78);
+  color: #effaff;
+  font-size: 17px;
+  font-weight: 950;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 14px rgba(10, 48, 84, 0.32);
+}
+
+.campus2d-portal-marker::before {
+  content: "➜";
+}
+
+.campus2d-interactive-label {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  z-index: 2;
+  max-width: 150px;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 245, 214, 0.74);
+  border-radius: 999px;
+  background: rgba(31, 24, 14, 0.88);
+  color: #fff8df;
+  font-size: 10px;
+  font-weight: 950;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  box-shadow: 0 5px 12px rgba(14, 8, 3, 0.28);
 }
 
 .campus2d-portal:hover,
@@ -5557,6 +5686,27 @@ body.is-online-mode .hero-links.is-open > a.hero-link-icon {
   border: 1px solid rgba(101, 66, 37, 0.18);
   border-radius: 12px;
   background: rgba(255, 246, 223, 0.72);
+}
+
+.app-settings-account {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(101, 66, 37, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 246, 223, 0.72);
+}
+
+.app-settings-account .button {
+  justify-self: end;
+}
+
+.app-settings-account-status {
+  max-width: 190px;
+  color: rgba(79, 49, 29, 0.72);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .app-settings-row {

@@ -35,7 +35,7 @@ function getMainWindowOptions({ rootDir, platform = process.platform, hasFile = 
     webPreferences: {
       preload: path.join(rootDir, "desktop", "electron", "preload.js"),
       contextIsolation: true,
-      sandbox: false,
+      sandbox: true,
       nodeIntegration: false,
       navigateOnDragDrop: false
     }

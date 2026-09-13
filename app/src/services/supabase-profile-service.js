@@ -56,14 +56,6 @@
       }, { onConflict: "user_id" });
   }
 
-  function checkAlpacaNameAvailability(client, alpacaName) {
-    return client.rpc("is_alpaca_name_available", { p_alpaca_name: alpacaName });
-  }
-
-  function resolveAlpacaLogin(client, alpacaName) {
-    return client.rpc("resolve_alpaca_login", { p_alpaca_name: alpacaName });
-  }
-
   async function updateProfile(client, userId, payload) {
     const response = await client
       .from("alpaca_profiles")
@@ -87,37 +79,10 @@
       .maybeSingle();
   }
 
-  async function syncAuthIdentity(client, user) {
-    const authService = window.WSC_AUTH_SERVICE || null;
-    const payload = authService?.extractAuthIdentity
-      ? authService.extractAuthIdentity(user)
-      : null;
-
-    if (!payload || !user?.id) {
-      return { data: null, error: null, skipped: true };
-    }
-
-    const response = await client
-      .from("alpaca_profiles")
-      .update(payload)
-      .eq("id", user.id)
-      .select("id")
-      .maybeSingle();
-
-    if (isMissingColumnError(response.error)) {
-      return { data: null, error: null, skipped: true };
-    }
-
-    return response;
-  }
-
   window.WSC_SUPABASE_PROFILE_SERVICE = Object.freeze({
     fetchProfile,
     fetchProgress,
     upsertProgress,
-    checkAlpacaNameAvailability,
-    resolveAlpacaLogin,
-    updateProfile,
-    syncAuthIdentity
+    updateProfile
   });
 }());

@@ -2,6 +2,7 @@ const { app, BrowserWindow, shell } = require("electron");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 const { getMainWindowOptions } = require("./window-config");
+const { isSafeExternalUrl } = require("./navigation-policy");
 
 const ROOT_DIR = path.join(__dirname, "..", "..");
 const INDEX_PATH = path.join(ROOT_DIR, "index.html");
@@ -28,7 +29,9 @@ function createMainWindow() {
     if (isAppIndexUrl(url)) {
       return { action: "allow" };
     }
-    shell.openExternal(url);
+    if (isSafeExternalUrl(url)) {
+      shell.openExternal(url);
+    }
     return { action: "deny" };
   });
 
@@ -39,7 +42,7 @@ function createMainWindow() {
 
     event.preventDefault();
 
-    if (!url.startsWith("file://")) {
+    if (isSafeExternalUrl(url)) {
       shell.openExternal(url);
       return;
     }

@@ -43,6 +43,78 @@ function questionSourceKey(question) {
   return question?.stableId || question?.sourceId || question?.sourceQuestionId || question?.id;
 }
 
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function comparableQuestion(question) {
+  return {
+    prompt: question?.prompt || "",
+    correctAnswer: question?.correctAnswer || "",
+    wrongAnswers: question?.wrongAnswers || (question?.distractors || []).map((item) => item.answer),
+    explanation: question?.explanation || "",
+    visibleCorrectExplanation: question?.visibleCorrectExplanation || question?.explanation || "",
+    visibleWrongExplanations: question?.visibleWrongExplanations || [],
+    visibleConnection: question?.visibleConnection || "",
+    visibleTakeaway: question?.visibleTakeaway || "",
+    entryId: question?.entryId || null,
+    sourceUrl: question?.sourceUrl || "",
+    sourceLinks: question?.sourceLinks || [],
+    qualityProfile: question?.qualityProfile || ""
+  };
+}
+
+function validateEvidenceQuestion(question, location) {
+  if (question?.qualityProfile !== "wsc-evidence-v1") {
+    return;
+  }
+
+  const wrongAnswers = question.wrongAnswers || [];
+  if (wrongAnswers.length !== 3) {
+    errors.push(`${location} must have exactly 3 distractors under wsc-evidence-v1`);
+  }
+
+  const normalizedChoices = [question.correctAnswer, ...wrongAnswers].map(normalizeText);
+  if (normalizedChoices.some((choice) => !choice) || new Set(normalizedChoices).size !== normalizedChoices.length) {
+    errors.push(`${location} has blank or duplicate answer choices under wsc-evidence-v1`);
+  }
+
+  const correctExplanation = question.visibleCorrectExplanation || question.explanation || "";
+  if (!normalizeText(correctExplanation) || normalizeText(correctExplanation) === normalizeText(question.correctAnswer)) {
+    errors.push(`${location} must explain the answer rather than repeat it under wsc-evidence-v1`);
+  }
+
+  const feedback = question.visibleWrongExplanations || [];
+  if (feedback.length !== 3) {
+    errors.push(`${location} must have one feedback item per distractor under wsc-evidence-v1`);
+  }
+  for (const answer of wrongAnswers) {
+    const item = feedback.find((candidate) => normalizeText(candidate.answer) === normalizeText(answer));
+    if (!item?.explanation) {
+      errors.push(`${location} is missing feedback for distractor: ${answer}`);
+      continue;
+    }
+    if (/that answer changes the point/i.test(item.explanation)) {
+      errors.push(`${location} still uses generic distractor feedback under wsc-evidence-v1`);
+    }
+  }
+
+  if (Number(question.displayLevel) >= 300 && !question.visibleConnection) {
+    errors.push(`${location} must include visibleConnection at level 300+ under wsc-evidence-v1`);
+  }
+  if (Number(question.displayLevel) >= 300 && !question.visibleTakeaway) {
+    errors.push(`${location} must include visibleTakeaway at level 300+ under wsc-evidence-v1`);
+  }
+  if (!/^https:\/\//.test(question.sourceUrl || "")) {
+    errors.push(`${location} must use a verified HTTPS sourceUrl under wsc-evidence-v1`);
+  }
+}
+
 function assetPathExists(assetPath, sectionDir = null) {
   if (!assetPath || /^https?:\/\//.test(assetPath)) {
     return true;
@@ -85,6 +157,8 @@ function validate() {
   let questionBankCount = 0;
   let questionBankPlacementCount = 0;
   let questionBankSourceKeys = new Set();
+  const questionBankBySourceKey = new Map();
+  const sectionQuestionsBySourceKey = new Map();
   const questionBankSourceTypesByKey = new Map();
   const questionBankCountsBySourceType = {};
   const fullVoyageCountsByLevel = {};
@@ -107,6 +181,7 @@ function validate() {
             errors.push(`Duplicate central question key: ${key}`);
           }
           questionBankSourceKeys.add(key);
+          questionBankBySourceKey.set(key, question);
           questionBankSourceTypesByKey.set(key, question.sourceType || "unknown");
           questionBankCountsBySourceType[question.sourceType || "unknown"] =
             (questionBankCountsBySourceType[question.sourceType || "unknown"] || 0) + 1;
@@ -216,8 +291,11 @@ function validate() {
           errors.push(`Duplicate question id: ${question.id}`);
         }
         questionIds.add(question.id);
-        sectionQuestionSourceKeys.add(questionSourceKey(question));
+        const sourceKey = questionSourceKey(question);
+        sectionQuestionSourceKeys.add(sourceKey);
+        sectionQuestionsBySourceKey.set(sourceKey, question);
         sectionQuestionIds.add(question.id);
+        validateEvidenceQuestion(question, `${section.id}/${question.id}`);
         if (String(question.displayLevel) !== level) {
           warnings.push(`Question displayLevel mismatch: ${question.id} has ${question.displayLevel}, stored under ${level}`);
         }
@@ -291,6 +369,13 @@ function validate() {
     for (const key of sectionQuestionSourceKeys) {
       if (!questionBankSourceKeys.has(key)) {
         errors.push(`Central question bank is missing section question source key: ${key}`);
+        continue;
+      }
+      const sectionQuestion = sectionQuestionsBySourceKey.get(key);
+      const bankQuestion = questionBankBySourceKey.get(key);
+      if (sectionQuestion?.sourceType !== "fullVoyageQuestions" &&
+          JSON.stringify(comparableQuestion(sectionQuestion)) !== JSON.stringify(comparableQuestion(bankQuestion))) {
+        errors.push(`Central question bank content is out of sync for section question: ${key}`);
       }
     }
     for (const key of questionBankSourceKeys) {

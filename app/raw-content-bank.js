@@ -58910,5 +58910,5 @@ window.WSC_RAW_CONTENT_BANK = {
     "next-year-in-futurism",
     "concluding-questions"
   ],
-  "regularGuidesB1RewriteSyncedAt": "2026-07-16T03:23:13.325112+00:00"
+  "regularGuidesB1RewriteSyncedAt": "2026-07-14T13:09:32.362239+00:00"
 };

@@ -9,6 +9,9 @@ const APP_DIR = path.join(ROOT, "app");
 const PORT = Number(process.env.WSC_SMOKE_PORT || 4173);
 const BASE_URL = `http://localhost:${PORT}`;
 const DEFAULT_CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const expectedRuntimeSummary = JSON.parse(
+  fs.readFileSync(path.join(APP_DIR, "generated/current-runtime/summary.json"), "utf8")
+);
 
 const appSource = fs.readFileSync(path.join(APP_DIR, "src/app/app-main.js"), "utf8");
 
@@ -1149,22 +1152,6 @@ async function main() {
             { label: "A", score: 100, correct: 1, wrong: 0 },
             { label: "B", score: 200, correct: 1, wrong: 0 }
           ])?.[0]?.label || "",
-          liveSession: Boolean(window.WSC_LIVE_SESSION_SERVICE?.createSession),
-          liveSupportedGames: window.WSC_LIVE_SESSION_SERVICE?.supportedGames || [],
-          liveSnapshotRevision: (() => {
-            const service = window.WSC_LIVE_SESSION_SERVICE;
-            if (!service?.createSession) {
-              return -1;
-            }
-            const session = service.appendEvent(
-              service.addPlayer(
-                service.createSession({ gameType: "alpacapardy", hostPlayerId: "p1" }),
-                service.createPlayer({ id: "p1", displayName: "Host Alpaca" })
-              ),
-              { type: "test.event", playerId: "p1" }
-            );
-            return service.getPublicSnapshot(session).revision;
-          })(),
           alpacapardyRenderer: Boolean(window.WSC_ALPACAPARDY_RENDERER?.renderExperience),
           alpacapardyLiveReducer: (() => {
             const live = window.WSC_ALPACAPARDY_LIVE;
@@ -1255,21 +1242,29 @@ async function main() {
     console.log(JSON.stringify(result, null, 2));
 
     const failures = [];
-    if (!boot.appReady || boot.dataSections !== 15 || boot.rawSections !== 15 || boot.entries !== 107 || boot.quiz !== 214) {
-      failures.push("boot counts did not match expected generated runtime values");
+    const expectedBootCounts = {
+      dataSections: expectedRuntimeSummary.sections,
+      rawSections: expectedRuntimeSummary.sections,
+      entries: expectedRuntimeSummary.entries,
+      quiz: expectedRuntimeSummary.quizQuestions,
+      rawEntryOverrides: expectedRuntimeSummary.rawEntryOverrides,
+      rawSectionOverrides: expectedRuntimeSummary.rawSectionOverrides,
+      videos: expectedRuntimeSummary.videos,
+      alpacards: expectedRuntimeSummary.alpacards
+    };
+    const bootCountMismatches = Object.entries(expectedBootCounts)
+      .filter(([key, expected]) => boot[key] !== expected)
+      .map(([key, expected]) => `${key}: expected ${expected}, received ${boot[key]}`);
+    if (!boot.appReady || bootCountMismatches.length) {
+      failures.push(`boot counts did not match the generated runtime summary${
+        bootCountMismatches.length ? ` (${bootCountMismatches.join("; ")})` : ""
+      }`);
     }
     if (!boot.engines.alpaquiz || boot.engines.alpaquizPatternLength !== 7) {
       failures.push("Alpaquiz engine did not load or return the expected question pattern");
     }
     if (!boot.engines.alpacapardy || boot.engines.alpacapardyStandingsLeader !== "B") {
       failures.push("Alpacapardy engine did not load or sort standings correctly");
-    }
-    if (!boot.engines.liveSession || boot.engines.liveSnapshotRevision !== 1) {
-      failures.push("live session service did not load or create a valid snapshot");
-    }
-    const expectedLiveGames = ["alpacapardy", "run", "quiz", "race", "alpaquiz"];
-    if (JSON.stringify(boot.engines.liveSupportedGames) !== JSON.stringify(expectedLiveGames)) {
-      failures.push(`live session service should support ${expectedLiveGames.join(", ")}`);
     }
     if (!boot.engines.alpacapardyRenderer || !boot.engines.alpacapardyLiveReducer || !boot.engines.alpacapardySupabaseService) {
       failures.push("Alpacapardy renderer/live/Supabase bridge did not load correctly");
@@ -1279,9 +1274,6 @@ async function main() {
     }
     if (boot.legacy !== 0 || boot.v3 !== 0) {
       failures.push("generated runtime still contains legacy question arrays");
-    }
-    if (boot.rawEntryOverrides !== 14 || boot.rawSectionOverrides !== 1) {
-      failures.push("raw content overrides did not load with expected counts");
     }
     if (rawContent.rawCards < 1) {
       failures.push("raw content smoke check did not render raw cards");

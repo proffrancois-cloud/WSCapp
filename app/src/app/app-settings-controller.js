@@ -14,6 +14,9 @@
     const escapeHtml = deps.escapeHtml || ((value) => String(value ?? ""));
     const syncPopupScrollLock = deps.syncPopupScrollLock || (() => {});
     const renderResourcesModal = deps.renderResourcesModal || (() => {});
+    const scheduleDialogInitialFocus = deps.scheduleDialogInitialFocus || (() => {});
+    const restoreDialogTriggerFocus = deps.restoreDialogTriggerFocus || (() => {});
+    const getAccountState = deps.getAccountState || (() => ({ signedIn: false, label: "Guest" }));
     const defaultSettings = Object.freeze({
       volume: readNumberSetting(deps.defaultSettings?.volume, 16, 0, 100),
       muted: Boolean(deps.defaultSettings?.muted)
@@ -41,6 +44,7 @@
       }
 
       const volumeLabel = formatVolumeLabel(settings);
+      const account = getAccountState();
       setHtml(mount, `
         <div class="auth-modal-overlay app-settings-overlay" data-app-settings-overlay role="dialog" aria-modal="true" aria-labelledby="appSettingsTitle">
           <div class="auth-modal-window app-settings-window" data-app-settings-window>
@@ -50,12 +54,12 @@
             <div class="auth-modal-stack app-settings-stack">
               <div class="app-settings-heading">
                 <p class="challenge-label">Settings</p>
-                <h3 id="appSettingsTitle">Music</h3>
+                <h3 id="appSettingsTitle">App settings</h3>
               </div>
               <label class="app-settings-control">
                 <span class="app-settings-row">
                   <span>Music volume</span>
-                  <span aria-live="polite">${escapeHtml(volumeLabel)}</span>
+                  <span data-app-settings-volume-value aria-live="polite">${escapeHtml(volumeLabel)}</span>
                 </span>
                 <input
                   class="app-settings-slider"
@@ -67,6 +71,15 @@
                   data-app-settings-volume
                 />
               </label>
+              <div class="app-settings-account">
+                <span class="app-settings-row">
+                  <span>Alpaccount</span>
+                  <span class="app-settings-account-status">${escapeHtml(account.label || (account.signedIn ? "Signed in" : "Guest"))}</span>
+                </span>
+                <button class="button secondary" type="button" data-app-settings-account>
+                  ${escapeHtml(account.signedIn ? "Log out" : "Log in")}
+                </button>
+              </div>
               <div class="panel-actions">
                 <button class="button secondary" type="button" data-app-settings-mute aria-pressed="${settings.muted || settings.volume <= 0 ? "true" : "false"}">
                   ${escapeHtml(settings.muted || settings.volume <= 0 ? "Unmute" : "Mute")}
@@ -77,6 +90,7 @@
           </div>
         </div>
       `, "app-settings-modal");
+      scheduleDialogInitialFocus();
     }
 
     function readNumberSetting(value, fallback, min, max) {
@@ -115,6 +129,25 @@
         return "Muted";
       }
       return `${candidate.volume}%`;
+    }
+
+    function syncRenderedControls() {
+      const mount = getModalMount();
+      const volumeLabel = mount.querySelector("[data-app-settings-volume-value]");
+      const volumeInput = mount.querySelector("[data-app-settings-volume]");
+      const muteButton = mount.querySelector("[data-app-settings-mute]");
+      const isMuted = settings.muted || settings.volume <= 0;
+
+      if (volumeLabel) {
+        volumeLabel.textContent = formatVolumeLabel(settings);
+      }
+      if (volumeInput && doc.activeElement !== volumeInput) {
+        volumeInput.value = String(settings.volume);
+      }
+      if (muteButton) {
+        muteButton.setAttribute("aria-pressed", isMuted ? "true" : "false");
+        muteButton.textContent = isMuted ? "Unmute" : "Mute";
+      }
     }
 
     function ensureBackgroundMusic() {
@@ -166,10 +199,14 @@
       }
     }
 
-    function update(patch = {}) {
+    function update(patch = {}, options = {}) {
       settings = normalizeSettings({ ...settings, ...patch });
       saveSettings();
-      renderModal();
+      if (options.render === false) {
+        syncRenderedControls();
+      } else {
+        renderModal();
+      }
       syncPlayback({ play: state.ui.appSettingsOpen || backgroundMusicBlocked });
     }
 
@@ -186,6 +223,7 @@
       state.ui.appSettingsOpen = false;
       syncPopupScrollLock();
       renderModal();
+      restoreDialogTriggerFocus();
     }
 
     function toggleMute() {

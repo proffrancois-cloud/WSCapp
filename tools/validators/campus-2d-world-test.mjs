@@ -381,13 +381,20 @@ if (!appJs.includes("renderOnlineHomeGameGrid")) {
 }
 const onlineGameChooserBlock = appJs.match(/function chooseOnlineGameType\([^]*?\n}\n/)?.[0] || "";
 const onlineInlineLaunchBlock = appJs.match(/function launchOnlineGameInline\([^]*?\n}\n/)?.[0] || "";
+const campusGameChoiceBlock = appJs.match(/function openMultiplayerGameChoice\([^]*?\n}\n/)?.[0] || "";
+const libraryModeChoiceBlock = appJs.match(/function chooseLibraryMode\([^]*?\n}\n/)?.[0] || "";
 const gameAloneLaunchBlock = appJs.match(/function launchMultiplayerGameAlone\([^]*?\n}\n/)?.[0] || "";
 const campusModalRenderBlock = appJs.match(/function renderLibraryCampusModal\([^]*?\n}\n/)?.[0] || "";
+const jumpAnswerBlock = appJs.match(/function answerJumpQuestion\([^]*?\n}\n/)?.[0] || "";
+const jumpContinueBlock = appJs.match(/function continueJumpRoute\([^]*?\n}\n/)?.[0] || "";
 if (!onlineGameChooserBlock.includes("launchMultiplayerGameConnected") || onlineGameChooserBlock.includes("launchOnlineGameInline") || onlineGameChooserBlock.includes("openMultiplayerGameChoice")) {
   failures.push("Online game cards must open the connected live setup, not the old solo inline fallback or audience picker.");
 }
 if (!onlineInlineLaunchBlock.includes("launchMultiplayerGameConnected") || onlineInlineLaunchBlock.includes("launchMultiplayerGameAlone") || onlineInlineLaunchBlock.includes("stayOnline: true") || onlineInlineLaunchBlock.includes("state.ui.multiplayerGameChoice =")) {
   failures.push("Online inline game launch must use the connected live setup instead of the solo/local rules.");
+}
+if (!libraryModeChoiceBlock.includes("openMultiplayerGameChoice(modeId)") || !campusGameChoiceBlock.includes("state.ui.multiplayerGameChoice =") || !campusGameChoiceBlock.includes("stayOnline: true")) {
+  failures.push("Campus game zones must offer a working Alone / Connected choice before launch.");
 }
 if (!gameAloneLaunchBlock.includes("stayOnline") || !gameAloneLaunchBlock.includes('state.ui.appShellMode = stayOnline ? "online" : "local"') || !gameAloneLaunchBlock.includes("state.ui.libraryExperience = stayOnline")) {
   failures.push("Alone game launch must stay inside Alpaca Online when started from the campus.");
@@ -397,6 +404,9 @@ if (campusModalRenderBlock.includes("shouldUseModalMount") || campusModalRenderB
 }
 if (!campusModalRenderBlock.includes("shouldRenderCampusLiveGamePanel")) {
   failures.push("Live game setup and lobby must render in the campus activity columns.");
+}
+if (!jumpAnswerBlock.includes("renderExperiencePreservingScroll()") || !jumpContinueBlock.includes("renderExperiencePreservingScroll()")) {
+  failures.push("Alpaca Jump must preserve the player's scroll position after answering and continuing.");
 }
 for (const appNeedle of [
   "isCampusActivityInlineActive",
@@ -409,7 +419,8 @@ for (const appNeedle of [
   "renderLibraryInlineTopbar",
   "LIBRARY_RESOURCE_PROXY_ENDPOINT",
   "proxyStrategy: \"rewrite-google-doc-links\"",
-  "renderLibraryResourceProxyBootstrap",
+  "sandbox=\"allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox\"",
+  "event.source !== resourceFrame.contentWindow",
   "handleLibraryResourceMessage",
   "wsc-library-open-embedded-doc",
   "DEBATE_LAB_ALONE_UNAVAILABLE_REASON",
@@ -425,7 +436,9 @@ for (const appNeedle of [
   "CAMPUS_ACTIVITY_COMING_SOON_NOTICE",
   "disabled aria-disabled=\"true\"",
   "openCampus2DDebateLab",
-  "launchOnlineGameInline"
+  "launchOnlineGameInline",
+  "feedbackEmail: CAMPUS_FEEDBACK_EMAIL",
+  "onAccountAction: handleCampusAccountAction"
 ]) {
   if (!appJs.includes(appNeedle)) {
     failures.push(`src/app/app-main.js is missing inline Campus 2D activity support: ${appNeedle}.`);
@@ -475,6 +488,9 @@ for (const runtimeNeedle of [
   "data-campus2d-open-self-card",
   "data-campus2d-report-form",
   "onFeedbackSubmit",
+  "showFeedbackEmailFallback",
+  "data-campus2d-feedback-email-fallback",
+  "data-campus2d-account-action",
   "updateShellHeight",
   "typeNpcDialogueText(copy, cursor, message)",
   "campus2d-npc-dialogue is-text-only",
@@ -596,6 +612,9 @@ if (!/function\s+showBubble[\s\S]*chatStack\.append\(bubble\)[\s\S]*chatStack\.c
 if (!/const\s+WALK_FRAME_COLUMNS\s*=\s*7/.test(campusRuntime)) {
   failures.push("Campus 2D walking alpacas must use the seven-frame PNG walk strip.");
 }
+if (!/const\s+WALK_FRAME_SEQUENCE\s*=\s*Object\.freeze\(\[0,\s*1,\s*2,\s*3,\s*4,\s*5,\s*6,\s*5,\s*4,\s*3,\s*2,\s*1\]\)/.test(campusRuntime)) {
+  failures.push("Campus 2D walking must use a smooth ping-pong sprite sequence instead of snapping from the last frame to the first.");
+}
 if (!/const\s+ALPACA_COLLISION_RADIUS\s*=\s*20/.test(campusRuntime)) {
   failures.push("Campus 2D alpaca personal space should stay close to the 41px visual sprite width.");
 }
@@ -610,6 +629,9 @@ if (!/const\s+hasRemoteTravel\s*=\s*distance\s*>\s*0\.5/.test(campusRuntime) || 
 }
 if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerStandAt\(\{\s*x:\s*nextPoint\.x,\s*y:\s*localPlayer\.y\s*\}[\s\S]*canPlayerStandAt\(\{\s*x:\s*localPlayer\.x,\s*y:\s*nextPoint\.y\s*\}/.test(campusRuntime)) {
   failures.push("Campus 2D movement must treat other alpacas as dynamic blockers with axis sliding.");
+}
+if (!/function\s+maybeEnterPortal\(\)[\s\S]*isPointInRect\(localPlayer,\s*entry\.zone\)[\s\S]*setRoom\(portal\.targetRoomId,\s*portal\.targetSpawnId\)/.test(campusRuntime)) {
+  failures.push("Campus 2D portals must activate when the local alpaca walks into their zones.");
 }
 if (!/function\s+sitAtSeat[\s\S]*getSeatOccupant\(seat\)[\s\S]*is sitting there/.test(campusRuntime)) {
   failures.push("Campus 2D seats must reject sitting when another alpaca already occupies the spot.");
@@ -711,6 +733,12 @@ if (!/\.campus2d-chat-bubble\s*\{[^}]*background:\s*color-mix\(in srgb,\s*var\(-
 }
 if (!/\.campus2d-chat-bubble\s*\{[^}]*color:\s*var\(--campus2d-bubble-text/.test(styles)) {
   failures.push("Campus 2D world chat bubbles must set readable text on alpaca-colored bubbles.");
+}
+if (!/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*--campus2d-avatar-scale:\s*1\.34/.test(styles)) {
+  failures.push("Campus 2D sitting sprites must be optically scaled to match standing alpacas.");
+}
+if (!styles.includes(".campus2d-interactive-label") || !styles.includes(".campus2d-portal-marker")) {
+  failures.push("Campus 2D game zones and portals must keep visible interaction labels and markers.");
 }
 if (!/\.campus2d-root\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*var\(--campus2d-panel-width\)/i.test(styles)) {
   failures.push("Campus 2D layout must place the world first, then one wide right activity block.");

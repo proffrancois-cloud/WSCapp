@@ -1,0 +1,7 @@
+{
+  "files": ["app/**/*.html"],
+  "exclude": ["app/dist-pages/**", "app/dist-vercel/**", "app/.playwright-cli/**"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

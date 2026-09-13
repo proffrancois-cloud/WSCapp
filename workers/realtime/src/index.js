@@ -8,15 +8,36 @@ const DEFAULT_ALLOWED_ORIGINS = [
 
 export const DEFAULTS = Object.freeze({
   MAX_PLAYERS_PER_ROOM: 50,
+  MAX_MESSAGE_BYTES: 65536,
+  MAX_COORDINATE_ABS: 10000,
   MOVEMENT_SEND_INTERVAL_MS: 200,
   SNAPSHOT_INTERVAL_MS: 100,
   CHAT_RATE_LIMIT_MAX_MESSAGES: 2,
   CHAT_RATE_LIMIT_WINDOW_MS: 3000,
-  CHAT_MAX_LENGTH: 120
+  CHAT_MAX_LENGTH: 120,
+  MESSAGE_RATE_LIMIT_MAX_MESSAGES: 60,
+  MESSAGE_RATE_LIMIT_WINDOW_MS: 1000
+});
+
+const EVENT_RATE_LIMITS = Object.freeze({
+  join: Object.freeze({ max: 2, windowMs: 5000 }),
+  presence: Object.freeze({ max: 5, windowMs: 1000 }),
+  avatar: Object.freeze({ max: 5, windowMs: 1000 }),
+  debate: Object.freeze({ max: 10, windowMs: 1000 }),
+  challenge: Object.freeze({ max: 10, windowMs: 1000 }),
+  debateSignal: Object.freeze({ max: 30, windowMs: 1000 }),
+  ping: Object.freeze({ max: 4, windowMs: 1000 })
 });
 
 const DIRECTIONS = new Set(["up", "down", "left", "right"]);
 const ROOM_ID_PATTERN = /^[a-z0-9][a-z0-9_-]{0,63}$/;
+const RESTRICTED_CHAT_TERMS = Object.freeze([
+  "asshole", "bastard", "bitch", "cunt", "dickhead", "dumbass", "faggot", "fuck",
+  "idiot", "kike", "kill yourself", "kys", "loser", "moron", "motherfucker", "nigga",
+  "nigger", "retard", "shithead", "shut up", "slut", "spic", "stupid", "whore",
+  "abruti", "abrutie", "con", "conne", "connard", "connasse", "encule", "fdp",
+  "ferme ta gueule", "imbecile", "merde", "pute", "salope", "ta gueule", "va te faire foutre"
+]);
 
 function json(data, init = {}) {
   return new Response(JSON.stringify(data), {
@@ -31,6 +52,11 @@ function json(data, init = {}) {
 function toFiniteNumber(value, fallback = 0) {
   const number = Number(value);
   return Number.isFinite(number) ? number : fallback;
+}
+
+function clampCoordinate(value, fallback = 0) {
+  const number = toFiniteNumber(value, fallback);
+  return Math.min(DEFAULTS.MAX_COORDINATE_ABS, Math.max(-DEFAULTS.MAX_COORDINATE_ABS, number));
 }
 
 function cleanText(value, maxLength) {
@@ -60,6 +86,41 @@ export function sanitizeChatMessage(value) {
   return cleanText(value, DEFAULTS.CHAT_MAX_LENGTH);
 }
 
+function normalizeModerationText(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[@4]/g, "a")
+    .replace(/3/g, "e")
+    .replace(/[1!|]/g, "i")
+    .replace(/0/g, "o")
+    .replace(/[5$]/g, "s")
+    .replace(/7/g, "t")
+    .replace(/(.)\1+/g, "$1")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+export function moderateChatMessage(value) {
+  const message = sanitizeChatMessage(value);
+  const normalized = normalizeModerationText(message);
+  const restrictedTerm = RESTRICTED_CHAT_TERMS.find((term) => {
+    const normalizedTerm = normalizeModerationText(term);
+    if (normalizedTerm.includes(" ")) {
+      return normalized.includes(normalizedTerm);
+    }
+    const tokenPattern = new RegExp(`(^|\\s)${normalizedTerm}(?=\\s|$)`);
+    const obfuscatedPattern = new RegExp(`(^|\\s)${normalizedTerm.split("").join("\\s*")}(?=\\s|$)`);
+    return tokenPattern.test(normalized) || obfuscatedPattern.test(normalized);
+  });
+  return {
+    allowed: Boolean(message && !restrictedTerm),
+    message,
+    reason: restrictedTerm ? "restricted-language" : (message ? "" : "empty")
+  };
+}
+
 export function consumeChatRateLimit(timestamps = [], nowMs = Date.now()) {
   const recent = timestamps.filter((timestamp) => nowMs - Number(timestamp || 0) < DEFAULTS.CHAT_RATE_LIMIT_WINDOW_MS);
   if (recent.length >= DEFAULTS.CHAT_RATE_LIMIT_MAX_MESSAGES) {
@@ -68,37 +129,80 @@ export function consumeChatRateLimit(timestamps = [], nowMs = Date.now()) {
   return { allowed: true, timestamps: [...recent, nowMs] };
 }
 
+export function consumeEventRateLimit(timestamps = [], max = 1, windowMs = 1000, nowMs = Date.now()) {
+  const recent = timestamps.filter((timestamp) => nowMs - Number(timestamp || 0) < windowMs);
+  if (recent.length >= max) {
+    return { allowed: false, timestamps: recent };
+  }
+  return { allowed: true, timestamps: [...recent, nowMs] };
+}
+
+export function sanitizeStructuredPayload(value, depth = 0) {
+  if (depth > 6 || value === undefined) {
+    return null;
+  }
+  if (value === null || typeof value === "boolean") {
+    return value;
+  }
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+  if (typeof value === "string") {
+    return value.slice(0, 12000);
+  }
+  if (Array.isArray(value)) {
+    return value.slice(0, 64).map((entry) => sanitizeStructuredPayload(entry, depth + 1));
+  }
+  if (typeof value !== "object") {
+    return null;
+  }
+
+  const result = Object.create(null);
+  for (const [rawKey, entry] of Object.entries(value).slice(0, 64)) {
+    const key = cleanText(rawKey, 80);
+    if (!key || key === "__proto__" || key === "prototype" || key === "constructor") {
+      continue;
+    }
+    result[key] = sanitizeStructuredPayload(entry, depth + 1);
+  }
+  return result;
+}
+
 export function sanitizePlayerPayload(payload = {}, fallback = {}) {
   const clientId = cleanText(payload.clientId || fallback.clientId || "", 120);
   return {
     clientId,
-    userId: nullableText(payload.userId || fallback.userId || "", 160),
+    userId: nullableText(fallback.userId || "", 160),
     roomId: sanitizeRoomId(payload.roomId || fallback.roomId || ""),
     displayName: cleanText(payload.displayName || payload.alpacaName || fallback.displayName || "Guest", 80) || "Guest",
-    x: toFiniteNumber(payload.x, toFiniteNumber(fallback.x, 0)),
-    y: toFiniteNumber(payload.y, toFiniteNumber(fallback.y, 0)),
+    x: clampCoordinate(payload.x, clampCoordinate(fallback.x, 0)),
+    y: clampCoordinate(payload.y, clampCoordinate(fallback.y, 0)),
     direction: cleanDirection(payload.direction || fallback.direction),
     moving: Boolean(payload.moving),
     seatId: nullableText(payload.seatId || fallback.seatId || "", 80),
     colorId: cleanText(payload.colorId || fallback.colorId || "cream", 40) || "cream",
     alpacaName: cleanText(payload.alpacaName || fallback.alpacaName || "", 80),
-    schoolName: cleanText(payload.schoolName || fallback.schoolName || "", 120),
-    country: cleanText(payload.country || fallback.country || "", 80),
-    wscEventCount: Math.max(0, Math.floor(toFiniteNumber(payload.wscEventCount, fallback.wscEventCount || 0))),
-    highestWscRound: cleanText(payload.highestWscRound || fallback.highestWscRound || "", 80),
-    idRewards: Array.isArray(payload.idRewards) ? payload.idRewards.slice(0, 9) : Array.isArray(fallback.idRewards) ? fallback.idRewards.slice(0, 9) : [],
-    createdAt: nullableText(payload.createdAt || fallback.createdAt || "", 80),
+    schoolName: "",
+    country: "",
+    wscEventCount: 0,
+    highestWscRound: "",
+    idRewards: [],
+    createdAt: null,
     debateRoom: nullableText(payload.debateRoom || fallback.debateRoom || "", 80),
-    debateAudio: payload.debateAudio && typeof payload.debateAudio === "object" ? payload.debateAudio : fallback.debateAudio || null,
-    scholarsChallenge: payload.scholarsChallenge && typeof payload.scholarsChallenge === "object" ? payload.scholarsChallenge : fallback.scholarsChallenge || null,
+    debateAudio: payload.debateAudio && typeof payload.debateAudio === "object"
+      ? sanitizeStructuredPayload(payload.debateAudio)
+      : sanitizeStructuredPayload(fallback.debateAudio),
+    scholarsChallenge: payload.scholarsChallenge && typeof payload.scholarsChallenge === "object"
+      ? sanitizeStructuredPayload(payload.scholarsChallenge)
+      : sanitizeStructuredPayload(fallback.scholarsChallenge),
     updatedAtMs: Date.now()
   };
 }
 
 function sanitizeMovementPayload(payload = {}, fallback = {}) {
   return {
-    x: toFiniteNumber(payload.x, fallback.x),
-    y: toFiniteNumber(payload.y, fallback.y),
+    x: clampCoordinate(payload.x, fallback.x),
+    y: clampCoordinate(payload.y, fallback.y),
     direction: cleanDirection(payload.direction || fallback.direction),
     moving: Boolean(payload.moving),
     seatId: nullableText(payload.seatId || fallback.seatId || "", 80),
@@ -119,7 +223,7 @@ function getAllowedOrigins(env) {
 function isAllowedOrigin(request, env) {
   const origin = request.headers.get("origin");
   if (!origin) {
-    return true;
+    return false;
   }
   return getAllowedOrigins(env).includes(origin);
 }
@@ -151,6 +255,7 @@ function createSession(player) {
     clientId: player.clientId,
     player,
     chatTimestamps: [],
+    eventTimestamps: {},
     lastMovementAtMs: 0,
     joinedAtMs: Date.now()
   };
@@ -176,6 +281,9 @@ export class CampusRoom {
   }
 
   async fetch(request) {
+    if (!isAllowedOrigin(request, this.env)) {
+      return json({ ok: false, error: "Origin not allowed." }, { status: 403 });
+    }
     if (request.headers.get("upgrade")?.toLowerCase() !== "websocket") {
       return json({ ok: false, error: "Expected WebSocket upgrade." }, { status: 426 });
     }
@@ -200,10 +308,13 @@ export class CampusRoom {
 
     const pair = new WebSocketPair();
     const [client, server] = Object.values(pair);
-    const clientId = cleanText(url.searchParams.get("clientId") || crypto.randomUUID(), 120);
+    const requestedClientId = cleanText(url.searchParams.get("clientId") || "", 120);
+    const existingClientIds = new Set(activeSockets.map((socket) => this.getSession(socket).clientId));
+    const clientId = requestedClientId && !existingClientIds.has(requestedClientId)
+      ? requestedClientId
+      : crypto.randomUUID();
     const player = sanitizePlayerPayload({
       clientId,
-      userId: url.searchParams.get("userId") || "",
       roomId
     });
 
@@ -220,12 +331,26 @@ export class CampusRoom {
   }
 
   webSocketMessage(ws, message) {
+    const messageSize = typeof message === "string"
+      ? new TextEncoder().encode(message).byteLength
+      : Number(message?.byteLength || message?.length || 0);
+    if (messageSize > DEFAULTS.MAX_MESSAGE_BYTES) {
+      ws.send(publicEnvelope("error", { code: "message_too_large", message: "Realtime message is too large." }));
+      return;
+    }
     const envelope = parseEnvelope(message);
-    if (!envelope?.type) {
+    if (!envelope?.type || (envelope.v !== undefined && envelope.v !== 1)) {
       ws.send(publicEnvelope("error", { code: "bad_message", message: "Invalid realtime message." }));
       return;
     }
-    const payload = envelope.payload && typeof envelope.payload === "object" ? envelope.payload : {};
+    const payload = envelope.payload && typeof envelope.payload === "object" && !Array.isArray(envelope.payload)
+      ? sanitizeStructuredPayload(envelope.payload)
+      : {};
+
+    if (!this.consumeMessageRateLimit(ws, envelope.type)) {
+      ws.send(publicEnvelope("error", { code: "message_rate_limited", message: "Please slow down." }));
+      return;
+    }
 
     if (envelope.type === "join" || envelope.type === "presence") {
       this.handlePresence(ws, payload);
@@ -271,6 +396,44 @@ export class CampusRoom {
   webSocketError() {
     this.markDirty();
     this.ensureSnapshotLoop();
+  }
+
+  consumeMessageRateLimit(ws, type) {
+    const config = EVENT_RATE_LIMITS[type];
+    const session = this.getSession(ws);
+    const eventTimestamps = session.eventTimestamps && typeof session.eventTimestamps === "object"
+      ? session.eventTimestamps
+      : {};
+    const nowMs = Date.now();
+    const globalResult = consumeEventRateLimit(
+      eventTimestamps.__all__ || [],
+      DEFAULTS.MESSAGE_RATE_LIMIT_MAX_MESSAGES,
+      DEFAULTS.MESSAGE_RATE_LIMIT_WINDOW_MS,
+      nowMs
+    );
+    const nextEventTimestamps = {
+      ...eventTimestamps,
+      __all__: globalResult.timestamps
+    };
+    if (!globalResult.allowed) {
+      this.setSession(ws, { ...session, eventTimestamps: nextEventTimestamps });
+      return false;
+    }
+
+    if (!config) {
+      this.setSession(ws, { ...session, eventTimestamps: nextEventTimestamps });
+      return true;
+    }
+
+    const result = consumeEventRateLimit(eventTimestamps[type] || [], config.max, config.windowMs, nowMs);
+    this.setSession(ws, {
+      ...session,
+      eventTimestamps: {
+        ...nextEventTimestamps,
+        [type]: result.timestamps
+      }
+    });
+    return result.allowed;
   }
 
   handlePresence(ws, payload) {
@@ -320,9 +483,16 @@ export class CampusRoom {
 
   handleChat(ws, payload) {
     const session = this.getSession(ws);
-    const message = sanitizeChatMessage(payload.message);
-    if (!message) {
+    const moderation = moderateChatMessage(payload.message);
+    if (!moderation.message) {
       ws.send(publicEnvelope("error", { code: "empty_chat", message: "Chat message is empty." }));
+      return;
+    }
+    if (!moderation.allowed) {
+      ws.send(publicEnvelope("error", {
+        code: "chat_restricted",
+        message: "That message includes language that is not allowed on campus."
+      }));
       return;
     }
     const limit = consumeChatRateLimit(session.chatTimestamps, Date.now());
@@ -347,7 +517,7 @@ export class CampusRoom {
     });
     this.broadcast("chat", {
       ...player,
-      message
+      message: moderation.message
     });
     this.markDirty();
   }
@@ -371,7 +541,7 @@ export class CampusRoom {
   withSender(ws, payload) {
     const session = this.getSession(ws);
     return {
-      ...payload,
+      ...sanitizeStructuredPayload(payload),
       roomId: this.roomId,
       clientId: session.clientId,
       userId: session.player.userId || null,
@@ -474,6 +644,7 @@ export default {
 
     const forwardedUrl = new URL(request.url);
     forwardedUrl.searchParams.set("roomId", roomId);
+    forwardedUrl.searchParams.delete("userId");
     const id = env.CAMPUS_ROOM.idFromName(roomId);
     const stub = env.CAMPUS_ROOM.get(id);
     return stub.fetch(new Request(forwardedUrl.toString(), request));
@@ -483,6 +654,9 @@ export default {
 export const __testing = {
   sanitizeRoomId,
   sanitizeChatMessage,
+  moderateChatMessage,
   sanitizePlayerPayload,
-  consumeChatRateLimit
+  sanitizeStructuredPayload,
+  consumeChatRateLimit,
+  consumeEventRateLimit
 };

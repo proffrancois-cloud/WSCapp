@@ -50,7 +50,7 @@
     }
 
     if (context.mode === "forgot") {
-      return "Enter your alpaca name or email and we will send a password reset email.";
+      return "Enter your email address and we will send a password reset email.";
     }
 
     if (context.mode === "reset") {
@@ -80,6 +80,10 @@
 
     if (context.status === "missing-client") {
       return `<p class="auth-notice error">Supabase could not load. Check your network connection and reload the app.</p>`;
+    }
+
+    if (context.status === "loading-client") {
+      return `<p class="auth-notice">The sign-in service is loading. Solo offline mode remains available.</p>`;
     }
 
     return "";
@@ -202,8 +206,8 @@
       <form class="alpaccount-form" data-auth-form="login">
         ${renderOAuthActions(context, helpers)}
         <label class="auth-field">
-          <span>Alpaca name or email</span>
-          <input name="identifier" type="text" autocomplete="username" required />
+          <span>Email address</span>
+          <input name="identifier" type="email" autocomplete="email" maxlength="254" required />
         </label>
         <label class="auth-field">
           <span>Password</span>
@@ -213,7 +217,7 @@
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Connect</button>
           <button class="button secondary" type="button" data-auth-mode="signup">Create an Alpaccount</button>
         </div>
-        <button class="auth-text-button" type="button" data-auth-mode="forgot">I forgot my password</button>
+        ${context.passwordRecoveryAvailable === false ? "" : '<button class="auth-text-button" type="button" data-auth-mode="forgot">I forgot my password</button>'}
       </form>
     `;
   }
@@ -225,7 +229,7 @@
         <div class="auth-form-grid">
           <label class="auth-field">
             <span>Email address</span>
-            <input name="email" type="email" autocomplete="email" required />
+            <input name="email" type="email" autocomplete="email" maxlength="254" required />
           </label>
           <label class="auth-field">
             <span>Alpaca name</span>
@@ -233,15 +237,15 @@
           </label>
           <label class="auth-field">
             <span>Password</span>
-            <input name="password" type="password" autocomplete="new-password" minlength="6" required />
+            <input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required />
           </label>
           <label class="auth-field">
             <span>Country</span>
-            <input name="country" type="text" autocomplete="country-name" required />
+            <input name="country" type="text" autocomplete="country-name" maxlength="80" required />
           </label>
           <label class="auth-field">
             <span>School name</span>
-            <input name="school_name" type="text" autocomplete="organization" required />
+            <input name="school_name" type="text" autocomplete="organization" maxlength="160" required />
           </label>
           <label class="auth-field">
             <span>WSC events attended</span>
@@ -263,11 +267,11 @@
           </label>
           <label class="auth-field">
             <span>City for that reward <em>optional</em></span>
-            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" placeholder="N/A" />
+            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" maxlength="120" placeholder="N/A" />
           </label>
           <label class="auth-field">
             <span>Approximate date <em>optional</em></span>
-            <input name="wsc_id_reward_date" type="text" placeholder="Not sure" />
+            <input name="wsc_id_reward_date" type="text" maxlength="80" placeholder="Not sure" />
           </label>
         </div>
         <p class="auth-helper">If you already have a WSC reward, choose the reward and round. City and date are optional; blank details show as N/A and Not sure. If you have no reward yet, leave No medal or trophy yet selected.</p>
@@ -291,11 +295,11 @@
           </label>
           <label class="auth-field">
             <span>Country</span>
-            <input name="country" type="text" autocomplete="country-name" value="${helpers.escapeHtml(defaults.country)}" required />
+            <input name="country" type="text" autocomplete="country-name" maxlength="80" value="${helpers.escapeHtml(defaults.country)}" required />
           </label>
           <label class="auth-field">
             <span>School name</span>
-            <input name="school_name" type="text" autocomplete="organization" value="${helpers.escapeHtml(defaults.schoolName)}" required />
+            <input name="school_name" type="text" autocomplete="organization" maxlength="160" value="${helpers.escapeHtml(defaults.schoolName)}" required />
           </label>
           <label class="auth-field">
             <span>WSC events attended</span>
@@ -317,11 +321,11 @@
           </label>
           <label class="auth-field">
             <span>City for that reward <em>optional</em></span>
-            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" placeholder="N/A" value="${helpers.escapeHtml(defaults.rewardCity)}" />
+            <input name="wsc_id_reward_city" type="text" autocomplete="address-level2" maxlength="120" placeholder="N/A" value="${helpers.escapeHtml(defaults.rewardCity)}" />
           </label>
           <label class="auth-field">
             <span>Approximate date <em>optional</em></span>
-            <input name="wsc_id_reward_date" type="text" placeholder="Not sure" value="${helpers.escapeHtml(defaults.rewardDate)}" />
+            <input name="wsc_id_reward_date" type="text" maxlength="80" placeholder="Not sure" value="${helpers.escapeHtml(defaults.rewardDate)}" />
           </label>
         </div>
         <p class="auth-helper">Pick the public alpaca name and school details other scholars will see. Reward city and date are optional; blank reward details show as N/A and Not sure.</p>
@@ -337,8 +341,8 @@
     return `
       <form class="alpaccount-form" data-auth-form="forgot">
         <label class="auth-field">
-          <span>Alpaca name or email</span>
-          <input name="identifier" type="text" autocomplete="username" required />
+          <span>Email address</span>
+          <input name="identifier" type="email" autocomplete="email" maxlength="254" required />
         </label>
         <div class="panel-actions auth-actions">
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Send reset email</button>
@@ -353,11 +357,11 @@
       <form class="alpaccount-form" data-auth-form="reset">
         <label class="auth-field">
           <span>New password</span>
-          <input name="password" type="password" autocomplete="new-password" minlength="6" required />
+          <input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required />
         </label>
         <label class="auth-field">
           <span>Confirm password</span>
-          <input name="confirm_password" type="password" autocomplete="new-password" minlength="6" required />
+          <input name="confirm_password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required />
         </label>
         <div class="panel-actions auth-actions">
           <button class="button primary" type="submit" ${context.busy ? "disabled" : ""}>Update password</button>

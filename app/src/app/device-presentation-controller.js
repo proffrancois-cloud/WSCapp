@@ -16,6 +16,7 @@
     let landscapeOrientationLockUnavailable = false;
     let landscapeOrientationLockFailed = false;
     let landscapeGateLastFocusedElement = null;
+    let portraitPresentationAllowed = false;
     let setupComplete = false;
 
     function setup() {
@@ -46,6 +47,11 @@
         }
       }, { passive: true });
       refs.orientationGateMount?.addEventListener("click", (event) => {
+        if (event.target.closest("[data-orientation-continue-portrait]")) {
+          portraitPresentationAllowed = true;
+          syncState();
+          return;
+        }
         if (!event.target.closest("[data-orientation-recheck]")) {
           return;
         }
@@ -126,20 +132,22 @@
       const touchCapable = isTouchCapableViewport();
       const landscapePreferred = touchCapable && isMobileOrTabletViewport(viewport);
       const isPortrait = viewport.height > viewport.width;
-      const needsLandscape = landscapePreferred && isPortrait;
+      const needsLandscape = landscapePreferred && isPortrait && !portraitPresentationAllowed;
       const isLandscapeTouch = landscapePreferred && !isPortrait;
+      const isPortraitTouch = touchCapable && isPortrait;
       const isCompactTouchKeyboard = isLandscapeTouch && viewport.height <= 260;
 
       doc.body.classList.toggle("is-touch-device", touchCapable);
       doc.body.classList.toggle("prefers-landscape-device", landscapePreferred);
       doc.body.classList.toggle("needs-landscape", needsLandscape);
       doc.body.classList.toggle("is-touch-landscape", isLandscapeTouch);
+      doc.body.classList.toggle("is-touch-portrait", isPortraitTouch);
       doc.body.classList.toggle("is-compact-touch-keyboard", isCompactTouchKeyboard);
       doc.documentElement.classList.toggle("needs-landscape", needsLandscape);
 
       renderOrientationGate(needsLandscape);
       syncGateBackground(needsLandscape);
-      if (landscapePreferred) {
+      if (landscapePreferred && !portraitPresentationAllowed) {
         tryLockLandscapeOrientation({ landscapePreferred: true });
       }
     }
@@ -216,11 +224,14 @@
               </div>
               <div class="orientation-gate-copy">
                 <h2 id="orientationGateTitle">Rotate to landscape</h2>
-                <p>WSCapp uses landscape on phones and tablets for games, campus, and study boards.</p>
+                <p>Landscape is recommended for games, campus, and study boards, but portrait remains available.</p>
                 ${lockHelp}
               </div>
               <button class="button primary orientation-gate-button" type="button" data-orientation-recheck>
                 Check again
+              </button>
+              <button class="button secondary orientation-gate-button" type="button" data-orientation-continue-portrait>
+                Continue in portrait
               </button>
             </div>
           </section>
@@ -342,7 +353,7 @@
     }
 
     function tryLockLandscapeOrientation({ force = false, landscapePreferred = false, userGesture = false } = {}) {
-      if (!landscapePreferred && !shouldPreferLandscapePresentation()) {
+      if (portraitPresentationAllowed || (!landscapePreferred && !shouldPreferLandscapePresentation())) {
         return;
       }
 

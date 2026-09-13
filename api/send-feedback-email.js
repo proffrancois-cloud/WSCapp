@@ -1,6 +1,9 @@
 const DEFAULT_ADMIN_EMAIL = "frenchease.admin@gmail.com";
 const DEFAULT_SUPABASE_URL = "https://bwogymstqrrmoxlwlhio.supabase.co";
 const MAX_BODY_BYTES = 32 * 1024;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const feedbackRateLimit = new Map();
 
 function sendJson(response, statusCode, payload) {
   response.statusCode = statusCode;
@@ -32,9 +35,15 @@ function isEmail(value) {
 
 async function readJsonBody(request) {
   if (request.body && typeof request.body === "object") {
+    if (Buffer.byteLength(JSON.stringify(request.body), "utf8") > MAX_BODY_BYTES) {
+      throw new Error("Request body is too large.");
+    }
     return request.body;
   }
   if (request.body && typeof request.body === "string") {
+    if (Buffer.byteLength(request.body, "utf8") > MAX_BODY_BYTES) {
+      throw new Error("Request body is too large.");
+    }
     return JSON.parse(request.body || "{}");
   }
 
@@ -50,9 +59,57 @@ async function readJsonBody(request) {
   return JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}");
 }
 
-async function getSupabaseUserFromToken(token) {
-  const supabaseUrl = process.env.SUPABASE_URL || process.env.WSC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
-  const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY || "";
+function getAllowedOrigins(env = process.env) {
+  return new Set([
+    "https://wscapp.app",
+    "https://www.wscapp.app",
+    ...String(env.WSC_ALLOWED_ORIGINS || "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean)
+  ]);
+}
+
+function isAllowedRequestOrigin(request, env) {
+  const origin = String(request.headers.origin || "").trim();
+  if (getAllowedOrigins(env).has(origin)) {
+    return origin;
+  }
+  if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+    return origin;
+  }
+  return "";
+}
+
+function getRequestClientId(request) {
+  return String(request.headers["x-forwarded-for"] || request.socket?.remoteAddress || "unknown")
+    .split(",")[0]
+    .trim()
+    .slice(0, 120);
+}
+
+function consumeRateLimit(clientId) {
+  const now = Date.now();
+  const recent = (feedbackRateLimit.get(clientId) || []).filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS);
+  if (recent.length >= RATE_LIMIT_MAX_REQUESTS) {
+    feedbackRateLimit.set(clientId, recent);
+    return false;
+  }
+  recent.push(now);
+  feedbackRateLimit.set(clientId, recent);
+  if (feedbackRateLimit.size > 2000) {
+    for (const [key, timestamps] of feedbackRateLimit) {
+      if (!timestamps.some((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS)) {
+        feedbackRateLimit.delete(key);
+      }
+    }
+  }
+  return true;
+}
+
+async function getSupabaseUserFromToken(token, env = process.env) {
+  const supabaseUrl = env.SUPABASE_URL || env.WSC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
+  const publishableKey = env.SUPABASE_PUBLISHABLE_KEY || env.SUPABASE_ANON_KEY || "";
   if (!token || !publishableKey || !supabaseUrl) {
     return null;
   }
@@ -141,19 +198,35 @@ function buildEmail(payload, reporter) {
 }
 
 module.exports = async function handler(request, response) {
+  const env = request.env && typeof request.env === "object" ? request.env : process.env;
+  const allowedOrigin = isAllowedRequestOrigin(request, env);
+  if (allowedOrigin) {
+    response.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+    response.setHeader("Vary", "Origin");
+  }
   response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
   if (request.method === "OPTIONS") {
+    if (!allowedOrigin) {
+      return sendJson(response, 403, { error: "Origin not allowed." });
+    }
     return sendJson(response, 204, {});
   }
   if (request.method !== "POST") {
     return sendJson(response, 405, { error: "Method not allowed." });
   }
+  if (!allowedOrigin) {
+    return sendJson(response, 403, { error: "Origin not allowed." });
+  }
+  if (!consumeRateLimit(getRequestClientId(request))) {
+    response.setHeader("Retry-After", String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)));
+    return sendJson(response, 429, { error: "Too many reports. Please try again later." });
+  }
 
-  const resendApiKey = process.env.RESEND_API_KEY || "";
-  const adminEmail = process.env.WSC_ADMIN_EMAIL || process.env.FEEDBACK_TO_EMAIL || DEFAULT_ADMIN_EMAIL;
-  const fromEmail = process.env.WSC_FEEDBACK_FROM_EMAIL || process.env.FEEDBACK_FROM_EMAIL || "";
+  const resendApiKey = env.RESEND_API_KEY || "";
+  const adminEmail = env.WSC_ADMIN_EMAIL || env.FEEDBACK_TO_EMAIL || DEFAULT_ADMIN_EMAIL;
+  const fromEmail = env.WSC_FEEDBACK_FROM_EMAIL || env.FEEDBACK_FROM_EMAIL || "";
   if (!resendApiKey || !fromEmail) {
     return sendJson(response, 503, {
       error: "Email sending is not configured yet. Add RESEND_API_KEY and WSC_FEEDBACK_FROM_EMAIL to the deployment environment."
@@ -162,9 +235,18 @@ module.exports = async function handler(request, response) {
 
   try {
     const payload = await readJsonBody(request);
+    if (cleanText(payload.website, 200)) {
+      return sendJson(response, 400, { error: "Invalid report." });
+    }
     const authHeader = request.headers.authorization || request.headers.Authorization || "";
     const token = String(authHeader).startsWith("Bearer ") ? String(authHeader).slice(7) : "";
-    const supabaseUser = await getSupabaseUserFromToken(token);
+    const supabaseUser = await getSupabaseUserFromToken(token, env);
+    if (token && !supabaseUser) {
+      return sendJson(response, 401, { error: "Your session could not be verified." });
+    }
+    if (cleanText(payload.reportType, 40) !== "problem" && !supabaseUser) {
+      return sendJson(response, 401, { error: "Sign in before reporting another person." });
+    }
     const reporter = buildReporter(payload, supabaseUser);
     const email = buildEmail(payload, reporter);
     if (email.error) {
