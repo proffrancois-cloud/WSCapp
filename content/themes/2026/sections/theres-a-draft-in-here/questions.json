@@ -137,6 +137,64 @@
         "sourceId": "L100_theres-a-draft-in-here_3_003",
         "sourceType": "entry.quizQuestions",
         "entryId": "raw.theres-a-draft-in-here.003"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.100.004",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "What is mental rehearsal?",
+        "correctAnswer": "Simulating a future action or performance without fully carrying it out",
+        "wrongAnswers": [
+          "Repeating a physical action until the muscles are exhausted",
+          "Reading the same instructions until they feel familiar",
+          "Activating every movement-related brain region exactly as physical practice does"
+        ],
+        "explanation": "Mental rehearsal runs through an action, sequence, sound, or exchange in the mind. It may use visual, auditory, verbal, or kinesthetic imagery without executing the whole action.",
+        "visibleCorrectExplanation": "Mental rehearsal runs through an action, sequence, sound, or exchange in the mind. It may use visual, auditory, verbal, or kinesthetic imagery without executing the whole action.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Repeating a physical action until the muscles are exhausted",
+            "explanation": "That is physical overpractice. Mental rehearsal can occur without the full movement or its muscular load."
+          },
+          {
+            "label": "C",
+            "answer": "Reading the same instructions until they feel familiar",
+            "explanation": "Rereading can increase familiarity, but it does not show that the learner can simulate or perform the process."
+          },
+          {
+            "label": "D",
+            "answer": "Activating every movement-related brain region exactly as physical practice does",
+            "explanation": "Imagery and execution overlap only partly; the regions and strength of activity are not identical."
+          }
+        ],
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "Official WSC 2026 curriculum + peer-reviewed rehearsal evidence (2026-07-14)",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "question.theres-a-draft-in-here.100.004",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "research-validation",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/"
+          }
+        ],
+        "sourceNote": "Created for the previously uncovered official rehearsal branch; evidence re-audited on 2026-07-14.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Directly assigned to the fourth official branch, The Psychology of Rehearsal.",
+        "sourceId": "question.theres-a-draft-in-here.100.004",
+        "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
+        "entryId": "raw.theres-a-draft-in-here.004"
       }
     ],
     "200": [
@@ -274,6 +332,130 @@
         "sourceId": "L200_theres-a-draft-in-here_3_199",
         "sourceType": "entry.quizQuestions",
         "entryId": "raw.theres-a-draft-in-here.003"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.200.004",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which statement best matches current evidence about the brain during mental rehearsal?",
+        "correctAnswer": "The networks recruited depend on the task, and imagery overlaps only partly with real execution",
+        "wrongAnswers": [
+          "A single rehearsal centre controls every kind of practice",
+          "Mental imagery activates the entire motor system at the same strength as movement",
+          "Only the primary motor cortex is involved in every rehearsal"
+        ],
+        "explanation": "Motor imagery often involves premotor, supplementary motor, parietal, cerebellar, and basal-ganglia regions. Verbal rehearsal involves a distributed working-memory and speech network. The exact pattern depends on the task.",
+        "visibleCorrectExplanation": "Motor imagery often involves premotor, supplementary motor, parietal, cerebellar, and basal-ganglia regions. Verbal rehearsal involves a distributed working-memory and speech network. The exact pattern depends on the task.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "A single rehearsal centre controls every kind of practice",
+            "explanation": "Rehearsal can involve movement, language, memory, attention, emotion, or social response, so no single centre explains every form."
+          },
+          {
+            "label": "C",
+            "answer": "Mental imagery activates the entire motor system at the same strength as movement",
+            "explanation": "Premotor-parietal overlap is common, but imagery and execution differ; primary motor activity is weaker and less consistent during imagery."
+          },
+          {
+            "label": "D",
+            "answer": "Only the primary motor cortex is involved in every rehearsal",
+            "explanation": "Motor imagery uses a distributed network, and verbal rehearsal recruits additional frontal, parietal, cerebellar, and speech-related systems."
+          }
+        ],
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "Official WSC 2026 curriculum + peer-reviewed rehearsal evidence (2026-07-14)",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "question.theres-a-draft-in-here.200.004",
+        "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/30098990/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "motor-imagery-meta-analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30098990/"
+          },
+          {
+            "role": "verbal-working-memory-meta-analysis",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6581736/"
+          }
+        ],
+        "sourceNote": "Created for the previously uncovered official rehearsal branch; evidence re-audited on 2026-07-14.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Directly assigned to the fourth official branch, The Psychology of Rehearsal.",
+        "sourceId": "question.theres-a-draft-in-here.200.004",
+        "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
+        "entryId": "raw.theres-a-draft-in-here.004"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.200.005",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Which test gives the strongest evidence that a performer has rehearsed enough?",
+        "correctAnswer": "They can repeat the performance accurately after a delay and adapt when conditions change",
+        "wrongAnswers": [
+          "The performance feels easy immediately after several identical repetitions",
+          "They have completed a fixed number of hours",
+          "They can picture a perfect ending without imagining any difficult step"
+        ],
+        "explanation": "A useful stopping rule uses a defined criterion. Delayed retention and transfer to realistic variation distinguish durable learning from performance that only looks fluent during practice.",
+        "visibleCorrectExplanation": "A useful stopping rule uses a defined criterion. Delayed retention and transfer to realistic variation distinguish durable learning from performance that only looks fluent during practice.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The performance feels easy immediately after several identical repetitions",
+            "explanation": "Immediate ease can be temporary fluency. It does not show that the skill will be retained or transferred."
+          },
+          {
+            "label": "C",
+            "answer": "They have completed a fixed number of hours",
+            "explanation": "No universal hour count fits every task, learner, difficulty level, or performance standard."
+          },
+          {
+            "label": "D",
+            "answer": "They can picture a perfect ending without imagining any difficult step",
+            "explanation": "Outcome imagery may be motivating, but it does not test the process or expose the step most likely to fail."
+          }
+        ],
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "Official WSC 2026 curriculum + peer-reviewed rehearsal evidence (2026-07-14)",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "question.theres-a-draft-in-here.200.005",
+        "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/22142953/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "motor-learning-review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22142953/"
+          },
+          {
+            "role": "study-practice-review",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11078833/"
+          }
+        ],
+        "sourceNote": "Created for the previously uncovered official rehearsal branch; evidence re-audited on 2026-07-14.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Directly assigned to the fourth official branch, The Psychology of Rehearsal.",
+        "sourceId": "question.theres-a-draft-in-here.200.005",
+        "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
+        "entryId": "raw.theres-a-draft-in-here.004"
       }
     ],
     "300": [
@@ -633,6 +815,126 @@
             "explanation": "That answer changes the point: The story and tone shifted, so the song no longer fit."
           }
         ]
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "A debater memorizes one perfect speech but freezes when the opposing team makes an unexpected argument. Which change best treats rehearsal as revision?",
+        "correctAnswer": "Role-play several plausible rebuttals and use feedback to adjust the argument",
+        "wrongAnswers": [
+          "Repeat the same speech faster until no pause remains",
+          "Imagine winning without practising any reply",
+          "Add more facts without testing how they connect"
+        ],
+        "explanation": "Rehearsal becomes revision when feedback changes the next attempt. Varied rebuttals test whether the debater understands the argument well enough to adapt it.",
+        "visibleCorrectExplanation": "Rehearsal becomes revision when feedback changes the next attempt. Varied rebuttals test whether the debater understands the argument well enough to adapt it.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Repeat the same speech faster until no pause remains",
+            "explanation": "Speed would polish the fixed routine without solving its failure to transfer when the debate changes."
+          },
+          {
+            "label": "C",
+            "answer": "Imagine winning without practising any reply",
+            "explanation": "This rehearses a desired outcome, not the process needed to listen, choose, and reply."
+          },
+          {
+            "label": "D",
+            "answer": "Add more facts without testing how they connect",
+            "explanation": "More information does not fix the inability to select and connect an argument under pressure."
+          }
+        ],
+        "visibleConnection": "The debater’s speech is an action draft. Role-play exposes a weak assumption just as comparing an artwork or demo exposes a creative choice.",
+        "visibleTakeaway": "Practice shows progress when variation and feedback improve the next attempt.",
+        "sourceBank": "Official WSC 2026 curriculum + peer-reviewed rehearsal evidence (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "question.theres-a-draft-in-here.300.009",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "research-validation",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/"
+          }
+        ],
+        "sourceNote": "Created for the previously uncovered official rehearsal branch; evidence re-audited on 2026-07-14.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Directly assigned to the fourth official branch, The Psychology of Rehearsal.",
+        "sourceId": "question.theres-a-draft-in-here.300.009",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.theres-a-draft-in-here.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "One 2025 trial found that twenty minutes of motor imagery improved force steadiness, while another found no improvement in five walking tasks after four weeks. What is the best conclusion?",
+        "correctAnswer": "Mental rehearsal is task- and population-dependent, and success in one outcome does not guarantee broad transfer",
+        "wrongAnswers": [
+          "Twenty minutes of rehearsal is always better than four weeks",
+          "The walking result proves that mental rehearsal never works",
+          "Improved imagery clarity guarantees improved physical performance"
+        ],
+        "explanation": "The studies used different participants, tasks, measures, and baselines. They demonstrate task specificity, so duration cannot be isolated as the explanation for the different outcomes.",
+        "visibleCorrectExplanation": "The studies used different participants, tasks, measures, and baselines. They demonstrate task specificity, so duration cannot be isolated as the explanation for the different outcomes.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Twenty minutes of rehearsal is always better than four weeks",
+            "explanation": "The studies did not compare two doses of the same task in the same population, so their durations cannot be ranked directly."
+          },
+          {
+            "label": "C",
+            "answer": "The walking result proves that mental rehearsal never works",
+            "explanation": "A null result for five walking tasks cannot cancel benefits found for every other task, outcome, or population."
+          },
+          {
+            "label": "D",
+            "answer": "Improved imagery clarity guarantees improved physical performance",
+            "explanation": "The walking trial improved visual clarity for imagined non-walking tasks without improving the tested walking performance, so clarity did not guarantee transfer."
+          }
+        ],
+        "visibleConnection": "The two studies turn scientific evidence into a version comparison: the important change is the task and test, not simply how polished the rehearsal feels.",
+        "visibleTakeaway": "Match a practice claim to the exact task, population, measure, and transfer test that support it.",
+        "sourceBank": "Official WSC 2026 curriculum + peer-reviewed rehearsal evidence (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "question.theres-a-draft-in-here.300.010",
+        "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40684972/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "current-study",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40684972/",
+            "asOf": "2025-07-18"
+          },
+          {
+            "role": "current-study",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39818123/",
+            "asOf": "2025-01-15"
+          }
+        ],
+        "sourceNote": "Current-research comparison. The studies are presented as different task-specific tests, not as a dose comparison.",
+        "sectionId": "theres-a-draft-in-here",
+        "sectionIds": [
+          "theres-a-draft-in-here"
+        ],
+        "guidingSectionPrimary": "There’s a Draft in Here",
+        "sectionInferenceNote": "Directly assigned to the fourth official branch, The Psychology of Rehearsal.",
+        "sourceId": "question.theres-a-draft-in-here.300.010",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
       }
     ]
   }

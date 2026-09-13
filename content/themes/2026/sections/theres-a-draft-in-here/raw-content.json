@@ -23,39 +23,57 @@
       "links": [
         {
           "label": "Mona Lisa (Louvre)",
-          "url": "https://artsandculture.google.com/asset/portrait-of-lisa-gherardini-wife-of-francesco-del-giocondo-known-as-monna-lisa-la-gioconda-or-mona-lisa-1503-1519-leonardo-di-ser-piero-da-vinci-dit-l%C3%A9onard-de-vinci-1452-1519-paris-mus%C3%A9e-du-louvre/uQGZ28lYUJ3OGw?hl=en"
+          "url": "https://artsandculture.google.com/asset/portrait-of-lisa-gherardini-wife-of-francesco-del-giocondo-known-as-monna-lisa-la-gioconda-or-mona-lisa-1503-1519-leonardo-di-ser-piero-da-vinci-dit-l%C3%A9onard-de-vinci-1452-1519-paris-mus%C3%A9e-du-louvre/uQGZ28lYUJ3OGw?hl=en",
+          "officialLinkId": "L049",
+          "role": "curriculum"
         },
         {
           "label": "Mona Lisa (Isleworth)",
-          "url": "https://commons.wikimedia.org/wiki/File:Isleworthml.JPG"
+          "url": "https://commons.wikimedia.org/wiki/File:Isleworthml.JPG",
+          "officialLinkId": "L050",
+          "role": "curriculum"
         },
         {
           "label": "Bedroom in Arles (1888)",
-          "url": "https://artsandculture.google.com/asset/KwF-AdF1REQl6w"
+          "url": "https://artsandculture.google.com/asset/KwF-AdF1REQl6w",
+          "officialLinkId": "L051",
+          "role": "curriculum"
         },
         {
           "label": "Bedroom in Arles (1889) - Art Institute of Chicago",
-          "url": "https://www.artic.edu/artworks/28560/the-bedroom"
+          "url": "https://www.artic.edu/artworks/28560/the-bedroom",
+          "officialLinkId": "L052",
+          "role": "curriculum"
         },
         {
           "label": "Bedroom in Arles (1889) - Google Arts & Culture",
-          "url": "https://artsandculture.google.com/asset/kQEugEsNjGDZfw"
+          "url": "https://artsandculture.google.com/asset/kQEugEsNjGDZfw",
+          "officialLinkId": "L053",
+          "role": "curriculum"
         },
         {
           "label": "Despair",
-          "url": "https://www.modernamuseet.se/stockholm/en/exhibitions/munch-by-himself/i-felt-the-great-scream-through-nature/"
+          "url": "https://www.modernamuseet.se/stockholm/en/exhibitions/munch-by-himself/i-felt-the-great-scream-through-nature/",
+          "officialLinkId": "L054",
+          "role": "curriculum"
         },
         {
           "label": "The Scream",
-          "url": "https://www.nasjonalmuseet.no/en/collection/object/NG.M.00939"
+          "url": "https://www.nasjonalmuseet.no/en/collection/object/NG.M.00939",
+          "officialLinkId": "L055",
+          "role": "curriculum"
         },
         {
           "label": "Dance (I)",
-          "url": "https://www.moma.org/collection/works/79124"
+          "url": "https://www.moma.org/collection/works/79124",
+          "officialLinkId": "L056",
+          "role": "curriculum"
         },
         {
           "label": "Dance (II)",
-          "url": "https://www.wikiart.org/en/henri-matisse/dance-ii-1910"
+          "url": "https://www.wikiart.org/en/henri-matisse/dance-ii-1910",
+          "officialLinkId": "L057",
+          "role": "curriculum"
         },
         {
           "label": "Van Gogh classroom video",
@@ -257,20 +275,38 @@
       "rawOfficialText": "In songwriting, early drafts are called demos. Sometimes, the songwriter will perform them him or herself, even if the song is intended for someone else to sing. Consider the following demos and then the finished product, then ask yourself: what changed along the way? What makes the finished product feel more “done”?\n\nThe Beatles | “Strawberry Fields Forever (Home Demo Sequence)” (1966)\nLin-Manuel Miranda | “This One's Mine” (2018)\nSophia Anne Caruso | “Dead Mom (Demo)” (2019)\nEJAE | “Golden” (various demos) (2025)",
       "links": [
         {
-          "label": "The Beatles: Strawberry Fields Forever (home demo sequence)",
-          "url": "https://www.youtube.com/watch?v=jD2h0WuQ9kE&list=RDjD2h0WuQ9kE&start_radio=1"
+          "label": "WSC link L058 — Strawberry Fields Forever (Home Demo Sequence)",
+          "url": "https://www.youtube.com/watch?v=9Zwe1C1G2ak",
+          "officialLinkId": "L058",
+          "role": "curriculum"
         },
         {
-          "label": "The Beatles: Strawberry Fields Forever (final version)",
-          "url": "https://youtu.be/HtUH9z_Oey8?si=7-0x6i8ovFsCI7CB"
+          "label": "WSC link L059 — This One’s Mine",
+          "url": "https://www.youtube.com/watch?v=sf0qfktF44A",
+          "officialLinkId": "L059",
+          "role": "curriculum"
         },
         {
-          "label": "Golden: EJAE and Mark Sonnenblick explain the process",
-          "url": "https://youtu.be/FxEX_GWwE7M?si=Pba2OEygGxpnTVEU"
+          "label": "WSC link L060 — Dead Mom (Demo)",
+          "url": "https://www.youtube.com/watch?v=BXGr0olrThk",
+          "officialLinkId": "L060",
+          "role": "curriculum"
         },
         {
-          "label": "Golden: finished movie version",
-          "url": "https://youtu.be/yebNIHKAC4A?si=tzRmEZd1VLfwnuMl"
+          "label": "WSC link L061 — Golden (various demos)",
+          "url": "https://www.youtube.com/watch?v=FxEX_GWwE7M",
+          "officialLinkId": "L061",
+          "role": "curriculum"
+        },
+        {
+          "label": "Strawberry Fields Forever — finished version",
+          "url": "https://youtu.be/HtUH9z_Oey8",
+          "role": "comparison"
+        },
+        {
+          "label": "Golden — finished movie version",
+          "url": "https://youtu.be/yebNIHKAC4A",
+          "role": "comparison"
         }
       ],
       "studentExplanation": "Songs also have drafts. A demo can reveal a song before it has its final voice, arrangement, production, or scene placement. Comparing the Beatles’ home demo of Strawberry Fields Forever with the final version shows how a raw musical idea can become a studio-built atmosphere. The Golden process links show another path: a song for a film can pass through songwriting, story needs, production, performance, and approval before the short final track feels inevitable. In music, the draft is often audible: you can hear what changed.\n\nA demo is not just a worse version; it is evidence of a decision path. Strawberry Fields, Hamilton drafts, Dead Mom, and Golden show lyrics, arrangement, character, production, and story needs changing before a song feels final. Use this to make process visible: what changed between versions, where the earlier form still survives, how revision altered meaning, and why a “finished” work often hides many unfinished stages.",
@@ -434,29 +470,34 @@
       "title": "Never Released... Until the Internet Allowed It",
       "guidingSection": "There’s a Draft in Here",
       "rawOfficialText": "In musical theatre, not all demos end up in the final product - but the Internet has allowed these unproduced numbers to find an audience. Consider the following demos that never quite got there. For each, discuss with your team: why do you think it was left out of the finished product?\n\nAladdin | “Count on Me” (1994)\nPocahontas | “First to Dance” (1995)\nBook of Mormon | “Family Home Evening” (2009)\nDear Evan Hansen | “In the Bedroom Down the Hall” (2017)",
-      "rawOfficialBullets": [
-        "Most performers rehearse before they go on stage; some people even rehearse before difficult conversations. Investigate the psychology of rehearsal. What parts of the brain does it affect? How do you know when you’ve rehearsed enough?"
-      ],
       "links": [
         {
           "label": "Aladdin - Count on Me",
-          "url": "https://www.youtube.com/watch?v=W9ePWzAxO-s"
+          "url": "https://www.youtube.com/watch?v=W9ePWzAxO-s",
+          "officialLinkId": "L062",
+          "role": "curriculum"
         },
         {
           "label": "Pocahontas - First to Dance",
-          "url": "https://www.youtube.com/watch?v=r_j4ALKLrOk"
+          "url": "https://www.youtube.com/watch?v=r_j4ALKLrOk",
+          "officialLinkId": "L063",
+          "role": "curriculum"
         },
         {
           "label": "Book of Mormon - Family Home Evening",
-          "url": "https://www.youtube.com/watch?v=txG99YiQcNk"
+          "url": "https://www.youtube.com/watch?v=txG99YiQcNk",
+          "officialLinkId": "L064",
+          "role": "curriculum"
         },
         {
           "label": "Dear Evan Hansen - In the Bedroom Down the Hall",
-          "url": "https://www.youtube.com/watch?v=cvf1ETgCMN4"
+          "url": "https://www.youtube.com/watch?v=cvf1ETgCMN4",
+          "officialLinkId": "L065",
+          "role": "curriculum"
         }
       ],
       "studentExplanation": "Many drafts disappear before the public ever sees them, but music and theatre have become easier to archive, upload, and rediscover. Cut songs are especially interesting because they are not always bad songs. Sometimes the story changes, the tone changes, the pacing improves without them, or the final structure needs a different emotional focus. “Count on Me,” “First to Dance,” “Family Home Evening,” and “In the Bedroom Down the Hall” all show that creative work can be complete enough to exist, but still not fit the destination the final production chooses.\n\nCut songs are especially useful because they may be complete but still not belong. Aladdin, Pocahontas, The Book of Mormon, and Dear Evan Hansen examples show that deletion can be about pacing, tone, plot focus, or replacement rather than quality alone. Use this to make process visible: what changed between versions, where the earlier form still survives, how revision altered meaning, and why a “finished” work often hides many unfinished stages.",
-      "whyItMatters": "At the entry level, this helps students understand why unfinished or unreleased creative work matters. At the section level, it closes There’s a Draft in Here by showing that some drafts never reach the official final product, but still reveal the path that production took. At the year-theme level, it connects to drafts, prototypes, and endings because some works remain permanently in-between: made, revised, even loved, but not finally included.",
+      "whyItMatters": "At the entry level, this explains why a complete song may still be removed. At the section level, it shows that revision can involve deletion: pacing, tone, plot, or character focus may matter more than the quality of one number. At the year-theme level, it shows that some drafts remain active after the official ending because archives and the internet let audiences hear the path not taken.",
       "takeaway": "Unreleased material can reveal the creative decisions behind the final version",
       "subjects": [
         "Visual and Performing Arts"
@@ -585,6 +626,189 @@
           "Narrated Endings",
           "Performed Progress",
           "Visible vs Real"
+        ]
+      },
+      "sectionTitle": "There’s a Draft in Here"
+    },
+    {
+      "id": "raw.theres-a-draft-in-here.004",
+      "order": 4,
+      "sectionId": "theres-a-draft-in-here",
+      "mediaIds": [],
+      "questionIds": [
+        "question.theres-a-draft-in-here.100.004",
+        "question.theres-a-draft-in-here.200.004",
+        "question.theres-a-draft-in-here.200.005"
+      ],
+      "title": "The Psychology of Rehearsal",
+      "guidingSection": "There’s a Draft in Here",
+      "rawOfficialText": "Most performers rehearse before they go on stage; some people even rehearse before difficult conversations. Investigate the psychology of rehearsal. What parts of the brain does it affect? How do you know when you’ve rehearsed enough?",
+      "links": [
+        {
+          "label": "Official WSC 2026 curriculum — rehearsal prompt",
+          "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/",
+          "role": "curriculum"
+        },
+        {
+          "label": "Neuroimaging meta-analysis — motor imagery, observation, and execution",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30098990/",
+          "role": "research-validation"
+        },
+        {
+          "label": "fMRI meta-analysis — verbal working-memory network",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6581736/",
+          "role": "research-validation"
+        },
+        {
+          "label": "Systematic review — mental simulation and behaviour",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/",
+          "role": "research-validation"
+        },
+        {
+          "label": "Systematic review — distributed and retrieval practice",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11078833/",
+          "role": "research-validation"
+        },
+        {
+          "label": "Motor-learning review — immediate performance versus delayed retention and transfer",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22142953/",
+          "role": "research-validation"
+        },
+        {
+          "label": "2025 trial — motor imagery and force control",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40684972/",
+          "role": "current-research",
+          "asOf": "2025-07-18"
+        },
+        {
+          "label": "2025 trial — motor imagery and walking tasks",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39818123/",
+          "role": "current-research",
+          "asOf": "2025-01-15"
+        }
+      ],
+      "studentExplanation": "Rehearsal is a draft of an action before the public version. The word covers different activities. Physical rehearsal performs the action. Motor imagery simulates its movement, timing, sound, or feeling without fully carrying it out. Verbal rehearsal keeps words and possible replies active. Role-play adds another person who can respond. Retrieval practice is related but different: it tests whether knowledge can be produced without looking at the answer.\n\nThere is no single “rehearsal centre” in the brain. Motor imagery often recruits premotor and supplementary motor regions involved in planning, parietal regions involved in the body and space, and parts of the cerebellum and basal ganglia involved in timing and control. This overlaps with real movement, but it is not a neural copy of movement. Activity in primary motor areas is weaker and less consistent during imagery. Verbal rehearsal uses a distributed working-memory network that includes frontal, parietal, cerebellar, and speech-related systems. The pattern depends on what is being rehearsed.\n\nRehearsal is most useful when it tests a process that can be checked: an entrance cue, a sequence, a movement, a claim, a possible reply, or recovery after an error. Imagining a perfect ending may feel smooth without revealing the weak step that prevents it. Mental practice can help some performances, but it does not supply all the muscular, sensory, social, and error feedback of physical practice or role-play.\n\nTwo 2025 studies show why broad claims are dangerous. In one trial, twenty minutes of motor imagery improved steadiness in a small elbow-force task among younger and older women. In another, four weeks of walking-specific imagery did not improve five tested walking tasks in healthy older adults. The duration cannot be compared as if the studies tested the same treatment: tasks, participants, measures, and baselines differed. The result is task specificity, not a universal win or failure for mental rehearsal.\n\nThere is no universal number of repetitions and no brain scan that says “done.” Set a performance criterion and test it. Can the person perform accurately more than once, still do it after a delay, adapt when the cue or setting changes, and recover from an error? Stable performance, delayed retention, and transfer are stronger evidence than immediate familiarity. If errors repeat or attention fades, feedback, rest, variation, or a different kind of practice may be more useful than another identical run.\n\nA painting draft makes creative choices visible. A rehearsal makes future choices testable. Both matter when feedback changes the next version.",
+      "whyItMatters": "At the entry level, this answers the official WSC questions instead of leaving rehearsal as an isolated prompt. At the section level, it moves the idea of a draft from an object to an action: performers, speakers, and teams create test versions of what they will do. At the year-theme level, it shows why feeling ready is not the same as arriving; progress should be judged by retained, adaptable performance.",
+      "takeaway": "Rehearsal works when it tests and revises a process, not when it only repeats a feeling of success.",
+      "subjects": [
+        "Psychology",
+        "Sciences",
+        "Visual and Performing Arts"
+      ],
+      "bigIdeas": [
+        "Performed Progress",
+        "Visible vs Real",
+        "Incompletion That Stays Active",
+        "Infrastructure Shapes Behavior"
+      ],
+      "examples": [
+        "Physical rehearsal",
+        "Motor imagery",
+        "Verbal rehearsal and role-play",
+        "Retrieval practice",
+        "Process simulation versus outcome simulation",
+        "Retention and transfer tests",
+        "Contrasting motor-imagery results from 2025"
+      ],
+      "debateRelevance": "Useful when debating whether mental practice can replace physical practice, whether schools reward temporary fluency instead of durable learning, and whether rehearsing a difficult conversation prepares someone to listen or only gives them a rigid script.",
+      "counterargument": "Mental rehearsal is neither fake practice nor a universal shortcut. It can be a useful addition under some conditions, but an improvement in one task or population should not be generalized automatically.",
+      "visualSections": [
+        {
+          "title": "Rehearsal is a testable draft of action",
+          "items": [
+            {
+              "kind": "text-slide",
+              "title": "Activities that are often confused",
+              "note": "Physical rehearsal, motor imagery, verbal rehearsal, role-play, and retrieval practice test different parts of a future performance.",
+              "links": [
+                {
+                  "label": "Mental simulation and behaviour review",
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/"
+                },
+                {
+                  "label": "Distributed and retrieval practice review",
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11078833/"
+                }
+              ],
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "There is no single rehearsal centre",
+              "note": "The network depends on the task. Motor imagery and execution overlap in premotor-parietal systems but are not identical; verbal rehearsal recruits a distributed working-memory and speech network.",
+              "links": [
+                {
+                  "label": "Motor imagery neuroimaging meta-analysis",
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/30098990/"
+                },
+                {
+                  "label": "Verbal working-memory fMRI meta-analysis",
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6581736/"
+                }
+              ],
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Process rehearsal versus perfect-ending imagery",
+              "note": "Running through cues, steps, replies, and recovery can expose a weak point. Imagining only applause or victory may improve confidence without testing the process.",
+              "links": [
+                {
+                  "label": "Mental simulation and behaviour review",
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8500882/"
+                }
+              ],
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "The stopping test: retention and transfer",
+              "note": "“Enough” should be defined by a criterion: accurate repetition, performance after a delay, adaptation to changed cues, and recovery from errors—not by familiarity alone.",
+              "links": [
+                {
+                  "label": "Distributed and retrieval practice review",
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11078833/"
+                }
+              ],
+              "imageMode": "source-link-only"
+            },
+            {
+              "kind": "text-slide",
+              "title": "Why two 2025 studies reached different results",
+              "note": "A short force-control task improved after imagery, while a four-week walking trial did not improve its five walking outcomes. Different tasks and participants test different transfer claims.",
+              "links": [
+                {
+                  "label": "Force-control trial",
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/40684972/"
+                },
+                {
+                  "label": "Walking trial",
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/39818123/"
+                }
+              ],
+              "imageMode": "source-link-only"
+            }
+          ]
+        }
+      ],
+      "legacyBigIdeas": [
+        "Drafts & Prototypes",
+        "Practice & Performance"
+      ],
+      "primaryBigIdea": "Performed Progress",
+      "secondaryBigIdeas": [
+        "Visible vs Real",
+        "Incompletion That Stays Active",
+        "Infrastructure Shapes Behavior"
+      ],
+      "semanticRoute": {
+        "version": "v3",
+        "sourceFile": "WSC_2026_SOURCE_OF_TRUTH_APP_DISPLAY_INTERNAL_ENGINE_CODEX_READY.docx",
+        "primaryBigIdea": "Performed Progress",
+        "secondaryBigIdeas": [
+          "Visible vs Real",
+          "Incompletion That Stays Active",
+          "Infrastructure Shapes Behavior"
         ]
       },
       "sectionTitle": "There’s a Draft in Here"

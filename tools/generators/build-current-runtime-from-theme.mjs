@@ -18,17 +18,59 @@ function readJsonIfExists(filePath, fallback) {
   return fs.existsSync(filePath) ? readJson(filePath) : fallback;
 }
 
-function writeJsonScript(filePath, globalName, data, declaration = "window") {
+function writeJsonScript(filePath, globalName, data, declaration = "window", options = {}) {
   ensureDir(path.dirname(filePath));
-  fs.writeFileSync(filePath, `${declaration}.${globalName} = ${JSON.stringify(data, null, 2)};\n`);
+  const spacing = options.compact ? 0 : 2;
+  fs.writeFileSync(filePath, `${declaration}.${globalName} = ${JSON.stringify(data, null, spacing)};\n`);
 }
 
-function writeWindowScript(filePath, globalName, data) {
-  writeJsonScript(filePath, globalName, data, "window");
+function writeWindowScript(filePath, globalName, data, options = {}) {
+  writeJsonScript(filePath, globalName, data, "window", options);
 }
 
 function themePath(relativePath) {
   return path.join(THEME_DIR, relativePath.replace(/^\.\//, ""));
+}
+
+const AUTHORING_ONLY_CONTENT_KEYS = new Set([
+  "imageGuidance",
+  "imageInstruction",
+  "imageSearchQuery",
+  "videoGuidance"
+]);
+
+const FORBIDDEN_PUBLIC_CONTENT_MARKERS = [
+  /Image requirement \+ source guidance/i,
+  /\/(?:imagesearch|imagecreator|imagegen|youtubesearch)\b/i,
+  /\bthe agent must\b/i,
+  /\bYOUTUBESEARCH skill\b/i,
+  /\/Users\/[^/]+\//
+];
+
+function toPublicContent(value) {
+  if (Array.isArray(value)) {
+    return value.map(toPublicContent);
+  }
+
+  if (!value || typeof value !== "object") {
+    return value;
+  }
+
+  return Object.fromEntries(
+    Object.entries(value)
+      .filter(([key]) => !AUTHORING_ONLY_CONTENT_KEYS.has(key))
+      .map(([key, child]) => [key, toPublicContent(child)])
+  );
+}
+
+function assertPublicContentHygiene(payloads) {
+  for (const [name, payload] of Object.entries(payloads)) {
+    const serialized = JSON.stringify(payload);
+    const marker = FORBIDDEN_PUBLIC_CONTENT_MARKERS.find((pattern) => pattern.test(serialized));
+    if (marker) {
+      throw new Error(`Private authoring data matched ${marker} in public runtime payload ${name}.`);
+    }
+  }
 }
 
 function compatQuestion(question) {
@@ -332,13 +374,23 @@ function summarize(rawContentBank, rawContentOverrides, alpacaChannel, alpacards
 
 function main() {
   const manifest = readJson(path.join(THEME_DIR, "manifest.json"));
-  const wscData = readJson(path.join(THEME_DIR, "compat/wsc-data.json"));
-  const knowledgeBank = readJson(path.join(THEME_DIR, "compat/knowledge-bank.json"));
-  const assetConfig = readJson(path.join(THEME_DIR, "compat/assets-config.json"));
-  const rawContentBank = buildRawContentBank(manifest);
-  const rawContentOverrides = buildRawContentOverrides(rawContentBank);
-  const alpacaChannel = buildAlpacaChannel(manifest);
-  const alpacards = buildAlpacards(manifest);
+  const wscData = toPublicContent(readJson(path.join(THEME_DIR, "compat/wsc-data.json")));
+  const knowledgeBank = toPublicContent(readJson(path.join(THEME_DIR, "compat/knowledge-bank.json")));
+  const assetConfig = toPublicContent(readJson(path.join(THEME_DIR, "compat/assets-config.json")));
+  const rawContentBank = toPublicContent(buildRawContentBank(manifest));
+  const rawContentOverrides = toPublicContent(buildRawContentOverrides(rawContentBank));
+  const alpacaChannel = toPublicContent(buildAlpacaChannel(manifest));
+  const alpacards = toPublicContent(buildAlpacards(manifest));
+
+  assertPublicContentHygiene({
+    wscData,
+    knowledgeBank,
+    assetConfig,
+    rawContentBank,
+    rawContentOverrides,
+    alpacaChannel,
+    alpacards
+  });
 
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   ensureDir(path.join(OUT_DIR, "content"));
@@ -346,7 +398,7 @@ function main() {
   writeWindowScript(path.join(OUT_DIR, "data.js"), "WSC_DATA", wscData);
   writeWindowScript(path.join(OUT_DIR, "knowledge-bank.js"), "WSC_KNOWLEDGE_BANK", knowledgeBank);
   writeWindowScript(path.join(OUT_DIR, "assets-config.js"), "WSC_ASSETS", assetConfig);
-  writeWindowScript(path.join(OUT_DIR, "raw-content-bank.js"), "WSC_RAW_CONTENT_BANK", rawContentBank);
+  writeWindowScript(path.join(OUT_DIR, "raw-content-bank.js"), "WSC_RAW_CONTENT_BANK", rawContentBank, { compact: true });
   writeWindowScript(path.join(OUT_DIR, "content/raw-content-overrides.js"), "WSC_RAW_CONTENT_OVERRIDES", rawContentOverrides);
   writeWindowScript(path.join(OUT_DIR, "alpaca-channel.js"), "WSC_ALPACA_CHANNEL", alpacaChannel);
   writeWindowScript(path.join(OUT_DIR, "content/alpacards.js"), "WSC_ALPACARDS", alpacards);

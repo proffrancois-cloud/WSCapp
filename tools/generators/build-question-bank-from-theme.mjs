@@ -81,9 +81,11 @@ function normalizeQuestion(question, sectionId, levelKey, sectionQuestionIndex, 
     sourceBank: question.sourceBank || "",
     sourceUrl: question.sourceUrl || "",
     sourceNote: question.sourceNote || "",
+    sourceLinks: Array.isArray(question.sourceLinks) ? question.sourceLinks : [],
     sectionInferenceNote: question.sectionInferenceNote || "",
     guidingSectionPrimary: question.guidingSectionPrimary || "",
     guidingSectionSecondary: question.guidingSectionSecondary || "",
+    qualityProfile: question.qualityProfile || "",
     sectionPlacementIds: [],
     placements: [
       {
@@ -137,6 +139,7 @@ function toCsv(questions) {
     "visibleCorrectExplanation",
     "visibleConnection",
     "visibleTakeaway",
+    "qualityProfile",
     "sourceUrl"
   ];
 
@@ -170,6 +173,12 @@ function build() {
 
     for (const [levelKey, list] of Object.entries(sectionQuestions.levels || {})) {
       for (const [levelQuestionIndex, question] of (list || []).entries()) {
+        // Full Voyage questions are canonical in the central bank because one
+        // question can carry several section placements. Rebuilding them from a
+        // single compatibility view would silently discard those placements.
+        if (question.sourceType === "fullVoyageQuestions") {
+          continue;
+        }
         placementCount += 1;
         const normalized = normalizeQuestion(question, section.id, levelKey, sectionQuestionIndex, levelQuestionIndex);
         sectionQuestionIndex += 1;
@@ -184,7 +193,7 @@ function build() {
     }
   }
 
-  const questions = Array.from(byStableId.values()).sort((left, right) => {
+  const sectionQuestions = Array.from(byStableId.values()).sort((left, right) => {
     const leftPlacement = left.placements[0] || {};
     const rightPlacement = right.placements[0] || {};
     return (manifest.sections || []).findIndex((section) => section.id === leftPlacement.sectionId) -
@@ -193,12 +202,46 @@ function build() {
       left.stableId.localeCompare(right.stableId);
   });
 
+  const existingQuestionBankPath = manifest.questionBank
+    ? themePath(manifest.questionBank)
+    : path.join(THEME_DIR, "questions/question-bank.json");
+  const existingQuestionBank = fs.existsSync(existingQuestionBankPath)
+    ? readJson(existingQuestionBankPath)
+    : { questions: [] };
+  const fullVoyageOrderPath = path.join(THEME_DIR, "compat/full-voyage-order.json");
+  const fullVoyageOrder = fs.existsSync(fullVoyageOrderPath)
+    ? readJson(fullVoyageOrderPath)
+    : [];
+  const fullVoyageRank = new Map(fullVoyageOrder.map((id, index) => [id, index]));
+  const fullVoyageQuestions = (existingQuestionBank.questions || [])
+    .filter((question) => question.sourceType === "fullVoyageQuestions")
+    .sort((left, right) => (
+      (fullVoyageRank.get(questionKey(left)) ?? Number.MAX_SAFE_INTEGER) -
+        (fullVoyageRank.get(questionKey(right)) ?? Number.MAX_SAFE_INTEGER) ||
+      questionKey(left).localeCompare(questionKey(right))
+    ));
+
+  if (fullVoyageOrder.length && fullVoyageQuestions.length !== fullVoyageOrder.length) {
+    throw new Error(
+      `Cannot safely rebuild the bank: expected ${fullVoyageOrder.length} Full Voyage questions, ` +
+      `but found ${fullVoyageQuestions.length} in ${path.relative(ROOT, existingQuestionBankPath)}.`
+    );
+  }
+
+  for (const question of fullVoyageQuestions) {
+    placementCount += Array.isArray(question.placements) && question.placements.length
+      ? question.placements.length
+      : 1;
+  }
+
+  const questions = sectionQuestions.concat(fullVoyageQuestions);
+
   const bank = {
     id: `${manifest.themeId}.question-bank`,
     themeId: manifest.themeId,
     generatedAt: new Date().toISOString(),
     format: "wsc-question-bank.v1",
-    source: "Built from content/themes/2026/sections/*/questions.json during the architecture migration.",
+    source: "Levels 100–300 are rebuilt from section question files; canonical Full Voyage 400–500 questions and placements are preserved from the central bank.",
     counts: {
       uniqueQuestions: questions.length,
       sectionPlacements: placementCount,

@@ -5,10 +5,12 @@
   "originalTitle": "There's a Draft in Here",
   "order": 5,
   "themeId": "wsc-2026",
-  "blurb": "Versions, sketches, rewrites, and the slow growth of finished work.",
-  "angle": "Before a final work appears, there is almost always a draft, and often several.",
+  "blurb": "Versions, demos, cuts, and rehearsals reveal how finished work grows through tests and revision.",
+  "angle": "A draft can be an object or an action: the useful question is what the next test changes.",
   "subjectIds": [
-    "visual-and-performing-arts"
+    "visual-and-performing-arts",
+    "psychology",
+    "sciences"
   ],
   "bigIdeaIds": [
     "incompletion-that-stays-active",

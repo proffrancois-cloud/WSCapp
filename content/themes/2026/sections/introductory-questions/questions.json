@@ -10,7 +10,7 @@
         "prompt": "What is the main job of the opening questions?",
         "correctAnswer": "They frame the big question through arrival, progress, and endings",
         "wrongAnswers": [
-          "They replace the detailed examples in later later examples",
+          "They replace the detailed examples in later sections",
           "They reduce the opening to facts instead of asking what arrival means",
           "They settle the answer too early instead of opening the problem"
         ],
@@ -19,7 +19,7 @@
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "They replace the detailed examples in later later examples",
+            "answer": "They replace the detailed examples in later sections",
             "explanation": "That answer changes the point: They frame the big question through arrival, progress, and endings."
           },
           {
@@ -324,7 +324,7 @@
         "id": "question.introductory-questions.200.002",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "What more specific detail from \"Frank Sinatra, My Way\" should a alpaca remember after the obvious fact?",
+        "prompt": "What more specific detail from \"Frank Sinatra, My Way\" should an alpaca remember after the obvious fact?",
         "correctAnswer": "It turns a threshold into a moral pressure point: after crossing it, choices are judged by cost, timing, and lost reversibility.",
         "wrongAnswers": [
           "It gives the future emotional weight before it arrives; the wait starts changing behavior before the destination exists.",
@@ -459,7 +459,7 @@
         "id": "question.introductory-questions.200.005",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "What more specific detail from \"Technologies That Seemed Close but Never Arrived\" should a alpaca remember after the obvious fact?",
+        "prompt": "What more specific detail from \"Technologies That Seemed Close but Never Arrived\" should an alpaca remember after the obvious fact?",
         "correctAnswer": "At the entry level, this teaches students to question predictions instead of simply believing them. At the section level, it gives the introduction a bridge into futurism. Key examples to keep available: Nuclear-Powered Cars; Food Pills; 3D Television; Why Some Futures Stay “Almost There”.",
         "wrongAnswers": [
           "The entry mainly proves that every predicted technology eventually succeeds if people wait long enough.",
@@ -504,7 +504,7 @@
         "id": "question.introductory-questions.200.006",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "What more specific detail from \"Things We Commit To but Do Not Finish\" should a alpaca remember after the obvious fact?",
+        "prompt": "What more specific detail from \"Things We Commit To but Do Not Finish\" should an alpaca remember after the obvious fact?",
         "correctAnswer": "At the entry level, this helps students separate starting from finishing. At the section level, it gives the introduction a realistic counterpoint: some routes do not end in arrival. Key examples to keep available: The truth is that sometimes we’ll never get there at all; Most videogames are left unfinished; nearly half of those who start university don’t get a degree; Unfinished Video Games.",
         "wrongAnswers": [
           "The entry says unfinished games and degrees mostly prove that people should never begin difficult routes.",

@@ -7,225 +7,356 @@
         "id": "question.call-of-duty-free.100.001",
         "level": 1,
         "displayLevel": 100,
-        "prompt": "What mainly made a post house different from a modern hotel?",
-        "correctAnswer": "A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers",
+        "prompt": "A roadside stop mainly provides fresh horses and helps mail or officials continue along a relay route. Which institution best fits that function?",
+        "correctAnswer": "A post house",
         "wrongAnswers": [
-          "A post house was always more luxurious than a hotel",
-          "A hotel mainly handled horse relays instead of guest stays",
-          "A post house mainly served long leisure stays rather than relay travel"
+          "A caravanserai",
+          "An inn",
+          "A hotel"
         ],
-        "explanation": "A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers.",
-        "visibleCorrectExplanation": "A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers.",
+        "explanation": "A post house belonged to a transport and communication system. Its defining job was to keep riders, mail, officials, and replacement horses moving along a route.",
+        "visibleCorrectExplanation": "A post house belonged to a transport and communication system. Its defining job was to keep riders, mail, officials, and replacement horses moving along a route.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "A post house was always more luxurious than a hotel",
-            "explanation": "That answer changes the point: A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers."
+            "answer": "A caravanserai",
+            "explanation": "A caravanserai supported whole caravans, including merchants, animals, goods, storage, water, and security; a horse-and-mail relay is more specifically a post house."
           },
           {
             "label": "C",
-            "answer": "A hotel mainly handled horse relays instead of guest stays",
-            "explanation": "That answer changes the point: A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers."
+            "answer": "An inn",
+            "explanation": "An inn could sell meals and lodging, but that does not make horse replacement and official relay service its defining function."
           },
           {
             "label": "D",
-            "answer": "A post house mainly served long leisure stays rather than relay travel",
-            "explanation": "That answer changes the point: A post house was tied to transport and relay needs, while a hotel specialized in hosting travelers."
+            "answer": "A hotel",
+            "explanation": "A hotel specializes in accommodation and guest service. It may stand near transport, but it is not defined by running the relay."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L100_call-of-duty-free_1_092",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L211",
+            "url": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L100_call-of-duty-free_1_092",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.001"
       },
       {
         "id": "question.call-of-duty-free.100.002",
         "level": 1,
         "displayLevel": 100,
-        "prompt": "What was the Grand Tour mainly meant to do for wealthy young aristocrats?",
-        "correctAnswer": "Turn travel into a rite of passage that made them more cultured and socially polished",
+        "prompt": "Which description best captures the original social purpose of the Grand Tour?",
+        "correctAnswer": "A long European journey used by wealthy young aristocrats to complete their education and display cultural polish",
         "wrongAnswers": [
-          "Train them to become professional sailors across Europe",
-          "Send them abroad without art, language, or social training",
-          "Give them travel without elite education or cultural polish"
+          "A short merchant route designed mainly to store and re-export goods",
+          "A religious journey whose main goal was worship at a sacred destination",
+          "A standardized package holiday sold cheaply to middle-class families"
         ],
-        "explanation": "Turn travel into a rite of passage that made them more cultured and socially polished.",
-        "visibleCorrectExplanation": "Turn travel into a rite of passage that made them more cultured and socially polished.",
+        "explanation": "The Grand Tour combined art, language, classical learning, manners, contacts, and collecting. Its cost and length also made the journey evidence of elite status.",
+        "visibleCorrectExplanation": "The Grand Tour combined art, language, classical learning, manners, contacts, and collecting. Its cost and length also made the journey evidence of elite status.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "Train them to become professional sailors across Europe",
-            "explanation": "That answer changes the point: Turn travel into a rite of passage that made them more cultured and socially polished."
+            "answer": "A short merchant route designed mainly to store and re-export goods",
+            "explanation": "That describes commercial movement through a hub, not the educational and social rite of passage of the Grand Tour."
           },
           {
             "label": "C",
-            "answer": "Send them abroad without art, language, or social training",
-            "explanation": "That answer changes the point: Turn travel into a rite of passage that made them more cultured and socially polished."
+            "answer": "A religious journey whose main goal was worship at a sacred destination",
+            "explanation": "Pilgrimage can transform a traveller, but the Grand Tour was organized around elite education, culture, and status rather than a sacred obligation."
           },
           {
             "label": "D",
-            "answer": "Give them travel without elite education or cultural polish",
-            "explanation": "That answer changes the point: Turn travel into a rite of passage that made them more cultured and socially polished."
+            "answer": "A standardized package holiday sold cheaply to middle-class families",
+            "explanation": "Package holidays belong to the later growth of mass tourism; the Grand Tour was lengthy, individualized, and expensive."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L100_call-of-duty-free_2_105",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.historic-uk.com/CultureUK/Grand-Tour/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L213",
+            "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+          },
+          {
+            "role": "official-link-L214",
+            "url": "https://www.thoughtco.com/grand-tour-of-europe-1435014"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L100_call-of-duty-free_2_105",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.002"
+      },
+      {
+        "id": "question.call-of-duty-free.100.006",
+        "level": 1,
+        "displayLevel": 100,
+        "prompt": "Which combination most directly helped leisure tourism expand from an elite privilege into mass tourism?",
+        "correctAnswer": "Cheaper and faster transport, paid leave, disposable income, and organized package travel",
+        "wrongAnswers": [
+          "Luxury hotels, private tutors, art collecting, and journeys lasting several years",
+          "Destination advertising without any change in travel time, household income, or time off",
+          "Free-trade zones, container shipping, entrepôts, and lower duties on commercial goods"
+        ],
+        "explanation": "Mass tourism required access to align on several fronts: transport reduced distance and cost, paid leave created time, middle-class income created demand, and tour operators made trips easier to buy.",
+        "visibleCorrectExplanation": "Mass tourism required access to align on several fronts: transport reduced distance and cost, paid leave created time, middle-class income created demand, and tour operators made trips easier to buy.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Luxury hotels, private tutors, art collecting, and journeys lasting several years",
+            "explanation": "Those features describe the costly, elite pattern of the Grand Tour rather than the conditions that widened participation."
+          },
+          {
+            "label": "C",
+            "answer": "Destination advertising without any change in travel time, household income, or time off",
+            "explanation": "Advertising can create desire, but demand cannot scale if people still lack affordable transport, money, and time away from work."
+          },
+          {
+            "label": "D",
+            "answer": "Free-trade zones, container shipping, entrepôts, and lower duties on commercial goods",
+            "explanation": "Those systems move commercial goods. They may support an economy, but they do not explain why large numbers of households could take holidays."
+          }
+        ],
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "question.call-of-duty-free.100.006",
+        "sourceUrl": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L215",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "question.call-of-duty-free.100.006",
+        "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
+        "entryId": "raw.call-of-duty-free.006"
       },
       {
         "id": "question.call-of-duty-free.100.003",
         "level": 1,
         "displayLevel": 100,
-        "prompt": "What is the “Golden Age of Travel” usually imagined as?",
-        "correctAnswer": "A past era of elegant, comfortable, and well-mannered travel",
+        "prompt": "What does the phrase “Golden Age of Travel” usually select from the past?",
+        "correctAnswer": "Images of spacious, elegant travel enjoyed mainly by affluent passengers",
         "wrongAnswers": [
-          "A period when nobody used planes or ships",
-          "A period remembered for business travel rather than leisure glamour",
-          "A century when travel became free for everyone"
+          "A complete picture of the average passenger’s cost, risk, comfort, and access",
+          "A period when mass tourism had removed crowding from every route",
+          "Proof that formal clothes caused passengers to behave well"
         ],
-        "explanation": "A past era of elegant, comfortable, and well-mannered travel.",
-        "visibleCorrectExplanation": "A past era of elegant, comfortable, and well-mannered travel.",
+        "explanation": "The golden-age image foregrounds glamour, manners, and space. It often leaves out who could afford the trip and what travel was like beyond its most photogenic moments.",
+        "visibleCorrectExplanation": "The golden-age image foregrounds glamour, manners, and space. It often leaves out who could afford the trip and what travel was like beyond its most photogenic moments.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "A period when nobody used planes or ships",
-            "explanation": "That answer changes the point: A past era of elegant, comfortable, and well-mannered travel."
+            "answer": "A complete picture of the average passenger’s cost, risk, comfort, and access",
+            "explanation": "A nostalgic image is selective evidence, not a representative comparison of price, danger, access, reliability, and comfort."
           },
           {
             "label": "C",
-            "answer": "A period remembered for business travel rather than leisure glamour",
-            "explanation": "That answer changes the point: A past era of elegant, comfortable, and well-mannered travel."
+            "answer": "A period when mass tourism had removed crowding from every route",
+            "explanation": "Mass tourism increased access and often crowding; it did not create a universal uncrowded past."
           },
           {
             "label": "D",
-            "answer": "A century when travel became free for everyone",
-            "explanation": "That answer changes the point: A past era of elegant, comfortable, and well-mannered travel."
+            "answer": "Proof that formal clothes caused passengers to behave well",
+            "explanation": "Clothing may signal a social norm, but it does not establish what caused behaviour or account for stress, alcohol, crowding, and enforcement."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L100_call-of-duty-free_3_084",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L216",
+            "url": "https://www.independent.co.uk/travel/news-and-advice/sean-duffy-transport-secretary-air-travel-thanksgiving-request-b2869798.html"
+          },
+          {
+            "role": "official-link-L217",
+            "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L100_call-of-duty-free_3_084",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.003"
       },
       {
         "id": "question.call-of-duty-free.100.004",
         "level": 1,
         "displayLevel": 100,
-        "prompt": "Why do some travelers avoid classic tourist routes?",
-        "correctAnswer": "They want more original or meaningful experiences than crowded tourist hotspots",
+        "prompt": "What role can a recommendation platform such as Xiaohongshu play in tourism?",
+        "correctAnswer": "It can make a little-known place highly visible and direct many travellers toward it",
         "wrongAnswers": [
-          "They no longer want to visit new places at all",
-          "They reject famous routes even when those places still have value",
-          "They want every trip to avoid all local culture"
+          "It guarantees that every recommended visit creates deep cultural exchange",
+          "It permanently removes attention from all famous tourist destinations",
+          "It keeps a place undiscovered because saved guides are visible only to local residents"
         ],
-        "explanation": "They want more original or meaningful experiences than crowded tourist hotspots.",
-        "visibleCorrectExplanation": "They want more original or meaningful experiences than crowded tourist hotspots.",
+        "explanation": "Searchable posts, saved locations, and repeatable itineraries can redirect visitor flows. The same discovery tool can then concentrate attention on the place it helped people find.",
+        "visibleCorrectExplanation": "Searchable posts, saved locations, and repeatable itineraries can redirect visitor flows. The same discovery tool can then concentrate attention on the place it helped people find.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "They no longer want to visit new places at all",
-            "explanation": "That answer changes the point: They want more original or meaningful experiences than crowded tourist hotspots."
+            "answer": "It guarantees that every recommended visit creates deep cultural exchange",
+            "explanation": "Visibility can create contact, but depth depends on time, reciprocity, language, local control, and consequences—not on the platform label."
           },
           {
             "label": "C",
-            "answer": "They reject famous routes even when those places still have value",
-            "explanation": "That answer changes the point: They want more original or meaningful experiences than crowded tourist hotspots."
+            "answer": "It permanently removes attention from all famous tourist destinations",
+            "explanation": "Platforms can add new destinations without making established landmarks disappear; both may remain crowded."
           },
           {
             "label": "D",
-            "answer": "They want every trip to avoid all local culture",
-            "explanation": "That answer changes the point: They want more original or meaningful experiences than crowded tourist hotspots."
+            "answer": "It keeps a place undiscovered because saved guides are visible only to local residents",
+            "explanation": "Saved guides spread beyond local users and are useful precisely because they make a route easier for outsiders to repeat."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L100_call-of-duty-free_4_074",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.sixthtone.com/news/1016254",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L220",
+            "url": "https://www.sixthtone.com/news/1016254"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L100_call-of-duty-free_4_074",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.004"
       },
       {
         "id": "question.call-of-duty-free.100.005",
         "level": 1,
         "displayLevel": 100,
-        "prompt": "What is an entrepôt?",
-        "correctAnswer": "A place where goods are imported, stored, and traded again before moving on",
+        "prompt": "Which definition best matches an entrepôt?",
+        "correctAnswer": "A commercial hub where imported goods are stored and traded or re-exported onward",
         "wrongAnswers": [
-          "A tourist hotel used only by merchants",
-          "A border payment charged to passengers rather than traded goods",
-          "A portable container for travelers rather than a trade storage point"
+          "Any intermediate stop on a route, whether or not goods are stored or traded",
+          "A defined area where special customs rules apply to commercial goods",
+          "The transfer of cargo from one vessel or route to another"
         ],
-        "explanation": "A place where goods are imported, stored, and traded again before moving on.",
-        "visibleCorrectExplanation": "A place where goods are imported, stored, and traded again before moving on.",
+        "explanation": "An entrepôt is both a place and a commercial function: goods enter, wait or are stored, and then leave through further trade or re-export.",
+        "visibleCorrectExplanation": "An entrepôt is both a place and a commercial function: goods enter, wait or are stored, and then leave through further trade or re-export.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "A tourist hotel used only by merchants",
-            "explanation": "That answer changes the point: A place where goods are imported, stored, and traded again before moving on."
+            "answer": "Any intermediate stop on a route, whether or not goods are stored or traded",
+            "explanation": "That is the broader idea of a waystation. An entrepôt specifically involves imported goods, storage, and onward trade."
           },
           {
             "label": "C",
-            "answer": "A border payment charged to passengers rather than traded goods",
-            "explanation": "That answer changes the point: A place where goods are imported, stored, and traded again before moving on."
+            "answer": "A defined area where special customs rules apply to commercial goods",
+            "explanation": "That defines a free-trade zone by its legal customs treatment; an entrepôt is defined by its role as a storage and redistribution hub."
           },
           {
             "label": "D",
-            "answer": "A portable container for travelers rather than a trade storage point",
-            "explanation": "That answer changes the point: A place where goods are imported, stored, and traded again before moving on."
+            "answer": "The transfer of cargo from one vessel or route to another",
+            "explanation": "That is transshipment, an operation that can occur quickly without the goods being stored or sold at an entrepôt."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L100_call-of-duty-free_5_004",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.scholarscup.org/subjects/2026/guiding-2026/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "curriculum-terms",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L100_call-of-duty-free_5_004",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.005"
       }
     ],
@@ -234,673 +365,1085 @@
         "id": "question.call-of-duty-free.200.001",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "Why were caravanserais important on long trade routes?",
-        "correctAnswer": "They gave traders, goods, and animals a protected place to rest before continuing",
+        "prompt": "Why did water, stables, storage, security, and courtyard design make caravanserais important to long-distance trade?",
+        "correctAnswer": "They turned difficult routes into usable networks by supporting caravans at planned intervals",
         "wrongAnswers": [
-          "They were final tourist resorts at the end of every route",
-          "They existed mainly to stop trade from spreading",
-          "They were private homes for wealthy city families"
+          "They converted every route stop into the trader’s final tourist destination",
+          "They removed the need for markets, ports, and other hubs farther along the route",
+          "They made all goods duty-free simply by placing them inside a courtyard"
         ],
-        "explanation": "They gave traders, goods, and animals a protected place to rest before continuing.",
-        "visibleCorrectExplanation": "They gave traders, goods, and animals a protected place to rest before continuing.",
+        "explanation": "A caravanserai reduced several risks at once: people and animals could recover, goods could be protected, and travellers could obtain supplies and information before the next stage.",
+        "visibleCorrectExplanation": "A caravanserai reduced several risks at once: people and animals could recover, goods could be protected, and travellers could obtain supplies and information before the next stage.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "They were final tourist resorts at the end of every route",
-            "explanation": "That answer changes the point: They gave traders, goods, and animals a protected place to rest before continuing."
+            "answer": "They converted every route stop into the trader’s final tourist destination",
+            "explanation": "A caravanserai was usually an intermediate support node. Resting there did not make it the final purpose of the journey."
           },
           {
             "label": "C",
-            "answer": "They existed mainly to stop trade from spreading",
-            "explanation": "That answer changes the point: They gave traders, goods, and animals a protected place to rest before continuing."
+            "answer": "They removed the need for markets, ports, and other hubs farther along the route",
+            "explanation": "It connected stages of a wider network; it did not replace the producers, markets, ports, and destinations at either end."
           },
           {
             "label": "D",
-            "answer": "They were private homes for wealthy city families",
-            "explanation": "That answer changes the point: They gave traders, goods, and animals a protected place to rest before continuing."
+            "answer": "They made all goods duty-free simply by placing them inside a courtyard",
+            "explanation": "Security and storage are physical functions. Duty treatment depends on law and customs rules, which describes a free zone rather than every caravanserai."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L200_call-of-duty-free_1_178",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://whc.unesco.org/en/list/1668/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L211",
+            "url": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury"
+          },
+          {
+            "role": "validation",
+            "url": "https://whc.unesco.org/en/list/1668/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L200_call-of-duty-free_1_178",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.001"
       },
       {
         "id": "question.call-of-duty-free.200.002",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "Why was Italy especially important on many Grand Tours?",
-        "correctAnswer": "It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples",
+        "prompt": "Why could the Grand Tour function as both education and a display of status?",
+        "correctAnswer": "Its art, language, and classical learning required enough wealth, time, credit, and connections to complete a long journey",
         "wrongAnswers": [
-          "It was the only country where travelers could learn French",
-          "It offered travel comfort without requiring art or classical learning",
-          "It served as a quick route rather than a cultural destination"
+          "Every European teenager was legally required to follow the same route",
+          "The destinations mattered, but the traveller’s money and social network had no effect on access",
+          "Tour operators sold the same low-cost package to most working families"
         ],
-        "explanation": "It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples.",
-        "visibleCorrectExplanation": "It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples.",
+        "explanation": "The traveller could gain knowledge and contacts while the ability to be absent for months or years, hire guidance, collect art, and move credit across borders visibly marked privilege.",
+        "visibleCorrectExplanation": "The traveller could gain knowledge and contacts while the ability to be absent for months or years, hire guidance, collect art, and move credit across borders visibly marked privilege.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "It was the only country where travelers could learn French",
-            "explanation": "That answer changes the point: It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples."
+            "answer": "Every European teenager was legally required to follow the same route",
+            "explanation": "The Grand Tour was a custom among parts of the elite, not a universal legal stage of youth."
           },
           {
             "label": "C",
-            "answer": "It offered travel comfort without requiring art or classical learning",
-            "explanation": "That answer changes the point: It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples."
+            "answer": "The destinations mattered, but the traveller’s money and social network had no effect on access",
+            "explanation": "Access is central to the status claim: time, money, letters of credit, tutors, and introductions shaped who could make the journey."
           },
           {
             "label": "D",
-            "answer": "It served as a quick route rather than a cultural destination",
-            "explanation": "That answer changes the point: It offered access to Renaissance art, classical ruins, Rome, Florence, Venice, and Naples."
+            "answer": "Tour operators sold the same low-cost package to most working families",
+            "explanation": "Standardized packages belong to mass tourism. The Grand Tour was expensive, lengthy, and individually supported."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L200_call-of-duty-free_2_181",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.metmuseum.org/de/essays/the-grand-tour",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L213",
+            "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+          },
+          {
+            "role": "museum-validation",
+            "url": "https://www.metmuseum.org/de/essays/the-grand-tour"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L200_call-of-duty-free_2_181",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.002"
+      },
+      {
+        "id": "question.call-of-duty-free.200.006",
+        "level": 2,
+        "displayLevel": 200,
+        "prompt": "Why did package holidays help tourism grow at mass scale?",
+        "correctAnswer": "Bundling transport, accommodation, and transfers reduced price, planning work, and uncertainty for many households",
+        "wrongAnswers": [
+          "They made destination capacity unlimited once enough rooms were advertised",
+          "They removed the need for paid leave and disposable income",
+          "They treated holidaymakers as commercial cargo moving through a customs zone"
+        ],
+        "explanation": "A package turns several separate decisions and risks into one product. Combined with income, free time, and transport, that standardization lets many more people buy a similar trip.",
+        "visibleCorrectExplanation": "A package turns several separate decisions and risks into one product. Combined with income, free time, and transport, that standardization lets many more people buy a similar trip.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They made destination capacity unlimited once enough rooms were advertised",
+            "explanation": "Packages can increase arrivals, but housing, roads, ecosystems, and services still have limits; marketing does not create unlimited capacity."
+          },
+          {
+            "label": "C",
+            "answer": "They removed the need for paid leave and disposable income",
+            "explanation": "A convenient product still costs money and takes time. Paid leave and household income remain part of the causal chain."
+          },
+          {
+            "label": "D",
+            "answer": "They treated holidaymakers as commercial cargo moving through a customs zone",
+            "explanation": "Customs systems for goods are a different branch. A package organizes services for travellers rather than cargo treatment."
+          }
+        ],
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Raw Content",
+        "sourceQuestionId": "question.call-of-duty-free.200.006",
+        "sourceUrl": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L215",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "question.call-of-duty-free.200.006",
+        "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
+        "entryId": "raw.call-of-duty-free.006"
       },
       {
         "id": "question.call-of-duty-free.200.003",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "Why can nostalgia make older travel look better than it was?",
-        "correctAnswer": "It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort",
+        "prompt": "Why can a luxury photograph give a misleading picture of a past “Golden Age of Travel”?",
+        "correctAnswer": "It can preserve the most affluent and photogenic experience while omitting price, exclusion, risk, and ordinary discomfort",
         "wrongAnswers": [
-          "It proves every older journey was more comfortable",
-          "It treats old travel as comfortable without asking who was excluded",
-          "It trusts the glamorous image without checking the missing discomforts"
+          "Advertising from the period automatically represents the average passenger",
+          "Modern crowding proves that every part of older travel was safer and more comfortable",
+          "Safety improvements make any comparison of comfort or service meaningless"
         ],
-        "explanation": "It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort.",
-        "visibleCorrectExplanation": "It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort.",
+        "explanation": "The problem is selection. A glamorous cabin may be real, but it cannot stand for every route, class, traveller, or dimension of the experience.",
+        "visibleCorrectExplanation": "The problem is selection. A glamorous cabin may be real, but it cannot stand for every route, class, traveller, or dimension of the experience.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "It proves every older journey was more comfortable",
-            "explanation": "That answer changes the point: It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort."
+            "answer": "Advertising from the period automatically represents the average passenger",
+            "explanation": "Advertising is designed to select attractive features; it needs independent evidence before it can represent ordinary conditions."
           },
           {
             "label": "C",
-            "answer": "It treats old travel as comfortable without asking who was excluded",
-            "explanation": "That answer changes the point: It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort."
+            "answer": "Modern crowding proves that every part of older travel was safer and more comfortable",
+            "explanation": "One modern problem cannot prove a universal claim about the past. Cost, danger, reliability, access, and comfort must be compared separately."
           },
           {
             "label": "D",
-            "answer": "It trusts the glamorous image without checking the missing discomforts",
-            "explanation": "That answer changes the point: It often remembers glamour and status while ignoring cost, exclusion, risk, and discomfort."
+            "answer": "Safety improvements make any comparison of comfort or service meaningless",
+            "explanation": "Comfort and service can still be compared. The correction is to use several measures, not to declare the comparison impossible."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L200_call-of-duty-free_3_196",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L217",
+            "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+          },
+          {
+            "role": "official-link-L218",
+            "url": "https://web.archive.org/web/20250717203429/https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L200_call-of-duty-free_3_196",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.003"
       },
       {
         "id": "question.call-of-duty-free.200.004",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "How can social media change tourism?",
-        "correctAnswer": "It can make hidden places popular by spreading them quickly to many travelers",
+        "prompt": "How can social media weaken the “authenticity” that niche travellers are seeking?",
+        "correctAnswer": "A repeatable post can make one place highly visible, concentrate arrivals, and encourage the experience to be staged for visitors",
         "wrongAnswers": [
-          "It stops people from visiting places because trends disappear",
-          "It assumes popularity automatically creates deeper cultural contact",
-          "It turns most tourism into virtual travel only"
+          "Recommendation algorithms automatically distribute visitors evenly across a country",
+          "A place becomes more local and private whenever its visitor numbers increase",
+          "Removing a traditional tour guide eliminates every commercial influence on the trip"
         ],
-        "explanation": "It can make hidden places popular by spreading them quickly to many travelers.",
-        "visibleCorrectExplanation": "It can make hidden places popular by spreading them quickly to many travelers.",
+        "explanation": "The platform can transform discovery into a new mass route. Visibility changes visitor volume and may change how businesses, residents, and later visitors present the place.",
+        "visibleCorrectExplanation": "The platform can transform discovery into a new mass route. Visibility changes visitor volume and may change how businesses, residents, and later visitors present the place.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "It stops people from visiting places because trends disappear",
-            "explanation": "That answer changes the point: It can make hidden places popular by spreading them quickly to many travelers."
+            "answer": "Recommendation algorithms automatically distribute visitors evenly across a country",
+            "explanation": "Algorithms often concentrate attention around already successful posts and images; even distribution is not automatic."
           },
           {
             "label": "C",
-            "answer": "It assumes popularity automatically creates deeper cultural contact",
-            "explanation": "That answer changes the point: It can make hidden places popular by spreading them quickly to many travelers."
+            "answer": "A place becomes more local and private whenever its visitor numbers increase",
+            "explanation": "More visitors may bring income, but they can also create crowding and staging. Visitor volume does not define localness."
           },
           {
             "label": "D",
-            "answer": "It turns most tourism into virtual travel only",
-            "explanation": "That answer changes the point: It can make hidden places popular by spreading them quickly to many travelers."
+            "answer": "Removing a traditional tour guide eliminates every commercial influence on the trip",
+            "explanation": "Platforms, accommodation, transport, and the visitor’s own expectations can commercialize an experience even without a tour guide."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L200_call-of-duty-free_4_112",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.sixthtone.com/news/1016254",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L220",
+            "url": "https://www.sixthtone.com/news/1016254"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L200_call-of-duty-free_4_112",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.004"
       },
       {
         "id": "question.call-of-duty-free.200.005",
         "level": 2,
         "displayLevel": 200,
-        "prompt": "What makes a free-trade zone different from an ordinary customs area?",
-        "correctAnswer": "Goods can be stored or reexported there without normal duties applying immediately",
+        "prompt": "Why is a defined area with special customs treatment better described as a free-trade zone than as transshipment?",
+        "correctAnswer": "A free-trade zone is a legal customs regime, while transshipment is the act of transferring cargo between routes or vehicles",
         "wrongAnswers": [
-          "Only local products are allowed inside it",
-          "Goods move there with fewer duties, but not without trade rules",
-          "Trade happens there, but only after every local tax is paid"
+          "Any place that stores goods is a caravanserai, regardless of its users or design",
+          "A free-trade zone is simply a duty-free shop where passengers buy personal items",
+          "Transshipment means the cargo has reached its final buyer and will not move again"
         ],
-        "explanation": "Goods can be stored or reexported there without normal duties applying immediately.",
-        "visibleCorrectExplanation": "Goods can be stored or reexported there without normal duties applying immediately.",
+        "explanation": "The terms answer different questions. “Free-trade zone” asks which customs rules apply in an area; “transshipment” asks what happens to cargo at an intermediate transfer.",
+        "visibleCorrectExplanation": "The terms answer different questions. “Free-trade zone” asks which customs rules apply in an area; “transshipment” asks what happens to cargo at an intermediate transfer.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "Only local products are allowed inside it",
-            "explanation": "That answer changes the point: Goods can be stored or reexported there without normal duties applying immediately."
+            "answer": "Any place that stores goods is a caravanserai, regardless of its users or design",
+            "explanation": "A caravanserai is a physical route complex for caravans, people, animals, and goods. Storage alone does not identify it."
           },
           {
             "label": "C",
-            "answer": "Goods move there with fewer duties, but not without trade rules",
-            "explanation": "That answer changes the point: Goods can be stored or reexported there without normal duties applying immediately."
+            "answer": "A free-trade zone is simply a duty-free shop where passengers buy personal items",
+            "explanation": "Passenger retail and a commercial free zone may both involve duty rules, but they serve different users, scales, and operations."
           },
           {
             "label": "D",
-            "answer": "Trade happens there, but only after every local tax is paid",
-            "explanation": "That answer changes the point: Goods can be stored or reexported there without normal duties applying immediately."
+            "answer": "Transshipment means the cargo has reached its final buyer and will not move again",
+            "explanation": "Transshipment is intermediate by definition: the cargo changes vessel or route so that it can continue."
           }
         ],
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "visibleConnection": "",
+        "visibleTakeaway": "",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Raw Content",
         "sourceQuestionId": "L200_call-of-duty-free_5_206",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "100/200 selected once per entry; distractors kept or repaired to stay within the same content field.",
+        "sourceUrl": "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/conventions/pf_revised_kyoto_conv/kyoto_new/spand.aspx?p=1",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "curriculum-terms",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "customs-definition",
+            "url": "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/conventions/pf_revised_kyoto_conv/kyoto_new/spand.aspx?p=1"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L200_call-of-duty-free_5_206",
         "sourceType": "entry.quizQuestions",
+        "qualityProfile": "wsc-evidence-v1",
         "entryId": "raw.call-of-duty-free.005"
       }
     ],
     "300": [
       {
-        "id": "question.call-of-duty-free.300.006",
-        "level": 3,
-        "displayLevel": 300,
-        "prompt": "Start with this detail: Duty-free refers to goods sold without certain local taxes in transit zones. Which idea gives the best comparison?",
-        "correctAnswer": "From inns to hotels",
-        "wrongAnswers": [
-          "Travel as status",
-          "Tourism types",
-          "Airport life as limbo"
-        ],
-        "explanation": "Correct: From inns to hotels.",
-        "visibleCorrectExplanation": "Correct: From inns to hotels.",
-        "visibleConnection": "The question starts from a concrete detail in Duty-free culture: Duty-free refers to goods sold without certain local taxes in transit zones. It is really asking which answer handles a similar pressure. From inns to hotels is the best connection because it turns rest for travelers into an institution, showing how temporary shelter becomes part of mobility systems. Both ideas ask alpacas to notice that Duty-free shopping makes borders feel pleasant, but it depends on tax rules, security systems, and controlled movement.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
-        "questionScope": "Section Journey",
-        "sourceQuestionId": "L300_call-of-duty-free__215",
-        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
-        "sectionId": "call-of-duty-free",
-        "sectionIds": [
-          "call-of-duty-free"
-        ],
-        "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
-        "sourceId": "L300_call-of-duty-free__215",
-        "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Travel as status",
-            "explanation": "That answer changes the point: From inns to hotels."
-          },
-          {
-            "label": "C",
-            "answer": "Tourism types",
-            "explanation": "That answer changes the point: From inns to hotels."
-          },
-          {
-            "label": "D",
-            "answer": "Airport life as limbo",
-            "explanation": "That answer changes the point: From inns to hotels."
-          }
-        ]
-      },
-      {
-        "id": "question.call-of-duty-free.300.007",
-        "level": 3,
-        "displayLevel": 300,
-        "prompt": "Which idea gives the clearest comparison to Travel as status?",
-        "correctAnswer": "Tourism types",
-        "wrongAnswers": [
-          "Airport life as limbo",
-          "Overtourism and local cost",
-          "Duty-free culture"
-        ],
-        "explanation": "Correct: Tourism types.",
-        "visibleCorrectExplanation": "Correct: Tourism types.",
-        "visibleConnection": "The question starts from a concrete detail in Travel as status: Not everyone can travel equally. It is really asking which answer handles a similar pressure. Tourism types is the best connection because it sorts travelers by motive, revealing that the same place can be consumed as leisure, heritage, danger, or self-improvement. Both ideas ask alpacas to notice that Travel can become proof that someone has access to time, money, passports, and cultural confidence.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
-        "questionScope": "Section Journey",
-        "sourceQuestionId": "L300_call-of-duty-free__216",
-        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
-        "sectionId": "call-of-duty-free",
-        "sectionIds": [
-          "call-of-duty-free"
-        ],
-        "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
-        "sourceId": "L300_call-of-duty-free__216",
-        "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Airport life as limbo",
-            "explanation": "That answer changes the point: Tourism types."
-          },
-          {
-            "label": "C",
-            "answer": "Overtourism and local cost",
-            "explanation": "That answer changes the point: Tourism types."
-          },
-          {
-            "label": "D",
-            "answer": "Duty-free culture",
-            "explanation": "That answer changes the point: Tourism types."
-          }
-        ]
-      },
-      {
-        "id": "question.call-of-duty-free.300.008",
-        "level": 3,
-        "displayLevel": 300,
-        "prompt": "Which idea turns the same pressure behind Airport life as limbo into a different form?",
-        "correctAnswer": "Overtourism and local cost",
-        "wrongAnswers": [
-          "Duty-free culture",
-          "From inns to hotels",
-          "Travel as status"
-        ],
-        "explanation": "Correct: Overtourism and local cost.",
-        "visibleCorrectExplanation": "Correct: Overtourism and local cost.",
-        "visibleConnection": "The question starts from a concrete detail in Airport life as limbo: Airports are transitional spaces, not final destinations. It is really asking which answer handles a similar pressure. Overtourism and local cost is the best connection because it shows smooth arrival for visitors creating friction for residents who cannot simply leave the destination behind. Both ideas ask alpacas to notice that Airports compress freedom and control into the same space: people are moving, waiting, watched, and sold to at once.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
-        "questionScope": "Section Journey",
-        "sourceQuestionId": "L300_call-of-duty-free__217",
-        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
-        "sectionId": "call-of-duty-free",
-        "sectionIds": [
-          "call-of-duty-free"
-        ],
-        "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
-        "sourceId": "L300_call-of-duty-free__217",
-        "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Duty-free culture",
-            "explanation": "That answer changes the point: Overtourism and local cost."
-          },
-          {
-            "label": "C",
-            "answer": "From inns to hotels",
-            "explanation": "That answer changes the point: Overtourism and local cost."
-          },
-          {
-            "label": "D",
-            "answer": "Travel as status",
-            "explanation": "That answer changes the point: Overtourism and local cost."
-          }
-        ]
-      },
-      {
-        "id": "question.call-of-duty-free.300.009",
-        "level": 3,
-        "displayLevel": 300,
-        "prompt": "Which idea gives the clearest comparison for Tourism types?",
-        "correctAnswer": "Airport life as limbo",
-        "wrongAnswers": [
-          "Overtourism and local cost",
-          "Duty-free culture",
-          "From inns to hotels"
-        ],
-        "explanation": "Correct: Airport life as limbo.",
-        "visibleCorrectExplanation": "Correct: Airport life as limbo.",
-        "visibleConnection": "The question starts from a concrete detail in Tourism types: Examples include eco-tourism, dark tourism, wellness tourism, cultural tourism, and resort tourism. It is really asking which answer handles a similar pressure. Airport life as limbo is the best connection because it holds people between jurisdictions and destinations, making the airport a place of waiting that pretends to be only transit. Both ideas ask alpacas to notice that Tourism changes shape depending on what the traveler wants to consume: comfort, danger, authenticity, memory, or transformation.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
-        "questionScope": "Section Journey",
-        "sourceQuestionId": "L300_call-of-duty-free__218",
-        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
-        "sectionId": "call-of-duty-free",
-        "sectionIds": [
-          "call-of-duty-free"
-        ],
-        "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
-        "sourceId": "L300_call-of-duty-free__218",
-        "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Overtourism and local cost",
-            "explanation": "That answer changes the point: Airport life as limbo."
-          },
-          {
-            "label": "C",
-            "answer": "Duty-free culture",
-            "explanation": "That answer changes the point: Airport life as limbo."
-          },
-          {
-            "label": "D",
-            "answer": "From inns to hotels",
-            "explanation": "That answer changes the point: Airport life as limbo."
-          }
-        ]
-      },
-      {
-        "id": "question.call-of-duty-free.300.010",
-        "level": 3,
-        "displayLevel": 300,
-        "prompt": "Which idea carries the same logic as From inns to hotels?",
-        "correctAnswer": "Airport life as limbo",
-        "wrongAnswers": [
-          "Overtourism and local cost",
-          "Duty-free culture",
-          "Travel as status"
-        ],
-        "explanation": "Correct: Airport life as limbo.",
-        "visibleCorrectExplanation": "Correct: Airport life as limbo.",
-        "visibleConnection": "The question starts from a concrete detail in From inns to hotels: Early lodging supported merchants and travelers in motion. It is really asking which answer handles a similar pressure. Airport life as limbo is the best connection because it holds people between jurisdictions and destinations, making the airport a place of waiting that pretends to be only transit. Both ideas ask alpacas to notice that Travel creates institutions around temporary belonging: places designed for people who are between places.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
-        "questionScope": "Section Journey",
-        "sourceQuestionId": "L300_call-of-duty-free__219",
-        "sourceUrl": "WSC_2026_updated_level_100_200_300_questions.csv",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
-        "sectionId": "call-of-duty-free",
-        "sectionIds": [
-          "call-of-duty-free"
-        ],
-        "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
-        "sourceId": "L300_call-of-duty-free__219",
-        "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Overtourism and local cost",
-            "explanation": "That answer changes the point: Airport life as limbo."
-          },
-          {
-            "label": "C",
-            "answer": "Duty-free culture",
-            "explanation": "That answer changes the point: Airport life as limbo."
-          },
-          {
-            "label": "D",
-            "answer": "Travel as status",
-            "explanation": "That answer changes the point: Airport life as limbo."
-          }
-        ]
-      },
-      {
         "id": "question.call-of-duty-free.300.001",
         "level": 3,
         "displayLevel": 300,
-        "prompt": "How did hotels become more than simple stopover spaces?",
-        "correctAnswer": "They developed comfort, service, privacy, and sometimes became destinations themselves",
+        "prompt": "A protected courtyard houses merchants, pack animals, and goods overnight; a city hotel sells private rooms and guest service. Which comparison is strongest?",
+        "correctAnswer": "Both support temporary arrival, but the caravanserai serves a caravan network while the hotel specializes in accommodation for guests",
         "wrongAnswers": [
-          "They stopped travelers from using roads and ships",
-          "They became less connected to tourism over time",
-          "They replaced every earlier form of accommodation immediately"
+          "They are the same institution because both contain beds",
+          "The caravanserai is an entrepôt whenever a merchant sleeps there",
+          "The hotel belongs to transport infrastructure, while the caravanserai does not"
         ],
-        "explanation": "Correct: They developed comfort, service, privacy, and sometimes became destinations themselves.",
-        "visibleCorrectExplanation": "Correct: They developed comfort, service, privacy, and sometimes became destinations themselves.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "explanation": "The shared idea is infrastructure between destinations. Their different users, goods, animals, architecture, and services show why function matters more than the broad label “lodging.”",
+        "visibleCorrectExplanation": "The shared idea is infrastructure between destinations. Their different users, goods, animals, architecture, and services show why function matters more than the broad label “lodging.”",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "They are the same institution because both contain beds",
+            "explanation": "One shared feature does not erase different network roles, users, physical needs, and economic functions."
+          },
+          {
+            "label": "C",
+            "answer": "The caravanserai is an entrepôt whenever a merchant sleeps there",
+            "explanation": "Merchants may trade at a caravanserai, but an entrepôt specifically organizes import, storage, and onward trade; sleeping there is not enough evidence."
+          },
+          {
+            "label": "D",
+            "answer": "The hotel belongs to transport infrastructure, while the caravanserai does not",
+            "explanation": "Both belong to movement infrastructure. The caravanserai makes its route function especially visible because it supports caravans, animals, and cargo."
+          }
+        ],
+        "visibleConnection": "This connects the first and sixth branches: a single stop can support hospitality and trade, but the curriculum’s terms remain precise.",
+        "visibleTakeaway": "Compare middle places by the work they perform, not by one object they happen to contain.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Section Journey",
         "sourceQuestionId": "L300_call-of-duty-free_1_290",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sourceUrl": "https://whc.unesco.org/en/list/1668/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L211",
+            "url": "https://coursebible.com/posts/the-comprehensive-history-of-hotels-from-ancient-inns-to-modern-luxury"
+          },
+          {
+            "role": "validation",
+            "url": "https://whc.unesco.org/en/list/1668/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L300_call-of-duty-free_1_290",
         "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "They stopped travelers from using roads and ships",
-            "explanation": "That answer changes the point: They developed comfort, service, privacy, and sometimes became destinations themselves."
-          },
-          {
-            "label": "C",
-            "answer": "They became less connected to tourism over time",
-            "explanation": "That answer changes the point: They developed comfort, service, privacy, and sometimes became destinations themselves."
-          },
-          {
-            "label": "D",
-            "answer": "They replaced every earlier form of accommodation immediately",
-            "explanation": "That answer changes the point: They developed comfort, service, privacy, and sometimes became destinations themselves."
-          }
-        ]
+        "qualityProfile": "wsc-evidence-v1"
       },
       {
         "id": "question.call-of-duty-free.300.002",
         "level": 3,
         "displayLevel": 300,
-        "prompt": "Why can the Grand Tour be seen as an early form of modern tourism?",
-        "correctAnswer": "It treated travel as leisure, culture, learning, and identity formation, not only as necessity",
+        "prompt": "What is the most important change from the Grand Tour to mass tourism?",
+        "correctAnswer": "Travel for leisure moved from a long elite rite toward a standardized product accessible to a much larger middle class",
         "wrongAnswers": [
-          "It was created mostly to move goods across Europe",
-          "It replaced all school education in Britain",
-          "It required every young European to visit Venice"
+          "Tourists stopped using culture, education, or status to explain their journeys",
+          "Transport ceased to matter once hotels became available",
+          "Every traveller gained equal time, income, passport access, and treatment"
         ],
-        "explanation": "Correct: It treated travel as leisure, culture, learning, and identity formation, not only as necessity.",
-        "visibleCorrectExplanation": "Correct: It treated travel as leisure, culture, learning, and identity formation, not only as necessity.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "explanation": "Leisure and status did not disappear. The major shift was scale and access, produced by transport, paid leave, household income, and organized travel.",
+        "visibleCorrectExplanation": "Leisure and status did not disappear. The major shift was scale and access, produced by transport, paid leave, household income, and organized travel.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Tourists stopped using culture, education, or status to explain their journeys",
+            "explanation": "Modern travel can still seek education, identity, and status; the change lies in who can participate and how trips are organized."
+          },
+          {
+            "label": "C",
+            "answer": "Transport ceased to matter once hotels became available",
+            "explanation": "Railways, liners, cars, and jets are central to the transition because they change journey time, capacity, and cost."
+          },
+          {
+            "label": "D",
+            "answer": "Every traveller gained equal time, income, passport access, and treatment",
+            "explanation": "Mass access widened participation without removing unequal money, documents, free time, borders, or service."
+          }
+        ],
+        "visibleConnection": "The Grand Tour supplies the elite baseline; the mass-tourism branch supplies the mechanisms that changed participation.",
+        "visibleTakeaway": "Democratization changes scale without automatically creating equality.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Section Journey",
         "sourceQuestionId": "L300_call-of-duty-free_2_291",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sourceUrl": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L213",
+            "url": "https://www.historic-uk.com/CultureUK/Grand-Tour/"
+          },
+          {
+            "role": "official-link-L215",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L300_call-of-duty-free_2_291",
         "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "It was created mostly to move goods across Europe",
-            "explanation": "That answer changes the point: It treated travel as leisure, culture, learning, and identity formation, not only as necessity."
-          },
-          {
-            "label": "C",
-            "answer": "It replaced all school education in Britain",
-            "explanation": "That answer changes the point: It treated travel as leisure, culture, learning, and identity formation, not only as necessity."
-          },
-          {
-            "label": "D",
-            "answer": "It required every young European to visit Venice",
-            "explanation": "That answer changes the point: It treated travel as leisure, culture, learning, and identity formation, not only as necessity."
-          }
-        ]
+        "qualityProfile": "wsc-evidence-v1"
       },
       {
         "id": "question.call-of-duty-free.300.003",
         "level": 3,
         "displayLevel": 300,
-        "prompt": "Why do some historians doubt that a true golden age of air travel existed?",
-        "correctAnswer": "Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe",
+        "prompt": "A coastal town gains a low-cost rail link just as paid holidays and package tours become common. Visitor numbers rise sharply in the same summer weeks. Which explanation best uses the curriculum?",
+        "correctAnswer": "Transport, free time, and standardized travel combined to scale demand and concentrate it in one place and season",
         "wrongAnswers": [
-          "Airplanes were only invented in the 21st century",
-          "Passengers in the past never disagreed about travel",
-          "All flights used to be free and equal for everyone"
+          "The rail link alone explains the change because income and leave never affect tourism",
+          "The presence of hotels caused employers to create paid holidays",
+          "The town has overtourism simply because its annual visitor total increased"
         ],
-        "explanation": "Correct: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe.",
-        "visibleCorrectExplanation": "Correct: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "explanation": "The case joins several enabling conditions and then adds concentration. Whether it becomes overtourism still depends on pressure relative to housing, services, public space, and ecosystems.",
+        "visibleCorrectExplanation": "The case joins several enabling conditions and then adds concentration. Whether it becomes overtourism still depends on pressure relative to housing, services, public space, and ecosystems.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The rail link alone explains the change because income and leave never affect tourism",
+            "explanation": "Access matters, but households also need time, money, and a purchasable trip; the curriculum presents a combined causal chain."
+          },
+          {
+            "label": "C",
+            "answer": "The presence of hotels caused employers to create paid holidays",
+            "explanation": "Hotels can support tourism, but this reverses the social cause: labour rights and income help create demand for holidays."
+          },
+          {
+            "label": "D",
+            "answer": "The town has overtourism simply because its annual visitor total increased",
+            "explanation": "Growth is evidence of mass tourism. Overtourism requires additional evidence that local capacity or resident life is being exceeded."
+          }
+        ],
+        "visibleConnection": "This joins the causes of mass tourism with the separate concept of overtourism, preventing a common cause-versus-impact confusion.",
+        "visibleTakeaway": "Explain scale with a causal chain; diagnose overtourism with capacity evidence.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Section Journey",
         "sourceQuestionId": "L300_call-of-duty-free_3_292",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sourceUrl": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L215",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3"
+          },
+          {
+            "role": "constitutive-case",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/6"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L300_call-of-duty-free_3_292",
         "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Airplanes were only invented in the 21st century",
-            "explanation": "That answer changes the point: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe."
-          },
-          {
-            "label": "C",
-            "answer": "Passengers in the past never disagreed about travel",
-            "explanation": "That answer changes the point: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe."
-          },
-          {
-            "label": "D",
-            "answer": "All flights used to be free and equal for everyone",
-            "explanation": "That answer changes the point: Older air travel could look glamorous but was often expensive, limited, uncomfortable, or less safe."
-          }
-        ]
+        "qualityProfile": "wsc-evidence-v1"
       },
       {
         "id": "question.call-of-duty-free.300.004",
         "level": 3,
         "displayLevel": 300,
-        "prompt": "What is the paradox of “authentic” tourism?",
-        "correctAnswer": "Travelers seek unique places, but online attention can turn those places into new hotspots",
+        "prompt": "An airline advert shows a spacious 1950s first-class meal beside a crowded modern economy cabin. What is the strongest evaluation?",
+        "correctAnswer": "The contrast may show a real comfort difference, but it samples different classes and cannot establish that air travel as a whole was better",
         "wrongAnswers": [
-          "Authentic tourism means meeting only local people",
-          "The more tourists arrive, the more private a place becomes",
-          "Authentic tourism is just another name for luxury travel"
+          "The old image proves all passengers once received first-class space and service",
+          "Modern travel is better in every way because more people can afford it",
+          "Neither image can provide any evidence because advertisements are always fictional"
         ],
-        "explanation": "Correct: Travelers seek unique places, but online attention can turn those places into new hotspots.",
-        "visibleCorrectExplanation": "Correct: Travelers seek unique places, but online attention can turn those places into new hotspots.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "explanation": "A careful answer keeps the real observation—some premium cabins were spacious—while checking comparability, access, price, safety, reliability, and ordinary conditions.",
+        "visibleCorrectExplanation": "A careful answer keeps the real observation—some premium cabins were spacious—while checking comparability, access, price, safety, reliability, and ordinary conditions.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The old image proves all passengers once received first-class space and service",
+            "explanation": "The selected cabin cannot represent other classes, routes, prices, or passengers without supporting data."
+          },
+          {
+            "label": "C",
+            "answer": "Modern travel is better in every way because more people can afford it",
+            "explanation": "Wider access is important, but it does not cancel real questions about comfort, service, delays, or dignity."
+          },
+          {
+            "label": "D",
+            "answer": "Neither image can provide any evidence because advertisements are always fictional",
+            "explanation": "Advertisements are selective, not useless. They can show the image being sold, but broader historical claims need other evidence."
+          }
+        ],
+        "visibleConnection": "This applies the section’s “visible versus real” tension to the golden-age claim and the class change produced by mass tourism.",
+        "visibleTakeaway": "Preserve what an image really shows, then limit the conclusion to the sample it represents.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Section Journey",
         "sourceQuestionId": "L300_call-of-duty-free_4_293",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sourceUrl": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L216",
+            "url": "https://www.independent.co.uk/travel/news-and-advice/sean-duffy-transport-secretary-air-travel-thanksgiving-request-b2869798.html"
+          },
+          {
+            "role": "official-link-L217",
+            "url": "https://www.theatlantic.com/newsletters/archive/2025/07/has-air-travel-ever-been-good/683584/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L300_call-of-duty-free_4_293",
         "sourceType": "section.guideQuestions",
-        "visibleWrongExplanations": [
-          {
-            "label": "B",
-            "answer": "Authentic tourism means meeting only local people",
-            "explanation": "That answer changes the point: Travelers seek unique places, but online attention can turn those places into new hotspots."
-          },
-          {
-            "label": "C",
-            "answer": "The more tourists arrive, the more private a place becomes",
-            "explanation": "That answer changes the point: Travelers seek unique places, but online attention can turn those places into new hotspots."
-          },
-          {
-            "label": "D",
-            "answer": "Authentic tourism is just another name for luxury travel",
-            "explanation": "That answer changes the point: Travelers seek unique places, but online attention can turn those places into new hotspots."
-          }
-        ]
+        "qualityProfile": "wsc-evidence-v1"
       },
       {
         "id": "question.call-of-duty-free.300.005",
         "level": 3,
         "displayLevel": 300,
-        "prompt": "Why were caravanserais important on long-distance routes?",
-        "correctAnswer": "They gave caravans a protected stop for rest, shelter, animals, and goods",
+        "prompt": "A normally cautious visitor joins a noisy crowd, feels anonymous, and damages a site for a dramatic video. Which explanation best fits the official behaviour link?",
+        "correctAnswer": "Weaker home norms, deindividuation, crowd cues, and social reward can lower restraints without making travel a complete excuse",
         "wrongAnswers": [
-          "They were final luxury destinations for ancient tourists",
-          "They replaced all port cities on the Silk Road",
-          "They existed mainly to prevent exchange between cultures"
+          "Crossing a border permanently changes a person’s character",
+          "The behaviour is caused only by uncomfortable seats on the journey",
+          "Posting the video makes the damage harmless because it promotes the destination"
         ],
-        "explanation": "Correct: They gave caravans a protected stop for rest, shelter, animals, and goods.",
-        "visibleCorrectExplanation": "Correct: They gave caravans a protected stop for rest, shelter, animals, and goods.",
-        "sourceBank": "V9.1 final CSV kept 100/200/300",
+        "explanation": "The case combines several situational mechanisms. They explain why restraint may fall, while responsibility and the need for rules, design, or sanctions remain.",
+        "visibleCorrectExplanation": "The case combines several situational mechanisms. They explain why restraint may fall, while responsibility and the need for rules, design, or sanctions remain.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Crossing a border permanently changes a person’s character",
+            "explanation": "The evidence concerns situational pressures, not a universal or permanent personality transformation caused by travel."
+          },
+          {
+            "label": "C",
+            "answer": "The behaviour is caused only by uncomfortable seats on the journey",
+            "explanation": "Stress may contribute, but it cannot by itself explain anonymity, crowd imitation, entitlement, and online performance at the site."
+          },
+          {
+            "label": "D",
+            "answer": "Posting the video makes the damage harmless because it promotes the destination",
+            "explanation": "Visibility does not undo physical or cultural harm. Promotion can even reward repetition of the damaging act."
+          }
+        ],
+        "visibleConnection": "This links individual psychology with tourism infrastructure and media incentives rather than treating misbehaviour as a mysterious tourist trait.",
+        "visibleTakeaway": "Situations can lower restraint; explanation should guide prevention without erasing responsibility.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
         "questionScope": "Section Journey",
         "sourceQuestionId": "L300_call-of-duty-free_5_294",
-        "sourceUrl": "https://wsc-2026-study-routes.vercel.app/raw-content-bank.js?v=20260504f",
-        "sourceNote": "Level 300 retained for later review; 100/200 answer-choice pass did not rewrite this row.",
+        "sourceUrl": "https://www.bbc.com/travel/article/20240718-why-do-tourists-behave-badly-on-holiday",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L219",
+            "url": "https://www.bbc.com/travel/article/20240718-why-do-tourists-behave-badly-on-holiday"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
         "sectionId": "call-of-duty-free",
         "sectionIds": [
           "call-of-duty-free"
         ],
         "guidingSectionPrimary": "Call of Duty-Free",
-        "sectionInferenceNote": "Direct from V9.1 final CSV source file.",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
         "sourceId": "L300_call-of-duty-free_5_294",
         "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.006",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "A user posts a detailed guide to a quiet neighbourhood bookstore. Thousands save the route, visitors repeat the same photo, and nearby shops begin designing for the trend. Which chain best explains the result?",
+        "correctAnswer": "A search for authenticity became platform visibility, concentrated arrivals, and a more staged experience",
+        "wrongAnswers": [
+          "The bookstore remained undiscovered because the original post called it local",
+          "The growth proves every visitor achieved deep exchange with residents",
+          "The platform ended mass tourism by moving people away from one famous landmark"
+        ],
+        "explanation": "The place may still have local meaning, but the recommendation changes its audience, volume, and presentation. A niche route can acquire mass-tourism dynamics.",
+        "visibleCorrectExplanation": "The place may still have local meaning, but the recommendation changes its audience, volume, and presentation. A niche route can acquire mass-tourism dynamics.",
         "visibleWrongExplanations": [
           {
             "label": "B",
-            "answer": "They were final luxury destinations for ancient tourists",
-            "explanation": "That answer changes the point: They gave caravans a protected stop for rest, shelter, animals, and goods."
+            "answer": "The bookstore remained undiscovered because the original post called it local",
+            "explanation": "A label does not control distribution. Saves, searches, and copied routes make discovery repeatable at scale."
           },
           {
             "label": "C",
-            "answer": "They replaced all port cities on the Silk Road",
-            "explanation": "That answer changes the point: They gave caravans a protected stop for rest, shelter, animals, and goods."
+            "answer": "The growth proves every visitor achieved deep exchange with residents",
+            "explanation": "Visitor volume and emotional satisfaction do not demonstrate reciprocity, time, language, or local benefit."
           },
           {
             "label": "D",
-            "answer": "They existed mainly to prevent exchange between cultures",
-            "explanation": "That answer changes the point: They gave caravans a protected stop for rest, shelter, animals, and goods."
+            "answer": "The platform ended mass tourism by moving people away from one famous landmark",
+            "explanation": "Redistributing some visitors can reduce one pressure while creating another hotspot; the system has shifted, not disappeared."
           }
-        ]
+        ],
+        "visibleConnection": "This is the exact bridge between the official Xiaohongshu source, authentic tourism, and the concentration mechanism in mass tourism.",
+        "visibleTakeaway": "A tool for discovery can become infrastructure for concentration.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__215",
+        "sourceUrl": "https://www.sixthtone.com/news/1016254",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L220",
+            "url": "https://www.sixthtone.com/news/1016254"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "L300_call-of-duty-free__215",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.007",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Which evidence would best support a claim that an ecotourism project creates deep exchange rather than only a satisfying visitor experience?",
+        "correctAnswer": "Local people help control the project, benefits last locally, and visitors learn through reciprocal contact over enough time",
+        "wrongAnswers": [
+          "Visitors report feeling transformed before leaving",
+          "The project uses the word “eco” and appears in many saved posts",
+          "The destination is difficult to reach and therefore must be authentic"
+        ],
+        "explanation": "Deep exchange is a relationship claim. It needs evidence about local agency, reciprocity, duration, learning, and consequences—not only the visitor’s feeling or the product label.",
+        "visibleCorrectExplanation": "Deep exchange is a relationship claim. It needs evidence about local agency, reciprocity, duration, learning, and consequences—not only the visitor’s feeling or the product label.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Visitors report feeling transformed before leaving",
+            "explanation": "A changed feeling may be sincere, but it measures the visitor and says little about local power or lasting benefit."
+          },
+          {
+            "label": "C",
+            "answer": "The project uses the word “eco” and appears in many saved posts",
+            "explanation": "A label and popularity are marketing evidence. They do not establish conservation, reciprocity, or community control."
+          },
+          {
+            "label": "D",
+            "answer": "The destination is difficult to reach and therefore must be authentic",
+            "explanation": "Remoteness can limit access, but isolation does not guarantee respectful relationships or good local outcomes."
+          }
+        ],
+        "visibleConnection": "This gives one evaluation test that works across ecotourism, voluntourism, edutourism, agritourism, retreats, and dark tourism.",
+        "visibleTakeaway": "Judge authenticity by relationships and outcomes, not difficulty, branding, or personal emotion alone.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__216",
+        "sourceUrl": "https://www.gstcouncil.org/wp-content/uploads/GSTC-Destination-Criteria-v2.0-2022.pdf",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L220",
+            "url": "https://www.sixthtone.com/news/1016254"
+          },
+          {
+            "role": "evaluation-standard",
+            "url": "https://www.gstcouncil.org/wp-content/uploads/GSTC-Destination-Criteria-v2.0-2022.pdf"
+          }
+        ],
+        "sourceNote": "The WSC-linked Sixth Tone article supplies the platform context; GSTC criteria support the evaluation of community participation, local benefits, and long-term impacts.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "L300_call-of-duty-free__216",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.008",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "A container is unloaded from one ship and placed on another without being sold; the port also contains a separate area with special customs treatment. Which analysis is most precise?",
+        "correctAnswer": "The ship-to-ship movement is transshipment; the special customs area is a free-trade zone",
+        "wrongAnswers": [
+          "Both facts make the whole port a caravanserai",
+          "The transfer is an entrepôt because every intermediate stop stores and sells goods",
+          "The customs area is simply a passenger duty-free shop at container scale"
+        ],
+        "explanation": "Two mechanisms can coexist at one hub. Transshipment names the cargo operation, while free-trade zone names the legal treatment of a defined area.",
+        "visibleCorrectExplanation": "Two mechanisms can coexist at one hub. Transshipment names the cargo operation, while free-trade zone names the legal treatment of a defined area.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Both facts make the whole port a caravanserai",
+            "explanation": "A caravanserai is a route complex built for caravans, people, animals, and goods; a modern container operation does not become one by being intermediate."
+          },
+          {
+            "label": "C",
+            "answer": "The transfer is an entrepôt because every intermediate stop stores and sells goods",
+            "explanation": "An entrepôt requires storage and onward trade or re-export. Direct transfer alone supports “transshipment,” not the additional commercial claim."
+          },
+          {
+            "label": "D",
+            "answer": "The customs area is simply a passenger duty-free shop at container scale",
+            "explanation": "Passenger retail and commercial free zones differ in user, purpose, cargo scale, and customs process."
+          }
+        ],
+        "visibleConnection": "This tests whether students can separate a place, an operation, and a legal regime even when all three appear at one hub.",
+        "visibleTakeaway": "One location can perform several transit functions; name each claim with the evidence it requires.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__217",
+        "sourceUrl": "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/conventions/pf_revised_kyoto_conv/kyoto_new/spand.aspx?p=1",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "curriculum-terms",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "customs-definition",
+            "url": "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/conventions/pf_revised_kyoto_conv/kyoto_new/spand.aspx?p=1"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "L300_call-of-duty-free__217",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.009",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Why does the caravanserai belong in both the accommodation branch and the goods-in-transit branch?",
+        "correctAnswer": "It sheltered travellers and animals while protecting goods and enabling exchange along a trade network",
+        "wrongAnswers": [
+          "It was a modern hotel placed inside every free-trade zone",
+          "It mattered only as a final market and never as a stopover",
+          "Its main purpose was moving containers between ocean vessels"
+        ],
+        "explanation": "The caravanserai is a physical bridge between human needs and commercial movement. Its value comes from supporting the next stage of a shared route.",
+        "visibleCorrectExplanation": "The caravanserai is a physical bridge between human needs and commercial movement. Its value comes from supporting the next stage of a shared route.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It was a modern hotel placed inside every free-trade zone",
+            "explanation": "Modern hotels and free-trade zones have different service and legal functions; the caravanserai predates and cannot be reduced to either."
+          },
+          {
+            "label": "C",
+            "answer": "It mattered only as a final market and never as a stopover",
+            "explanation": "Intermediate shelter is central to the concept. Trade could occur, but the network role does not require the stop to be the final market."
+          },
+          {
+            "label": "D",
+            "answer": "Its main purpose was moving containers between ocean vessels",
+            "explanation": "Container transfer describes modern transshipment, not caravan travel with people, pack animals, and stored goods."
+          }
+        ],
+        "visibleConnection": "The repeated appearance is intentional: caravanserais show that people and goods often share the same infrastructure.",
+        "visibleTakeaway": "Curriculum branches can overlap without making their vocabulary interchangeable.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__218",
+        "sourceUrl": "https://whc.unesco.org/en/list/1668/",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "primary-validation",
+            "url": "https://whc.unesco.org/en/list/1668/"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "L300_call-of-duty-free__218",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.010",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "A summary says the 1854 Treaty of Kanagawa “opened Shimoda and Hakodate to foreign trade.” Which correction is most precise?",
+        "correctAnswer": "It first allowed American ships access for supplies and assistance; later treaties widened commercial rights",
+        "wrongAnswers": [
+          "It immediately created unrestricted general trade with every foreign country",
+          "It kept both ports completely closed to American vessels",
+          "It converted the ports into modern free-trade zones with container customs rules"
+        ],
+        "explanation": "“Opened” can conceal different legal rights. The 1854 agreement established access for ships and consular presence, while broader commercial opening followed later.",
+        "visibleCorrectExplanation": "“Opened” can conceal different legal rights. The 1854 agreement established access for ships and consular presence, while broader commercial opening followed later.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "It immediately created unrestricted general trade with every foreign country",
+            "explanation": "This overstates both the scope and the beneficiaries of the first agreement; access for supplies is not identical to unrestricted trade."
+          },
+          {
+            "label": "C",
+            "answer": "It kept both ports completely closed to American vessels",
+            "explanation": "The agreement did create access, so “completely closed” misses the historical change that did occur."
+          },
+          {
+            "label": "D",
+            "answer": "It converted the ports into modern free-trade zones with container customs rules",
+            "explanation": "A nineteenth-century treaty port is not automatically a modern customs free zone, and containerization belongs to a much later system."
+          }
+        ],
+        "visibleConnection": "This uses one named hub to practise the section’s larger rule: identify the exact service, legal right, or transfer function behind a broad label.",
+        "visibleTakeaway": "When a source says a route or port “opened,” ask: open to whom, for what, and under which rules?",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "L300_call-of-duty-free__219",
+        "sourceUrl": "https://history.state.gov/milestones/1830-1860/opening-to-japan",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "primary-validation",
+            "url": "https://history.state.gov/milestones/1830-1860/opening-to-japan"
+          }
+        ],
+        "sourceNote": "Rewritten against the official WSC prompt and its linked source; distractors diagnose distinct misconceptions.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "L300_call-of-duty-free__219",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.011",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "UN Tourism estimated 1.52 billion international tourist arrivals in 2025. Which conclusion is justified by that statistic?",
+        "correctAnswer": "International overnight trips reached a very large global total, but the figure is not a count of unique people or proof of overtourism in a particular place",
+        "wrongAnswers": [
+          "Exactly 1.52 billion different people travelled internationally in 2025",
+          "The figure counts every domestic day trip and museum visit in the world",
+          "Every destination exceeded its local carrying capacity in 2025"
+        ],
+        "explanation": "An international tourist arrival is a trip involving an overnight stay. One person can generate several arrivals, and a global flow does not reveal how pressure was distributed locally.",
+        "visibleCorrectExplanation": "An international tourist arrival is a trip involving an overnight stay. One person can generate several arrivals, and a global flow does not reveal how pressure was distributed locally.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "Exactly 1.52 billion different people travelled internationally in 2025",
+            "explanation": "The metric counts trips, not unique travellers; a person who takes several international trips can appear several times."
+          },
+          {
+            "label": "C",
+            "answer": "The figure counts every domestic day trip and museum visit in the world",
+            "explanation": "The statistic concerns international overnight tourism, not all domestic travel or every same-day visit."
+          },
+          {
+            "label": "D",
+            "answer": "Every destination exceeded its local carrying capacity in 2025",
+            "explanation": "A global total cannot diagnose local overtourism without destination-level evidence about concentration, season, and capacity."
+          }
+        ],
+        "visibleConnection": "The current statistic supplies scale; the mass-tourism curriculum supplies the concepts needed to interpret the metric without overclaiming.",
+        "visibleTakeaway": "Before using a large number, identify its unit and the level—global or local—at which it can support a claim.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "question.call-of-duty-free.300.011",
+        "sourceUrl": "https://pre-webunwto.s3.eu-west-1.amazonaws.com/s3fs-public/2026-01/260120-international-tourist-arrivals-up-4-in-2025-reflecting-strong-travel-demand-around-the-world-en.pdf",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L215",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3"
+          },
+          {
+            "role": "current-stimulus",
+            "url": "https://pre-webunwto.s3.eu-west-1.amazonaws.com/s3fs-public/2026-01/260120-international-tourist-arrivals-up-4-in-2025-reflecting-strong-travel-demand-around-the-world-en.pdf",
+            "asOf": "2026-01-20"
+          }
+        ],
+        "sourceNote": "Current-context question. UN Tourism statistic verified for 2025 arrivals; metric limitation retained explicitly.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "question.call-of-duty-free.300.011",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
+      },
+      {
+        "id": "question.call-of-duty-free.300.012",
+        "level": 3,
+        "displayLevel": 300,
+        "prompt": "Venice reported that in 2025 its access fee applied on 54 days, issued 723,497 paid access permits, and collected €5,421,425. What can these figures show on their own?",
+        "correctAnswer": "The system issued permits and collected revenue; separate comparison data are needed to know whether it reduced crowding or resident pressure",
+        "wrongAnswers": [
+          "The fee definitely ended overtourism because it produced revenue",
+          "Paid permit counts are a direct measure of resident wellbeing and housing affordability",
+          "One season proves that the same access fee will work identically in every city"
+        ],
+        "explanation": "The figures are implementation outputs: days of operation, paid permits issued, and revenue. Effectiveness requires outcome comparisons such as actual footfall, visitor timing, congestion, housing pressure, or resident experience.",
+        "visibleCorrectExplanation": "The figures are implementation outputs: days of operation, paid permits issued, and revenue. Effectiveness requires outcome comparisons such as actual footfall, visitor timing, congestion, housing pressure, or resident experience.",
+        "visibleWrongExplanations": [
+          {
+            "label": "B",
+            "answer": "The fee definitely ended overtourism because it produced revenue",
+            "explanation": "Revenue proves collection, not the causal effect on visitor concentration; crowd data before and after the policy are still needed."
+          },
+          {
+            "label": "C",
+            "answer": "Paid permit counts are a direct measure of resident wellbeing and housing affordability",
+            "explanation": "Permit records show authorizations issued, not resident wellbeing, housing affordability, or even a verified count of people who entered."
+          },
+          {
+            "label": "D",
+            "answer": "One season proves that the same access fee will work identically in every city",
+            "explanation": "Cities differ in geography, transport, exemptions, enforcement, visitor mix, and capacity; one case cannot guarantee universal transfer."
+          }
+        ],
+        "visibleConnection": "This turns a current policy into a curriculum question about overtourism and “visible versus real”: operating a policy is not the same as proving its outcome.",
+        "visibleTakeaway": "Separate policy outputs from policy effects, then ask what comparison would identify the effect.",
+        "sourceBank": "WSC 2026 curriculum + verified source audit (2026-07-14)",
+        "questionScope": "Section Journey",
+        "sourceQuestionId": "question.call-of-duty-free.300.012",
+        "sourceUrl": "https://live.comune.venezia.it/it/2025/08/contributo-di-accesso-i-numeri-del-2025",
+        "sourceLinks": [
+          {
+            "role": "curriculum",
+            "url": "https://www.scholarscup.org/subjects/2026/guiding-2026/"
+          },
+          {
+            "role": "official-link-L215",
+            "url": "https://www.bbc.co.uk/bitesize/guides/zkgxsbk/revision/3"
+          },
+          {
+            "role": "current-stimulus",
+            "url": "https://live.comune.venezia.it/it/2025/08/contributo-di-accesso-i-numeri-del-2025",
+            "asOf": "2025-08-04"
+          }
+        ],
+        "sourceNote": "Current-context question. Venice 2025 implementation figures retained with the city’s own warning that flow analysis is still required.",
+        "sectionId": "call-of-duty-free",
+        "sectionIds": [
+          "call-of-duty-free"
+        ],
+        "guidingSectionPrimary": "Call of Duty-Free",
+        "sectionInferenceNote": "Directly assigned to the official Call of Duty-Free branch and re-audited on 2026-07-14.",
+        "sourceId": "question.call-of-duty-free.300.012",
+        "sourceType": "section.guideQuestions",
+        "qualityProfile": "wsc-evidence-v1"
       }
     ]
   }

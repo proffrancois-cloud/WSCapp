@@ -16,7 +16,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/frida-kahlo-the-bus.jpg",
     "sourceUrl": "https://www.fridakahlo.org/the-bus.jsp",
     "sourceUsed": "assets/raw-content/home-and-wandering/art-music-migrant-in-between.jpg",
-    "imageInstruction": "/imagesearch exact image of Frida Kahlo, The Bus. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -38,7 +37,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/migration-series.jpg",
     "sourceUrl": "https://lawrencemigration.phillipscollection.org/",
     "sourceUsed": "assets/raw-content/home-and-wandering/art-music-migrant-in-between.jpg",
-    "imageInstruction": "/imagesearch exact image of Migration Series. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -60,7 +58,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-four-horsemen-of-the-apocalypse.png",
     "sourceUrl": "https://www.metmuseum.org/art/collection/search/336215",
     "sourceUsed": "https://upload.wikimedia.org/wikipedia/commons/2/20/Four_Horsemen_of_the_Apocalypse_by_D%C3%BCrer.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-    "imageInstruction": "/imagesearch exact image of The Four Horsemen of the Apocalypse. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -82,7 +79,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-mystical-nativity.jpg",
     "sourceUrl": "https://www.nationalgallery.org.uk/paintings/sandro-botticelli-mystic-nativity",
     "sourceUsed": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Mystic_Nativity%2C_Sandro_Botticelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-    "imageInstruction": "/imagesearch exact image of The Mystical Nativity. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -104,7 +100,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-last-judgment.png",
     "sourceUrl": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/giudizio-universale.html",
     "sourceUsed": "https://www.museivaticani.va/content/dam/museivaticani/immagini/collezioni/musei/cappella_sistina/03_00_Giudizio_universale_Dettaglio.png/_jcr_content/renditions/cq5dam.web.1280.1280.png",
-    "imageInstruction": "/imagesearch exact image of The Last Judgment. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -126,7 +121,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-triumph-of-death.jpg",
     "sourceUrl": "https://www.museodelprado.es/en/the-collection/art-work/the-triumph-of-death/d3d82b0b-9bf2-4082-ab04-66ed53196ccc",
     "sourceUsed": "https://upload.wikimedia.org/wikipedia/commons/1/10/Thetriumphofdeath.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-    "imageInstruction": "/imagesearch exact image of The Triumph of Death. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -148,7 +142,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-course-of-empire-destruction.jpg",
     "sourceUrl": "https://www.nyhistory.org/exhibit/course-empire-destruction",
     "sourceUsed": "https://lh3.googleusercontent.com/ci/AL18g_QgBC2yoP2_gD0DPnFJjdROg-eD4-4-D9nQAatpW6DR7BCEWg2VojUJnChwqAqldLfAJnW4ipY",
-    "imageInstruction": "/imagesearch exact image of The Course of Empire: Destruction. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -170,7 +163,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-great-day-of-his-wrath.jpg",
     "sourceUrl": "https://www.tate.org.uk/art/artworks/martin-the-great-day-of-his-wrath-n05613",
     "sourceUsed": "https://upload.wikimedia.org/wikipedia/commons/5/50/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-    "imageInstruction": "/imagesearch exact image of The Great Day of His Wrath. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -192,7 +184,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/der-krieg-world-war-i-prints.webp",
     "sourceUrl": "https://www.moma.org/collection/works/63295",
     "sourceUsed": "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/5/13/1399983009177/0256feb5-9ba8-4a4d-b02c-7c8ac0c95e36-2060x1236.jpeg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctYWdlLTIwMTQucG5n&enable=upscale&s=7165bc1ed1fb1b33a324ee4a2b52f4b4",
-    "imageInstruction": "/imagesearch exact image of Der Krieg / World War I prints. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -214,7 +205,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/apocalypse-42.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Viktor%20Schreckengost%20Apocalypse%2042",
     "sourceUsed": "https://ids.si.edu/ids/deliveryService?id=SAAM-1985.92.1_2&max=960",
-    "imageInstruction": "/imagesearch exact image of Apocalypse ’42. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -236,7 +226,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/four-horsemen-of-apocalypse-nelson-freund.png",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Harry%20Louis%20Freund%20Four%20Horsemen%20of%20the%20Apocalypse%201946",
     "sourceUsed": "https://ids.si.edu/ids/deliveryService?id=SAAM-1985.92.1_2&max=960",
-    "imageInstruction": "/imagesearch exact image of Four Horsemen of the Apocalypse. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -258,7 +247,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/rain-steam-and-speed.jpg",
     "sourceUrl": "https://www.nationalgallery.org.uk/paintings/joseph-mallord-william-turner-rain-steam-and-speed-the-great-western-railway",
     "sourceUsed": "https://commons.wikimedia.org/wiki/Special:FilePath/Rain_Steam_and_Speed_the_Great_Western_Railway.jpg",
-    "imageInstruction": "/imagesearch exact image of Rain, Steam, and Speed. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -280,7 +268,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-railway-station.jpg",
     "sourceUrl": "https://www.rct.uk/collection/405672/the-railway-station",
     "sourceUsed": "https://col.rct.uk/sites/default/files/collection-online/e/1/485873-1412250876.jpg",
-    "imageInstruction": "/imagesearch exact image of The Railway Station. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -302,7 +289,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/picture-of-the-railroad-at-takanawa.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Picture%20of%20the%20Railroad%20at%20Takanawa%201871",
     "sourceUsed": "https://cdn.sanity.io/images/r7hgx2l2/production/03ebf16b4c3c7c7126a9ae2e89f2e41418700c75-900x700.jpg",
-    "imageInstruction": "/imagesearch exact image of Picture of the Railroad at Takanawa. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -324,7 +310,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-gare-saint-lazare.jpg",
     "sourceUrl": "https://www.musee-orsay.fr/en/artworks/la-gare-saint-lazare-1105",
     "sourceUsed": "https://commons.wikimedia.org/wiki/Special:FilePath/La_Gare_Saint-Lazare_-_Claude_Monet.jpg",
-    "imageInstruction": "/imagesearch exact image of The Gare Saint-Lazare. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -346,7 +331,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/where-do-we-come-from-what-are-we-where-are-we-going.jpg",
     "sourceUrl": "https://collections.mfa.org/objects/32558",
     "sourceUsed": "https://commons.wikimedia.org/wiki/Special:FilePath/Paul_Gauguin_-_D%27ou_venons-nous.jpg",
-    "imageInstruction": "/imagesearch exact image of Where Do We Come From? What Are We? Where Are We Going?. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -368,7 +352,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-treachery-of-images.webp",
     "sourceUrl": "https://collections.lacma.org/node/239578",
     "sourceUsed": "https://collections-images.lacma.org/images/31931/31931-1-primary.webp",
-    "imageInstruction": "/imagesearch exact image of The Treachery of Images. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -390,7 +373,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-persistence-of-memory.jpg",
     "sourceUrl": "https://www.moma.org/collection/works/79018",
     "sourceUsed": "https://www.moma.org/media/W1siZiIsIjYxOTY1OSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=ef9155183ab6bba1",
-    "imageInstruction": "/imagesearch exact image of The Persistence of Memory. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -412,7 +394,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/christinas-world.jpg",
     "sourceUrl": "https://www.moma.org/collection/works/78455",
     "sourceUsed": "https://www.moma.org/media/W1siZiIsIjE2NTQ1NyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=64fb4feaaa506f2b",
-    "imageInstruction": "/imagesearch exact image of Christina’s World. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -434,7 +415,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/ascending-and-descending.jpg",
     "sourceUrl": "https://mcescher.com/gallery/recognition-success/ascending-and-descending/",
     "sourceUsed": "https://api.nga.gov/iiif/06296d1f-4345-4b17-9509-5baacb5edf86__900/0,254,746,391/!1200,630/0/default.jpg",
-    "imageInstruction": "/imagesearch exact image of Ascending and Descending. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -456,7 +436,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/beneath-the-roses.jpg",
     "sourceUrl": "https://gagosian.com/artists/gregory-crewdson/",
     "sourceUsed": "https://gagosian.com/media/images/artists/gregory-crewdson/3fBMdXxxC3k2_1200x1200.jpg",
-    "imageInstruction": "/imagesearch exact image of Beneath the Roses. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -478,7 +457,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-distant-is-imminent.webp",
     "sourceUrl": "https://www.camilleseaman.com/",
     "sourceUsed": "https://images.squarespace-cdn.com/content/5f4cfa688eeb777ec584dede/1599507437864-R16OE1UDW76ZPR28K3ED/Screen+Shot+2020-09-07+at+8.37.12+PM.png?content-type=image%2Fpng",
-    "imageInstruction": "/imagesearch exact image of The Distant Is Imminent. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -500,7 +478,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/mona-lisa-louvre-version.jpeg",
     "sourceUrl": "https://collections.louvre.fr/en/ark:/53355/cl010062370",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/mona-lisa-louvre.jpeg",
-    "imageInstruction": "/imagesearch exact image of Mona Lisa / Louvre version. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -522,7 +499,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/isleworth-mona-lisa.jpeg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Isleworth_Mona_Lisa",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/mona-lisa-isleworth.jpeg",
-    "imageInstruction": "/imagesearch exact image of Isleworth Mona Lisa. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -544,7 +520,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/bedroom-in-arles.jpeg",
     "sourceUrl": "https://www.vangoghmuseum.nl/en/collection/s0047V1962",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/bedroom-in-arles-1888.jpeg",
-    "imageInstruction": "/imagesearch exact image of Bedroom in Arles. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -566,7 +541,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-bedroom.jpeg",
     "sourceUrl": "https://www.artic.edu/artworks/28560/the-bedroom",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/bedroom-in-arles-1889-a.jpeg",
-    "imageInstruction": "/imagesearch exact image of The Bedroom. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -588,7 +562,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/la-chambre-de-van-gogh-a-arles.jpeg",
     "sourceUrl": "https://www.musee-orsay.fr/en/artworks/la-chambre-de-van-gogh-arles-78636",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/bedroom-in-arles-1889-b.jpeg",
-    "imageInstruction": "/imagesearch exact image of La chambre de Van Gogh à Arles. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -610,7 +583,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/despair.jpeg",
     "sourceUrl": "https://www.nasjonalmuseet.no/en/collection/object/NG.M.00843",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/despair-1892.jpeg",
-    "imageInstruction": "/imagesearch exact image of Despair. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -632,7 +604,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-scream.jpeg",
     "sourceUrl": "https://www.nasjonalmuseet.no/en/collection/object/NG.M.00939",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/the-scream-1893.jpeg",
-    "imageInstruction": "/imagesearch exact image of The Scream. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -654,7 +625,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/dance-i.jpeg",
     "sourceUrl": "https://www.moma.org/collection/works/79124",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/dance-i-1909.jpeg",
-    "imageInstruction": "/imagesearch exact image of Dance I. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -676,7 +646,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/dance-ii.jpeg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Dance_(Matisse)",
     "sourceUsed": "assets/raw-content/theres-a-draft-in-here/dance-ii-1910.jpeg",
-    "imageInstruction": "/imagesearch exact image of Dance II. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -698,7 +667,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/western-motel.jpg",
     "sourceUrl": "https://artgallery.yale.edu/collections/objects/52639",
     "sourceUsed": "https://prd-cds2-image-store-yuag.s3.amazonaws.com/public/thumbnail/b6df6ccc-8c61-4bdb-9b1a-a4ceb8bcf57c/thumbnail.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQH5UVLE7MMRHCI3N%2F20260503%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260503T223726Z&X-Amz-Expires=60&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIEC2IYDBa%2FT7Ovd8DxAtJ1QJXquFjxmPtecxM66PnW9MAiEAz1CKxZI3A5mc54H89%2Fjh9V6QF0AOYhca3LDmqeBafCwq%2BQMIXxACGgwwMTcwMjE4ODQ3MzQiDCls04605YFZBB3J6yrWA2Njo8TeZysEbJoBbkTw3bYi53SyPHAMMrsMWIyEJyS%2FYli9WX5llIafKHs5B6ew33FNjcP59mv3vF1tJZStxnaSK37oOFqfuVyPUT03AziOEjiDJqplcOXe51uP8ObMeu5jHLEu59hyporTivMtHem0uY%2Fgf6Hn9mkxoTouzDKpC8CYYmfUQuxf8XBEgEnjn70mdL6qV62iZdS9TJ%2FueUh%2Bs34OGF%2BZrXiTEWxVXLuu1nzfQJNh3sFsp2KqTj2Lw6FcRo6%2B1L0ij0gpfg%2BrFl1UI1%2Fzsx7r%2F4FIZGCc7PskMMdbsf8WPD%2F23JPrIIjMPqg084XLEr0Y2ZmyBZi%2FBo5IBS2AFnakyo6sIjFeD241EYAZIdBKuh2%2BoMYfsVPHZjz5Pfcnhhqcn%2Foc3uSflEE3K5Rb1p07kvtBxSkBRmRxcHHg7iEEK%2FPlh284AABaWorG45eF52dNgrjETDZ8O7xlSPT%2BAi1QCm86n4k7X67ED0NUBOd9ErYu1w%2BQ5ctRT9iPeepCLlcGEIH6Isu6k5TYl6zrhZegndx%2F1k5Ya6s8I23wnYoxeH634nnH5FPnmPAr%2Ff4U8XbObKMBCHm6aetqPGpaoffXqHiJNqEmszDNDBZtM%2BplMKv63s8GOqUBOi3tIAtEGQyHF%2FBuYQTHkpwE7wkJKkfClj0a1BB4ltYjtJFb7igTmTx5jlsF4AzrIrZn49rHGGQ%2BLRbK3eSI76NnTwlUgwGR3NCaWftrfFyx8SQ%2Fe%2BTfBZgLLr6KfV2ymDAI833%2F%2FFmZ7evgdEU8QrU59kbMKuAMMs5hfuDNA7XX5LmdjlsJKJe4xcIflYunTyowR4fa5vqLQiYTwRL4znG7QMxV&X-Amz-SignedHeaders=host&response-content-type=image%2Fjpeg&X-Amz-Signature=45ab55163f3051d538da235b8e514f1af27247d7779e27e81afe55bfcf9edc57",
-    "imageInstruction": "/imagesearch exact image of Western Motel. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -720,7 +688,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/standard-station.jpg",
     "sourceUrl": "https://www.moma.org/collection/works/76637",
     "sourceUsed": "https://www.moma.org/media/W1siZiIsIjM5Njg3NSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=09db4f8de4d5ac2f",
-    "imageInstruction": "/imagesearch exact image of Standard Station. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -742,7 +709,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/pearblossom-highway.jpg",
     "sourceUrl": "https://www.getty.edu/art/collection/object/103RQS",
     "sourceUsed": "https://media.getty.edu/iiif/image/579d6f55-03b5-49ea-b157-263caecfb5fa/full/!300,300/0/default.jpg",
-    "imageInstruction": "/imagesearch exact image of Pearblossom Highway. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact image; do not generate.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -764,7 +730,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/train-station-agra-1983.jpg",
     "sourceUrl": "https://www.stevemccurry.com/",
     "sourceUsed": "https://images.squarespace-cdn.com/content/64ee3953126c653b251cff47/1693333939352-TSZJBPWS7EAY923ID4A1/INDIA-10203.jpg?format=1500w&content-type=image%2Fjpeg",
-    "imageInstruction": "/imagesearch exact image of Train Station, Agra, 1983. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact work/source where rights allow; otherwise LINK button only.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -786,7 +751,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/borderlands.webp",
     "sourceUrl": "https://www.kovikonowiecki.com/",
     "sourceUsed": "https://img.phmuseum.com/eyJidWNrZXQiOiJpbWcucGhtdXNldW0uY29tIiwia2V5IjoidXNlcnMvRGJEMFZ4Yi9wcm9qZWN0cy9RYllQTU9hL2JZVk5EcGQiLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJ3aWR0aCI6MTIwMCwiaGVpZ2h0Ijo2MzB9LCJyb3RhdGUiOm51bGx9fQ==",
-    "imageInstruction": "/imagesearch exact image of Borderlands. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact work/source where rights allow; otherwise LINK button only.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -808,7 +772,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-last-of-us-season-1-concept-art.jpg",
     "sourceUrl": "https://www.artstation.com/sabymenyhei",
     "sourceUsed": "https://cdn.artstation.com/assets/community/channels/share-explore.jpg",
-    "imageInstruction": "/imagesearch exact image of The Last of Us: Season 1 Concept Art. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact work/source where rights allow; otherwise LINK button only.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -830,7 +793,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/six-in-four.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Richard%20Artschwager%20Six%20in%20Four%202015",
     "sourceUsed": "https://i.ytimg.com/vi/gtopu6ikQhk/maxresdefault.jpg",
-    "imageInstruction": "/imagesearch exact image of Six in Four. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use exact work/source where rights allow; otherwise LINK button only.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -852,7 +814,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/la-sagrada-familia.jpg",
     "sourceUrl": "https://sagradafamilia.org/en/",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/image1.jpg",
-    "imageInstruction": "/imagesearch exact image of La Sagrada Família. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -874,7 +835,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/milan-cathedral.jpg",
     "sourceUrl": "https://www.duomomilano.it/en/",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/milan-cathedral-old.jpg",
-    "imageInstruction": "/imagesearch exact image of Milan Cathedral. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -896,7 +856,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/ryugyong-hotel.jpg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Ryugyong_Hotel",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/ryugyong-hotel.jpg",
-    "imageInstruction": "/imagesearch exact image of Ryugyong Hotel. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -918,7 +877,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/berlin-brandenburg-airport.jpg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Berlin_Brandenburg_Airport",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/berlin-brandenburg-airport-construction.jpg",
-    "imageInstruction": "/imagesearch exact image of Berlin Brandenburg Airport. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -940,7 +898,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/nusantara-capital-city.jpg",
     "sourceUrl": "https://www.ikn.go.id/en",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/image2.jpg",
-    "imageInstruction": "/imagesearch exact image of Nusantara Capital City. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -962,7 +919,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/wonderland-amusement-park.jpg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Wonderland_Amusement_Park",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/image4.jpg",
-    "imageInstruction": "/imagesearch exact image of Wonderland Amusement Park. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -984,7 +940,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/crazy-horse-memorial.jpg",
     "sourceUrl": "https://crazyhorsememorial.org/",
     "sourceUsed": "assets/raw-content/were-all-in-this-to-get-there/image7.jpg",
-    "imageInstruction": "/imagesearch exact image of Crazy Horse Memorial. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1006,7 +961,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/robie-house.jpg",
     "sourceUrl": "https://flwright.org/explore/frederick-c-robie-house",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/robie-house-exterior.jpg",
-    "imageInstruction": "/imagesearch exact image of Robie House. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1028,7 +982,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/wardenclyffe-tower-teslas-tower.jpg",
     "sourceUrl": "https://teslasciencecenter.org/history/tower/",
     "sourceUsed": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Wardenclyffe_Tower_-_1904.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-    "imageInstruction": "/imagesearch exact image of Wardenclyffe Tower / Tesla’s Tower. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1050,7 +1003,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/nishiyama-onsen-keiunkan.jpg",
     "sourceUrl": "https://www.guinnessworldrecords.com/world-records/oldest-hotel",
     "sourceUsed": "assets/raw-content/call-of-duty-free/nishiyama-onsen-keiunkan.jpg",
-    "imageInstruction": "/imagesearch exact image of Nishiyama Onsen Keiunkan. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1067,12 +1019,11 @@ window.WSC_ALPACARDS = [
     "year": "Ancient/medieval",
     "locationMedium": "Silk Road and other trade routes",
     "movementContext": "Roadside trade lodging",
-    "notice": "Caravanserais developed along trade routes such as the Silk Road as protected courtyard stops for traders, animals, goods, food, and rest. Image requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: real caravanserai Silk Road courtyard Wikimedia Commons.",
+    "notice": "Caravanserais developed along trade routes such as the Silk Road as protected courtyard stops for traders, animals, goods, food, and rest.",
     "wscConnection": "Guiding section: Call of Duty-Free · Big ideas: Tourism / Home & Wandering · Subjects: History / Migration & Tourism / Economics & Trade",
     "imagePath": "assets/flashcards/alpacards/caravanserais.jpeg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=caravanserai%20architecture",
     "sourceUsed": "assets/raw-content/call-of-duty-free/image5.jpeg",
-    "imageInstruction": "/imagesearch exact image of Caravanserais. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1089,12 +1040,11 @@ window.WSC_ALPACARDS = [
     "year": "Medieval period",
     "locationMedium": "Europe and beyond",
     "movementContext": "Hospitality / pilgrimage lodging",
-    "notice": "Medieval monasteries often sheltered pilgrims and travelers, showing that lodging could be charitable and religious rather than commercial. Image requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: medieval monastery guest house pilgrims lodging.",
+    "notice": "Medieval monasteries often sheltered pilgrims and travelers, showing that lodging could be charitable and religious rather than commercial.",
     "wscConnection": "Guiding section: Call of Duty-Free · Big ideas: Tourism / Home & Wandering · Subjects: History / Migration & Tourism / Economics & Trade",
     "imagePath": "assets/flashcards/alpacards/medieval-monasteries-as-lodging.jpeg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=medieval%20monastery%20guesthouse%20pilgrims",
     "sourceUsed": "assets/raw-content/call-of-duty-free/image7.jpeg",
-    "imageInstruction": "/imagesearch exact image of Medieval monasteries as lodging. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1111,12 +1061,11 @@ window.WSC_ALPACARDS = [
     "year": "Medieval/early modern",
     "locationMedium": "Trade routes and towns",
     "movementContext": "Commercial lodging and food",
-    "notice": "As trade and town life grew, inns and taverns became paid lodging and social spaces where travelers could sleep, eat, exchange news, and continue their journey. Image requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: historic inn tavern medieval Europe public domain.",
+    "notice": "As trade and town life grew, inns and taverns became paid lodging and social spaces where travelers could sleep, eat, exchange news, and continue their journey.",
     "wscConnection": "Guiding section: Call of Duty-Free · Big ideas: Tourism / Home & Wandering · Subjects: History / Migration & Tourism / Economics & Trade",
     "imagePath": "assets/flashcards/alpacards/inns-and-taverns.jpeg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=historic%20inn%20tavern%20architecture",
     "sourceUsed": "assets/raw-content/call-of-duty-free/image8.jpeg",
-    "imageInstruction": "/imagesearch exact image of Inns and taverns. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1133,12 +1082,11 @@ window.WSC_ALPACARDS = [
     "year": "Early modern",
     "locationMedium": "Road networks",
     "movementContext": "Transport relay architecture",
-    "notice": "Greek hospitality had a moral dimension, while Romans built mansiones and mutationes along roads for officials, messengers, soldiers, and organized travel. Image requirement + source guidance: The agent must use /imagesearch first. Because this slide refers to a real place, historical object, building, artwork, map, or named visual source, it must use a real image from a reliable source and must not generate a substitute. Prefer official site, museum/archive, Wikimedia Commons, or clearly licensed educational photography. Preserve the source link in the app. Search target: Roman mansio remains Roman road lodging archaeological site.",
+    "notice": "Greek hospitality had a moral dimension, while Romans built mansiones and mutationes along roads for officials, messengers, soldiers, and organized travel.",
     "wscConnection": "Guiding section: Call of Duty-Free · Big ideas: Tourism / Home & Wandering · Subjects: History / Migration & Tourism / Economics & Trade",
     "imagePath": "assets/flashcards/alpacards/post-houses.png",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=historic%20post%20house%20relay%20station",
     "sourceUsed": "assets/raw-content/call-of-duty-free/image6.png",
-    "imageInstruction": "/imagesearch exact image of Post houses. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1160,7 +1108,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/motor-hotel-motel-architecture.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=motor%20hotel%20motel%20architecture",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/motor-hotel-architecture.jpg",
-    "imageInstruction": "/imagesearch exact image of Motor hotel / motel architecture. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1182,7 +1129,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-worlds-first-motel-motel-inn.jpg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Motel_Inn",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/the-worlds-first-motel.jpg",
-    "imageInstruction": "/imagesearch exact image of The world’s first motel / Motel Inn. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1204,7 +1150,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/temple-street-parking-garage.jpg",
     "sourceUrl": "http://hiddenarchitecture.net/temple-street-parking-garage/",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image6.jpg",
-    "imageInstruction": "/imagesearch exact image of Temple Street Parking Garage. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1226,7 +1171,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/lego-parking-house.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Lego%20Parking%20House%20Billund",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image7.jpg",
-    "imageInstruction": "/imagesearch exact image of Lego Parking House. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1248,7 +1192,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/parc-des-celestins-parking-des-celestins.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Parking%20des%20C%C3%A9lestins%20Lyon",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image9.jpg",
-    "imageInstruction": "/imagesearch exact image of Parc des Célestins / Parking des Célestins. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1270,7 +1213,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/michigan-theater-parking-garage.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Michigan%20Theater%20Detroit%20parking%20garage",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image10.jpg",
-    "imageInstruction": "/imagesearch exact image of Michigan Theater parking garage. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1292,7 +1234,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/garagenatelier-car-park.jpg",
     "sourceUrl": "https://www.archdaily.com/142653/garagenatelier-peter-kunz-architektur",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image11.jpg",
-    "imageInstruction": "/imagesearch exact image of Garagenatelier Car Park. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1314,7 +1255,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/9th-avenue-parkade.jpg",
     "sourceUrl": "https://www.5468796.ca/projects/9th-avenue-parkade/",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image12.jpg",
-    "imageInstruction": "/imagesearch exact image of 9th Avenue Parkade. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1336,7 +1276,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/grand-park-los-angeles.jpg",
     "sourceUrl": "https://landezine.com/grand-park-the-park-for-everyone-by-rios/",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image16.jpg",
-    "imageInstruction": "/imagesearch exact image of Grand Park, Los Angeles. Use the real artwork/building/place, not a generated substitute. If rights are unclear, use a source link or LINK button rather than embedding.",
     "rightsNote": "Use real photo only for exact buildings/places.",
     "exactRealImageRequired": true,
     "needsReview": false
@@ -1358,7 +1297,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/sidewalks-as-urban-infrastructure.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=sidewalk%20urban%20street%20pedestrian%20infrastructure",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/sidewalk-as-civic-life.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Sidewalks as urban infrastructure first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1380,7 +1318,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/moving-sidewalks.png",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=moving%20sidewalk%201893%20Columbian%20Exposition",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/1893-moving-sidewalk-great-wharf.png",
-    "imageInstruction": "/imagesearch realistic examples of Moving sidewalks first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1402,7 +1339,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/hostile-architecture.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=hostile%20architecture%20bench",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/when-sidewalks-fail-pedestrians.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Hostile architecture first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1424,7 +1360,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/liminal-spaces-in-architecture.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=liminal%20space%20architecture%20corridor",
     "sourceUsed": "assets/raw-content/the-lovely-and-the-liminal/antespace-rooms-before-rooms.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Liminal spaces in architecture first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1446,7 +1381,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/antespace-rooms-before-rooms.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=vestibule%20antechamber%20architecture",
     "sourceUsed": "assets/raw-content/the-lovely-and-the-liminal/antespace-rooms-before-rooms.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Antespace / rooms before rooms first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1468,7 +1402,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/snout-house.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=snout%20house%20garage%20front",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image13.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Snout house first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1490,7 +1423,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/parking-lots-as-architecture.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=parking%20garage%20architecture",
     "sourceUsed": "assets/raw-content/where-the-sidewalk-starts/image6.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Parking lots as architecture first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1512,7 +1444,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/roadside-culture.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=roadside%20culture%20motel%20diner%20sign",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/roadside-culture.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Roadside culture first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1534,7 +1465,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/trackway.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=ancient%20trackway",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/trackway.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Trackway first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1556,7 +1486,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/ridgeway.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=ridgeway%20ancient%20road",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/ridgeway.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Ridgeway first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1578,7 +1507,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/holloway.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=holloway%20sunken%20lane",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/holloway.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Holloway first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1600,7 +1528,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/gallery-road.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=gallery%20road%20mountain%20road",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/gallery-road.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Gallery road first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1622,7 +1549,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/corduroy-road.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=corduroy%20road%20logs",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/corduroy-road.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Corduroy road first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1644,7 +1570,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/macadam-roads.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=macadam%20road%20construction",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/macadam.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Macadam roads first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1666,7 +1591,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/solar-roadways.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=solar%20roadway",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/solar-roadways.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Solar roadways first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1688,7 +1612,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/modular-pavement.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=modular%20pavement%20road",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/modular-pavement.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Modular pavement first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1710,7 +1633,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/permeable-pavement.jpg",
     "sourceUrl": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=permeable%20pavement",
     "sourceUsed": "assets/raw-content/where-were-going-well-still-need-them/permeable-pavement.jpg",
-    "imageInstruction": "/imagesearch realistic examples of Permeable pavement first. If no perfect reusable image exists and this is a concept rather than a named artwork/place, use /imagecreator or /imagegen to create a clean WSC-style recognition visual.",
     "rightsNote": "Use real example if available; generated WSC-style visual is acceptable only for concepts.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1732,7 +1654,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-stanley-parable.jpg",
     "sourceUrl": "https://www.stanleyparable.com/",
     "sourceUsed": "https://img.youtube.com/vi/fBtX0S2J32Y/hqdefault.jpg",
-    "imageInstruction": "/imagesearch official still, poster, or page for The Stanley Parable. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1754,7 +1675,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/pools.jpg",
     "sourceUrl": "https://poolsthegame.com/",
     "sourceUsed": "https://poolsthegame.com/pools-share.webp",
-    "imageInstruction": "/imagesearch official still, poster, or page for POOLS. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1776,7 +1696,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/backrooms.jpg",
     "sourceUrl": "https://a24films.com/films/backrooms",
     "sourceUsed": "assets/raw-content/the-lovely-and-the-liminal/found-footage-as-disorientation.jpg",
-    "imageInstruction": "/imagesearch official still, poster, or page for Backrooms. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1798,7 +1717,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/ridge-racer-loading-screen-galaxian.jpg",
     "sourceUrl": "https://www.polygon.com/2015/12/3/9841726/ridge-racer-galaxian-loading-screen",
     "sourceUsed": "https://img.youtube.com/vi/3NwttfFV09k/hqdefault.jpg",
-    "imageInstruction": "/imagesearch official still, poster, or page for Ridge Racer loading-screen Galaxian. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1820,7 +1738,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/galaxian.jpg",
     "sourceUrl": "https://en.wikipedia.org/wiki/Galaxian",
     "sourceUsed": "https://upload.wikimedia.org/wikipedia/en/5/5f/Galaxian_flyer.jpg",
-    "imageInstruction": "/imagesearch official still, poster, or page for Galaxian. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1842,7 +1759,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/chrome-dinosaur-game.png",
     "sourceUrl": "https://blog.google/products/chrome/chrome-dino/",
     "sourceUsed": "assets/raw-content/progress-not-regress/chrome-dinosaur-game.png",
-    "imageInstruction": "/imagesearch official still, poster, or page for Chrome Dinosaur Game. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
@@ -1864,7 +1780,6 @@ window.WSC_ALPACARDS = [
     "imagePath": "assets/flashcards/alpacards/the-last-of-us-season-1.jpg",
     "sourceUrl": "https://www.hbo.com/the-last-of-us",
     "sourceUsed": "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/93ba22b1-833e-47ba-ae94-8ee7b9eefa9a/54e9ecee-969c-49cc-b66d-a17d47d94b37?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500",
-    "imageInstruction": "/imagesearch official still, poster, or page for The Last of Us: Season 1. Use still/image only if rights are clear; otherwise use LINK button.",
     "rightsNote": "Often safer as LINK button or official page, not embedded still.",
     "exactRealImageRequired": false,
     "needsReview": false
