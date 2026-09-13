@@ -605,6 +605,44 @@ body.needs-landscape #routeBuilder.wizard.card-panel {
   min-height: 48px;
 }
 
+@media (any-pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
+  body.is-touch-landscape .app-settings-stack {
+    gap: 8px !important;
+    padding: 10px 14px !important;
+  }
+
+  body.is-touch-landscape .app-settings-heading h3 {
+    font-size: clamp(1.35rem, 5vh, 1.75rem) !important;
+    line-height: 1 !important;
+  }
+
+  body.is-touch-landscape .app-settings-control,
+  body.is-touch-landscape .app-settings-account {
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  body.is-touch-landscape .app-settings-account {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  body.is-touch-landscape .app-settings-account .button {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 44px !important;
+  }
+
+  body.is-touch-landscape .app-settings-window .panel-actions {
+    margin-top: 0 !important;
+  }
+
+  body.is-touch-landscape .app-settings-window .panel-actions .button {
+    min-height: 44px !important;
+    padding-block: 8px !important;
+  }
+}
+
 @media (any-pointer: coarse) {
   .button,
   .mini-button,
