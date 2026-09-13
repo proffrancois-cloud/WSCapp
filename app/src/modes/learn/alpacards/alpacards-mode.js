@@ -82,8 +82,14 @@
         </div>
         ${renderThumbnails(cards, experience.index, escapeHtml)}
         <div class="alpacard-controls">
-          <button class="button primary alpacard-flip-button" type="button" data-alpacard-flip>
-            <span data-alpacard-flip-label>Flip</span>
+          <button
+            class="button primary alpacard-flip-button"
+            type="button"
+            data-alpacard-flip
+            aria-pressed="${experience.flipped ? "true" : "false"}"
+            aria-label="${experience.flipped ? "Show card image" : "Show card details"}"
+          >
+            <span data-alpacard-flip-label>${experience.flipped ? "Show image" : "Show details"}</span>
           </button>
         </div>
       </div>
@@ -93,13 +99,14 @@
 
   function renderSlide(card, cardIndex, experience, escapeHtml) {
     const isActive = cardIndex === experience.index;
+    const showBack = isActive && experience.flipped;
 
     return `
       <article class="alpacard-slide ${isActive ? "is-active" : ""}" data-alpacard-slide data-alpacard-slide-index="${cardIndex}" aria-hidden="${isActive ? "false" : "true"}">
         <div class="alpacard-stage ${isActive && experience.flipped ? "is-flipped" : ""}" data-alpacard-stage>
           <div class="alpacard-flip-inner">
-            ${renderFront(card, escapeHtml)}
-            ${renderBack(card, escapeHtml)}
+            ${renderFront(card, escapeHtml, showBack)}
+            ${renderBack(card, escapeHtml, !showBack)}
           </div>
         </div>
       </article>
@@ -149,11 +156,11 @@
     return `./${escapeHtml(card.imagePath)}?v=${ASSET_VERSION}`;
   }
 
-  function renderFront(card, escapeHtml) {
+  function renderFront(card, escapeHtml, isHidden = false) {
     const imageSrc = getImageSrc(card, escapeHtml);
 
     return `
-      <div class="alpacard-card alpacard-face alpacard-front">
+      <div class="alpacard-card alpacard-face alpacard-front" data-alpacard-front aria-hidden="${isHidden ? "true" : "false"}">
         <div class="alpacard-image-wrap" style="--alpacard-image-url: url('${imageSrc}');">
           <img class="alpacard-image" src="${imageSrc}" alt="${escapeHtml(card.title)}" loading="lazy" decoding="async" draggable="false" />
         </div>
@@ -161,7 +168,7 @@
     `;
   }
 
-  function renderBack(card, escapeHtml) {
+  function renderBack(card, escapeHtml, isHidden = true) {
     const fields = [
       ["Title / Name", card.title],
       ["Creator / Architect / Studio", card.creator],
@@ -173,7 +180,7 @@
     const connections = getConnectionChips(card);
 
     return `
-      <div class="alpacard-card alpacard-face alpacard-back">
+      <div class="alpacard-card alpacard-face alpacard-back" data-alpacard-back aria-hidden="${isHidden ? "true" : "false"}">
         <div class="alpacard-back-heading">
           <h3>${escapeHtml(card.title)}</h3>
         </div>

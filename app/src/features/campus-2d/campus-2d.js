@@ -56,8 +56,9 @@
   const NPC_DIALOGUE_CHARS_PER_TICK = 2;
   const NPC_DIALOGUE_START_DELAY_MS = 120;
   const WALK_FRAME_COLUMNS = 7;
+  const WALK_FRAME_SEQUENCE = Object.freeze([0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]);
   const WALK_IDLE_FRAME = 3;
-  const WALK_FRAME_MS = 115;
+  const WALK_FRAME_MS = 145;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
   const ALPACA_COLLISION_RADIUS = 20;
@@ -406,7 +407,7 @@
   }
 
   function getWalkFrameColumn(nowMs) {
-    return Math.floor(nowMs / WALK_FRAME_MS) % WALK_FRAME_COLUMNS;
+    return WALK_FRAME_SEQUENCE[Math.floor(nowMs / WALK_FRAME_MS) % WALK_FRAME_SEQUENCE.length];
   }
 
   function getFrame(direction, isSitting = false, isMoving = false, nowMs = 0) {
@@ -548,6 +549,7 @@
     let chatSentAtMs = [];
     let camera = { scale: 1, x: 0, y: 0 };
     let activeTarget = null;
+    let portalTransitionArmed = false;
     let debugAllowed = Boolean(identity.debugAllowed || options.debugAllowed);
     let debugEnabled = false;
     let zoneEditorEnabled = false;
@@ -757,6 +759,14 @@
       step: "1",
       "data-campus2d-volume": ""
     });
+    const accountControl = createEl("div", "campus2d-account-control");
+    const accountCopy = createEl("span", "campus2d-account-copy");
+    const accountLabel = createEl("strong", "campus2d-setting-label");
+    const accountStatus = createEl("span", "campus2d-setting-value");
+    const accountButton = createEl("button", "campus2d-account-button button secondary", {
+      type: "button",
+      "data-campus2d-account-action": ""
+    });
     const palette = createEl("div", "campus2d-palette", {
       "aria-label": "Choose alpaca color",
       role: "group",
@@ -835,6 +845,7 @@
     settingsTitle.textContent = "Settings";
     toneLabel.textContent = "Display tone";
     volumeLabel.textContent = "Music";
+    accountLabel.textContent = "Alpaccount";
     chatButton.textContent = "Send";
     reportButton.textContent = "Report";
     debugTitle.textContent = "Dev";
@@ -903,7 +914,9 @@
     toneControl.append(toneLabelRow, toneInput);
     volumeLabelRow.append(volumeLabel, volumeValue);
     volumeControl.append(volumeLabelRow, volumeInput);
-    settingsPanel.append(settingsHeader, toneControl, volumeControl);
+    accountCopy.append(accountLabel, accountStatus);
+    accountControl.append(accountCopy, accountButton);
+    settingsPanel.append(settingsHeader, toneControl, volumeControl, accountControl);
     settingsPanel.hidden = true;
     chatForm.append(chatInput, chatButton);
     playerArt.append(playerAvatarButton);
@@ -1076,7 +1089,22 @@
       muteButton.textContent = campusSettings.muted || campusSettings.volume <= 0 ? "Unmute" : "Mute";
       muteButton.title = campusSettings.muted || campusSettings.volume <= 0 ? "Turn music back on" : "Mute music";
       muteButton.setAttribute("aria-pressed", String(campusSettings.muted || campusSettings.volume <= 0));
+      syncAccountSettingsControl();
       syncBackgroundMusicPlayback();
+    }
+
+    function syncAccountSettingsControl() {
+      const signedIn = Boolean(localPlayer.userId);
+      accountStatus.textContent = signedIn
+        ? (localPlayer.alpacaName || localPlayer.displayName || "Signed in")
+        : "Guest";
+      accountButton.textContent = signedIn ? "Log out" : "Log in";
+      accountButton.setAttribute("aria-label", signedIn ? "Log out of your Alpaccount" : "Log in to your Alpaccount");
+    }
+
+    function handleAccountAction() {
+      setSettingsPanelOpen(false);
+      options.onAccountAction?.({ action: localPlayer.userId ? "logout" : "login" });
     }
 
     function updateCampusSettings(patch) {
@@ -1164,16 +1192,8 @@
     }
 
     function getPlayerProfilePayload(player) {
-      const idRewards = normalizeIdRewards(player);
       return {
-        alpacaName: player.alpacaName || "",
-        schoolName: player.schoolName || "",
-        country: player.country || "",
-        wscEventCount: Number(player.wscEventCount) || 0,
-        highestWscRound: player.highestWscRound || "",
-        idRewards,
-        achievements: idRewards,
-        createdAt: player.createdAt || null
+        alpacaName: String(player.alpacaName || "").trim().slice(0, 40)
       };
     }
 
@@ -1611,6 +1631,10 @@
           "data-campus2d-hotspot": entry.id,
           "aria-label": entry.label || entry.mode || "Game zone"
         });
+        button.dataset.campus2dInteractiveLabel = entry.label || entry.mode || "Open activity";
+        const label = createEl("span", "campus2d-interactive-label");
+        label.textContent = button.dataset.campus2dInteractiveLabel;
+        button.append(label);
         setInteractiveZoneButtonRect(button, entry.zone);
         return button;
       }));
@@ -3864,6 +3888,11 @@
           "data-campus2d-portal": entry.id,
           "aria-label": `Go to ${targetRoom?.title || entry.targetRoomId}`
         });
+        button.dataset.campus2dInteractiveLabel = targetRoom?.title || entry.targetRoomId;
+        const label = createEl("span", "campus2d-interactive-label");
+        label.textContent = `To ${button.dataset.campus2dInteractiveLabel}`;
+        button.append(createEl("span", "campus2d-portal-marker", { "aria-hidden": "true" }));
+        button.append(label);
         setInteractiveZoneButtonRect(button, entry.zone);
         return button;
       }));
@@ -4201,6 +4230,7 @@
       localPlayer.moving = false;
       localPlayer.seatId = null;
       activeTarget = null;
+      portalTransitionArmed = false;
       selectedZoneId = null;
       zoneEditGesture = null;
       debugMousePoint = null;
@@ -4211,6 +4241,21 @@
       renderRoom();
       connectRealtime();
       publishPresence(true);
+    }
+
+    function maybeEnterPortal() {
+      const portal = getEffectiveZones(room).portals.find((entry) => isPointInRect(localPlayer, entry.zone));
+      if (!portal) {
+        portalTransitionArmed = true;
+        return false;
+      }
+      if (!portalTransitionArmed || !localPlayer.moving) {
+        return false;
+      }
+      localPlayer.seatId = null;
+      activeTarget = null;
+      setRoom(portal.targetRoomId, portal.targetSpawnId);
+      return true;
     }
 
     function getKeyboardVector() {
@@ -4477,6 +4522,7 @@
       const deltaSeconds = Math.min(0.05, Math.max(0, (nowMs - lastFrameAt) / 1000));
       lastFrameAt = nowMs;
       stepMovement(deltaSeconds, nowMs);
+      maybeEnterPortal();
       remotePlayers.forEach((player, clientId) => {
         stepRemotePlayer(player, nowMs);
         const element = remoteElements.get(clientId);
@@ -4587,7 +4633,11 @@
           onRoomFull() {
             setStatus("Room full");
           },
-          onError() {
+          onError(error = {}) {
+            if (["chat_restricted", "chat_rate_limited", "empty_chat"].includes(error.code)) {
+              showChatValidation(error.message || "That message cannot be sent.");
+              return;
+            }
             setStatus("Local");
           }
         }
@@ -4792,14 +4842,17 @@
     }
 
     function receiveRemoteChat(payload) {
-      const text = String(payload?.message || "").trim().slice(0, CHAT_MAX_LENGTH);
-      if (!text || !upsertRemotePlayer(payload, { durationMs: SNAPSHOT_INTERVAL_MS })) {
+      const moderation = realtimeApi?.moderateChatMessage?.(payload?.message) || {
+        allowed: true,
+        message: String(payload?.message || "").trim().slice(0, CHAT_MAX_LENGTH)
+      };
+      if (!moderation.allowed || !moderation.message || !upsertRemotePlayer(payload, { durationMs: SNAPSHOT_INTERVAL_MS })) {
         return;
       }
       refreshRemotePlayers();
       const target = remoteElements.get(payload.clientId);
       if (target) {
-        showBubble(target, text);
+        showBubble(target, moderation.message);
       }
     }
 
@@ -4977,16 +5030,20 @@
     }
 
     function openReportDialog(reportType = "person") {
+      const canReportPerson = Boolean(localPlayer.userId);
       activeFeedbackDialog = {
         type: "report",
-        reportType: reportType === "problem" ? "problem" : "person"
+        reportType: reportType === "person" && canReportPerson ? "person" : "problem"
       };
-      feedbackStatus = null;
+      feedbackStatus = reportType === "person" && !canReportPerson
+        ? { message: "Sign in to report another person. You can still report an app or room problem as a guest.", type: "info" }
+        : null;
       renderReportDialog();
     }
 
     function renderReportDialog() {
       const currentType = activeFeedbackDialog?.reportType === "problem" ? "problem" : "person";
+      const canReportPerson = Boolean(localPlayer.userId);
       const { card } = createFeedbackShell("Report", "Send a report directly to the WSC app admin.");
       const switcher = createEl("div", "campus2d-report-switcher", { role: "group", "aria-label": "Report type" });
       [
@@ -4998,6 +5055,10 @@
           "data-campus2d-report-kind": value,
           "aria-pressed": String(currentType === value)
         });
+        if (value === "person" && !canReportPerson) {
+          button.disabled = true;
+          button.title = "Sign in to report another person";
+        }
         button.textContent = label;
         switcher.append(button);
       });
@@ -5028,6 +5089,7 @@
       }
       if (typeof options.onFeedbackSubmit !== "function") {
         setFeedbackStatus("Email sending is not configured for this build yet.", "error");
+        showFeedbackEmailFallback(payload);
         return;
       }
       setFeedbackSubmitting(true);
@@ -5042,9 +5104,31 @@
         setFeedbackStatus("Sent. Thank you for helping keep the campus safe and accurate.", "success");
       } catch (error) {
         setFeedbackStatus(error?.message || "The email could not be sent yet.", "error");
+        showFeedbackEmailFallback(payload);
       } finally {
         setFeedbackSubmitting(false);
       }
+    }
+
+    function showFeedbackEmailFallback(payload) {
+      const email = String(options.feedbackEmail || "").trim();
+      const status = root.querySelector("[data-campus2d-feedback-status]");
+      if (!email || !status || root.querySelector("[data-campus2d-feedback-email-fallback]")) {
+        return;
+      }
+      const subject = `WSCapp ${payload.reportType === "person" ? "person" : "problem"} report: ${payload.target || room.title}`;
+      const body = [
+        `Reporter: ${payload.reporterContact || getReporterContact() || "Unknown"}`,
+        `Room/target: ${payload.target || room.title}`,
+        "",
+        String(payload.description || "")
+      ].join("\n");
+      const link = createEl("a", "campus2d-feedback-email-fallback button secondary", {
+        href: `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+        "data-campus2d-feedback-email-fallback": ""
+      });
+      link.textContent = "Email the report instead";
+      status.after(link);
     }
 
     function createRewardTooltip(reward, rewardType) {
@@ -5078,7 +5162,7 @@
 
     function createRewardRows(rewards) {
       const grid = createEl("div", "campus2d-id-reward-grid", {
-        "aria-label": "Verified WSC rewards"
+        "aria-label": "Self-reported WSC rewards"
       });
       getIdRewardRows(rewards).forEach((row, rowIndex) => {
         const rowElement = createEl("div", "campus2d-id-reward-row");
@@ -5200,9 +5284,11 @@
       header.append(eyebrow, closeButton);
       details.append(
         header,
-        createIdCardField("Alpaca name", player.displayName || player.alpacaName || "Guest"),
-        createIdCardField("School", player.schoolName || "Unknown school")
+        createIdCardField("Alpaca name", player.displayName || player.alpacaName || "Guest")
       );
+      if (isLocalPlayer && player.schoolName) {
+        details.append(createIdCardField("School", player.schoolName));
+      }
       if (isLocalPlayer) {
         details.append(createIdColorPanel(player));
       }
@@ -5440,6 +5526,11 @@
     function sendChat(message) {
       const text = normalizeChatMessage(message);
       if (!text) {
+        return false;
+      }
+      const moderation = realtimeApi?.moderateChatMessage?.(text);
+      if (moderation && !moderation.allowed) {
+        showChatValidation("Please rewrite that message without insulting or offensive language.");
         return false;
       }
       if (!consumeChatRateLimit()) {
@@ -5924,6 +6015,11 @@
         return;
       }
 
+      if (event.target.closest("[data-campus2d-account-action]")) {
+        handleAccountAction();
+        return;
+      }
+
       if (event.target.closest("[data-campus2d-open-self-card]")) {
         openPlayerCard(localPlayer);
         return;
@@ -6077,6 +6173,7 @@
       setDebugAllowed(nextIdentity.debugAllowed);
       updatePlayerElement(localElement, localPlayer, performance.now());
       renderLocalCard();
+      syncAccountSettingsControl();
       publishPresence(true);
     }
 

@@ -1020,10 +1020,10 @@
 }
 
 .mindmap-inline-close {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 999px;
 }
 
@@ -1065,37 +1065,186 @@
   margin: 0 auto;
 }
 
-.regular-guide-document h2,
-.regular-guide-document h3,
-.regular-guide-document h4,
-.regular-guide-document h5 {
+.regular-guide-document--book {
+  max-height: none;
+  overflow: visible;
+  padding: clamp(24px, 4vw, 48px);
+  background: #fffaf2;
+}
+
+.regular-guide-document--book .regular-guide-document-inner {
+  display: block;
+  max-width: none;
+}
+
+.regular-guide-book {
+  max-width: 72ch;
+  margin: 0 auto;
+  color: var(--ink);
+  font-family: "Cardo", Georgia, serif;
+  font-size: 1.04rem;
+  line-height: 1.76;
+}
+
+.regular-guide-book h2,
+.regular-guide-book h3,
+.regular-guide-book h4,
+.regular-guide-book h5 {
+  color: var(--bg);
+  font-family: "Cardo", Georgia, serif;
+  text-wrap: balance;
+}
+
+.regular-guide-book h2 {
+  max-width: 18ch;
+  margin: 0 0 0.45em;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.04;
+}
+
+.regular-guide-book h3 {
+  margin: 3.4rem 0 1.05rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(107, 78, 22, 0.2);
+  font-size: clamp(1.5rem, 2.8vw, 1.95rem);
+  line-height: 1.15;
+}
+
+.regular-guide-book h4 {
+  margin: 2rem 0 0.65rem;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.regular-guide-book h5 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.02rem;
+}
+
+.regular-guide-book p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  text-wrap: pretty;
+}
+
+.regular-guide-book p + p {
+  margin-top: 1rem;
+}
+
+.regular-guide-book .book-deck {
+  max-width: 62ch;
+  margin-top: 0.85rem;
+  color: var(--ink-soft);
+  font-size: 1.12rem;
+  line-height: 1.62;
+}
+
+.regular-guide-book .book-introduction {
+  margin-top: 2.6rem;
+  padding-top: 1.35rem;
+}
+
+.regular-guide-book .book-source-note {
+  margin-top: 1.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(107, 78, 22, 0.16);
+  color: var(--ink-soft);
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.regular-guide-book .book-source-note strong {
+  color: var(--ink);
+}
+
+.regular-guide-book a {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.regular-guide-book a:hover,
+.regular-guide-book a:focus-visible {
+  color: var(--bg);
+}
+
+.regular-guide-book blockquote {
+  margin: 1.6rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(107, 78, 22, 0.18);
+  border-radius: 10px;
+  background: rgba(247, 234, 204, 0.46);
+  color: var(--ink);
+}
+
+.regular-guide-book ul,
+.regular-guide-book ol {
+  margin: 1rem 0 0;
+  padding-left: 1.4rem;
+}
+
+.regular-guide-book li + li {
+  margin-top: 0.55rem;
+}
+
+@media (max-width: 700px) {
+  .experience-panel.experience-panel--regularguide {
+    padding: 12px;
+  }
+
+  .experience-panel--regularguide .regular-guide-card {
+    padding: 12px;
+  }
+
+  .regular-guide-document--book {
+    padding: 22px 14px 30px;
+  }
+
+  .regular-guide-book {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .regular-guide-book h3 {
+    margin-top: 2.8rem;
+  }
+}
+
+.regular-guide-document:not(.regular-guide-document--book) h2,
+.regular-guide-document:not(.regular-guide-document--book) h3,
+.regular-guide-document:not(.regular-guide-document--book) h4,
+.regular-guide-document:not(.regular-guide-document--book) h5 {
   margin: 0;
   color: var(--bg);
   letter-spacing: 0;
   line-height: 1.15;
 }
 
-.regular-guide-document h2 {
+.regular-guide-document:not(.regular-guide-document--book) h2 {
   font-family: "Cardo", serif;
   font-size: clamp(1.65rem, 3vw, 2.25rem);
 }
 
-.regular-guide-document h3 {
+.regular-guide-document:not(.regular-guide-document--book) h3 {
   margin-top: 12px;
   font-size: clamp(1.18rem, 2vw, 1.45rem);
 }
 
-.regular-guide-document h4 {
+.regular-guide-document:not(.regular-guide-document--book) h4 {
   margin-top: 8px;
   font-size: 1.02rem;
 }
 
-.regular-guide-document h5 {
+.regular-guide-document:not(.regular-guide-document--book) h5 {
   margin-top: 6px;
   font-size: 0.95rem;
 }
 
-.regular-guide-document p {
+.regular-guide-document:not(.regular-guide-document--book) p {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.62;

@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co wss://realtime.wscapp.app; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://docs.google.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
     <title>WSCapp | Practice smarter. Debate better. Study together in your free WSC prep campus.</title>
     <meta
       name="description"
@@ -79,7 +83,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css?v=20260709debatejoin" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <div id="orientationGateMount" hidden></div>
@@ -102,6 +105,8 @@
             </button>
             <a
               class="hero-discord-link"
+              inert
+              aria-hidden="true"
               href="https://discord.gg/FyJCPMrs9"
               target="_blank"
               rel="noopener noreferrer"
@@ -112,6 +117,8 @@
             </a>
             <button
               class="hero-link-icon hero-settings-icon"
+              inert
+              aria-hidden="true"
               type="button"
               data-open-campus-settings
               aria-label="Open settings"
@@ -119,9 +126,11 @@
             >
               <img src="./assets/icons/ui/settings.png?v=20260709debatejoin" alt="" aria-hidden="true" />
             </button>
-            <div id="sessionControls" class="session-controls"></div>
+            <div id="sessionControls" class="session-controls" inert aria-hidden="true"></div>
             <button
               class="hero-link-icon hero-resources-icon"
+              inert
+              aria-hidden="true"
               type="button"
               data-open-resources
               aria-label="Open World Scholar's Cup route resources"
@@ -131,6 +140,8 @@
             </button>
             <a
               class="hero-link-icon"
+              inert
+              aria-hidden="true"
               href="mailto:support@wscapp.app"
               aria-label="Email WSCapp support"
               title="Contact"
@@ -165,6 +176,7 @@
       </main>
     </div>
 
+    <script src="./src/app/boot-guard.js?v=20260713audit"></script>
     <script src="./generated/current-runtime/data.js?v=20260709debatejoin"></script>
     <script src="./generated/current-runtime/knowledge-bank.js?v=20260709debatejoin"></script>
     <script src="./generated/current-runtime/assets-config.js?v=20260709debatejoin"></script>
@@ -174,6 +186,7 @@
     <script src="./generated/current-runtime/content/alpacards.js?v=20260709debatejoin"></script>
     <script src="./content/debate/debate-lab-data.js?v=20260709debatejoin"></script>
     <script src="./supabase-config.js?v=20260709debatejoin"></script>
+    <script src="./src/services/supabase-loader.js?v=20260713audit"></script>
     <script src="./src/theme/section-ids.js?v=20260709debatejoin"></script>
     <script src="./src/services/asset-service.js?v=20260709debatejoin"></script>
     <script src="./src/services/storage-service.js?v=20260709debatejoin"></script>
@@ -207,7 +220,6 @@
     <script src="./src/modes/play/alpacapardy/alpacapardy-engine.js?v=20260709debatejoin"></script>
     <script src="./src/modes/play/alpacapardy/alpacapardy-renderer.js?v=20260709debatejoin"></script>
     <script src="./src/modes/play/alpacapardy/alpacapardy-live.js?v=20260709debatejoin"></script>
-    <script src="./src/modes/play/live-session-service.js?v=20260709debatejoin"></script>
     <script src="./realtime-config.js?v=20260709debatejoin"></script>
     <script src="./src/features/campus-2d/manifest.js?v=20260709debatejoin"></script>
     <script src="./src/features/campus-2d/realtime.js?v=20260709debatejoin"></script>
