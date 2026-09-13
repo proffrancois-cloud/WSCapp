@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import vm from "node:vm";
+import "./oauth-provider-test.mjs";
 
 const repoRoot = resolve(import.meta.dirname, "../..");
 const authServicePath = resolve(repoRoot, "app/src/services/auth-service.js");
