@@ -1,4 +1,4 @@
-const DEFAULT_ADMIN_EMAIL = "frenchease.admin@gmail.com";
+const DEFAULT_ADMIN_EMAIL = "support@wscapp.app";
 const DEFAULT_SUPABASE_URL = "https://bwogymstqrrmoxlwlhio.supabase.co";
 const MAX_BODY_BYTES = 32 * 1024;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -197,6 +197,58 @@ function buildEmail(payload, reporter) {
   return { subject, text, html };
 }
 
+async function sendWithCloudflareService(service, email, reporter) {
+  const serviceResponse = await service.fetch("https://feedback-email.internal/send", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      subject: email.subject,
+      text: email.text,
+      html: email.html,
+      replyTo: isEmail(reporter.email) ? reporter.email : ""
+    })
+  });
+  const serviceResult = await serviceResponse.json().catch(() => ({}));
+  if (!serviceResponse.ok) {
+    throw new Error(serviceResult.error || "Cloudflare could not send this message.");
+  }
+  return serviceResult.id || null;
+}
+
+async function sendWithResend(env, email, reporter) {
+  const resendApiKey = env.RESEND_API_KEY || "";
+  const adminEmail = env.WSC_ADMIN_EMAIL || env.FEEDBACK_TO_EMAIL || DEFAULT_ADMIN_EMAIL;
+  const fromEmail = env.WSC_FEEDBACK_FROM_EMAIL || env.FEEDBACK_FROM_EMAIL || "";
+  if (!resendApiKey || !fromEmail) {
+    throw new Error("Email sending is not configured yet.");
+  }
+
+  const resendPayload = {
+    from: fromEmail,
+    to: [adminEmail],
+    subject: email.subject,
+    text: email.text,
+    html: email.html
+  };
+  if (isEmail(reporter.email)) {
+    resendPayload.reply_to = reporter.email;
+  }
+
+  const resendResponse = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(resendPayload)
+  });
+  const resendResult = await resendResponse.json().catch(() => ({}));
+  if (!resendResponse.ok) {
+    throw new Error(resendResult.message || "The email provider could not send this message.");
+  }
+  return resendResult.id || null;
+}
+
 module.exports = async function handler(request, response) {
   const env = request.env && typeof request.env === "object" ? request.env : process.env;
   const allowedOrigin = isAllowedRequestOrigin(request, env);
@@ -224,12 +276,14 @@ module.exports = async function handler(request, response) {
     return sendJson(response, 429, { error: "Too many reports. Please try again later." });
   }
 
-  const resendApiKey = env.RESEND_API_KEY || "";
-  const adminEmail = env.WSC_ADMIN_EMAIL || env.FEEDBACK_TO_EMAIL || DEFAULT_ADMIN_EMAIL;
-  const fromEmail = env.WSC_FEEDBACK_FROM_EMAIL || env.FEEDBACK_FROM_EMAIL || "";
-  if (!resendApiKey || !fromEmail) {
+  const cloudflareEmailService = env.FEEDBACK_EMAIL_SERVICE;
+  const hasCloudflareEmailService = typeof cloudflareEmailService?.fetch === "function";
+  const hasResendConfiguration = Boolean(
+    env.RESEND_API_KEY && (env.WSC_FEEDBACK_FROM_EMAIL || env.FEEDBACK_FROM_EMAIL)
+  );
+  if (!hasCloudflareEmailService && !hasResendConfiguration) {
     return sendJson(response, 503, {
-      error: "Email sending is not configured yet. Add RESEND_API_KEY and WSC_FEEDBACK_FROM_EMAIL to the deployment environment."
+      error: "Email sending is not configured yet."
     });
   }
 
@@ -253,34 +307,13 @@ module.exports = async function handler(request, response) {
       return sendJson(response, 400, { error: email.error });
     }
 
-    const resendPayload = {
-      from: fromEmail,
-      to: [adminEmail],
-      subject: email.subject,
-      text: email.text,
-      html: email.html
-    };
-    if (isEmail(reporter.email)) {
-      resendPayload.reply_to = reporter.email;
-    }
-
-    const resendResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(resendPayload)
-    });
-    const resendResult = await resendResponse.json().catch(() => ({}));
-    if (!resendResponse.ok) {
-      return sendJson(response, 502, {
-        error: resendResult.message || "The email provider could not send this message."
-      });
-    }
-
-    return sendJson(response, 200, { ok: true, id: resendResult.id || null });
+    const messageId = hasCloudflareEmailService
+      ? await sendWithCloudflareService(cloudflareEmailService, email, reporter)
+      : await sendWithResend(env, email, reporter);
+    return sendJson(response, 200, { ok: true, id: messageId });
   } catch (error) {
-    return sendJson(response, 400, { error: error.message || "Invalid request." });
+    const message = error.message || "Invalid request.";
+    const statusCode = /could not send|provider|configured/i.test(message) ? 502 : 400;
+    return sendJson(response, statusCode, { error: message });
   }
 };

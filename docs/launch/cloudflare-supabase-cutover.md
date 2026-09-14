@@ -18,18 +18,29 @@ The repo also includes root `wrangler.jsonc` for direct Pages deploys of `app/di
 
 ### Pages Functions environment
 
-The feedback endpoint is a Pages Function. Configure the following bindings in both the Production and Preview environments before deploying it:
+The feedback endpoint is a Pages Function. In production it calls the private `wscapp-feedback-email` Worker through the `FEEDBACK_EMAIL_SERVICE` service binding. The Worker sends from `WSCapp Support <support@wscapp.app>` to the verified destination stored in its encrypted `WSC_REPORT_DESTINATION` secret.
+
+Deploy and configure that Worker before deploying Pages:
+
+```bash
+npx wrangler deploy --config workers/feedback-email/wrangler.jsonc
+npx wrangler secret put WSC_REPORT_DESTINATION --config workers/feedback-email/wrangler.jsonc
+```
+
+Cloudflare permits sends to verified Email Routing destination addresses on the Free plan. The binding restricts the sender to `support@wscapp.app`; the Worker accepts no caller-provided sender or recipient, and `workers_dev` is disabled so it is reachable only through the Pages service binding.
+
+The older Resend path remains available as a fallback for non-Cloudflare deployments. Configure these bindings only when that fallback is needed:
 
 | Binding | Required | Purpose |
 | --- | --- | --- |
-| `RESEND_API_KEY` | Yes | Secret API key used to send the report email. |
-| `WSC_FEEDBACK_FROM_EMAIL` | Yes | Resend-verified sender, for example `WSCapp <reports@wscapp.app>`. |
+| `RESEND_API_KEY` | Yes for Resend fallback | Secret API key used to send the report email. |
+| `WSC_FEEDBACK_FROM_EMAIL` | Yes for Resend fallback | Resend-verified sender, for example `WSCapp Support <support@wscapp.app>`. |
 | `SUPABASE_PUBLISHABLE_KEY` | Yes for person reports | Browser-safe project key used only to verify the reporter's bearer token. |
 | `SUPABASE_URL` | Recommended | Supabase project URL; the current project URL is the code fallback. |
-| `WSC_ADMIN_EMAIL` | Optional | Report destination; defaults to the current admin address. |
+| `WSC_ADMIN_EMAIL` | Optional | Report destination; defaults to `support@wscapp.app`. |
 | `WSC_ALLOWED_ORIGINS` | Optional | Comma-separated extra trusted origins for previews. |
 
-Keep `RESEND_API_KEY` in Cloudflare's encrypted Secrets surface, not in `wrangler.jsonc` or Git. After changing a binding, redeploy and verify both a signed-in person report and a guest problem report. A missing mail key/sender intentionally returns `503`; a missing Supabase publishable key prevents authenticated person reports from being verified.
+Keep `WSC_REPORT_DESTINATION` and any `RESEND_API_KEY` in Cloudflare's encrypted Secrets surface, not in `wrangler.jsonc` or Git. After changing a binding, redeploy and verify both a signed-in person report and a guest problem report. Missing email configuration intentionally returns `503`; a missing Supabase publishable key prevents authenticated person reports from being verified.
 
 Current Cloudflare state:
 
