@@ -2,5 +2,15 @@
   "name": "wscapp",
   "compatibility_date": "2026-07-08",
   "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": "app/dist-pages"
+  "pages_build_output_dir": "app/dist-pages",
+  "vars": {
+    "SUPABASE_URL": "https://bwogymstqrrmoxlwlhio.supabase.co",
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_POtn-v4NNAJMqZVc0j5SeQ_pJE_7Xrx"
+  },
+  "services": [
+    {
+      "binding": "FEEDBACK_EMAIL_SERVICE",
+      "service": "wscapp-feedback-email"
+    }
+  ]
 }

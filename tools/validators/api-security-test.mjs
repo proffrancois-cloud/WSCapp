@@ -32,7 +32,8 @@ function createFeedbackRequest({
   origin = ALLOWED_ORIGIN,
   body = {},
   ip = "test-client",
-  authorization = ""
+  authorization = "",
+  env
 } = {}) {
   return {
     method: "POST",
@@ -42,6 +43,7 @@ function createFeedbackRequest({
       "x-forwarded-for": ip,
       ...(authorization ? { authorization } : {})
     },
+    ...(env ? { env } : {}),
     socket: { remoteAddress: ip }
   };
 }
@@ -168,6 +170,39 @@ try {
 
     assert.equal(response.statusCode, 400);
     assert.equal(parseJsonResponse(response).error, "Invalid report.");
+  });
+
+  await run("feedback sends reports through the Cloudflare service binding", async () => {
+    const response = createResponse();
+    const serviceCalls = [];
+    const request = createFeedbackRequest({
+      ip: "cloudflare-email-test",
+      body: {
+        reportType: "problem",
+        target: "Garden game",
+        description: "The solo game does not start."
+      },
+      env: {
+        FEEDBACK_EMAIL_SERVICE: {
+          async fetch(url, options) {
+            serviceCalls.push({ url, options });
+            return Response.json({ ok: true, id: "cloudflare-test-id" });
+          }
+        }
+      }
+    });
+
+    await sendFeedbackEmail(request, response);
+
+    assert.equal(response.statusCode, 200);
+    assert.deepEqual(parseJsonResponse(response), { ok: true, id: "cloudflare-test-id" });
+    assert.equal(serviceCalls.length, 1);
+    assert.equal(serviceCalls[0].url, "https://feedback-email.internal/send");
+    const email = JSON.parse(serviceCalls[0].options.body);
+    assert.match(email.subject, /Problem report: Garden game/);
+    assert.match(email.text, /The solo game does not start/);
+    assert.equal(Object.hasOwn(email, "to"), false);
+    assert.equal(Object.hasOwn(email, "from"), false);
   });
 
   await run("library proxy rejects an unsupported target URL", async () => {

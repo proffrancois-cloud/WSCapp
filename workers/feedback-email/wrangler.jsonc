@@ -1,0 +1,12 @@
+{
+  "name": "wscapp-feedback-email",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-14",
+  "workers_dev": false,
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_sender_addresses": ["support@wscapp.app"]
+    }
+  ]
+}
