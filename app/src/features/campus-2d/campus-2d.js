@@ -61,6 +61,8 @@
   const WALK_FRAME_MS = 145;
   const MOVE_SPEED = 238;
   const MOVE_EPSILON = 6;
+  const ROOM_TRANSITION_MIN_MS = 180;
+  const ROOM_TRANSITION_EXIT_MS = 220;
   const ALPACA_COLLISION_RADIUS = 20;
   const ALPACA_COLLISION_DISTANCE = ALPACA_COLLISION_RADIUS * 2;
   const MIN_DEV_ZONE_SIZE = 12;
@@ -270,13 +272,16 @@
     const inBounds = isPointInRoom(room, point);
     const blockedZones = zones.blockedZones || room.blockedZones || [];
     const seats = zones.seats || room.seats || [];
+    const portals = zones.portals || room.portals || [];
     const inBlockedZone = isPointInZones(point, blockedZones);
     const inSeat = isPointInZones(point, getSeatZones(seats));
+    const inPortal = isPointInZones(point, portals.map((portal) => portal?.zone).filter(Boolean));
     return {
       inBounds,
       inBlockedZone,
       inSeat,
-      walkable: inBounds && !inBlockedZone && !inSeat
+      inPortal,
+      walkable: inBounds && (!inBlockedZone || inPortal) && !inSeat
     };
   }
 
@@ -588,6 +593,9 @@
     let lastChallengeClockKey = "";
     let lastChallengeClockSecond = -1;
     let lastChallengePresenceSignature = "";
+    let roomTransitionId = 0;
+    let roomTransitioning = false;
+    let roomTransitionTimer = 0;
     let debateAudioStatus = {
       enabled: false,
       muted: false,
@@ -671,6 +679,17 @@
       "data-campus2d-ui": "",
       hidden: ""
     });
+    const roomTransition = createEl("div", "campus2d-room-transition", {
+      role: "status",
+      "aria-live": "polite",
+      "aria-hidden": "true",
+      "data-campus2d-ui": ""
+    });
+    const roomTransitionPanel = createEl("div", "campus2d-room-transition-panel");
+    const roomTransitionMark = createEl("span", "campus2d-room-transition-mark", { "aria-hidden": "true" });
+    const roomTransitionKicker = createEl("span", "campus2d-room-transition-kicker");
+    const roomTransitionTitle = createEl("strong", "campus2d-room-transition-title");
+    const roomTransitionStatus = createEl("span", "campus2d-room-transition-status");
     const backgroundMusic = new Audio(BACKGROUND_MUSIC_SRC);
     const activityPanel = createEl("aside", "campus2d-activity-panel", {
       "aria-label": "Campus activity",
@@ -848,6 +867,15 @@
     accountLabel.textContent = "Alpaccount";
     chatButton.textContent = "Send";
     reportButton.textContent = "Report";
+    roomTransitionKicker.textContent = "Entering";
+    roomTransitionStatus.textContent = "Loading map…";
+    roomTransitionMark.append(
+      createEl("span", ""),
+      createEl("span", ""),
+      createEl("span", "")
+    );
+    roomTransitionPanel.append(roomTransitionMark, roomTransitionKicker, roomTransitionTitle, roomTransitionStatus);
+    roomTransition.append(roomTransitionPanel);
     debugTitle.textContent = "Dev";
     Array.from({ length: 9 }, (_value, index) => {
       playerCardCanvas.append(createEl("span", `tracker tr-${index + 1}`, { "aria-hidden": "true" }));
@@ -944,7 +972,7 @@
     activityPanel.append(activityMount, debugPanel);
     world.append(mapImage, decorationsLayer, debateLayer, hotspotsLayer, portalsLayer, seatsLayer, entitiesLayer, behindLayer, npcsLayer, debugLayer);
     entitiesLayer.append(localElement);
-    viewport.append(world, chatForm, reportButton, npcDialogueLayer);
+    viewport.append(world, chatForm, reportButton, npcDialogueLayer, roomTransition);
     root.append(viewport, activityPanel, settingsPanel);
     mountNode.replaceChildren(root);
     mountHeaderCard();
@@ -1490,7 +1518,8 @@
         return `${indent}seat("${zone.id}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height}${directionArg})`;
       }
       if (type === "portal") {
-        return `${indent}portal("${zone.id}", "${zone.targetRoomId}", "${zone.targetSpawnId}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
+        const directionArg = zone.entryDirection ? `, "${zone.entryDirection}"` : "";
+        return `${indent}portal("${zone.id}", "${zone.targetRoomId}", "${zone.targetSpawnId}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height}${directionArg})`;
       }
       if (type === "game") {
         return `${indent}gameZone("${zone.id}", "${zone.mode || "game"}", "${zone.label || "Game zone"}", ${rect.x}, ${rect.y}, ${rect.width}, ${rect.height})`;
@@ -4156,6 +4185,80 @@
       updateCamera();
     }
 
+    function waitForRoomTransition(ms) {
+      return new Promise((resolve) => window.setTimeout(resolve, ms));
+    }
+
+    function waitForNextPaint() {
+      return new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+    }
+
+    function preloadImageAsset(src) {
+      if (!src) {
+        return Promise.resolve();
+      }
+      return new Promise((resolve) => {
+        const image = new window.Image();
+        let settled = false;
+        const finish = () => {
+          if (settled) {
+            return;
+          }
+          settled = true;
+          resolve();
+        };
+        image.addEventListener("load", async () => {
+          try {
+            await image.decode?.();
+          } catch (_error) {}
+          finish();
+        }, { once: true });
+        image.addEventListener("error", finish, { once: true });
+        image.src = src;
+        if (image.complete) {
+          finish();
+        }
+      });
+    }
+
+    function preloadRoomAssets(nextRoom) {
+      const assets = new Set([
+        nextRoom.asset,
+        ...(nextRoom.decorations || []).map((entry) => entry.asset)
+      ].filter(Boolean));
+      return Promise.all([...assets].map(preloadImageAsset));
+    }
+
+    function showRoomTransition(nextRoom) {
+      window.clearTimeout(roomTransitionTimer);
+      keys.clear();
+      activeTarget = null;
+      localPlayer.moving = false;
+      updatePlayerElement(localElement, localPlayer, performance.now());
+      publishMovement(true);
+      roomTransitionTitle.textContent = nextRoom.title;
+      roomTransition.classList.remove("is-leaving");
+      roomTransition.classList.add("is-active");
+      roomTransition.setAttribute("aria-hidden", "false");
+      root.setAttribute("aria-busy", "true");
+    }
+
+    function hideRoomTransition(transitionId) {
+      if (transitionId !== roomTransitionId) {
+        return;
+      }
+      roomTransition.classList.add("is-leaving");
+      roomTransitionTimer = window.setTimeout(() => {
+        if (transitionId !== roomTransitionId || destroyed) {
+          return;
+        }
+        roomTransition.classList.remove("is-active", "is-leaving");
+        roomTransition.setAttribute("aria-hidden", "true");
+        root.removeAttribute("aria-busy");
+        roomTransitioning = false;
+      }, ROOM_TRANSITION_EXIT_MS);
+    }
+
     function screenToWorld(clientX, clientY) {
       const rect = viewport.getBoundingClientRect();
       return {
@@ -4209,11 +4312,7 @@
       cameraResizeFrameId = window.requestAnimationFrame(updateCamera);
     }
 
-    function setRoom(roomId, spawnId = "default") {
-      const nextRoom = getRoom(roomId);
-      if (!nextRoom) {
-        return;
-      }
+    function commitRoom(nextRoom, spawnId = "default") {
       if (room.id === DEBATE_ROOM_ID && nextRoom.id !== DEBATE_ROOM_ID) {
         debateAudioManager?.disable();
       }
@@ -4243,7 +4342,31 @@
       publishPresence(true);
     }
 
+    async function setRoom(roomId, spawnId = "default") {
+      const nextRoom = getRoom(roomId);
+      if (!nextRoom || roomTransitioning || nextRoom.id === room.id) {
+        return false;
+      }
+      roomTransitioning = true;
+      const transitionId = ++roomTransitionId;
+      showRoomTransition(nextRoom);
+      await Promise.all([
+        preloadRoomAssets(nextRoom),
+        waitForRoomTransition(ROOM_TRANSITION_MIN_MS)
+      ]);
+      if (destroyed || transitionId !== roomTransitionId) {
+        return false;
+      }
+      commitRoom(nextRoom, spawnId);
+      await waitForNextPaint();
+      hideRoomTransition(transitionId);
+      return true;
+    }
+
     function maybeEnterPortal() {
+      if (roomTransitioning) {
+        return false;
+      }
       const portal = getEffectiveZones(room).portals.find((entry) => isPointInRect(localPlayer, entry.zone));
       if (!portal) {
         portalTransitionArmed = true;
@@ -4252,9 +4375,12 @@
       if (!portalTransitionArmed || !localPlayer.moving) {
         return false;
       }
+      if (portal.entryDirection && localPlayer.direction !== portal.entryDirection) {
+        return false;
+      }
       localPlayer.seatId = null;
       activeTarget = null;
-      setRoom(portal.targetRoomId, portal.targetSpawnId);
+      void setRoom(portal.targetRoomId, portal.targetSpawnId);
       return true;
     }
 
@@ -4440,7 +4566,7 @@
     }
 
     function stepMovement(deltaSeconds, nowMs) {
-      if (debugEnabled) {
+      if (roomTransitioning || debugEnabled) {
         const wasMoving = Boolean(localPlayer.moving);
         activeTarget = null;
         localPlayer.moving = false;
@@ -6036,7 +6162,7 @@
         if (portal) {
           localPlayer.seatId = null;
           activeTarget = null;
-          setRoom(portal.targetRoomId, portal.targetSpawnId);
+          void setRoom(portal.targetRoomId, portal.targetSpawnId);
         }
         return;
       }
@@ -6225,6 +6351,8 @@
       return {
       destroy() {
         destroyed = true;
+        roomTransitionId += 1;
+        window.clearTimeout(roomTransitionTimer);
         window.cancelAnimationFrame(animationFrameId);
         if (cameraResizeFrameId) {
           window.cancelAnimationFrame(cameraResizeFrameId);

@@ -788,6 +788,10 @@ async function runCampusViewport(browser, baseUrl, viewportConfig) {
       const map = document.querySelector(".campus2d-map");
       return map?.complete && map.naturalWidth > 0;
     }, null, { timeout: 20000 });
+    await page.waitForFunction(() => {
+      const transition = document.querySelector(".campus2d-room-transition");
+      return !transition?.classList.contains("is-active") && transition?.getAttribute("aria-hidden") === "true";
+    }, null, { timeout: 20000 });
 
     const afterInteraction = await collectCampusAudit(page);
     pushCampusFailures(`${viewportConfig.label} interaction`, afterInteraction, viewportConfig);

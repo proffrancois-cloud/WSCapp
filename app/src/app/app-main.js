@@ -2525,48 +2525,6 @@ const LIBRARY_GUIDE_RESOURCES = Object.freeze([
 ]);
 
 const CAMPUS_ACTIVITY_MENU_CONFIGS = Object.freeze({
-  "courtyard-board-games": {
-    theme: "courtyard",
-    prompt: "Courtyard",
-    title: "Choose a game",
-    gridClass: "library-campus-card-grid-two",
-    modes: [
-      { modeId: "jeopardy", label: "Alpacapardy" },
-      { modeId: "relay", label: "AlpaQuiz" }
-    ]
-  },
-  "courtyard-maze-games": {
-    theme: "courtyard",
-    prompt: "Courtyard",
-    title: "Choose a maze game",
-    gridClass: "library-campus-card-grid-four",
-    modes: [
-      { modeId: "jump", label: "Alpaca Jump" },
-      { modeId: "race", label: "Survivalpaca" },
-      { modeId: "relay", label: "AlpaQuiz" },
-      { modeId: "run", label: "Alpaca Run" }
-    ]
-  },
-  "courtyard-track-games": {
-    theme: "courtyard",
-    prompt: "Track",
-    title: "Choose a track game",
-    gridClass: "library-campus-card-grid-two",
-    modes: [
-      { modeId: "jump", label: "Alpaca Jump" },
-      { modeId: "run", label: "Alpaca Run" }
-    ]
-  },
-  "courtyard-swing-games": {
-    theme: "courtyard",
-    prompt: "Swings",
-    title: "Choose a swing game",
-    gridClass: "library-campus-card-grid-two",
-    modes: [
-      { modeId: "relay", label: "AlpaQuiz" },
-      { modeId: "race", label: "Survivalpaca" }
-    ]
-  },
   "debate-board-training": {
     theme: "debate",
     prompt: "Amphitheatre",
@@ -2582,12 +2540,6 @@ const CAMPUS_ACTIVITY_MENU_CONFIGS = Object.freeze({
 });
 
 const CAMPUS_ACTIVITY_ZONE_TYPES = Object.freeze({
-  courtyard: new Map([
-    ["courtyard-board", "courtyard-board-games"],
-    ["courtyard-game-2", "courtyard-maze-games"],
-    ["courtyard-track-games", "courtyard-track-games"],
-    ["courtyard-swings-games", "courtyard-swing-games"]
-  ]),
   "debate-lab": new Map([
     ["debate-board", "debate-board-training"]
   ])
@@ -10066,6 +10018,7 @@ function renderLibraryResourceViewer(resource) {
 function handleCampus2DZoneAction(action) {
   const zoneId = action?.zoneId || "";
   const roomId = action?.roomId || "";
+  const modeId = action?.mode || "";
 
   if (roomId === "library") {
     if (LIBRARY_SHELF_ZONE_IDS.has(zoneId)) {
@@ -10087,6 +10040,11 @@ function handleCampus2DZoneAction(action) {
       openLibraryCampusMenu("resources");
       return true;
     }
+  }
+
+  if (roomId === "courtyard" && MULTIPLAYER_GAME_MODE_IDS.has(modeId)) {
+    openMultiplayerGameChoice(modeId);
+    return true;
   }
 
   const campusMenuType = getCampusActivityMenuType(roomId, zoneId);
