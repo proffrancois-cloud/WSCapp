@@ -114,7 +114,7 @@ if (!manifest) {
   }
   const expectedRoomZoneCounts = {
     lobby: { blockedZones: 27, portals: 3, gameZones: 0, behindZones: 23, seats: 7 },
-    courtyard: { blockedZones: 131, portals: 2, gameZones: 4, behindZones: 58, seats: 18 },
+    courtyard: { blockedZones: 131, portals: 1, gameZones: 5, behindZones: 58, seats: 18 },
     library: { blockedZones: 47, portals: 1, gameZones: 9, behindZones: 37, seats: 39 },
     "debate-lab": { blockedZones: 60, portals: 1, gameZones: 1, behindZones: 20, seats: 71 }
   };
@@ -184,6 +184,10 @@ if (!manifest) {
   if (!lobby?.portals?.some((portal) => portal.targetRoomId === "debate-lab")) {
     failures.push("Lobby must have a portal to Debate Lab.");
   }
+  expectZoneRect(lobby, "portals", "lobby-to-library", { x: 62, y: 520, width: 116, height: 180 });
+  expectZoneRect(lobby, "portals", "lobby-to-debate", { x: 1000, y: 518, width: 122, height: 182 });
+  expectManifestEntry(lobby, "portals", "lobby-to-library", { entryDirection: "up" });
+  expectManifestEntry(lobby, "portals", "lobby-to-debate", { entryDirection: "up" });
   if ((lobby?.hotspots || []).some((zone) => zone.id === "lobby-games")) {
     failures.push("Lobby must not keep the old invisible lobby-games hotspot around x593 y576.");
   }
@@ -248,18 +252,25 @@ if (!manifest) {
   if ((courtyard?.blockedZones || []).length < 131) {
     failures.push("Courtyard must include the precise exported pink blocked zones.");
   }
-  if (!courtyard?.portals?.some((portal) => portal.id === "courtyard-portal-2")) {
-    failures.push("Courtyard must include the second exported portal zone.");
+  if (courtyard?.portals?.some((portal) => portal.id === "courtyard-portal-2")) {
+    failures.push("Courtyard must not include the duplicate To Lobby portal.");
   }
   if ((courtyard?.seats || []).length < 15) {
     failures.push("Courtyard must include annotated sitting squares.");
   }
-  if (!courtyard?.gameZones?.some((zone) => zone.id === "courtyard-board" && zone.mode === "play")) {
-    failures.push("Courtyard board must open the courtyard game selection popup.");
+  const expectedCourtyardGames = new Map([
+    ["courtyard-board", { mode: "jeopardy", label: "Play Alpacapardy" }],
+    ["courtyard-pink-tree", { mode: "race", label: "Play Survivalpaca" }],
+    ["courtyard-game-2", { mode: "run", label: "Play Alpaca Run" }],
+    ["courtyard-track-games", { mode: "run", label: "Play Alpaca Run" }],
+    ["courtyard-swings-games", { mode: "relay", label: "Play AlpaQuiz" }]
+  ]);
+  for (const [zoneId, expected] of expectedCourtyardGames) {
+    expectManifestEntry(courtyard, "gameZones", zoneId, expected);
   }
-  if (!courtyard?.gameZones?.some((zone) => zone.id === "courtyard-game-2" && zone.mode === "play")) {
-    failures.push("Courtyard maze must open the four-game selection popup.");
-  }
+  expectZoneRect(courtyard, "gameZones", "courtyard-board", { x: 698, y: 173, width: 222, height: 161 });
+  expectZoneRect(courtyard, "gameZones", "courtyard-pink-tree", { x: 51, y: 121, width: 128, height: 128 });
+  expectZoneRect(courtyard, "gameZones", "courtyard-game-2", { x: 245, y: 641, width: 62, height: 80 });
   expectZoneRect(courtyard, "gameZones", "courtyard-track-games", { x: 128, y: 1194, width: 178, height: 82 });
   expectZoneRect(courtyard, "gameZones", "courtyard-swings-games", { x: 715, y: 1216, width: 112, height: 108 });
   expectZoneRect(courtyard, "blockedZones", "courtyard-blocked-126", { x: 141, y: 949, width: 12, height: 19 });
@@ -383,6 +394,7 @@ const onlineGameChooserBlock = appJs.match(/function chooseOnlineGameType\([^]*?
 const onlineInlineLaunchBlock = appJs.match(/function launchOnlineGameInline\([^]*?\n}\n/)?.[0] || "";
 const campusGameChoiceBlock = appJs.match(/function openMultiplayerGameChoice\([^]*?\n}\n/)?.[0] || "";
 const libraryModeChoiceBlock = appJs.match(/function chooseLibraryMode\([^]*?\n}\n/)?.[0] || "";
+const campusZoneActionBlock = appJs.match(/function handleCampus2DZoneAction\([^]*?\n}\n/)?.[0] || "";
 const gameAloneLaunchBlock = appJs.match(/function launchMultiplayerGameAlone\([^]*?\n}\n/)?.[0] || "";
 const campusModalRenderBlock = appJs.match(/function renderLibraryCampusModal\([^]*?\n}\n/)?.[0] || "";
 const jumpAnswerBlock = appJs.match(/function answerJumpQuestion\([^]*?\n}\n/)?.[0] || "";
@@ -395,6 +407,12 @@ if (!onlineInlineLaunchBlock.includes("launchMultiplayerGameConnected") || onlin
 }
 if (!libraryModeChoiceBlock.includes("openMultiplayerGameChoice(modeId)") || !campusGameChoiceBlock.includes("state.ui.multiplayerGameChoice =") || !campusGameChoiceBlock.includes("stayOnline: true")) {
   failures.push("Campus game zones must offer a working Alone / Connected choice before launch.");
+}
+if (!campusZoneActionBlock.includes('roomId === "courtyard"') || !campusZoneActionBlock.includes("MULTIPLAYER_GAME_MODE_IDS.has(modeId)") || !campusZoneActionBlock.includes("openMultiplayerGameChoice(modeId)")) {
+  failures.push("Each Courtyard hotspot must open its assigned game directly before the Alone / Connected choice.");
+}
+if (/courtyard-(board|maze|track|swing)-games/.test(appJs)) {
+  failures.push("Courtyard must not retain the old multi-game selection menus.");
 }
 if (!gameAloneLaunchBlock.includes("stayOnline") || !gameAloneLaunchBlock.includes('state.ui.appShellMode = stayOnline ? "online" : "local"') || !gameAloneLaunchBlock.includes("state.ui.libraryExperience = stayOnline")) {
   failures.push("Alone game launch must stay inside Alpaca Online when started from the campus.");
@@ -484,7 +502,9 @@ for (const runtimeNeedle of [
   "headerCardHost.append(playerCard)",
   "activityPanel.append(activityMount, debugPanel)",
   "data-campus2d-report-open",
-  "viewport.append(world, chatForm, reportButton, npcDialogueLayer)",
+  "viewport.append(world, chatForm, reportButton, npcDialogueLayer, roomTransition)",
+  "campus2d-room-transition",
+  "preloadRoomAssets(nextRoom)",
   "data-campus2d-open-self-card",
   "data-campus2d-report-form",
   "onFeedbackSubmit",
@@ -579,7 +599,7 @@ if (!/function\s+getDebateAudioStatusText[\s\S]*debateState\?\.status\s*===\s*"s
   || !/function\s+getDebateAudioRouteText[\s\S]*Waiting for debate start/.test(campusRuntime)) {
   failures.push("Debate Lab audio should show a ready/waiting state during setup instead of looking unavailable.");
 }
-if (!/walkable:\s*inBounds\s*&&\s*!inBlockedZone\s*&&\s*!inSeat/.test(campusRuntime)) {
+if (!/walkable:\s*inBounds\s*&&\s*\(!inBlockedZone\s*\|\|\s*inPortal\)\s*&&\s*!inSeat/.test(campusRuntime)) {
   failures.push("Campus 2D yellow seat zones must be non-walkable, not regular walking areas.");
 }
 if (!/function\s+stepMovement[\s\S]*standUpFromSeat\(normalized,\s*activeZones\)/.test(campusRuntime)) {
@@ -632,6 +652,15 @@ if (!/function\s+stepMovement[\s\S]*canPlayerStandAt\(nextPoint[\s\S]*canPlayerS
 }
 if (!/function\s+maybeEnterPortal\(\)[\s\S]*isPointInRect\(localPlayer,\s*entry\.zone\)[\s\S]*setRoom\(portal\.targetRoomId,\s*portal\.targetSpawnId\)/.test(campusRuntime)) {
   failures.push("Campus 2D portals must activate when the local alpaca walks into their zones.");
+}
+if (!/function\s+getWalkability[\s\S]*inPortal[\s\S]*\(!inBlockedZone\s*\|\|\s*inPortal\)/.test(campusRuntime)) {
+  failures.push("Campus 2D portal zones must carve a walkable path through doorway blockers.");
+}
+if (!/function\s+maybeEnterPortal[\s\S]*portal\.entryDirection[\s\S]*localPlayer\.direction/.test(campusRuntime)) {
+  failures.push("Directional Campus 2D doors must only trigger while the alpaca walks into them.");
+}
+if (!/async\s+function\s+setRoom[\s\S]*preloadRoomAssets\(nextRoom\)[\s\S]*commitRoom\(nextRoom,\s*spawnId\)[\s\S]*waitForNextPaint/.test(campusRuntime)) {
+  failures.push("Campus 2D room changes must preload assets and paint the new map behind a transition.");
 }
 if (!/function\s+sitAtSeat[\s\S]*getSeatOccupant\(seat\)[\s\S]*is sitting there/.test(campusRuntime)) {
   failures.push("Campus 2D seats must reject sitting when another alpaca already occupies the spot.");
@@ -734,8 +763,11 @@ if (!/\.campus2d-chat-bubble\s*\{[^}]*background:\s*color-mix\(in srgb,\s*var\(-
 if (!/\.campus2d-chat-bubble\s*\{[^}]*color:\s*var\(--campus2d-bubble-text/.test(styles)) {
   failures.push("Campus 2D world chat bubbles must set readable text on alpaca-colored bubbles.");
 }
-if (!/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*--campus2d-avatar-scale:\s*1\.34/.test(styles)) {
+if (!/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*--campus2d-avatar-scale:\s*1\.55/.test(styles)) {
   failures.push("Campus 2D sitting sprites must be optically scaled to match standing alpacas.");
+}
+if (!styles.includes(".campus2d-room-transition") || !styles.includes("@keyframes campusRoomTransitionStep")) {
+  failures.push("Campus 2D room transitions must include a visible loading state.");
 }
 if (!styles.includes(".campus2d-interactive-label") || !styles.includes(".campus2d-portal-marker")) {
   failures.push("Campus 2D game zones and portals must keep visible interaction labels and markers.");

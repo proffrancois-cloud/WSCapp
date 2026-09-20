@@ -9,8 +9,12 @@
     return { id, x, y, width, height };
   }
 
-  function portal(id, targetRoomId, targetSpawnId, x, y, width, height) {
-    return { id, targetRoomId, targetSpawnId, zone: rect(id, x, y, width, height) };
+  function portal(id, targetRoomId, targetSpawnId, x, y, width, height, entryDirection = null) {
+    const entry = { id, targetRoomId, targetSpawnId, zone: rect(id, x, y, width, height) };
+    if (entryDirection) {
+      entry.entryDirection = entryDirection;
+    }
+    return entry;
   }
 
   function hotspot(id, kind, label, x, y, width, height) {
@@ -151,8 +155,8 @@
       ],
       portals: [
         portal("lobby-to-courtyard", "courtyard", "lobby", 479, 1142, 178, 160),
-        portal("lobby-to-library", "library", "lobby", 62, 581, 104, 117),
-        portal("lobby-to-debate", "debate-lab", "lobby", 1005, 576, 113, 118)
+        portal("lobby-to-library", "library", "lobby", 62, 520, 116, 180, "up"),
+        portal("lobby-to-debate", "debate-lab", "lobby", 1000, 518, 122, 182, "up")
       ],
       hotspots: [],
       npcs: [
@@ -358,17 +362,17 @@
         rect("courtyard-blocked-134", 665, 276, 22, 23)
       ],
       portals: [
-        portal("courtyard-to-lobby", "lobby", "courtyard", 452, 109, 99, 68),
-        portal("courtyard-portal-2", "lobby", "courtyard", 642, 142, 12, 12)
+        portal("courtyard-to-lobby", "lobby", "courtyard", 452, 109, 99, 68)
       ],
       hotspots: [
         hotspot("courtyard-board", "lesson", "Courtyard board", 690, 170, 290, 230)
       ],
       gameZones: [
-        gameZone("courtyard-board", "play", "Choose Alpacapardy or AlpaQuiz", 698, 173, 222, 161),
-        gameZone("courtyard-game-2", "play", "Choose maze arcade game", 253, 667, 33, 51),
-        gameZone("courtyard-track-games", "play", "Choose Alpaca Jump or Alpaca Run", 128, 1194, 178, 82),
-        gameZone("courtyard-swings-games", "play", "Choose AlpaQuiz or Survivalpaca", 715, 1216, 112, 108)
+        gameZone("courtyard-board", "jeopardy", "Play Alpacapardy", 698, 173, 222, 161),
+        gameZone("courtyard-pink-tree", "race", "Play Survivalpaca", 51, 121, 128, 128),
+        gameZone("courtyard-game-2", "run", "Play Alpaca Run", 245, 641, 62, 80),
+        gameZone("courtyard-track-games", "run", "Play Alpaca Run", 128, 1194, 178, 82),
+        gameZone("courtyard-swings-games", "relay", "Play AlpaQuiz", 715, 1216, 112, 108)
       ],
       behindZones: [
         rect("courtyard-top-left-tree", 57, 167, 107, 43),
