@@ -5487,8 +5487,8 @@ body.is-campus2d-view .hero-layout {
 body.is-campus2d-view .hero-copy {
   position: absolute !important;
   left: 50% !important;
-  top: 54% !important;
-  width: min(46vw, 560px) !important;
+  top: 50% !important;
+  width: min(42vw, 520px) !important;
   min-height: 0 !important;
   transform: translate(-50%, -50%) !important;
 }
@@ -5659,9 +5659,14 @@ body .hero-links .session-control-stack {
   gap: 4px !important;
 }
 
-body.is-campus2d-view .hero-links,
-body.is-campus2d-view .hero-online-mount {
+body.is-campus2d-view .hero-links {
   position: relative !important;
+  z-index: 160 !important;
+  pointer-events: none !important;
+}
+
+body.is-campus2d-view .hero-online-mount {
+  position: absolute !important;
   z-index: 160 !important;
   pointer-events: none !important;
 }
