@@ -127,7 +127,7 @@ if (!manifest) {
     }
   }
   const expectedRoomZoneCounts = {
-    lobby: { blockedZones: 27, portals: 3, gameZones: 0, behindZones: 23, seats: 7 },
+    lobby: { blockedZones: 29, portals: 3, gameZones: 0, behindZones: 23, seats: 7 },
     courtyard: { blockedZones: 131, portals: 1, gameZones: 5, behindZones: 58, seats: 18 },
     library: { blockedZones: 47, portals: 1, gameZones: 9, behindZones: 37, seats: 39 },
     "debate-lab": { blockedZones: 60, portals: 1, gameZones: 1, behindZones: 20, seats: 71 }
@@ -202,6 +202,27 @@ if (!manifest) {
   expectZoneRect(lobby, "portals", "lobby-to-debate", { x: 1000, y: 518, width: 122, height: 182 });
   expectManifestEntry(lobby, "portals", "lobby-to-library", { entryDirection: "up" });
   expectManifestEntry(lobby, "portals", "lobby-to-debate", { entryDirection: "up" });
+  if (lobby?.spawnPoints?.library?.x !== 85 || lobby?.spawnPoints?.library?.y !== 730) {
+    failures.push("Returning from Library must land below the left Lobby door at x85 y730.");
+  }
+  if (lobby?.spawnPoints?.debate?.x !== 1090 || lobby?.spawnPoints?.debate?.y !== 730) {
+    failures.push("Returning from Debate Lab must land below the right Lobby door at x1090 y730.");
+  }
+  expectZoneRect(lobby, "blockedZones", "lobby-left-door-block-left", { x: 0, y: 624, width: 62, height: 82 });
+  expectZoneRect(lobby, "blockedZones", "lobby-left-door-block-right", { x: 178, y: 624, width: 62, height: 82 });
+  expectZoneRect(lobby, "blockedZones", "lobby-right-door-block-left", { x: 926, y: 621, width: 74, height: 81 });
+  expectZoneRect(lobby, "blockedZones", "lobby-right-door-block-right", { x: 1122, y: 621, width: 61, height: 81 });
+  for (const [label, x] of [["Library", 85], ["Debate Lab", 1090]]) {
+    const blockingZone = (lobby?.blockedZones || []).find((zone) => (
+      x >= zone.x &&
+      x <= zone.x + zone.width &&
+      706 >= zone.y &&
+      520 <= zone.y + zone.height
+    ));
+    if (blockingZone) {
+      failures.push(`${label} Lobby doorway must have a clear vertical path; blocked by ${blockingZone.id}.`);
+    }
+  }
   if ((lobby?.hotspots || []).some((zone) => zone.id === "lobby-games")) {
     failures.push("Lobby must not keep the old invisible lobby-games hotspot around x593 y576.");
   }
@@ -386,6 +407,12 @@ if (!onlineCss.includes(".library-id-choice-card-coming-soon") || !onlineCss.inc
 }
 if (!onlineCss.includes("--campus2d-header-height: 104px") || !onlineCss.includes("body.is-campus2d-view .hero-layout")) {
   failures.push("Campus 2D must keep a compact app-bar header with a centered layout.");
+}
+if (!/body\.is-campus2d-view \.hero-online-mount\s*\{[^}]*position:\s*absolute\s*!important/i.test(onlineCss)) {
+  failures.push("The Campus 2D solo-mode switch must stay in the same absolute header position as Join online.");
+}
+if (!/body\.is-campus2d-view \.hero-copy\s*\{[^}]*top:\s*50%\s*!important[^}]*width:\s*min\(42vw,\s*520px\)\s*!important/i.test(onlineCss)) {
+  failures.push("The Campus 2D header copy must use the same anchor geometry as the local-mode header.");
 }
 if (/\.hero[^{]*\{[^}]*min-height:\s*190px\s*!important/.test(lateShellCss) || /body \.hero-copy\s*\{[^}]*top:\s*42%\s*!important/.test(lateShellCss)) {
   failures.push("Header must not reserve retired achievement/progress tracker space in late shell overrides.");

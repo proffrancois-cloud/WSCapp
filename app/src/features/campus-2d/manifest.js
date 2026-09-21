@@ -121,8 +121,8 @@
       spawnPoints: {
         default: point(592, 665),
         courtyard: point(592, 1040),
-        library: point(290, 665),
-        debate: point(895, 665)
+        library: point(85, 730),
+        debate: point(1090, 730)
       },
       walkZones: [
         rect("lobby-main", 270, 310, 645, 790),
@@ -138,7 +138,8 @@
         rect("lobby-top-right-potted-plant", 882, 257, 203, 34),
         rect("lobby-top-right-planter", 1099, 258, 46, 51),
         rect("lobby-left-door-block", 0, 154, 1183, 109),
-        rect("lobby-right-door-block", 926, 621, 257, 81),
+        rect("lobby-right-door-block-left", 926, 621, 74, 81),
+        rect("lobby-right-door-block-right", 1122, 621, 61, 81),
         rect("lobby-bottom-left-shop", 0, 993, 395, 291),
         rect("lobby-bottom-gate-roof", 997, 922, 136, 29),
         rect("lobby-bottom-right-shop", 753, 995, 430, 287),
@@ -148,7 +149,8 @@
         rect("lobby-blocked-14", 217, 914, 94, 36),
         rect("lobby-blocked-16", 843, 918, 97, 28),
         rect("lobby-blocked-17", 791, 919, 36, 32),
-        rect("lobby-blocked-18", 0, 624, 240, 82),
+        rect("lobby-left-door-block-left", 0, 624, 62, 82),
+        rect("lobby-left-door-block-right", 178, 624, 62, 82),
         rect("lobby-blocked-19", 1145, 158, 38, 874),
         rect("lobby-blocked-20", 1109, 229, 31, 54),
         rect("lobby-blocked-21", 418, 364, 311, 39),
