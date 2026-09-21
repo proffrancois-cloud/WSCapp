@@ -1934,8 +1934,8 @@ body.is-campus2d-view .wizard-steps {
 }
 
 .campus2d-player.is-sitting .campus2d-avatar {
-  --campus2d-avatar-scale: 1.55;
-  --campus2d-avatar-y: 1px;
+  --campus2d-avatar-scale: 1;
+  --campus2d-avatar-y: 0px;
 }
 
 .campus2d-player.is-npc .campus2d-avatar {
