@@ -58,7 +58,14 @@
   }
 
   function alpacaColor(id, label, hex, swatch = hex) {
-    return { id, label, hex, swatch, asset: `${ASSET_ROOT}/alpaca-sprite-${id}.png` };
+    return {
+      id,
+      label,
+      hex,
+      swatch,
+      asset: `${ASSET_ROOT}/alpaca-sprite-${id}.png`,
+      sittingAsset: `${ASSET_ROOT}/alpaca-sitting-${id}.png`
+    };
   }
 
   const colors = [
@@ -842,6 +849,13 @@
       height: 3072,
       columns: 7,
       rows: 8
+    },
+    sittingSprite: {
+      asset: `${ASSET_ROOT}/alpaca-sitting-cream.png`,
+      width: 512,
+      height: 128,
+      columns: 4,
+      rows: 1
     },
     defaultRoomId: "lobby",
     colors,

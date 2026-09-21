@@ -419,15 +419,15 @@
     const index = isMoving ? getWalkFrameColumn(nowMs) : WALK_IDLE_FRAME;
     if (isSitting) {
       if (direction === "up") {
-        return { col: WALK_IDLE_FRAME, row: 7, flip: 1 };
+        return { col: 3, row: 0, flip: 1 };
       }
       if (direction === "left") {
-        return { col: WALK_IDLE_FRAME, row: 5, flip: 1 };
+        return { col: 1, row: 0, flip: 1 };
       }
       if (direction === "right") {
-        return { col: WALK_IDLE_FRAME, row: 6, flip: 1 };
+        return { col: 2, row: 0, flip: 1 };
       }
-      return { col: WALK_IDLE_FRAME, row: 4, flip: 1 };
+      return { col: 0, row: 0, flip: 1 };
     }
     if (direction === "up") {
       return { col: index, row: 2, flip: 1 };
@@ -443,6 +443,14 @@
 
   function spritePercent(index, count) {
     return count <= 1 ? "0%" : `${(index / (count - 1)) * 100}%`;
+  }
+
+  function resolveAvatarSprite(manifest, color, isSitting = false) {
+    const sprite = isSitting ? manifest.sittingSprite : manifest.sprite;
+    const asset = isSitting
+      ? (color.sittingAsset || sprite.asset)
+      : (color.asset || sprite.asset);
+    return { sprite, asset };
   }
 
   function pluralize(value, unit) {
@@ -1021,16 +1029,18 @@
       const isSitting = Boolean(player.seatId) && !player.moving;
       const isMoving = Boolean(player.moving) && !player.seatId;
       const frame = getFrame(player.direction, isSitting, isMoving, nowMs);
+      const { sprite, asset } = resolveAvatarSprite(manifest, color, isSitting);
       const avatar = element._campus2d?.avatar;
       element.style.transform = `translate(${player.x}px, ${player.y}px)`;
       element.style.zIndex = String(Math.round(player.y));
       element.style.setProperty("--campus2d-color", color.hex);
       element.style.setProperty("--campus2d-bubble-text", getReadableTextColor(color.hex));
-      element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
-      element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
+      element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, sprite.columns));
+      element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, sprite.rows));
       element.style.setProperty("--campus2d-flip", String(frame.flip));
       if (avatar) {
-        avatar.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
+        avatar.style.backgroundImage = `url("${asset}")`;
+        avatar.style.backgroundSize = `${sprite.columns * 100}% ${sprite.rows * 100}%`;
         avatar.setAttribute("aria-label", `${player.displayName || "Alpaca"} avatar card`);
       }
       element.classList.toggle("is-moving", isMoving);
@@ -5012,10 +5022,13 @@
 
     function applyAvatarPreview(element, player) {
       const color = getColor(manifest, player.colorId);
-      const frame = getFrame(player.direction, Boolean(player.seatId) && !player.moving);
-      element.style.backgroundImage = `url("${color.asset || manifest.sprite.asset}")`;
-      element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, manifest.sprite.columns));
-      element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, manifest.sprite.rows));
+      const isSitting = Boolean(player.seatId) && !player.moving;
+      const frame = getFrame(player.direction, isSitting);
+      const { sprite, asset } = resolveAvatarSprite(manifest, color, isSitting);
+      element.style.backgroundImage = `url("${asset}")`;
+      element.style.backgroundSize = `${sprite.columns * 100}% ${sprite.rows * 100}%`;
+      element.style.setProperty("--campus2d-sprite-x", spritePercent(frame.col, sprite.columns));
+      element.style.setProperty("--campus2d-sprite-y", spritePercent(frame.row, sprite.rows));
       element.style.setProperty("--campus2d-flip", String(frame.flip));
     }
 

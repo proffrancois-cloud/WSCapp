@@ -12,6 +12,7 @@ const expectedAssets = {
   "assets/campus-2d/library.png": { width: 1173, height: 1341 },
   "assets/campus-2d/debate-lab.png": { width: 1182, height: 1330 },
   "assets/campus-2d/alpaca-sprite.png": { width: 2387, height: 3072 },
+  "assets/campus-2d/alpaca-sitting-cream.png": { width: 512, height: 128 },
   "assets/campus-2d/rewards/jac-khor.png": { width: 445, height: 503 },
   "assets/campus-2d/rewards/trophy.png": { width: 360, height: 500 },
   "assets/campus-2d/rewards/gold-medal.png": { width: 265, height: 522 },
@@ -105,6 +106,19 @@ if (!manifest) {
     const actual = readPngSize(relativePath);
     if (actual && (actual.width !== expectedAssets["assets/campus-2d/alpaca-sprite.png"].width || actual.height !== expectedAssets["assets/campus-2d/alpaca-sprite.png"].height)) {
       failures.push(`Campus 2D color ${color.id} sprite should match alpaca-sprite.png dimensions; received ${actual.width}x${actual.height}.`);
+    }
+    if (!color.sittingAsset) {
+      failures.push(`Campus 2D color ${color.id} is missing a sitting alpaca sprite asset.`);
+      continue;
+    }
+    const sittingPath = color.sittingAsset.replace(/^\.\//, "");
+    if (!existsSync(resolve(appRoot, sittingPath))) {
+      failures.push(`Campus 2D color ${color.id} references missing sitting asset ${sittingPath}.`);
+      continue;
+    }
+    const sittingSize = readPngSize(sittingPath);
+    if (sittingSize && (sittingSize.width !== 512 || sittingSize.height !== 128)) {
+      failures.push(`Campus 2D color ${color.id} sitting sprite should be 512x128; received ${sittingSize.width}x${sittingSize.height}.`);
     }
   }
   for (const roomId of ["lobby", "courtyard", "library", "debate-lab"]) {
@@ -306,7 +320,10 @@ if (!manifest) {
     failures.push(`Debate Lab blue seats and dragon stools should face up; wrong ids: ${wrongDebateSeats.map((seat) => seat.id).join(", ")}.`);
   }
   if (manifest.sprite?.width !== 2387 || manifest.sprite?.height !== 3072 || manifest.sprite?.columns !== 7 || manifest.sprite?.rows !== 8) {
-    failures.push("Campus 2D alpaca sprite sheet must expose seven walk frames and four dedicated sitting rows, for 7x8 frames at 2387x3072.");
+    failures.push("Campus 2D walking sprite sheet must expose seven frames and eight direction rows at 2387x3072.");
+  }
+  if (manifest.sittingSprite?.width !== 512 || manifest.sittingSprite?.height !== 128 || manifest.sittingSprite?.columns !== 4 || manifest.sittingSprite?.rows !== 1) {
+    failures.push("Campus 2D sitting sprite sheet must expose four directional poses in a 512x128 strip.");
   }
 }
 
@@ -554,10 +571,9 @@ for (const runtimeNeedle of [
   "WALK_FRAME_COLUMNS",
   "getWalkFrameColumn",
   "getFrame(direction, isSitting = false, isMoving = false, nowMs = 0)",
-  "row: 4",
-  "row: 5",
-  "row: 6",
-  "row: 7",
+  "manifest.sittingSprite",
+  "color.sittingAsset",
+  "avatar.style.backgroundSize",
   "isPointBlockedByPlayers",
   "canPlayerStandAt",
   "getSeatZones",
@@ -763,8 +779,8 @@ if (!/\.campus2d-chat-bubble\s*\{[^}]*background:\s*color-mix\(in srgb,\s*var\(-
 if (!/\.campus2d-chat-bubble\s*\{[^}]*color:\s*var\(--campus2d-bubble-text/.test(styles)) {
   failures.push("Campus 2D world chat bubbles must set readable text on alpaca-colored bubbles.");
 }
-if (!/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*--campus2d-avatar-scale:\s*1\.55/.test(styles)) {
-  failures.push("Campus 2D sitting sprites must be optically scaled to match standing alpacas.");
+if (!/\.campus2d-player\.is-sitting\s+\.campus2d-avatar\s*\{[^}]*--campus2d-avatar-scale:\s*1(?:\D|$)/.test(styles)) {
+  failures.push("Campus 2D sitting sprites must render at their authored scale.");
 }
 if (!styles.includes(".campus2d-room-transition") || !styles.includes("@keyframes campusRoomTransitionStep")) {
   failures.push("Campus 2D room transitions must include a visible loading state.");
