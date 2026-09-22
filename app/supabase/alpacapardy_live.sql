@@ -194,31 +194,28 @@ grant execute on function private.is_alpacapardy_live_public_lobby(uuid) to auth
 grant execute on function private.is_alpacapardy_live_participant(uuid) to authenticated;
 grant execute on function private.alpacapardy_live_player_count(uuid) to authenticated;
 
-create or replace function private.is_alpacapardy_live_admin_tester()
+create or replace function private.is_alpacapardy_live_member()
 returns boolean
 language sql
 security definer
 stable
 set search_path = ''
 as $$
-  with current_email as (
-    select lower(coalesce(auth.jwt() ->> 'email', '')) as email
-  )
   select
-    email in (
-      'moretfrancoisea@gmail.com',
-      'francois.moret@ilg-ks.org',
-      'frenchease.admin@gmail.com',
-      'ballingballer6969@gmail.com'
-    )
-    or email like '%@ilg-ks.org'
-    or email like '%@hcas.com.tw'
-    or email like '%@ykc.edu.mk'
-  from current_email;
+    (select auth.uid()) is not null
+    and coalesce(auth.jwt() ->> 'is_anonymous', 'false') <> 'true'
+    and exists (
+      select 1
+      from public.alpaca_profiles profile
+      where profile.id = (select auth.uid())
+        and lower(trim(profile.alpaca_name)) !~ '^alpaca_[0-9a-f]{24}$'
+        and lower(trim(profile.country)) <> 'unknown'
+        and lower(trim(profile.school_name)) not in ('unknown', 'unknown school')
+    );
 $$;
 
-revoke all on function private.is_alpacapardy_live_admin_tester() from public;
-grant execute on function private.is_alpacapardy_live_admin_tester() to authenticated;
+revoke all on function private.is_alpacapardy_live_member() from public;
+grant execute on function private.is_alpacapardy_live_member() to authenticated;
 
 alter table public.alpacapardy_live_sessions enable row level security;
 alter table public.alpacapardy_live_players enable row level security;
@@ -237,7 +234,7 @@ create policy "Users can view public lobby or their Alpacapardy session"
   for select
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (
       private.is_alpacapardy_live_public_lobby(id)
       or host_user_id = (select auth.uid())
@@ -251,7 +248,7 @@ create policy "Hosts can create Alpacapardy sessions"
   for insert
   to authenticated
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (select auth.uid()) = host_user_id
   );
 
@@ -261,11 +258,11 @@ create policy "Hosts can update their Alpacapardy sessions"
   for update
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (select auth.uid()) = host_user_id
   )
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (select auth.uid()) = host_user_id
   );
 
@@ -276,7 +273,7 @@ create policy "Users can view public lobby players or their room players"
   for select
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (
       private.is_alpacapardy_live_public_lobby(session_id)
       or private.is_alpacapardy_live_participant(session_id)
@@ -295,9 +292,15 @@ create policy "Users can join as their own Alpacapardy player"
   for insert
   to authenticated
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and
     (select auth.uid()) = user_id
+    and is_guest = false
+    and display_name = (
+      select profile.alpaca_name
+      from public.alpaca_profiles profile
+      where profile.id = (select auth.uid())
+    )
     and role in ('host', 'player')
     and team_index is not null
     and exists (
@@ -334,12 +337,31 @@ create policy "Users can update their own Alpacapardy player"
   for update
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (select auth.uid()) = user_id
   )
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (select auth.uid()) = user_id
+    and is_guest = false
+    and display_name = (
+      select profile.alpaca_name
+      from public.alpaca_profiles profile
+      where profile.id = (select auth.uid())
+    )
+    and team_index is not null
+    and (
+      role = 'player'
+      or (
+        role = 'host'
+        and exists (
+          select 1
+          from public.alpacapardy_live_sessions session
+          where session.id = alpacapardy_live_players.session_id
+            and session.host_user_id = (select auth.uid())
+        )
+      )
+    )
   );
 
 drop policy if exists "Participants can view Alpacapardy events" on public.alpacapardy_live_events;
@@ -348,7 +370,7 @@ create policy "Participants can view Alpacapardy events"
   for select
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (
       private.is_alpacapardy_live_participant(session_id)
       or exists (
@@ -366,7 +388,7 @@ create policy "Participants can create Alpacapardy events"
   for insert
   to authenticated
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and
     exists (
       select 1
@@ -383,7 +405,7 @@ create policy "Participants can view Alpacapardy snapshots"
   for select
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and (
       private.is_alpacapardy_live_participant(session_id)
       or exists (
@@ -401,7 +423,7 @@ create policy "Hosts can create Alpacapardy snapshots"
   for insert
   to authenticated
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and
     exists (
       select 1
@@ -417,7 +439,7 @@ create policy "Hosts can update Alpacapardy snapshots"
   for update
   to authenticated
   using (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and
     exists (
       select 1
@@ -427,7 +449,7 @@ create policy "Hosts can update Alpacapardy snapshots"
     )
   )
   with check (
-    private.is_alpacapardy_live_admin_tester()
+    private.is_alpacapardy_live_member()
     and
     exists (
       select 1
@@ -436,6 +458,8 @@ create policy "Hosts can update Alpacapardy snapshots"
         and session.host_user_id = (select auth.uid())
     )
   );
+
+drop function if exists private.is_alpacapardy_live_admin_tester();
 
 do $$
 begin

@@ -452,6 +452,15 @@ if (!onlineInlineLaunchBlock.includes("launchMultiplayerGameConnected") || onlin
 if (!libraryModeChoiceBlock.includes("openMultiplayerGameChoice(modeId)") || !campusGameChoiceBlock.includes("state.ui.multiplayerGameChoice =") || !campusGameChoiceBlock.includes("stayOnline: true")) {
   failures.push("Campus game zones must offer a working Alone / Connected choice before launch.");
 }
+if (!appJs.includes("renderMultiplayerLobbyDirectory") || !appJs.includes("Public games waiting") || !appJs.includes("Join with a room code")) {
+  failures.push("Courtyard game choices must surface public waiting rooms before requiring a room code.");
+}
+if (!campusGameChoiceBlock.includes("state.live.selectedGameType = gameType") || !campusGameChoiceBlock.includes("refreshAlpacapardyLiveLobby()")) {
+  failures.push("Opening a Courtyard game must retain its live game type and refresh that game's public rooms.");
+}
+if (appJs.includes("findBlockingLiveSessionForGame")) {
+  failures.push("Live multiplayer must allow more than one active room for the same game type.");
+}
 if (!campusZoneActionBlock.includes('roomId === "courtyard"') || !campusZoneActionBlock.includes("MULTIPLAYER_GAME_MODE_IDS.has(modeId)") || !campusZoneActionBlock.includes("openMultiplayerGameChoice(modeId)")) {
   failures.push("Each Courtyard hotspot must open its assigned game directly before the Alone / Connected choice.");
 }

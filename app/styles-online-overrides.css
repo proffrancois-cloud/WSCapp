@@ -4996,6 +4996,7 @@ body.is-online-mode .library-id-subtitle {
 .campus2d-activity-mount .multiplayer-choice-card {
   min-height: 116px;
   padding: 13px;
+  background: rgba(255, 252, 242, 0.78);
 }
 
 .campus2d-activity-mount .multiplayer-choice-art {
@@ -5003,8 +5004,50 @@ body.is-online-mode .library-id-subtitle {
 }
 
 .campus2d-activity-mount .multiplayer-choice-copy {
+  color: var(--ink-soft);
   font-size: 0.78rem;
   text-wrap: wrap;
+}
+
+.campus2d-activity-mount .multiplayer-choice-text strong,
+.campus2d-activity-mount .multiplayer-lobby-header h4,
+.campus2d-activity-mount .multiplayer-lobby-empty strong,
+.campus2d-activity-mount .multiplayer-lobby-notice strong {
+  color: var(--bg);
+}
+
+.campus2d-activity-mount .multiplayer-choice-text span,
+.campus2d-activity-mount .multiplayer-lobby-header span,
+.campus2d-activity-mount .multiplayer-lobby-empty span,
+.campus2d-activity-mount .multiplayer-lobby-notice span,
+.campus2d-activity-mount .multiplayer-room-code summary {
+  color: var(--ink-soft);
+}
+
+.campus2d-activity-mount .multiplayer-lobby-directory {
+  width: 100%;
+  margin-top: 0;
+  padding-top: 13px;
+  border-top-color: rgba(107, 78, 22, 0.2);
+}
+
+.campus2d-activity-mount .multiplayer-lobby-empty,
+.campus2d-activity-mount .multiplayer-lobby-notice {
+  background: rgba(255, 252, 242, 0.66);
+}
+
+.campus2d-activity-mount .multiplayer-lobby-directory .online-room-list-compact {
+  max-height: none;
+  overflow: visible;
+}
+
+.campus2d-activity-mount .multiplayer-lobby-directory .online-room-mini,
+.campus2d-activity-mount .multiplayer-lobby-directory .online-room-mini.has-color-picker {
+  grid-template-columns: 1fr;
+}
+
+.campus2d-activity-mount .multiplayer-lobby-header {
+  align-items: start;
 }
 
 .campus2d-activity-mount .library-id-choice-card.online-glow-card,

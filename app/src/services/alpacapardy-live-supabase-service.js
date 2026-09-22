@@ -77,35 +77,6 @@
     return query.limit(Math.max(1, Math.min(50, Number(limit) || 20)));
   }
 
-  function listActiveSessions(client, { limit = 50, gameType = null } = {}) {
-    let query = client
-      .from(TABLES.sessions)
-      .select(`
-        *,
-        players:${TABLES.players} (
-          id,
-          user_id,
-          display_name,
-          role,
-          team_index,
-          is_guest,
-          connection_status,
-          joined_at,
-          last_seen_at
-        )
-      `)
-      .eq("visibility", "public")
-      .in("status", ["lobby", "playing"])
-      .order("updated_at", { ascending: false });
-
-    const normalizedGameType = gameType ? normalizeGameType(gameType) : "";
-    if (normalizedGameType) {
-      query = query.eq("game_type", normalizedGameType);
-    }
-
-    return query.limit(Math.max(1, Math.min(50, Number(limit) || 50)));
-  }
-
   function findSessionByRoomCode(client, roomCode) {
     return client
       .from(TABLES.sessions)
@@ -380,7 +351,6 @@
     createRoomCode,
     createSession,
     listOpenSessions,
-    listActiveSessions,
     findSessionByRoomCode,
     fetchSession,
     fetchPlayers,
