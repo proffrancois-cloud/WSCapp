@@ -6477,6 +6477,7 @@ function renderLiveWinnerCard(arcadeState, players) {
 function renderOnlineRoomListItem(room, busy) {
   const players = room.players || [];
   const playerCount = players.filter((player) => ["host", "player"].includes(player.role)).length;
+  const hostName = players.find((player) => player.role === "host")?.display_name || "An alpaca";
   const gameType = normalizeLiveGameType(room.game_type);
   const signup = getLiveSignupDetails(room, players);
 
@@ -6484,7 +6485,7 @@ function renderOnlineRoomListItem(room, busy) {
     <article class="online-room-mini ${gameType === "run" && signup.canJoin ? "has-color-picker" : ""}">
       <div>
         <strong>${escapeHtml(room.room_code || "ROOM")}</strong>
-        <span>${escapeHtml(getLiveGameLabel(gameType))} · ${playerCount}/${signup.maxPlayers} alpacas waiting</span>
+        <span>${escapeHtml(hostName)} hosting · ${playerCount}/${signup.maxPlayers} alpacas</span>
         <small>${escapeHtml(signup.canJoin ? `${formatCountdown(signup.remainingSeconds)} to sign up` : signup.filled ? "Roster filled" : "Signup closed")}</small>
       </div>
       ${gameType === "run" && signup.canJoin ? renderLiveRunLobbyColorPicker(room) : ""}
@@ -6746,11 +6747,18 @@ function setupConnectedOnlineGameType(gameType) {
   state.live.selectedGameType = normalized;
   state.live.onlineView = "game";
   state.live.arcadeState = normalized === "alpacapardy" ? null : createEmptyArcadeState(normalized);
-  if (normalized === "alpacapardy" && (!state.experience || state.experience.type !== "jeopardy")) {
-    state.experience = buildJeopardyExperience();
-    state.experience.playMode = "multiplayer";
-  }
+  prepareLiveExperienceForGame(normalized);
   renderLiveSurfaces();
+}
+
+function prepareLiveExperienceForGame(gameType) {
+  if (normalizeLiveGameType(gameType) !== "alpacapardy") {
+    return;
+  }
+  if (!state.experience || state.experience.type !== "jeopardy" || state.experience.started) {
+    state.experience = buildJeopardyExperience();
+  }
+  state.experience.playMode = "multiplayer";
 }
 
 function renderStepPanel(index, title, helper, content, gridClass) {
@@ -9467,12 +9475,16 @@ function renderLibraryCampusMenu(type) {
 
 function renderMultiplayerGameChoice(choice) {
   const modeId = choice.modeId || "";
-  const option = getModeOption(modeId) || { title: getLiveGameLabel(choice.gameType), mood: "determined" };
-  const title = option.title || getLiveGameLabel(choice.gameType) || "this game";
+  const gameType = normalizeLiveGameType(choice.gameType || getConnectedLiveGameTypeForMode(modeId));
+  const option = getModeOption(modeId) || { title: getLiveGameLabel(gameType), mood: "determined" };
+  const title = option.title || getLiveGameLabel(gameType) || "this game";
   const sourceConfig = getLibraryCampusMenuConfig(choice.returnMenuType);
   const theme = sourceConfig.theme || "courtyard";
-  const hasConnectedSetup = Boolean(choice.gameType || getConnectedLiveGameTypeForMode(modeId));
+  const hasConnectedSetup = Boolean(gameType);
   const connectedReview = Boolean(choice.connectedReview && !hasConnectedSetup);
+  const accessAllowed = canAccessMultiplayer();
+  const busy = ["loading", "joining", "creating"].includes(state.live.status);
+  const openRooms = getOpenRoomsForGame(gameType);
 
   return `
     <div class="auth-modal-overlay library-campus-overlay multiplayer-choice-overlay library-campus-theme-${escapeHtml(theme)}" data-close-multiplayer-choice data-campus2d-ui role="dialog" aria-modal="true" aria-labelledby="multiplayerChoiceTitle">
@@ -9486,7 +9498,7 @@ function renderMultiplayerGameChoice(choice) {
             <h3 id="multiplayerChoiceTitle">${escapeHtml(connectedReview ? `${title} connected setup` : `Play ${title}`)}</h3>
             <p class="multiplayer-choice-copy">${escapeHtml(connectedReview
               ? "Connected play for this game needs a rules and sync review before it can open as a live room."
-              : "Choose whether this round stays on your own screen or uses a connected room.")}</p>
+              : "Play on your own, join a public game, or create a room for other alpacas.")}</p>
           </div>
           ${connectedReview ? renderMultiplayerConnectedReview(choice, title, option) : `
             <div class="multiplayer-choice-grid">
@@ -9499,16 +9511,74 @@ function renderMultiplayerGameChoice(choice) {
               })}
               ${renderMultiplayerAudienceCard({
                 audience: "connected",
-                title: "With another alpaca connected",
-                body: hasConnectedSetup ? "Live room setup" : "Review setup first",
+                title: "Create a public game",
+                body: hasConnectedSetup ? "Choose the player count and open a waiting room" : "Review setup first",
                 modeId,
                 mood: "excited"
               })}
             </div>
+            ${renderMultiplayerLobbyDirectory({ gameType, openRooms, accessAllowed, busy })}
           `}
         </div>
       </div>
     </div>
+  `;
+}
+
+function renderMultiplayerLobbyDirectory({ gameType, openRooms, accessAllowed, busy }) {
+  const gameLabel = getLiveGameLabel(gameType);
+  const roomCount = openRooms.length;
+  const errorMessage = state.live.error || "";
+  let roomContent = "";
+
+  if (!accessAllowed) {
+    const needsProfile = isSignedIn() && requiresAlpaccountProfileCompletion();
+    roomContent = `
+      <div class="multiplayer-lobby-notice">
+        <strong>${escapeHtml(needsProfile ? "Complete your Alpaccount profile" : "Sign in to play online")}</strong>
+        <span>${escapeHtml(needsProfile
+          ? "Add your alpaca name, country, and school before joining public games."
+          : "Public games use an Alpaccount so every player has a stable name and session.")}</span>
+        <button class="button secondary small" type="button" data-open-auth>${escapeHtml(needsProfile ? "Complete profile" : "Sign in")}</button>
+      </div>
+    `;
+  } else if (busy && !roomCount) {
+    roomContent = `
+      <div class="multiplayer-lobby-loading" role="status" aria-live="polite">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span class="sr-only">Loading public games</span>
+      </div>
+    `;
+  } else if (roomCount) {
+    roomContent = `<div class="online-room-list-compact">${openRooms.map((room) => renderOnlineRoomListItem(room, busy)).join("")}</div>`;
+  } else {
+    roomContent = `
+      <div class="multiplayer-lobby-empty">
+        <strong>No ${escapeHtml(gameLabel)} game is waiting yet.</strong>
+        <span>Create one and it will appear here for other signed-in alpacas.</span>
+      </div>
+    `;
+  }
+
+  return `
+    <section class="multiplayer-lobby-directory" aria-labelledby="multiplayerLobbyTitle">
+      <div class="multiplayer-lobby-header">
+        <div>
+          <h4 id="multiplayerLobbyTitle">Public games waiting</h4>
+          <span>${escapeHtml(roomCount === 1 ? "1 room open" : `${roomCount} rooms open`)}</span>
+        </div>
+        ${accessAllowed ? `<button class="button secondary small" type="button" data-jeopardy-live-refresh ${busy ? "disabled" : ""}>Refresh</button>` : ""}
+      </div>
+      ${errorMessage ? `<p class="multiplayer-lobby-error" role="alert">${escapeHtml(errorMessage)}</p>` : ""}
+      ${roomContent}
+      ${accessAllowed ? `
+        <details class="multiplayer-room-code">
+          <summary>Join with a room code</summary>
+          ${renderOnlineJoinForm(busy)}
+        </details>
+      ` : ""}
+    </section>
   `;
 }
 
@@ -10176,21 +10246,27 @@ function openMultiplayerGameChoice(modeId, options = {}) {
     : getOrderedSectionIds())
     .map((sectionId) => normalizeSectionId(sectionId))
     .filter((sectionId) => sectionById[sectionId]);
+  const gameType = normalizeLiveGameType(options.gameType || getConnectedLiveGameTypeForMode(modeId));
 
   state.ui.libraryMenu = null;
   state.ui.libraryResource = null;
   state.ui.libraryEmbeddedDoc = null;
   state.ui.librarySectionPicker = null;
   state.ui.libraryExperience = null;
+  state.live.selectedGameType = gameType;
+  state.live.error = "";
   state.ui.multiplayerGameChoice = {
     modeId,
-    gameType: options.gameType || getConnectedLiveGameTypeForMode(modeId),
+    gameType,
     returnMenuType,
     sectionIds,
     stayOnline: true
   };
   syncPopupScrollLock();
   renderLibraryCampusModal();
+  if (canAccessMultiplayer()) {
+    refreshAlpacapardyLiveLobby();
+  }
 }
 
 function openCampus2DDebateLab() {
@@ -10274,6 +10350,14 @@ function chooseMultiplayerGameAudience(audience) {
   }
 
   if (audience === "connected") {
+    if (!canAccessMultiplayer()) {
+      if (isSignedIn() && requiresAlpaccountProfileCompletion()) {
+        promptForAlpaccountProfileCompletion();
+      } else {
+        openAlpaccountLogin();
+      }
+      return;
+    }
     launchMultiplayerGameConnected(choice);
   }
 }
@@ -16178,23 +16262,6 @@ function getAlpacapardyLiveIdentityContext() {
   };
 }
 
-async function findBlockingLiveSessionForGame(client, gameType) {
-  if (!client || !alpacapardyLiveSupabaseService) {
-    return null;
-  }
-  const normalized = normalizeLiveGameType(gameType);
-  const response = alpacapardyLiveSupabaseService.listActiveSessions
-    ? await alpacapardyLiveSupabaseService.listActiveSessions(client, { gameType: normalized, limit: 12 })
-    : await alpacapardyLiveSupabaseService.listOpenSessions(client, { gameType: normalized, limit: 12 });
-  if (response.error) {
-    throw response.error;
-  }
-  return (response.data || []).find((session) => (
-    session.id !== state.live.currentSession?.id &&
-    ["lobby", "playing"].includes(session.status)
-  )) || null;
-}
-
 function setJeopardyPlayMode(playMode) {
   const experience = state.experience;
   if (!experience || experience.type !== "jeopardy" || experience.started || state.live.currentSession) {
@@ -16422,10 +16489,6 @@ async function createArcadeLiveRoom(gameType) {
     const session = await ensureLiveAuthSession();
     const client = getSupabaseClient();
     const user = session.user;
-    const blockingSession = await findBlockingLiveSessionForGame(client, gameType);
-    if (blockingSession) {
-      throw new Error(`${game.label} is already active in room ${blockingSession.room_code || "ROOM"}. Join that signup or wait for it to finish.`);
-    }
     state.live.status = "creating";
     state.live.error = "";
     state.live.message = `Creating ${game.label} room...`;
@@ -16506,10 +16569,6 @@ async function createAlpacapardyLiveRoom() {
     const session = await ensureLiveAuthSession();
     const client = getSupabaseClient();
     const user = session.user;
-    const blockingSession = await findBlockingLiveSessionForGame(client, "alpacapardy");
-    if (blockingSession) {
-      throw new Error(`Alpacapardy is already active in room ${blockingSession.room_code || "ROOM"}. Join that signup or wait for it to finish.`);
-    }
     state.live.status = "creating";
     state.live.error = "";
     state.live.message = "Creating live room...";
@@ -16558,7 +16617,6 @@ async function createAlpacapardyLiveRoom() {
 }
 
 async function joinAlpacapardyLiveRoom(sessionId) {
-  const experience = state.experience;
   if (!guardMultiplayerAccess()) {
     return;
   }
@@ -16580,7 +16638,8 @@ async function joinAlpacapardyLiveRoom(sessionId) {
       throw new Error("This room is no longer open.");
     }
     const gameType = normalizeLiveGameType(liveSession.game_type);
-    if (gameType === "alpacapardy" && (!experience || experience.type !== "jeopardy" || experience.started)) {
+    prepareLiveExperienceForGame(gameType);
+    if (gameType === "alpacapardy" && (!state.experience || state.experience.type !== "jeopardy" || state.experience.started)) {
       throw new Error("Alpacapardy setup is not ready.");
     }
 

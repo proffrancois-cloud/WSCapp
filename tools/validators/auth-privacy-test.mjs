@@ -11,6 +11,7 @@ const appSourcePath = resolve(repoRoot, "app/src/app/app-main.js");
 const stylesPath = resolve(repoRoot, "app/styles-online-overrides.css");
 const alpacapardyRendererPath = resolve(repoRoot, "app/src/modes/play/alpacapardy/alpacapardy-renderer.js");
 const alpaccountsSqlPath = resolve(repoRoot, "app/supabase/alpaccounts.sql");
+const liveMultiplayerSqlPath = resolve(repoRoot, "app/supabase/alpacapardy_live.sql");
 
 const sandbox = {
   console,
@@ -230,6 +231,7 @@ const stylesSource = readFileSync(stylesPath, "utf8");
 const alpacapardyRendererSource = readFileSync(alpacapardyRendererPath, "utf8");
 const authRendererSource = readFileSync(authRendererPath, "utf8");
 const alpaccountsSqlSource = readFileSync(alpaccountsSqlPath, "utf8");
+const liveMultiplayerSqlSource = readFileSync(liveMultiplayerSqlPath, "utf8");
 if (typeof profileService.syncAuthIdentity === "function"
   || typeof authService.extractAuthIdentity === "function"
   || appSource.includes("syncAlpacaAuthIdentity")) {
@@ -257,6 +259,15 @@ if (typeof profileService.checkAlpacaNameAvailability === "function"
   || /create\s+or\s+replace\s+function\s+public\.is_alpaca_name_available/i.test(alpaccountsSqlSource)
   || /grant\s+execute\s+on\s+function\s+public\.is_alpaca_name_available/i.test(alpaccountsSqlSource)) {
   throw new Error("Alpaca-name uniqueness must be enforced by the write constraint without a public enumeration RPC.");
+}
+if (!liveMultiplayerSqlSource.includes("private.is_alpacapardy_live_member()")
+  || !liveMultiplayerSqlSource.includes("coalesce(auth.jwt() ->> 'is_anonymous', 'false') <> 'true'")
+  || !liveMultiplayerSqlSource.includes("from public.alpaca_profiles profile")
+  || /private\.is_alpacapardy_live_admin_tester\(\)\s+and/i.test(liveMultiplayerSqlSource)) {
+  throw new Error("Live multiplayer RLS must authorize completed Alpaccounts instead of a hard-coded tester allowlist.");
+}
+if (!/and\s+is_guest\s*=\s*false[\s\S]*and\s+display_name\s*=\s*\([\s\S]*profile\.alpaca_name/i.test(liveMultiplayerSqlSource)) {
+  throw new Error("Live multiplayer player writes must use the authenticated Alpaccount name and reject guest identities.");
 }
 if (!authRendererSource.includes('minlength="8" maxlength="128"')
   || !appSource.includes("password.length < 8 || password.length > 128")) {
